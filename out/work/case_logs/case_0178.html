@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_TestHcclPytorchMixEasymodel</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_TestHcclPytorchMixEasymodel</h2>
+        <p><strong>Case ID:</strong> testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_TestHcclPytorchMixEasymodel</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 187.58s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 67</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-05 20:06:36.240</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;cann_single_A2_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 192, &#39;npu_gen&#39;: &#39;A2&#39;, &#39;npu_num&#39;: 8, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;memory_size&#39;: 1024, &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;160&#39;, &#39;limit&#39;: &#39;192&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;1008Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;mount_source_data&#39;: [&#39;cann_duo_os_autos_test&#39;, &#39;cann_duo_os_imagenet&#39;, &#39;cann_duo_os_acl&#39;, &#39;cann_duo_os_pyacl_A2&#39;], &#39;mount_dest_dir&#39;: [&#39;/autos_test&#39;, &#39;/data/imagenet2012&#39;, &#39;/home/infer/bin_bak/acl&#39;, &#39;/home/pycal&#39;], &#39;pool&#39;: &#39;ascend-general-a2&#39;}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:36.241</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;save_server_ip&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:36.241</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;make_hccl&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.892</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.892</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip                      | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     910B3               | OK            | 96.0                 50                      0    / 0                |
+| 0                         | 0000:C1:00.0  | 0                    0    / 0                3503 / 65536            |
++===========================+===============+======================================================================+
+| 1     910B3               | OK            | 93.4                 51                      0    / 0                |
+| 0                         | 0000:01:00.0  | 0                    0    / 0                3498 / 65536            |
++===========================+===============+======================================================================+
+| 2     910B3               | OK            | 93.5                 48                      0    / 0                |
+| 0                         | 0000:C2:00.0  | 0                    0    / 0                3505 / 65536            |
++===========================+===============+======================================================================+
+| 3     910B3               | OK            | 92.9                 48                      0    / 0                |
+| 0                         | 0000:02:00.0  | 0                    0    / 0                3513 / 65536            |
++===========================+===============+======================================================================+
+| 4     910B3               | OK            | 95.3                 49                      0    / 0                |
+| 0                         | 0000:81:00.0  | 0                    0    / 0                3500 / 65536            |
++===========================+===============+======================================================================+
+| 5     910B3               | OK            | 95.7                 50                      0    / 0                |
+| 0                         | 0000:41:00.0  | 0                    0    / 0                3513 / 65536            |
++===========================+===============+======================================================================+
+| 6     910B3               | OK            | 100.0                48                      0    / 0                |
+| 0                         | 0000:82:00.0  | 0                    0    / 0                3504 / 65536            |
++===========================+===============+======================================================================+
+| 7     910B3               | OK            | 96.9                 49                      0    / 0                |
+| 0                         | 0000:42:00.0  | 0                    0    / 0                3492 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 0                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 2                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 3                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 5                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.897</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.897</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A2_device_cover_single_type-nodes_1-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.897</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A2_device_cover_single_type-nodes_1-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;96.0&#39;, &#39;temp_c&#39;: &#39;50&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:C1:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3503/65536&#39;, &#39;processes&#39;: []}, &#39;1&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;93.4&#39;, &#39;temp_c&#39;: &#39;51&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:01:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3498/65536&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;93.5&#39;, &#39;temp_c&#39;: &#39;48&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:C2:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3505/65536&#39;, &#39;processes&#39;: []}, &#39;3&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;92.9&#39;, &#39;temp_c&#39;: &#39;48&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:02:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3513/65536&#39;, &#39;processes&#39;: []}, &#39;4&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;95.3&#39;, &#39;temp_c&#39;: &#39;49&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:81:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3500/65536&#39;, &#39;processes&#39;: []}, &#39;5&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;95.7&#39;, &#39;temp_c&#39;: &#39;50&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:41:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3513/65536&#39;, &#39;processes&#39;: []}, &#39;6&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;100.0&#39;, &#39;temp_c&#39;: &#39;48&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:82:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3504/65536&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;910B3&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;96.9&#39;, &#39;temp_c&#39;: &#39;49&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:42:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3492/65536&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.898</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A2_device_cover_single_type-nodes_1-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.899</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A2_device_cover_single_type-nodes_1-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473211007008</td>
+            <td>plugin.py:970</td>
+            <td><div class="msg-scroll">testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_TestHcclPytorchMixEasymodel</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:839</td>
+            <td><div class="msg-scroll">TestHcclPytorchMixEasymodel</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:840</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:841</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">参数组合数量: 4</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:842</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 20:06:38.900</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:844</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: TestHcclPytorchMixEasymodel_1</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:44.152</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -f &#39;/home/sess_run/server_ip&#39; &amp;&amp; echo &#39;is_file&#39; || echo &#39;not_file&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:44.152</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">is_file</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:49.325</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat &#39;/home/sess_run/server_ip&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:49.326</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.0.0.249</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:49.326</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>file_utils.py:840</td>
+                <td class="step-indent"><div class="msg-scroll">读取文件成功: /home/sess_run/server_ip, 行数: 全部</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:49.326</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_utils.py:74</td>
+                <td class="step-indent"><div class="msg-scroll">获取到 1 个server IP</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:06:49.326</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_pytorch.py:32</td>
+                <td class="step-indent"><div class="msg-scroll">开始执行 PyTorch HCCL 测试，节点数量: 1</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:07:28.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; ./mul_server_pytorch_py38.sh 1 1 aclgraph_pytorch_hccl_mix_test.py 60 --dtype all --expansion_mode HOST </div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:07:28.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✅ Success: Activated py38_torch_2.10 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/aclgraph_pytorch_hccl_mix_test.py --master_ip 10.0.0.249 --dtype all --expansion_mode HOST --server_index 0 --server_num 1 --dev_num 1 &gt; /home/sess_run/result/1server_1N/train_0.log 2&gt;&amp;1
+{&#39;sum&#39;: {torch.float32: [tensor([1.])], torch.float16: [tensor([1.], dtype=torch.float16)], torch.bfloat16: [tensor([1.], dtype=torch.bfloat16)]}, &#39;prod&#39;: {torch.float32: [tensor([1.])], torch.float16: [tensor([1.], dtype=torch.float16)], torch.bfloat16: [tensor([1.], dtype=torch.bfloat16)]}}
+master_ip        :10.0.0.249
+master_port      :50001
+dev_num          :1
+server_num       :1
+server_index     :0
+worksize         :1
+data_list        :[1024]
+dtype            :all
+optype           :all
+mul_num          :1
+used_devices     :None
+used_algo        :auto_algo
+expansion_mode   :HOST
+main_pid         :315913
+used_deterministic     :false
+current device: 0
+init_method  : tcp://10.0.0.249:50001
+rank         : 0
+pid          : 316113
+rank 0 mix_test loop 1
+device:0 pytorch hccl test success
+# Python process (aclgraph_pytorch_hccl_mix_test.py) has completed.
+检查通过：所有设备都找到了旧的成功标志。
+train_all exec success
+# Check passed. No cleanup needed.
+./mul_server_pytorch_py38.sh: line 108: 315453 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:07:33.293</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:07:33.293</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 20:07:33.294</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_pytorch.py:55</td>
+                <td class="step-indent"><div class="msg-scroll">PyTorch HCCL 测试通过</div></td>
+            </tr>
+        <tr class="step-success">
+            <td>2026-11-05 20:07:33.294</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:844</td>
+            <td>
+                <span id="toggle-step-5" class="step-toggle" onclick="toggleStep('step-5')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: TestHcclPytorchMixEasymodel_2</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:38.517</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -f &#39;/home/sess_run/server_ip&#39; &amp;&amp; echo &#39;is_file&#39; || echo &#39;not_file&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:38.517</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">is_file</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:43.840</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat &#39;/home/sess_run/server_ip&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:43.841</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.0.0.249</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:43.841</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>file_utils.py:840</td>
+                <td class="step-indent"><div class="msg-scroll">读取文件成功: /home/sess_run/server_ip, 行数: 全部</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:43.841</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_utils.py:74</td>
+                <td class="step-indent"><div class="msg-scroll">获取到 1 个server IP</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:07:43.841</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_pytorch.py:32</td>
+                <td class="step-indent"><div class="msg-scroll">开始执行 PyTorch HCCL 测试，节点数量: 1</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:08:22.677</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; ./mul_server_pytorch_py38.sh 1 2 aclgraph_pytorch_hccl_mix_test.py 60 --dtype all --expansion_mode HOST </div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:08:22.677</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✅ Success: Activated py38_torch_2.10 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/aclgraph_pytorch_hccl_mix_test.py --master_ip 10.0.0.249 --dtype all --expansion_mode HOST --server_index 0 --server_num 1 --dev_num 2 &gt; /home/sess_run/result/1server_2N/train_0.log 2&gt;&amp;1
+{&#39;sum&#39;: {torch.float32: [tensor([3.])], torch.float16: [tensor([3.], dtype=torch.float16)], torch.bfloat16: [tensor([3.], dtype=torch.bfloat16)]}, &#39;prod&#39;: {torch.float32: [tensor([2.])], torch.float16: [tensor([2.], dtype=torch.float16)], torch.bfloat16: [tensor([2.], dtype=torch.bfloat16)]}}
+master_ip        :10.0.0.249
+master_port      :50001
+dev_num          :2
+server_num       :1
+server_index     :0
+worksize         :2
+data_list        :[1024]
+dtype            :all
+optype           :all
+mul_num          :1
+used_devices     :None
+used_algo        :auto_algo
+expansion_mode   :HOST
+main_pid         :318196
+used_deterministic     :false
+current device: 1
+init_method  : tcp://10.0.0.249:50001
+rank         : 1
+pid          : 318398
+rank 1 mix_test loop 1
+device:1 pytorch hccl test success
+current device: 0
+init_method  : tcp://10.0.0.249:50001
+rank         : 0
+pid          : 318396
+rank 0 mix_test loop 1
+device:0 pytorch hccl test success
+# Python process (aclgraph_pytorch_hccl_mix_test.py) has completed.
+检查通过：所有设备都找到了旧的成功标志。
+train_all exec success
+# Check passed. No cleanup needed.
+./mul_server_pytorch_py38.sh: line 108: 317737 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:08:27.881</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:08:27.882</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-05 20:08:27.882</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_pytorch.py:55</td>
+                <td class="step-indent"><div class="msg-scroll">PyTorch HCCL 测试通过</div></td>
+            </tr>
+        <tr class="step-error">
+            <td>2026-11-05 20:08:27.882</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:844</td>
+            <td>
+                <span id="toggle-step-6" class="step-toggle" onclick="toggleStep('step-6')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: TestHcclPytorchMixEasymodel_3</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:33.140</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -f &#39;/home/sess_run/server_ip&#39; &amp;&amp; echo &#39;is_file&#39; || echo &#39;not_file&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:33.140</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">is_file</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:38.348</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat &#39;/home/sess_run/server_ip&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:38.349</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.0.0.249</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:38.349</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>file_utils.py:840</td>
+                <td class="step-indent"><div class="msg-scroll">读取文件成功: /home/sess_run/server_ip, 行数: 全部</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:38.349</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_utils.py:74</td>
+                <td class="step-indent"><div class="msg-scroll">获取到 1 个server IP</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:08:38.349</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>hccl_pytorch.py:32</td>
+                <td class="step-indent"><div class="msg-scroll">开始执行 PyTorch HCCL 测试，节点数量: 1</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:17.223</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; ./mul_server_pytorch_py38.sh 1 4 aclgraph_pytorch_hccl_mix_test.py 60 --dtype all --expansion_mode HOST </div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:17.223</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✅ Success: Activated py38_torch_2.10 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/aclgraph_pytorch_hccl_mix_test.py --master_ip 10.0.0.249 --dtype all --expansion_mode HOST --server_index 0 --server_num 1 --dev_num 4 &gt; /home/sess_run/result/1server_4N/train_0.log 2&gt;&amp;1
+{&#39;sum&#39;: {torch.float32: [tensor([10.])], torch.float16: [tensor([10.], dtype=torch.float16)], torch.bfloat16: [tensor([10.], dtype=torch.bfloat16)]}, &#39;prod&#39;: {torch.float32: [tensor([24.])], torch.float16: [tensor([24.], dtype=torch.float16)], torch.bfloat16: [tensor([24.], dtype=torch.bfloat16)]}}
+master_ip        :10.0.0.249
+master_port      :50001
+dev_num          :4
+server_num       :1
+server_index     :0
+worksize         :4
+data_list        :[1024]
+dtype            :all
+optype           :all
+mul_num          :1
+used_devices     :None
+used_algo        :auto_algo
+expansion_mode   :HOST
+main_pid         :320697
+used_deterministic     :false
+current device: 3
+init_method  : tcp://10.0.0.249:50001
+rank         : 3
+pid          : 320903
+rank 3 mix_test loop 1
+device:3 pytorch hccl test success
+current device: 1
+init_method  : tcp://10.0.0.249:50001
+rank         : 1
+pid          : 320899
+rank 1 mix_test loop 1
+device:1 pytorch hccl test success
+current device: 0
+init_method  : tcp://10.0.0.249:50001
+rank         : 0
+pid          : 320897
+rank 0 mix_test loop 1
+device:0 pytorch hccl test success
+current device: 2
+init_method  : tcp://10.0.0.249:50001
+rank         : 2
+pid          : 320901
+rank 2 mix_test loop 1
+device:2 pytorch hccl test success
+# Python process (aclgraph_pytorch_hccl_mix_test.py) has completed.
+检查通过：所有设备都找到了旧的成功标志。
+train_all exec success
+# Check passed. No cleanup needed.
+./mul_server_pytorch_py38.sh: line 108: 320237 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:22.453</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:22.453</td>
+                <td class='INFO'>INFO</td>
+                <td>281473211007008</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/root/ascend/log/debug/plog/plog-320899_20261105200904245.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(320899,python3):2026-11-05-20:09:04.183.896 [op_impl_space_registry_v2_impl.cc:116]320899 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320903_20261105200904978.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(320903,python3):2026-11-05-20:09:04.839.599 [op_impl_space_registry_v2_impl.cc:116]320903 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320901_20261105200904418.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(320901,python3):2026-11-05-20:09:04.271.688 [op_impl_space_registry_v2_impl.cc:116]320901 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320897_20261105200904923.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(320897,python3):2026-11-05-20:09:04.846.462 [op_impl_space_registry_v2_impl.cc:116]320897 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:22.454</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473211007008</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">SimpleNamespace 日志中包含 ERROR: /root/ascend/log/debug/plog/plog-320899_20261105200904245.log:1:[ERROR] GE(320899,python3):2026-11-05-20:09:04.183.896 [op_impl_space_registry_v2_impl.cc:116]320899 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320903_20261105200904978.log:1:[ERROR] GE(320903,python3):2026-11-05-20:09:04.839.599 [op_impl_space_registry_v2_impl.cc:116]320903 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320901_20261105200904418.log:1:[ERROR] GE(320901,python3):2026-11-05-20:09:04.271.688 [op_impl_space_registry_v2_impl.cc:116]320901 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-320897_20261105200904923.log:1:[ERROR] GE(320897,python3):2026-11-05-20:09:04.846.462 [op_impl_space_registry_v2_impl.cc:116]320897 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-6">
+                <td>2026-11-05 20:09:22.456</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473211007008</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL 用例执行失败: TestHcclPytorchMixEasymodel failed</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-05 20:09:22.456</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473211007008</td>
+            <td>test_hccl_pytorch.py:851</td>
+            <td><div class="msg-scroll">Test Case End</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:22.663</td>
+            <td class='FAIL'>FAIL</td>
+            <td>281473211007008</td>
+            <td>__init__.py:71</td>
+            <td><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_TestHcclPytorchMixEasymodel
+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:27.826</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">test -d /root/ascend/log</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:27.826</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:27.826</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>device.py:1087</td>
+            <td><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /home/pytest-infra/logs_MFHOS0vS/TestCases/2026-11-05/test_TestHcclPytorchMixEasymodel_20-06-36/cann_single_A2_device_cover_single_type-nodes_1-device via SCP</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:29.643</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:224</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A2_device_cover_single_type-nodes_1-device download &#39;/root/ascend/log&#39; -&gt; &#39;/home/pytest-infra/logs_MFHOS0vS/TestCases/2026-11-05/test_TestHcclPytorchMixEasymodel_20-06-36/cann_single_A2_device_cover_single_type-nodes_1-device&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:35.077</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">mv /root/ascend/log /mnt/share/cann_autotest_log/test_TestHcclPytorchMixEasymodel_20261105_200922</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:35.077</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:35.077</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>conftest.py:233</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A2_device_cover_single_type-nodes_1-device &#39;mv /root/ascend/log /mnt/share/cann_autotest_log/test_TestHcclPytorchMixEasymodel_20261105_200922&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:43.823</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">find /mnt/share/cann_autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:43.823</td>
+            <td class='INFO'>INFO</td>
+            <td>281473211007008</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 20:09:43.823</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473211007008</td>
+            <td>plugin.py:1076</td>
+            <td><div class="msg-scroll">TestCase End, completed in 187.58s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

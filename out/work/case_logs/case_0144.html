@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</h2>
+        <p><strong>Case ID:</strong> testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 99.65s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 42</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-05 18:53:54.538</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;cann_single_A3_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 256, &#39;npu_gen&#39;: &#39;A3&#39;, &#39;npu_model&#39;: &#39;Ascend 910C&#39;, &#39;npu_num&#39;: 16, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;memory_size&#39;: 1024, &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;192&#39;, &#39;limit&#39;: &#39;256&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;1008Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;mount_source_data&#39;: [&#39;cann_ops_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/testdata&#39;], &#39;image_label&#39;: &#39;swr.cn-north-4.myhuaweicloud.com/hw-ascend/smoke:hccl_hcomm-A3&#39;, &#39;pool&#39;: &#39;ascend-general-a3&#39;}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:54.539</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;save_server_ip&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:54.539</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;make_hccl&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.419</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.419</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip  Phy-ID              | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     Ascend910           | OK            | 157.2                36                      0    / 0                |
+| 0     0                   | 0000:9D:00.0  | 0                    0    / 0                3166 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 0     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     1                   | 0000:9F:00.0  | 0                    0    / 0                2899 / 65536            |
++===========================+===============+======================================================================+
+| 1     Ascend910           | OK            | 164.3                39                      0    / 0                |
+| 0     2                   | 0000:99:00.0  | 0                    0    / 0                3169 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 1     Ascend910           | OK            | -                    35                      0    / 0                |
+| 1     3                   | 0000:9B:00.0  | 0                    0    / 0                2885 / 65536            |
++===========================+===============+======================================================================+
+| 2     Ascend910           | OK            | 162.6                37                      0    / 0                |
+| 0     4                   | 0000:95:00.0  | 0                    0    / 0                3158 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 2     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     5                   | 0000:97:00.0  | 0                    0    / 0                2893 / 65536            |
++===========================+===============+======================================================================+
+| 3     Ascend910           | OK            | 163.5                37                      0    / 0                |
+| 0     6                   | 0000:91:00.0  | 0                    0    / 0                3182 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 3     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     7                   | 0000:93:00.0  | 0                    0    / 0                2892 / 65536            |
++===========================+===============+======================================================================+
+| 4     Ascend910           | OK            | 160.9                36                      0    / 0                |
+| 0     8                   | 0000:8D:00.0  | 0                    0    / 0                3162 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 4     Ascend910           | OK            | -                    35                      0    / 0                |
+| 1     9                   | 0000:8F:00.0  | 0                    0    / 0                2899 / 65536            |
++===========================+===============+======================================================================+
+| 5     Ascend910           | OK            | 161.4                38                      0    / 0                |
+| 0     10                  | 0000:89:00.0  | 0                    0    / 0                3146 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 5     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     11                  | 0000:8B:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 6     Ascend910           | OK            | 159.3                39                      0    / 0                |
+| 0     12                  | 0000:85:00.0  | 0                    0    / 0                3151 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 6     Ascend910           | OK            | -                    41                      0    / 0                |
+| 1     13                  | 0000:87:00.0  | 0                    0    / 0                2887 / 65536            |
++===========================+===============+======================================================================+
+| 7     Ascend910           | OK            | 165.9                37                      0    / 0                |
+| 0     14                  | 0000:81:00.0  | 0                    0    / 0                3149 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 7     Ascend910           | OK            | -                    38                      0    / 0                |
+| 1     15                  | 0000:83:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 0                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 2                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 3                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 5                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.423</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.423</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.423</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;157.2&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;1&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;164.3&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;162.6&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;3&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;163.5&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;4&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;160.9&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;5&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;161.4&#39;, &#39;temp_c&#39;: &#39;38&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;6&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;159.3&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;165.9&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.423</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>plugin.py:970</td>
+            <td><div class="msg-scroll">testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2251</td>
+            <td><div class="msg-scroll">CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2252</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2253</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">参数组合数量: 1</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2254</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-error">
+            <td>2026-11-05 18:53:56.424</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2256</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:56.425</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_case_runner.py:85</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL sampled matrix 采样种子: CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:59.299</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -f &#39;/home/sess_run/server_ip&#39; &amp;&amp; echo &#39;is_file&#39; || echo &#39;not_file&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:59.299</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">is_file</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:54:02.231</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat &#39;/home/sess_run/server_ip&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:54:02.231</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.244.210.159</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:54:02.231</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>file_utils.py:840</td>
+                <td class="step-indent"><div class="msg-scroll">读取文件成功: /home/sess_run/server_ip, 行数: 全部</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:54:02.232</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_utils.py:74</td>
+                <td class="step-indent"><div class="msg-scroll">获取到 1 个server IP</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:54:02.232</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_pytorch.py:32</td>
+                <td class="step-indent"><div class="msg-scroll">开始执行 PyTorch HCCL 测试，节点数量: 1</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:17.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; ./mul_server_pytorch_py311.sh 1 16 test_allreduce_unified.py 1100 --dtype float32 --optype sum --data_list 262144 --used_deterministic true --mul_num 50 --numerical_check false --execution_mode dynamo --dynamo_mode static </div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:17.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll"># DYNAMIC ENV: Not provided, running with default environment.
+# ARGS: 1 16 test_allreduce_unified.py 1100 --dtype float32 --optype sum --data_list 262144 --used_deterministic true --mul_num 50 --numerical_check false --execution_mode dynamo --dynamo_mode static
+# Tailing host log file for real-time output: /home/sess_run/result/1server_16N/train_0.log
+✅ Success: Activated py311_torch_2.51 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/test_allreduce_unified.py --master_ip 10.244.210.159 --dtype float32 --optype sum --data_list 262144 --used_deterministic true --mul_num 50 --numerical_check false --execution_mode dynamo --dynamo_mode static --server_index 0 --server_num 1 --dev_num 16 &gt; /home/sess_run/result/1server_16N/train_0.log 2&gt;&amp;1
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+
+--- 测试配置 ---
+master_ip           : 10.244.210.159
+master_port         : 50001
+dev_num             : 16
+server_num          : 1
+server_index        : 0
+used_devices        : None
+used_profiling      : False
+profiling_path      : /home/log/npu/profiling/
+used_algo           : auto_algo
+expansion_mode      : false
+used_deterministic  : true
+buffersize          : None
+max_runtime_cores   : false
+aicore_num          : None
+data_list           : [262144]
+dtype               : float32
+optype              : sum
+mul_num             : 50
+batch_num           : 3
+execution_mode      : dynamo
+dynamo_mode         : static
+numerical_check     : false
+world_size          : 16
+float_type_list     : [torch.float32, torch.float16, torch.bfloat16]
+all_float_check     : {&#39;sum&#39;: {torch.float32: [tensor([136.])], torch.float16: [tensor([136.], dtype=torch.float16)], torch.bfloat16: [tensor([136.], dtype=torch.bfloat16)]}, &#39;prod&#39;: {torch.float32: [tensor([2.0923e+13]), tensor([2.0923e+13])], torch.float16: [tensor([inf], dtype=torch.float16)], torch.bfloat16: [tensor([2.1166e+13], dtype=torch.bfloat16), tensor([2.1028e+13], dtype=torch.bfloat16), tensor([2.0891e+13], dtype=torch.bfloat16), tensor([2.0753e+13], dtype=torch.bfloat16)]}}
+主进程 PID          : 30577
+------------------
+
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+Rank 13 (本地 13) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30657
+Rank 1 (本地 1) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30645
+Rank 7 (本地 7) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30651
+Rank 12 (本地 12) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30656
+Rank 10 (本地 10) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30654
+Rank 15 (本地 15) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30659
+Rank 5 (本地 5) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30649
+Rank 8 (本地 8) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30652
+Rank 4 (本地 4) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30648
+Rank 11 (本地 11) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30655
+Rank 14 (本地 14) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30658
+Rank 9 (本地 9) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30653
+Rank 2 (本地 2) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30646
+Rank 3 (本地 3) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30647
+Rank 6 (本地 6) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30650
+Rank 0 (本地 0) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 16, PID: 30644
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+/usr/local/miniconda/envs/py311_torch_2.6/lib/python3.11/site-packages/torch_npu/dynamo/torchair/__init__.py:8: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  import pkg_resources
+All success
+SUCCESS: device 0 (global rank 0) PyTorch HCCL execute success
+# Python process (test_allreduce_unified.py) has completed.
+# Killing tail process (PID: 30117).
+train_all exec success
+# Check passed. No cleanup needed.
+# 发现已存在的日志目录: /home/sess_run/result/1server_16N
+# 正在将其归档到: /home/sess_run/result/archive/1server_16N_20261105_185517
+# 归档成功。环境已清理。
+EnvironmentNameNotFound: Could not find conda environment: py311_torch_2.51
+You can list all discoverable environments with `conda info --envs`.
+
+
+./mul_server_pytorch_py311.sh: line 109: 30117 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:20.230</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:20.231</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/root/ascend/log/debug/plog/plog-30658_20261105185424883.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30658,python3):2026-11-05-18:54:24.767.172 [op_impl_space_registry_v2_impl.cc:116]31863 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30655_20261105185423245.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30655,python3):2026-11-05-18:54:23.217.418 [op_impl_space_registry_v2_impl.cc:116]31759 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30648_20261105185423936.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30648,python3):2026-11-05-18:54:23.815.368 [op_impl_space_registry_v2_impl.cc:116]31830 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30659_20261105185424808.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30659,python3):2026-11-05-18:54:24.772.417 [op_impl_space_registry_v2_impl.cc:116]31866 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30649_20261105185423970.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30649,python3):2026-11-05-18:54:23.855.355 [op_impl_space_registry_v2_impl.cc:116]31839 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30646_20261105185421960.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30646,python3):2026-11-05-18:54:21.779.138 [op_impl_space_registry_v2_impl.cc:116]31721 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30657_20261105185432683.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30657,python3):2026-11-05-18:54:32.533.808 [op_impl_space_registry_v2_impl.cc:116]31882 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30654_20261105185423900.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30654,python3):2026-11-05-18:54:23.746.922 [op_impl_space_registry_v2_impl.cc:116]31818 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30653_20261105185423970.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30653,python3):2026-11-05-18:54:23.891.838 [op_impl_space_registry_v2_impl.cc:116]31842 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30647_20261105185423970.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30647,python3):2026-11-05-18:54:23.787.901 [op_impl_space_registry_v2_impl.cc:116]31824 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30650_20261105185423869.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30650,python3):2026-11-05-18:54:23.669.044 [op_impl_space_registry_v2_impl.cc:116]31812 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30652_20261105185423970.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30652,python3):2026-11-05-18:54:23.950.039 [op_impl_space_registry_v2_impl.cc:116]31854 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30645_20261105185423358.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30645,python3):2026-11-05-18:54:23.255.507 [op_impl_space_registry_v2_impl.cc:116]31770 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30656_20261105185432573.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30656,python3):2026-11-05-18:54:32.549.694 [op_impl_space_registry_v2_impl.cc:116]31880 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30644_20261105185432646.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30644,python3):2026-11-05-18:54:32.539.396 [op_impl_space_registry_v2_impl.cc:116]31713 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30651_20261105185423903.log:1:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(30651,python3):2026-11-05-18:54:23.877.594 [op_impl_space_registry_v2_impl.cc:116]31848 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:20.233</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">SimpleNamespace 日志中包含 ERROR: /root/ascend/log/debug/plog/plog-30658_20261105185424883.log:1:[ERROR] GE(30658,python3):2026-11-05-18:54:24.767.172 [op_impl_space_registry_v2_impl.cc:116]31863 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30655_20261105185423245.log:1:[ERROR] GE(30655,python3):2026-11-05-18:54:23.217.418 [op_impl_space_registry_v2_impl.cc:116]31759 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30648_20261105185423936.log:1:[ERROR] GE(30648,python3):2026-11-05-18:54:23.815.368 [op_impl_space_registry_v2_impl.cc:116]31830 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30659_20261105185424808.log:1:[ERROR] GE(30659,python3):2026-11-05-18:54:24.772.417 [op_impl_space_registry_v2_impl.cc:116]31866 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30649_20261105185423970.log:1:[ERROR] GE(30649,python3):2026-11-05-18:54:23.855.355 [op_impl_space_registry_v2_impl.cc:116]31839 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30646_20261105185421960.log:1:[ERROR] GE(30646,python3):2026-11-05-18:54:21.779.138 [op_impl_space_registry_v2_impl.cc:116]31721 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30657_20261105185432683.log:1:[ERROR] GE(30657,python3):2026-11-05-18:54:32.533.808 [op_impl_space_registry_v2_impl.cc:116]31882 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30654_20261105185423900.log:1:[ERROR] GE(30654,python3):2026-11-05-18:54:23.746.922 [op_impl_space_registry_v2_impl.cc:116]31818 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30653_20261105185423970.log:1:[ERROR] GE(30653,python3):2026-11-05-18:54:23.891.838 [op_impl_space_registry_v2_impl.cc:116]31842 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30647_20261105185423970.log:1:[ERROR] GE(30647,python3):2026-11-05-18:54:23.787.901 [op_impl_space_registry_v2_impl.cc:116]31824 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30650_20261105185423869.log:1:[ERROR] GE(30650,python3):2026-11-05-18:54:23.669.044 [op_impl_space_registry_v2_impl.cc:116]31812 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30652_20261105185423970.log:1:[ERROR] GE(30652,python3):2026-11-05-18:54:23.950.039 [op_impl_space_registry_v2_impl.cc:116]31854 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30645_20261105185423358.log:1:[ERROR] GE(30645,python3):2026-11-05-18:54:23.255.507 [op_impl_space_registry_v2_impl.cc:116]31770 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30656_20261105185432573.log:1:[ERROR] GE(30656,python3):2026-11-05-18:54:32.549.694 [op_impl_space_registry_v2_impl.cc:116]31880 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30644_20261105185432646.log:1:[ERROR] GE(30644,python3):2026-11-05-18:54:32.539.396 [op_impl_space_registry_v2_impl.cc:116]31713 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-30651_20261105185423903.log:1:[ERROR] GE(30651,python3):2026-11-05-18:54:23.877.594 [op_impl_space_registry_v2_impl.cc:116]31848 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:55:20.235</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL 用例执行失败: CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3 failed</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-05 18:55:20.236</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:2263</td>
+            <td><div class="msg-scroll">Test Case End</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:20.274</td>
+            <td class='FAIL'>FAIL</td>
+            <td>281473219768352</td>
+            <td>__init__.py:71</td>
+            <td><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3
+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:23.180</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">test -d /root/ascend/log</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:23.180</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:23.180</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>device.py:1087</td>
+            <td><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3_18-53-54/cann_single_A3_device_cover_single_type-nodes_1-device via SCP</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:24.785</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:224</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device download &#39;/root/ascend/log&#39; -&gt; &#39;/home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3_18-53-54/cann_single_A3_device_cover_single_type-nodes_1-device&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:28.433</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">mv /root/ascend/log /mnt/share/cann_autotest_log/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3_20261105_185520</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:28.433</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:28.433</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:233</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device &#39;mv /root/ascend/log /mnt/share/cann_autotest_log/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3_20261105_185520&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:34.190</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">find /mnt/share/cann_autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:34.190</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:55:34.190</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>plugin.py:1076</td>
+            <td><div class="msg-scroll">TestCase End, completed in 99.65s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

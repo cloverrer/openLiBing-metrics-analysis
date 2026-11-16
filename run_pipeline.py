@@ -24,8 +24,8 @@
 
 产物（数据与 HTML 完全隔离）:
   out/archive/<年>/<年-月>/<日>/<开源组件名>/<流水线名>/   ← 第 7 步逐层归档（最终交付物，只增不删）
-      _manifest.json / step_1_lights.json … step_6_records.json / records/run_<构建号>.json
-      job_logs/ case_logs/ github_logs/                     ← 证据原文
+      pipeline.json                                        ← 一条流水线一天一份（各步正文 + 记录全文 + 清单）
+      pipeline.evidence.json                               ← 证据原文（逐行内嵌，取用 tools/read_evidence.py）
   out/html/   第 9 步产出的静态壳 index.html / detail.html（不含业务数据，运行时读 out/archive/）
   out/work/    第 1~6 步中间产物（每次重跑覆盖写入，归档后即可丢弃）
   out/state/   run_pipeline.log、cache/collection.json
@@ -301,7 +301,7 @@ def main():
     else:
         print("所选步骤已完成（%s），总耗时 %.1fs。" % (", ".join(names), time.time() - t_all))
     print("  归档目录（逐层可查）: %s" % ARCHIVE_ROOT)
-    print("  单条记录: <年>/<年-月>/<日>/<开源组件名>/<流水线名>/records/run_<构建号>.json")
+    print("  单条记录: <年>/<年-月>/<日>/<开源组件名>/<流水线名>/pipeline.json 的 records[]")
     print("  展示页（静态壳，数据运行时读归档）: %s" % (HTML_DIR / "index.html"))
     print("  预览: python run_pipeline.py --serve  → http://%s:%d/html/index.html"
           % (SERVE_HOST, SERVE_PORT))

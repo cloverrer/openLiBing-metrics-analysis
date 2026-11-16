@@ -30,6 +30,8 @@ python tools/write_analysis.py --file out/state/analysis_result.json      # 脚�
 
 清单里有几条就分析几条，不跳、不合并、不按流水线打包。AI 只做「读证据 → 写根因结论」：不生成页面、不做数据筛选、不改归档。写回只允许改 `analysis` 字段、只接受 `pending` 记录，越界一律报错跳过。分析口径（分类体系、置信度分档、措辞规则、取证路径）在 `agent/analysis_profile.json`。写回成功后立刻做第 3 段，不要在这里收工。
 
+取证：证据原文已逐行内嵌在归档的 `pipeline.evidence.json`（磁盘上没有散日志），一律按行号窗口取——`python tools/read_evidence.py --record "组件|流水线#构建号" --list` / `… "job_logs/x.log:L138"` / `… --grep "ERROR|fatal" --ctx 2`；不要整读 `pipeline.json` 与 `pipeline.evidence.json`。
+
 ## 第 3 段 重出页面（脚本执行）
 
 ```powershell
@@ -48,7 +50,7 @@ python run_pipeline.py --only step9
 
 ## 口径与约束（改代码前先看，别破坏）
 
-1. **执行记录全量留存，成功只留存不分析**：第 1/2 步不看指标是否达标，目标产品下每条流水线的当日执行记录都进 `records/run_<构建号>.json`；成功运行 `analysis.status='na'`（只留存、不进 AI 队列），失败/取消且非 1 指标才 `pending`。这样按时间区间筛选时，分子分母与记录条数始终等于看板流水线数。
+1. **执行记录全量留存，成功只留存不分析**：第 1/2 步不看指标是否达标，目标产品下每条流水线的当日执行记录都进该流水线归档目录的 `pipeline.json`（`records[]` 里一条记录一个元素）；成功运行 `analysis.status='na'`（只留存、不进 AI 队列），失败/取消且非 1 指标才 `pending`。这样按时间区间筛选时，分子分母与记录条数始终等于看板流水线数。
 2. **`_day.json` 是当日口径的唯一真相**：流水线目录名、记录数、待分析清单、归档自检、结论写回都以当日 `_day.json.pipelines` 为准（`lib/paths.day_pipeline_scope`）。磁盘上多出的旧版本/改名前残留目录会被跳过并在输出里提示（`tools/list_pending.py`、`tools/verify_archive.py`），不要为了「看起来干净」手工删归档目录。
 3. 流水线短名撞车（同产品下多条同名流水线）由 `steps/step_1_nightly.py` 的 `assign_short_names` 兜底去重，短名同时决定归档目录名与 `recordId` 前缀，改这里要连带回归第 2/7 步。
 

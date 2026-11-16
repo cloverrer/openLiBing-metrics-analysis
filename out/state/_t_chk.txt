@@ -1,0 +1,41 @@
+===== github_logs/gh_42498125758/0_check-all-jobs.txt (total 99)
+[L60] 2026-11-09T01:22:43.3204034Z [36;1m    cancelled) echo "⏭️" ;;[0m
+[L61] 2026-11-09T01:22:43.3204408Z [36;1m    skipped)   echo "⏭️" ;;[0m
+[L62] 2026-11-09T01:22:43.3204814Z [36;1m    *)         echo "❓" ;;[0m
+[L63] 2026-11-09T01:22:43.3205172Z [36;1m  esac[0m
+[L64] 2026-11-09T01:22:43.3205571Z [36;1m}[0m
+[L65] 2026-11-09T01:22:43.3205881Z [36;1m[0m
+[L66] 2026-11-09T01:22:43.3206245Z [36;1mecho "## Nightly Test Results" >> $GITHUB_STEP_SUMMARY[0m
+[L67] 2026-11-09T01:22:43.3206741Z [36;1mecho "" >> $GITHUB_STEP_SUMMARY[0m
+[L68] 2026-11-09T01:22:43.3207175Z [36;1mecho "| Group | Status |" >> $GITHUB_STEP_SUMMARY[0m
+[L69] 2026-11-09T01:22:43.3207873Z [36;1mecho "|-------|--------|" >> $GITHUB_STEP_SUMMARY[0m
+[L70] 2026-11-09T01:22:43.3208302Z [36;1mfor entry in \[0m
+[L71] 2026-11-09T01:22:43.3208656Z [36;1m  "nightly-1-npu-a3:failure" \[0m
+[L72] 2026-11-09T01:22:43.3209120Z [36;1m  "nightly-2-npu-a3:success" \[0m
+[L73] 2026-11-09T01:22:43.3209513Z [36;1m  "nightly-4-npu-a3:success" \[0m
+[L74] 2026-11-09T01:22:43.3209971Z [36;1m  "nightly-8-npu-a3:failure" \[0m
+[L75] 2026-11-09T01:22:43.3210364Z [36;1m  "nightly-16-npu-a3:success" \[0m
+[L76] 2026-11-09T01:22:43.3210806Z [36;1m  "nightly-perf-2-npu-a3:failure" \[0m
+[L77] 2026-11-09T01:22:43.3211234Z [36;1m  "nightly-perf-4-npu-a3:success" \[0m
+[L78] 2026-11-09T01:22:43.3211657Z [36;1m  "nightly-perf-16-npu-a3:success" \[0m
+[L79] 2026-11-09T01:22:43.3212135Z [36;1m  "nightly-acc-2-npu-a3:failure" \[0m
+[L80] 2026-11-09T01:22:43.3212580Z [36;1m  "nightly-acc-16-npu-a3:success"; do[0m
+[L81] 2026-11-09T01:22:43.3213221Z [36;1m  # TEMP: A5 power maintenance - line below disabled; when restoring, move '; do' back onto the a5 line[0m
+[L82] 2026-11-09T01:22:43.3214037Z [36;1m  # "nightly-acc-4-npu-a5:success"; do[0m
+[L83] 2026-11-09T01:22:43.3214434Z [36;1m  suite="${entry%%:*}"[0m
+[L84] 2026-11-09T01:22:43.3214868Z [36;1m  r="${entry##*:}"[0m
+[L85] 2026-11-09T01:22:43.3215322Z [36;1m  echo "| ${suite} | $(group_icon ${r}) ${r} |" >> $GITHUB_STEP_SUMMARY[0m
+[L86] 2026-11-09T01:22:43.3215815Z [36;1mdone[0m
+[L87] 2026-11-09T01:22:43.3216315Z [36;1mecho "| multi-node-poc | $(group_icon ${multi_result}) ${multi_result} |" >> $GITHUB_STEP_SUMMARY[0m
+[L88] 2026-11-09T01:22:43.3217120Z [36;1mecho "| multi-node-mix-poc | $(group_icon ${mix_result}) ${mix_result} |" >> $GITHUB_STEP_SUMMARY[0m
+[L89] 2026-11-09T01:22:43.3217689Z [36;1mecho "" >> $GITHUB_STEP_SUMMARY[0m
+[L90] 2026-11-09T01:22:43.3218184Z [36;1m[0m
+[L91] 2026-11-09T01:22:43.3218531Z [36;1mFAIL=0[0m
+[L92] 2026-11-09T01:22:43.3218934Z [36;1mfor r in "${single_result}" "${multi_result}" "${mix_result}"; do[0m
+[L93] 2026-11-09T01:22:43.3287565Z [36;1m  if [ "${r}" != "success" ] && [ "${r}" != "skipped" ]; then FAIL=1; fi[0m
+[L94] 2026-11-09T01:22:43.3288318Z [36;1mdone[0m
+[L95] 2026-11-09T01:22:43.3288660Z [36;1mexit $FAIL[0m
+[L96] 2026-11-09T01:22:43.3952789Z shell: /usr/bin/bash -e {0}
+[L97] 2026-11-09T01:22:43.3953273Z ##[endgroup]
+[L98] 2026-11-09T01:22:43.4164043Z ##[error]Process completed with exit code 1.
+[L99] 2026-11-09T01:22:43.4280578Z Cleaning up orphan processes

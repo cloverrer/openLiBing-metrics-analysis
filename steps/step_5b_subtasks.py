@@ -15,6 +15,7 @@
 产物:   子任务日志 out/job_logs/NN_<流水线>_<构建号>_<任务>_<子任务>.log 并入 manifest.json；
         subTasks 字段（子任务状态 + 失败子任务日志与 errorLines）挂到
         out/step_5_log_evidence.json 对应任务行，缓存随之复用。
+归档:   子任务日志同样由第 7 步逐行内嵌进归档的 pipeline.evidence.json（工作目录产物，归档区不留散文件）。
 """
 import os
 import sys
@@ -94,7 +95,10 @@ def main():
         out = run_page_js("step_5b_subtask.js",
                           {"items": batch, "delay": delay,
                            "conc": cfg["chrome"].get("request_concurrency", 4),
-                           "pollTimeoutMs": coll["export_poll_timeout_ms"]},
+                           "pollTimeoutMs": coll["export_poll_timeout_ms"],
+                           # 空响应体/解析失败重试（与 T1/T2 同口径）
+                           "maxTry": cfg["collect"].get("detail_retry_times", 3),
+                           "retryBackoffMs": cfg["collect"].get("detail_retry_backoff_ms") or [1000, 2000]},
                           "step_5b_subtask_batch%d.json" % (i + 1), cfg, "T7")
         for row in out.get("results") or []:
             it = item_by.get((row["rid"], row["jobId"]))

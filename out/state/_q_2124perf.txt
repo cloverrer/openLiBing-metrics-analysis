@@ -1,0 +1,146 @@
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L828] 2026-11-08T16:08:48.8593990Z [2026-11-08 16:08:48 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L829] 2026-11-08T16:08:48.8599547Z [2026-11-08 16:08:48 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L886] 2026-11-08T16:09:06.2394686Z [2026-11-08 16:09:06 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L887] 2026-11-08T16:09:06.2396084Z [2026-11-08 16:09:06 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1168] 2026-11-08T16:14:40.1350783Z [METRIC] tpot=52.43 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1169] 2026-11-08T16:14:40.1351519Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1171] 2026-11-08T16:14:40.1353062Z [METRIC] throughput_baseline=57.85 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1282] 2026-11-08T16:17:04.8693561Z [METRIC] tpot=39.52 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1283] 2026-11-08T16:17:04.8694305Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1285] 2026-11-08T16:17:04.8695840Z [METRIC] throughput_baseline=57.85 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1562] 2026-11-08T16:17:54.7329668Z [2026-11-08 16:17:54 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1563] 2026-11-08T16:17:54.7331905Z [2026-11-08 16:17:54 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1624] 2026-11-08T16:18:08.0861968Z [2026-11-08 16:18:08 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1625] 2026-11-08T16:18:08.0869515Z [2026-11-08 16:18:08 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2440] 2026-11-08T16:24:46.0809855Z [METRIC] tpot=46.18 labels={"test_case": "TestNPUQwen3_6_27B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2441] 2026-11-08T16:24:46.0810604Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2443] 2026-11-08T16:24:46.0812185Z [METRIC] throughput_baseline=786.69 labels={"test_case": "TestNPUQwen3_6_27B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2725] 2026-11-08T16:25:36.0694623Z [2026-11-08 16:25:36 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2726] 2026-11-08T16:25:36.0696270Z [2026-11-08 16:25:36 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2773] 2026-11-08T16:25:46.5703070Z [2026-11-08 16:25:46 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2775] 2026-11-08T16:25:46.5719836Z [2026-11-08 16:25:46 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3525] 2026-11-08T16:31:04.6186227Z [METRIC] tpot=45.22 labels={"test_case": "TestNPUQwen3_6_27B_1P_In1024x1024_30_Out1024_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3526] 2026-11-08T16:31:04.6187014Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In1024x1024_30_Out1024_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3528] 2026-11-08T16:31:04.6188670Z [METRIC] throughput_baseline=800.8 labels={"test_case": "TestNPUQwen3_6_27B_1P_In1024x1024_30_Out1024_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3786] 2026-11-08T16:31:54.3542714Z [2026-11-08 16:31:54 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3787] 2026-11-08T16:31:54.3545468Z [2026-11-08 16:31:54 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3836] 2026-11-08T16:32:03.4119579Z [2026-11-08 16:32:03 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3838] 2026-11-08T16:32:03.4140804Z [2026-11-08 16:32:03 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4137] 2026-11-08T16:34:11.2785673Z [METRIC] tpot=27.32 labels={"test_case": "TestNPUQwen3_6_27B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4138] 2026-11-08T16:34:11.2786451Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4140] 2026-11-08T16:34:11.2788090Z [METRIC] throughput_baseline=225.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4400] 2026-11-08T16:35:02.0511360Z [2026-11-08 16:35:02 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4401] 2026-11-08T16:35:02.0511827Z [2026-11-08 16:35:02 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4448] 2026-11-08T16:35:11.2409359Z [2026-11-08 16:35:11 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4450] 2026-11-08T16:35:11.2467209Z [2026-11-08 16:35:11 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L5164] 2026-11-08T16:37:44.0711076Z [2026-11-08 16:37:44 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L5165] 2026-11-08T16:37:44.0716272Z [2026-11-08 16:37:44 TP0] Memory baseline taken. mem usage=-0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L5237] 2026-11-08T16:38:13.5191685Z [2026-11-08 16:38:13 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L5238] 2026-11-08T16:38:13.5192141Z [2026-11-08 16:38:13 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7161] 2026-11-08T16:57:38.1213018Z [METRIC] tpot=28.76 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7162] 2026-11-08T16:57:38.1213846Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7164] 2026-11-08T16:57:38.1215596Z [METRIC] throughput_baseline=308.2 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7431] 2026-11-08T16:58:26.2718914Z [2026-11-08 16:58:26 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7432] 2026-11-08T16:58:26.2724910Z [2026-11-08 16:58:26 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7504] 2026-11-08T16:58:51.6847584Z [2026-11-08 16:58:51 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7506] 2026-11-08T16:58:51.6877144Z [2026-11-08 16:58:51 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7884] 2026-11-08T17:03:03.9809663Z [METRIC] tpot=24.48 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7885] 2026-11-08T17:03:03.9810409Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7887] 2026-11-08T17:03:03.9811979Z [METRIC] throughput_baseline=141.72 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8158] 2026-11-08T17:03:56.0783803Z [2026-11-08 17:03:56 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8159] 2026-11-08T17:03:56.0786288Z [2026-11-08 17:03:56 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8231] 2026-11-08T17:05:12.1350619Z [2026-11-08 17:05:12 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8232] 2026-11-08T17:05:12.1357577Z [2026-11-08 17:05:12 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8452] 2026-11-08T17:06:53.2038015Z [METRIC] tpot=18.13 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8453] 2026-11-08T17:06:53.2038762Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8455] 2026-11-08T17:06:53.2040323Z [METRIC] throughput_baseline=60.57 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8716] 2026-11-08T17:07:42.0634922Z [2026-11-08 17:07:42 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8717] 2026-11-08T17:07:42.0638671Z [2026-11-08 17:07:42 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8785] 2026-11-08T17:09:38.0292744Z [2026-11-08 17:09:38 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8787] 2026-11-08T17:09:38.0293652Z [2026-11-08 17:09:38 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9117] 2026-11-08T17:11:35.9172768Z [METRIC] tpot=22.16 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9118] 2026-11-08T17:11:35.9180299Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9120] 2026-11-08T17:11:35.9181997Z [METRIC] throughput_baseline=660.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9380] 2026-11-08T17:12:23.7467880Z [2026-11-08 17:12:23 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9381] 2026-11-08T17:12:23.7472792Z [2026-11-08 17:12:23 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9449] 2026-11-08T17:14:22.5016641Z [2026-11-08 17:14:22 TP0] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9450] 2026-11-08T17:14:22.5021150Z [2026-11-08 17:14:22 TP1] Memory baseline taken. mem usage=0.00 GB
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10042] 2026-11-08T17:18:26.7887258Z [METRIC] tpot=58.99 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10043] 2026-11-08T17:18:26.7888032Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10045] 2026-11-08T17:18:26.7889668Z [METRIC] throughput_baseline=2031.71 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10167] 2026-11-08T17:18:35.4624305Z [METRIC] tpot=31.71 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10168] 2026-11-08T17:18:35.4625444Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10170] 2026-11-08T17:18:35.4627067Z [METRIC] throughput_baseline=2031.71 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----

@@ -1,0 +1,242 @@
+===== case_logs/case_0064.html (total 8058)
+[L7700]                 <td class='INFO'>INFO</td>
+[L7701]                 <td>281473048858640</td>
+[L7702]                 <td>atk_executor.py:374</td>
+[L7703]                 <td class="step-indent"><div class="msg-scroll">[MONITOR] ✓ 监控完成, 日志已收集 (共 305 行)</div></td>
+[L7704]             </tr>
+[L7705]             <tr class="step-content content-step-3">
+[L7706]                 <td>2026-11-09 04:35:04.032</td>
+[L7707]                 <td class='INFO'>INFO</td>
+[L7708]                 <td>281473048858640</td>
+[L7709]                 <td>atk_executor.py:398</td>
+[L7710]                 <td class="step-indent"><div class="msg-scroll">[VERIFY] 开始解析日志并评估结果 (test_mode=Perf)</div></td>
+[L7711]             </tr>
+[L7712]             <tr class="step-content content-step-3">
+[L7713]                 <td>2026-11-09 04:35:04.032</td>
+[L7714]                 <td class='ERROR'>ERROR</td>
+[L7715]                 <td>281473048858640</td>
+[L7716]                 <td>__init__.py:71</td>
+[L7717]                 <td class="step-indent"><div class="msg-scroll">Test failed: aclnnMoeTokenUnpermuteWithEpGrad (Perf) - aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed</div></td>
+[L7718]             </tr>
+[L7719]             <tr class="step-content content-step-3">
+[L7720]                 <td>2026-11-09 04:35:04.032</td>
+[L7721]                 <td class='INFO'>INFO</td>
+[L7722]                 <td>281473048858640</td>
+[L7723]                 <td>atk_executor.py:417</td>
+[L7724]                 <td class="step-indent"><div class="msg-scroll">[VERIFY] ✓ 结果评估完成:</div></td>
+[L7725]             </tr>
+[L7726]             <tr class="step-content content-step-3">
+[L7727]                 <td>2026-11-09 04:35:04.033</td>
+[L7728]                 <td class='INFO'>INFO</td>
+[L7729]                 <td>281473048858640</td>
+[L7730]                 <td>atk_executor.py:418</td>
+[L7731]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   success        = False</div></td>
+[L7732]             </tr>
+[L7733]             <tr class="step-content content-step-3">
+[L7734]                 <td>2026-11-09 04:35:04.033</td>
+[L7735]                 <td class='INFO'>INFO</td>
+[L7736]                 <td>281473048858640</td>
+[L7737]                 <td>atk_executor.py:419</td>
+[L7738]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   acc_pass_result= Failed</div></td>
+[L7739]             </tr>
+[L7740]             <tr class="step-content content-step-3">
+[L7741]                 <td>2026-11-09 04:35:04.033</td>
+[L7742]                 <td class='INFO'>INFO</td>
+[L7743]                 <td>281473048858640</td>
+[L7744]                 <td>atk_executor.py:420</td>
+[L7745]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   is_acc_dc_pass = None</div></td>
+[L7746]             </tr>
+[L7747]             <tr class="step-content content-step-3">
+[L7748]                 <td>2026-11-09 04:35:04.033</td>
+[L7749]                 <td class='INFO'>INFO</td>
+[L7750]                 <td>281473048858640</td>
+[L7751]                 <td>atk_executor.py:421</td>
+[L7752]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   is_e2e_perf_pass= None</div></td>
+[L7753]             </tr>
+[L7754]             <tr class="step-content content-step-3">
+[L7755]                 <td>2026-11-09 04:35:04.033</td>
+[L7756]                 <td class='INFO'>INFO</td>
+[L7757]                 <td>281473048858640</td>
+[L7758]                 <td>atk_executor.py:422</td>
+[L7759]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   is_device_perf_pass= None</div></td>
+[L7760]             </tr>
+[L7761]             <tr class="step-content content-step-3">
+[L7762]                 <td>2026-11-09 04:35:04.033</td>
+[L7763]                 <td class='INFO'>INFO</td>
+[L7764]                 <td>281473048858640</td>
+[L7765]                 <td>atk_executor.py:423</td>
+[L7766]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   is_device_memory_pass= None</div></td>
+[L7767]             </tr>
+[L7768]             <tr class="step-content content-step-3">
+[L7769]                 <td>2026-11-09 04:35:04.033</td>
+[L7770]                 <td class='INFO'>INFO</td>
+[L7771]                 <td>281473048858640</td>
+[L7772]                 <td>atk_executor.py:424</td>
+[L7773]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   is_memory_check_pass= None</div></td>
+[L7774]             </tr>
+[L7775]             <tr class="step-content content-step-3">
+[L7776]                 <td>2026-11-09 04:35:04.033</td>
+[L7777]                 <td class='INFO'>INFO</td>
+[L7778]                 <td>281473048858640</td>
+[L7779]                 <td>atk_executor.py:425</td>
+[L7780]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed</div></td>
+[L7781]             </tr>
+[L7782]             <tr class="step-content content-step-3">
+[L7783]                 <td>2026-11-09 04:35:04.033</td>
+[L7784]                 <td class='INFO'>INFO</td>
+[L7785]                 <td>281473048858640</td>
+[L7786]                 <td>atk_executor.py:426</td>
+[L7787]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   log_file       = /autotest/atk_output/log/aclnnMoeTokenUnpermuteWithEpGrad_Perf_20261109043234.log</div></td>
+[L7788]             </tr>
+[L7789]             <tr class="step-content content-step-3">
+[L7790]                 <td>2026-11-09 04:35:04.033</td>
+[L7791]                 <td class='INFO'>INFO</td>
+[L7792]                 <td>281473048858640</td>
+[L7793]                 <td>xlsx_analyzer.py:210</td>
+[L7794]                 <td class="step-indent"><div class="msg-scroll">下载xlsx文件: remote_path=/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-04-32-48-195022/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-04-32-49.xlsx, category=fusedop</div></td>
+[L7795]             </tr>
+[L7796]             <tr class="step-content content-step-3">
+[L7797]                 <td>2026-11-09 04:35:04.034</td>
+[L7798]                 <td class='INFO'>INFO</td>
+[L7799]                 <td>281473048858640</td>
+[L7800]                 <td>device.py:1087</td>
+[L7801]                 <td class="step-indent"><div class="msg-scroll">[Device.download_file] Downloading /autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-04-32-48-195022/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-04-32-49.xlsx to logs/TestCases/results/fusedop/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_
+[L7802]             </tr>
+[L7803]             <tr class="step-content content-step-3">
+[L7804]                 <td>2026-11-09 04:35:04.079</td>
+[L7805]                 <td class='INFO'>INFO</td>
+[L7806]                 <td>281473048858640</td>
+[L7807]                 <td>xlsx_analyzer.py:233</td>
+[L7808]                 <td class="step-indent"><div class="msg-scroll">xlsx文件下载成功: logs/TestCases/results/fusedop/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-04-32-49.xlsx</div></td>
+[L7809]             </tr>
+[L7810]             <tr class="step-content content-step-3">
+[L7811]                 <td>2026-11-09 04:35:04.106</td>
+[L7812]                 <td class='INFO'>INFO</td>
+[L7813]                 <td>281473048858640</td>
+[L7814]                 <td>atk_executor.py:1179</td>
+[L7815]                 <td class="step-indent"><div class="msg-scroll">xlsx分析完成: aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-04-32-49.xlsx | 总计: 6 | 通过: 0 | 失败: 6 | 失败用例数: 6</div></td>
+[L7816]             </tr>
+[L7817]             <tr class="step-content content-step-3">
+[L7818]                 <td>2026-11-09 04:35:04.106</td>
+[L7819]                 <td class='INFO'>INFO</td>
+[L7820]                 <td>281473048858640</td>
+[L7821]                 <td>html.py:465</td>
+[L7822]                 <td class="step-indent"><div class="msg-scroll">开始生成完整测试报告: 总用例=6, 成功=0, 失败=6, 通过率=0.0</div></td>
+[L7823]             </tr>
+[L7824]             <tr class="step-content content-step-3">
+[L7825]                 <td>2026-11-09 04:35:04.106</td>
+[L7826]                 <td class='INFO'>INFO</td>
+[L7827]                 <td>281473048858640</td>
+[L7828]                 <td>html.py:88</td>
+[L7829]                 <td class="step-indent"><div class="msg-scroll">HTML元素生成成功</div></td>
+[L7830]             </tr>
+[L7831]             <tr class="step-content content-step-3">
+[L7832]                 <td>2026-11-09 04:35:04.107</td>
+[L7833]                 <td class='INFO'>INFO</td>
+[L7834]                 <td>281473048858640</td>
+[L7835]                 <td>html.py:389</td>
+[L7836]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_1901.html</div></td>
+[L7837]             </tr>
+[L7838]             <tr class="step-content content-step-3">
+[L7839]                 <td>2026-11-09 04:35:04.107</td>
+[L7840]                 <td class='INFO'>INFO</td>
+[L7841]                 <td>281473048858640</td>
+[L7842]                 <td>html.py:389</td>
+[L7843]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_1947.html</div></td>
+[L7844]             </tr>
+[L7845]             <tr class="step-content content-step-3">
+[L7846]                 <td>2026-11-09 04:35:04.108</td>
+[L7847]                 <td class='INFO'>INFO</td>
+[L7848]                 <td>281473048858640</td>
+[L7849]                 <td>html.py:389</td>
+[L7850]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_1950.html</div></td>
+[L7851]             </tr>
+[L7852]             <tr class="step-content content-step-3">
+[L7853]                 <td>2026-11-09 04:35:04.108</td>
+[L7854]                 <td class='INFO'>INFO</td>
+[L7855]                 <td>281473048858640</td>
+[L7856]                 <td>html.py:389</td>
+[L7857]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_1954.html</div></td>
+[L7858]             </tr>
+[L7859]             <tr class="step-content content-step-3">
+[L7860]                 <td>2026-11-09 04:35:04.108</td>
+[L7861]                 <td class='INFO'>INFO</td>
+[L7862]                 <td>281473048858640</td>
+[L7863]                 <td>html.py:389</td>
+[L7864]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_2010.html</div></td>
+[L7865]             </tr>
+[L7866]             <tr class="step-content content-step-3">
+[L7867]                 <td>2026-11-09 04:35:04.109</td>
+[L7868]                 <td class='INFO'>INFO</td>
+[L7869]                 <td>281473048858640</td>
+[L7870]                 <td>html.py:389</td>
+[L7871]                 <td class="step-indent"><div class="msg-scroll">失败用例详情HTML生成成功: /home/pytest-infra/logs_2svLNAzG/TestCases/2026-11-09/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_04-32-33/fusedop/details/failed_case_aclnnMoeTokenUnpermuteWithEpGrad_2037.html</div></td>
+[L7872]             </tr>
+[L7873]             <tr class="step-content content-step-3">
+[L7874]                 <td>2026-11-09 04:35:04.109</td>
+[L7875]                 <td class='INFO'>INFO</td>
+[L7876]                 <td>281473048858640</td>
+[L7877]                 <td>html.py:165</td>
+[L7878]                 <td class="step-indent"><div class="msg-scroll">失败概述HTML元素生成成功</div></td>
+[L7879]             </tr>
+[L7880]             <tr class="step-content content-step-3">
+[L7881]                 <td>2026-11-09 04:35:04.109</td>
+[L7882]                 <td class='INFO'>INFO</td>
+[L7883]                 <td>281473048858640</td>
+[L7884]                 <td>html.py:230</td>
+[L7885]                 <td class="step-indent"><div class="msg-scroll">失败用例列表HTML元素生成成功</div></td>
+[L7886]             </tr>
+[L7887]             <tr class="step-content content-step-3">
+[L7888]                 <td>2026-11-09 04:35:04.109</td>
+[L7889]                 <td class='INFO'>INFO</td>
+[L7890]                 <td>281473048858640</td>
+[L7891]                 <td>html.py:515</td>
+[L7892]                 <td class="step-indent"><div class="msg-scroll">完整测试报告生成成功</div></td>
+[L7893]             </tr>
+[L7894]             <tr class="step-content content-step-3">
+[L7895]                 <td>2026-11-09 04:35:04.114</td>
+[L7896]                 <td class='PASS'>PASS</td>
+[L7897]                 <td>281473048858640</td>
+[L7898]                 <td>test_ops_transformer_part2.py:756</td>
+[L7899]                 <td class="step-indent"><div class="msg-scroll">xlsx分析完成: 总计6条用例</div></td>
+[L7900]             </tr>
+[L7901]         <tr class="step-error">
+[L7902]             <td>2026-11-09 04:35:04.114</td>
+[L7903]             <td class='TC_STEP'>TC_STEP</td>
+[L7904]             <td>281473048858640</td>
+[L7905]             <td>python.py:159</td>
+[L7906]             <td>
+[L7907]                 <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+[L7908]                 <div class="msg-scroll">-------------------------------- TEST ASSERT --------------------------------</div>
+[L7909]             </td>
+[L7910]         </tr>
+[L7911]             <tr class="step-content content-step-4">
+[L7912]                 <td>2026-11-09 04:35:04.114</td>
+[L7913]                 <td class='FAIL'>FAIL</td>
+[L7914]                 <td>281473048858640</td>
+[L7915]                 <td>test_ops_transformer_part2.py:764</td>
+[L7916]                 <td class="step-indent"><div class="msg-scroll">测试失败: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed
+[L7917] assert False
+[L7918]  +  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pass=&#39;None&#39;, is_memory_check_pass=&#39;None&#39;, excel_file=&#39;/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-04-32-48-195022/report/aclnnMoeTokenUnpermute
+[L7919]             </tr>
+[L7920]         <tr>
+[L7921]             <td>2026-11-09 04:35:04.117</td>
+[L7922]             <td class='TC_END'>TC_END</td>
+[L7923]             <td>281473048858640</td>
+[L7924]             <td>python.py:159</td>
+[L7925]             <td><div class="msg-scroll">Test Case End</div></td>
+[L7926]         </tr>
+[L7927]         <tr>
+[L7928]             <td>2026-11-09 04:35:04.136</td>
+[L7929]             <td class='FAIL'>FAIL</td>
+[L7930]             <td>281473048858640</td>
+[L7931]             <td>plugin.py:999</td>
+[L7932]             <td><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+[L7933] </div></td>
+[L7934]         </tr>
+[L7935]         <tr>
+[L7936]             <td>2026-11-09 04:35:04.146</td>
+[L7937]             <td class='INFO'>INFO</td>
+[L7938]             <td>281473048858640</td>
+[L7939]             <td>sendcmd[device]</td>
+[L7940]             <td><div class="msg-scroll">test -d /root/ascend/log</div></td>

@@ -1,0 +1,14 @@
+################################################################################
+record[0] Ascend-CANN|shmem#140
+- test_example_allgather | case_logs/case_0007.html | errCount=0
+    desc: AssertionError: SHMEM example [allgather] 存在失败组合
+assert False
+    deepHits: ["FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"]
+################################################################################
+record[1] Ascend-CANN|shmem#141
+################################################################################
+record[2] Ascend-CANN|shmem#142
+- test_example_allgather | case_logs/case_0008.html | errCount=0
+    desc: AssertionError: SHMEM example [allgather] 存在失败组合
+assert False
+    deepHits: ["FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"]

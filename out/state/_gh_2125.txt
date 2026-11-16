@@ -1,0 +1,11 @@
+RID=SgLang|nightly-test-npu.yml#2125 status=FAILED build=2125 run=42502180491
+evidence.github={"runId": 42502180491, "repo": "sgl-project/sglang", "displayTitle": "L3cache", "mode": "perjob", "totalJobs": 15, "failedJobs": [], "missing": [{"job": "check-all-jobs", "id": 128801839738, "status": "404_not_retained"}], "complete": true}
+evidence.missing=["check-all-jobs"]
+TASK multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa conclusion=cancelled note=None
+  jobErrMsg=null
+  stepErrMsgs=[]
+  errorLines=[]
+TASK check-all-jobs conclusion=None note=运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  jobErrMsg=null
+  stepErrMsgs=[]
+  errorLines=[]

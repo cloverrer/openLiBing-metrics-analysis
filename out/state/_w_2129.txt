@@ -1,0 +1,36 @@
+===== github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt
+[L17112] 2026-11-09T12:12:39.0194269Z         max_out_len=1024,
+[L17113] 2026-11-09T12:12:39.0194520Z         batch_size=4,
+[L17114] 2026-11-09T12:12:39.0194773Z         generation_kwargs=dict(
+[L17115] 2026-11-09T12:12:39.0195050Z             temperature=0,
+[L17116] 2026-11-09T12:12:39.0195311Z             ignore_eos=True,
+[L17117] 2026-11-09T12:12:39.0195571Z         )
+[L17118] 2026-11-09T12:12:39.0195781Z     )
+[L17119] 2026-11-09T12:12:39.0195992Z ]
+[L17120] 2026-11-09T12:12:39.0196544Z ['2026-11-09 20:12:39', 131158.0, 1024.0, 4.0, '4', 3.1369, 0, 1777.3, 1787.4, 36.1, 46.2, 49.3812425, 82.9465, 82.9465, 10707.0615, 10707.0615, 0.081, 4.86, 10624.115, 73795.096]
+[L17121] 2026-11-09T12:12:39.8727825Z 2026-11-09 20:12:39,870 - INFO - Command executed successfully
+[L17122] 2026-11-09T12:12:39.8753029Z 2026-11-09 20:12:39,871 - INFO - Extracted mean_tpot: 36.1 ms
+[L17123] 2026-11-09T12:12:39.8753616Z 2026-11-09 20:12:39,871 - INFO - Found 2 matches for Output Token Throughput: ['82.9465', '34.0306']
+[L17124] 2026-11-09T12:12:39.8754362Z 2026-11-09 20:12:39,871 - INFO - Extracted total_tps: 82.9465 token/s (from Common Metric section)
+[L17125] 2026-11-09T12:12:39.8754937Z 2026-11-09 20:12:39,871 - INFO - Extracted mean_ttft: 1777.3 ms
+[L17126] 2026-11-09T12:12:39.8755377Z 2026-11-09 20:12:39,871 - INFO - Extracted mean_e2e_latency: 38725.9 ms
+[L17127] 2026-11-09T12:12:39.8755816Z 2026-11-09 20:12:39,871 - INFO - Extracted concurrency: 3.1369
+[L17128] 2026-11-09T12:12:39.8756223Z 2026-11-09 20:12:39,871 - INFO - Extracted max_concurrency: 4
+[L17129] 2026-11-09T12:12:39.8756701Z 2026-11-09 20:12:39,871 - INFO - Extracted request_throughput: 0.081 req/s
+[L17130] 2026-11-09T12:12:39.8757145Z 2026-11-09 20:12:39,871 - INFO - Extracted total_requests: 4
+[L17131] 2026-11-09T12:12:39.8757552Z 2026-11-09 20:12:39,871 - INFO - Extracted failed_requests: 0
+[L17132] 2026-11-09T12:12:39.8758612Z 2026-11-09 20:12:39,872 - INFO - All extracted metrics: {'mean_tpot': '36.1', 'total_tps': '82.9465', 'mean_ttft': '1777.3', 'mean_e2e_latency': '38725.9', 'concurrency': '3.1369', 'max_concurrency': '4', 'request_throughput': '0.081', 'total_requests': '4', 'failed_requests': '0'}
+[L17133] 2026-11-09T12:12:39.8759865Z [METRIC] tpot=36.1 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+[L17134] 2026-11-09T12:12:39.8760650Z [METRIC] tpot_baseline=30.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+[L17135] 2026-11-09T12:12:39.8761377Z 2026-11-09 20:12:39,872 - INFO - Test failed on attempt 2
+[L17136] 2026-11-09T12:12:39.8849007Z Traceback (most recent call last):
+[L17137] 2026-11-09T12:12:39.8876874Z   File "/sgl-workspace/sglang/python/sglang/srt/utils/common.py", line 467, in retry
+[L17138] 2026-11-09T12:12:39.8877415Z     return fn()
+[L17139] 2026-11-09T12:12:39.8877635Z            ^^^^
+[L17140] 2026-11-09T12:12:39.8878036Z   File "/sgl-workspace/sglang/python/sglang/test/test_utils.py", line 2513, in <lambda>
+[L17141] 2026-11-09T12:12:39.8878574Z     lambda: super(CustomTestCase, self)._callTestMethod(method),
+[L17142] 2026-11-09T12:12:39.8878971Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L17143] 2026-11-09T12:12:39.8879463Z   File "/usr/local/python3.12.13/lib/python3.12/unittest/case.py", line 589, in _callTestMethod
+[L17144] 2026-11-09T12:12:39.8879944Z     if method() is not None:
+[L17145] 2026-11-09T12:12:39.8880206Z        ^^^^^^^^
+

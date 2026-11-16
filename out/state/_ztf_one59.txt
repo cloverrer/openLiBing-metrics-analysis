@@ -1,0 +1,4 @@
+=== case_logs/case_0059.html (total 3289)
+[L1698] aclnnMoeTokenUnpermuteWithEpGradGetWorkspaceSize failed! error code: 561002
+[L1700] [PID: 52707] 2026-11-09-04:35:40.435.462 Execution_Error(EZ1008): Failed to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: Failed to execute tiling function.
+[L1703] topkNum (9) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]

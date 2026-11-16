@@ -1,0 +1,62 @@
+===== github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt
+[L1] ﻿2026-11-08T16:54:09.9162165Z Current runner version: '2.338.0'
+[L2] 2026-11-08T16:54:09.9168463Z Runner name: 'linux-amd64-cpu-4-zxvvv-runner-lj2nw'
+[L3] 2026-11-08T16:54:09.9169296Z Runner group name: 'Default'
+[L4] 2026-11-08T16:54:09.9170215Z Machine name: 'linux-amd64-cpu-4-zxvvv-runner-lj2nw'
+[L5] 2026-11-08T16:54:09.9173259Z ##[group]GITHUB_TOKEN Permissions
+[L6] 2026-11-08T16:54:09.9175685Z Contents: read
+[L7] 2026-11-08T16:54:09.9176228Z Metadata: read
+[L8] 2026-11-08T16:54:09.9176812Z Packages: read
+[L9] 2026-11-08T16:54:09.9177334Z ##[endgroup]
+[L10] 2026-11-08T16:54:09.9179324Z Secret source: None
+[L11] 2026-11-08T16:54:09.9180172Z Cache mode: write
+[L12] 2026-11-08T16:54:09.9181451Z Runner is running behind proxy server 'http://squid-cache.squid.svc.cluster.local:3128' for all HTTP requests.
+[L13] 2026-11-08T16:54:09.9182826Z Runner is running behind proxy server 'http://squid-cache.squid.svc.cluster.local:3128' for all HTTPS requests.
+[L14] 2026-11-08T16:54:09.9183821Z Prepare workflow directory
+[L15] 2026-11-08T16:54:09.9971977Z Prepare all required actions
+[L16] 2026-11-08T16:54:10.0020775Z Getting action download info
+[L17] 2026-11-08T16:54:11.1647204Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+[L18] 2026-11-08T16:54:15.3551320Z Uses: sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/pull/49180/merge (72b5db50cde51a3622cb8811be5fee344acb3d13)
+[L19] 2026-11-08T16:54:15.3556199Z ##[group] Inputs
+[L20] 2026-11-08T16:54:15.3557155Z   runner: linux-amd64-cpu-4
+[L21] 2026-11-08T16:54:15.3558072Z   test_type: accuracy
+[L22] 2026-11-08T16:54:15.3558843Z   test_config_name: deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa
+[L23] 2026-11-08T16:54:15.3560446Z   prefill_size: 1
+[L24] 2026-11-08T16:54:15.3561011Z   decode_size: 1
+[L25] 2026-11-08T16:54:15.3561687Z   router_size: 1
+[L26] 2026-11-08T16:54:15.3562261Z   node_size: 0
+[L27] 2026-11-08T16:54:15.3563251Z   test_case: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+[L28] 2026-11-08T16:54:15.3564785Z   image: swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:cann9.1.0-a3-B106
+[L29] 2026-11-08T16:54:15.3566454Z   install_sglang_from_source: false
+[L30] 2026-11-08T16:54:15.3567149Z   prefill_decode_deployment: separation
+[L31] 2026-11-08T16:54:15.3567817Z   transformers_version: 
+[L32] 2026-11-08T16:54:15.3568872Z   run_start_metadata: {"branch_label": "YZY00Raiser-pryzy115", "workflow_name": "Nightly Test (NPU)", "create_time": "20261109-0053"}
+[L33] 2026-11-08T16:54:15.3570125Z ##[endgroup]
+[L34] 2026-11-08T16:54:15.3571463Z Complete job name: multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa
+[L35] 2026-11-08T16:54:15.4348489Z ##[group]Run '/home/runner/k8s/index.js'
+[L36] 2026-11-08T16:54:15.4352283Z shell: /home/runner/externals/node24/bin/node {0}
+[L37] 2026-11-08T16:54:15.4353173Z ##[endgroup]
+[L38] 2026-11-08T16:54:15.6869746Z (node:105) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L39] 2026-11-08T16:54:15.6870716Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L40] 2026-11-08T16:54:15.7080035Z (node:105) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L41] 2026-11-08T16:54:22.9866221Z (node:105) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[L42] 2026-11-08T16:54:24.1127385Z ##[group]Run pip3 install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple jinja2
+[L43] 2026-11-08T16:54:24.1128366Z [36;1mpip3 install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple jinja2[0m
+[L44] 2026-11-08T16:54:24.1129097Z [36;1mpip3 install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple psutil[0m
+[L45] 2026-11-08T16:54:24.1129649Z [36;1m# Install kubernetes[0m
+[L46] 2026-11-08T16:54:24.1130207Z [36;1mpip3 install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple kubernetes[0m
+[L47] 2026-11-08T16:54:24.1131042Z [36;1mcp $KUBECTL /usr/local/sbin/[0m
+[L48] 2026-11-08T16:54:24.1134698Z shell: sh -e {0}
+[L49] 2026-11-08T16:54:24.1258321Z ##[endgroup]
+[L50] 2026-11-08T16:54:24.1413603Z ##[group]Run '/home/runner/k8s/index.js'
+[L51] 2026-11-08T16:54:24.1414791Z shell: /home/runner/externals/node24/bin/node {0}
+[L52] 2026-11-08T16:54:24.1415118Z ##[endgroup]
+[L53] 2026-11-08T16:54:24.3819651Z (node:225) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L54] 2026-11-08T16:54:24.3820531Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L55] 2026-11-08T16:54:24.4073856Z (node:225) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L56] 2026-11-08T16:54:24.4681739Z (node:225) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[L57] 2026-11-08T16:54:25.2449996Z Looking in indexes: https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+[L58] 2026-11-08T16:54:25.2451118Z Requirement already satisfied: jinja2 in /usr/local/python3.11.13/lib/python3.11/site-packages (3.1.6)
+[L59] 2026-11-08T16:54:25.2468248Z Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/python3.11.13/lib/python3.11/site-packages (from jinja2) (3.0.3)
+[L60] 2026-11-08T16:54:25.5856035Z WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+

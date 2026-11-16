@@ -1,0 +1,209 @@
+========
+RID=Ascend-CANN|ops-nn#168 ftt=测试任务 status=FAILED
+[case_logs/case_0180.html:L1844] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+[case_logs/case_0181.html:L2195] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+(case case_logs/case_0180.html) AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory
+(case case_logs/case_0181.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnFakeQuantPerTensorAffineCachemask_Smoke_2026-11-09-21-0
+========
+RID=Ascend-CANN|ops-nn#169 ftt=测试任务 status=FAILED
+[case_logs/case_0138.html:L1899] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+[case_logs/case_0139.html:L2124] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+(case case_logs/case_0138.html) AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory
+(case case_logs/case_0139.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnFakeQuantPerTensorAffineCachemask_Smoke_2026-11-09-17-2
+========
+RID=Ascend-CANN|ops-transformer#165 ftt=测试任务 status=FAILED
+[case_logs/case_0059.html:L3158] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+[case_logs/case_0060.html:L8741] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+[case_logs/case_0061.html:L8948] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+[case_logs/case_0062.html:L8553] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+[case_logs/case_0063.html:L15529] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+[case_logs/case_0064.html:L7927] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+[case_logs/case_0065.html:L2249] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+[case_logs/case_0066.html:L2083] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+[case_logs/case_0067.html:L15555] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+[case_logs/case_0068.html:L15515] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulreducescatter
+[case_logs/case_0069.html:L1980] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+(case case_logs/case_0059.html) AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', 
+(case case_logs/case_0060.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllQuantMatmul_a16w8_Smoke_2026-11-09-03-32-56-984
+(case case_logs/case_0061.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllQuantMatmul_a4w4_Smoke_2026-11-09-03-35-34-4942
+(case case_logs/case_0062.html) AssertionError: aclnnMatmulAlltoAll功能精度测试(executor)失败: aclnnMatmulAlltoAll accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None
+(case case_logs/case_0063.html) AssertionError: aclnnAlltoAllQuantMatmul功能精度测试(executor)失败: aclnnAlltoAllQuantMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_
+(case case_logs/case_0064.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-0
+(case case_logs/case_0065.html) AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', 
+(case case_logs/case_0066.html) AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', 
+(case case_logs/case_0067.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulAllReduceV2_Accu_Generalization_2026-11-09-03-41-
+(case case_logs/case_0068.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulReduceScatter_Accu_Generalization_2026-11-09-03-4
+(case case_logs/case_0069.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllMatmul_Smoke_2026-11-09-04-08-47-762201/report/
+(case case_logs/case_0070.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeDistributeCombineV2Fullmesh_Smoke_2026-11-09-04-10-0
+(case case_logs/case_0071.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnQuantMatmulAlltoAll_Smoke_2026-11-09-04-06-12-776408/re
+(case case_logs/case_0072.html) AssertionError: aclnnQuantMatmulAllReduceV3功能精度测试(executor)失败: aclnnQuantMatmulAllReduceV3 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_
+(case case_logs/case_0073.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAllGatherMatmul_Accu_2026-11-09-03-36-14-705505/report/
+(case case_logs/case_0074.html) AssertionError: aclnnWeightQuantMatmulAllReduce功能精度测试(executor)失败: aclnnWeightQuantMatmulAllReduce accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is
+(case case_logs/case_0075.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeDistributeDispatchV2Fullmesh_Smoke_2026-11-09-04-09-
+(case case_logs/case_0076.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulReduceScatterV2_Accu_2026-11-09-04-12-52-411397/r
+(case case_logs/case_0077.html) AssertionError: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='No
+========
+RID=Ascend-CANN|ops-transformer#166 ftt=测试任务 status=FAILED
+[case_logs/case_0078.html:L15599] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+[case_logs/case_0079.html:L7923] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+[case_logs/case_0080.html:L3419] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+[case_logs/case_0081.html:L2273] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+[case_logs/case_0082.html:L2270] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+[case_logs/case_0083.html:L15484] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+[case_logs/case_0084.html:L1933] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+[case_logs/case_0085.html:L15624] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+[case_logs/case_0086.html:L15528] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+[case_logs/case_0087.html:L1980] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+[case_logs/case_0197.html:L28037] Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulallreducev3
+(case case_logs/case_0078.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllQuantMatmul_a16w8_Smoke_2026-11-09-15-19-41-664
+(case case_logs/case_0079.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-0
+(case case_logs/case_0080.html) AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', 
+(case case_logs/case_0081.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_2026-11
+(case case_logs/case_0082.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_2026
+(case case_logs/case_0083.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllQuantMatmul_a16w4_Smoke_2026-11-09-15-15-03-523
+(case case_logs/case_0084.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulAlltoAll_Smoke_2026-11-09-15-13-51-596419/report/
+(case case_logs/case_0085.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnAlltoAllQuantMatmul_a4w4_Smoke_2026-11-09-15-24-22-0471
+(case case_logs/case_0086.html) AssertionError: aclnnMatmulAllReduceV2功能精度测试(executor)失败: aclnnMatmulAllReduceV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass
+(case case_logs/case_0087.html) AssertionError: aclnnAlltoAllMatmul功能精度测试(executor)失败: aclnnAlltoAllMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None
+(case case_logs/case_0197.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnQuantMatmulAllReduceV3_Accu_Generalization_2026-11-09-1
+(case case_logs/case_0089.html) AssertionError: aclnnQuantMatmulAlltoAll功能精度测试(executor)失败: aclnnQuantMatmulAlltoAll accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_
+(case case_logs/case_0090.html) AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is
+(case case_logs/case_0091.html) AssertionError: aclnnAllGatherMatmul功能精度测试(executor)失败: aclnnAllGatherMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='No
+(case case_logs/case_0092.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulReduceScatterV2_Accu_2026-11-09-16-12-16-703884/r
+(case case_logs/case_0093.html) AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is
+(case case_logs/case_0094.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulAllReduce_Accu_Generalization_2026-11-09-15-39-15
+(case case_logs/case_0095.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnWeightQuantMatmulAllReduce_Accu_2026-11-09-15-51-14-117
+(case case_logs/case_0096.html) +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMatmulReduceScatter_Accu_Generalization_2026-11-09-15-4
+========
+RID=Ascend-CANN|shmem#140 ftt=测试任务 status=FAILED
+(case case_logs/case_0007.html) AssertionError: SHMEM example [allgather] 存在失败组合
+assert False
+========
+RID=Ascend-CANN|shmem#141 ftt=测试任务 status=FAILED
+[job_logs/27_shmem_141_Test_shmem.log:L241] [2026/11/09 17:17:57.004 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expires_at': '2026-11-09T15:17:50Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-1d9de9577bf4
+[job_logs/27_shmem_141_Test_shmem.log:L244] [2026/11/09 17:18:21.761 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expires_at': '2026-11-09T15:17:50Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-1d9de9577bf44a6bb6
+[job_logs/27_shmem_141_Test_shmem.log:L247] [2026/11/09 17:18:52.486 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expires_at': '2026-11-09T15:17:50Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-1d9de9577bf44a6bb6
+[job_logs/27_shmem_141_Test_shmem.log:L250] [2026/11/09 17:19:27.526 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expires_at': '2026-11-09T15:17:50Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-1d9de9577bf44a6bb6
+[job_logs/27_shmem_141_Test_shmem.log:L614] [2026/11/09 18:18:25.339 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'
+[job_logs/27_shmem_141_Test_shmem.log:L615] [2026/11/09 18:18:25.339 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log
+[job_logs/27_shmem_141_Test_shmem.log:L617] [2026/11/09 18:18:25.479 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/27_shmem_141_Test_shmem.log:L619] [2026/11/09 18:18:28.344 GMT+08:00] Finished: FAILURE
+========
+RID=Ascend-CANN|shmem#142 ftt=测试任务 status=FAILED
+(case case_logs/case_0008.html) AssertionError: SHMEM example [allgather] 存在失败组合
+assert False
+========
+RID=HPCKit|hmpi#213 ftt=测试任务 status=FAILED
+[job_logs/30_hmpi_213_Test_hmpi.log:L138] [2026/11/09 01:11:48.112 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+[job_logs/30_hmpi_213_Test_hmpi.log:L139] [2026/11/09 01:11:48.112 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+[job_logs/30_hmpi_213_Test_hmpi.log:L140] [2026/11/09 01:11:48.112 GMT+08:00] [ERROR] git clone test_cases code fail
+[job_logs/30_hmpi_213_Test_hmpi.log:L142] [2026/11/09 01:11:48.273 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/30_hmpi_213_Test_hmpi.log:L144] [2026/11/09 01:11:52.501 GMT+08:00] Finished: FAILURE
+========
+RID=HPCKit|kpex#142 ftt=测试任务 status=FAILED
+[job_logs/31_kpex_142_Test_kpex.log:L138] [2026/11/09 00:43:18.191 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+[job_logs/31_kpex_142_Test_kpex.log:L139] [2026/11/09 00:43:18.191 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+[job_logs/31_kpex_142_Test_kpex.log:L140] [2026/11/09 00:43:18.191 GMT+08:00] [ERROR] git clone test_cases code fail
+[job_logs/31_kpex_142_Test_kpex.log:L142] [2026/11/09 00:43:18.354 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/31_kpex_142_Test_kpex.log:L144] [2026/11/09 00:43:22.158 GMT+08:00] Finished: FAILURE
+========
+RID=HPCKit|kudnn#227 ftt=测试任务 status=FAILED
+[job_logs/28_kudnn_227_Test_kudnn.log:L138] [2026/11/09 03:34:01.663 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+[job_logs/28_kudnn_227_Test_kudnn.log:L139] [2026/11/09 03:34:01.663 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+[job_logs/28_kudnn_227_Test_kudnn.log:L140] [2026/11/09 03:34:01.663 GMT+08:00] [ERROR] git clone test_cases code fail
+[job_logs/28_kudnn_227_Test_kudnn.log:L142] [2026/11/09 03:34:01.827 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/28_kudnn_227_Test_kudnn.log:L144] [2026/11/09 03:34:08.126 GMT+08:00] Finished: FAILURE
+========
+RID=HPCKit|kupl#306 ftt=测试任务 status=FAILED
+[job_logs/32_kupl_306_Test_kupl.log:L138] [2026/11/09 00:02:21.746 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+[job_logs/32_kupl_306_Test_kupl.log:L139] [2026/11/09 00:02:21.746 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+[job_logs/32_kupl_306_Test_kupl.log:L140] [2026/11/09 00:02:21.746 GMT+08:00] [ERROR] git clone test_cases code fail
+[job_logs/32_kupl_306_Test_kupl.log:L142] [2026/11/09 00:02:21.749 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/32_kupl_306_Test_kupl.log:L144] [2026/11/09 00:02:22.982 GMT+08:00] Finished: FAILURE
+========
+RID=HPCKit|kuqcd#201 ftt=测试任务 status=FAILED
+[job_logs/33_kuqcd_201_Test_quqcd.log:L138] [2026/11/09 20:59:19.175 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+[job_logs/33_kuqcd_201_Test_quqcd.log:L139] [2026/11/09 20:59:19.175 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+[job_logs/33_kuqcd_201_Test_quqcd.log:L140] [2026/11/09 20:59:19.175 GMT+08:00] [ERROR] git clone test_cases code fail
+[job_logs/33_kuqcd_201_Test_quqcd.log:L142] [2026/11/09 20:59:19.348 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[job_logs/33_kuqcd_201_Test_quqcd.log:L144] [2026/11/09 20:59:22.630 GMT+08:00] Finished: FAILURE
+========
+RID=MindIE|MindIE-Motor#120 ftt=测试任务 status=FAILED
+(case case_logs/case_0196.html) TimeoutError: 服务启动超时，未找到成功日志!
+========
+RID=MindIE|MindIE-Motor#121 ftt=测试任务 status=CANCELED
+========
+RID=MindIE|MindIE-Motor#124 ftt=构建任务 status=CANCELED
+========
+RID=SgLang|nightly-test-npu.yml#2124 ftt=None status=FAILED
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1108] [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1256] Traceback (most recent call last):
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1286] [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1437] [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L18171] ##[error]Error: failed to run script step:
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L18172] ✗ exit code: 255
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L18196] ##[error]Process completed with exit code 1.
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L18197] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L1380] [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3079] [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3085] [2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3128] [2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L5431] ##[error]Error: failed to run script step:
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L5432] ✗ exit code: 255
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L5456] ##[error]Process completed with exit code 1.
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L5457] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L982] [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1743] [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2912] [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3952] [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10212] ##[error]Error: failed to run script step:
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10213] ✗ exit code: 255
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10237] ##[error]Process completed with exit code 1.
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10238] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L995] [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L604] │ exit code: 1
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2555] Traceback (most recent call last):
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2649] ##[error]Error: failed to run script step:
+========
+RID=SgLang|nightly-test-npu.yml#2125 ftt=None status=FAILED
+========
+RID=SgLang|nightly-test-npu.yml#2126 ftt=None status=FAILED
+[github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L503] Traceback (most recent call last):
+[github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L521] ##[error]Error: failed to run script step:
+[github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L522] ✗ exit code: 1
+[github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L546] ##[error]Process completed with exit code 1.
+[github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L547] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L505] Traceback (most recent call last):
+[github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L523] ##[error]Error: failed to run script step:
+[github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L524] ✗ exit code: 1
+[github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L548] ##[error]Process completed with exit code 1.
+[github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L549] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+========
+RID=SgLang|nightly-test-npu.yml#2127 ftt=None status=FAILED
+[github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L505] Traceback (most recent call last):
+[github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L523] ##[error]Error: failed to run script step:
+[github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L524] ✗ exit code: 1
+[github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L548] ##[error]Process completed with exit code 1.
+[github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L549] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+========
+RID=SgLang|nightly-test-npu.yml#2128 ftt=None status=FAILED
+========
+RID=SgLang|nightly-test-npu.yml#2129 ftt=None status=FAILED
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L15335] [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L15452] │ exit code: 1
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17136] Traceback (most recent call last):
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17213] ##[error]Error: failed to run script step:
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17214] ✗ exit code: 1
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17238] ##[error]Process completed with exit code 1.
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17239] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+========
+RID=SgLang|nightly-test-npu.yml#2130 ftt=None status=FAILED
+[github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:L272] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:L301] ##[error]Error: failed to run script step:
+[github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:L302] ✗ exit code: 1
+[github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:L304] ##[error]Process completed with exit code 1.
+========
+RID=SgLang|nightly-test-npu.yml#2132 ftt=None status=FAILED
+========
+RID=SgLang|nightly-test-npu.yml#2133 ftt=None status=FAILED
+[github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt:L523] ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.

@@ -1,0 +1,585 @@
+==========================================================================================
+RID=Ascend-CANN|ops-nn#168 | #168 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T02:02:30 -> 2026-11-09T22:06:32
+  basis[0]: test 任务 Test_ops-nn 取到 2 条失败用例、2 条用例级 ERROR/FAIL 消息（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 2 份 +0.25
+  basis[3]: 用例级错误消息 2 条 +0.20
+  -- tasks(1) --
+    [test] Test_ops-nn | log=-- | errLines=0
+  -- errorMessages(4) --
+    测试报告:None | AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed
+    测试报告:None | aclnnFakeQuantPerTensorAffineCa ...
+    case_logs/case_0180.html:1844 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+    case_logs/case_0181.html:2195 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+  -- cases(2) --
+    test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk [failed] :1844 | 
+    test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk [failed] :2195 | 
+==========================================================================================
+RID=Ascend-CANN|ops-nn#169 | #169 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T12:00:04 -> 2026-11-09T18:29:51
+  basis[0]: test 任务 Test_ops-nn 取到 2 条失败用例、2 条用例级 ERROR/FAIL 消息（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 2 份 +0.25
+  basis[3]: 用例级错误消息 2 条 +0.20
+  -- tasks(1) --
+    [test] Test_ops-nn | log=-- | errLines=0
+  -- errorMessages(4) --
+    测试报告:None | AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed
+    测试报告:None | aclnnFakeQuantPerTensorAffineCa ...
+    case_logs/case_0138.html:1899 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+    case_logs/case_0139.html:2124 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+  -- cases(2) --
+    test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk [failed] :1899 | 
+    test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk [failed] :2124 | 
+==========================================================================================
+RID=Ascend-CANN|ops-transformer#165 | #165 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T02:05:47 -> 2026-11-09T04:42:33
+  basis[0]: test 任务 Test_ops-transformer 取到 19 条失败用例、19 条用例级 ERROR/FAIL 消息（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 19 份 +0.25
+  basis[3]: 用例级错误消息 19 条 +0.20
+  -- tasks(1) --
+    [test] Test_ops-transformer | log=-- | errLines=0
+  -- errorMessages(30) --
+    测试报告:None | AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed
+    测试报告:None | aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | AssertionError: aclnnMatmulAlltoAll功能精度测试(executor)失败: aclnnMatmulAlltoAll accuracy not passed
+    测试报告:None | AssertionError: aclnnAlltoAllQuantMatmul功能精度测试(executor)失败: aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | aclnnMoeTokenUnperm ...
+    测试报告:None | AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed
+    测试报告:None | AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed
+    测试报告:None | aclnnMatmulAllReduceV2 accuracy not ...
+    测试报告:None | aclnnMatmulReduceScatter accura ...
+    测试报告:None | aclnnAlltoAllMatmul accuracy not passed
+    测试报告:None | aclnnMoeDistributeDispatch_CombineV2 ...
+    测试报告:None | aclnnQuantMatmulAlltoAll accuracy not passed
+    测试报告:None | AssertionError: aclnnQuantMatmulAllReduceV3功能精度测试(executor)失败: aclnnQuantMatmulAllReduceV3 accuracy not passed
+    测试报告:None | aclnnAllGatherMatmul accuracy not passed
+    测试报告:None | AssertionError: aclnnWeightQuantMatmulAllReduce功能精度测试(executor)失败: aclnnWeightQuantMatmulAllReduce accuracy not passed
+    测试报告:None | aclnnMoeDistributeDispatch_CombineV ...
+    测试报告:None | aclnnMatmulReduceScatterV2 accuracy not passed
+    测试报告:None | AssertionError: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed
+    case_logs/case_0059.html:3158 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+    case_logs/case_0060.html:8741 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+    case_logs/case_0061.html:8948 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+    case_logs/case_0062.html:8553 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+    case_logs/case_0063.html:15529 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+    case_logs/case_0064.html:7927 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    case_logs/case_0065.html:2249 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+    case_logs/case_0066.html:2083 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    case_logs/case_0067.html:15555 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+    case_logs/case_0068.html:15515 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulreducescatter
+    case_logs/case_0069.html:1980 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+  -- cases(19) --
+    test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad [failed] :3158 | 
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8 [failed] :8741 | 
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4 [failed] :8948 | 
+    test_cann_accu_smk_aclnnmatmulalltoall [failed] :8553 | 
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4 [failed] :15529 | 
+    test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none [failed] :7927 | 
+    test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none [failed] :2249 | 
+    test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none [failed] :2083 | 
+    test_cann_accu_smk_aclnnmatmulallreducev2 [failed] :15555 | 
+    test_cann_accu_smk_aclnnmatmulreducescatter [failed] :15515 | 
+    test_cann_accu_smk_aclnnalltoallmatmul [failed] :1980 | 
+    test_cann_accu_smk_aclnnmoedistributecombinev2_2p [failed] :9063 | 
+    test_cann_accu_smk_aclnnquantmatmulalltoall [failed] :8720 | 
+    test_cann_accu_smk_aclnnquantmatmulallreducev3 [failed] :27161 | 
+    test_cann_accu_smk_aclnnallgathermatmul [failed] :15619 | 
+    test_cann_accu_smk_aclnnweightquantmatmulallreduce [failed] :2070 | 
+    test_cann_accu_smk_aclnnmoedistributedispatchv2_2p [failed] :2392 | 
+    test_cann_accu_smk_aclnnmatmulreducescatterv2 [failed] :2516 | 
+    test_cann_accu_smk_aclnnmatmulallreduce [failed] :3011 | 
+==========================================================================================
+RID=Ascend-CANN|ops-transformer#166 | #166 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T12:35:58 -> 2026-11-09T16:39:55
+  basis[0]: test 任务 Test_ops-transformer 取到 19 条失败用例、19 条用例级 ERROR/FAIL 消息（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 19 份 +0.25
+  basis[3]: 用例级错误消息 19 条 +0.20
+  -- tasks(1) --
+    [test] Test_ops-transformer | log=-- | errLines=0
+  -- errorMessages(30) --
+    测试报告:None | aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | aclnnMoeTokenUnperm ...
+    测试报告:None | AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed
+    测试报告:None | aclnnMoeTokenUn ...
+    测试报告:None | aclnnMoeT ...
+    测试报告:None | aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | aclnnMatmulAlltoAll accuracy not passed
+    测试报告:None | aclnnAlltoAllQuantMatmul accuracy not passed
+    测试报告:None | AssertionError: aclnnMatmulAllReduceV2功能精度测试(executor)失败: aclnnMatmulAllReduceV2 accuracy not passed
+    测试报告:None | AssertionError: aclnnAlltoAllMatmul功能精度测试(executor)失败: aclnnAlltoAllMatmul accuracy not passed
+    测试报告:None | aclnnQuantMatmulAllReduce ...
+    测试报告:None | AssertionError: aclnnQuantMatmulAlltoAll功能精度测试(executor)失败: aclnnQuantMatmulAlltoAll accuracy not passed
+    测试报告:None | AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed
+    测试报告:None | AssertionError: aclnnAllGatherMatmul功能精度测试(executor)失败: aclnnAllGatherMatmul accuracy not passed
+    测试报告:None | aclnnMatmulReduceScatterV2 accuracy not passed
+    测试报告:None | AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed
+    测试报告:None | aclnnMatmulAllReduce accuracy not passe ...
+    测试报告:None | aclnnWeightQuantMatmulAllReduce accuracy not pa ...
+    测试报告:None | aclnnMatmulReduceScatter accura ...
+    case_logs/case_0078.html:15599 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+    case_logs/case_0079.html:7923 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    case_logs/case_0080.html:3419 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+    case_logs/case_0081.html:2273 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+    case_logs/case_0082.html:2270 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    case_logs/case_0083.html:15484 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+    case_logs/case_0084.html:1933 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+    case_logs/case_0085.html:15624 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+    case_logs/case_0086.html:15528 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+    case_logs/case_0087.html:1980 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+    case_logs/case_0197.html:28037 | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulallreducev3
+  -- cases(19) --
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8 [failed] :15599 | 
+    test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none [failed] :7923 | 
+    test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad [failed] :3419 | 
+    test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none [failed] :2273 | 
+    test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none [failed] :2270 | 
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4 [failed] :15484 | 
+    test_cann_accu_smk_aclnnmatmulalltoall [failed] :1933 | 
+    test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4 [failed] :15624 | 
+    test_cann_accu_smk_aclnnmatmulallreducev2 [failed] :15528 | 
+    test_cann_accu_smk_aclnnalltoallmatmul [failed] :1980 | 
+    test_cann_accu_smk_aclnnquantmatmulallreducev3 [failed] :28037 | 
+    test_cann_accu_smk_aclnnquantmatmulalltoall [failed] :8580 | 
+    test_cann_accu_smk_aclnnmoedistributecombinev2_2p [failed] :9123 | 
+    test_cann_accu_smk_aclnnallgathermatmul [failed] :8838 | 
+    test_cann_accu_smk_aclnnmatmulreducescatterv2 [failed] :2490 | 
+    test_cann_accu_smk_aclnnmoedistributedispatchv2_2p [failed] :9051 | 
+    test_cann_accu_smk_aclnnmatmulallreduce [failed] :23067 | 
+    test_cann_accu_smk_aclnnweightquantmatmulallreduce [failed] :8829 | 
+    test_cann_accu_smk_aclnnmatmulreducescatter [failed] :2227 | 
+==========================================================================================
+RID=Ascend-CANN|shmem#140 | #140 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T03:00:13 -> 2026-11-09T03:40:09
+  basis[0]: test 任务 Test_shmem 取到 1 条失败用例（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  -- tasks(1) --
+    [test] Test_shmem | log=-- | errLines=0
+  -- errorMessages(1) --
+    case_logs/case_0007.html:None | FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather
+  -- cases(1) --
+    test_example_allgather [failed] :None | 
+==========================================================================================
+RID=Ascend-CANN|shmem#141 | #141 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T17:00:38 -> 2026-11-09T18:18:35
+  证据缺口: ['Test_shmem']
+  basis[0]: test 任务 Test_shmem 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_shmem 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_shmem | log=-- | errLines=0
+    [log] Test_shmem | log=job_logs/27_shmem_141_Test_shmem.log | errLines=60
+        L241: [2026/11/09 17:17:57.004 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 
+        L244: [2026/11/09 17:18:21.761 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env',
+        L247: [2026/11/09 17:18:52.486 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env',
+        L250: [2026/11/09 17:19:27.526 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env',
+  -- errorMessages(8) --
+    job_logs/27_shmem_141_Test_shmem.log:241 | [2026/11/09 17:17:57.004 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', '
+    job_logs/27_shmem_141_Test_shmem.log:244 | [2026/11/09 17:18:21.761 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expire
+    job_logs/27_shmem_141_Test_shmem.log:247 | [2026/11/09 17:18:52.486 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expire
+    job_logs/27_shmem_141_Test_shmem.log:250 | [2026/11/09 17:19:27.526 GMT+08:00] [281473170207008] [INFO] apply_env_res: {'env_id': 'lease-env-4691731745e8e12a13198efb904244c2', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-09T09:17:50Z', 'expire
+    job_logs/27_shmem_141_Test_shmem.log:614 | [2026/11/09 18:18:25.339 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'
+    job_logs/27_shmem_141_Test_shmem.log:615 | [2026/11/09 18:18:25.339 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log
+    job_logs/27_shmem_141_Test_shmem.log:617 | [2026/11/09 18:18:25.479 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/27_shmem_141_Test_shmem.log:619 | [2026/11/09 18:18:28.344 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=Ascend-CANN|shmem#142 | #142 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=0 BS=1
+  起止: 2026-11-09T21:06:00 -> 2026-11-09T22:14:36
+  basis[0]: test 任务 Test_shmem 取到 1 条失败用例（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  -- tasks(1) --
+    [test] Test_shmem | log=-- | errLines=0
+  -- errorMessages(1) --
+    case_logs/case_0008.html:None | FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather
+  -- cases(1) --
+    test_example_allgather [failed] :None | 
+==========================================================================================
+RID=HPCKit|hmpi#213 | #213 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T01:01:55 -> 2026-11-09T01:11:50
+  证据缺口: ['Test_hmpi']
+  basis[0]: test 任务 Test_hmpi 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_hmpi 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_hmpi | log=-- | errLines=0
+    [log] Test_hmpi | log=job_logs/30_hmpi_213_Test_hmpi.log | errLines=5
+        L138: [2026/11/09 01:11:48.112 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+        L139: [2026/11/09 01:11:48.112 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+        L140: [2026/11/09 01:11:48.112 GMT+08:00] [ERROR] git clone test_cases code fail
+        L142: [2026/11/09 01:11:48.273 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+  -- errorMessages(5) --
+    job_logs/30_hmpi_213_Test_hmpi.log:138 | [2026/11/09 01:11:48.112 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    job_logs/30_hmpi_213_Test_hmpi.log:139 | [2026/11/09 01:11:48.112 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+    job_logs/30_hmpi_213_Test_hmpi.log:140 | [2026/11/09 01:11:48.112 GMT+08:00] [ERROR] git clone test_cases code fail
+    job_logs/30_hmpi_213_Test_hmpi.log:142 | [2026/11/09 01:11:48.273 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/30_hmpi_213_Test_hmpi.log:144 | [2026/11/09 01:11:52.501 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=HPCKit|kpex#142 | #142 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T00:41:16 -> 2026-11-09T00:43:21
+  证据缺口: ['Test_kpex']
+  basis[0]: test 任务 Test_kpex 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_kpex 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_kpex | log=-- | errLines=0
+    [log] Test_kpex | log=job_logs/31_kpex_142_Test_kpex.log | errLines=5
+        L138: [2026/11/09 00:43:18.191 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+        L139: [2026/11/09 00:43:18.191 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+        L140: [2026/11/09 00:43:18.191 GMT+08:00] [ERROR] git clone test_cases code fail
+        L142: [2026/11/09 00:43:18.354 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+  -- errorMessages(5) --
+    job_logs/31_kpex_142_Test_kpex.log:138 | [2026/11/09 00:43:18.191 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    job_logs/31_kpex_142_Test_kpex.log:139 | [2026/11/09 00:43:18.191 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+    job_logs/31_kpex_142_Test_kpex.log:140 | [2026/11/09 00:43:18.191 GMT+08:00] [ERROR] git clone test_cases code fail
+    job_logs/31_kpex_142_Test_kpex.log:142 | [2026/11/09 00:43:18.354 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/31_kpex_142_Test_kpex.log:144 | [2026/11/09 00:43:22.158 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=HPCKit|kudnn#227 | #227 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T03:31:17 -> 2026-11-09T03:34:03
+  证据缺口: ['Test_kudnn']
+  basis[0]: test 任务 Test_kudnn 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_kudnn 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_kudnn | log=-- | errLines=0
+    [log] Test_kudnn | log=job_logs/28_kudnn_227_Test_kudnn.log | errLines=5
+        L138: [2026/11/09 03:34:01.663 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+        L139: [2026/11/09 03:34:01.663 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+        L140: [2026/11/09 03:34:01.663 GMT+08:00] [ERROR] git clone test_cases code fail
+        L142: [2026/11/09 03:34:01.827 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+  -- errorMessages(5) --
+    job_logs/28_kudnn_227_Test_kudnn.log:138 | [2026/11/09 03:34:01.663 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    job_logs/28_kudnn_227_Test_kudnn.log:139 | [2026/11/09 03:34:01.663 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+    job_logs/28_kudnn_227_Test_kudnn.log:140 | [2026/11/09 03:34:01.663 GMT+08:00] [ERROR] git clone test_cases code fail
+    job_logs/28_kudnn_227_Test_kudnn.log:142 | [2026/11/09 03:34:01.827 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/28_kudnn_227_Test_kudnn.log:144 | [2026/11/09 03:34:08.126 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=HPCKit|kupl#306 | #306 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T00:01:10 -> 2026-11-09T00:02:24
+  证据缺口: ['Test_kupl']
+  basis[0]: test 任务 Test_kupl 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_kupl 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_kupl | log=-- | errLines=0
+    [log] Test_kupl | log=job_logs/32_kupl_306_Test_kupl.log | errLines=5
+        L138: [2026/11/09 00:02:21.746 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+        L139: [2026/11/09 00:02:21.746 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+        L140: [2026/11/09 00:02:21.746 GMT+08:00] [ERROR] git clone test_cases code fail
+        L142: [2026/11/09 00:02:21.749 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+  -- errorMessages(5) --
+    job_logs/32_kupl_306_Test_kupl.log:138 | [2026/11/09 00:02:21.746 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    job_logs/32_kupl_306_Test_kupl.log:139 | [2026/11/09 00:02:21.746 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+    job_logs/32_kupl_306_Test_kupl.log:140 | [2026/11/09 00:02:21.746 GMT+08:00] [ERROR] git clone test_cases code fail
+    job_logs/32_kupl_306_Test_kupl.log:142 | [2026/11/09 00:02:21.749 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/32_kupl_306_Test_kupl.log:144 | [2026/11/09 00:02:22.982 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=HPCKit|kuqcd#201 | #201 | ftt=测试任务 | status=FAILED | cat=env_not_ready | VA=0 BS=1
+  起止: 2026-11-09T00:31:53 -> 2026-11-09T20:59:29
+  证据缺口: ['Test_quqcd']
+  basis[0]: test 任务 Test_quqcd 测试结果为空（用例未拉起），已回退整 job 日志
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 Test_quqcd 无任何证据 −0.20
+  -- tasks(2) --
+    [test] Test_quqcd | log=-- | errLines=0
+    [log] Test_quqcd | log=job_logs/33_kuqcd_201_Test_quqcd.log | errLines=5
+        L138: [2026/11/09 20:59:19.175 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+        L139: [2026/11/09 20:59:19.175 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+        L140: [2026/11/09 20:59:19.175 GMT+08:00] [ERROR] git clone test_cases code fail
+        L142: [2026/11/09 20:59:19.348 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+  -- errorMessages(5) --
+    job_logs/33_kuqcd_201_Test_quqcd.log:138 | [2026/11/09 20:59:19.175 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    job_logs/33_kuqcd_201_Test_quqcd.log:139 | [2026/11/09 20:59:19.175 GMT+08:00] + echo '[ERROR] git clone test_cases code fail'
+    job_logs/33_kuqcd_201_Test_quqcd.log:140 | [2026/11/09 20:59:19.175 GMT+08:00] [ERROR] git clone test_cases code fail
+    job_logs/33_kuqcd_201_Test_quqcd.log:142 | [2026/11/09 20:59:19.348 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    job_logs/33_kuqcd_201_Test_quqcd.log:144 | [2026/11/09 20:59:22.630 GMT+08:00] Finished: FAILURE
+==========================================================================================
+RID=MindIE|MindIE-Motor#120 | #120 | ftt=测试任务 | status=FAILED | cat=test_failure | VA=1 BS=0.6667
+  起止: 2026-11-09T07:04:13 -> 2026-11-09T07:43:59
+  basis[0]: test 任务 Test_Pytest_MindIE-Motor_smoke_test 取到 1 条失败用例（无 job 日志，证据来自测试报告/用例日志）
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  -- tasks(1) --
+    [test] Test_Pytest_MindIE-Motor_smoke_test | log=-- | errLines=0
+  -- errorMessages(1) --
+    case_logs/case_0196.html:None | FAILED due to ERROR/FAIL logs: testcase/mindie/motor/pymotor/ras/manual_scaling/test_manual_scaling.py::TestPyMotorRasUpDownScale::test_pymotor_ras_up_down_scale
+  -- cases(1) --
+    test_pymotor_ras_up_down_scale [failed] :None | 
+==========================================================================================
+RID=MindIE|MindIE-Motor#121 | #121 | ftt=测试任务 | status=CANCELED | cat=cancelled | VA=1 BS=0.6667
+  起止: 2026-11-09T14:11:17 -> 2026-11-09T19:32:25
+  证据缺口: ['Test_Pytest_MindIE-Motor_smoke_test_453']
+  basis[0]: 运行状态 CANCELED，运行平台侧未留存任务日志
+  basis[1]: 任务级错误信息（运行平台详情接口留存），该任务日志未能导出
+  basis[2]: 运行平台标记失败任务类型为「测试任务」
+  basis[3]: 基线 0.30
+  basis[4]: 任务 Test_Pytest_MindIE-Motor_smoke_test_453 无任何证据 −0.20
+  -- tasks(1) --
+    [log] Test_Pytest_MindIE-Motor_smoke_test_453 | log=-- | errLines=0
+  -- errorMessages(2) --
+    Test_Pytest_MindIE-Motor_smoke_test_453:None | 步骤Test_Pytest_MindIE-Motor_smoke_test_453执行失败，错误信息：由用户mindie-test停止
+    Test_Pytest_MindIE-Motor_smoke_test_453:None | 由用户mindie-test停止
+==========================================================================================
+RID=MindIE|MindIE-Motor#124 | #124 | ftt=构建任务 | status=CANCELED | cat=cancelled | VA=1 BS=0.6667
+  起止: 2026-11-09T21:10:53 -> 2026-11-09T21:10:59
+  证据缺口: ['Build_MindIE-Motor']
+  basis[0]: 运行状态 CANCELED，运行平台侧未留存任务日志
+  basis[1]: 任务级错误信息（运行平台详情接口留存），该任务日志未能导出
+  basis[2]: 运行平台标记失败任务类型为「构建任务」
+  basis[3]: 基线 0.30
+  basis[4]: 任务 Build_MindIE-Motor 无任何证据 −0.20
+  -- tasks(1) --
+    [log] Build_MindIE-Motor | log=-- | errLines=0
+  -- errorMessages(2) --
+    Build_MindIE-Motor:None | 步骤Build_MindIE-Motor执行失败，错误信息：由用户api_user_openlibing停止
+    Build_MindIE-Motor:None | 由用户api_user_openlibing停止
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2124 | #2124 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T00:05:48 -> 2026-11-09T09:22:46
+  basis[0]: 任务 nightly-1-npu-a3 / run (0) 日志命中 17 条错误行（非编译特征），见 github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 10 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  -- tasks(12) --
+    [log] nightly-1-npu-a3 / run (0) | log=github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt | errLines=17
+        L1108: [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+        L1256: Traceback (most recent call last):
+        L1286: [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):
+        L1437: [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+    [log] nightly-8-npu-a3 / run (0) | log=github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt | errLines=17
+        L1380: [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+        L3079: [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+        L3085: [2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):
+        L3128: [2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):
+    [log] nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3 | log=github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt | errLines=16
+        L982: [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respon
+        L1743: [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+        L2912: [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+        L3952: [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respo
+    [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt | errLines=1
+        L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respon
+    [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt | errLines=1
+        L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respon
+    [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt | errLines=1
+        L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.respon
+    [log] multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms | log=github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt | errLines=6
+        L604: │ exit code: 1
+        L2555: Traceback (most recent call last):
+        L2649: ##[error]Error: failed to run script step:
+        L2650: ✗ exit code: 1
+    [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa | log=github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt | errLines=5
+        L886: Traceback (most recent call last):
+        L4079: ##[error]Error: failed to run script step:
+        L4080: ✗ exit code: 1
+        L4104: ##[error]Process completed with exit code 1.
+    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa | log=github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt | errLines=5
+        L914: Traceback (most recent call last):
+        L2699: ##[error]Error: failed to run script step:
+        L2700: ✗ exit code: 1
+        L2724: ##[error]Process completed with exit code 1.
+    [log] multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_2/test... / glm_5_2_w8a8_2p2d_32p_dcp_gpqa | log=github_logs/gh_42498125758/6_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt | errLines=5
+        L492: Traceback (most recent call last):
+        L510: ##[error]Error: failed to run script step:
+        L511: ✗ exit code: 1
+        L535: ##[error]Process completed with exit code 1.
+    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix | log=github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt | errLines=7
+        L15168: [2026-11-09 08:54:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.resp
+        L15281: │ exit code: 1
+        L17059: Traceback (most recent call last):
+        L17136: ##[error]Error: failed to run script step:
+    [log] check-all-jobs | log=github_logs/gh_42498125758/0_check-all-jobs.txt | errLines=1
+        L98: ##[error]Process completed with exit code 1.
+  -- errorMessages(30) --
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:1108 | [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:1256 | Traceback (most recent call last):
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:1286 | [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:1437 | [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:18171 | ##[error]Error: failed to run script step:
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:18172 | ✗ exit code: 255
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:18196 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:18197 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:1380 | [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:3079 | [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:3085 | [2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:3128 | [2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:5431 | ##[error]Error: failed to run script step:
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:5432 | ✗ exit code: 255
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:5456 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:5457 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:982 | [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:1743 | [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:2912 | [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:3952 | [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:10212 | ##[error]Error: failed to run script step:
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:10213 | ✗ exit code: 255
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:10237 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:10238 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:995 | [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:995 | [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:995 | [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:604 | │ exit code: 1
+    github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:2555 | Traceback (most recent call last):
+    github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:2649 | ##[error]Error: failed to run script step:
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2125 | #2125 | ftt=None | status=FAILED | cat=unknown | VA=0 BS=None
+  起止: 2026-11-09T00:53:36 -> 2026-11-09T01:12:02
+  证据缺口: ['check-all-jobs']
+  basis[0]: 失败任务已取到日志但未命中错误特征，需按日志尾部人工确认
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务 check-all-jobs 无任何证据 −0.20
+  -- tasks(2) --
+    [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa | log=github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt | errLines=0
+    [log] check-all-jobs | log=-- | errLines=0
+  -- errorMessages(0) --
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2126 | #2126 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T01:11:56 -> 2026-11-09T01:38:49
+  basis[0]: 任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa 日志命中 5 条错误行（非编译特征），见 github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 2 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  -- tasks(2) --
+    [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa | log=github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt | errLines=5
+        L503: Traceback (most recent call last):
+        L521: ##[error]Error: failed to run script step:
+        L522: ✗ exit code: 1
+        L546: ##[error]Process completed with exit code 1.
+    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa | log=github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt | errLines=5
+        L505: Traceback (most recent call last):
+        L523: ##[error]Error: failed to run script step:
+        L524: ✗ exit code: 1
+        L548: ##[error]Process completed with exit code 1.
+  -- errorMessages(10) --
+    github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:503 | Traceback (most recent call last):
+    github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:521 | ##[error]Error: failed to run script step:
+    github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:522 | ✗ exit code: 1
+    github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:546 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:547 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:505 | Traceback (most recent call last):
+    github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:523 | ##[error]Error: failed to run script step:
+    github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:524 | ✗ exit code: 1
+    github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:548 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:549 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2127 | #2127 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T02:15:42 -> 2026-11-09T03:03:23
+  basis[0]: 任务 multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa 日志命中 5 条错误行（非编译特征），见 github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  -- tasks(1) --
+    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa | log=github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt | errLines=5
+        L505: Traceback (most recent call last):
+        L523: ##[error]Error: failed to run script step:
+        L524: ✗ exit code: 1
+        L548: ##[error]Process completed with exit code 1.
+  -- errorMessages(5) --
+    github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:505 | Traceback (most recent call last):
+    github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:523 | ##[error]Error: failed to run script step:
+    github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:524 | ✗ exit code: 1
+    github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:548 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:549 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2128 | #2128 | ftt=None | status=FAILED | cat=evidence_missing | VA=0 BS=None
+  起止: 2026-11-09T12:48:48 -> 2026-11-09T14:13:42
+  证据缺口: ['check-all-jobs', 'multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix']
+  basis[0]: 全部失败任务均无日志落盘
+  basis[1]: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  basis[2]: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  basis[3]: 基线 0.30
+  basis[4]: 任务 multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix 无任何证据 −0.20
+  basis[5]: 任务 check-all-jobs 无任何证据 −0.20
+  -- tasks(2) --
+    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix | log=-- | errLines=0
+    [log] check-all-jobs | log=-- | errLines=0
+  -- errorMessages(0) --
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2129 | #2129 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T19:25:23 -> 2026-11-09T20:19:14
+  basis[0]: 任务 multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix 日志命中 7 条错误行（非编译特征），见 github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  -- tasks(1) --
+    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix | log=github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt | errLines=7
+        L15335: [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.resp
+        L15452: │ exit code: 1
+        L17136: Traceback (most recent call last):
+        L17213: ##[error]Error: failed to run script step:
+  -- errorMessages(7) --
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:15335 | [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:15452 | │ exit code: 1
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:17136 | Traceback (most recent call last):
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:17213 | ##[error]Error: failed to run script step:
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:17214 | ✗ exit code: 1
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:17238 | ##[error]Process completed with exit code 1.
+    github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:17239 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2130 | #2130 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T19:42:43 -> 2026-11-09T19:59:57
+  证据缺口: ['check-all-jobs']
+  basis[0]: 任务 multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms 日志命中 4 条错误行（非编译特征），见 github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 check-all-jobs 无任何证据 −0.20
+  -- tasks(2) --
+    [log] multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms | log=github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt | errLines=4
+        L272: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+        L301: ##[error]Error: failed to run script step:
+        L302: ✗ exit code: 1
+        L304: ##[error]Process completed with exit code 1.
+    [log] check-all-jobs | log=-- | errLines=0
+  -- errorMessages(4) --
+    github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:272 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:301 | ##[error]Error: failed to run script step:
+    github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:302 | ✗ exit code: 1
+    github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt:304 | ##[error]Process completed with exit code 1.
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2132 | #2132 | ftt=None | status=FAILED | cat=evidence_missing | VA=0 BS=None
+  起止: 2026-11-09T20:51:29 -> 2026-11-09T20:51:31
+  证据缺口: ['check-all-jobs', 'set-image-config']
+  basis[0]: 全部失败任务均无日志落盘
+  basis[1]: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  basis[2]: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  basis[3]: 基线 0.30
+  basis[4]: 任务 set-image-config 无任何证据 −0.20
+  basis[5]: 任务 check-all-jobs 无任何证据 −0.20
+  -- tasks(2) --
+    [log] set-image-config | log=-- | errLines=0
+    [log] check-all-jobs | log=-- | errLines=0
+  -- errorMessages(0) --
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2133 | #2133 | ftt=None | status=FAILED | cat=job_failure | VA=0 BS=None
+  起止: 2026-11-09T20:51:29 -> 2026-11-09T21:03:53
+  证据缺口: ['check-all-jobs']
+  basis[0]: 任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset 日志命中 1 条错误行（非编译特征），见 github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt
+  basis[1]: 基线 0.30
+  basis[2]: 证据文件落盘 1 份 +0.25
+  basis[3]: 任务日志命中错误行 +0.15
+  basis[4]: 任务 check-all-jobs 无任何证据 −0.20
+  -- tasks(2) --
+    [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset | log=github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt | errLines=1
+        L523: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    [log] check-all-jobs | log=-- | errLines=0
+  -- errorMessages(1) --
+    github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt:523 | ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.

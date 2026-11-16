@@ -1,0 +1,11 @@
+RID=SgLang|nightly-test-npu.yml#2130 status=FAILED build=2130 run=42611183075
+evidence.github={"runId": 42611183075, "repo": "sgl-project/sglang", "displayTitle": "[Test] [Ascend] npu: GLM-5.3 1P1D accuracy cases + weekday gsm8k", "mode": "perjob", "totalJobs": 15, "failedJobs": [], "missing": [{"job": "check-all-jobs", "id": 129147126954, "status": "404_not_retained"}], "complete": true}
+evidence.missing=["check-all-jobs"]
+TASK multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms conclusion=cancelled note=None
+  jobErrMsg=null
+  stepErrMsgs=[]
+  errorLines=["L272: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.", "L301: ##[error]Error: failed to run script step:", "L302: ✗ exit code: 1", "L304: ##[error]Process completed with exit code 1."]
+TASK check-all-jobs conclusion=None note=运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+  jobErrMsg=null
+  stepErrMsgs=[]
+  errorLines=[]

@@ -1,0 +1,53 @@
+===== case_logs/case_0196.html
+[L29840] (InferenceWorker-0 pid=106) INFO 11-08 23:26:56 [scheduler][scheduler_client.py:770] Async scheduler client connected to ipc:///tmp/scheduler_frontend
+[L29841] (InferenceWorker-0 pid=106) INFO 11-08 23:26:56 [scheduler][scheduler_connection_manager.py:104] Scheduler client connected to ipc:///tmp/scheduler_frontend
+[L29842] INFO:     Application startup complete.
+[L29843] (InferenceWorker-3 pid=109) INFO 11-08 23:26:56 [scheduler][scheduler_client.py:545] Instance push SUB connected to ipc:///tmp/scheduler_instance_pub
+[L29844] (InferenceWorker-3 pid=109) INFO 11-08 23:26:56 [scheduler][scheduler_client.py:770] Async scheduler client connected to ipc:///tmp/scheduler_frontend
+[L29845] (InferenceWorker-3 pid=109) INFO 11-08 23:26:56 [scheduler][scheduler_connection_manager.py:104] Scheduler client connected to ipc:///tmp/scheduler_frontend
+[L29846] INFO:     Application startup complete.
+[L29847] (MgmtServer pid=104) INFO 11-08 23:33:16 [domain][instance_manager.py:416] Refresh instances: event_type=EventType.ADD, count=1, instance_ids=[(2, &#39;prefill&#39;)]
+[L29848] (MgmtServer pid=104) INFO 11-08 23:33:16 [domain][instance_manager.py:567] Added instance ID 2 (role: prefill, job_name: pymotor-vllm-vllm-0-p0) with 2 endpoints to available pool successfully
+[L29849] (MgmtServer pid=104) INFO 11-08 23:33:16 [domain][instance_manager.py:438] Refresh instances done: E=0, P=1, D=0, U=0
+[L29850] (MgmtServer pid=104) INFO 11-08 23:33:16 [http][security_utils.py:174] AUDIT: timestamp=2026-11-08T23:33:16.992002+00:00, user_id=anonymous, client=192.168.254.115:32786, event_type=instance_refresh, resource=/instances/refresh, result=success, method=POST, path=/instances/refresh
+[L29851] INFO:     192.168.254.115:32786 - &quot;POST /instances/refresh HTTP/1.1&quot; 200 OK
+[L29852] (InferenceWorker-3 pid=109) INFO 11-08 23:33:17 [api_server][inference_server.py:568] HTTP pool warmup on instance change: created 2 new client(s)
+[L29853] (InferenceWorker-1 pid=107) INFO 11-08 23:33:17 [api_server][inference_server.py:568] HTTP pool warmup on instance change: created 2 new client(s)
+[L29854] (InferenceWorker-2 pid=108) INFO 11-08 23:33:17 [api_server][inference_server.py:568] HTTP pool warmup on instance change: created 2 new client(s)
+[L29855] (InferenceWorker-0 pid=106) INFO 11-08 23:33:17 [api_server][inference_server.py:568] HTTP pool warmup on instance change: created 2 new client(s)
+[L29856] (MgmtServer pid=104) INFO 11-08 23:33:23 [api_server][management_server.py:424] [Readiness] Coordinator is ready. result=ok_standby instances_status=only_prefill
+[L29857] (MgmtServer pid=104) INFO 11-08 23:34:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 13 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29858] (MgmtServer pid=104) INFO 11-08 23:35:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29859] (MgmtServer pid=104) INFO 11-08 23:36:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29860] (MgmtServer pid=104) INFO 11-08 23:36:55 [domain][instance_manager.py:416] Refresh instances: event_type=EventType.SET, count=1, instance_ids=[(2, &#39;prefill&#39;)]
+[L29861] (MgmtServer pid=104) INFO 11-08 23:36:55 [domain][instance_manager.py:438] Refresh instances done: E=0, P=1, D=0, U=0
+[L29862] (MgmtServer pid=104) INFO 11-08 23:36:55 [http][security_utils.py:174] AUDIT: timestamp=2026-11-08T23:36:55.854965+00:00, user_id=anonymous, client=192.168.254.115:43914, event_type=instance_refresh, resource=/instances/refresh, result=success, method=POST, path=/instances/refresh
+[L29863] INFO:     192.168.254.115:43914 - &quot;POST /instances/refresh HTTP/1.1&quot; 200 OK
+[L29864] (MgmtServer pid=104) INFO 11-08 23:37:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29865] (MgmtServer pid=104) INFO 11-08 23:38:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29866] (MgmtServer pid=104) INFO 11-08 23:39:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29867] (MgmtServer pid=104) INFO 11-08 23:40:25 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29868] (MgmtServer pid=104) INFO 11-08 23:41:26 [api_server][rate_limited_logger.py:186] [Readiness] Coordinator remains ready periodic summary: probe succeeded 12 times in last 60s, result=ok_standby instances_status=only_prefill
+[L29869] (MgmtServer pid=104) INFO 11-08 23:41:56 [domain][instance_manager.py:416] Refresh instances: event_type=EventType.SET, count=1, instance_ids=[(2, &#39;prefill&#39;)]
+[L29870] (MgmtServer pid=104) INFO 11-08 23:41:56 [domain][instance_manager.py:438] Refresh instances done: E=0, P=1, D=0, U=0
+[L29871] (MgmtServer pid=104) INFO 11-08 23:41:56 [http][security_utils.py:174] AUDIT: timestamp=2026-11-08T23:41:56.099783+00:00, user_id=anonymous, client=192.168.254.115:51998, event_type=instance_refresh, resource=/instances/refresh, result=success, method=POST, path=/instances/refresh
+[L29872] INFO:     192.168.254.115:51998 - &quot;POST /instances/refresh HTTP/1.1&quot; 200 OK</div></td>
+[L29873]             </tr>
+[L29874]             <tr class="step-content content-step-2">
+[L29875]                 <td>2026-11-08 23:44:05.940</td>
+[L29876]                 <td class='INFO'>INFO</td>
+[L29877]                 <td>281473125900320</td>
+[L29878]                 <td>mindie_pd_separate_service_deployer.py:539</td>
+[L29879]                 <td class="step-indent"><div class="msg-scroll">等待服务启动 ...</div></td>
+[L29880]             </tr>
+[L29881]             <tr class="step-content content-step-2">
+[L29882]                 <td>2026-11-08 23:44:15.951</td>
+[L29883]                 <td class='ERROR'>ERROR</td>
+[L29884]                 <td>281473125900320</td>
+[L29885]                 <td>__init__.py:71</td>
+[L29886]                 <td class="step-indent"><div class="msg-scroll">服务启动超时，未找到成功日志!</div></td>
+[L29887]             </tr>
+[L29888]             <tr class="step-content content-step-2">
+[L29889]                 <td>2026-11-08 23:44:15.951</td>
+[L29890]                 <td class='INFO'>INFO</td>
+

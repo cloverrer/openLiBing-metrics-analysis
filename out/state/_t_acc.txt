@@ -1,0 +1,46 @@
+===== github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt (total 4202)
+[L4158] 2026-11-08T17:21:07.7199196Z 
+[L4159] 2026-11-08T17:21:07.7199916Z Success. Time elapsed: 4337.63s
+[L4160] 2026-11-08T17:21:07.7200161Z 
+[L4161] 2026-11-08T17:21:07.7200288Z ============================================================
+[L4162] 2026-11-08T17:21:07.7200617Z Test Summary: 1/1 passed
+[L4163] 2026-11-08T17:21:07.7200911Z ============================================================
+[L4164] 2026-11-08T17:21:07.7201440Z ✓ PASSED:
+[L4165] 2026-11-08T17:21:07.7201863Z   /__w/sglang/sglang/test/registered/npu/accuracy/qwen3_6_27b/test_npu_qwen3_6_27b_1p_gpqa.py
+[L4166] 2026-11-08T17:21:07.7202398Z ============================================================
+[L4167] 2026-11-08T17:21:07.7202768Z 
+[L4168] 2026-11-08T17:21:07.7202886Z ========== TIMINGS BEGIN ==========
+[L4169] 2026-11-08T17:21:07.7203460Z {"file": "test/registered/npu/accuracy/qwen3_6_27b/test_npu_qwen3_6_27b_1p_gpqa.py", "passed": true, "elapsed": 4338}
+[L4170] 2026-11-08T17:21:07.7204052Z ========== TIMINGS END ==========
+[L4171] 2026-11-08T17:21:09.2063833Z Finished test: nightly-acc-2-npu-a3-p1
+[L4172] 2026-11-08T17:21:09.2064215Z tc_name=nightly-acc-2-npu-a3-p1
+[L4173] 2026-11-08T17:21:09.8487327Z Post job cleanup.
+[L4174] 2026-11-08T17:21:09.8532081Z ##[group]Run '/home/runner/k8s/index.js'
+[L4175] 2026-11-08T17:21:09.8534025Z shell: /home/runner/externals/node24/bin/node {0}
+[L4176] 2026-11-08T17:21:09.8534730Z ##[endgroup]
+[L4177] 2026-11-08T17:21:10.0883395Z (node:1196) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L4178] 2026-11-08T17:21:10.0884622Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L4179] 2026-11-08T17:21:10.1096489Z (node:1196) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L4180] 2026-11-08T17:21:10.1580645Z (node:1196) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[L4181] 2026-11-08T17:21:10.6576264Z [command]/usr/bin/git version
+[L4182] 2026-11-08T17:21:10.6703695Z git version 2.34.1
+[L4183] 2026-11-08T17:21:10.6709386Z Copying '/root/.gitconfig' to '/__w/_temp/06daeb40-9529-4833-ab5a-d8d285a2cece/.gitconfig'
+[L4184] 2026-11-08T17:21:10.6710697Z Temporarily overriding HOME='/__w/_temp/06daeb40-9529-4833-ab5a-d8d285a2cece' before making global git config changes
+[L4185] 2026-11-08T17:21:10.6711809Z Adding repository directory to the temporary git global config as a safe directory
+[L4186] 2026-11-08T17:21:10.6712795Z [command]/usr/bin/git config --global --add safe.directory /__w/sglang/sglang
+[L4187] 2026-11-08T17:21:10.6747544Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[L4188] 2026-11-08T17:21:10.6786277Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[L4189] 2026-11-08T17:21:10.7194705Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+[L4190] 2026-11-08T17:21:10.7222531Z http.https://github.com/.extraheader
+[L4191] 2026-11-08T17:21:10.7231139Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+[L4192] 2026-11-08T17:21:10.7277191Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[L4193] 2026-11-08T17:21:10.7624244Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[L4194] 2026-11-08T17:21:10.7660952Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+[L4195] 2026-11-08T17:21:11.4476771Z ##[group]Run '/home/runner/k8s/index.js'
+[L4196] 2026-11-08T17:21:11.4477928Z shell: /home/runner/externals/node24/bin/node {0}
+[L4197] 2026-11-08T17:21:11.4478304Z ##[endgroup]
+[L4198] 2026-11-08T17:21:11.6787515Z (node:1291) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L4199] 2026-11-08T17:21:11.6788880Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L4200] 2026-11-08T17:21:11.6994777Z (node:1291) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L4201] 2026-11-08T17:21:11.8556212Z Cleaning up orphan processes
+[L4202] 2026-11-08T17:21:11.8684177Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

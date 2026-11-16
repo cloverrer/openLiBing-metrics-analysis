@@ -28,6 +28,7 @@
 鉴权: config.github.token（PAT），API 头带 token，blob 直链不带（302 短时效签名 URL）
 产物: out/github_logs/gh_<rid>/{jobs.json, *.txt, _name_map.json, _done.json}
       out/step_5c_github_evidence.json（results 每运行一行 + errors）
+归档: out/github_logs/ 属工作目录产物，第 7 步会把它逐行内嵌进归档的 pipeline.evidence.json，归档区不留散文件。
 """
 import gzip
 import hashlib

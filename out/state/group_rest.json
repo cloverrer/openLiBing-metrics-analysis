@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "recordId": "Ascend-CANN|shmem#141",
+      "keyError": "[ERROR] Environment allocation failed for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3",
+      "issueType": "资源不足",
+      "issueDetail": "A3 十六卡测试容器在资源池排队约 1 小时后分配失败",
+      "rootCause": "测试环境没申请到：测试任务 17:17 起向资源池申请一台 A3 十六卡（Ascend 910C）大规格容器，环境一直停在排队未就绪，轮询约 1 小时后于 18:18 报环境分配失败，用例一条都没跑起来就退出了。所以不是 shmem 组件或用例的问题，是资源池侧该规格 A3 容器容量不足（或被占满）导致环境拿不到。",
+      "advice": "错峰重跑一次该流水线，若仍分配失败，到资源池确认 cann_single_A3_device_cover_single_type（A3 十六卡）池的容量与当前占用，长期紧张就扩容或调小该流水线的申请规格。\n\n验证方式：重跑该流水线，要求环境申请在合理时间内成功（环境 ready）、用例能拉起执行且通过率 100%。",
+      "cites": [
+        "job_logs/02_shmem_141_Test_shmem.log:L602",
+        "job_logs/02_shmem_141_Test_shmem.log:L612"
+      ]
+    },
+    {
+      "recordId": "Ascend-CANN|shmem#137",
+      "keyError": null,
+      "issueType": "单元测试失败",
+      "issueDetail": "夜间测试任务失败，平台未留存失败明细",
+      "rootCause": "失败在测试任务阶段：运行平台标记失败任务类型为「测试任务」，但平台侧未留存本次任务日志与失败用例明细，证据止于任务类型这一层。该流水线 11-06 至 11-10 连续多日测试任务失败，其中 11-09 两条已定位为 msprof 性能数据导出失败连累 allgather 用例判败，本条疑似同一问题，需拿平台侧日志核对。",
+      "advice": "到运行平台打开该流水线本次执行（#137）的测试任务日志，核对失败用例与断言信息后修复；平台侧未留存本次日志，需平台补齐测试任务详情接口的日志留存。同流水线 11-09 的 #140/#142、11-10 的 #143~#145 同形态反复失败，建议合并排查。\n\n验证方式：重跑该流水线，要求测试任务通过、退出码为 0、当日版本可用度恢复 100%。",
+      "cites": []
+    }
+  ]
+}

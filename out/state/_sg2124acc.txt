@@ -1,0 +1,132 @@
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L44] 2026-11-08T16:06:45.2197942Z (node:446) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L71] 2026-11-08T16:08:02.6541664Z (node:659) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L177]   core.setFailed('Fast-fail: lint check failed');
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L181] // Skip the jobs-failed check when the PR carries the bypass-fastfail label.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L198]   core.notice('[health-check] SKIP jobs-failed check: bypass-fastfail label present');
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L209] const failedJobs = jobs.filter(j => j.status === 'completed' && j.conclusion === 'failure');
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L210] core.info(`[health-check] Failed jobs (before filtering): ${failedJobs.map(j => `${j.name}(${j.conclusion})`).join(', ') || 'none'}`);
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L212] // Find jobs that failed from a real error, not from fast-fail cascade
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L232]   const failedStep = (j.steps || []).find(s => s.conclusion === 'failure');
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L233]   if (failedStep && (failedStep.name.includes('check-pr-test-health') || failedStep.name.includes('Check PR test health'))) {
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L234]     core.info(`[health-check] Filtered out cascade failure: ${j.name} (failed step: ${failedStep.name})`);
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L242]   core.setFailed(`Fast-fail: skipping — root cause job(s): ${rootCauseFailures.map(j => j.name).join(', ')}`);
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L260] 2026-11-08T16:08:09.5574867Z (node:696) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L275] 2026-11-08T16:08:13.8239026Z (node:743) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L294] 2026-11-08T16:08:15.2042420Z ##[group]Run # Fail fast on any command error, undefined variable, or pipe failure.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L295] 2026-11-08T16:08:15.2043507Z [36;1m# Fail fast on any command error, undefined variable, or pipe failure.[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L369] 2026-11-08T16:08:15.2074694Z [36;1m  [ "${ok}" = "1" ] || { echo "ERROR: failed to install ${pkg}"; exit 1; }[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L438] 2026-11-08T16:08:15.2107468Z [36;1mtest_exit_code=0[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L441] 2026-11-08T16:08:15.2108408Z [36;1m# Append `--nightly` and `--continue-on-error` arguments when the job belongs to the nightly pipeline.[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L443] 2026-11-08T16:08:15.2109614Z [36;1m# --continue-on-error: Keep running remaining cases even if one fails.[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L446] 2026-11-08T16:08:15.2110662Z [36;1m  NIGHTLY_FLAG="--nightly --continue-on-error"[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L475] 2026-11-08T16:08:15.2123115Z [36;1m# string arg makes GNU tee fail (exit code 1) and flips the pipeline exit code.[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L493] 2026-11-08T16:08:15.2131651Z [36;1m  exit 0[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L498] 2026-11-08T16:08:15.2133445Z [36;1m# tee pipe, so leftover server processes cannot block the pipeline on exit.[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L499] 2026-11-08T16:08:15.2134669Z [36;1m${PYTHON_FOR_SGLANG} -u run_suite.py --hw npu --suite ${test_suite} ${NIGHTLY_FLAG} ${PARTITION_ARGS} ${ONLY_FILE_ARGS} ${TIMEOUT_FLAG} --enable-retry --max-attempts 1 --timeout-per-file 7200 2>&1 | tee "${LOG_TEE_TARGETS[@]}" || test_exit_code=$?[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L503] 2026-11-08T16:08:15.2136491Z [36;1mif [ "${test_exit_code}" = "0" ]; then[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L526] 2026-11-08T16:08:15.2145516Z [36;1m    echo "No metrics collected (test may have failed before producing results)." >> $GITHUB_STEP_SUMMARY[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L530] 2026-11-08T16:08:15.2146813Z [36;1mexit ${test_exit_code}[0m
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L537] 2026-11-08T16:08:15.2149075Z   TRANSFORMERS_VERBOSITY: error
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L546] 2026-11-08T16:08:15.4781901Z (node:806) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L643] 2026-11-08T16:09:12.5701895Z 2026-11-08 16:09:12,567 - INFO - ENV_VAR_SYS TRANSFORMERS_VERBOSITY:error
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L744] 2026-11-08T16:09:41.7495518Z [2026-11-08 16:09:41] Ignore import error when loading sglang.srt.multimodal.processors.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L746] 2026-11-08T16:09:44.0768547Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.ernie55: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L747] 2026-11-08T16:09:44.0882176Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.ernie55_dspark: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L748] 2026-11-08T16:09:44.0911434Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.ernie55_nextn: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L749] 2026-11-08T16:09:44.1161392Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.falcon_mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L750] 2026-11-08T16:09:44.2378175Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L751] 2026-11-08T16:09:44.4033366Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L752] 2026-11-08T16:09:44.4161621Z [2026-11-08 16:09:44] Ignore import error when loading sglang.srt.models.mindspore: No module named 'mindspore'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L818] 2026-11-08T16:09:57.0668732Z [2026-11-08 16:09:57 TP1] Ignore import error when loading sglang.srt.multimodal.processors.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L820] 2026-11-08T16:09:57.3711933Z [2026-11-08 16:09:57 TP0] Ignore import error when loading sglang.srt.multimodal.processors.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L826] 2026-11-08T16:09:57.9879659Z [2026-11-08 16:09:57 TP1] Ignore import error when loading sglang.srt.models.ernie55: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L827] 2026-11-08T16:09:57.9951607Z [2026-11-08 16:09:57 TP0] Ignore import error when loading sglang.srt.models.ernie55: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L828] 2026-11-08T16:09:57.9971765Z [2026-11-08 16:09:57 TP1] Ignore import error when loading sglang.srt.models.ernie55_dspark: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L829] 2026-11-08T16:09:57.9973339Z [2026-11-08 16:09:57 TP1] Ignore import error when loading sglang.srt.models.ernie55_nextn: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L830] 2026-11-08T16:09:58.0023021Z [2026-11-08 16:09:58 TP1] Ignore import error when loading sglang.srt.models.falcon_mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L831] 2026-11-08T16:09:58.0037216Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.ernie55_dspark: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L832] 2026-11-08T16:09:58.0046292Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.ernie55_nextn: cannot import name 'add_prefix' from 'sglang.srt.utils' (/sgl-workspace/sglang/python/sglang/srt/utils/__init__.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L833] 2026-11-08T16:09:58.0108657Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.falcon_mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L834] 2026-11-08T16:09:58.0477439Z [2026-11-08 16:09:58 TP1] Ignore import error when loading sglang.srt.models.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L835] 2026-11-08T16:09:58.0645242Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.inkling: No module named 'cutlass'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L836] 2026-11-08T16:09:58.1093425Z [2026-11-08 16:09:58 TP1] Ignore import error when loading sglang.srt.models.mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L837] 2026-11-08T16:09:58.1113222Z [2026-11-08 16:09:58 TP1] Ignore import error when loading sglang.srt.models.mindspore: No module named 'mindspore'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L838] 2026-11-08T16:09:58.1296640Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.mamba: cannot import name 'causal_conv1d_fn_triton' from 'sglang.srt.layers.attention.mamba.mamba' (/sgl-workspace/sglang/python/sglang/srt/layers/attention/mamba/mamba.py)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L839] 2026-11-08T16:09:58.1318237Z [2026-11-08 16:09:58 TP0] Ignore import error when loading sglang.srt.models.mindspore: No module named 'mindspore'
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L995] 2026-11-08T16:12:51.1520957Z [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L1004] 2026-11-08T16:12:53.8004525Z ('Warning: torch.save with "_use_new_zipfile_serialization = False" is not recommended for npu tensor, which may bring unexpected errors and hopefully set "_use_new_zipfile_serialization = True"', 'if it is necessary to use this, please convert the npu tensor to cpu tensor for saving')
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L1008] 2026-11-08T16:13:23.0437449Z [rank1]:[W1108 16:13:23.896586156 VariableFallbackKernel.cpp:250] Warning: CAUTION: The operator 'aten::_assert_async' is not currently supported on the NPU backend and will fall back to run on the CPU. This may have performance implications. (function npu_cpu_fallback)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L1009] 2026-11-08T16:13:23.0914257Z [rank0]:[W1108 16:13:23.945337645 VariableFallbackKernel.cpp:250] Warning: CAUTION: The operator 'aten::_assert_async' is not currently supported on the NPU backend and will fall back to run on the CPU. This may have performance implications. (function npu_cpu_fallback)
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L1192] 2026-11-08T16:18:05.1507113Z     "ignore_errors": false,
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L2770] 2026-11-08T16:52:52.9923228Z     "ignore_errors": false,
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4162] 2026-11-08T17:21:07.7200617Z Test Summary: 1/1 passed
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4164] 2026-11-08T17:21:07.7201440Z ✓ PASSED:
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4169] 2026-11-08T17:21:07.7203460Z {"file": "test/registered/npu/accuracy/qwen3_6_27b/test_npu_qwen3_6_27b_1p_gpqa.py", "passed": true, "elapsed": 4338}
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4179] 2026-11-08T17:21:10.1096489Z (node:1196) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4200] 2026-11-08T17:21:11.6994777Z (node:1291) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+----

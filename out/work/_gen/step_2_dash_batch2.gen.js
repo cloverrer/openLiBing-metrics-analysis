@@ -1,5 +1,5 @@
 (async () => {
-const PARAMS = {"startDate": "2026-11-11", "endDate": "2026-11-11", "pageSize": 100, "delay": 250, "conc": 4, "pipelines": [{"key": "MindCluster|VisionSDK", "projectId": 300038, "pipelineId": "ac8a7ce54ea347c08a697987c21653fc"}, {"key": "MindCluster|MultimodalSDK", "projectId": 300038, "pipelineId": "c39c0146a8b2492db59ec77bedb7170c"}, {"key": "MindCluster|RAGSDK", "projectId": 300038, "pipelineId": "fd920c7904cb47ad9ce80d4eaede5cb5"}, {"key": "Ascend-CANN|os", "projectId": 300057, "pipelineId": "03da2691669a4f2bbfcfd89356bc3576"}, {"key": "Ascend-CANN|ops-transformer", "projectId": 300057, "pipelineId": "309180d5c2904adf942f5678d9356d99"}, {"key": "Ascend-CANN|ops-cv", "projectId": 300057, "pipelineId": "66b8958d6e0349ddb01143765c64afa5"}, {"key": "Ascend-CANN|ops-nn", "projectId": 300057, "pipelineId": "6d402b76f9b14451872ef07ac1f864ba"}, {"key": "Ascend-CANN|hcomm", "projectId": 300057, "pipelineId": "917e9d4ef3624408999817444349c4dc"}, {"key": "Ascend-CANN|shmem", "projectId": 300057, "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939"}, {"key": "Ascend-CANN|ops-math", "projectId": 300057, "pipelineId": "aa3d520fe64f4071a09178d2d603278e"}, {"key": "Ascend-CANN|atb", "projectId": 300057, "pipelineId": "b4f302b7c22b4eacab56d4b120bf7d04"}, {"key": "Ascend-CANN|sip", "projectId": 300057, "pipelineId": "ca98a3e75ff84332a3abd4f091a0c233"}, {"key": "boostkit|avx2ki", "projectId": 300059, "pipelineId": "2944ce957b494b72a41150b5467b61b4"}, {"key": "boostkit|kqmalloc", "projectId": 300059, "pipelineId": "452bb706ced24726aa7686b92a966734"}, {"key": "boostkit|OmniStream", "projectId": 300059, "pipelineId": "636f9465b49d4a6591d5572ad6f9456f"}]};
+const PARAMS = {"startDate": "2026-11-13", "endDate": "2026-11-13", "pageSize": 100, "delay": 250, "conc": 4, "maxTry": 3, "retryBackoffMs": [1000, 2000], "pipelines": [{"key": "MindCluster|RecSDK", "projectId": 300038, "pipelineId": "610d7853be5a4efa9096ddead93a2d4f"}, {"key": "MindCluster|AgentSDK", "projectId": 300038, "pipelineId": "9f864a61fe8b4268b592e5e2b38f859a"}, {"key": "MindCluster|MultimodalSDK", "projectId": 300038, "pipelineId": "c39c0146a8b2492db59ec77bedb7170c"}, {"key": "Ascend-CANN|os", "projectId": 300057, "pipelineId": "03da2691669a4f2bbfcfd89356bc3576"}, {"key": "Ascend-CANN|ops-transformer", "projectId": 300057, "pipelineId": "309180d5c2904adf942f5678d9356d99"}, {"key": "Ascend-CANN|ops-cv", "projectId": 300057, "pipelineId": "66b8958d6e0349ddb01143765c64afa5"}, {"key": "Ascend-CANN|ops-nn", "projectId": 300057, "pipelineId": "6d402b76f9b14451872ef07ac1f864ba"}, {"key": "Ascend-CANN|hcomm", "projectId": 300057, "pipelineId": "917e9d4ef3624408999817444349c4dc"}, {"key": "Ascend-CANN|shmem", "projectId": 300057, "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939"}, {"key": "Ascend-CANN|ops-math", "projectId": 300057, "pipelineId": "aa3d520fe64f4071a09178d2d603278e"}, {"key": "Ascend-CANN|atb", "projectId": 300057, "pipelineId": "b4f302b7c22b4eacab56d4b120bf7d04"}, {"key": "Ascend-CANN|sip", "projectId": 300057, "pipelineId": "ca98a3e75ff84332a3abd4f091a0c233"}, {"key": "boostkit|avx2ki", "projectId": 300059, "pipelineId": "2944ce957b494b72a41150b5467b61b4"}, {"key": "boostkit|kqmalloc", "projectId": 300059, "pipelineId": "452bb706ced24726aa7686b92a966734"}, {"key": "boostkit|OmniStream", "projectId": 300059, "pipelineId": "636f9465b49d4a6591d5572ad6f9456f"}]};
 return (async () => {
   // 【N2】POST /gateway/openlibing-ops/manage/common/detail  category=nightly-dashboard-detail
   // 返回每流水线逐运行看板明细（即执行记录来源）：pipelineRunNumber/Id/Status/起止时间 +
@@ -11,28 +11,47 @@ return (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const out = {};
   const CONC = Math.max(1, PARAMS.conc || 1);
+  // 重试口径与 step_1（ops-nightly-detail）一致：单次成功 = 响应体非空 + JSON 可解析 +
+  // code===200；空响应体 / 解析失败 / code!=200 一律重试，最多 MAX_TRY 次，退避 BACKOFF。
+  // 不重试会静默丢运行记录：服务端偶发返回空响应体（Unexpected end of JSON input），
+  // 之前 26/49 条流水线整条无执行记录、版本可用度失真（MindStudio 大面积「无运行」）。
+  const MAX_TRY = Math.max(1, Number(PARAMS.maxTry) || 3);
+  const BACKOFF = (Array.isArray(PARAMS.retryBackoffMs) && PARAMS.retryBackoffMs.length)
+    ? PARAMS.retryBackoffMs : [1000, 2000];
   async function fetchPipe(p) {
-    try {
-      const recs = [];
-      let page = 1, total = 0, last = null;
-      for (;;) {
-        const res = await fetch('/gateway/openlibing-ops/manage/common/detail', {
-          method: 'POST', headers: H,
-          body: JSON.stringify({ category: 'nightly-dashboard-detail', endDate: PARAMS.endDate,
-            page, pageSize: PARAMS.pageSize, pipelineId: p.pipelineId,
-            projectId: p.projectId, startDate: PARAMS.startDate })
-        });
-        last = await res.json();
-        const d = (last && last.data) || {};
-        const list = d.records || [];
-        recs.push(...list);
-        total = d.total || recs.length;
-        if (!list.length || recs.length >= total) break;
-        page += 1;
-        await sleep(PARAMS.delay);
+    const recs = [];
+    let page = 1, total = 0, last = null, lastErr = null;
+    for (let t = 1; t <= MAX_TRY; t++) {
+      try {
+        let done = false;
+        for (; !done;) {                                      // 成功后连续翻页
+          const res = await fetch('/gateway/openlibing-ops/manage/common/detail', {
+            method: 'POST', headers: H,
+            body: JSON.stringify({ category: 'nightly-dashboard-detail', endDate: PARAMS.endDate,
+              page, pageSize: PARAMS.pageSize, pipelineId: p.pipelineId,
+              projectId: p.projectId, startDate: PARAMS.startDate })
+          });
+          const text = (await res.text()) || '';
+          if (!text.trim()) { lastErr = 'EMPTY_BODY：响应体为空（http ' + res.status + '）'; break; }
+          try { last = JSON.parse(text); } catch (e) {
+            lastErr = 'JSON_PARSE_FAIL: ' + String(e && e.message || e); break;
+          }
+          if (last.code !== 200) { lastErr = last.messageCn || last.msg || ('code=' + last.code); break; }
+          const d = (last && last.data) || {};
+          const list = d.records || [];
+          recs.push(...list);
+          total = d.total || recs.length;
+          if (!list.length || recs.length >= total) { lastErr = null; done = true; }
+          else { page += 1; await sleep(PARAMS.delay); }
+        }
+      } catch (e) { lastErr = String(e && e.message || e); }
+      if (!lastErr) break;                                    // 拉全即出循环，落 out[p.key]
+      if (t < MAX_TRY) {                                      // 保留已翻页数据，从当前页重试
+        await sleep(Number(BACKOFF[Math.min(t - 1, BACKOFF.length - 1)]) || 1000);
       }
-      out[p.key] = Object.assign({}, last, { data: { records: recs, total: total } });
-    } catch (e) { out[p.key] = { code: -1, error: String(e && e.message || e) }; }
+    }
+    if (lastErr) out[p.key] = { code: -1, error: lastErr + '（已重试 ' + MAX_TRY + ' 次）' };
+    else out[p.key] = Object.assign({}, last, { data: { records: recs, total: total } });
   }
   for (let i = 0; i < PARAMS.pipelines.length; i += CONC) {
     await Promise.all(PARAMS.pipelines.slice(i, i + CONC).map(fetchPipe));

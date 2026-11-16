@@ -19,6 +19,23 @@
    "scheduledOnly": false
   },
   {
+   "key": "openUBMC|openUBMC~c43117",
+   "product": "openUBMC",
+   "projectId": 2,
+   "pipelineName": "Nightly-CI-Version-pipeline_openUBMC",
+   "pipelineShortName": "openUBMC~c43117",
+   "pipelineId": "da4f9f2c5686451594d2dd1a0b843824",
+   "platform": "gitcode",
+   "versionAvailabilityRate": null,
+   "buildSuccessRate": null,
+   "dims": [
+    "va"
+   ],
+   "rateRule": "runs",
+   "recompute": true,
+   "scheduledOnly": false
+  },
+  {
    "key": "AscendForPyTorch|master",
    "product": "AscendForPyTorch",
    "projectId": 4,
@@ -96,7 +113,7 @@
    "pipelineShortName": "msprobe",
    "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -113,7 +130,7 @@
    "pipelineShortName": "msserviceprofiler",
    "pipelineId": "af61355154f54c85adac46449f506edc",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -147,7 +164,7 @@
    "pipelineShortName": "msot",
    "pipelineId": "b67d335347fa4646acd3b96d1c55573e",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -186,6 +203,23 @@
    "dims": [
     "va",
     "bs"
+   ],
+   "rateRule": "runs",
+   "recompute": true,
+   "scheduledOnly": false
+  },
+  {
+   "key": "MindCluster|Agentsdk~5992cb",
+   "product": "MindCluster",
+   "projectId": 300038,
+   "pipelineName": "Nightly-CI-Component-pipeline_Agentsdk",
+   "pipelineShortName": "Agentsdk~5992cb",
+   "pipelineId": "3920b07ff31c48d8aaddbae6f4db072d",
+   "platform": "gitcode",
+   "versionAvailabilityRate": null,
+   "buildSuccessRate": null,
+   "dims": [
+    "va"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -264,23 +298,6 @@
    "scheduledOnly": false
   },
   {
-   "key": "MindCluster|VisionSDK",
-   "product": "MindCluster",
-   "projectId": 300038,
-   "pipelineName": "Nightly-CI-Component-pipeline_VisionSDK",
-   "pipelineShortName": "VisionSDK",
-   "pipelineId": "ac8a7ce54ea347c08a697987c21653fc",
-   "platform": "codearts",
-   "versionAvailabilityRate": null,
-   "buildSuccessRate": null,
-   "dims": [
-    "va"
-   ],
-   "rateRule": "runs",
-   "recompute": true,
-   "scheduledOnly": false
-  },
-  {
    "key": "MindCluster|MultimodalSDK",
    "product": "MindCluster",
    "projectId": 300038,
@@ -293,23 +310,6 @@
    "dims": [
     "va",
     "bs"
-   ],
-   "rateRule": "runs",
-   "recompute": true,
-   "scheduledOnly": false
-  },
-  {
-   "key": "MindCluster|RAGSDK",
-   "product": "MindCluster",
-   "projectId": 300038,
-   "pipelineName": "Nightly-CI-Component-pipeline_RAGSDK",
-   "pipelineShortName": "RAGSDK",
-   "pipelineId": "fd920c7904cb47ad9ce80d4eaede5cb5",
-   "platform": "codearts",
-   "versionAvailabilityRate": null,
-   "buildSuccessRate": null,
-   "dims": [
-    "va"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -431,7 +431,7 @@
    "pipelineShortName": "ops-math",
    "pipelineId": "aa3d520fe64f4071a09178d2d603278e",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": 1,
    "dims": [
     "va",
@@ -647,7 +647,7 @@
    "pipelineShortName": "kupl",
    "pipelineId": "ddb211b1e4a74f55a0e604fa95ef469e",
    "platform": "codearts",
-   "versionAvailabilityRate": 0,
+   "versionAvailabilityRate": 1,
    "buildSuccessRate": 1,
    "dims": [
     "va",
@@ -921,13 +921,16 @@
  ],
  "notes": [
   "analysis_policy.always_analyze 已不再是特例（vllm-ascend）：全量采集对所有产品默认生效，比率一律按执行记录重算，该配置当前无额外作用",
+  "产品 openUBMC 有 1 条流水线 versionAvail 无数据，未纳入可用度统计",
+  "产品 openUBMC 有 1 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
+  "产品 openUBMC 有 2 条流水线末段同名（如 openUBMC~c43117），已改用去前缀全名作唯一短名，避免执行记录互相覆盖: Nightly-CI-Version-pipeline_openUBMC -> openUBMC~c43117；Nightly-CI-Version-pipeline_openUBMC -> openUBMC~f35034",
   "产品 AscendForPyTorch ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 AscendForPyTorch 有 1 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
   "产品 CANN ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 MindStudio ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 MindStudio 有 6 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
-  "产品 MindCluster 有 2 条流水线 versionAvail 无数据，未纳入可用度统计",
-  "产品 MindCluster 有 2 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
+  "产品 MindCluster 有 1 条流水线 versionAvail 无数据，未纳入可用度统计",
+  "产品 MindCluster 有 1 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
   "产品 MindSpeed ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 MindSpeed 有 5 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
   "产品 MindSpeed 有 5 条流水线末段同名（如 DrivingSDK_master），已改用去前缀全名作唯一短名，避免执行记录互相覆盖: Nightly-CI-Component-pipeline_DrivingSDK_master -> DrivingSDK_master；Nightly-CI-Component-pipeline_MindSpeed-A3_master -> MindSpeed-A3_master；Nightly-CI-Component-pipeline_MindSpeed-LLM_master -> MindSpeed-LLM_master；Nightly-CI-Component-pipeline_MindSpeed-MM_master -> MindSpeed-MM_master；Nightly-CI-Component-pipeline_MindSpeed_master -> MindSpeed_master",

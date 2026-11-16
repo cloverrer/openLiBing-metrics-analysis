@@ -9,11 +9,41 @@
   const results = [];
   const drill = [];
   const CONC = Math.max(1, PARAMS.conc || 1);
+  // 重试口径与其余模板一致：空响应体 / 解析失败 / code!=200 重试，最多 MAX_TRY 次。
+  // T7 flow/子任务日志接口同样偶发空响应体，不重试会让 Build 子任务证据整块缺失。
+  const MAX_TRY = Math.max(1, Number(PARAMS.maxTry) || 3);
+  const BACKOFF = (Array.isArray(PARAMS.retryBackoffMs) && PARAMS.retryBackoffMs.length)
+    ? PARAMS.retryBackoffMs : [1000, 2000];
   async function pAll(arr, fn) {
     for (let i = 0; i < arr.length; i += CONC) {
       await Promise.all(arr.slice(i, i + CONC).map(fn));
       if (i + CONC < arr.length) await sleep(PARAMS.delay);
     }
+  }
+  async function fetchJson(url, opts) {
+    // 统一带重试的 JSON 请求：空响应体/解析失败/code!=200 都抛错由调用方重试
+    let lastErr = null;
+    for (let t = 1; t <= MAX_TRY; t++) {
+      try {
+        const res = await fetch(url, opts);
+        const text = (await res.text()) || '';
+        if (!text.trim()) throw new Error('EMPTY_BODY（http ' + res.status + '）');
+        let j;
+        try { j = JSON.parse(text); } catch (e) {
+          throw new Error('JSON_PARSE_FAIL: ' + String(e && e.message || e));
+        }
+        if (j.code !== undefined && j.code !== 200) {
+          throw new Error(j.messageCn || j.msg || ('code=' + j.code));
+        }
+        return j;
+      } catch (e) {
+        lastErr = e;
+        if (t < MAX_TRY) {
+          await sleep(Number(BACKOFF[Math.min(t - 1, BACKOFF.length - 1)]) || 1000);
+        }
+      }
+    }
+    throw lastErr;
   }
 
   // 阶段 1：逐 log 任务调 flow 接口拉构建子任务列表（buildflow 任务才有 builds；普通流水线返回空列表）
@@ -24,9 +54,8 @@
                   jobId: it.jobId, jobName: it.jobName,
                   flow: 'failed', reason: '', builds: [] };
     try {
-      const res = await fetch(CICD + '/project/pipeline/flow?' + qs, { headers: G });
-      const j = await res.json();
-      if (j.code === 200 && Array.isArray(j.data)) {
+      const j = await fetchJson(CICD + '/project/pipeline/flow?' + qs, { headers: G });
+      if (Array.isArray(j.data)) {
         row.flow = 'ok';
         for (const ent of j.data) {
           for (const b of ent.builds || []) {
@@ -37,9 +66,9 @@
           }
         }
       } else {
-        row.reason = 'flow code=' + j.code + ' ' + String(j.msg || '').slice(0, 120);
+        row.reason = 'flow: data 非数组 ' + JSON.stringify(j).slice(0, 120);
       }
-    } catch (e) { row.reason = 'flow: ' + String(e && e.message || e); }
+    } catch (e) { row.reason = 'flow: ' + String(e && e.message || e) + '（已重试 ' + MAX_TRY + ' 次）'; }
     if (row.flow === 'ok' && row.builds.some(b => b.status === 'FAILURE')) {
       drill.push({ it, failed: row.builds.filter(b => b.status === 'FAILURE') });
     }
@@ -64,16 +93,15 @@
                      stepRunId: b.stepRunId, pipelineId: d.it.pipelineId,
                      pipelineRunId: d.it.rid, taskName: d.it.jobName };
       try {
-        const res = await fetch(CICD + '/project/pipeline/build-log/export', {
+        const j = await fetchJson(CICD + '/project/pipeline/build-log/export', {
           method: 'POST', headers: H, body: JSON.stringify(body) });
-        const j = await res.json();
-        if (j.code === 200 && j.data) {
+        if (j.data) {
           pending.push({ it: d.it, b, state: 'pending', exportId: String(j.data) });
         } else {
           pending.push({ it: d.it, b, state: 'failed', reason: 'create: ' + JSON.stringify(j).slice(0, 160) });
         }
       } catch (e) {
-        pending.push({ it: d.it, b, state: 'failed', reason: 'create: ' + String(e && e.message || e) });
+        pending.push({ it: d.it, b, state: 'failed', reason: 'create: ' + String(e && e.message || e) + '（已重试 ' + MAX_TRY + ' 次）' });
       }
     }
   }
@@ -85,16 +113,14 @@
     if (p.state !== 'pending') return;
     let j = null;
     try {
-      const res = await fetch(FW + '/export/detail?id=' + encodeURIComponent(p.exportId), { headers: G });
-      j = await res.json();
+      j = await fetchJson(FW + '/export/detail?id=' + encodeURIComponent(p.exportId), { headers: G });
     } catch (e) { /* 网络抖动，下一轮再查 */ }
     if (!j) return;
     const d = j.data || {};
     const msg = String(d.message || d.msg || '');
     if (msg.indexOf('导出成功') >= 0) {
       try {
-        const res2 = await fetch(FW + '/export/download-url?id=' + encodeURIComponent(p.exportId), { headers: G });
-        const j2 = await res2.json();
+        const j2 = await fetchJson(FW + '/export/download-url?id=' + encodeURIComponent(p.exportId), { headers: G });
         if (j2 && j2.data) { p.state = 'ok'; p.url = String(j2.data); }
         else { p.state = 'failed'; p.reason = 'download-url 空: ' + JSON.stringify(j2).slice(0, 120); }
       } catch (e) { p.state = 'failed'; p.reason = 'download-url: ' + String(e && e.message || e); }
@@ -123,23 +149,22 @@
       const qs = 'projectId=' + p.it.projectId + '&jobId=' + jid + '&buildNo=' + p.b.buildNo
         + '&stepRunId=' + p.b.stepRunId + '&startOffset=0&endOffset=0&sort=DESC'
         + '&pipelineId=' + p.it.pipelineId + '&pipelineRunId=' + p.it.rid;
-      const res = await fetch(CICD + '/project/pipeline/build/log?' + qs, { headers: G });
-      const j = await res.json();
+      const j = await fetchJson(CICD + '/project/pipeline/build/log?' + qs, { headers: G });
       const d = j.data || {};
       let tail = '';
       for (const k of ['log', 'logs', 'logContent', 'content', 'lines', 'result']) {
         if (typeof d[k] === 'string' && d[k]) { tail = d[k]; break; }
       }
-      p.paging = (j.code === 200 && tail) ? 'ok' : 'failed';
-      if (j.code === 200 && !tail) tail = JSON.stringify(d).slice(0, 400000);
+      p.paging = tail ? 'ok' : 'failed';
+      if (!tail) tail = JSON.stringify(d).slice(0, 400000);
       p.logTail = tail;
       p.hasMore = d.has_more === undefined ? null : !!d.has_more;
       if (p.paging !== 'ok') {
-        p.reason = (p.reason ? p.reason + '；' : '') + 'build/log: ' + JSON.stringify(j).slice(0, 120);
+        p.reason = (p.reason ? p.reason + '；' : '') + 'build/log: data 无日志正文';
       }
     } catch (e) {
       p.paging = 'failed';
-      p.reason = (p.reason ? p.reason + '；' : '') + 'build/log: ' + String(e && e.message || e);
+      p.reason = (p.reason ? p.reason + '；' : '') + 'build/log: ' + String(e && e.message || e) + '（已重试 ' + MAX_TRY + ' 次）';
     }
   }
   await pAll(pending, pageOne);

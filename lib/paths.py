@@ -8,17 +8,9 @@
   │  └─ <yyyy>/<yyyy-mm>/<yyyy-mm-dd>/    按【执行结束时间】分层
   │     ├─ _day.json                      当日汇总（产品级比率 + 流水线索引）
   │     └─ <开源组件名>/<流水线名>/
-  │        ├─ _manifest.json              目录清单：每步来源/口径/计数/文件
-  │        ├─ step_1_lights.json          第 1 步 该流水线的筛选结果
-  │        ├─ step_2_runs.json            第 2 步 …
-  │        ├─ step_3_tasks.json
-  │        ├─ step_4_cases.json
-  │        ├─ step_5_logs.json
-  │        ├─ step_5b_subtasks.json
-  │        ├─ step_5c_github.json
-  │        ├─ step_6_records.json         每条执行一条记录（清单）
-  │        ├─ records/run_<rn>.json       单条执行记录（agent 逐条分析的最小单位）
-  │        ├─ job_logs/  case_logs/  github_logs/
+  │        ├─ pipeline.json               一条流水线一天的全部内容（见 lib/pipeline_doc.py）
+  │        │                              = 原 _manifest.json + step_1~6 + records/run_<rn>.json
+  │        └─ pipeline.evidence.json      证据原文（job_logs/ case_logs/ github_logs/ 全文逐行内嵌）
   ├─ work/                                中间产物（页面脚本产物/分片/gen.js），每次重跑覆盖写入
   ├─ state/                               跨日期状态：cache/、run_pipeline.log
   └─ html/                                展示层（只有 HTML，不含采集数据）
@@ -41,6 +33,9 @@ HTML_DIR = OUT_DIR / "html"
 
 CACHE_DIR = STATE_DIR / "cache"
 GEN_DIR = WORK_DIR / "_gen"
+# 流水线身份注册表（跨次运行累积的 pipelineId -> 唯一短名）：短名是归档目录名与
+# 页面聚合键的一半，必须跨日稳定，否则同一条流水线在不同日期会落到不同目录 / 不同 key
+PIPELINES_NAME = "_pipelines.json"
 TPL_DIR = SKILL_ROOT / "tpl"
 LIB_DIR = SKILL_ROOT / "lib"
 
@@ -101,6 +96,8 @@ def rel(p):
 
 
 def record_path(arch_dir, rn):
+    """老结构的单条记录路径（合并前）。新结构记录在 `pipeline.json` 的 records[]，
+    读写统一走 `lib/pipeline_doc.py`，这个函数只为兼容未合并的旧归档保留。"""
     return Path(arch_dir) / "records" / ("run_%02d.json" % int(rn))
 
 
@@ -237,12 +234,12 @@ STEP_DOCS = {
         "title": "第 7 步 逐层归档",
         "source": "第 1~6 步中间产物（out/work/）",
         "criteria": "按执行结束时间逐层落到「年/年-月/日/开源组件名/流水线名」，"
-                    "每步一份 JSON + records/run_<构建号>.json + 证据原文，并生成目录清单",
+                    "一条流水线一天合并成一份 pipeline.json（各步正文 + 记录全文 + 清单）+ 证据原文",
         "date_field": DATE_FIELD,
     },
     "step_9_pages": {
         "title": "第 9 步 生成展示页",
-        "source": "out/archive/（_index.json / _day.json / _manifest.json / records/run_*.json）",
+        "source": "out/archive/（_index.json / _day.json / pipeline.json）",
         "criteria": "只产出静态壳（样式 + 公共日期筛选组件 + 取数脚本）到 out/html/，"
                     "HTML 内不内嵌任何业务数据；页面运行时按【执行结束时间】区间读取归档 JSON，"
                     "首页与二级页共用 lib/ui.py 的同一份筛选组件，口径不会分叉",

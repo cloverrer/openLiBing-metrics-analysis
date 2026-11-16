@@ -1,0 +1,211 @@
+{
+ "route": "github",
+ "key": "vllm-ascend|a3.yaml",
+ "rn": 16549,
+ "rid": "43238001464",
+ "st": "11-12 22:31",
+ "runId": 43238001464,
+ "repo": "vllm-project/vllm-ascend",
+ "displayTitle": "Nightly-A3 (scheduled)",
+ "event": "workflow_dispatch",
+ "status": "FAILED",
+ "duration": 7.78,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-13T03:02:02Z",
+  "attempt": 2
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 24,
+ "failedJobs": [
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 131573804528,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests/SIT/cases/models/configs/Kimi, 4) / Kimi-K3-MRV2-A3.yaml",
+   "id": 131573804654,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 131573804528,
+   "conclusion": "failure",
+   "startedAt": "2026-11-12T23:38:52Z",
+   "completedAt": "2026-11-13T03:01:14Z",
+   "logFile": "github_logs/gh_43238001464/131573804528_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt",
+   "logBytes": 390097,
+   "logLines": 3782,
+   "errorLines": [
+    "L2607: [2026-11-13 02:58:08] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 608.891, 'threshold': 0.95, 'benchmark_name': 'perf_1",
+    "L2667: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L2700: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2702: ##[error]Error: failed to run script step:",
+    "L2703: ✗ exit code: 1",
+    "L2725: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2727: ##[error]Process completed with exit code 1.",
+    "L2728: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3274: ##[error]Upload failed. See log:",
+    "L3323: ##[error]Error: failed to run script step:",
+    "L3324: ✗ exit code: 1",
+    "L3340: ##[error]Process completed with exit code 1.",
+    "L3341: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 2607,
+      "case": "{'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 608.891, 'threshold",
+      "reason": "Performance verification failed. The current Output Token Throughput is 528.954  token/s, which is not greater than or equal to 0.95 * baseline 608.891."
+     },
+     {
+      "line": 2667,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 2606,
+      "name": "perf_128k_prefix90",
+      "reason": "Performance verification failed. The current Output Token Throughput is 528.954  token/s, which is not greater than or equal to 0.95 * baseline 608.891."
+     },
+     {
+      "line": 2664,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 2700,
+      "tag": "FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 2695,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 2696,
+      "summary": "1 failed, 17 warnings in 5530.49s (1:32:10)"
+     }
+    ]
+   }
+  },
+  {
+   "name": "multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests/SIT/cases/models/configs/Kimi, 4) / Kimi-K3-MRV2-A3.yaml",
+   "id": 131573804654,
+   "conclusion": "failure",
+   "startedAt": "2026-11-12T23:38:47Z",
+   "completedAt": "2026-11-13T00:46:52Z",
+   "logFile": "github_logs/gh_43238001464/131573804654_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_SIT_cases_models_~8b503c.txt",
+   "logBytes": 811234,
+   "logLines": 6456,
+   "errorLines": [
+    "L5302: [2026-11-13 00:44:02] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix0_in16384_bs200_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 16, 'max_out_len': 1024, 'batch_size': 4, 'request_rate': 0, 'baseline': 100, 'threshold': 0.95, 'benchmark_name': 'perf_16k_prefix",
+    "L5338: (APIServer pid=167) ERROR 11-13 00:44:03 [async_llm.py:943] Traceback (most recent call last):",
+    "L5344: (APIServer pid=167) ERROR 11-13 00:44:03 [async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.",
+    "L5418: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L5451: \u001b[0;31mFAIL_TAG_Kimi-K3-MRV2-A3.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L5453: ##[error]Error: failed to run script step:",
+    "L5454: ✗ exit code: 1",
+    "L5476: \u001b[0;31mFAIL_TAG_Kimi-K3-MRV2-A3.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L5478: ##[error]Process completed with exit code 1.",
+    "L5479: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L5973: ##[error]Upload failed. See log:",
+    "L5998: ##[error]Error: failed to run script step:",
+    "L5999: ✗ exit code: 1",
+    "L6016: ##[error]Process completed with exit code 1.",
+    "L6017: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 5302,
+      "case": "{'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix0_in16384_bs200_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 16, 'max_out_len': 1024, 'batch_size': 4, 'request_rate': 0, 'baseline': 100, 'threshold': 0.95, ",
+      "reason": "Performance verification failed. The current Output Token Throughput is 93.7947  token/s, which is not greater than or equal to 0.95 * baseline 100."
+     },
+     {
+      "line": 5418,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 5301,
+      "name": "perf_16k_prefix0",
+      "reason": "Performance verification failed. The current Output Token Throughput is 93.7947  token/s, which is not greater than or equal to 0.95 * baseline 100."
+     },
+     {
+      "line": 5415,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 5451,
+      "tag": "FAIL_TAG_Kimi-K3-MRV2-A3.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 5446,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 5447,
+      "summary": "1 failed, 17 warnings in 3821.55s (1:03:41)"
+     }
+    ]
+   }
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

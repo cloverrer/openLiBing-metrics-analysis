@@ -1,0 +1,443 @@
+### Ascend-CANN|ops-math#136 (18 files)
+  case_logs/case_0009.html:L3032	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnBitwiseAndTensor (ACCURACY_RL) - aclnnBitwiseAndTensor accuracy not passed</div></td>
+  case_logs/case_0009.html:L3095	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnBitwiseAndTensor accuracy not passed</div></td>
+  case_logs/case_0009.html:L3329	<td class="step-indent"><div class="msg-scroll">测试失败: aclnnBitwiseAndTensor算子ACCURACY_RL测试失败: aclnnBitwiseAndTensor accuracy not passed
+  case_logs/case_0009.html:L3331	+  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pas
+  case_logs/case_0010.html:L1414	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnTopK (Accu_qwen3) - aclnnTopK accuracy not passed</div></td>
+  case_logs/case_0010.html:L1477	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnTopK accuracy not passed</div></td>
+  ...(72 hits)
+### Ascend-CANN|ops-transformer#159 (63 files)
+  case_logs/case_0028.html:L1186	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1211	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1270	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1295	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1371	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1482	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  ...(6121 hits)
+### Ascend-CANN|ops-transformer#160 (63 files)
+  case_logs/case_0028.html:L1186	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1211	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1270	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1295	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1371	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1482	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  ...(6121 hits)
+### Ascend-CANN|ops-transformer#161 (63 files)
+  case_logs/case_0028.html:L1186	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1211	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1270	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1295	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1371	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1482	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  ...(6121 hits)
+### Ascend-CANN|ops-transformer#162 (63 files)
+  case_logs/case_0028.html:L1186	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1211	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1270	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1295	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1371	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  case_logs/case_0028.html:L1482	RuntimeError: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weight:bold">error</span>: hcclCommInitRootInfoConfig(numRanks, &amp;roo
+  ...(6121 hits)
+### Ascend-CANN|shmem#137 (1 files)
+  case_logs/case_0146.html:L4481	<td class="step-indent"><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather
+  ...(1 hits)
+### HPCKit|hmpi#210 (1 files)
+  job_logs/16_hmpi_210_Test_hmpi.log:L138	[2026/11/06 01:11:47.479 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kpex#139 (1 files)
+  job_logs/18_kpex_139_Test_kpex.log:L138	[2026/11/06 00:43:18.658 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kudnn#224 (1 files)
+  job_logs/03_kudnn_224_Test_kudnn.log:L138	[2026/11/06 03:34:00.703 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kupl#297 (3 files)
+  job_logs/05_kupl_297_Test_kupl.log:L138	[2026/11/06 00:02:22.408 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/08_kupl_298_Test_kupl.log:L138	[2026/11/06 12:02:02.448 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/09_kupl_299_Test_kupl.log:L138	[2026/11/06 13:32:03.681 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(3 hits)
+### HPCKit|kupl#298 (3 files)
+  job_logs/05_kupl_297_Test_kupl.log:L138	[2026/11/06 00:02:22.408 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/08_kupl_298_Test_kupl.log:L138	[2026/11/06 12:02:02.448 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/09_kupl_299_Test_kupl.log:L138	[2026/11/06 13:32:03.681 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(3 hits)
+### HPCKit|kupl#299 (3 files)
+  job_logs/05_kupl_297_Test_kupl.log:L138	[2026/11/06 00:02:22.408 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/08_kupl_298_Test_kupl.log:L138	[2026/11/06 12:02:02.448 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/09_kupl_299_Test_kupl.log:L138	[2026/11/06 13:32:03.681 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(3 hits)
+### HPCKit|kuqcd#198 (1 files)
+  job_logs/07_kuqcd_198_Test_quqcd.log:L138	[2026/11/06 00:33:07.909 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### MindIE|MindIE-Motor#117 (1 files)
+  case_logs/case_0000.html:L2777	&quot;motor_coordinator_config&quot;: {},
+  case_logs/case_0000.html:L3011	<td class="step-indent"><div class="msg-scroll">设置值，路径: motor_coordinator_config.standby_config.enable_master_standby, if_not_exists: create</div></td>
+  case_logs/case_0000.html:L3025	<td class="step-indent"><div class="msg-scroll">值设置成功: motor_coordinator_config.standby_config.enable_master_standby</div></td>
+  case_logs/case_0000.html:L3837	&quot;motor_coordinator_env&quot;: {},
+  case_logs/case_0000.html:L4467	- name: coordinator
+  case_logs/case_0000.html:L4470	- name: mindie-motor-coordinator-infer
+  ...(871 hits)
+### MindStudio|msot#261 (6 files)
+  case_logs/case_0001.html:L1375	<td class="step-indent"><div class="msg-scroll">测试执行异常: 工具发生误报，应该没有越界异常
+  case_logs/case_0001.html:L1458	<td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/op_tool/mssanitizer/test_mssanitizer_mc2.py::TestMssanitizerMc2::test_mssanitizer_mc2_0002
+  case_logs/case_0001.html:L1460	Message: 工具发生误报，应该没有越界异常
+  case_logs/case_0001.html:L1479	assert &quot;ERROR&quot; not in ret_msan, &quot;工具发生误报，应该没有越界异常&quot;
+  case_logs/case_0001.html:L1480	E   AssertionError: 工具发生误报，应该没有越界异常
+  case_logs/case_0002.html:L1601	<td class="step-indent"><div class="msg-scroll">测试执行异常: 工具产生误报,不应该有内存越界
+  ...(22 hits)
+### MindStudio|msot#262 (6 files)
+  case_logs/case_0001.html:L1458	<td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/op_tool/mssanitizer/test_mssanitizer_mc2.py::TestMssanitizerMc2::test_mssanitizer_mc2_0002
+  case_logs/case_0002.html:L1684	<td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/op_tool/mssanitizer/test_mssanitizer_mc2.py::TestMssanitizerMc2::test_mssanitizer_support_shmem_allgather
+  case_logs/case_0003.html:L515	<td class="step-indent"><div class="msg-scroll">测试执行异常: 多 dynamic 输入运行失败
+  case_logs/case_0003.html:L534	<td><div class="msg-scroll">Test FAILED: testcase/mindstudio/op_tool/msopgen/test_msopgen_dynamic.py::TestMsopgenDynamic::test_msopst_paramType_dynamic_011
+  case_logs/case_0003.html:L536	Message: 多 dynamic 输入运行失败
+  case_logs/case_0003.html:L550	assert &quot;success&quot; in result.lower() or &quot;success count: 1&quot; in result.lower(), &quot;多 dynamic 输入运行失败&quot;
+  ...(13 hits)
+### MindStudio|msot#263 (6 files)
+  case_logs/case_0001.html:L1375	<td class="step-indent"><div class="msg-scroll">测试执行异常: 工具发生误报，应该没有越界异常
+  case_logs/case_0001.html:L1458	<td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/op_tool/mssanitizer/test_mssanitizer_mc2.py::TestMssanitizerMc2::test_mssanitizer_mc2_0002
+  case_logs/case_0001.html:L1460	Message: 工具发生误报，应该没有越界异常
+  case_logs/case_0001.html:L1479	assert &quot;ERROR&quot; not in ret_msan, &quot;工具发生误报，应该没有越界异常&quot;
+  case_logs/case_0001.html:L1480	E   AssertionError: 工具发生误报，应该没有越界异常
+  case_logs/case_0002.html:L1601	<td class="step-indent"><div class="msg-scroll">测试执行异常: 工具产生误报,不应该有内存越界
+  ...(22 hits)
+### MindStudio|msot#264 (6 files)
+  ...(0 hits)
+### Triton_Ascend|Ascend#104 (2 files)
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L101	[2026/11/06 17:01:07.506 GMT+08:00] 运行编号: run#516
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L104	[2026/11/06 17:01:07.506 GMT+08:00] [17:01:07] run#516 | INIT(初始化) | 已等待 00:00:00
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L107	[2026/11/06 17:01:07.506 GMT+08:00]     任务 [Build_a3a5_arm] 当前状态: INIT(初始化)
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L108	[2026/11/06 17:01:39.756 GMT+08:00] [17:01:37] run#516 | RUNNING(运行中) | 已等待 00:00:30
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L111	[2026/11/06 17:01:39.757 GMT+08:00]     任务 [Build_a3a5_arm]: INIT(初始化) -> RUNNING(运行中)
+  job_logs/01_Ascend_104_npu_ir流水线调用.log:L112	[2026/11/06 17:02:12.006 GMT+08:00] [17:02:07] run#516 | RUNNING(运行中) | 已等待 00:01:00
+  ...(67 hits)
+### SgLang|nightly-test-npu.yml#2079 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6245 hits)
+### SgLang|nightly-test-npu.yml#2081 (66 files)
+  github_logs/gh_42061473997/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16602	2026-11-06T04:48:24.5271713Z [2026-11-06 12:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L986	2026-11-05T16:13:51.8366256Z [2026-11-05 16:13:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L3787	✗ exit code: 255
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L1988	2026-11-06T01:45:51.3309959Z [2026-11-06 01:45:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L4764	✗ exit code: 255
+  github_logs/gh_42159951566/127703027006_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L13563	2026-11-06T05:32:41.2956700Z [2026-11-06 13:32:41] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  ...(13 hits)
+### SgLang|nightly-test-npu.yml#2083 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L1231	2026-11-05T19:06:20.4183050Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7254	2026-11-05T21:59:55.5811426Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  ...(119 hits)
+### SgLang|nightly-test-npu.yml#2084 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L1231	2026-11-05T19:06:20.4183050Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7254	2026-11-05T21:59:55.5811426Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  ...(119 hits)
+### SgLang|nightly-test-npu.yml#2085 (66 files)
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3378	2026-11-05T17:24:56.3045816Z 2026-11-06 01:24:33.556644 WARN [1185-1185][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such 
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3389	2026-11-05T17:24:56.3050456Z 2026-11-06 01:24:33.558446 ERROR [1185-1185][HYBM hybm_entity_default.cpp:1324 InitDramSegment] dram segment does not support sdma in current environment, rankId: 0
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3390	2026-11-05T17:24:56.3050882Z 2026-11-06 01:24:33.558460 ERROR [1185-1185][HYBM hybm_entity_default.cpp:1245 InitSegment] InitDramSegment() failed: -1
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3398	2026-11-05T17:24:56.3054306Z 2026-11-06 01:24:33.558715 WARN [1179-1179][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such 
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3406	2026-11-05T17:24:56.3057810Z 2026-11-06 01:24:33.560558 ERROR [1179-1179][HYBM hybm_entity_default.cpp:1324 InitDramSegment] dram segment does not support sdma in current environment, rankId: 1
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3407	2026-11-05T17:24:56.3058142Z 2026-11-06 01:24:33.560564 ERROR [1179-1179][HYBM hybm_entity_default.cpp:1245 InitSegment] InitDramSegment() failed: -1
+  ...(80 hits)
+### SgLang|nightly-test-npu.yml#2086 (66 files)
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3378	2026-11-05T17:24:56.3045816Z 2026-11-06 01:24:33.556644 WARN [1185-1185][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such 
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3389	2026-11-05T17:24:56.3050456Z 2026-11-06 01:24:33.558446 ERROR [1185-1185][HYBM hybm_entity_default.cpp:1324 InitDramSegment] dram segment does not support sdma in current environment, rankId: 0
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3390	2026-11-05T17:24:56.3050882Z 2026-11-06 01:24:33.558460 ERROR [1185-1185][HYBM hybm_entity_default.cpp:1245 InitSegment] InitDramSegment() failed: -1
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3398	2026-11-05T17:24:56.3054306Z 2026-11-06 01:24:33.558715 WARN [1179-1179][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such 
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3406	2026-11-05T17:24:56.3057810Z 2026-11-06 01:24:33.560558 ERROR [1179-1179][HYBM hybm_entity_default.cpp:1324 InitDramSegment] dram segment does not support sdma in current environment, rankId: 1
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L3407	2026-11-05T17:24:56.3058142Z 2026-11-06 01:24:33.560564 ERROR [1179-1179][HYBM hybm_entity_default.cpp:1245 InitSegment] InitDramSegment() failed: -1
+  ...(80 hits)
+### SgLang|nightly-test-npu.yml#2087 (66 files)
+  github_logs/gh_42061473997/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16602	2026-11-06T04:48:24.5271713Z [2026-11-06 12:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L986	2026-11-05T16:13:51.8366256Z [2026-11-05 16:13:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L3787	✗ exit code: 255
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L1988	2026-11-06T01:45:51.3309959Z [2026-11-06 01:45:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L4764	✗ exit code: 255
+  github_logs/gh_42159951566/127703027006_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L13563	2026-11-06T05:32:41.2956700Z [2026-11-06 13:32:41] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  ...(13 hits)
+### SgLang|nightly-test-npu.yml#2088 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7320	✗ exit code: 1
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7344	2026-11-05T21:59:55.8031294Z ##[error]Process completed with exit code 1.
+  ...(110 hits)
+### SgLang|nightly-test-npu.yml#2091 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L178	// Skip for scheduled runs — they should collect all failures, not fast-fail
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L199	if (lintRun?.status === 'completed' && lintRun?.conclusion === 'failure') {
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L200	core.setFailed('Fast-fail: lint check failed');
+  ...(7418 hits)
+### SgLang|nightly-test-npu.yml#2092 (66 files)
+  github_logs/gh_42197450049/127824197172_nightly-1-npu-a3 _ run (0).txt:L913	2026-11-06T09:50:28.3028302Z ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  github_logs/gh_42197450049/127824197172_nightly-1-npu-a3 _ run (0).txt:L938	ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  github_logs/gh_42197450049/127824197865_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L632	2026-11-06T09:55:47.2142608Z ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  github_logs/gh_42197450049/127824197865_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L657	ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  github_logs/gh_42197450049/127824197899_nightly-acc-16-npu-a3 _ nightly-acc-16-npu-a3.txt:L632	2026-11-06T09:59:59.4510159Z ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  github_logs/gh_42197450049/127824197899_nightly-acc-16-npu-a3 _ nightly-acc-16-npu-a3.txt:L657	ModuleNotFoundError: No module named 'sglang.srt.utils.process'
+  ...(6 hits)
+### SgLang|nightly-test-npu.yml#2093 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6376 hits)
+### SgLang|nightly-test-npu.yml#2094 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### SgLang|nightly-test-npu.yml#2095 (66 files)
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L3787	✗ exit code: 255
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L4764	✗ exit code: 255
+  github_logs/gh_42204167966/127846761875_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L8633	2026-11-06T11:00:03.9012304Z FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/tests/output/shun8686-overlapschedule-20261106-1838-42204167966-1/Nightly_Test_NPU--cann9.1.0-a3-B010
+  github_logs/gh_42204167966/127846761875_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L8659	2026-11-06T11:00:04.9786038Z FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/tests/output/shun8686-overlapschedule-20261106-1838-42204167966-1/Nightly_Test_NPU--cann9.1.0-a3-B010
+  github_logs/gh_42204167966/127846761875_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L8756	✗ exit code: 255
+  github_logs/gh_42208857568/127862479647_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L5269	✗ exit code: 255
+  ...(6 hits)
+### SgLang|nightly-test-npu.yml#2096 (66 files)
+  github_logs/gh_42061473997/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16602	2026-11-06T04:48:24.5271713Z [2026-11-06 12:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L986	2026-11-05T16:13:51.8366256Z [2026-11-05 16:13:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L3787	✗ exit code: 255
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L1988	2026-11-06T01:45:51.3309959Z [2026-11-06 01:45:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42144867602/127654937116_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt:L4764	✗ exit code: 255
+  github_logs/gh_42159951566/127703027006_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L13563	2026-11-06T05:32:41.2956700Z [2026-11-06 13:32:41] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  ...(13 hits)
+### SgLang|nightly-test-npu.yml#2099 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7320	✗ exit code: 1
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7344	2026-11-05T21:59:55.8031294Z ##[error]Process completed with exit code 1.
+  ...(110 hits)
+### SgLang|nightly-test-npu.yml#2100 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L178	// Skip for scheduled runs — they should collect all failures, not fast-fail
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L199	if (lintRun?.status === 'completed' && lintRun?.conclusion === 'failure') {
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L200	core.setFailed('Fast-fail: lint check failed');
+  ...(7418 hits)
+### SgLang|nightly-test-npu.yml#2101 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L1231	2026-11-05T19:06:20.4183050Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7254	2026-11-05T21:59:55.5811426Z AssertionError: 0.0 not greater than 0.0 : host hit rate 0.0% is not above 0%
+  ...(119 hits)
+### vllm-ascend|a3.yaml#16450 (27 files)
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L63	2026-11-06T01:01:51.4591448Z (node:300) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L74	2026-11-06T01:02:00.0794440Z (node:483) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L98	2026-11-06T01:02:01.0870267Z (node:518) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L181	2026-11-06T01:02:05.6281366Z (node:568) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L230	2026-11-06T01:02:06.8810369Z (node:636) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L254	2026-11-06T01:02:08.3704283Z (node:721) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(462 hits)
+### vllm-ascend|a3.yaml#16451 (27 files)
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L63	2026-11-06T01:01:51.4591448Z (node:300) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L74	2026-11-06T01:02:00.0794440Z (node:483) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L98	2026-11-06T01:02:01.0870267Z (node:518) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L181	2026-11-06T01:02:05.6281366Z (node:568) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L230	2026-11-06T01:02:06.8810369Z (node:636) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42063861754/127640780266_multi-node (main, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_cases_models_~0bc925.txt:L254	2026-11-06T01:02:08.3704283Z (node:721) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(462 hits)
+### Ascend-CANN|atb#179 -- NO EVIDENCE FILE (c:\Users\Administrator\Downloads\openlibing看板导出与不达标分析_参考包\openlibing-nightly-rca\out\archive\2026\2026-11\2026-11-06\Ascend-CANN\atb)
+  ...(0 hits)
+### Ascend-CANN|ops-nn#168 -- NO EVIDENCE FILE (c:\Users\Administrator\Downloads\openlibing看板导出与不达标分析_参考包\openlibing-nightly-rca\out\archive\2026\2026-11\2026-11-06\Ascend-CANN\ops-nn)
+  ...(0 hits)
+### Ascend-CANN|ops-nn#169 -- NO EVIDENCE FILE (c:\Users\Administrator\Downloads\openlibing看板导出与不达标分析_参考包\openlibing-nightly-rca\out\archive\2026\2026-11\2026-11-06\Ascend-CANN\ops-nn)
+  ...(0 hits)
+### Ascend-CANN|ops-transformer#165 (63 files)
+  case_logs/case_0028.html:L16280	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnMatmulAllReduce (ACCURACY) - aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16343	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16465	<td class="step-indent"><div class="msg-scroll">测试失败: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed
+  case_logs/case_0028.html:L16467	+  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pas
+  case_logs/case_0029.html:L8380	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnQuantMatmulAlltoAll (Smoke) - aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  case_logs/case_0029.html:L8443	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  ...(291 hits)
+### Ascend-CANN|ops-transformer#166 (63 files)
+  case_logs/case_0028.html:L16280	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnMatmulAllReduce (ACCURACY) - aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16343	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16465	<td class="step-indent"><div class="msg-scroll">测试失败: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed
+  case_logs/case_0028.html:L16467	+  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pas
+  case_logs/case_0029.html:L8380	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnQuantMatmulAlltoAll (Smoke) - aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  case_logs/case_0029.html:L8443	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  ...(291 hits)
+### Ascend-CANN|shmem#140 (1 files)
+  case_logs/case_0146.html:L1304	2026-11-06 17:29:29 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7204] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1321	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7274] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1337	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7415] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1359	2026-11-06 17:29:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7466] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1535	2026-11-06 17:29:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7933] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1552	2026-11-06 17:29:54 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [8001] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  ...(85 hits)
+### Ascend-CANN|shmem#141 (1 files)
+  ...(0 hits)
+### Ascend-CANN|shmem#142 (1 files)
+  case_logs/case_0146.html:L1304	2026-11-06 17:29:29 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7204] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1321	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7274] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1337	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7415] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1359	2026-11-06 17:29:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7466] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1535	2026-11-06 17:29:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7933] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1552	2026-11-06 17:29:54 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [8001] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  ...(85 hits)
+### HPCKit|hmpi#213 (1 files)
+  job_logs/16_hmpi_210_Test_hmpi.log:L138	[2026/11/06 01:11:47.479 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kpex#142 (1 files)
+  job_logs/18_kpex_139_Test_kpex.log:L138	[2026/11/06 00:43:18.658 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kudnn#227 (1 files)
+  job_logs/03_kudnn_224_Test_kudnn.log:L138	[2026/11/06 03:34:00.703 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### HPCKit|kupl#306 (3 files)
+  job_logs/05_kupl_297_Test_kupl.log:L138	[2026/11/06 00:02:22.408 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/08_kupl_298_Test_kupl.log:L138	[2026/11/06 12:02:02.448 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  job_logs/09_kupl_299_Test_kupl.log:L138	[2026/11/06 13:32:03.681 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(3 hits)
+### HPCKit|kuqcd#201 (1 files)
+  job_logs/07_kuqcd_198_Test_quqcd.log:L138	[2026/11/06 00:33:07.909 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### MindIE|MindIE-Motor#120 (1 files)
+  case_logs/case_0000.html:L2777	&quot;motor_coordinator_config&quot;: {},
+  case_logs/case_0000.html:L3011	<td class="step-indent"><div class="msg-scroll">设置值，路径: motor_coordinator_config.standby_config.enable_master_standby, if_not_exists: create</div></td>
+  case_logs/case_0000.html:L3025	<td class="step-indent"><div class="msg-scroll">值设置成功: motor_coordinator_config.standby_config.enable_master_standby</div></td>
+  case_logs/case_0000.html:L3837	&quot;motor_coordinator_env&quot;: {},
+  case_logs/case_0000.html:L4467	- name: coordinator
+  case_logs/case_0000.html:L4470	- name: mindie-motor-coordinator-infer
+  ...(871 hits)
+### MindIE|MindIE-Motor#121 (1 files)
+  case_logs/case_0000.html:L19676	<td class="step-indent"><div class="msg-scroll">开始停止PyMotor服务</div></td>
+  case_logs/case_0000.html:L19758	<td class="step-indent"><div class="msg-scroll">PyMotor服务停止成功!</div></td>
+  case_logs/case_0000.html:L19765	<td class="step-indent"><div class="msg-scroll">PyMotor服务停止成功!</div></td>
+  ...(3 hits)
+### MindIE|MindIE-Motor#124 (1 files)
+  case_logs/case_0000.html:L19676	<td class="step-indent"><div class="msg-scroll">开始停止PyMotor服务</div></td>
+  case_logs/case_0000.html:L19758	<td class="step-indent"><div class="msg-scroll">PyMotor服务停止成功!</div></td>
+  case_logs/case_0000.html:L19765	<td class="step-indent"><div class="msg-scroll">PyMotor服务停止成功!</div></td>
+  ...(3 hits)
+### SgLang|nightly-test-npu.yml#2124 (66 files)
+  github_logs/gh_42061473997/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16602	2026-11-06T04:48:24.5271713Z [2026-11-06 12:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L986	2026-11-05T16:13:51.8366256Z [2026-11-05 16:13:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr
+  github_logs/gh_42061473997/24_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L3787	✗ exit code: 255
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L4424	2026-11-05T17:24:56.3515921Z [2026-11-06 01:24:35 DP5 PP1 TP5 EP5] Scheduler hit an exception: Traceback (most recent call last):
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L4503	2026-11-05T17:24:56.3534377Z [2026-11-06 01:24:35 DP7 PP0 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):
+  github_logs/gh_42073069875/127405967141_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L4765	2026-11-05T17:24:56.3614070Z [2026-11-06 01:24:35 DP4 PP0 TP4 EP4] Scheduler hit an exception: Traceback (most recent call last):
+  ...(31 hits)
+### SgLang|nightly-test-npu.yml#2125 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### SgLang|nightly-test-npu.yml#2126 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### SgLang|nightly-test-npu.yml#2127 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### SgLang|nightly-test-npu.yml#2128 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L178	// Skip for scheduled runs — they should collect all failures, not fast-fail
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L199	if (lintRun?.status === 'completed' && lintRun?.conclusion === 'failure') {
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L200	core.setFailed('Fast-fail: lint check failed');
+  ...(7418 hits)
+### SgLang|nightly-test-npu.yml#2129 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L930	✗ exit code: 1
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L954	2026-11-05T14:51:43.0674442Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L590	✗ exit code: 1
+  github_logs/gh_42047810705/4_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt:L614	2026-11-05T22:13:50.8729604Z ##[error]Process completed with exit code 1.
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7320	✗ exit code: 1
+  github_logs/gh_42047810705/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_overlap, 2, 2, 1, test_r~7420f7.txt:L7344	2026-11-05T21:59:55.8031294Z ##[error]Process completed with exit code 1.
+  ...(110 hits)
+### SgLang|nightly-test-npu.yml#2130 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### SgLang|nightly-test-npu.yml#2132 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L178	// Skip for scheduled runs — they should collect all failures, not fast-fail
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L199	if (lintRun?.status === 'completed' && lintRun?.conclusion === 'failure') {
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L200	core.setFailed('Fast-fail: lint check failed');
+  ...(7418 hits)
+### SgLang|nightly-test-npu.yml#2133 (66 files)
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L42	2026-11-05T14:49:33.9934603Z (node:472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L75	2026-11-05T14:49:51.7018671Z (node:669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L165	2026-11-05T14:50:07.0181091Z (node:705) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L235	// Find jobs that failed from a real error, not from fast-fail cascade
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L289	2026-11-05T14:50:09.2023149Z (node:754) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  github_logs/gh_42047810705/10_nightly-1-npu-a3 _ run (0).txt:L334	2026-11-05T14:50:11.2597072Z (node:817) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CV
+  ...(6227 hits)
+### Ascend-CANN|ops-transformer#167 (63 files)
+  case_logs/case_0028.html:L16280	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnMatmulAllReduce (ACCURACY) - aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16343	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnMatmulAllReduce accuracy not passed</div></td>
+  case_logs/case_0028.html:L16465	<td class="step-indent"><div class="msg-scroll">测试失败: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed
+  case_logs/case_0028.html:L16467	+  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pas
+  case_logs/case_0029.html:L8380	<td class="step-indent"><div class="msg-scroll">Test failed: aclnnQuantMatmulAlltoAll (Smoke) - aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  case_logs/case_0029.html:L8443	<td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnQuantMatmulAlltoAll accuracy not passed</div></td>
+  ...(291 hits)
+### Ascend-CANN|shmem#143 (1 files)
+  case_logs/case_0146.html:L1304	2026-11-06 17:29:29 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7204] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1321	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7274] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1337	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7415] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1359	2026-11-06 17:29:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7466] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1535	2026-11-06 17:29:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7933] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1552	2026-11-06 17:29:54 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [8001] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  ...(85 hits)
+### Ascend-CANN|shmem#144 (1 files)
+  case_logs/case_0146.html:L1304	2026-11-06 17:29:29 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7204] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1321	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7274] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1337	2026-11-06 17:29:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7415] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1359	2026-11-06 17:29:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7466] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1535	2026-11-06 17:29:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7933] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  case_logs/case_0146.html:L1552	2026-11-06 17:29:54 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [8001] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+  ...(85 hits)
+### Ascend-CANN|shmem#145 (1 files)
+  ...(0 hits)
+### HPCKit|kuqcd#202 (1 files)
+  job_logs/07_kuqcd_198_Test_quqcd.log:L138	[2026/11/06 00:33:07.909 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+  ...(1 hits)
+### boostkit|Bigdata#11 -- NO EVIDENCE FILE (c:\Users\Administrator\Downloads\openlibing看板导出与不达标分析_参考包\openlibing-nightly-rca\out\archive\2026\2026-11\2026-11-06\boostkit\Bigdata)
+== done
+  ...(1 hits)

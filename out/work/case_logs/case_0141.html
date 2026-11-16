@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3</h2>
+        <p><strong>Case ID:</strong> testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 64.18s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 45</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-05 18:52:50.350</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;cann_single_A3_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 256, &#39;npu_gen&#39;: &#39;A3&#39;, &#39;npu_model&#39;: &#39;Ascend 910C&#39;, &#39;npu_num&#39;: 16, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;memory_size&#39;: 1024, &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;192&#39;, &#39;limit&#39;: &#39;256&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;1008Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;mount_source_data&#39;: [&#39;cann_ops_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/testdata&#39;], &#39;image_label&#39;: &#39;swr.cn-north-4.myhuaweicloud.com/hw-ascend/smoke:hccl_hcomm-A3&#39;, &#39;pool&#39;: &#39;ascend-general-a3&#39;}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:50.350</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;save_server_ip&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:50.350</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:79</td>
+            <td><div class="msg-scroll">Pre-action &#39;make_hccl&#39; skipped (already executed)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.231</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.232</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip  Phy-ID              | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     Ascend910           | OK            | 157.6                36                      0    / 0                |
+| 0     0                   | 0000:9D:00.0  | 0                    0    / 0                3163 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 0     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     1                   | 0000:9F:00.0  | 0                    0    / 0                2897 / 65536            |
++===========================+===============+======================================================================+
+| 1     Ascend910           | OK            | 164.6                39                      0    / 0                |
+| 0     2                   | 0000:99:00.0  | 0                    0    / 0                3167 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 1     Ascend910           | OK            | -                    35                      0    / 0                |
+| 1     3                   | 0000:9B:00.0  | 0                    0    / 0                2882 / 65536            |
++===========================+===============+======================================================================+
+| 2     Ascend910           | OK            | 162.5                37                      0    / 0                |
+| 0     4                   | 0000:95:00.0  | 0                    0    / 0                3158 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 2     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     5                   | 0000:97:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 3     Ascend910           | OK            | 164.1                37                      0    / 0                |
+| 0     6                   | 0000:91:00.0  | 0                    0    / 0                3180 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 3     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     7                   | 0000:93:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 4     Ascend910           | OK            | 160.1                36                      0    / 0                |
+| 0     8                   | 0000:8D:00.0  | 0                    0    / 0                3161 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 4     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     9                   | 0000:8F:00.0  | 0                    0    / 0                2899 / 65536            |
++===========================+===============+======================================================================+
+| 5     Ascend910           | OK            | 161.2                39                      0    / 0                |
+| 0     10                  | 0000:89:00.0  | 0                    0    / 0                3143 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 5     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     11                  | 0000:8B:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 6     Ascend910           | OK            | 159.0                39                      0    / 0                |
+| 0     12                  | 0000:85:00.0  | 0                    0    / 0                3151 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 6     Ascend910           | OK            | -                    40                      0    / 0                |
+| 1     13                  | 0000:87:00.0  | 0                    0    / 0                2887 / 65536            |
++===========================+===============+======================================================================+
+| 7     Ascend910           | OK            | 165.9                37                      0    / 0                |
+| 0     14                  | 0000:81:00.0  | 0                    0    / 0                3148 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 7     Ascend910           | OK            | -                    38                      0    / 0                |
+| 1     15                  | 0000:83:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 0                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 2                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 3                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 5                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.235</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.235</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.235</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;157.6&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;1&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;164.6&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;162.5&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;3&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;164.1&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;4&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;160.1&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;5&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;161.2&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;6&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;159.0&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;165.9&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.236</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.236</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.236</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>plugin.py:970</td>
+            <td><div class="msg-scroll">testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:52:52.237</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1911</td>
+            <td><div class="msg-scroll">CANN_HCCL_AllReduce_Deterministic_Funcs_A3</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:52:52.237</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1912</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:52:52.237</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1913</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">参数组合数量: 1</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:52:52.237</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1914</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-error">
+            <td>2026-11-05 18:52:52.237</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1916</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: CANN_HCCL_AllReduce_Deterministic_Funcs_A3</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:55.120</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">ls -1 /dev/davinci[0-9]* 2&gt;/dev/null | grep -E &#39;/davinci[0-9]+$&#39; | wc -l</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:55.121</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">16</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:55.121</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_utils.py:190</td>
+                <td class="step-indent"><div class="msg-scroll">检测到服务器上的 Davinci 卡数量: 16</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:55.121</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_case_runner.py:85</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL sampled matrix 采样种子: CANN_HCCL_AllReduce_Deterministic_Funcs_A3</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:58.030</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -f &#39;/home/sess_run/server_ip&#39; &amp;&amp; echo &#39;is_file&#39; || echo &#39;not_file&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:52:58.031</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">is_file</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:00.940</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat &#39;/home/sess_run/server_ip&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:00.940</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.244.210.159</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:00.940</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>file_utils.py:840</td>
+                <td class="step-indent"><div class="msg-scroll">读取文件成功: /home/sess_run/server_ip, 行数: 全部</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:00.940</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_utils.py:74</td>
+                <td class="step-indent"><div class="msg-scroll">获取到 1 个server IP</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:00.940</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_pytorch.py:32</td>
+                <td class="step-indent"><div class="msg-scroll">开始执行 PyTorch HCCL 测试，节点数量: 1</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:35.896</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; ./mul_server_pytorch_py38.sh 1 11 pytorch_hccl_allreduce_deterministic_aiv_test.py 1100 --dtype int16 --optype min --data_list 1024 --used_deterministic true </div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:35.896</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✅ Success: Activated py38_torch_2.10 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/pytorch_hccl_allreduce_deterministic_aiv_test.py --master_ip 10.244.210.159 --dtype int16 --optype min --data_list 1024 --used_deterministic true --server_index 0 --server_num 1 --dev_num 11 &gt; /home/sess_run/result/1server_11N/train_0.log 2&gt;&amp;1
+
+--- 测试配置 ---
+master_ip           : 10.244.210.159
+master_port         : 50001
+dev_num             : 11
+server_num          : 1
+server_index        : 0
+used_devices        : None
+used_profiling      : False
+profiling_path      : /home/log/npu/profiling/
+used_algo           : auto_algo
+expansion_mode      : false
+used_deterministic  : true
+buffersize          : None
+max_runtime_cores   : false
+aicore_num          : None
+data_list           : [1024]
+dtype               : int16
+optype              : min
+mul_num             : 1
+batch_num           : 3
+world_size          : 11
+float_type_list     : [torch.float32, torch.float16, torch.bfloat16]
+all_float_check     : {&#39;sum&#39;: {torch.float32: [tensor([66.])], torch.float16: [tensor([66.], dtype=torch.float16)], torch.bfloat16: [tensor([66.], dtype=torch.bfloat16)]}, &#39;prod&#39;: {torch.float32: [tensor([39916800.])], torch.float16: [tensor([inf], dtype=torch.float16)], torch.bfloat16: [tensor([40108032.], dtype=torch.bfloat16), tensor([39845888.], dtype=torch.bfloat16)]}}
+主进程 PID          : 24602
+------------------
+
+Rank 1 (本地 1) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24800
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:1 pytorch hccl test success
+Rank 9 (本地 9) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24818
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:9 pytorch hccl test success
+Rank 2 (本地 2) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24802
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:2 pytorch hccl test success
+Rank 7 (本地 7) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24812
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:7 pytorch hccl test success
+Rank 5 (本地 5) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24808
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:5 pytorch hccl test success
+Rank 4 (本地 4) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24806
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:4 pytorch hccl test success
+Rank 3 (本地 3) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24804
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:3 pytorch hccl test success
+Rank 0 (本地 0) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24798
+   数据大小: 512, 类型: torch.int16, 操作: RedOpType.MIN, 循环1次中
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:0 pytorch hccl test success
+SUCCESS: device 0 (global rank 0) PyTorch HCCL execute success
+Rank 10 (本地 10) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24821
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:10 pytorch hccl test success
+Rank 6 (本地 6) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24810
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:6 pytorch hccl test success
+Rank 8 (本地 8) 初始化方法: tcp://10.244.210.159:50001, 全局进程数: 11, PID: 24815
+
+Summary: DETERMINISTIC_AIV_SUCCESS: 数据大小: [1024], 类型: [torch.int16], 操作: [&lt;RedOpType.MIN: 3&gt;] AllReduce
+device:8 pytorch hccl test success
+# Python process (pytorch_hccl_allreduce_deterministic_aiv_test.py) has completed.
+检查通过：所有设备都找到了旧的成功标志。
+train_all exec success
+# Check passed. No cleanup needed.
+./mul_server_pytorch_py38.sh: line 108: 24142 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:38.808</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:38.808</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/root/ascend/log/debug/plog/plog-24798_20261105185312772.log:22926:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24798,python3):2026-11-05-18:53:21.602.338 [op_impl_space_registry_v2_impl.cc:116]24798 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24821_20261105185312557.log:22159:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24821,python3):2026-11-05-18:53:21.608.437 [op_impl_space_registry_v2_impl.cc:116]27055 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24806_20261105185312912.log:22026:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24806,python3):2026-11-05-18:53:21.598.199 [op_impl_space_registry_v2_impl.cc:116]24806 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24804_20261105185312394.log:22044:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24804,python3):2026-11-05-18:53:21.597.076 [op_impl_space_registry_v2_impl.cc:116]24804 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24818_20261105185312930.log:22146:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24818,python3):2026-11-05-18:53:21.599.317 [op_impl_space_registry_v2_impl.cc:116]27061 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24800_20261105185312758.log:22052:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24800,python3):2026-11-05-18:53:21.596.347 [op_impl_space_registry_v2_impl.cc:116]24800 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24810_20261105185312912.log:22024:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24810,python3):2026-11-05-18:53:21.589.400 [op_impl_space_registry_v2_impl.cc:116]24810 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24812_20261105185312939.log:22046:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24812,python3):2026-11-05-18:53:21.600.932 [op_impl_space_registry_v2_impl.cc:116]27034 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24802_20261105185312823.log:22047:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24802,python3):2026-11-05-18:53:21.592.414 [op_impl_space_registry_v2_impl.cc:116]27022 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24808_20261105185312787.log:22039:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24808,python3):2026-11-05-18:53:21.597.257 [op_impl_space_registry_v2_impl.cc:116]26980 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24815_20261105185312967.log:22101:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(24815,python3):2026-11-05-18:53:21.592.912 [op_impl_space_registry_v2_impl.cc:116]27067 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:38.810</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">SimpleNamespace 日志中包含 ERROR: /root/ascend/log/debug/plog/plog-24798_20261105185312772.log:22926:[ERROR] GE(24798,python3):2026-11-05-18:53:21.602.338 [op_impl_space_registry_v2_impl.cc:116]24798 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24821_20261105185312557.log:22159:[ERROR] GE(24821,python3):2026-11-05-18:53:21.608.437 [op_impl_space_registry_v2_impl.cc:116]27055 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24806_20261105185312912.log:22026:[ERROR] GE(24806,python3):2026-11-05-18:53:21.598.199 [op_impl_space_registry_v2_impl.cc:116]24806 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24804_20261105185312394.log:22044:[ERROR] GE(24804,python3):2026-11-05-18:53:21.597.076 [op_impl_space_registry_v2_impl.cc:116]24804 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24818_20261105185312930.log:22146:[ERROR] GE(24818,python3):2026-11-05-18:53:21.599.317 [op_impl_space_registry_v2_impl.cc:116]27061 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24800_20261105185312758.log:22052:[ERROR] GE(24800,python3):2026-11-05-18:53:21.596.347 [op_impl_space_registry_v2_impl.cc:116]24800 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24810_20261105185312912.log:22024:[ERROR] GE(24810,python3):2026-11-05-18:53:21.589.400 [op_impl_space_registry_v2_impl.cc:116]24810 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24812_20261105185312939.log:22046:[ERROR] GE(24812,python3):2026-11-05-18:53:21.600.932 [op_impl_space_registry_v2_impl.cc:116]27034 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24802_20261105185312823.log:22047:[ERROR] GE(24802,python3):2026-11-05-18:53:21.592.414 [op_impl_space_registry_v2_impl.cc:116]27022 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24808_20261105185312787.log:22039:[ERROR] GE(24808,python3):2026-11-05-18:53:21.597.257 [op_impl_space_registry_v2_impl.cc:116]26980 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-24815_20261105185312967.log:22101:[ERROR] GE(24815,python3):2026-11-05-18:53:21.592.912 [op_impl_space_registry_v2_impl.cc:116]27067 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:53:38.811</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL 用例执行失败: CANN_HCCL_AllReduce_Deterministic_Funcs_A3 failed</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-05 18:53:38.812</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>test_hccl_train.py:1923</td>
+            <td><div class="msg-scroll">Test Case End</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:38.868</td>
+            <td class='FAIL'>FAIL</td>
+            <td>281473219768352</td>
+            <td>__init__.py:71</td>
+            <td><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/hccl/test_hccl_train.py::TestHcclTrain::test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3
+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:41.731</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">test -d /root/ascend/log</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:41.731</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:41.731</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>device.py:1087</td>
+            <td><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3_18-52-50/cann_single_A3_device_cover_single_type-nodes_1-device via SCP</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:44.200</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:224</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device download &#39;/root/ascend/log&#39; -&gt; &#39;/home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3_18-52-50/cann_single_A3_device_cover_single_type-nodes_1-device&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:48.243</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">mv /root/ascend/log /mnt/share/cann_autotest_log/test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3_20261105_185338</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:48.243</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:48.243</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:233</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device &#39;mv /root/ascend/log /mnt/share/cann_autotest_log/test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3_20261105_185338&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:54.530</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">find /mnt/share/cann_autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:54.530</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:53:54.531</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>plugin.py:1076</td>
+            <td><div class="msg-scroll">TestCase End, completed in 64.18s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

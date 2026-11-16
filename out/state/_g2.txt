@@ -1,0 +1,380 @@
+[case_logs/case_0059.html:L1700] [PID: 52707] 2026-11-09-04:35:40.435.462 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1701] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1703] topkNum (9) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1704] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1705] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1706] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1725] [PID: 52707] 2026-11-09-04:35:40.435.462 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1726] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1728] topkNum (9) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1729] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1730] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1731] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1750] [PID: 52707] 2026-11-09-04:35:40.435.462 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1751] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1753] topkNum (9) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1754] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1755] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1756] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1829] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1830] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1832] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1833] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1834] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1835] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1842] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1843] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1845] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1846] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1847] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1848] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1867] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1868] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1870] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1871] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1872] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1873] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1892] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1893] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1895] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1896] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1897] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1898] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1924]                 <td class="step-indent"><div class="msg-scroll">[PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1925] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1927] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1928] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1929] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1930] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1949] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1950] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1952] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1953] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1954] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1955] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1974] [PID: 52707] 2026-11-09-04:35:43.143.167 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1975] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L1977] topkNum (7) must equal probs dimension 1 (511).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L1978] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L1979] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L1980] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2055] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2056] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2058] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2059] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2060] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2061] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2068] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2069] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2071] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2072] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2073] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2074] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2093] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2094] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2096] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2097] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2098] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2099] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2118] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2119] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2121] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2122] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2123] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2124] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2151] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2152] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2154] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2155] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2156] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2157] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2176] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2177] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2179] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2180] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2181] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2182] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2201] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2202] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2204] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2205] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2206] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2207] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2264] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2265] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2267] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2268] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2269] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2270] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2289] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2290] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2292] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2293] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2294] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2295] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2314] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2315] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2317] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2318] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2319] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2320] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2377] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2378] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2380] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2381] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2382] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2383] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2402] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2403] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2405] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2406] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2407] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2408] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2427] [PID: 52703] 2026-11-09-04:35:47.279.253 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2428] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2430] topkNum (17) must equal probs dimension 1 (20).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2431] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2432] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2433] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2507] [PID: 52703] 2026-11-09-04:35:55.328.668 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2508] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2510] topkNum (255) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2511] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2512] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2513] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2520] [PID: 52703] 2026-11-09-04:35:55.328.668 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2521] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2523] topkNum (255) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2524] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2525] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2526] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2545] [PID: 52703] 2026-11-09-04:35:55.328.668 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2546] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2548] topkNum (255) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2549] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2550] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2551] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2570] [PID: 52703] 2026-11-09-04:35:55.328.668 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2571] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2573] topkNum (255) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2574] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2575] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2576] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2603] topkNum (8) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2604] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2605] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2606] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2625] [PID: 52703] 2026-11-09-04:35:56.000.771 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2626] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2628] topkNum (8) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2629] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2630] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2631] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2715]                 <td class="step-indent"><div class="msg-scroll">topkNum (8) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2716] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2717] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2718] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2737] [PID: 52703] 2026-11-09-04:35:56.000.771 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2738] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2740] topkNum (8) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2741] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2742] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2743] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2828]                 <td class="step-indent"><div class="msg-scroll">Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2829] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2848] [PID: 52703] 2026-11-09-04:35:56.000.771 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2849] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+----
+[case_logs/case_0059.html:L2851] topkNum (8) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+----
+[case_logs/case_0059.html:L2852] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+----
+[case_logs/case_0059.html:L2853] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----
+[case_logs/case_0059.html:L2854] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+----

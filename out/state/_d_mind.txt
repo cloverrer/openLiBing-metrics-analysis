@@ -1,0 +1,27 @@
+######################################################################
+RID=MindIE|MindIE-Motor#120 | cat=test_failure | ftt=测试任务 | status=FAILED | VA=1 BS=0.6667
+  pipeline=MindIE-Motor platform=codearts
+  TASK name=None type=test status=None logFile=None
+     CASE state=failed desc=TimeoutError: 服务启动超时，未找到成功日志! localLog=case_logs/case_0196.html
+  errorMessages=1
+     EM level=CASE src=case_logs/case_0196.html line=None msg=None
+  EVFILES=1
+     case_logs/case_0196.html (30032 lines)
+######################################################################
+RID=MindIE|MindIE-Motor#121 | cat=cancelled | ftt=测试任务 | status=CANCELED | VA=1 BS=0.6667
+  pipeline=MindIE-Motor platform=codearts
+  TASK name=None type=log status=None logFile=None
+  errorMessages=2
+     EM level=JOB src=Test_Pytest_MindIE-Motor_smoke_test_453 line=None msg=None
+     EM level=STEP src=Test_Pytest_MindIE-Motor_smoke_test_453 line=None msg=None
+  EVFILES=1
+     case_logs/case_0196.html (30032 lines)
+######################################################################
+RID=MindIE|MindIE-Motor#124 | cat=cancelled | ftt=构建任务 | status=CANCELED | VA=1 BS=0.6667
+  pipeline=MindIE-Motor platform=codearts
+  TASK name=None type=log status=None logFile=None
+  errorMessages=2
+     EM level=JOB src=Build_MindIE-Motor line=None msg=None
+     EM level=STEP src=Build_MindIE-Motor line=None msg=None
+  EVFILES=1
+     case_logs/case_0196.html (30032 lines)

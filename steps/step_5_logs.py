@@ -9,6 +9,8 @@
 后处理: 全文件错误行扫描（带行号，L<行号>: 原文）；≥阈值大日志生成摘录（头 N 行+错误行+尾 M 行）
 产物:   out/job_logs/NN_<流水线>_<构建号>_<任务>.log（+ _excerpt.log 摘录）/
         out/job_logs/manifest.json / out/step_5_log_evidence.json
+归档:   以上日志由第 7 步逐行内嵌进归档目录的 pipeline.evidence.json，归档区不留散文件
+        （本节产物属于工作目录，归档后可删）。
 """
 import os
 import re
@@ -109,7 +111,11 @@ def main():
     evid = load_json(evid_file) if evid_file.exists() else {"results": []}
     fallback_items, seen = [], {(it["rid"], it["jobId"]) for it in items}
     for r in evid.get("results") or []:
-        if not r.get("empty"):
+        # 回退条件：测试结果为空（用例未拉起），或 test 任务失败但没有
+        # 任何失败用例（用例 100% 通过，失败在任务执行层：环境/框架/脚本报错，
+        # 如 atb#183 用例全过仍 FAILED）——这两种都拿不到用例级证据，需整 job 日志
+        no_failed_cases = not (r.get("failedCases") or [])
+        if not r.get("empty") and not no_failed_cases:
             continue
         k = (r["rid"], r["jobId"])
         if k in seen:
@@ -123,6 +129,7 @@ def main():
             "steps": r.get("steps") or [], "jobErrMsg": r.get("jobErrMsg"),
             "jobLastDispatchId": r.get("jobLastDispatchId"),
             "route": "log", "fallback": True,
+            "fallbackReason": ("empty" if r.get("empty") else "no_failed_cases"),
         })
     items.extend(fallback_items)
 
@@ -167,7 +174,10 @@ def main():
         out = run_page_js("step_5_export.js",
                           {"items": batch, "delay": delay,
                            "conc": cfg["chrome"].get("request_concurrency", 4),
-                           "pollTimeoutMs": coll["export_poll_timeout_ms"]},
+                           "pollTimeoutMs": coll["export_poll_timeout_ms"],
+                           # 空响应体/解析失败重试（与 T1/T2 同口径）
+                           "maxTry": cfg["collect"].get("detail_retry_times", 3),
+                           "retryBackoffMs": cfg["collect"].get("detail_retry_backoff_ms") or [1000, 2000]},
                           "step_5_export_batch%d.json" % (i + 1), cfg, "T5-EXPORT")
         for r in out.get("results") or []:
             if r.get("export") == "ok":
@@ -224,7 +234,10 @@ def main():
             out = run_page_js("step_5_logs.js",
                               {"items": batch, "logLimit": coll["t5_log_limit"],
                                "maxErrLines": 40, "delay": delay,
-                               "conc": cfg["chrome"].get("request_concurrency", 4)},
+                               "conc": cfg["chrome"].get("request_concurrency", 4),
+                               # 空响应体/解析失败重试（与 T1/T2 同口径）
+                               "maxTry": cfg["collect"].get("detail_retry_times", 3),
+                               "retryBackoffMs": cfg["collect"].get("detail_retry_backoff_ms") or [1000, 2000]},
                               "step_5_paging_batch%d.json" % (i + 1), cfg, "T5-PAGING")
             for r in out.get("results") or []:
                 it = next((x for x in dl_failed

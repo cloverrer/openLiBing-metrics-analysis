@@ -1,0 +1,188 @@
+################################################################################
+record[0] Ascend-CANN|ops-transformer#165
+- test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad | case_logs/case_0059.html | errCount=1
+    desc: AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_
+    em L3158 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+    sig TOPK: 32
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8 | case_logs/case_0060.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L8741 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+    sig HCCL: 130
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4 | case_logs/case_0061.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L8948 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+    sig HCCL: 138
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulalltoall | case_logs/case_0062.html | errCount=1
+    desc: AssertionError: aclnnMatmulAlltoAll功能精度测试(executor)失败: aclnnMatmulAlltoAll accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_d
+    em L8553 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+    sig HCCL: 128
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4 | case_logs/case_0063.html | errCount=1
+    desc: AssertionError: aclnnAlltoAllQuantMatmul功能精度测试(executor)失败: aclnnAlltoAllQuantMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='N
+    em L15529 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+    sig HCCL: 251
+    sig ACC: 4
+- test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none | case_logs/case_0064.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L7927 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none | case_logs/case_0065.html | errCount=1
+    desc: AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_
+    em L2249 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none | case_logs/case_0066.html | errCount=1
+    desc: AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_
+    em L2083 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulallreducev2 | case_logs/case_0067.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15555 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+    sig HCCL: 125
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulreducescatter | case_logs/case_0068.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15515 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulreducescatter
+    sig HCCL: 125
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallmatmul | case_logs/case_0069.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L1980 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+    sig HCCL: 12
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoedistributecombinev2_2p | case_logs/case_0070.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L9063 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmoedistributecombinev2_2p
+    sig HCCL: 139
+    sig ACC: 4
+- test_cann_accu_smk_aclnnquantmatmulalltoall | case_logs/case_0071.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L8720 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulalltoall
+    sig HCCL: 131
+    sig ACC: 4
+- test_cann_accu_smk_aclnnquantmatmulallreducev3 | case_logs/case_0072.html | errCount=1
+    desc: AssertionError: aclnnQuantMatmulAllReduceV3功能精度测试(executor)失败: aclnnQuantMatmulAllReduceV3 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_p
+    em L27161 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulallreducev3
+    sig HCCL: 230
+    sig ACC: 4
+- test_cann_accu_smk_aclnnallgathermatmul | case_logs/case_0073.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15619 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnallgathermatmul
+    sig HCCL: 128
+    sig ACC: 4
+- test_cann_accu_smk_aclnnweightquantmatmulallreduce | case_logs/case_0074.html | errCount=1
+    desc: AssertionError: aclnnWeightQuantMatmulAllReduce功能精度测试(executor)失败: aclnnWeightQuantMatmulAllReduce accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2
+    em L2070 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnweightquantmatmulallreduce
+    sig HCCL: 7
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoedistributedispatchv2_2p | case_logs/case_0075.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2392 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmoedistributedispatchv2_2p
+    sig HCCL: 20
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulreducescatterv2 | case_logs/case_0076.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2516 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmatmulreducescatterv2
+    sig HCCL: 11
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulallreduce | case_logs/case_0077.html | errCount=1
+    desc: AssertionError: aclnnMatmulAllReduce功能精度测试(executor)失败: aclnnMatmulAllReduce accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is
+    em L3011 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreduce
+    sig HCCL: 15
+    sig ACC: 4
+################################################################################
+record[1] Ascend-CANN|ops-transformer#166
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8 | case_logs/case_0078.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15599 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8
+    sig HCCL: 253
+    sig ACC: 4
+- test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none | case_logs/case_0079.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L7923 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    sig ACC: 4
+- test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad | case_logs/case_0080.html | errCount=1
+    desc: AssertionError: aclnnMoeTokenUnpermuteWithEpGrad功能精度测试(executor)失败: aclnnMoeTokenUnpermuteWithEpGrad accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_
+    em L3419 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad
+    sig TOPK: 38
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none | case_logs/case_0081.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2273 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none | case_logs/case_0082.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2270 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4 | case_logs/case_0083.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15484 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4
+    sig HCCL: 251
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulalltoall | case_logs/case_0084.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L1933 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnmatmulalltoall
+    sig HCCL: 12
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4 | case_logs/case_0085.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L15624 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part3.py::TestCannOpsTransformerPart3::test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4
+    sig HCCL: 253
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulallreducev2 | case_logs/case_0086.html | errCount=1
+    desc: AssertionError: aclnnMatmulAllReduceV2功能精度测试(executor)失败: aclnnMatmulAllReduceV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None'
+    em L15528 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreducev2
+    sig HCCL: 126
+    sig ACC: 4
+- test_cann_accu_smk_aclnnalltoallmatmul | case_logs/case_0087.html | errCount=1
+    desc: AssertionError: aclnnAlltoAllMatmul功能精度测试(executor)失败: aclnnAlltoAllMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_d
+    em L1980 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnalltoallmatmul
+    sig HCCL: 9
+    sig ACC: 4
+- test_cann_accu_smk_aclnnquantmatmulallreducev3 | case_logs/case_0197.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L28037 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulallreducev3
+    sig HCCL: 234
+    sig ACC: 4
+- test_cann_accu_smk_aclnnquantmatmulalltoall | case_logs/case_0089.html | errCount=1
+    desc: AssertionError: aclnnQuantMatmulAlltoAll功能精度测试(executor)失败: aclnnQuantMatmulAlltoAll accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='N
+    em L8580 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnquantmatmulalltoall
+    sig HCCL: 130
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoedistributecombinev2_2p | case_logs/case_0090.html | errCount=1
+    desc: AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2
+    em L9123 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmoedistributecombinev2_2p
+    sig HCCL: 141
+    sig ACC: 4
+- test_cann_accu_smk_aclnnallgathermatmul | case_logs/case_0091.html | errCount=1
+    desc: AssertionError: aclnnAllGatherMatmul功能精度测试(executor)失败: aclnnAllGatherMatmul accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is
+    em L8838 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnallgathermatmul
+    sig HCCL: 67
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulreducescatterv2 | case_logs/case_0092.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2490 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmatmulreducescatterv2
+    sig HCCL: 11
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmoedistributedispatchv2_2p | case_logs/case_0093.html | errCount=1
+    desc: AssertionError: aclnnMoeDistributeDispatch功能精度测试(executor)失败: aclnnMoeDistributeDispatch_CombineV2 accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2
+    em L9051 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part7.py::TestCannOpsTransformerPart7::test_cann_accu_smk_aclnnmoedistributedispatchv2_2p
+    sig HCCL: 140
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulallreduce | case_logs/case_0094.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L23067 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulallreduce
+    sig HCCL: 192
+    sig ACC: 4
+- test_cann_accu_smk_aclnnweightquantmatmulallreduce | case_logs/case_0095.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L8829 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnweightquantmatmulallreduce
+    sig HCCL: 66
+    sig ACC: 4
+- test_cann_accu_smk_aclnnmatmulreducescatter | case_logs/case_0096.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2227 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part6.py::TestCannOpsTransformerPart6::test_cann_accu_smk_aclnnmatmulreducescatter
+    sig HCCL: 6
+    sig ACC: 4

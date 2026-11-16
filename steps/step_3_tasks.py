@@ -56,6 +56,23 @@ def main():
                 "pipelineRunId": fr["rid"],
             })
             n_cached_runs += bool(fr.get("cached"))
+
+    # 旧缓存的 BS 轨道条目只有 Build 任务（Test 被旧过滤器丢弃、tasks=0），
+    # 无法提供 Test 证据，置 cached=false 强制重抓 T4（在 fetch_runs 圈定前完成）
+    cache = load_cache(cfg)
+    n_stale_bs = 0
+    for r in runs_param:
+        if not r["cached"] or r["track"] != "bs":
+            continue
+        e = (cache.get("runs") or {}).get(entry_key(r["key"], r["pipelineRunId"]))
+        if e is not None and not (e.get("tasks") or []):
+            r["cached"] = False
+            n_cached_runs -= 1
+            n_stale_bs += 1
+    if n_stale_bs:
+        print("  !! %d 个 BS 补圈运行的缓存条目无任务分流（旧过滤器遗留），重新抓取 T4"
+              % n_stale_bs)
+
     fetch_runs = [r for r in runs_param if not r["cached"]]
     print("待查运行 %d 次（缓存复用 %d / 新抓取 %d，其中 BS 豁免日补圈 %d；另 github 平台 %d 次转第 5c 步）"
           % (len(runs_param), n_cached_runs, len(fetch_runs),
@@ -69,14 +86,24 @@ def main():
             i + 1, (len(fetch_runs) + batch_size - 1) // batch_size, len(batch)))
         out = run_page_js("step_3_details.js",
                           {"runs": batch, "delay": delay,
-                           "conc": cfg["chrome"].get("request_concurrency", 4)},
+                           "conc": cfg["chrome"].get("request_concurrency", 4),
+                           "retry": cfg["collect"].get("t4_retry_times", 2),
+                           "backoffMs": (cfg["collect"].get("detail_retry_backoff_ms")
+                                         or [1000, 2000])[-1]},
                           "step_3_details_batch%d.json" % (i + 1), cfg, "T4")
         details.extend(out.get("details") or [])
         errors.extend(out.get("errors") or [])
     save_json(OUT_DIR / "step_3_details_raw.json", {"details": details})
 
     def collect_items(d, track):
-        """从 T4 详情提取失败任务条目；BS 轨道仅保留 Build* 任务。"""
+        """从 T4 详情提取失败任务条目。
+
+        BS 轨道（豁免日补圈）运行的失败任务全部取证：服务端口径下这类运行
+        只有构建成功率命中，但失败其实发生在 Test 任务（用例 100% 也可能因
+        环境问题报错）——只看 Build* 会把真实失败原因整个漏掉。
+        bsClean 仅表示「无 Build* 失败任务，服务端 buildSuccess 计数疑似有误」，
+        不代表不需要取证 Test 任务。
+        """
         key = d.get("key")
         if "err" in d or d.get("code") != 200:
             errors.append({"key": key, "rn": d.get("rn"),
@@ -97,9 +124,6 @@ def main():
                 continue
             jname = job.get("name") or ""
             is_build = jname.lower().startswith("build")
-            if track == "bs" and not is_build:
-                skipped.append((key, d.get("rn"), jname, "BS_TRACK_NON_BUILD"))
-                continue
             # step.inputs[] 里 key=jobId 的值为云构建（buildflow）任务的构建 jobId，
             # build-log/export 与 build/log 下钻子任务日志时必填（stepRunId 仍为父步骤 id）
             step_recs = []
@@ -131,7 +155,9 @@ def main():
             items.append(item)
         if track == "bs" and not any(i["isBuild"] for i in items):
             bs_clean.append({"key": key, "rn": d.get("rn"), "rid": d.get("rid"),
-                             "st": d.get("st"), "status": d.get("status")})
+                             "st": d.get("st"), "status": d.get("status"),
+                             "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），"
+                                     "失败任务（含 Test）已全部取证"})
         return items, bs_clean
 
     test_items, log_items, skipped, bs_clean_runs = [], [], [], []
@@ -141,9 +167,9 @@ def main():
             (test_items if it["route"] == "test" else log_items).append(it)
         bs_clean_runs.extend(bs_clean)
 
-    # 缓存复用的运行：任务分流直接取上次结果，不再调 T4
+    # 缓存复用的运行：任务分流直接取上次结果，不再调 T4。
+    # BS 轨道空任务条目已在 fetch_runs 圈定前置为重抓，这里的条目都有完整任务分流。
     if n_cached_runs:
-        cache = load_cache(cfg)
         for r in runs_param:
             if not r["cached"]:
                 continue
@@ -156,9 +182,6 @@ def main():
                 item["cached"] = True
                 if item.get("isBuild") is None:
                     item["isBuild"] = (item.get("jobName") or "").lower().startswith("build")
-                # BS 轨道复用同样只保留 Build* 失败任务
-                if r["track"] == "bs" and not item["isBuild"]:
-                    continue
                 n_build_added += bool(item["isBuild"])
                 (test_items if item["route"] == "test" else log_items).append(item)
             # BS 补圈运行缓存复用时同样判定 bsClean（无 Build 失败任务）

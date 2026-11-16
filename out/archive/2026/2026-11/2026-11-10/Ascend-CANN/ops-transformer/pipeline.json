@@ -1,0 +1,1031 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-13 15:40:42",
+  "component": "Ascend-CANN",
+  "pipeline": "ops-transformer",
+  "date": "2026-11-10",
+  "recordCount": 2
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-10",
+ "component": "Ascend-CANN",
+ "pipeline": "ops-transformer",
+ "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+ "platform": "codearts",
+ "key": "Ascend-CANN|ops-transformer",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-10",
+  "runs": [
+   {
+    "rn": 168,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-10 04:28:15"
+   },
+   {
+    "rn": 167,
+    "status": "FAILED",
+    "endedAt": "2026-11-10 00:04:07"
+   }
+  ]
+ },
+ "counts": {
+  "records": 2,
+  "tasks": 1,
+  "cases": 4,
+  "errorMessages": 8
+ },
+ "evidence": {
+  "files": 4,
+  "bytes": 2020863,
+  "lines": 16285,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-13 15:40:42",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "product": {
+    "product": "Ascend-CANN",
+    "projectId": 300057,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 1.0,
+    "pipelineCount": 9,
+    "badPipelineCount": 0,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 9,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 9,
+     "sumRate": 9.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 28,
+     "buildCount": 28,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "Ascend-CANN|ops-transformer",
+    "product": "Ascend-CANN",
+    "projectId": 300057,
+    "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+    "pipelineShortName": "ops-transformer",
+    "pipelineId": "309180d5c2904adf942f5678d9356d99",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 2 次运行（当日 2 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "date": "2026-11-10",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 167,
+     "rid": "1cf0a09871cf488abd9c7aaaf7a4319a",
+     "status": "FAILED",
+     "start": "11-09 20:49",
+     "startISO": "2026-11-09T20:49:09",
+     "endISO": "2026-11-10T00:04:07",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=309180d5c2904adf942f5678d9356d99&projectId=300057&pipelineRunId=1cf0a09871cf488abd9c7aaaf7a4319a",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "测试任务",
+     "cached": true
+    }
+   ],
+   "days": {
+    "11-10": [
+     "COMPLETED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 168,
+     "pipelineRunId": "9f1ec25d0aa043179aea0f6aba6c92f8",
+     "start": "2026-11-10 02:05:47",
+     "end": "2026-11-10 04:28:15",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 167,
+     "pipelineRunId": "1cf0a09871cf488abd9c7aaaf7a4319a",
+     "start": "2026-11-09 20:49:09",
+     "end": "2026-11-10 00:04:07",
+     "status": "FAILED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 168,
+     "start": "2026-11-10 02:05:47",
+     "end": "2026-11-10 04:28:15",
+     "status": "COMPLETED",
+     "rid": "9f1ec25d0aa043179aea0f6aba6c92f8",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=309180d5c2904adf942f5678d9356d99&projectId=300057&pipelineRunId=9f1ec25d0aa043179aea0f6aba6c92f8",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 167,
+     "start": "2026-11-09 20:49:09",
+     "end": "2026-11-10 00:04:07",
+     "status": "FAILED",
+     "rid": "1cf0a09871cf488abd9c7aaaf7a4319a",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=309180d5c2904adf942f5678d9356d99&projectId=300057&pipelineRunId=1cf0a09871cf488abd9c7aaaf7a4319a",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": 95.92,
+     "iva": false,
+     "ftt": "测试任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-10"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 2,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "test": [
+    {
+     "key": "Ascend-CANN|ops-transformer",
+     "pipeline": "ops-transformer",
+     "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+     "projectId": 300057,
+     "pipelineId": "309180d5c2904adf942f5678d9356d99",
+     "rid": "1cf0a09871cf488abd9c7aaaf7a4319a",
+     "rn": 167,
+     "st": "11-09 20:49",
+     "jobId": "69c0d95b0ec94a45b2641245e268a30d",
+     "jobName": "Test_ops-transformer",
+     "stepIds": [
+      "ec42bc42fbac48828c3069c9ae479e04"
+     ],
+     "steps": [
+      {
+       "id": "ec42bc42fbac48828c3069c9ae479e04",
+       "name": "Test_ops-transformer",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "346f5f97a57c4e03b133dd741cec7a92",
+       "jobIdParam": "37823397fab445fa9626582d68281207"
+      }
+     ],
+     "jobErrMsg": "步骤Test_ops-transformer执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "49396c288c6a43f6a4e3bc1f29f2d98c",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "37823397fab445fa9626582d68281207",
+     "cached": true
+    }
+   ],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 1,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "results": [
+    {
+     "route": "test",
+     "key": "Ascend-CANN|ops-transformer",
+     "pipeline": "ops-transformer",
+     "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+     "rn": 167,
+     "st": "11-09 20:49",
+     "projectId": 300057,
+     "pipelineId": "309180d5c2904adf942f5678d9356d99",
+     "rid": "1cf0a09871cf488abd9c7aaaf7a4319a",
+     "jobId": "69c0d95b0ec94a45b2641245e268a30d",
+     "jobName": "Test_ops-transformer",
+     "stepIds": [
+      "ec42bc42fbac48828c3069c9ae479e04"
+     ],
+     "steps": [
+      {
+       "id": "ec42bc42fbac48828c3069c9ae479e04",
+       "name": "Test_ops-transformer",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "346f5f97a57c4e03b133dd741cec7a92",
+       "jobIdParam": "37823397fab445fa9626582d68281207"
+      }
+     ],
+     "jobErrMsg": "步骤Test_ops-transformer执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "49396c288c6a43f6a4e3bc1f29f2d98c",
+     "code": 200,
+     "summary": {
+      "total": 98,
+      "passed": 94,
+      "failed": 4,
+      "passRate": "95.92%"
+     },
+     "failedCases": [
+      {
+       "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+       "number": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_2026-11-09-23-47-49-508329/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_reports_accuracy_2026-11-09-23-47-50.xlsx', error_msg='aclnnMoeTokenUnpermuteWit",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:55",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_log.zip"
+      },
+      {
+       "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+       "number": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_2026-11-09-23-43-51-475178/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_reports_accuracy_2026-11-09-23-43-52.xlsx', error_msg='aclnnMoeTokenUn",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:36",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none_log.zip"
+      },
+      {
+       "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "number": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-23-45-13-506667/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-23-45-14.xlsx', error_msg='aclnnMoeTokenUnperm",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:38:30",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none_log.zip"
+      },
+      {
+       "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "number": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_2026-11-09-23-44-34-403004/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_reports_accuracy_2026-11-09-23-44-35.xlsx', error_msg='aclnnMoeT",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:33",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none_log.zip"
+      }
+     ],
+     "empty": false
+    }
+   ],
+   "caseErrors": [
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html",
+     "file": "case_0134.html",
+     "localLog": "case_logs/case_0134.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+     "status": "Failed",
+     "duration": "61.26s",
+     "fileBytes": 416890,
+     "fileLines": 3472,
+     "errors": [
+      {
+       "time": "2026-11-09 23:48:32.761",
+       "level": "FAIL",
+       "line": 3341,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html",
+     "file": "case_0135.html",
+     "localLog": "case_logs/case_0135.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+     "status": "Failed",
+     "duration": "42.78s",
+     "fileBytes": 261430,
+     "fileLines": 2349,
+     "errors": [
+      {
+       "time": "2026-11-09 23:44:16.192",
+       "level": "FAIL",
+       "line": 2218,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+     "file": "case_0136.html",
+     "localLog": "case_logs/case_0136.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "status": "Failed",
+     "duration": "156.08s",
+     "fileBytes": 1093584,
+     "fileLines": 8169,
+     "errors": [
+      {
+       "time": "2026-11-09 23:47:31.324",
+       "level": "FAIL",
+       "line": 8038,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+     "file": "case_0137.html",
+     "localLog": "case_logs/case_0137.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "status": "Failed",
+     "duration": "38.95s",
+     "fileBytes": 248959,
+     "fileLines": 2295,
+     "errors": [
+      {
+       "time": "2026-11-09 23:44:56.972",
+       "level": "FAIL",
+       "line": 2164,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+      }
+     ],
+     "deepHits": []
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "failedCases": 4,
+    "caseLogs": 4,
+    "caseErrors": 4
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "logFiles": 0,
+    "errorLines": 0
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "ops-transformer",
+    "date": "2026-11-10",
+    "recordCount": 2
+   },
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "ops-transformer",
+   "counts": {
+    "records": 2,
+    "tasks": 1,
+    "cases": 4,
+    "errorMessages": 8
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2364,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 4331,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1655,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 9491,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 478,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 471,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 518,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 867,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "Ascend-CANN|ops-transformer#167",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "ops-transformer",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+   "platform": "codearts",
+   "buildNumber": 167,
+   "pipelineRunId": "1cf0a09871cf488abd9c7aaaf7a4319a",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-09T20:49:09",
+   "endedAt": "2026-11-10T00:04:07",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T00:04:07",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=309180d5c2904adf942f5678d9356d99&projectId=300057&pipelineRunId=1cf0a09871cf488abd9c7aaaf7a4319a",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_ops-transformer",
+     "type": "test",
+     "summary": {
+      "total": 98,
+      "passed": 94,
+      "failed": 4,
+      "passRate": "95.92%"
+     },
+     "cases": [
+      {
+       "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_2026-11-09-23-47-49-508329/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_reports_accuracy_2026-11-09-23-47-50.xlsx', error_msg='aclnnMoeTokenUnpermuteWit",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:55",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html",
+       "localLog": "case_logs/case_0134.html",
+       "errorMessages": [
+        {
+         "time": "2026-11-09 23:48:32.761",
+         "level": "FAIL",
+         "line": 3341,
+         "loc": "plugin.py:999",
+         "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad"
+        }
+       ],
+       "deepHits": []
+      },
+      {
+       "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_2026-11-09-23-43-51-475178/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_reports_accuracy_2026-11-09-23-43-52.xlsx', error_msg='aclnnMoeTokenUn",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:36",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html",
+       "localLog": "case_logs/case_0135.html",
+       "errorMessages": [
+        {
+         "time": "2026-11-09 23:44:16.192",
+         "level": "FAIL",
+         "line": 2218,
+         "loc": "plugin.py:999",
+         "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none"
+        }
+       ],
+       "deepHits": []
+      },
+      {
+       "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-23-45-13-506667/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-23-45-14.xlsx', error_msg='aclnnMoeTokenUnperm",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:38:30",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+       "localLog": "case_logs/case_0136.html",
+       "errorMessages": [
+        {
+         "time": "2026-11-09 23:47:31.324",
+         "level": "FAIL",
+         "line": 8038,
+         "loc": "plugin.py:999",
+         "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+        }
+       ],
+       "deepHits": []
+      },
+      {
+       "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+       "state": "failed",
+       "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_2026-11-09-23-44-34-403004/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_reports_accuracy_2026-11-09-23-44-35.xlsx', error_msg='aclnnMoeT",
+       "beginTime": "2026-11-09 22:35:54",
+       "endTime": "2026-11-09 22:36:33",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+       "localLog": "case_logs/case_0137.html",
+       "errorMessages": [
+        {
+         "time": "2026-11-09 23:44:56.972",
+         "level": "FAIL",
+         "line": 2164,
+         "loc": "plugin.py:999",
+         "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+        }
+       ],
+       "deepHits": []
+      }
+     ],
+     "emptyTestResult": false,
+     "stepErrMsgs": []
+    }
+   ],
+   "cases": [
+    {
+     "task": "Test_ops-transformer",
+     "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+     "state": "failed",
+     "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_2026-11-09-23-47-49-508329/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_Perf_reports_accuracy_2026-11-09-23-47-50.xlsx', error_msg='aclnnMoeTokenUnpermuteWit",
+     "beginTime": "2026-11-09 22:35:54",
+     "endTime": "2026-11-09 22:36:55",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html",
+     "localLog": "case_logs/case_0134.html",
+     "errorCount": 1,
+     "errorMessages": [
+      {
+       "time": "2026-11-09 23:48:32.761",
+       "level": "FAIL",
+       "line": 3341,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "task": "Test_ops-transformer",
+     "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+     "state": "failed",
+     "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_2026-11-09-23-43-51-475178/report/aclnnMoeTokenUnpermuteWithEpGrad_with_prob_modelcase_reports_accuracy_2026-11-09-23-43-52.xlsx', error_msg='aclnnMoeTokenUn",
+     "beginTime": "2026-11-09 22:35:54",
+     "endTime": "2026-11-09 22:36:36",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html",
+     "localLog": "case_logs/case_0135.html",
+     "errorCount": 1,
+     "errorMessages": [
+      {
+       "time": "2026-11-09 23:44:16.192",
+       "level": "FAIL",
+       "line": 2218,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "task": "Test_ops-transformer",
+     "name": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "state": "failed",
+     "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_2026-11-09-23-45-13-506667/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_Perf_reports_accuracy_2026-11-09-23-45-14.xlsx', error_msg='aclnnMoeTokenUnperm",
+     "beginTime": "2026-11-09 22:35:54",
+     "endTime": "2026-11-09 22:38:30",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+     "localLog": "case_logs/case_0136.html",
+     "errorCount": 1,
+     "errorMessages": [
+      {
+       "time": "2026-11-09 23:47:31.324",
+       "level": "FAIL",
+       "line": 8038,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+      }
+     ],
+     "deepHits": []
+    },
+    {
+     "task": "Test_ops-transformer",
+     "name": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "state": "failed",
+     "description": "+  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/autotest/atk_output/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_2026-11-09-23-44-34-403004/report/aclnnMoeTokenUnpermuteWithEpGrad_without_prob_modelcase_reports_accuracy_2026-11-09-23-44-35.xlsx', error_msg='aclnnMoeT",
+     "beginTime": "2026-11-09 22:35:54",
+     "endTime": "2026-11-09 22:36:33",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html",
+     "localLog": "case_logs/case_0137.html",
+     "errorCount": 1,
+     "errorMessages": [
+      {
+       "time": "2026-11-09 23:44:56.972",
+       "level": "FAIL",
+       "line": 2164,
+       "loc": "plugin.py:999",
+       "msg": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none"
+      }
+     ],
+     "deepHits": []
+    }
+   ],
+   "errorMessages": [
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+     "source": "测试报告",
+     "line": null,
+     "level": "CASE",
+     "text": "aclnnMoeTokenUnpermuteWit ...",
+     "assertion": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+     "source": "测试报告",
+     "line": null,
+     "level": "CASE",
+     "text": "aclnnMoeTokenUn ...",
+     "assertion": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "source": "测试报告",
+     "line": null,
+     "level": "CASE",
+     "text": "aclnnMoeTokenUnperm ...",
+     "assertion": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "source": "测试报告",
+     "line": null,
+     "level": "CASE",
+     "text": "aclnnMoeT ...",
+     "assertion": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+     "source": "case_logs/case_0134.html",
+     "line": 3341,
+     "level": "FAIL",
+     "text": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad",
+     "isSummary": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+     "source": "case_logs/case_0135.html",
+     "line": 2218,
+     "level": "FAIL",
+     "text": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none",
+     "isSummary": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "source": "case_logs/case_0136.html",
+     "line": 8038,
+     "level": "FAIL",
+     "text": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "isSummary": true
+    },
+    {
+     "task": "Test_ops-transformer",
+     "case": "test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "source": "case_logs/case_0137.html",
+     "line": 2164,
+     "level": "FAIL",
+     "text": "Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-transformer/test_ops_transformer_part2.py::TestCannOpsTransformerPart2::test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none",
+     "isSummary": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "case_logs/case_0134.html",
+     "case_logs/case_0135.html",
+     "case_logs/case_0136.html",
+     "case_logs/case_0137.html"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 1,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 4,
+    "errorMessages": 8,
+    "evidenceFiles": 4
+   },
+   "verdict": {
+    "category": "test_failure",
+    "text": "用例失败",
+    "confidence": 0.75,
+    "level": "高",
+    "basis": [
+     "test 任务 Test_ops-transformer 取到 4 条失败用例、4 条用例级 ERROR/FAIL 消息（无 job 日志，证据来自测试报告/用例日志）",
+     "基线 0.30",
+     "证据文件落盘 4 份 +0.25",
+     "用例级错误消息 4 条 +0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "Ascend-CANN|ops-transformer#168",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "ops-transformer",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-transformer",
+   "platform": "codearts",
+   "buildNumber": 168,
+   "pipelineRunId": "9f1ec25d0aa043179aea0f6aba6c92f8",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-10T02:05:47",
+   "endedAt": "2026-11-10T04:28:15",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T04:28:15",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=309180d5c2904adf942f5678d9356d99&projectId=300057&pipelineRunId=9f1ec25d0aa043179aea0f6aba6c92f8",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

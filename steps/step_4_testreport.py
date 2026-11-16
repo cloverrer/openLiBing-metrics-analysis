@@ -5,6 +5,7 @@
 回退标记: 失败用例为空（total=0，测试环境未拉起）的任务标记 empty，由第 5 步回退 T5 任务日志。
 产物: out/step_4_test_evidence.json / out/step_4_case_urls.json / out/case_logs/
       / out/step_4_case_errors.json（每份日志提取的 ERROR/FAIL 消息）
+归档: out/case_logs/ 属工作目录产物，第 7 步会把它逐行内嵌进归档的 pipeline.evidence.json，归档区不留散文件。
 重建: python steps/step_4_testreport.py --reuse-evidence
       复用既有 test 取证结果，只重跑「用例日志下载 + 解析」（不重新调 T6、不碰浏览器）
 """
@@ -145,7 +146,10 @@ def main():
             out = run_page_js("step_4_testreport.js",
                               {"items": batch, "pageSize": cfg["collect"]["t6_page_size"],
                                "delay": delay,
-                               "conc": cfg["chrome"].get("request_concurrency", 4)},
+                               "conc": cfg["chrome"].get("request_concurrency", 4),
+                               # 空响应体/解析失败重试（与 T1/T2 同口径）
+                               "maxTry": cfg["collect"].get("detail_retry_times", 3),
+                               "retryBackoffMs": cfg["collect"].get("detail_retry_backoff_ms") or [1000, 2000]},
                               "step_4_test_batch%d.json" % (i + 1), cfg, "T6")
             results.extend(out.get("results") or [])
             errors.extend(out.get("errors") or [])

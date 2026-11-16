@@ -1,0 +1,77 @@
+PIPE=atb topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=hcomm topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=ops-cv topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=ops-math topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=ops-nn topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=ops-transformer topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=os topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=shmem topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=sip topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=avx2ki topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=Bigdata topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=KAE topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=kqmalloc topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=KTAG topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=Megascan topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=OmniStream topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=Ultrascan topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=hmpi topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=kpex topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=kudnn topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=kupl topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=kuqcd topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=AgentSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=ascend-deployer topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=IndexSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindCluster topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MultimodalSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=RAGSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=RecSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=VisionSDK topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindIE-Motor topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindIE-SD topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=DrivingSDK_master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindSpeed-A3_master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindSpeed-LLM_master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindSpeed-MM_master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=MindSpeed_master topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msmemscope topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msmodelslim topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msot topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msprobe topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msprof topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=msserviceprofiler topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=openUBMC topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=nightly-test-npu.yml topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+REC keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+  recordId=SgLang|nightly-test-npu.yml#2124
+  date=2026-11-09
+  component=SgLang
+  pipeline=nightly-test-npu.yml
+  pipelineName=nightly-test-npu.yml
+  platform=github
+  buildNumber=2124
+  pipelineRunId=42498125758
+  status=FAILED
+  failedTaskType=None
+  startedAt=2026-11-09T00:05:48
+  endedAt=2026-11-09T09:22:46
+  dateBasis(dict).keys=['field', 'rule', 'value']
+  light(dict).keys=['bsRate', 'dims', 'track', 'vaRate']
+  links(dict).keys=['detail', 'github', 'openlibing']
+  tasks(list) len=12
+    [0].keys=['download', 'errorLines', 'githubJob', 'jobErrMsg', 'jobName', 'logBytes', 'logFile', 'logLines', 'platform', 'stepErrMsgs', 'truncated', 'type']
+    [0]={"jobName": "nightly-1-npu-a3 / run (0)", "type": "log", "platform": "github", "logFile": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt", "logBytes": 2880561, "logLines": 18227, "download": "github-zip", "truncated": false, "stepErrMsgs": [], "jobErrMsg": null, "errorLines": ["L1108: [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))", "L1256: Traceback (most recent call last):", "L1286: [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):", "L1437: [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))", "L1443: [2026-11-08 16:14:58] Scheduler hit an exception: Traceback (most recent call last):", "L1500: 0: No such file or directory (os error 2)", "L1501: 1: No such file or directory (os error 2)", "L1638: [2026-11-08 16:17:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/open
+  cases(list) len=0
+  errorMessages(list) len=30
+    [0].keys=['level', 'line', 'source', 'task', 'text']
+    [0]={"task": "nightly-1-npu-a3 / run (0)", "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt", "line": 1108, "level": "LOG", "text": "[2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"}
+  evidence(dict).keys=['files', 'github', 'missing']
+  counts(dict).keys=['buildTasks', 'cases', 'errorMessages', 'evidenceFiles', 'logTasks', 'tasks', 'testTasks']
+  verdict(dict).keys=['basis', 'category', 'confidence', 'level', 'text']
+  suggestions(list) len=0
+  analysis(dict).keys=['advice', 'cites', 'rootCause', 'source', 'status', 'updatedAt']
+PIPE=Ascend topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=a2.yaml topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']
+PIPE=a3.yaml topkeys=['_doc', 'component', 'counts', 'date', 'dateBasis', 'evidence', 'key', 'pathBase', 'pipeline', 'pipelineName', 'platform', 'records', 'schema', 'source', 'stepIndex', 'steps']

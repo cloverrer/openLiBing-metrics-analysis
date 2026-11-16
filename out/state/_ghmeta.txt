@@ -1,0 +1,99 @@
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2124  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] nightly-1-npu-a3 / run (0) | concl=None | log=github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] nightly-8-npu-a3 / run (0) | concl=None | log=github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3 | concl=None | log=github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | concl=None | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | concl=None | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3 | concl=None | log=github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_ | concl=None | log=github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, te | concl=None | log=github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test | concl=None | log=github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/register | concl=None | log=github_logs/gh_42498125758/6_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4 | concl=None | log=github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] check-all-jobs | concl=None | log=github_logs/gh_42498125758/0_check-all-jobs.txt
+     gj status=None concl=failure steps=[["Generate results table", "failure"]]
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2125  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, te | concl=None | log=github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt
+     gj status=None concl=cancelled steps=[]
+  TASK [log] check-all-jobs | concl=None | log=None
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2126  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, te | concl=None | log=github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+  TASK [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test | concl=None | log=github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2127  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test | concl=None | log=github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2128  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4 | concl=None | log=None
+  TASK [log] check-all-jobs | concl=None | log=None
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2129  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4 | concl=None | log=github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt
+     gj status=None concl=failure steps=[["Run test", "failure"]]
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2130  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2 | concl=None | log=github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt
+     gj status=None concl=cancelled steps=[["Prepare code for testing", "failure"], ["Post process", "failure"]]
+  TASK [log] check-all-jobs | concl=None | log=None
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2132  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] set-image-config | concl=None | log=None
+  TASK [log] check-all-jobs | concl=None | log=None
+==========================================================================================
+RID=SgLang|nightly-test-npu.yml#2133  keys=['analysis', 'buildNumber', 'cases', 'component', 'counts', 'date', 'dateBasis', 'endedAt', 'errorMessages', 'evidence', 'failedTaskType', 'light', 'links', 'pipeline', 'pipelineName', 'pipelineRunId', 'platform', 'recordId', 'startedAt', 'status', 'suggestions', 'tasks', 'verdict']
+githubMeta keys=[]
+  failedJobs=null
+  cancelledJobs=null
+  run=None status=None conclusion=None attempt=None
+  TASK [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_ | concl=None | log=github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt
+     gj status=None concl=cancelled steps=[["Run test", "failure"]]
+  TASK [log] check-all-jobs | concl=None | log=None

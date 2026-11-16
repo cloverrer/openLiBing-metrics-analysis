@@ -1,0 +1,57 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "归档索引",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "按执行结束时间分层归档的日期清单，逐层可查；流水线身份按 pipelineId 归并（短名跨日稳定）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-16 10:07:55",
+  "indexType": "day"
+ },
+ "generatedAt": "2026-11-16 10:07:54",
+ "dayCount": 4,
+ "productCount": 13,
+ "productsFile": "_products.json",
+ "days": [
+  {
+   "date": "2026-11-10",
+   "path": "archive/2026/2026-11/2026-11-10",
+   "components": 12,
+   "pipelines": 47,
+   "records": 79,
+   "tasks": 8,
+   "cases": 6,
+   "errorMessages": 46
+  },
+  {
+   "date": "2026-11-11",
+   "path": "archive/2026/2026-11/2026-11-11",
+   "components": 12,
+   "pipelines": 47,
+   "records": 83,
+   "tasks": 1,
+   "cases": 2,
+   "errorMessages": 4
+  },
+  {
+   "date": "2026-11-12",
+   "path": "archive/2026/2026-11/2026-11-12",
+   "components": 12,
+   "pipelines": 47,
+   "records": 87,
+   "tasks": 9,
+   "cases": 13,
+   "errorMessages": 74
+  },
+  {
+   "date": "2026-11-13",
+   "path": "archive/2026/2026-11/2026-11-13",
+   "components": 12,
+   "pipelines": 49,
+   "records": 67,
+   "tasks": 17,
+   "cases": 14,
+   "errorMessages": 86
+  }
+ ]
+}

@@ -4,13 +4,19 @@
 记录来源 = 第 2 步 runHistory（区间内**全部运行**，成功 + 失败），保证「每天的记录都完整」：
   成功运行：只落轻量记录（状态/起止时间/编译与可用口径），verdict.category=success，
             analysis.status=na，不带证据，不进入第 7 步根因分析；
-  失败/取消运行：走第 3~5c 步证据链，附定性 + 置信度 + 证据文件。
+  失败/取消运行：走第 3~5c 步证据链，附定性 + 置信度 + 证据文件；
+                其中「两个维度都不影响」的落 verdict.category=waived（不再伪装成 success），
+                同样 status=na 且不采集证据。
   版本可用度 / 编译成功率一律按这批全量记录重算（第 7 步覆盖归档比率）。
 
-AI 分析范围（analysis.status）：只分析非 1 指标。
-  该流水线当日两个指标都为 1（达标）时，失败运行也只落 na，不做根因分析（证据仍保留）；
-  vllm-ascend 的指标在第 2 步已按 scheduled 运行重算（不看板值是否为 1、只统计含 scheduled 的运行），
-  因此达标判定用的就是重算值，无需额外分支。
+AI 分析范围（analysis.status）按**记录级当日口径**判定，不看 step_1 的看板比率 ——
+看板比率是采集区间的聚合值，与「当日切片」在边界上会不一致（曾把「当日编译未全过」的
+失败运行误判成达标日豁免 → 静默漏分析）。每条记录的 light.affects 列出它实际影响的维度：
+  va 命中：当日版本不可用（step_2 的 dayAvail[当日] != 1，即当天没有 isVersionAvailable=true 的运行）
+  bs 命中：当日编译未全过，且该次运行自身也编译失败（该次运行 buildCount>0 且 buildPassCount<buildCount）
+  命中任一维度   → 进第 7 步根因分析（status=pending）
+  两个都不命中   → status=na（当日版本可用 + 本次编译全过，例如达标日里的用例/环境类失败）
+  页面按同一份 affects 决定「这条失败要在哪个维度页展示」，口径与这里严格一致。
 
 输入: out/work/ 下第 1~5c 步产物（step_1_bad_pipelines / step_2_failed_runs / step_3_params /
       step_4_test_evidence / step_4_case_errors / step_5_log_evidence / step_5c_github_evidence）
@@ -50,6 +56,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from lib.cdp_exec import OUT_DIR, load_json, save_json
+from lib.dim_affects import affects_of
 from lib.paths import DATE_FIELD, DATE_RULE, date_of, doc, safe_name
 
 # 编译报错特征：命中即认定「编译失败」而非普通任务失败
@@ -64,6 +71,7 @@ SUMMARY_MSG_RE = re.compile(r"^\s*Test FAILED due to\b", re.I)
 
 CATEGORY_TEXT = {
     "success": "执行成功",
+    "waived": "失败但不影响当日指标",
     "compile_failure": "编译失败",
     "test_failure": "用例失败",
     "env_not_ready": "用例未拉起（测试环境异常）",
@@ -103,19 +111,6 @@ def ftt_category(ftt):
 def load_opt(name):
     p = OUT_DIR / name
     return load_json(p) if p.exists() else None
-
-
-def _is_one(v):
-    """指标值是否等于 1（取不到 / 非数值一律视为「非 1」）。"""
-    try:
-        return float(v) == 1.0
-    except (TypeError, ValueError):
-        return False
-
-
-def lights_ok(va, bs):
-    """两个指标都为 1 才算达标。只分析非 1 指标 = 达标日不需要 AI 根因。"""
-    return _is_one(va) and _is_one(bs)
 
 
 def iso_of(s):
@@ -322,19 +317,28 @@ def flatten_errors(tasks):
 
     排序即优先级：LOG（整 job 日志错误行）/ ERROR（用例日志 ERROR、FAIL 行）/ CASE（用例断言
     原文）在前，SUBTASK 次之，pytest 汇总行（「Test FAILED due to ...」，打 isSummary）与平台
-    封装文案 STEP / JOB（打 isWrapper）排最后，这样页面「错误信息」列取第一条时拿到的是真因，
-    而不是 DEV-CODECI-* 封装码或只列用例名的汇总行。
+    封装文案 STEP / JOB（打 isWrapper）排最后，这样页面「错误信息」列取第一条时拿到的是真因。
+    DEV-CODECI-* 封装码无诊断价值，直接过滤不入清单（真实报错必须来自任务日志/测试报告）。
     """
     rows = []
     for t in tasks:
         src = t.get("logFile") or t.get("jobName")
         local = []
+
+        def _is_wrapper_noise(text):
+            """平台封装错误码（如 DEV-CODECI-*）无诊断价值，只作为「有封装提示」的信号，
+            不进错误信息清单——真实报错必须来自任务日志或测试报告。"""
+            s = str(text or "")
+            # 去掉外层「步骤xx执行失败，错误信息：」后只剩封装 JSON 的整行
+            core = re.sub(r"^步骤[^：]*执行失败，错误信息：", "", s)
+            return bool(re.search(r"DEV-CODECI-\d+", core))
+
         for s in t.get("stepErrMsgs") or []:
             em = s.get("errorMessage") if isinstance(s, dict) else s
-            if em:
+            if em and not _is_wrapper_noise(em):
                 local.append({"task": t.get("jobName"), "source": src, "line": None,
                               "level": "STEP", "text": str(em), "isWrapper": True})
-        if t.get("jobErrMsg"):
+        if t.get("jobErrMsg") and not _is_wrapper_noise(t.get("jobErrMsg")):
             local.append({"task": t.get("jobName"), "source": src, "line": None,
                           "level": "JOB", "text": str(t["jobErrMsg"]), "isWrapper": True})
         for e in t.get("errorLines") or []:
@@ -556,23 +560,47 @@ def main():
         log_idx.setdefault((r["key"], r["rn"]), []).append(r)
     gh_idx = {r.get("rid"): r for r in s5c.get("results") or []}
 
+    # T4 详情原始数据的 fallback 源（需求 6）：记录无任何任务证据时，
+    # 从 T4 任务图谱里提取失败任务的 jobName/step errMsg/job errMsg 作为任务级证据。
+    # 圈定口径：FAILED/CANCELED 任务中失败步骤的 errMsg（不含 IGNORED/INIT 噪音任务）。
+    t4_idx = {}
+    s3raw = load_opt("step_3_details_raw.json") or {}
+    for d in s3raw.get("details") or []:
+        for st in (d.get("data") or {}).get("stages") or []:
+            for job in st.get("jobs") or []:
+                jstatus = job.get("status")
+                if jstatus not in ("FAILED", "CANCELED") or not job.get("id"):
+                    continue
+                bad_steps = [s for s in (job.get("steps") or [])
+                             if s.get("status") not in ("COMPLETED", None)]
+                msgs = [s.get("message") for s in bad_steps if s.get("message")]
+                t4_idx[(d.get("key"), d.get("rn"), job["id"])] = {
+                    "key": d.get("key"), "rn": d.get("rn"), "rid": d.get("rid"),
+                    "jobId": job.get("id"), "jobName": job.get("name") or "",
+                    "status": jstatus,
+                    "steps": [{"errMsg": m} for m in msgs],
+                    "jobErrMsg": job.get("message"),
+                }
+
     records = []
     n_success = 0
+    n_waived = 0
     for b in s1b["pipelines"]:
         key = b["key"]
         info = s2.get(key) or {"failedRuns": [], "runHistory": []}
         failed_by_rn = {fr["rn"]: fr for fr in (info.get("failedRuns") or [])}
-        # 记录来源 = 区间内**全部运行**（成功 + 失败）：失败的走证据/定性/置信度，
-        # 成功的只落轻量记录（状态/起止时间/编译与可用口径），保证「每天的记录都完整」
-        # AI 只分析非 1 指标：当日两个指标都为 1 的流水线，其失败运行照旧取证定性，
-        # 但不进入 AI 根因（analysis.status=na）。vllm-ascend 的指标在 step_2 已按
-        # scheduled 运行重算（不看板值是否为 1），所以同一口径对它自动生效。
-        ok_day = lights_ok(b.get("versionAvailabilityRate"), b.get("buildSuccessRate"))
+        # 记录级维度归属：用 step_2 的逐日口径（dayAvail）+ 该次运行自身的编译口径判，
+        # 不看 step_1 的区间看板值（两者在边界上会不一致，见模块 docstring）。
+        # 判定规则统一在 lib/dim_affects.py（页面 JS 与两个校验工具用的是同一份口径）
+        pipe_dims = set(b.get("dims") or [])
+        day_avail = info.get("dayAvail") or {}
         for run in info.get("runHistory") or []:
             rn = run["rn"]
             fr = failed_by_rn.get(rn) or {}
             needs = bool(fr)
-            analyze = needs and not ok_day
+            run_day = str(run.get("end") or "")[5:10]
+            aff = affects_of(pipe_dims, day_avail.get(run_day), run) if needs else []
+            analyze = bool(aff)
             tasks = []
             for r in test_idx.get((key, rn), []):
                 cases = []
@@ -637,6 +665,23 @@ def main():
                                         "定性依据 jobs 元数据（conclusion/时长/失败步骤）",
                     })
 
+            # 需求 6：测试用例拿不到日志（无任何任务证据）时，取流水线该环节的
+            # 任务级错误信息做 fallback —— T4 任务图谱里 FAILED/CANCELED 任务的
+            # step/job errMsg 是平台留存的报错原文，按 (key, rn) 匹配进来。
+            # 覆盖两类：T4 成功但任务被 BS 轨道过滤（BS_TRACK_NON_BUILD）、
+            # T5/T6 取证失败或 RUNNING 状态任务。
+            if needs and not tasks:
+                for t4 in [v for v in t4_idx.values()
+                           if v.get("key") == key and v.get("rn") == rn]:
+                    tasks.append({
+                        "jobName": t4["jobName"], "type": "log", "fallback": True,
+                        "logFile": None, "errorLines": [],
+                        "stepErrMsgs": [s["errMsg"] for s in t4["steps"]],
+                        "jobErrMsg": t4.get("jobErrMsg"),
+                        "evidenceNote": "任务级错误信息（运行平台详情接口留存），"
+                                        "该任务日志未能导出",
+                    })
+
             # 证据去重：同一行被重复刷屏很常见（日志重试、多卡并行打印同一行），
             # 只留首次出现，不改行号、不删不同类型行，纯去噪
             for t in tasks:
@@ -667,6 +712,22 @@ def main():
                     "github": ("https://github.com/%s/actions/runs/%s"
                                % (gh_row.get("repo"), gh_row.get("runId"))) if gh_row else None,
                 }
+            elif str(run.get("status") or "").upper() in ("FAILED", "CANCELED"):
+                # 运行失败但两个维度都没被影响（当日版本可用、且本次没有编译失败）：
+                # 不做根因分析，也**不能写「执行成功」**—— 那是把失败运行伪装成成功记录，
+                # 一旦口径变化就会被静默漏掉。这里给一个明确的「失败但豁免」定性。
+                n_waived += 1
+                category = "waived"
+                basis = ["运行状态 %s，但当日版本可用且本次运行没有编译失败，"
+                         "既不影响版本可用度也不影响编译成功率，不做根因分析"
+                         % (run.get("status") or "-")]
+                score, why = 1.0, []
+                track, ftt = "-", None
+                links = {
+                    "openlibing": run.get("url"),
+                    "detail": None,
+                    "github": None,
+                }
             else:
                 # 成功运行：不取证、不分析，只落轻量记录，保证「每天全部构建记录」完整
                 n_success += 1
@@ -684,13 +745,13 @@ def main():
             errors = flatten_errors(tasks)
             files = evidence_files(tasks)
 
-            # 失败/取消运行一律待第 7 步 agent 逐条分析，不复用任何历史结论；
-            # 指标全为 1 的达标日不做 AI 分析（status=na），证据仍然保留可查
+            # 命中任一维度的失败/取消运行一律待第 7 步 agent 逐条分析，不复用任何历史结论；
+            # 两个维度都不命中的（成功运行 / 失败但豁免）status=na，证据仍然保留可查
             if analyze:
                 analysis = {"status": "pending", "rootCause": None, "advice": None,
                             "cites": [], "updatedAt": None, "source": None}
             else:
-                # analysis.status=na：成功运行 / 指标达标日不进入第 7 步根因分析
+                # analysis.status=na：成功运行 / 失败但两个维度都不影响 → 不进第 7 步根因分析
                 analysis = {"status": "na", "rootCause": None, "advice": None,
                             "cites": [], "updatedAt": None, "source": None}
             record = {
@@ -711,6 +772,9 @@ def main():
                     "vaRate": b.get("versionAvailabilityRate"),
                     "bsRate": b.get("buildSuccessRate"),
                     "dims": b.get("dims") or [], "track": track,
+                    # 这条记录实际影响哪些维度（当日口径，见模块 docstring）：
+                    # 页面按它决定「在哪个维度页展示」，校验按它判「该不该有根因」
+                    "affects": aff,
                 },
                 "links": links,
                 "tasks": tasks,
@@ -762,8 +826,10 @@ def main():
         "evidenceFiles": sum(r["counts"]["evidenceFiles"] for r in records),
         "evidenceMissingRecords": sum(1 for r in records
                                       if r["verdict"]["category"] == "evidence_missing"),
-        # 待第 7 步 AI 分析的记录数（只含非 1 指标的失败运行）
+        # 待第 7 步 AI 分析的记录数（只含影响当日指标的失败运行）
         "analysisPending": sum(1 for r in records if r["analysis"]["status"] == "pending"),
+        # 运行失败但两个维度都不影响（当日版本可用 + 本次编译全过）
+        "analysisWaived": sum(1 for r in records if r["verdict"]["category"] == "waived"),
         "byCategory": {k: sum(1 for r in records if r["verdict"]["category"] == k)
                        for k in CATEGORY_TEXT},
     }
@@ -778,10 +844,12 @@ def main():
                  "（verdict.category=success、analysis.status=na），失败/取消运行才带证据与根因；"
                  "定性/置信度由第 1~5c 步证据按固定规则推导（verdict.basis 逐条可核）；"
                  "根因与建议一律由第 7 步 agent 逐条补齐（analysis.status=pending），不复用历史结论")
-    notes.append("AI 分析范围（analysis.status）：只分析非 1 指标 —— 该流水线当日两个指标"
-                 "（版本可用度、编译成功率）都为 1 的达标日不进入 AI 根因（status=na），"
-                 "失败运行的证据照旧保留可查；vllm-ascend 的指标已在第 2 步按 scheduled 运行重算"
-                 "（不看板值是否为 1、只统计含 scheduled 的运行），达标判定同样用重算值")
+    notes.append("AI 分析范围（analysis.status / light.affects）按记录级当日口径判定："
+                 "va 命中 = 当日版本不可用（当天无 isVersionAvailable=true 的运行）；"
+                 "bs 命中 = 当日编译未全过且该次运行自身编译失败（buildPassCount < buildCount）；"
+                 "命中任一维度必须做根因分析，两个都不命中（当日版本可用 + 本次编译全过，"
+                 "例如达标日里的用例/环境类失败）落 status=na、verdict.category=waived，"
+                 "证据照旧保留；页面按同一份 affects 决定在哪个维度页展示")
     notes.append("证据行号：errorMessages[].line / errorLines 的 L<n> 均为原文行号，"
                  "可直接回 evidence.files 中的文件按行核对；github 侧 404 未留存的 job 记入 evidence.missing")
     wd = s2.get("_meta") or {}
@@ -812,10 +880,10 @@ def main():
     save_json(OUT_DIR / "step_6_records.json", out)
 
     print("== 第 6 步 逐条执行记录（一条执行一条记录）==")
-    print("记录 %d 条（执行成功 %d / 失败或取消 %d）| 覆盖 %d 天 / %d 个组件 / %d 条流水线"
-          % (coverage["records"], n_success, coverage["records"] - n_success,
+    print("记录 %d 条（执行成功 %d / 失败或取消 %d，其中失败但豁免 %d）| 覆盖 %d 天 / %d 个组件 / %d 条流水线"
+          % (coverage["records"], n_success, coverage["records"] - n_success, n_waived,
              coverage["days"], coverage["components"], coverage["pipelines"]))
-    print("待 AI 根因 %d 条（只含非 1 指标的失败运行；达标日 status=na）"
+    print("待 AI 根因 %d 条（只含影响当日版本可用度/编译成功率的失败运行；两个维度都不影响的 status=na）"
           % coverage["analysisPending"])
     print("任务 %d 个（test %d / log %d / Build* %d）| 失败用例 %d 条 | 错误信息 %d 条 | 证据文件 %d 份"
           % (coverage["tasks"],
@@ -826,7 +894,8 @@ def main():
     print("定性分布: " + " | ".join("%s %d" % (CATEGORY_TEXT[k], v)
                                     for k, v in coverage["byCategory"].items() if v))
     n_pending = sum(1 for r in records if r["analysis"]["status"] == "pending")
-    print("待第 7 步分析 %d 条 / 无需分析（成功）%d 条" % (n_pending, n_success))
+    print("待第 7 步分析 %d 条 / 无需分析（执行成功 %d + 失败但豁免 %d）%d 条"
+          % (n_pending, n_success, n_waived, n_success + n_waived))
     print("-> out/work/step_6_records.json")
 
 

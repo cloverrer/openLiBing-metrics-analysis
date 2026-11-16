@@ -1,667 +1,987 @@
 {
- "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db62112026110610633/test_mssanitizer_mc2_0002.html": {
+ "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611065268/test_pytorch_to_toolkit_001.html": {
   "file": "case_0004.html",
   "status": "ok",
-  "at": "2026-11-09T06:33:10"
+  "at": "2026-11-12T12:22:51"
  },
  "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db62112026110610633/test_mssanitizer_supports_aclgraph_scenarios_vector_static_0003.html": {
-  "file": "case_0003.html",
+  "file": "case_0005.html",
   "status": "ok",
-  "at": "2026-11-09T06:33:10"
+  "at": "2026-11-12T12:22:51"
  },
  "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db62112026110622992/test_mssanitizer_mc2_0002.html": {
-  "file": "case_0002.html",
-  "status": "ok",
-  "at": "2026-11-09T06:33:11"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0006.html",
-  "status": "ok",
-  "at": "2026-11-09T06:33:11"
- },
- "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611066109/test_mssanitizer_support_shmem_allgather.html": {
   "file": "case_0001.html",
   "status": "ok",
-  "at": "2026-11-09T06:33:12"
+  "at": "2026-11-12T12:22:51"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0010.html",
+ "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611066109/test_mssanitizer_support_shmem_allgather.html": {
+  "file": "case_0002.html",
   "status": "ok",
-  "at": "2026-11-09T06:33:29"
+  "at": "2026-11-12T12:22:51"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnallgathermatmul.html": {
-  "file": "case_0008.html",
+ "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db62112026110610633/test_mssanitizer_mc2_0002.html": {
+  "file": "case_0006.html",
   "status": "ok",
-  "at": "2026-11-09T06:33:40"
+  "at": "2026-11-12T12:22:51"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0013.html",
+ "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611065268/test_msopst_paramType_dynamic_011.html": {
+  "file": "case_0003.html",
   "status": "ok",
-  "at": "2026-11-09T06:34:05"
+  "at": "2026-11-12T12:22:51"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnnbitwisenot_o1_related.html": {
   "file": "case_0011.html",
   "status": "ok",
-  "at": "2026-11-09T06:34:48"
+  "at": "2026-11-12T12:22:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_qwen3.html": {
+  "file": "case_0010.html",
+  "status": "ok",
+  "at": "2026-11-12T12:22:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_pangu.html": {
+  "file": "case_0015.html",
+  "status": "ok",
+  "at": "2026-11-12T12:22:59"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110916257/test_example_allgather.html": {
+  "file": "case_0008.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:00"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnnlinspace.html": {
+  "file": "case_0014.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:00"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110826575/test_example_allgather.html": {
+  "file": "case_0007.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:02"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_qianwen3.html": {
+  "file": "case_0012.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:02"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnngtscalar_o1_related.html": {
+  "file": "case_0018.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:07"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_o1.html": {
+  "file": "case_0019.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplacenormal_atk.html": {
+  "file": "case_0016.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplacerandom_atk.html": {
+  "file": "case_0017.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:14"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnbitwiseandtensor_rl.html": {
+  "file": "case_0009.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:16"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnlescalar_rl.html": {
+  "file": "case_0021.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:22"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnntrace_atk.html": {
+  "file": "case_0023.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:26"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplaceuniform_atk.html": {
+  "file": "case_0024.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:27"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnngtscalar_qwen3.html": {
+  "file": "case_0025.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:35"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_o1_related.html": {
+  "file": "case_0013.html",
+  "status": "ok",
+  "at": "2026-11-12T12:23:47"
  },
  "https://mindie.obs.cn-north-4.myhuaweicloud.com/artifact/gitcode/smokeresult/MindIE-Motor/6a4fa7d010294da695be52110517c08b2026110620630/test_pymotor_ras_up_down_scale.html": {
   "file": "case_0000.html",
   "status": "ok",
-  "at": "2026-11-09T06:34:58"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0007.html",
-  "status": "ok",
-  "at": "2026-11-09T06:35:26"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
-  "file": "case_0005.html",
-  "status": "ok",
-  "at": "2026-11-09T06:35:32"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0016.html",
-  "status": "ok",
-  "at": "2026-11-09T06:36:19"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0017.html",
-  "status": "ok",
-  "at": "2026-11-09T06:36:44"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0018.html",
-  "status": "ok",
-  "at": "2026-11-09T06:36:45"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0015.html",
-  "status": "ok",
-  "at": "2026-11-09T06:36:54"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0020.html",
-  "status": "ok",
-  "at": "2026-11-09T06:38:03"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0022.html",
-  "status": "ok",
-  "at": "2026-11-09T06:38:07"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0021.html",
-  "status": "ok",
-  "at": "2026-11-09T06:38:20"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnallgathermatmul.html": {
-  "file": "case_0024.html",
-  "status": "ok",
-  "at": "2026-11-09T06:38:33"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0027.html",
-  "status": "ok",
-  "at": "2026-11-09T06:39:18"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0012.html",
-  "status": "ok",
-  "at": "2026-11-09T06:39:34"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0026.html",
-  "status": "ok",
-  "at": "2026-11-09T06:39:35"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0014.html",
-  "status": "ok",
-  "at": "2026-11-09T06:39:40"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0030.html",
-  "status": "ok",
-  "at": "2026-11-09T06:39:58"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0032.html",
-  "status": "ok",
-  "at": "2026-11-09T06:40:06"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
-  "file": "case_0029.html",
-  "status": "ok",
-  "at": "2026-11-09T06:40:14"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0031.html",
-  "status": "ok",
-  "at": "2026-11-09T06:40:28"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0009.html",
-  "status": "ok",
-  "at": "2026-11-09T06:40:39"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0034.html",
-  "status": "ok",
-  "at": "2026-11-09T06:40:40"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0033.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:01"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
-  "file": "case_0025.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:02"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnallgathermatmul.html": {
-  "file": "case_0035.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:09"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0037.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:11"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
-  "file": "case_0038.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:36"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
-  "file": "case_0042.html",
-  "status": "ok",
-  "at": "2026-11-09T06:41:46"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0040.html",
-  "status": "ok",
-  "at": "2026-11-09T06:42:21"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0028.html",
-  "status": "ok",
-  "at": "2026-11-09T06:42:31"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0039.html",
-  "status": "ok",
-  "at": "2026-11-09T06:42:36"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0041.html",
-  "status": "ok",
-  "at": "2026-11-09T06:42:37"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0043.html",
-  "status": "ok",
-  "at": "2026-11-09T06:42:54"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0045.html",
-  "status": "ok",
-  "at": "2026-11-09T06:43:27"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0047.html",
-  "status": "ok",
-  "at": "2026-11-09T06:43:41"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0023.html",
-  "status": "ok",
-  "at": "2026-11-09T06:43:45"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0048.html",
-  "status": "ok",
-  "at": "2026-11-09T06:43:47"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0046.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:01"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0052.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:10"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0019.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:13"
- },
- "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611065268/test_msopst_paramType_dynamic_011.html": {
-  "file": "case_0054.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:14"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
-  "file": "case_0053.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:14"
- },
- "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msot/nightly/log/6b5df9811c84434296883cb706db6211202611065268/test_pytorch_to_toolkit_001.html": {
-  "file": "case_0055.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:17"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0049.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:18"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
-  "file": "case_0050.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:22"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0056.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:23"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0044.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:50"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0051.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:50"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0036.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:50"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
-  "file": "case_0061.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:54"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0059.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:54"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0060.html",
-  "status": "ok",
-  "at": "2026-11-09T06:44:56"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0065.html",
-  "status": "ok",
-  "at": "2026-11-09T06:45:03"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0064.html",
-  "status": "ok",
-  "at": "2026-11-09T06:45:35"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0069.html",
-  "status": "ok",
-  "at": "2026-11-09T06:45:47"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0068.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:26"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnbitwiseandtensor_rl.html": {
-  "file": "case_0071.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:34"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnallgathermatmul.html": {
-  "file": "case_0070.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:36"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_qwen3.html": {
-  "file": "case_0072.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:37"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0063.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:39"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_qianwen3.html": {
-  "file": "case_0074.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:41"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnnbitwisenot_o1_related.html": {
-  "file": "case_0073.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:44"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnnlinspace.html": {
-  "file": "case_0076.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:44"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_pangu.html": {
-  "file": "case_0077.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:48"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplacenormal_atk.html": {
-  "file": "case_0078.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:50"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplacerandom_atk.html": {
-  "file": "case_0079.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:53"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_o1_related.html": {
-  "file": "case_0075.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:55"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnntopk_o1.html": {
-  "file": "case_0081.html",
-  "status": "ok",
-  "at": "2026-11-09T06:47:58"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnlescalar_rl.html": {
-  "file": "case_0083.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:07"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnngtscalar_o1_related.html": {
-  "file": "case_0080.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:08"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0057.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:23"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnntrace_atk.html": {
-  "file": "case_0085.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:29"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_smk_aclnninplaceuniform_atk.html": {
-  "file": "case_0086.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:31"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_pangu.html": {
-  "file": "case_0082.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:36"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnngtscalar_qwen3.html": {
-  "file": "case_0087.html",
-  "status": "ok",
-  "at": "2026-11-09T06:48:39"
+  "at": "2026-11-12T12:24:42"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnbitwiseandscalar_qwen3.html": {
-  "file": "case_0088.html",
+  "file": "case_0026.html",
   "status": "ok",
-  "at": "2026-11-09T06:48:48"
+  "at": "2026-11-12T12:24:52"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0067.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_aclnninplacemul_pangu.html": {
+  "file": "case_0020.html",
   "status": "ok",
-  "at": "2026-11-09T06:49:05"
+  "at": "2026-11-12T12:25:19"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611069150/test_cann_accu_all_aclnnbitwiseortensor_rl.html": {
-  "file": "case_0084.html",
+  "file": "case_0022.html",
   "status": "ok",
-  "at": "2026-11-09T06:49:49"
+  "at": "2026-11-12T12:25:24"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0089.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0034.html",
   "status": "ok",
-  "at": "2026-11-09T06:51:30"
+  "at": "2026-11-13T02:45:38"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
+  "file": "case_0035.html",
+  "status": "ok",
+  "at": "2026-11-13T02:46:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
+  "file": "case_0029.html",
+  "status": "ok",
+  "at": "2026-11-13T02:47:20"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0030.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:10"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0032.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:10"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0038.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:17"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0040.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:24"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0037.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:31"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
+  "file": "case_0042.html",
+  "status": "ok",
+  "at": "2026-11-13T02:48:51"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0041.html",
+  "status": "ok",
+  "at": "2026-11-13T02:49:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0039.html",
+  "status": "ok",
+  "at": "2026-11-13T02:49:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0043.html",
+  "status": "ok",
+  "at": "2026-11-13T02:49:32"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulallreduce.html": {
+  "file": "case_0045.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:10"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0044.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
+  "file": "case_0048.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:31"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
+  "file": "case_0036.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:31"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0046.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:36"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulallreduce.html": {
+  "file": "case_0028.html",
+  "status": "ok",
+  "at": "2026-11-13T02:50:43"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0052.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:00"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0053.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:11"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0051.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:15"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0047.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:42"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0033.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:42"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
+  "file": "case_0056.html",
+  "status": "ok",
+  "at": "2026-11-13T02:51:48"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110822860/test_himpi_vpc_crop_4096x4096_bgra8888.html": {
   "file": "case_0058.html",
   "status": "ok",
-  "at": "2026-11-09T06:50:52"
+  "at": "2026-11-13T02:51:49"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0062.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0049.html",
   "status": "ok",
-  "at": "2026-11-09T06:50:54"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0097.html",
-  "status": "ok",
-  "at": "2026-11-10T01:48:55"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
-  "file": "case_0093.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:02"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0095.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:04"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
-  "file": "case_0094.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:04"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110826575/test_example_allgather.html": {
-  "file": "case_0090.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:19"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0100.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:21"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0092.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:37"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0102.html",
-  "status": "ok",
-  "at": "2026-11-10T01:49:59"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0096.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:01"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0103.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:01"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0091.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:02"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
-  "file": "case_0105.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:08"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0099.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:10"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnallgathermatmul.html": {
-  "file": "case_0104.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:10"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
-  "file": "case_0109.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:15"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0098.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:15"
+  "at": "2026-11-13T02:52:04"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
-  "file": "case_0110.html",
+  "file": "case_0059.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:31"
+  "at": "2026-11-13T02:52:05"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0106.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0055.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:39"
+  "at": "2026-11-13T02:52:12"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0108.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
+  "file": "case_0054.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:42"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulalltoall.html": {
-  "file": "case_0113.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:45"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
-  "file": "case_0116.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:48"
+  "at": "2026-11-13T02:52:15"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
-  "file": "case_0111.html",
+  "file": "case_0060.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:50"
+  "at": "2026-11-13T02:53:07"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0117.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
+  "file": "case_0057.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:50"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnalltoallmatmul.html": {
-  "file": "case_0120.html",
-  "status": "ok",
-  "at": "2026-11-10T01:50:54"
+  "at": "2026-11-13T02:53:34"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
-  "file": "case_0112.html",
+  "file": "case_0061.html",
   "status": "ok",
-  "at": "2026-11-10T01:50:59"
+  "at": "2026-11-13T02:53:46"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0062.html",
+  "status": "ok",
+  "at": "2026-11-13T02:53:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
+  "file": "case_0065.html",
+  "status": "ok",
+  "at": "2026-11-13T02:54:03"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0066.html",
+  "status": "ok",
+  "at": "2026-11-13T02:54:04"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0069.html",
+  "status": "ok",
+  "at": "2026-11-13T02:54:22"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
-  "file": "case_0115.html",
+  "file": "case_0064.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:08"
+  "at": "2026-11-13T02:54:36"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
-  "file": "case_0121.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110612995/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0050.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:22"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0101.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:27"
+  "at": "2026-11-13T02:55:11"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
-  "file": "case_0122.html",
+  "file": "case_0071.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:35"
+  "at": "2026-11-13T02:55:18"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
-  "file": "case_0125.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0070.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:35"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
-  "file": "case_0118.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:40"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
-  "file": "case_0119.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:44"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
-  "file": "case_0126.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:46"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
-  "file": "case_0127.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:48"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110917877/test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk.html": {
-  "file": "case_0129.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:51"
- },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110917877/test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk.html": {
-  "file": "case_0130.html",
-  "status": "ok",
-  "at": "2026-11-10T01:51:52"
+  "at": "2026-11-13T02:55:21"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
-  "file": "case_0114.html",
+  "file": "case_0063.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:52"
+  "at": "2026-11-13T02:55:23"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0107.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0074.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:55"
+  "at": "2026-11-13T02:55:27"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0067.html",
+  "status": "ok",
+  "at": "2026-11-13T02:55:29"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0075.html",
+  "status": "ok",
+  "at": "2026-11-13T02:55:30"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0076.html",
+  "status": "ok",
+  "at": "2026-11-13T02:55:34"
+ },
+ "https://mindie.obs.cn-north-4.myhuaweicloud.com/artifact/gitcode/smokeresult/MindIE-Motor/6a4fa7d010294da695be52110517c08b2026110817460/test_pymotor_ras_up_down_scale.html": {
+  "file": "case_0196.html",
+  "status": "ok",
+  "at": "2026-11-13T08:05:16"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulallreduce.html": {
-  "file": "case_0128.html",
+  "file": "case_0077.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:56"
+  "at": "2026-11-13T02:55:35"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110911052/test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk.html": {
-  "file": "case_0131.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0068.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:57"
+  "at": "2026-11-13T02:55:45"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110911052/test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk.html": {
-  "file": "case_0132.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
+  "file": "case_0080.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:59"
+  "at": "2026-11-13T02:55:50"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110916257/test_example_allgather.html": {
-  "file": "case_0133.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
+  "file": "case_0081.html",
   "status": "ok",
-  "at": "2026-11-10T01:51:59"
+  "at": "2026-11-13T02:55:50"
  },
- "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
-  "file": "case_0123.html",
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0082.html",
   "status": "ok",
-  "at": "2026-11-10T01:52:06"
+  "at": "2026-11-13T02:56:14"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611059119/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0031.html",
+  "status": "ok",
+  "at": "2026-11-13T02:56:26"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0084.html",
+  "status": "ok",
+  "at": "2026-11-13T02:56:30"
  },
  "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0073.html",
+  "status": "ok",
+  "at": "2026-11-13T02:57:33"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0087.html",
+  "status": "ok",
+  "at": "2026-11-13T02:57:35"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
+  "file": "case_0089.html",
+  "status": "ok",
+  "at": "2026-11-13T02:58:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0079.html",
+  "status": "ok",
+  "at": "2026-11-13T02:58:23"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
+  "file": "case_0083.html",
+  "status": "ok",
+  "at": "2026-11-13T02:58:39"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0090.html",
+  "status": "ok",
+  "at": "2026-11-13T02:58:47"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0091.html",
+  "status": "ok",
+  "at": "2026-11-13T02:58:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0093.html",
+  "status": "ok",
+  "at": "2026-11-13T02:59:07"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0086.html",
+  "status": "ok",
+  "at": "2026-11-13T02:59:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0092.html",
+  "status": "ok",
+  "at": "2026-11-13T02:59:43"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulallreduce.html": {
+  "file": "case_0094.html",
+  "status": "ok",
+  "at": "2026-11-13T02:59:46"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0095.html",
+  "status": "ok",
+  "at": "2026-11-13T02:59:46"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
+  "file": "case_0078.html",
+  "status": "ok",
+  "at": "2026-11-13T03:00:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0096.html",
+  "status": "ok",
+  "at": "2026-11-13T03:00:29"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0100.html",
+  "status": "ok",
+  "at": "2026-11-13T03:00:37"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0097.html",
+  "status": "ok",
+  "at": "2026-11-13T03:00:38"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
+  "file": "case_0085.html",
+  "status": "ok",
+  "at": "2026-11-13T03:01:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0102.html",
+  "status": "ok",
+  "at": "2026-11-13T03:01:31"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611092706/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0072.html",
+  "status": "ok",
+  "at": "2026-11-13T03:01:55"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0104.html",
+  "status": "ok",
+  "at": "2026-11-13T03:01:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0107.html",
+  "status": "ok",
+  "at": "2026-11-13T03:02:10"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
+  "file": "case_0099.html",
+  "status": "ok",
+  "at": "2026-11-13T03:02:20"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0108.html",
+  "status": "ok",
+  "at": "2026-11-13T03:02:24"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0106.html",
+  "status": "ok",
+  "at": "2026-11-13T03:02:34"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
+  "file": "case_0109.html",
+  "status": "ok",
+  "at": "2026-11-13T03:03:03"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0098.html",
+  "status": "ok",
+  "at": "2026-11-13T03:03:24"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
+  "file": "case_0111.html",
+  "status": "ok",
+  "at": "2026-11-13T03:03:37"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
+  "file": "case_0112.html",
+  "status": "ok",
+  "at": "2026-11-13T03:03:53"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0114.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:05"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
+  "file": "case_0110.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:05"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0101.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:07"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
+  "file": "case_0115.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0113.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:11"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w4.html": {
+  "file": "case_0116.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:20"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmoedistributedispatchv2_2p.html": {
+  "file": "case_0119.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:29"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulallreduce.html": {
+  "file": "case_0120.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:30"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulreducescatter.html": {
+  "file": "case_0121.html",
+  "status": "ok",
+  "at": "2026-11-13T03:04:59"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a4w4.html": {
   "file": "case_0124.html",
   "status": "ok",
-  "at": "2026-11-10T01:52:11"
+  "at": "2026-11-13T03:06:03"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnmatmulallreduce.html": {
+  "file": "case_0105.html",
+  "status": "ok",
+  "at": "2026-11-13T03:06:05"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulalltoall.html": {
+  "file": "case_0123.html",
+  "status": "ok",
+  "at": "2026-11-13T03:06:15"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallmatmul.html": {
+  "file": "case_0125.html",
+  "status": "ok",
+  "at": "2026-11-13T03:06:16"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnalltoallquantmatmul_a16w8.html": {
+  "file": "case_0128.html",
+  "status": "ok",
+  "at": "2026-11-13T03:06:50"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnquantmatmulalltoall.html": {
+  "file": "case_0129.html",
+  "status": "ok",
+  "at": "2026-11-13T03:06:58"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnallgathermatmul.html": {
+  "file": "case_0130.html",
+  "status": "ok",
+  "at": "2026-11-13T03:07:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111012572/test_gdd_smk_aclnnresize.html": {
+  "file": "case_0131.html",
+  "status": "ok",
+  "at": "2026-11-13T03:07:30"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111012572/test_gdd_detesmk_aclnnresize.html": {
+  "file": "case_0132.html",
+  "status": "ok",
+  "at": "2026-11-13T03:07:43"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110924856/test_cann_opscv_objdetect_aclnn_roi_align_v2_backward_accuracy.html": {
+  "file": "case_0133.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:01"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulallreducev2.html": {
+  "file": "case_0127.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:22"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad.html": {
+  "file": "case_0134.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:24"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_not_none.html": {
+  "file": "case_0135.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:27"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_accu_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0137.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:37"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110911052/test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk.html": {
+  "file": "case_0138.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:44"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmoedistributecombinev2_2p.html": {
+  "file": "case_0126.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:45"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_CANN_HCCL_ReduceScatter_Deterministic_Funcs_Graph_1server_A3.html": {
+  "file": "case_0140.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:53"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611091540/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0197.html",
+  "status": "ok",
+  "at": "2026-11-13T08:05:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_CANN_HCCL_AllReduce_Deterministic_Funcs_A3.html": {
+  "file": "case_0141.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:54"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_HCCL_ReduceScatter_1server_Graph_Aiv_Executor_0001_A3.html": {
+  "file": "case_0143.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:55"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3.html": {
+  "file": "case_0142.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:55"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A3.html": {
+  "file": "case_0144.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:55"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611052748/test_CANN_HCCL_Reducescatter_Deterministic_Funcs_A3.html": {
+  "file": "case_0145.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:56"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110911052/test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk.html": {
+  "file": "case_0139.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:57"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_ReduceScatterV_Deterministic_Func_Graph_2server_A_K_0001.html": {
+  "file": "case_0147.html",
+  "status": "ok",
+  "at": "2026-11-13T03:08:57"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllToAll_2server_Easymodel_MulReplay_Part.html": {
+  "file": "case_0149.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:00"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_AllReduce_2node_N8_Deterministic_Funcs_A_K.html": {
+  "file": "case_0150.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:03"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_ReduceScatterV_Deterministic_Func_2server_A_K_0001.html": {
+  "file": "case_0151.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:05"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_Reducescatter_2node_N8_Deterministic_Funcs_A_K.html": {
+  "file": "case_0148.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:10"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611061392/test_example_allgather.html": {
+  "file": "case_0146.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:11"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllGather_2server_Graph_Aiv_Precisions_0001.html": {
+  "file": "case_0152.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:18"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_2server_A_K.html": {
+  "file": "case_0154.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:21"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_Allreduce_2server_Easymodel_MulReplay_Part.html": {
+  "file": "case_0155.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:23"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllGather_2server_Easymodel_MulGroupReplay_Part.html": {
+  "file": "case_0153.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:23"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_Broadcast_2server_Easymodel_MulGroup_Part.html": {
+  "file": "case_0156.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:24"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllGather_2server_Easymodel_MulGroup_Part.html": {
+  "file": "case_0157.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:32"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_Broadcast_2server_Easymodel_MulGroupReplay_Part.html": {
+  "file": "case_0159.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:33"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllToAll_2server_Easymodel_MulGroupReplay_Part.html": {
+  "file": "case_0160.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:34"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611097255/test_cann_perf_smk_aclnnmoetokenunpermutewithepgrad_probs_none.html": {
+  "file": "case_0136.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:35"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllGather_2server_Easymodel_MulReplay_Part.html": {
+  "file": "case_0161.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:35"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllToAll_2server_Easymodel_MulGroup_Part.html": {
+  "file": "case_0158.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:35"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_Reduce_Deterministic_Funcs_2server_A_K.html": {
+  "file": "case_0162.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:43"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_CANN_HCCL_AllReduce_2server_pipeline_dynamic_mix_opbase_graph_A_K_test.html": {
+  "file": "case_0165.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:46"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_HCCL_ReduceScatter_1server_Graph_Aiv_Precisions_0001.html": {
+  "file": "case_0167.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:48"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_AllGather_2server_Easymodel_Mul_Op_Replay_Precisions_Part.html": {
+  "file": "case_0163.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:48"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_ReduceScatterV_Deterministic_Func_Graph_1server_A_K_A_X_0001.html": {
+  "file": "case_0169.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:50"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_Reduce_Deterministic_Funcs_1server_A_K.html": {
+  "file": "case_0168.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:51"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_HCCL_AllToAll_1server_Graph_Aiv_Precisions_0001.html": {
+  "file": "case_0170.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:51"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110614592/test_HCCL_Allreduce_2server_Easymodel_Mul_Op_Replay_Precisions_Part.html": {
+  "file": "case_0164.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:51"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0122.html",
+  "status": "ok",
+  "at": "2026-11-13T03:09:58"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_AllReduce_1node_N8_Deterministic_Funcs_A_K_A_X.html": {
+  "file": "case_0172.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:04"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_AllReduce_Deterministic_Funcs_Graph_1server_A_K.html": {
+  "file": "case_0173.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:05"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_AllReduce_Aiv_Deterministic_Graph_Func_1server_A_K_0001.html": {
+  "file": "case_0175.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:07"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_AllReduce_Aiv_Deterministic_Graph_Func_1server_A_X_0001.html": {
+  "file": "case_0171.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:07"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_ReduceScatterV_Deterministic_Func_1server_A_K_A_X_0001.html": {
+  "file": "case_0176.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:08"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_HCCL_AllGather_1server_Graph_Aiv_Precisions_0001.html": {
+  "file": "case_0174.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_CANN_HCCL_Reducescatter_1node_N8_Deterministic_Funcs_A_K_A_X.html": {
+  "file": "case_0177.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_TestHcclPytorchMixEasymodel.html": {
+  "file": "case_0178.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:11"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110917877/test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk.html": {
+  "file": "case_0181.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110611803/test_SingleCardMultiProcess_MultiProcessTest_Smoke.html": {
+  "file": "case_0179.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:12"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather.html": {
+  "file": "case_0166.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:15"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_all_aclnninplacecopy_o1_part2.html": {
+  "file": "case_0183.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:16"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110917877/test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk.html": {
+  "file": "case_0180.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:17"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_smk_aclnnglobalaveragepool.html": {
+  "file": "case_0182.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:18"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_smk_aclnnstdmeancorrection_atk.html": {
+  "file": "case_0186.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:23"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_aclnnsort_o1.html": {
+  "file": "case_0188.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:28"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_smk_aclnnsort_atk.html": {
+  "file": "case_0185.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:33"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_smk_aclnnargsort.html": {
+  "file": "case_0187.html",
+  "status": "ok",
+  "at": "2026-11-13T03:10:48"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_aclnninplacemaskedfillscalar_o1_related.html": {
+  "file": "case_0190.html",
+  "status": "ok",
+  "at": "2026-11-13T03:11:09"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_all_aclnninplacemaskedfillscalar_atk_rl.html": {
+  "file": "case_0184.html",
+  "status": "ok",
+  "at": "2026-11-13T03:11:19"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_all_aclnnstack_pangu.html": {
+  "file": "case_0193.html",
+  "status": "ok",
+  "at": "2026-11-13T03:12:01"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather.html": {
+  "file": "case_0195.html",
+  "status": "ok",
+  "at": "2026-11-13T03:12:33"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnweightquantmatmulallreduce.html": {
+  "file": "case_0117.html",
+  "status": "ok",
+  "at": "2026-11-13T03:12:40"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_all_aclnnsort_rl.html": {
+  "file": "case_0194.html",
+  "status": "ok",
+  "at": "2026-11-13T03:13:01"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026110616551/test_cann_accu_smk_aclnnmatmulreducescatterv2.html": {
+  "file": "case_0118.html",
+  "status": "ok",
+  "at": "2026-11-13T03:13:18"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_all_aclnnargmax_rl.html": {
+  "file": "case_0191.html",
+  "status": "ok",
+  "at": "2026-11-13T03:13:39"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_rl_aclnnstack_atk.html": {
+  "file": "case_0192.html",
+  "status": "ok",
+  "at": "2026-11-13T03:13:39"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611067132/test_cann_accu_smk_aclnnquantmatmulallreducev3.html": {
+  "file": "case_0103.html",
+  "status": "read-err:ECONNRESET",
+  "at": "2026-11-13T03:13:40"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a2026111217386/test_cann_accu_aclnnsort_pangu_atk.html": {
+  "file": "case_0189.html",
+  "status": "ok",
+  "at": "2026-11-13T03:13:49"
+ },
+ "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611134958/test_cann_accu_aclnninplaceone_qwen3.html": {
+  "file": "case_0198.html",
+  "status": "ok",
+  "at": "2026-11-16T02:06:06"
  }
 }

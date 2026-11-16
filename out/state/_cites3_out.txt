@@ -1,0 +1,37 @@
+== shmem#145 Test_shmem log (11-10)
+  total lines: 9558
+  PAT Environment allocation failed -> 0 hits
+  PAT apply_env_res.*'status': 'queued' -> 0 hits
+  PAT apply_env_res.*failed|allocation -> 10 hits
+    L9492 : "[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] env_device_resource is empty, skipping mock allocation",
+    L9495 : "[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] Environment allocation successful, env ID: lease-env-0449072c43bbd02071a1a8a306bf4420",
+    L9498 : "[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-10T09:19:12Z', 'expires_at': '2026-
+  PAT exited with -> 0 hits
+  PAT FAILED -> 2 hits
+    L4488 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">Test FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+    L9122 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">Test FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+  PAT 超时 -> 0 hits
+== shmem#142/#140 (11-09) fail signature
+  total lines: 9878
+  PAT COMPUTE_TASK_INFO -> 168 hits
+    L1311 : "2026-11-09 03:31:33 [<span style=\"color:#F44336;font-weight:bold\">ERROR</span>] [7087] data_processor.cpp: COMPUTE_TASK_INFO run <span style=\"color:#F44336;font-weight:bold\">failed</span>!",
+    L1328 : "2026-11-09 03:31:34 [<span style=\"color:#F44336;font-weight:bold\">ERROR</span>] [7155] data_processor.cpp: COMPUTE_TASK_INFO run <span style=\"color:#F44336;font-weight:bold\">failed</span>!",
+  PAT run failed -> 1 hits
+    L9853 : "[2026/11/09 18:18:25.479 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+  PAT profiling -> 168 hits
+    L1249 : "[INFO] Start profiling....",
+    L1250 : "[INFO] Start profiling....",
+  PAT FAILED\(失败\) -> 0 hits
+== ops-nn 11-09 (#168 #169) accuracy fail
+  total lines: 8446
+  PAT acc_pass_result= Failed -> 4 hits
+    L1747 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">[VERIFY]   acc_pass_result= Failed</div></td>",
+    L3954 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">[VERIFY]   acc_pass_result= Failed</div></td>",
+    L5895 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">[VERIFY]   acc_pass_result= Failed</div></td>",
+  PAT accuracy not passed -> 16 hits
+    L1726 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">Test failed: aclnnFakeQuantPerChannelAffineCachemask (ACCURACY) - aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>",
+    L1789 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">[VERIFY]   error_msg      = aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>",
+    L1897 : "                <td class=\"step-indent\"><div class=\"msg-scroll\">测试失败: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed",
+  PAT Not Pass -> 0 hits
+  PAT assert.*fail -> 0 hits
+  PAT compare.*fail -> 0 hits

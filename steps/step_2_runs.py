@@ -94,6 +94,9 @@ def main():
         "pageSize": cfg["collect"].get("n2_page_size", 100),
         "delay": cfg["chrome"]["inter_request_delay_ms"],
         "conc": cfg["chrome"].get("request_concurrency", 4),
+        # N2 与 T1 同源服务端（common/detail），重试参数同口径：空响应体/解析失败重试
+        "maxTry": cfg["collect"].get("detail_retry_times", 3),
+        "retryBackoffMs": cfg["collect"].get("detail_retry_backoff_ms") or [1000, 2000],
     }
     raw_dash = {}
     for i, batch in enumerate(chunks(pipelines, cfg["chrome"]["batch_size"])):

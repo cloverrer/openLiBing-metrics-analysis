@@ -1,0 +1,102 @@
+===== case_logs/case_0180.html (total 1926)
+[L100]         <div style="display: flex; align-items: center; margin-bottom: 28px;">
+[L101]             <span style="font-size: 22px; margin-right: 10px;">📊</span>
+[L102]             <h3 style="color: #f1f5f9; margin: 0; font-size: 20px; font-weight: 600; letter-spacing: .5px;">算子执行结果汇总</h3>
+[L103]         </div>
+[L104]         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+[L105]             <div class="stat-card" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0
+[L106]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">📋 总用例数</div>
+[L107]                 <div style="font-size: 32px; font-weight: 700; color: #1e293b; line-height: 1;">4</div>
+[L108]             </div>
+[L109]             <div class="stat-card" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0
+[L110]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">✅ 执行成功</div>
+[L111]                 <div style="font-size: 32px; font-weight: 700; color: #10b981; line-height: 1;">2</div>
+[L112]             </div>
+[L113]             <div class="stat-card" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0
+[L114]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">❌ 执行失败</div>
+[L115]                 <div style="font-size: 32px; font-weight: 700; color: #ef4444; line-height: 1;">2</div>
+[L116]             </div>
+[L117]             <div class="stat-card" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0
+[L118]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">🏆 通过用例</div>
+[L119]                 <div style="font-size: 32px; font-weight: 700; color: #3b82f6; line-height: 1;">2</div>
+[L120]             </div>
+[L121]             <div class="stat-card" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0
+[L122]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">📈 通过率</div>
+[L123]                 <div style="font-size: 32px; font-weight: 700; color: #8b5cf6; line-height: 1;">50.0<span style="font-size: 16px; font-weight: 400;">%</span></div>
+[L124]             </div>
+[L125]             <div class="stat-card stat-precision" style="background: rgba(255,255,255,.95); padding: 20px 16px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s,box-shadow .2s; cursor: default;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.12)'" onmouseout="this.style.transform='';this.sty
+[L126]                 <div style="font-size: 13px; color: #64748b; margin-bottom: 8px; font-weight: 500;">🎯 精度状态</div>
+[L127]                 <div style="display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;">
+[L128]                     <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #ef4444; color: white; font-size: 18px; font-weight: 700;">✗</span>
+[L129]                     <span style="font-size: 15px; font-weight: 600; color: #ef4444;">Failed</span>
+[L130]                 </div>
+[L131]             </div>
+[L132]         </div>
+[L133]         <div style="margin-top: 24px; padding: 12px 16px; background: rgba(255,255,255,.08); border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+[L134]             <span style="font-size: 15px;">📁</span>
+[L135]             <span style="color: #cbd5e1; font-size: 13px; font-weight: 500;">xlsx文件:</span>
+[L136]             <code style="color: #e2e8f0; font-size: 13px; font-family: Consolas,Monaco,monospace; background: rgba(255,255,255,.12); padding: 3px 10px; border-radius: 4px;">logs/TestCases/results/quant/aclnnFakeQuantPerChannelAffineCachemask_Smoke_reports_accuracy_2026-11-09-21-52-44.xlsx</code>
+[L137]         </div>
+[L138]     </div>
+[L139] <div style="background: #fff; margin: 24px 0; padding: 28px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04); border: 1px solid #f1f5f9;">
+[L140]         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+[L141]             <div style="width: 4px; height: 24px; background: #ef4444; border-radius: 2px;"></div>
+[L142]             <h3 style="color: #1e293b; margin: 0; font-size: 18px; font-weight: 600;">📈 失败概述</h3>
+[L143]         </div>
+[L144]         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px; padding: 12px 16px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;">
+[L145]             <span style="font-size: 20px;">⚠️</span>
+[L146]             <span style="color: #991b1b; font-size: 14px;">共 <strong style="font-size: 22px; color: #dc2626;">2</strong> 个失败用例</span>
+[L147]         </div>
+[L148]         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+[L149]             <div>
+[L150]                 <h4 style="color: #475569; margin: 0 0 16px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px;">📋 按失败类型分布</h4>
+[L151]                 
+[L152]                     <div style="margin: 14px 0;">
+[L153]                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+[L154]                             <span style="font-weight: 600; color: #334155; font-size: 13px;">accuracy_false</span>
+[L155]                             <div style="display: flex; align-items: center; gap: 6px;">
+[L156]                                 <span style="font-weight: 700; color: #ef4444; font-size: 15px;">2</span>
+[L157]                                 <span style="font-size: 12px; color: #94a3b8; font-weight: 500;">(100.0%)</span>
+[L158]                             </div>
+[L159]                         </div>
+[L160]                         <div style="background: #f1f5f9; border-radius: 8px; height: 10px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.06);">
+[L161]                             <div style="background: linear-gradient(90deg, #ef4444, #dc2626); height: 100%; width: 100.0%; border-radius: 8px; transition: width .6s ease; box-shadow: 0 1px 3px rgba(239,68,68,.3);"></div>
+[L162]                         </div>
+[L163]                     </div>
+[L164]             </div>
+[L165]             <div>
+[L166]                 <h4 style="color: #475569; margin: 0 0 16px 0; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px;">🔢 按数据类型分布</h4>
+[L167]                 
+[L168]                     <div style="margin: 14px 0;">
+[L169]                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+[L170]                             <span style="font-weight: 600; color: #334155; font-size: 13px;">{'method_inputs': None, 'tensor_input': None, 'inputs': [['fp32'], ['fp16'], ['int32'], ['int'], ['int'], ['int']]}</span>
+[L171]                             <div style="display: flex; align-items: center; gap: 6px;">
+[L172]                                 <span style="font-weight: 700; color: #3b82f6; font-size: 15px;">1</span>
+[L173]                                 <span style="font-size: 12px; color: #94a3b8; font-weight: 500;">(50.0%)</span>
+[L174]                             </div>
+[L175]                         </div>
+[L176]                         <div style="background: #f1f5f9; border-radius: 8px; height: 10px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.06);">
+[L177]                             <div style="background: linear-gradient(90deg, #3b82f6, #3b82f6dd); height: 100%; width: 50.0%; border-radius: 8px; transition: width .6s ease; box-shadow: 0 1px 3px rgba(59,130,246,.3);"></div>
+[L178]                         </div>
+[L179]                     </div>
+[L180]                     <div style="margin: 14px 0;">
+[L181]                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+[L182]                             <span style="font-weight: 600; color: #334155; font-size: 13px;">{'method_inputs': None, 'tensor_input': None, 'inputs': [['fp16'], ['fp32'], ['int32'], ['int'], ['int'], ['int']]}</span>
+[L183]                             <div style="display: flex; align-items: center; gap: 6px;">
+[L184]                                 <span style="font-weight: 700; color: #8b5cf6; font-size: 15px;">1</span>
+[L185]                                 <span style="font-size: 12px; color: #94a3b8; font-weight: 500;">(50.0%)</span>
+[L186]                             </div>
+[L187]                         </div>
+[L188]                         <div style="background: #f1f5f9; border-radius: 8px; height: 10px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,.06);">
+[L189]                             <div style="background: linear-gradient(90deg, #8b5cf6, #8b5cf6dd); height: 100%; width: 50.0%; border-radius: 8px; transition: width .6s ease; box-shadow: 0 1px 3px rgba(59,130,246,.3);"></div>
+[L190]                         </div>
+[L191]                     </div>
+[L192]             </div>
+[L193]         </div>
+[L194]     </div>
+[L195] <div style="background: #fff; margin: 24px 0; padding: 0; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04); border: 1px solid #f1f5f9; overflow: hidden;">
+[L196]         <div style="padding: 24px 28px 0 28px;">
+[L197]             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+[L198]                 <div style="display: flex; align-items: center; gap: 12px;">
+[L199]                     <div style="width: 4px; height: 24px; background: #ef4444; border-radius: 2px;"></div>
+[L200]                     <h3 style="color: #1e293b; margin: 0; font-size: 18px; font-weight: 600;">❌ 失败用例列表</h3>

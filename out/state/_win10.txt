@@ -1,0 +1,65 @@
+===== 2026-11-10 | Ascend-CANN|ops-transformer#167 | rec[0] | 4 files
+
+  FILE case_logs/case_0134.html
+  FILE case_logs/case_0135.html
+    L1465	Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+    L1466	Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+  FILE case_logs/case_0136.html
+  FILE case_logs/case_0137.html
+    L1425	[2026-11-09 23:44:48]</span> [<span style="color:#F44336;font-weight:bold">ERROR</span>]</span> [127.0.0.1:9090@device_run_0]</span> [48678]</span> [trace.py</span>:736</
+    L1426	aclnnMoeTokenUnpermuteWithEpGradGetWorkspaceSize <span style="color:#F44336;font-weight:bold">failed</span>! <span style="color:#F44336;font-weight:bold">error</span> cod
+    L1433	Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+    L1434	Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+
+===== 2026-11-10 | Ascend-CANN|shmem#143 | rec[0] | 1 files
+
+  FILE case_logs/case_0166.html
+    L1312	2026-11-10 03:28:18 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7357] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1313	2026-11-10 03:28:18 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7356] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1314	2026-11-10 03:28:18 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7356] export_manager.cpp: The /home/shmem_test/shmem/examples/allgather/output/PROF_00000
+    L1318	2026-11-10 03:28:18 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7357] export_manager.cpp: The /home/shmem_test/shmem/examples/allgather/output/PROF_00000
+    L1338	2026-11-10 03:28:19 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7455] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1339	2026-11-10 03:28:19 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7454] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+
+===== 2026-11-10 | Ascend-CANN|shmem#144 | rec[1] | 1 files
+
+  FILE case_logs/case_0195.html
+    L1333	2026-11-10 10:20:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7396] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1334	2026-11-10 10:20:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7397] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1335	2026-11-10 10:20:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7397] export_manager.cpp: The /home/shmem_test/shmem/examples/allgather/output/PROF_00000
+    L1339	2026-11-10 10:20:30 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7396] export_manager.cpp: The /home/shmem_test/shmem/examples/allgather/output/PROF_00000
+    L1358	2026-11-10 10:20:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7494] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+    L1360	2026-11-10 10:20:31 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7495] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bo
+
+===== 2026-11-10 | Ascend-CANN|shmem#145 | rec[2] | 1 files
+
+  FILE job_logs/13_shmem_145_Test_shmem.log
+    L239	[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] Environment allocation successful, env ID: lease-env-0449072c43bbd02071a1a8a306bf4420
+    L246	[2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'gr
+    L247	[2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown
+    L253	[2026/11/10 17:19:48.683 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown
+
+===== 2026-11-10 | HPCKit|kuqcd#202 | rec[0] | 1 files
+
+  FILE job_logs/17_kuqcd_202_Test_quqcd.log
+    L138	[2026/11/10 00:32:55.252 GMT+08:00] fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+    L142	[2026/11/10 00:32:55.255 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+
+===== 2026-11-10 | boostkit|Bigdata#11 | rec[0] | 6 files
+
+  FILE job_logs/12_Bigdata_11_Build_Gluten.log
+    L41	[2026/11/10 10:57:35.869 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler22.03_JDK8 failed
+    L43	[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler22.03_JDK8 failed
+    L44	[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler24.03_JDK17 failed
+    L45	[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler24.03_JDK17 failed
+    L47	[2026/11/10 10:58:35.957 GMT+08:00] [ERROR] [build_flow:build_flow] : Job package_upload failed
+    L50	[2026/11/10 10:58:35.957 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 5, dispatched jobs num: 5, succeed jobs num: 0, failed jobs num: 5
+  FILE job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log
+    L30358	[2026/11/10 10:57:15.088 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload
+    L30360	[2026/11/10 10:57:15.173 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload
+  FILE job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log
+    L80745	[2026/11/10 10:57:37.716 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload
+    L80747	[2026/11/10 10:57:37.789 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload
+  FILE job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log
+  FILE job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log
+  FILE job_logs/26_Bigdata_11_Build_Gluten_package_upload.log

@@ -1,0 +1,164 @@
+[case_logs/case_0138.html:L211]                         <th style="color: #64748b; padding: 14px 12px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">输入dtype</th>
+----
+[case_logs/case_0138.html:L1079] [PID: 111028] 2026-11-09-18:19:05.250.290 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0138.html:L1084] [PID: 111028] 2026-11-09-18:19:05.250.290 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0138.html:L1102] [PID: 111028] 2026-11-09-18:19:05.250.290 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0138.html:L1120] [PID: 111028] 2026-11-09-18:19:05.250.290 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0138.html:L1155] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1160] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1178] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1196] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1265] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1270] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1288] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1306] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1384] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1497] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1607] [PID: 111024] 2026-11-09-18:19:06.090.485 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0138.html:L1717]                 <td class="step-indent"><div class="msg-scroll">Test failed: aclnnFakeQuantPerChannelAffineCachemask (ACCURACY) - aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0138.html:L1780]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0138.html:L1888]                 <td class="step-indent"><div class="msg-scroll">测试失败: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed
+----
+[case_logs/case_0138.html:L1890]  +  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pass=&#39;None&#39;, is_memory_check_pass=&#39;None&#39;, excel_file=&#39;/autotest/atk_output/aclnnFakeQuantPerChannelAffineCachemask_Smoke_2026-11-09-18-19-01-258140/report/aclnnFakeQuantPerChannelAffineCachemask_Smoke_reports_accuracy_2026-11-09-18-19-02.xlsx&#39;, error_msg=&#39;aclnnFakeQuantPerC
+----
+[case_logs/case_0139.html:L211]                         <th style="color: #64748b; padding: 14px 12px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">输入dtype</th>
+----
+[case_logs/case_0139.html:L1072] [PID: 37665] 2026-11-09-17:27:52.953.568 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0139.html:L1077] [PID: 37665] 2026-11-09-17:27:52.953.568 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0139.html:L1095] [PID: 37665] 2026-11-09-17:27:52.953.568 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0139.html:L1113] [PID: 37665] 2026-11-09-17:27:52.953.568 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0139.html:L1149] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1154] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1172] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1190] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1254] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1259] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1277] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1295] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1367] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1372] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1390] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1408] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1492] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1605] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1717] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1828] [PID: 37665] 2026-11-09-17:27:54.161.869 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0139.html:L1935]                 <td class="step-indent"><div class="msg-scroll">Test failed: aclnnFakeQuantPerTensorAffineCachemask (ACCURACY) - aclnnFakeQuantPerTensorAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0139.html:L1998]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnFakeQuantPerTensorAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0139.html:L2113]                 <td class="step-indent"><div class="msg-scroll">测试失败: aclnnFakeQuantPerTensorAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerTensorAffineCachemask accuracy not passed
+----
+[case_logs/case_0139.html:L2115]  +  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pass=&#39;None&#39;, is_memory_check_pass=&#39;None&#39;, excel_file=&#39;/autotest/atk_output/aclnnFakeQuantPerTensorAffineCachemask_Smoke_2026-11-09-17-27-48-174760/report/aclnnFakeQuantPerTensorAffineCachemask_Smoke_reports_accuracy_2026-11-09-17-27-49.xlsx&#39;, error_msg=&#39;aclnnFakeQuantPerTen
+----
+[case_logs/case_0180.html:L211]                         <th style="color: #64748b; padding: 14px 12px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">输入dtype</th>
+----
+[case_logs/case_0180.html:L1101] [PID: 112611] 2026-11-09-21:52:48.604.263 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0180.html:L1119] [PID: 112611] 2026-11-09-21:52:48.604.263 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0180.html:L1211] [PID: 112611] 2026-11-09-21:52:48.604.263 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0180.html:L1229] [PID: 112611] 2026-11-09-21:52:48.604.263 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0180.html:L1662]                 <td class="step-indent"><div class="msg-scroll">Test failed: aclnnFakeQuantPerChannelAffineCachemask (ACCURACY) - aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0180.html:L1725]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnFakeQuantPerChannelAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0180.html:L1833]                 <td class="step-indent"><div class="msg-scroll">测试失败: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed
+----
+[case_logs/case_0180.html:L1835]  +  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pass=&#39;None&#39;, is_memory_check_pass=&#39;None&#39;, excel_file=&#39;/autotest/atk_output/aclnnFakeQuantPerChannelAffineCachemask_Smoke_2026-11-09-21-52-43-668199/report/aclnnFakeQuantPerChannelAffineCachemask_Smoke_reports_accuracy_2026-11-09-21-52-44.xlsx&#39;, error_msg=&#39;aclnnFakeQuantPerC
+----
+[case_logs/case_0181.html:L211]                         <th style="color: #64748b; padding: 14px 12px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; background: #f8fafc; border-bottom: 2px solid #e2e8f0;">输入dtype</th>
+----
+[case_logs/case_0181.html:L1142] [PID: 37750] 2026-11-09-21:09:56.604.552 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0181.html:L1147] [PID: 37750] 2026-11-09-21:09:56.604.552 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0181.html:L1165] [PID: 37750] 2026-11-09-21:09:56.604.552 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0181.html:L1183] [PID: 37750] 2026-11-09-21:09:56.604.552 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT16 but found DT_FLOAT.
+----
+[case_logs/case_0181.html:L1213] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1218] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1236] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1254] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1325] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1330] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1348] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1366] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1438] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1443] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1461] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1479] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1551] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1556] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1574] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1592] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1676] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1788] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L1899] [PID: 37750] 2026-11-09-21:09:58.688.206 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
+----
+[case_logs/case_0181.html:L2006]                 <td class="step-indent"><div class="msg-scroll">Test failed: aclnnFakeQuantPerTensorAffineCachemask (ACCURACY) - aclnnFakeQuantPerTensorAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0181.html:L2069]                 <td class="step-indent"><div class="msg-scroll">[VERIFY]   error_msg      = aclnnFakeQuantPerTensorAffineCachemask accuracy not passed</div></td>
+----
+[case_logs/case_0181.html:L2184]                 <td class="step-indent"><div class="msg-scroll">测试失败: aclnnFakeQuantPerTensorAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerTensorAffineCachemask accuracy not passed
+----
+[case_logs/case_0181.html:L2186]  +  where False = AtkTaskResult(success=False, acc_pass_result=&#39;Failed&#39;, is_acc_dc_pass=&#39;None&#39;, is_e2e_perf_pass=&#39;None&#39;, is_device_perf_pass=&#39;None&#39;, is_device_memory_pass=&#39;None&#39;, is_memory_check_pass=&#39;None&#39;, excel_file=&#39;/autotest/atk_output/aclnnFakeQuantPerTensorAffineCachemask_Smoke_2026-11-09-21-09-50-328377/report/aclnnFakeQuantPerTensorAffineCachemask_Smoke_reports_accuracy_2026-11-09-21-09-51.xlsx&#39;, error_msg=&#39;aclnnFakeQuantPerTen
+----

@@ -1,0 +1,20 @@
+################################################################################
+record[0] Ascend-CANN|ops-nn#168
+- test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk | case_logs/case_0180.html | errCount=1
+    desc: AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pa
+    em L1844 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+    sig ACC: 4
+- test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk | case_logs/case_0181.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2195 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+    sig ACC: 4
+################################################################################
+record[1] Ascend-CANN|ops-nn#169
+- test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk | case_logs/case_0138.html | errCount=1
+    desc: AssertionError: aclnnFakeQuantPerChannelAffineCachemask功能精度测试(executor)失败: aclnnFakeQuantPerChannelAffineCachemask accuracy not passed; +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pa
+    em L1899 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_8.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantperchannelaffinecachemask_atk
+    sig ACC: 4
+- test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk | case_logs/case_0139.html | errCount=1
+    desc: +  where False = AtkTaskResult(success=False, acc_pass_result='Failed', is_acc_dc_pass='None', is_e2e_perf_pass='None', is_device_perf_pass='None', is_device_memory_pass='None', is_memory_check_pass='None', excel_file='/
+    em L2124 FAIL | Test FAILED due to ERROR/FAIL logs: testcase/cann/ops-nn/test_ops_nn_12.py::TestCannOpsNn::test_cann_accu_smk_aclnnfakequantpertensoraffinecachemask_atk
+    sig ACC: 4

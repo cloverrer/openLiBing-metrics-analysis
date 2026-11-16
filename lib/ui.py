@@ -21,7 +21,7 @@ DATE_BADGE = "口径：执行结束时间"
 
 # 系统级品牌行（首页/二级页同一份，放在公共日期筛选条上方）
 BRAND_TITLE = "流水线失败原因智能定位定界"
-BRAND_SUB = "夜间流水线失败根因 · 口径：执行结束时间 · 数据源 out/archive/"
+BRAND_SUB = "夜间流水线失败根因 · 口径：执行结束时间"
 
 CSS = """
 :root{
@@ -104,7 +104,7 @@ table.ov thead th{position:sticky;top:0;z-index:3;background:#f4f7fb;color:#3b4a
   border-right:1px solid #eef2f7;white-space:nowrap}
 table.ov thead th:last-child{border-right:0}
 table.ov tbody td{padding:7px 14px;line-height:1.45;border:0;border-bottom:1px solid #eef2f7;
-  border-right:1px solid #f5f7fa;background:#fff;vertical-align:middle}
+  border-right:1px solid #f5f7fa;background:#fff;vertical-align:middle;text-align:center}
 table.ov tbody td:last-child{border-right:0}
 table.ov tbody tr:hover td{background:#f6faff}
 table.ov .c-name{font-weight:600;color:#1b2739;white-space:nowrap}
@@ -201,7 +201,7 @@ def header(sub=None):
             .replace("__SUB__", BRAND_SUB if sub is None else sub))
 
 
-# 公共区间逻辑：URL 参数 > localStorage > 默认（全部）
+# 公共区间逻辑：URL 参数 > 默认（近 7 天），打开页面即选中近 7 天
 RANGE_JS = """
 /* ==== 公共日期筛选组件（唯一来源 lib/ui.py，口径 = 执行结束时间）==== */
 const RF_FIELD = "__FIELD__";
@@ -279,17 +279,16 @@ function rfInit(opts){
   fromEl.max = cap; toEl.max = cap;
 
   const qs = new URLSearchParams(location.search);
-  const storedSeg = localStorage.getItem('rf_seg') || null;
-  /* 每日跑数只归档「前一日」一个目录，所以默认段取「昨天」，与采集口径一致；
-     历史多日归档仍然可用「近7/近30/近90天」或自定义区间回看 */
-  const def = rfSegRange('prev') || {f: rfState.min, t: rfState.max};
+  /* 打开页面时的区间口径（用户口径）：**默认就是「近 7 天」**，只有从本页跳转过来的
+     链接带了 from/to 才沿用（首页↔二级页来回切时区间不跳变）。
+     以前这里会优先读 localStorage 里上次选的区间：打开页面看到的常常是旧区间
+     （历史遗留的「全部」、上次手选的日期），而不是近 7 天。现在不再读 localStorage。 */
+  const def = rfSegRange('7') || {f: rfState.min, t: rfState.max};
   let from, to;
-  if (storedSeg === 'prev'){
-    /* 「昨天」是相对日期，每次打开都按当天重算，不沿用上次存下来的旧日期 */
-    from = def.f; to = def.t;
+  if (qs.get('from') && qs.get('to')){
+    from = qs.get('from'); to = qs.get('to');
   } else {
-    from = qs.get('from') || localStorage.getItem('rf_from') || def.f;
-    to   = qs.get('to')   || localStorage.getItem('rf_to')   || def.t;
+    from = def.f; to = def.t;
   }
   /* 只兜最小日：右端不再夹到归档最大日，否则「昨天」会被悄悄换成别的日子 */
   if (rfState.min && from < rfState.min) from = rfState.min;
@@ -299,7 +298,7 @@ function rfInit(opts){
   /* 选中态：seg 只在「当前区间仍是该段算出来的区间」时才算数。
      原实现的致命问题：paintSeg() 读的是 rfInit 的闭包变量 from/to，初始化后永不更新，
      所以点任何快捷段，高亮都停在初始那一段（表现为「点了没反应」）。 */
-  let seg = storedSeg;
+  let seg = null;
   function segHit(r, f, t){
     const rg = rfSegRange(r);
     return !!rg && rg.f === f && rg.t === t;
@@ -325,8 +324,6 @@ function rfInit(opts){
   function commit(){
     const f = fromEl.value || rfState.min, t = toEl.value || rfState.max;
     fromEl.value = f || ''; toEl.value = t || '';
-    localStorage.setItem('rf_from', f || ''); localStorage.setItem('rf_to', t || '');
-    localStorage.setItem('rf_seg', seg || '');
     const u = new URL(location.href); u.searchParams.set('from', f || ''); u.searchParams.set('to', t || '');
     history.replaceState(null, '', u);
     paintSeg(); paintHint();

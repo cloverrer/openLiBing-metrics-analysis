@@ -1,11 +1,17 @@
 {
- "version": 15,
+ "version": 17,
  "analysis": {
   "classification": {
-   "环境/资源": "节点/镜像/依赖缺陷（conda 缺失、运行库缺失、模型仓文件缺失）、网络、机器、排队、磁盘",
-   "平台/基础设施": "云构建/基础设施层失败、通知服务等平台侧问题（整 job 日志与 buildflow 子任务日志下钻后仍无任务内部真实报错，仅凭封装码定性，置信度低）",
-   "代码/用例缺陷": "编译错误、断言失败、量化基线比对失败等确定性功能问题",
-   "流程/配置": "基线未随版本刷新、流水线调度配置、环境准备脚本缺失等流程性问题"
+   "代码编译错误": "编译 / 构建阶段就失败，还没跑到用例：error: / undefined reference / syntax error、编译目标 FAILED、make 或构建脚本退出码非 0、子任务编译报错（以 subTasks 日志为准）",
+   "单元测试失败": "编译通过、用例跑起来了但断言/精度不过：FAILED test_xxx、AssertionError、pytest 汇总行、check point(...) not in ret、精度比对不过、benchmark 基线不符、用例数据过期或用了错的分支",
+   "依赖/环境缺失": "缺包、缺命令、缺镜像：No module named、command not found、package not found、pip install 失败、镜像拉不下来、环境准备脚本没跑",
+   "网络/下载失败": "取外部资源失败：Connection timed out、Could not resolve host、Connection reset、404 Not Found（下载地址失效）、拉取大包中断",
+   "资源不足": "机器侧容量不够：No space left on device、Out of memory、OOM、Killed、Insufficient huawei.com/Ascend*、卡/内存/磁盘被占满",
+   "超时": "跑到时限被终止：timeout、exceeded the time limit、timeout !!! the status of pod is not Running、用例执行超时、排队等资源等到截止",
+   "权限问题": "被鉴权挡住：Permission denied、403 Forbidden、Authentication failed、token 或证书过期、没有私有仓读权限、凭据失效",
+   "配置/参数错误": "编排或入参写错：invalid config、missing required parameter、illegal argument、invalid ranktable、阶段编排/通知/归档配置错",
+   "基础设施/平台": "平台侧自身异常，与被测代码和用例都无关：runner 失联、pod 驱逐或持续 Pending 未调度、internal server error、调度器异常、框架或工具链自身崩溃、日志/报告上传失败",
+   "无法判定": "证据只到任务类型这一层、日志为空 / 被截断、只有封装码，且已按任务类型排除过"
   },
   "confidence_rules": [
    "高：多个运行/多环境确定性复现同一报错，或日志中有完整报错原文与调用链",
@@ -17,7 +23,8 @@
    "不写「与…一致 / 计算一致 / 复算一致」类描述：指标数值由脚本按归档逐运行明细计算，AI 不复述计算过程、不评价口径，只对非 1 指标给出真实失败原因",
    "测试用例通过率未达 100% 导致的不达标（VA 双指标口径）作为一条根因：错误信息写实际问题（如哪几天通过率为空、具体失败用例与断言），原因与建议写清楚，不写复算类描述",
    "只呈现结论与异常，不复述指标计算过程",
-   "根因只给「原因 + 谁的问题」，长短不是评优标准：先判断这一条是不是单一成因——是，就 1~2 句写「在哪一步失败 → 为什么 → 所以问题在哪一方、该谁去修」，不分段、不分类、不铺时间线；只有失败原因确有共性、且分属两三类不同成因（报错签名或机制明显不同）时才分段，第一段一句总述失败链，之后每类一段，段首写「第N类（M 个用例，共性描述）：」——这个类目与条数会被页面「定性」列用来归一可能性百分比，单一成因不分段时页面显示一条 100%，属预期效果，不得为凑百分比硬分类",
+   "根因只给「原因 + 谁的问题」，长短不是评优标准：先判断这一条是不是单一成因——是，就 1~2 句写「在哪一步失败 → 为什么 → 所以问题在哪一方、该谁去修」，不分段、不分类、不铺时间线；只有失败原因确有共性、且分属两三类不同成因（报错签名或机制明显不同）时才分段，第一段一句总述失败链，之后每类一段，段首写「第N类（M 个用例，共性描述）：」。每段开头先给一句 10~20 字的专业定性结论，直接点明故障机理与责任方（「执行机 gitcode 凭据失效，用例库 clone 被鉴权拒绝」「集群 NPU 资源不足，作业等待调度超时」「性能数据导出失败，用例被误判失败」），再展开因果——页面「定性」列就是把这些句子逐条抽出来展示的（有分类段就每类一条，没有就取结论段；只有一条时不带编号）。措辞要专业通俗：既不堆砌术语，也不写成「XX坏了」「XX拉不下来」这类口语，用工程语言陈述现象与机理（凭据失效 / 资源不足导致调度超时 / 接口返回 NotFound / 性能吞吐未达基线阈值）；结论埋在长句尾部，这一列就会截成半句",
+   "分类与定性分开：每条结论都要给 issueType，十选一 —— 代码编译错误 / 单元测试失败 / 依赖/环境缺失 / 网络/下载失败 / 资源不足 / 超时 / 权限问题 / 配置/参数错误 / 基础设施/平台 / 无法判定；它只回答「哪一类问题」，进页面的「问题分类」列（一列色标）；具体坏在哪、哪个节点、哪份资源、哪个端口，一律写在 rootCause 正文里，不挤进分类标签。混合成因只选一个主因（取决定这次失败 / 覆盖用例数最多的那一类），其余成因在 rootCause 里分段写清",
    "不写报错码与出处：DEV-CODECI-35002、error code is 4、561002 这类码对读者没有信息量，改写成它代表的机制（鉴权失败 / 通信域初始化失败 / tiling 形状断言不过）；不写 文件名:行号，出处只放 cites 字段（页面「证据」弹窗按 cites 定位原始行）；不写「已排除的干扰项」段，确有易混淆告警且一句话能说清时才在末尾补半句",
    "修复建议默认两段：一段写动手做什么（换哪个凭据 / 改哪个配置 / 修哪处代码，写到能直接动手），一段以「验证方式：」开头写复跑范围与通过标准（用例数 > 0 且通过率 100%、退出码为 0、日志中不再出现某个现象）；根因分了几类就按类各写一段动作，最后仍以验证方式收尾；同一处配置或凭据导致同批多条流水线时，在动作段末尾补一句「同批 XX#N、YY#N 同一原因，一次改配置覆盖」",
    "禁止「一、」「二、」「1.」等序号分点、禁止「分析过程：」「判定依据：」类标签、禁止「建议排查 / 建议关注」空话、禁止 markdown 语法（* - 1. 表格）；段与段之间用换行分隔（JSON 里写 \\n\\n），段内不换行；页面按行渲染，行首「…：」的短语会自动加粗成小标题",
@@ -50,7 +57,7 @@
    "procedure": "凭 record 内 errorLines 行号 / errorMessages[].line / stepErrMsgs 回同级 job_logs/ 全量日志 grep -n 定位错误上下文（前后 10~30 行），把根因下钻到具体报错原文；truncated=true 的日志只有局部内容，结论注明证据不完整；github 平台任务（platform=github）凭 errorLines 行号回同级 github_logs/ 的 job 日志按同一规则定位，evidenceNote 非空（运行平台日志未留存 404）时以 jobs 元数据（conclusion/时长/失败步骤）定性并注明证据不完整",
    "citation_format": "文件名:行号（如 01_msot_242_Test_msot_nightly_smoke_A3.log:L58213）；行号必须来自全量日志，摘录文件行号不连续",
    "wrapper_code_policy": "封装码（DEV-CODECI-*）出现时，先在整 job 全量日志中找任务内部真实报错；buildflow 任务再下钻失败子任务日志；确实无有效错误才定性平台/基础设施+置信度低",
-   "failed_task_type_policy": "记录内 ftt（服务端 failedTaskType，如「测试任务」「构建任务」）本身就是可核对的定性依据：tasks 为空或 counts.logTasks=0 时先按 ftt 定性（含「测试」→test_failure、含「构建/编译」→compile_failure、含「部署/环境」→env_not_ready、含「取消」→cancelled），status=CANCELED 时定性 cancelled；此时 rootCause 的结论写「失败在<类型>阶段，平台侧未留存任务日志与失败用例明细，证据止于任务类型这一层」，不得写成「证据缺失」，也不得说无法判断失败类型；只有 ftt 为空、status 非 CANCELED、且确实没有任何日志与用例时才用 evidence_missing",
+   "failed_task_type_policy": "记录内 ftt（服务端 failedTaskType，如「测试任务」「构建任务」）本身就是可核对的定性依据：tasks 为空或 counts.logTasks=0 时先按 ftt 定性（含「测试」→ issueType 单元测试失败、含「构建/编译」→ 代码编译错误、含「部署/环境」→ 依赖/环境缺失、含「取消」→ 基础设施/平台），status=CANCELED 时 issueType 写基础设施/平台；记录里的 verdict.category（test_failure / compile_failure / env_not_ready 等）只是采集脚本按规则打的分档标签，页面不展示、也不当 issueType 用；此时 rootCause 的结论写「失败在<类型>阶段，平台侧未留存任务日志与失败用例明细，证据止于任务类型这一层」，不得写成「证据缺失」，也不得说无法判断失败类型；只有 ftt 为空、status 非 CANCELED、且确实没有任何日志与用例时 issueType 才写无法判定",
    "pending_timeline": "排队类根因（Pending/queued 等资源等待）必须举证完整等待时间线：环境申请开始时间 → 首次查询状态（status: Pending/queued、progress ready/pending）→ 轮询总次数与每轮间隔 → 放弃/分配失败时间，四个节点逐点括注 file:line；等待时长=起止时间差（如 约 1h44m），不得用「轮询次数×30s」推算（各流水线每轮间隔不同，查询耗时+等待时间不一）；调度器返回的结构化原因须摘录关键细节（reason code 如 INSUFFICIENT_NPU、requested 规格、observed 候选节点剩余资源、预留占用 lease-cap 等）；禁止只写「资源调度失败/排队超时」等无时长、无日志行举证的笼统结论",
    "subtask_drilldown": "buildflow 任务（subTasks 非空）的失败子任务真实编译报错以 subTasks[].logFile（同级 job_logs/ 目录，文件名含子任务名）与 subTasks[].errorLines 为准，凭行号回子任务全量日志定位错误上下文；整 job 日志中的 build_flow 调度层记录（Follow jobs are failed 等）仅作调度上下文，不得作为最终报错；subTasks=[] 为普通任务，直接以整 job 日志为准；子任务日志 truncated=true 为尾部窗口，结论注明证据不完整",
    "github_evidence": "github 平台流水线取证：根因行任务列写 github job 名；运行标识以流水线名+构建号呈现；jobs 元数据（githubMeta.failedJobs 含失败步骤名与 conclusion、任务级 githubJob.steps）作为运行平台日志未留存（404）时的定性依据；取消 job（githubMeta.cancelledJobs）不编根因行，仅作运行失败形态说明；github 测试 job（isTestJob=true）根因定位到具体用例/模型：优先引用任务 testResults（failedModels 逐模型失败/aisbenchFailed 失败用例/benchmarkFailed/failedTagTests/pytestFailed，各条目带 line 行号），错误信息写用例/模型名与失败原因，行号回 job 日志原文印证；testResults 为 null 时退回 errorLines 定性；github 流水线 buildSuccess 恒为 null（BS 维度无数据），仅 VA 维度分析"

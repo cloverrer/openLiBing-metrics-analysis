@@ -1,0 +1,7 @@
+RID=SgLang|nightly-test-npu.yml#2127 status=FAILED build=2127 run=42509098847
+evidence.github={"runId": 42509098847, "repo": "sgl-project/sglang", "displayTitle": "L3cache", "mode": "perjob", "totalJobs": 16, "failedJobs": [{"name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa", "id": 128826435180, "steps": [{"name": "Run test", "conclusion": "failure"}]}], "missing": [], "complete": true}
+evidence.missing=[]
+TASK multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa conclusion=failure note=None
+  jobErrMsg=null
+  stepErrMsgs=[]
+  errorLines=["L505: Traceback (most recent call last):", "L523: ##[error]Error: failed to run script step:", "L524: ✗ exit code: 1", "L548: ##[error]Process completed with exit code 1.", "L549: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."]

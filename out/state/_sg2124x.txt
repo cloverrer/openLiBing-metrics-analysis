@@ -1,0 +1,318 @@
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L995] 2026-11-08T16:12:51.1520957Z [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L2716] 2026-11-08T16:52:52.9890945Z Model        Dataset         Num  Avg Lat    Avg TTFT     Avg TPOT    Avg Thpt       Avg In    Avg Out
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L2735] 2026-11-08T16:52:52.9901382Z Model        Dataset         Num  Avg Lat    Avg TTFT     Avg TPOT    Avg Thpt       Avg In    Avg Out
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4109] 2026-11-08T17:21:01.3104549Z Model        Dataset         Num  Avg Lat    Avg TTFT     Avg TPOT    Avg Thpt       Avg In    Avg Out
+----
+[github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt:L4128] 2026-11-08T17:21:01.3115094Z Model        Dataset         Num  Avg Lat    Avg TTFT     Avg TPOT    Avg Thpt       Avg In    Avg Out
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L982] 2026-11-08T16:09:53.5587851Z [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1155] 2026-11-08T16:14:40.1346067Z Mean TPOT (ms):                          52.43
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1156] 2026-11-08T16:14:40.1346412Z Median TPOT (ms):                        49.42
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1157] 2026-11-08T16:14:40.1346758Z P90 TPOT (ms):                           91.60
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1158] 2026-11-08T16:14:40.1347102Z P95 TPOT (ms):                           101.05
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1159] 2026-11-08T16:14:40.1347478Z P99 TPOT (ms):                           108.99
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1168] 2026-11-08T16:14:40.1350783Z [METRIC] tpot=52.43 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1169] 2026-11-08T16:14:40.1351519Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1269] 2026-11-08T16:17:04.8688491Z Mean TPOT (ms):                          39.52
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1270] 2026-11-08T16:17:04.8688840Z Median TPOT (ms):                        35.47
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1271] 2026-11-08T16:17:04.8689188Z P90 TPOT (ms):                           52.46
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1272] 2026-11-08T16:17:04.8689536Z P95 TPOT (ms):                           69.47
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1273] 2026-11-08T16:17:04.8689884Z P99 TPOT (ms):                           85.97
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1282] 2026-11-08T16:17:04.8693561Z [METRIC] tpot=39.52 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1283] 2026-11-08T16:17:04.8694305Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_2P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L1743] 2026-11-08T16:18:43.7359317Z [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2418] 2026-11-08T16:24:43.3733579Z Mean TPOT (ms):                          46.18
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2419] 2026-11-08T16:24:43.3733923Z Median TPOT (ms):                        44.55
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2420] 2026-11-08T16:24:43.3734264Z P90 TPOT (ms):                           61.46
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2430] 2026-11-08T16:24:46.0803815Z P95 TPOT (ms):                           67.17
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2431] 2026-11-08T16:24:46.0806517Z P99 TPOT (ms):                           75.54
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2440] 2026-11-08T16:24:46.0809855Z [METRIC] tpot=46.18 labels={"test_case": "TestNPUQwen3_6_27B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2441] 2026-11-08T16:24:46.0810604Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L2912] 2026-11-08T16:26:11.7993174Z [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3512] 2026-11-08T16:31:04.6181475Z Mean TPOT (ms):                          45.22
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3513] 2026-11-08T16:31:04.6181830Z Median TPOT (ms):                        44.65
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3514] 2026-11-08T16:31:04.6182172Z P90 TPOT (ms):                           53.88
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3515] 2026-11-08T16:31:04.6182512Z P95 TPOT (ms):                           55.83
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3516] 2026-11-08T16:31:04.6182847Z P99 TPOT (ms):                           59.50
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3525] 2026-11-08T16:31:04.6186227Z [METRIC] tpot=45.22 labels={"test_case": "TestNPUQwen3_6_27B_1P_In1024x1024_30_Out1024_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3526] 2026-11-08T16:31:04.6187014Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In1024x1024_30_Out1024_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L3952] 2026-11-08T16:32:29.9684297Z [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4124] 2026-11-08T16:34:11.2781195Z Mean TPOT (ms):                          27.32
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4125] 2026-11-08T16:34:11.2781516Z Median TPOT (ms):                        24.83
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4126] 2026-11-08T16:34:11.2781842Z P90 TPOT (ms):                           31.86
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4127] 2026-11-08T16:34:11.2782156Z P95 TPOT (ms):                           40.41
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4128] 2026-11-08T16:34:11.2782477Z P99 TPOT (ms):                           40.62
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4137] 2026-11-08T16:34:11.2785673Z [METRIC] tpot=27.32 labels={"test_case": "TestNPUQwen3_6_27B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4138] 2026-11-08T16:34:11.2786451Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_27B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4593] 2026-11-08T16:35:40.7370490Z [2026-11-08 16:35:40] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4684] 2026-11-08T16:36:53.8243146Z E1108 16:36:53.822621 26349 ../torch_npu/csrc/core/npu/NPUCachingAllocator.cpp:1332] NPU out of memory. Tried to allocate 530.00 MiB (NPU 1; 61.28 GiB total capacity; 47.82 GiB already allocated; 47.82 GiB current active; 164.03 MiB free; 60.09 GiB reserved in total by PyTorch).If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4782] 2026-11-08T16:36:53.8418769Z torch.OutOfMemoryError: NPU out of memory. Tried to allocate 530.00 MiB (NPU 1; 61.28 GiB total capacity; 47.82 GiB already allocated; 47.82 GiB current active; 164.03 MiB free; 60.09 GiB reserved in total by PyTorch).If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4787] 2026-11-08T16:36:54.7650332Z E1108 16:36:54.763580 26348 ../torch_npu/csrc/core/npu/NPUCachingAllocator.cpp:1332] NPU out of memory. Tried to allocate 900.00 MiB (NPU 0; 61.27 GiB total capacity; 46.94 GiB already allocated; 46.94 GiB current active; 508.10 MiB free; 59.21 GiB reserved in total by PyTorch).If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L4888] 2026-11-08T16:36:54.7779816Z torch.OutOfMemoryError: NPU out of memory. Tried to allocate 900.00 MiB (NPU 0; 61.27 GiB total capacity; 46.94 GiB already allocated; 46.94 GiB current active; 508.10 MiB free; 59.21 GiB reserved in total by PyTorch).If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L5341] 2026-11-08T16:39:00.5972860Z [2026-11-08 16:39:00] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7148] 2026-11-08T16:57:38.1208296Z Mean TPOT (ms):                          28.76
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7149] 2026-11-08T16:57:38.1208639Z Median TPOT (ms):                        30.11
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7150] 2026-11-08T16:57:38.1208998Z P90 TPOT (ms):                           34.13
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7151] 2026-11-08T16:57:38.1209335Z P95 TPOT (ms):                           35.38
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7152] 2026-11-08T16:57:38.1209675Z P99 TPOT (ms):                           43.33
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7161] 2026-11-08T16:57:38.1213018Z [METRIC] tpot=28.76 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7162] 2026-11-08T16:57:38.1213846Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7602] 2026-11-08T16:59:06.4630637Z [2026-11-08 16:59:06] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7871] 2026-11-08T17:03:03.9804527Z Mean TPOT (ms):                          24.48
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7872] 2026-11-08T17:03:03.9804866Z Median TPOT (ms):                        24.84
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7873] 2026-11-08T17:03:03.9805205Z P90 TPOT (ms):                           34.05
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7874] 2026-11-08T17:03:03.9806173Z P95 TPOT (ms):                           34.84
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7875] 2026-11-08T17:03:03.9806500Z P99 TPOT (ms):                           39.47
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7884] 2026-11-08T17:03:03.9809663Z [METRIC] tpot=24.48 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L7885] 2026-11-08T17:03:03.9810409Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8321] 2026-11-08T17:05:29.8203068Z [2026-11-08 17:05:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8439] 2026-11-08T17:06:53.2033636Z Mean TPOT (ms):                          18.13
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8440] 2026-11-08T17:06:53.2033959Z Median TPOT (ms):                        18.30
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8441] 2026-11-08T17:06:53.2034281Z P90 TPOT (ms):                           22.22
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8442] 2026-11-08T17:06:53.2034597Z P95 TPOT (ms):                           22.71
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8443] 2026-11-08T17:06:53.2034915Z P99 TPOT (ms):                           23.10
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8452] 2026-11-08T17:06:53.2038015Z [METRIC] tpot=18.13 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8453] 2026-11-08T17:06:53.2038762Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In128k_Out1k_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L8896] 2026-11-08T17:10:03.9004120Z [2026-11-08 17:10:03] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9104] 2026-11-08T17:11:35.9168032Z Mean TPOT (ms):                          22.16
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9105] 2026-11-08T17:11:35.9168355Z Median TPOT (ms):                        19.31
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9106] 2026-11-08T17:11:35.9168678Z P90 TPOT (ms):                           29.97
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9107] 2026-11-08T17:11:35.9168992Z P95 TPOT (ms):                           30.09
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9108] 2026-11-08T17:11:35.9169307Z P99 TPOT (ms):                           34.25
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9117] 2026-11-08T17:11:35.9172768Z [METRIC] tpot=22.16 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9118] 2026-11-08T17:11:35.9180299Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In64k_Out1k_Prefix90_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L9568] 2026-11-08T17:14:51.8222519Z [2026-11-08 17:14:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10029] 2026-11-08T17:18:26.7882481Z Mean TPOT (ms):                          58.99
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10030] 2026-11-08T17:18:26.7882855Z Median TPOT (ms):                        58.92
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10031] 2026-11-08T17:18:26.7883198Z P90 TPOT (ms):                           64.62
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10032] 2026-11-08T17:18:26.7883532Z P95 TPOT (ms):                           66.45
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10033] 2026-11-08T17:18:26.7883879Z P99 TPOT (ms):                           68.50
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10042] 2026-11-08T17:18:26.7887258Z [METRIC] tpot=58.99 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10043] 2026-11-08T17:18:26.7888032Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10154] 2026-11-08T17:18:35.4619717Z Mean TPOT (ms):                          31.71
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10155] 2026-11-08T17:18:35.4620059Z Median TPOT (ms):                        31.60
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10156] 2026-11-08T17:18:35.4620398Z P90 TPOT (ms):                           37.25
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10157] 2026-11-08T17:18:35.4620731Z P95 TPOT (ms):                           39.05
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10158] 2026-11-08T17:18:35.4621067Z P99 TPOT (ms):                           41.09
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10167] 2026-11-08T17:18:35.4624305Z [METRIC] tpot=31.71 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt:L10168] 2026-11-08T17:18:35.4625444Z [METRIC] tpot_baseline=50.0 labels={"test_case": "TestNPUQwen3_6_35BA3B_1P_In3k5_Out1k5_50ms", "type": "perf"}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L15168] 2026-11-09T00:54:26.7937973Z [2026-11-09 08:54:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16270] 2026-11-09T01:12:44.0602948Z │ TPOT                     │ total   │ 35.2 ms         │ 12.4 ms         │ 44.9 ms         │ 41.7 ms         │ 43.6 ms         │ 44.4 ms         │ 44.8 ms         │  4  │
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16358] 2026-11-09T01:12:51.9300934Z 2026-11-09 09:12:51,922 - INFO - Extracted mean_tpot: 35.2 ms
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16368] 2026-11-09T01:12:51.9307012Z 2026-11-09 09:12:51,923 - INFO - All extracted metrics: {'mean_tpot': '35.2', 'total_tps': '85.6552', 'mean_ttft': '2180.1', 'mean_e2e_latency': '38156.8', 'concurrency': '3.1917', 'max_concurrency': '12', 'request_throughput': '0.0836', 'total_requests': '4', 'failed_requests': '0'}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16371] 2026-11-09T01:12:51.9309732Z [METRIC] tpot=35.2 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16372] 2026-11-09T01:12:51.9310517Z [METRIC] tpot_baseline=30.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L16957] 2026-11-09T01:16:03.3814427Z │ TPOT                     │ total   │ 40.1 ms         │ 34.1 ms         │ 44.3 ms         │ 41.0 ms         │ 43.5 ms        │ 44.0 ms         │ 44.2 ms        │  4  │
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L17045] 2026-11-09T01:16:11.2773133Z 2026-11-09 09:16:11,273 - INFO - Extracted mean_tpot: 40.1 ms
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L17055] 2026-11-09T01:16:11.2779177Z 2026-11-09 09:16:11,274 - INFO - All extracted metrics: {'mean_tpot': '40.1', 'total_tps': '85.6533', 'mean_ttft': '1715.5', 'mean_e2e_latency': '42729.9', 'concurrency': '3.5742', 'max_concurrency': '12', 'request_throughput': '0.0836', 'total_requests': '4', 'failed_requests': '0'}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L17056] 2026-11-09T01:16:11.2780422Z [METRIC] tpot=40.1 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L17057] 2026-11-09T01:16:11.2781306Z [METRIC] tpot_baseline=30.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt:L17092] 2026-11-09T01:16:11.2863921Z Run the 128k pure-decode low-latency TPOT acceptance test.
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1108] 2026-11-08T16:11:45.1998737Z [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1285] 2026-11-08T16:13:50.4906072Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 10004463616, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1334] 2026-11-08T16:13:50.4945530Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 10004463616, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1437] 2026-11-08T16:14:57.7155496Z [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1479] 2026-11-08T16:14:58.7430352Z torch.OutOfMemoryError: allocate_host_memory_slowpath:../torch_npu/csrc/core/npu/CachingHostAllocator.cpp:252 NPU function error: aclrtMallocHostWithCfg, error code is 207001
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1487] 2026-11-08T16:14:58.7435127Z         rtsMallocHost execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:69]
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1638] 2026-11-08T16:17:51.0801466Z [2026-11-08 16:17:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L4319] 2026-11-08T16:26:02.6391100Z [2026-11-08 16:26:02] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L7491] 2026-11-08T16:34:16.6073580Z [2026-11-08 16:34:16] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L10326] 2026-11-08T16:38:37.2581925Z [2026-11-08 16:38:37] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L13130] 2026-11-08T16:41:32.5947869Z [2026-11-08 16:41:32] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L15585] 2026-11-08T16:48:24.7835322Z [2026-11-08 16:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L1380] 2026-11-08T16:11:50.9909225Z [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3079] 2026-11-08T16:17:36.7254963Z [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3124] 2026-11-08T16:17:37.9620356Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 48, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
+----
+[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3167] 2026-11-08T16:17:38.2350680Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 48, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
+----
+[github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt:L897] 2026-11-08T18:28:53.7926116Z Mean TPOT (ms):                          25.79     
+----
+[github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt:L898] 2026-11-08T18:28:53.7926430Z Median TPOT (ms):                        21.86     
+----
+[github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt:L899] 2026-11-08T18:28:53.7926742Z P90 TPOT (ms):                           40.19     
+----
+[github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt:L900] 2026-11-08T18:28:53.7927042Z P95 TPOT (ms):                           46.59     
+----
+[github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt:L901] 2026-11-08T18:28:53.7927381Z P99 TPOT (ms):                           52.40     
+----
+[github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt:L869] 2026-11-08T18:07:46.5634819Z Mean TPOT (ms):                          18.62     
+----
+[github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt:L870] 2026-11-08T18:07:46.5635148Z Median TPOT (ms):                        16.95     
+----
+[github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt:L871] 2026-11-08T18:07:46.5635464Z P90 TPOT (ms):                           31.85     
+----
+[github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt:L872] 2026-11-08T18:07:46.5635782Z P95 TPOT (ms):                           35.76     
+----
+[github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt:L873] 2026-11-08T18:07:46.5636111Z P99 TPOT (ms):                           42.55     
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L1766] 2026-11-08T17:47:15.8892096Z 2026-11-09 01:47:15,884 - WARNING - Could not extract mean_tpot from output
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L1767] 2026-11-08T17:47:15.8892663Z 2026-11-09 01:47:15,884 - ERROR - Simplified output snippet around TPOT: TPOT not found
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2538] 2026-11-08T17:49:43.8091862Z 2026-11-09 01:49:43,805 - WARNING - Could not extract mean_tpot from output
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2539] 2026-11-08T17:49:43.8092579Z 2026-11-09 01:49:43,805 - ERROR - Simplified output snippet around TPOT: TPOT not found
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2578] 2026-11-08T17:49:43.8163710Z     float(metrics["mean_tpot"]),
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2580] 2026-11-08T17:49:43.8164235Z KeyError: 'mean_tpot'
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2612] 2026-11-08T17:49:43.8201842Z     float(metrics["mean_tpot"]),
+----
+[github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt:L2614] 2026-11-08T17:49:43.8202365Z KeyError: 'mean_tpot'
+----
+[github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L921] 2026-11-08T17:08:32.7935426Z Mean TPOT (ms):                          9.96      
+----
+[github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L922] 2026-11-08T17:08:32.7935746Z Median TPOT (ms):                        9.99      
+----
+[github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L923] 2026-11-08T17:08:32.7936074Z P90 TPOT (ms):                           12.23     
+----
+[github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L924] 2026-11-08T17:08:32.7936378Z P95 TPOT (ms):                           12.64     
+----
+[github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt:L925] 2026-11-08T17:08:32.7936805Z P99 TPOT (ms):                           13.68     
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L15335] 2026-11-09T11:51:04.9763891Z [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L16384] 2026-11-09T12:09:15.5716310Z │ TPOT                     │ total   │ 36.0 ms         │ 32.8 ms         │ 38.4 ms         │ 36.4 ms         │ 38.4 ms         │ 38.4 ms         │ 38.4 ms         │  4  │
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L16472] 2026-11-09T12:09:23.5236161Z 2026-11-09 20:09:23,520 - INFO - Extracted mean_tpot: 36.0 ms
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L16482] 2026-11-09T12:09:23.5241756Z 2026-11-09 20:09:23,521 - INFO - All extracted metrics: {'mean_tpot': '36.0', 'total_tps': '96.7127', 'mean_ttft': '2587.5', 'mean_e2e_latency': '39406.9', 'concurrency': '3.7218', 'max_concurrency': '4', 'request_throughput': '0.0944', 'total_requests': '4', 'failed_requests': '0'}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L16485] 2026-11-09T12:09:23.5263743Z [METRIC] tpot=36.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L16486] 2026-11-09T12:09:23.5264531Z [METRIC] tpot_baseline=30.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17034] 2026-11-09T12:12:31.9185967Z │ TPOT                     │ total   │ 36.1 ms         │ 12.5 ms         │ 46.5 ms         │ 42.7 ms         │ 45.6 ms       │ 46.2 ms         │ 46.5 ms         │  4  │
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17122] 2026-11-09T12:12:39.8753029Z 2026-11-09 20:12:39,871 - INFO - Extracted mean_tpot: 36.1 ms
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17132] 2026-11-09T12:12:39.8758612Z 2026-11-09 20:12:39,872 - INFO - All extracted metrics: {'mean_tpot': '36.1', 'total_tps': '82.9465', 'mean_ttft': '1777.3', 'mean_e2e_latency': '38725.9', 'concurrency': '3.1369', 'max_concurrency': '4', 'request_throughput': '0.081', 'total_requests': '4', 'failed_requests': '0'}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17133] 2026-11-09T12:12:39.8759865Z [METRIC] tpot=36.1 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17134] 2026-11-09T12:12:39.8760650Z [METRIC] tpot_baseline=30.0 labels={"test_case": "TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix", "type": "perf"}
+----
+[github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt:L17168] 2026-11-09T12:12:39.8892674Z Run the 128k pure-decode low-latency TPOT acceptance test.
+----

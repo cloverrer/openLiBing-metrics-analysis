@@ -1,34 +1,295 @@
 {
- "test": [],
- "log": [],
- "skipped": [
-  [
-   "Ascend-CANN|ops-cv",
-   173,
-   "Test_ops-cv",
-   "BS_TRACK_NON_BUILD"
-  ],
-  [
-   "openUBMC|openUBMC",
-   2449,
-   "prepare",
-   "RUNNING"
-  ]
+ "test": [
+  {
+   "key": "MindStudio|msprobe",
+   "pipeline": "msprobe",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprobe",
+   "projectId": 300037,
+   "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57",
+   "rid": "591f04b63f8b499b8a0c903f92f93e4c",
+   "rn": 266,
+   "st": "11-13 14:48",
+   "jobId": "1be26180820f40b886856f952e6d5f59",
+   "jobName": "Test_msprobe_smoke_A2_1",
+   "stepIds": [
+    "8ad9f9d483ef4317afd6a659161d9fac"
+   ],
+   "steps": [
+    {
+     "id": "8ad9f9d483ef4317afd6a659161d9fac",
+     "name": "Test_msprobe_smoke_A2_1",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "fe867256827248febf1507f2df87341d",
+     "jobIdParam": "59409d08155b44dc9e2dac20f22b6dd0"
+    }
+   ],
+   "jobErrMsg": "步骤Test_msprobe_smoke_A2_1执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "f3c4330b187b4a9686d2b6323ad1c896",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "59409d08155b44dc9e2dac20f22b6dd0"
+  },
+  {
+   "key": "MindStudio|msprobe",
+   "pipeline": "msprobe",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprobe",
+   "projectId": 300037,
+   "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57",
+   "rid": "bcee0cc2247645dca50aedc9f287211a",
+   "rn": 265,
+   "st": "11-13 00:00",
+   "jobId": "8e6aee7f90324b25b9173eb0f396f1dd",
+   "jobName": "Test_msprobe_smoke_A2_1_995",
+   "stepIds": [
+    "05ca7f9db68c427284c4ee66660b034c"
+   ],
+   "steps": [
+    {
+     "id": "05ca7f9db68c427284c4ee66660b034c",
+     "name": "Test_msprobe_smoke_A2_1_995",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "cbca1be4f0ae4a0097766a85f91fed1a",
+     "jobIdParam": "59409d08155b44dc9e2dac20f22b6dd0"
+    }
+   ],
+   "jobErrMsg": "步骤Test_msprobe_smoke_A2_1_995执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "514ae0c07c314b67bb320cb2ef50e1fb",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "59409d08155b44dc9e2dac20f22b6dd0"
+  },
+  {
+   "key": "Ascend-CANN|ops-math",
+   "pipeline": "ops-math",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-math",
+   "projectId": 300057,
+   "pipelineId": "aa3d520fe64f4071a09178d2d603278e",
+   "rid": "fc745eecf4934f7a85aad6e89ea252db",
+   "rn": 144,
+   "st": "11-13 02:05",
+   "jobId": "e1e238dcc980412c914e8829c0db853d",
+   "jobName": "Test_ops-math",
+   "stepIds": [
+    "f7cf4f01c2ea4271ab10498336f2cb18"
+   ],
+   "steps": [
+    {
+     "id": "f7cf4f01c2ea4271ab10498336f2cb18",
+     "name": "Test_ops-math",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "63fe023c89dd4071a3d443120959f3a9",
+     "jobIdParam": "44f7e2c731ea4e169523a081f7942dee"
+    }
+   ],
+   "jobErrMsg": "步骤Test_ops-math执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "d5405ebc2e8849289db683c82ea20da0",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "44f7e2c731ea4e169523a081f7942dee"
+  },
+  {
+   "key": "Ascend-CANN|ops-math",
+   "pipeline": "ops-math",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-math",
+   "projectId": 300057,
+   "pipelineId": "aa3d520fe64f4071a09178d2d603278e",
+   "rid": "727649f778a44fbea40e080401a8245e",
+   "rn": 143,
+   "st": "11-12 02:05",
+   "jobId": "6432a5b99c8d4ee09c17c809e18212a0",
+   "jobName": "Test_ops-math",
+   "stepIds": [
+    "f08d01cbe93740fd9180d17c1c69c4fe"
+   ],
+   "steps": [
+    {
+     "id": "f08d01cbe93740fd9180d17c1c69c4fe",
+     "name": "Test_ops-math",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "434408b737e94346bc4610295314a4ed",
+     "jobIdParam": "44f7e2c731ea4e169523a081f7942dee"
+    }
+   ],
+   "jobErrMsg": "步骤Test_ops-math执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "9df4013b2c114950b628cc7ec54c82ce",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "44f7e2c731ea4e169523a081f7942dee"
+  },
+  {
+   "key": "Ascend-CANN|ops-cv",
+   "pipeline": "ops-cv",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-cv",
+   "projectId": 300057,
+   "pipelineId": "66b8958d6e0349ddb01143765c64afa5",
+   "rid": "2a25d50ec5fc4a1999a58d4e5bd13794",
+   "rn": 177,
+   "st": "11-13 01:05",
+   "jobId": "ad727d34686b4cba9bb2b255f3e40758",
+   "jobName": "Test_ops-cv",
+   "stepIds": [
+    "49ac16fe37c8413692425a081e4f590f"
+   ],
+   "steps": [
+    {
+     "id": "49ac16fe37c8413692425a081e4f590f",
+     "name": "Test_ops-cv",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "5ecaec48238d43e4b96f4420f1281531",
+     "jobIdParam": "39044619d0f744d28744a84cabade6b6"
+    }
+   ],
+   "jobErrMsg": "步骤Test_ops-cv执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "829a7f9935bd4cf9ab9b7c18919582a7",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "39044619d0f744d28744a84cabade6b6"
+  },
+  {
+   "key": "Ascend-CANN|shmem",
+   "pipeline": "shmem",
+   "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+   "projectId": 300057,
+   "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+   "rid": "fda84ce8496847528d2bd240021175be",
+   "rn": 152,
+   "st": "11-13 17:00",
+   "jobId": "2d6a77e2e1a74b0188827dfb296dc63c",
+   "jobName": "Test_shmem",
+   "stepIds": [
+    "cd0d3368e134469abceef9564d426a2a"
+   ],
+   "steps": [
+    {
+     "id": "cd0d3368e134469abceef9564d426a2a",
+     "name": "Test_shmem",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "9482bf6dcdc74185a02a2c260c846362",
+     "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+    }
+   ],
+   "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "7fba816fc6054ea383f5626df0966954",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "5980e84e76f64a07b30c063bbe5a3d8e"
+  },
+  {
+   "key": "Ascend-CANN|ops-math",
+   "pipeline": "ops-math",
+   "pipelineName": "Nightly-CI-Component-pipeline_ops-math",
+   "projectId": 300057,
+   "pipelineId": "aa3d520fe64f4071a09178d2d603278e",
+   "rid": "3afd5d1c652d489fbfb71996f75e09c0",
+   "rn": 145,
+   "st": "11-13 16:30",
+   "jobId": "e8330952e4664d8c891f0a0973f79878",
+   "jobName": "Test_ops-math",
+   "stepIds": [
+    "851ff41bfb774131a198c0fc420cfad9"
+   ],
+   "steps": [
+    {
+     "id": "851ff41bfb774131a198c0fc420cfad9",
+     "name": "Test_ops-math",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "110d3264ea2b401c91c30f6fe4ff4f2d",
+     "jobIdParam": "44f7e2c731ea4e169523a081f7942dee"
+    }
+   ],
+   "jobErrMsg": "步骤Test_ops-math执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "cd5385b290ba468dbae86ea4095c8605",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "44f7e2c731ea4e169523a081f7942dee"
+  }
  ],
+ "log": [
+  {
+   "key": "MindStudio|msprobe",
+   "pipeline": "msprobe",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprobe",
+   "projectId": 300037,
+   "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57",
+   "rid": "bcee0cc2247645dca50aedc9f287211a",
+   "rn": 265,
+   "st": "11-13 00:00",
+   "jobId": "b3f93f623f4743f2b7d4de018cad0308",
+   "jobName": "docker-mindstudio-msprobe-a2-aarch64-nightly",
+   "stepIds": [
+    "da25478c8024481384e2f442421a39da"
+   ],
+   "steps": [
+    {
+     "id": "da25478c8024481384e2f442421a39da",
+     "name": "docker-mindstudio-msprobe-a2-aarch64-nightly",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "e92f92889a0a4d82851034aa9f9ff660",
+     "jobIdParam": "fba9a61669b34b36be7cdab4b0df3fdb"
+    }
+   ],
+   "jobErrMsg": "步骤docker-mindstudio-msprobe-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "c9cf9d871f1741649a4113df8e2f06b1",
+   "route": "log",
+   "isBuild": false,
+   "buildJobId": "fba9a61669b34b36be7cdab4b0df3fdb"
+  },
+  {
+   "key": "MindStudio|msprobe",
+   "pipeline": "msprobe",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprobe",
+   "projectId": 300037,
+   "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57",
+   "rid": "bcee0cc2247645dca50aedc9f287211a",
+   "rn": 265,
+   "st": "11-13 00:00",
+   "jobId": "504628fad3d34ea493b77b688300b63f",
+   "jobName": " docker-mindstudio-msprobe-a3-aarch64-nightly",
+   "stepIds": [
+    "d5128252259346f3b2ba861457b2ae07"
+   ],
+   "steps": [
+    {
+     "id": "d5128252259346f3b2ba861457b2ae07",
+     "name": " docker-mindstudio-msprobe-a3-aarch64-nightly",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "32c408bb165e49b581f13246555a5c62",
+     "jobIdParam": "2d97861093b14de196eea09b0ddd9980"
+    }
+   ],
+   "jobErrMsg": "步骤 docker-mindstudio-msprobe-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "dafccb557825410d8a2320e49a6514b2",
+   "route": "log",
+   "isBuild": false,
+   "buildJobId": "2d97861093b14de196eea09b0ddd9980"
+  }
+ ],
+ "skipped": [],
  "bsCleanRuns": [
   {
    "key": "Ascend-CANN|ops-cv",
-   "rn": 173,
-   "rid": "933d961d2a7144d98c124ce939d99002",
-   "st": "11-11 01:05",
-   "status": null
+   "rn": 177,
+   "rid": "2a25d50ec5fc4a1999a58d4e5bd13794",
+   "st": "11-13 01:05",
+   "status": null,
+   "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
   },
   {
-   "key": "openUBMC|openUBMC",
-   "rn": 2449,
-   "rid": "e5f814f030eb4e5691d2f39289555c49",
-   "st": "11-11 22:51",
-   "status": null
+   "key": "Ascend-CANN|shmem",
+   "rn": 152,
+   "rid": "fda84ce8496847528d2bd240021175be",
+   "st": "11-13 17:00",
+   "status": null,
+   "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
   }
  ],
  "errors": []

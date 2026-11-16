@@ -3,9 +3,9 @@
   "step": "step_7_archive",
   "title": "归档日汇总",
   "source": "第 1~6 步中间产物（out/work/）",
-  "criteria": "当日（按执行结束时间）全部被点灯流水线的执行记录索引",
+  "criteria": "当日（按执行结束时间）全部被点灯流水线的执行记录索引；流水线身份按 pipelineId 归并（短名跨日稳定）",
   "dateField": "pipelineRunEndtime",
-  "generatedAt": "2026-11-12 09:12:15",
+  "generatedAt": "2026-11-13 11:52:27",
   "date": "2026-11-11",
   "dayType": "day"
  },
@@ -16,8 +16,8 @@
   "value": "2026-11-11"
  },
  "dateRange": {
-  "start": "2026-11-11",
-  "end": "2026-11-11"
+  "start": "2026-11-06",
+  "end": "2026-11-12"
  },
  "products": [
   {
@@ -38,12 +38,12 @@
     "pipelineCount": 1,
     "sumRate": 1.0,
     "avgRate": 1.0,
-    "workdayCount": 1,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 2,
-    "buildCount": 2,
+    "buildPassCount": 11,
+    "buildCount": 11,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
@@ -65,7 +65,7 @@
     "pipelineCount": 1,
     "sumRate": 1.0,
     "avgRate": 1.0,
-    "workdayCount": 1,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    }
   },
@@ -87,12 +87,12 @@
   {
    "product": "MindIE",
    "projectId": 300036,
-   "versionAvailabilityRate": 1.0,
-   "buildSuccessRate": 1.0,
+   "versionAvailabilityRate": 0.9,
+   "buildSuccessRate": 0.9230769230769231,
    "pipelineCount": 2,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
-   "badPipelineCountBS": 0,
+   "badPipelineCount": 1,
+   "badPipelineCountVA": 1,
+   "badPipelineCountBS": 1,
    "analyze": true,
    "collectedPipelineCount": 2,
    "rateRule": "runs",
@@ -100,25 +100,25 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 2,
-    "sumRate": 2.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 1.8,
+    "avgRate": 0.9,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 3,
-    "buildCount": 3,
+    "buildPassCount": 12,
+    "buildCount": 13,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
   {
    "product": "MindStudio",
    "projectId": 300037,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.9666666666666667,
    "buildSuccessRate": null,
    "pipelineCount": 6,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
+   "badPipelineCount": 1,
+   "badPipelineCountVA": 1,
    "badPipelineCountBS": 0,
    "analyze": true,
    "collectedPipelineCount": 6,
@@ -127,9 +127,9 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 6,
-    "sumRate": 6.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 5.8,
+    "avgRate": 0.9666666666666667,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    }
   },
@@ -137,7 +137,7 @@
    "product": "MindCluster",
    "projectId": 300038,
    "versionAvailabilityRate": 0.75,
-   "buildSuccessRate": 1.0,
+   "buildSuccessRate": 0.9838709677419355,
    "pipelineCount": 8,
    "badPipelineCount": 0,
    "badPipelineCountVA": 0,
@@ -151,24 +151,24 @@
     "pipelineCount": 8,
     "sumRate": 6.0,
     "avgRate": 0.75,
-    "workdayCount": 1,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 12,
-    "buildCount": 12,
+    "buildPassCount": 61,
+    "buildCount": 62,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
   {
    "product": "Ascend-CANN",
    "projectId": 300057,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.8666666666666667,
    "buildSuccessRate": 1.0,
    "pipelineCount": 9,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
-   "badPipelineCountBS": 0,
+   "badPipelineCount": 5,
+   "badPipelineCountVA": 4,
+   "badPipelineCountBS": 1,
    "analyze": true,
    "collectedPipelineCount": 9,
    "rateRule": "runs",
@@ -176,14 +176,14 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 9,
-    "sumRate": 9.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 7.8,
+    "avgRate": 0.8666666666666667,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 24,
-    "buildCount": 24,
+    "buildPassCount": 160,
+    "buildCount": 160,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
@@ -191,11 +191,11 @@
    "product": "boostkit",
    "projectId": 300059,
    "versionAvailabilityRate": 1.0,
-   "buildSuccessRate": 1.0,
+   "buildSuccessRate": 0.9803921568627451,
    "pipelineCount": 8,
-   "badPipelineCount": 0,
+   "badPipelineCount": 1,
    "badPipelineCountVA": 0,
-   "badPipelineCountBS": 0,
+   "badPipelineCountBS": 1,
    "analyze": true,
    "collectedPipelineCount": 8,
    "rateRule": "runs",
@@ -205,23 +205,23 @@
     "pipelineCount": 8,
     "sumRate": 8.0,
     "avgRate": 1.0,
-    "workdayCount": 1,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 10,
-    "buildCount": 10,
+    "buildPassCount": 50,
+    "buildCount": 51,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
   {
    "product": "HPCKit",
    "projectId": 300073,
-   "versionAvailabilityRate": 0.8,
+   "versionAvailabilityRate": 0.48,
    "buildSuccessRate": 1.0,
    "pipelineCount": 5,
-   "badPipelineCount": 1,
-   "badPipelineCountVA": 1,
+   "badPipelineCount": 5,
+   "badPipelineCountVA": 5,
    "badPipelineCountBS": 0,
    "analyze": true,
    "collectedPipelineCount": 5,
@@ -230,14 +230,14 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 5,
-    "sumRate": 4.0,
-    "avgRate": 0.8,
-    "workdayCount": 1,
+    "sumRate": 2.4,
+    "avgRate": 0.48,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 7,
-    "buildCount": 7,
+    "buildPassCount": 41,
+    "buildCount": 41,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
@@ -259,18 +259,18 @@
     "pipelineCount": 5,
     "sumRate": 5.0,
     "avgRate": 1.0,
-    "workdayCount": 1,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    }
   },
   {
    "product": "vllm-ascend",
    "projectId": 300127,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.7,
    "buildSuccessRate": null,
    "pipelineCount": 2,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
+   "badPipelineCount": 1,
+   "badPipelineCountVA": 1,
    "badPipelineCountBS": 0,
    "analyze": true,
    "collectedPipelineCount": 2,
@@ -279,20 +279,20 @@
    "scheduledOnly": true,
    "versionAvailabilityDetail": {
     "pipelineCount": 2,
-    "sumRate": 2.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 1.4,
+    "avgRate": 0.7,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    }
   },
   {
    "product": "Triton_Ascend",
    "projectId": 300130,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.8,
    "buildSuccessRate": 1.0,
    "pipelineCount": 1,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
+   "badPipelineCount": 1,
+   "badPipelineCountVA": 1,
    "badPipelineCountBS": 0,
    "analyze": true,
    "collectedPipelineCount": 1,
@@ -301,25 +301,25 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 1,
-    "sumRate": 1.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 0.8,
+    "avgRate": 0.8,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    },
    "buildSuccessDetail": {
-    "buildPassCount": 48,
-    "buildCount": 48,
+    "buildPassCount": 180,
+    "buildCount": 180,
     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
    }
   },
   {
    "product": "SgLang",
    "projectId": 300134,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.6,
    "buildSuccessRate": null,
    "pipelineCount": 1,
-   "badPipelineCount": 0,
-   "badPipelineCountVA": 0,
+   "badPipelineCount": 1,
+   "badPipelineCountVA": 1,
    "badPipelineCountBS": 0,
    "analyze": true,
    "collectedPipelineCount": 1,
@@ -328,9 +328,9 @@
    "scheduledOnly": false,
    "versionAvailabilityDetail": {
     "pipelineCount": 1,
-    "sumRate": 1.0,
-    "avgRate": 1.0,
-    "workdayCount": 1,
+    "sumRate": 0.6,
+    "avgRate": 0.6,
+    "workdayCount": 5,
     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
    }
   }
@@ -350,9 +350,13 @@
   "SgLang"
  ],
  "workdays": [
-  "2026-11-11"
+  "2026-11-06",
+  "2026-11-09",
+  "2026-11-10",
+  "2026-11-11",
+  "2026-11-12"
  ],
- "workdayCount": 1,
+ "workdayCount": 5,
  "pipelines": [
   {
    "component": "openUBMC",
@@ -375,18 +379,19 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 6,
-   "runsToday": 6,
-   "failedRunsToday": 1,
+   "runsInPeriod": 20,
+   "runsToday": 5,
+   "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/openUBMC/openUBMC",
-   "manifest": "archive/2026/2026-11/2026-11-11/openUBMC/openUBMC/_manifest.json",
-   "records": 6,
+   "manifest": "archive/2026/2026-11/2026-11-11/openUBMC/openUBMC/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openUBMC/openUBMC/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 5,
    "runNumbers": [
     2445,
     2446,
     2447,
     2448,
-    2449,
     2450
    ],
    "tasks": 0,
@@ -394,10 +399,10 @@
    "errorMessages": 0,
    "evidenceFiles": 0,
    "byCategory": {
-    "success": 5,
-    "job_failure": 1
+    "success": 5
    },
-   "note": null
+   "note": null,
+   "pipelineId": "440c21006cf141e9806d6029c5185b53"
   },
   {
    "component": "AscendForPyTorch",
@@ -419,11 +424,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/AscendForPyTorch/master",
-   "manifest": "archive/2026/2026-11/2026-11-11/AscendForPyTorch/master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/AscendForPyTorch/master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/AscendForPyTorch/master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     76
@@ -435,7 +442,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "c5fb1178a82e4121bd7033824630a47f"
   },
   {
    "component": "MindIE",
@@ -458,11 +466,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-SD",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-SD/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-SD/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-SD/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     107
@@ -474,7 +484,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6"
   },
   {
    "component": "MindIE",
@@ -486,8 +497,8 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
-   "bsRate": 1.0,
+   "vaRate": 0.8,
+   "bsRate": 0.875,
    "rateRule": "runs",
    "vaDetail": {
     "availDays": 1,
@@ -497,11 +508,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 11,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-Motor",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-Motor/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-Motor/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindIE/MindIE-Motor/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     127,
@@ -514,7 +527,8 @@
    "byCategory": {
     "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6"
   },
   {
    "component": "MindStudio",
@@ -536,11 +550,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msprof",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msprof/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msprof/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msprof/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     270
@@ -552,7 +568,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49"
   },
   {
    "component": "MindStudio",
@@ -574,11 +591,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msprobe",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msprobe/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msprobe/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msprobe/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     263
@@ -590,7 +609,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "9de3361a26304f96a7ac8ebf571d0b57"
   },
   {
    "component": "MindStudio",
@@ -612,11 +632,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msserviceprofiler",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msserviceprofiler/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msserviceprofiler/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msserviceprofiler/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     247
@@ -628,7 +650,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "af61355154f54c85adac46449f506edc"
   },
   {
    "component": "MindStudio",
@@ -650,11 +673,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msmemscope",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msmemscope/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msmemscope/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msmemscope/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     262
@@ -666,7 +691,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b4bf5a6de15549c59ce223fe03922413"
   },
   {
    "component": "MindStudio",
@@ -677,7 +703,7 @@
    "dims": [
     "va"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.8,
    "bsRate": null,
    "rateRule": "runs",
    "vaDetail": {
@@ -688,11 +714,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 8,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msot",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msot/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msot/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msot/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     269
@@ -704,7 +732,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b67d335347fa4646acd3b96d1c55573e"
   },
   {
    "component": "MindStudio",
@@ -726,11 +755,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindStudio/msmodelslim",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msmodelslim/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindStudio/msmodelslim/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindStudio/msmodelslim/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     266
@@ -742,7 +773,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b9948b4f145e4063a094356af192513c"
   },
   {
    "component": "MindCluster",
@@ -765,11 +797,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/IndexSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/IndexSDK/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/IndexSDK/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/IndexSDK/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     86
@@ -781,7 +815,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "12313bdcc9bb435bb8755eb51548157a"
   },
   {
    "component": "MindCluster",
@@ -804,11 +839,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/ascend-deployer",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/ascend-deployer/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/ascend-deployer/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/ascend-deployer/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     280
@@ -820,7 +857,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "3bf413db452e4b2d8e26dd521bc9b78b"
   },
   {
    "component": "MindCluster",
@@ -843,11 +881,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/MindCluster",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/MindCluster/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/MindCluster/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/MindCluster/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     548
@@ -859,7 +899,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "576d7d060dc24749951e0b3abd6a5dcc"
   },
   {
    "component": "MindCluster",
@@ -882,11 +923,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/RecSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/RecSDK/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/RecSDK/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/RecSDK/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     75
@@ -898,7 +941,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "610d7853be5a4efa9096ddead93a2d4f"
   },
   {
    "component": "MindCluster",
@@ -921,11 +965,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/AgentSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/AgentSDK/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/AgentSDK/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/AgentSDK/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     65
@@ -937,41 +983,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
-  },
-  {
-   "component": "MindCluster",
-   "pipeline": "VisionSDK",
-   "pipelineName": "Nightly-CI-Component-pipeline_VisionSDK",
-   "platform": "codearts",
-   "key": "MindCluster|VisionSDK",
-   "dims": [
-    "va"
-   ],
-   "vaRate": 0.0,
-   "bsRate": null,
-   "rateRule": "runs",
-   "vaDetail": {
-    "availDays": 0,
-    "daysInPeriod": 0
-   },
-   "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
-   },
-   "runsInPeriod": 0,
-   "runsToday": 0,
-   "failedRunsToday": 0,
-   "path": "archive/2026/2026-11/2026-11-11/MindCluster/VisionSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/VisionSDK/_manifest.json",
-   "records": 0,
-   "runNumbers": [],
-   "tasks": 0,
-   "cases": 0,
-   "errorMessages": 0,
-   "evidenceFiles": 0,
-   "byCategory": {},
-   "note": "当日无任何运行记录（该流水线区间内无执行）"
+   "note": null,
+   "pipelineId": "9f864a61fe8b4268b592e5e2b38f859a"
   },
   {
    "component": "MindCluster",
@@ -984,7 +997,7 @@
     "bs"
    ],
    "vaRate": 1.0,
-   "bsRate": 1.0,
+   "bsRate": 0.9090909090909091,
    "rateRule": "runs",
    "vaDetail": {
     "availDays": 1,
@@ -994,11 +1007,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindCluster/MultimodalSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/MultimodalSDK/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/MultimodalSDK/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindCluster/MultimodalSDK/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     81
@@ -1010,41 +1025,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
-  },
-  {
-   "component": "MindCluster",
-   "pipeline": "RAGSDK",
-   "pipelineName": "Nightly-CI-Component-pipeline_RAGSDK",
-   "platform": "codearts",
-   "key": "MindCluster|RAGSDK",
-   "dims": [
-    "va"
-   ],
-   "vaRate": 0.0,
-   "bsRate": null,
-   "rateRule": "runs",
-   "vaDetail": {
-    "availDays": 0,
-    "daysInPeriod": 0
-   },
-   "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
-   },
-   "runsInPeriod": 0,
-   "runsToday": 0,
-   "failedRunsToday": 0,
-   "path": "archive/2026/2026-11/2026-11-11/MindCluster/RAGSDK",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindCluster/RAGSDK/_manifest.json",
-   "records": 0,
-   "runNumbers": [],
-   "tasks": 0,
-   "cases": 0,
-   "errorMessages": 0,
-   "evidenceFiles": 0,
-   "byCategory": {},
-   "note": "当日无任何运行记录（该流水线区间内无执行）"
+   "note": null,
+   "pipelineId": "c39c0146a8b2492db59ec77bedb7170c"
   },
   {
    "component": "Ascend-CANN",
@@ -1067,11 +1049,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/os",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/os/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/os/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/os/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     146
@@ -1083,7 +1067,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "03da2691669a4f2bbfcfd89356bc3576"
   },
   {
    "component": "Ascend-CANN",
@@ -1095,7 +1080,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1106,11 +1091,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 11,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-transformer",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-transformer/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-transformer/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-transformer/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     169
@@ -1122,7 +1109,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "309180d5c2904adf942f5678d9356d99"
   },
   {
    "component": "Ascend-CANN",
@@ -1145,25 +1133,28 @@
     "buildPassCount": 4,
     "buildCount": 4
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 8,
    "runsToday": 2,
    "failedRunsToday": 1,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-cv",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-cv/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-cv/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-cv/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     173,
     174
    ],
-   "tasks": 0,
-   "cases": 0,
-   "errorMessages": 0,
-   "evidenceFiles": 0,
+   "tasks": 1,
+   "cases": 2,
+   "errorMessages": 4,
+   "evidenceFiles": 2,
    "byCategory": {
     "test_failure": 1,
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "66b8958d6e0349ddb01143765c64afa5"
   },
   {
    "component": "Ascend-CANN",
@@ -1175,7 +1166,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.8,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1186,11 +1177,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-nn",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-nn/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-nn/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-nn/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     171
@@ -1202,7 +1195,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "6d402b76f9b14451872ef07ac1f864ba"
   },
   {
    "component": "Ascend-CANN",
@@ -1225,11 +1219,13 @@
     "buildPassCount": 3,
     "buildCount": 3
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/hcomm",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/hcomm/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/hcomm/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/hcomm/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     202
@@ -1241,7 +1237,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "917e9d4ef3624408999817444349c4dc"
   },
   {
    "component": "Ascend-CANN",
@@ -1253,7 +1250,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.8,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1264,11 +1261,13 @@
     "buildPassCount": 4,
     "buildCount": 4
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 13,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/shmem",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/shmem/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/shmem/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/shmem/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     147,
@@ -1281,7 +1280,8 @@
    "byCategory": {
     "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939"
   },
   {
    "component": "Ascend-CANN",
@@ -1293,7 +1293,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1304,11 +1304,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-math",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-math/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-math/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/ops-math/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     142
@@ -1320,7 +1322,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "aa3d520fe64f4071a09178d2d603278e"
   },
   {
    "component": "Ascend-CANN",
@@ -1343,11 +1346,13 @@
     "buildPassCount": 4,
     "buildCount": 4
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/atb",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/atb/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/atb/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/atb/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     181
@@ -1359,7 +1364,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b4f302b7c22b4eacab56d4b120bf7d04"
   },
   {
    "component": "Ascend-CANN",
@@ -1382,11 +1388,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 7,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Ascend-CANN/sip",
-   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/sip/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Ascend-CANN/sip/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Ascend-CANN/sip/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     131
@@ -1398,7 +1406,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "ca98a3e75ff84332a3abd4f091a0c233"
   },
   {
    "component": "boostkit",
@@ -1421,11 +1430,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/avx2ki",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/avx2ki/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/avx2ki/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/avx2ki/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     40
@@ -1437,7 +1448,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "2944ce957b494b72a41150b5467b61b4"
   },
   {
    "component": "boostkit",
@@ -1460,11 +1472,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/kqmalloc",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/kqmalloc/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/kqmalloc/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/kqmalloc/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     190
@@ -1476,7 +1490,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "452bb706ced24726aa7686b92a966734"
   },
   {
    "component": "boostkit",
@@ -1499,11 +1514,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 10,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/OmniStream",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/OmniStream/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/OmniStream/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/OmniStream/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     165,
@@ -1516,7 +1533,8 @@
    "byCategory": {
     "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "636f9465b49d4a6591d5572ad6f9456f"
   },
   {
    "component": "boostkit",
@@ -1539,11 +1557,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/Megascan",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Megascan/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Megascan/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/Megascan/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     77
@@ -1555,7 +1575,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "9485ce9d987d4717a944aa3932474391"
   },
   {
    "component": "boostkit",
@@ -1568,7 +1589,7 @@
     "bs"
    ],
    "vaRate": 1.0,
-   "bsRate": 1.0,
+   "bsRate": 0.8333333333333334,
    "rateRule": "runs",
    "vaDetail": {
     "availDays": 1,
@@ -1578,11 +1599,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/Bigdata",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Bigdata/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Bigdata/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/Bigdata/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     46
@@ -1594,7 +1617,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "a74a64d931f34c98bc726e5ea599f8a3"
   },
   {
    "component": "boostkit",
@@ -1617,11 +1641,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/KTAG",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/KTAG/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/KTAG/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/KTAG/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     152
@@ -1633,7 +1659,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "a8c3dbdd3feb4c4ab4a4a336e1323ce3"
   },
   {
    "component": "boostkit",
@@ -1656,11 +1683,13 @@
     "buildPassCount": 2,
     "buildCount": 2
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 10,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/Ultrascan",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Ultrascan/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/Ultrascan/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/Ultrascan/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     303,
@@ -1673,7 +1702,8 @@
    "byCategory": {
     "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b0040d6ccaae48b5b623931d34db5d24"
   },
   {
    "component": "boostkit",
@@ -1696,11 +1726,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/boostkit/KAE",
-   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/KAE/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/boostkit/KAE/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/boostkit/KAE/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     362
@@ -1712,7 +1744,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "eaf0862dd3f84fc2b51862830d7fe19e"
   },
   {
    "component": "HPCKit",
@@ -1724,7 +1757,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1735,11 +1768,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/HPCKit/kudnn",
-   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kudnn/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kudnn/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/HPCKit/kudnn/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     229
@@ -1751,7 +1786,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "ca83efb8c37648db8084e31b1e88b62c"
   },
   {
    "component": "HPCKit",
@@ -1774,11 +1810,13 @@
     "buildPassCount": 3,
     "buildCount": 3
    },
-   "runsInPeriod": 3,
+   "runsInPeriod": 20,
    "runsToday": 3,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/HPCKit/kupl",
-   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kupl/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kupl/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/HPCKit/kupl/pipeline.json",
+   "layout": "pipeline/1",
    "records": 3,
    "runNumbers": [
     316,
@@ -1792,7 +1830,8 @@
    "byCategory": {
     "success": 3
    },
-   "note": null
+   "note": null,
+   "pipelineId": "ddb211b1e4a74f55a0e604fa95ef469e"
   },
   {
    "component": "HPCKit",
@@ -1804,7 +1843,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1815,11 +1854,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/HPCKit/kuqcd",
-   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kuqcd/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kuqcd/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/HPCKit/kuqcd/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     204
@@ -1831,7 +1872,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "eeedf3e4794449969ad6d7f67691d0be"
   },
   {
    "component": "HPCKit",
@@ -1843,7 +1885,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1854,11 +1896,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/HPCKit/kpex",
-   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kpex/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/kpex/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/HPCKit/kpex/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     144
@@ -1870,7 +1914,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "fec036d3c59f4d27bb506138f273f113"
   },
   {
    "component": "HPCKit",
@@ -1882,7 +1927,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -1893,11 +1938,13 @@
     "buildPassCount": 1,
     "buildCount": 1
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/HPCKit/hmpi",
-   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/hmpi/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/HPCKit/hmpi/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/HPCKit/hmpi/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     215
@@ -1909,7 +1956,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "ffe131425ad84d4b8b6c17c4c09476d9"
   },
   {
    "component": "MindSpeed",
@@ -1931,11 +1979,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindSpeed/DrivingSDK_master",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/DrivingSDK_master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/DrivingSDK_master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindSpeed/DrivingSDK_master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     71
@@ -1947,7 +1997,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "0260b812efd04b0ebf649f3a4c533996"
   },
   {
    "component": "MindSpeed",
@@ -1969,11 +2020,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-MM_master",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-MM_master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-MM_master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-MM_master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     101
@@ -1985,7 +2038,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "094eb44f70df495783f375641b7143e6"
   },
   {
    "component": "MindSpeed",
@@ -2007,11 +2061,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 5,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-LLM_master",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-LLM_master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-LLM_master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-LLM_master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     80
@@ -2023,7 +2079,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "b30f40b85cce4153b175379589793abc"
   },
   {
    "component": "MindSpeed",
@@ -2045,11 +2102,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 1,
+   "runsInPeriod": 6,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed_master",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed_master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed_master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed_master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 1,
    "runNumbers": [
     94
@@ -2061,7 +2120,8 @@
    "byCategory": {
     "success": 1
    },
-   "note": null
+   "note": null,
+   "pipelineId": "e12bb930ffe84e3b9258f23c41644b58"
   },
   {
    "component": "MindSpeed",
@@ -2083,11 +2143,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 2,
+   "runsInPeriod": 7,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-A3_master",
-   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-A3_master/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-A3_master/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/MindSpeed/MindSpeed-A3_master/pipeline.json",
+   "layout": "pipeline/1",
    "records": 2,
    "runNumbers": [
     99,
@@ -2100,7 +2162,8 @@
    "byCategory": {
     "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "e593e0b8911044b69ce9d1be3c19032a"
   },
   {
    "component": "vllm-ascend",
@@ -2111,7 +2174,7 @@
    "dims": [
     "va"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.8,
    "bsRate": null,
    "rateRule": "runs",
    "vaDetail": {
@@ -2122,25 +2185,27 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 3,
-   "runsToday": 3,
+   "runsInPeriod": 10,
+   "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/vllm-ascend/a2.yaml",
-   "manifest": "archive/2026/2026-11/2026-11-11/vllm-ascend/a2.yaml/_manifest.json",
-   "records": 3,
+   "manifest": "archive/2026/2026-11/2026-11-11/vllm-ascend/a2.yaml/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/vllm-ascend/a2.yaml/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 2,
    "runNumbers": [
     15533,
-    15534,
-    15537
+    15534
    ],
    "tasks": 0,
    "cases": 0,
    "errorMessages": 0,
    "evidenceFiles": 0,
    "byCategory": {
-    "success": 3
+    "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "228664975"
   },
   {
    "component": "vllm-ascend",
@@ -2151,7 +2216,7 @@
    "dims": [
     "va"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": null,
    "rateRule": "runs",
    "vaDetail": {
@@ -2162,25 +2227,27 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 3,
-   "runsToday": 3,
+   "runsInPeriod": 10,
+   "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/vllm-ascend/a3.yaml",
-   "manifest": "archive/2026/2026-11/2026-11-11/vllm-ascend/a3.yaml/_manifest.json",
-   "records": 3,
+   "manifest": "archive/2026/2026-11/2026-11-11/vllm-ascend/a3.yaml/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/vllm-ascend/a3.yaml/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 2,
    "runNumbers": [
     16510,
-    16511,
-    16524
+    16511
    ],
    "tasks": 0,
    "cases": 0,
    "errorMessages": 0,
    "evidenceFiles": 0,
    "byCategory": {
-    "success": 3
+    "success": 2
    },
-   "note": null
+   "note": null,
+   "pipelineId": "228664976"
   },
   {
    "component": "Triton_Ascend",
@@ -2192,7 +2259,7 @@
     "va",
     "bs"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.8,
    "bsRate": 1.0,
    "rateRule": "runs",
    "vaDetail": {
@@ -2203,11 +2270,13 @@
     "buildPassCount": 48,
     "buildCount": 48
    },
-   "runsInPeriod": 4,
+   "runsInPeriod": 16,
    "runsToday": 4,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/Triton_Ascend/Ascend",
-   "manifest": "archive/2026/2026-11/2026-11-11/Triton_Ascend/Ascend/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/Triton_Ascend/Ascend/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/Triton_Ascend/Ascend/pipeline.json",
+   "layout": "pipeline/1",
    "records": 4,
    "runNumbers": [
     115,
@@ -2222,7 +2291,8 @@
    "byCategory": {
     "success": 4
    },
-   "note": null
+   "note": null,
+   "pipelineId": "9a4886d40e544cecb7da63c9597490a6"
   },
   {
    "component": "SgLang",
@@ -2233,7 +2303,7 @@
    "dims": [
     "va"
    ],
-   "vaRate": 1.0,
+   "vaRate": 0.6,
    "bsRate": null,
    "rateRule": "runs",
    "vaDetail": {
@@ -2244,11 +2314,13 @@
     "buildPassCount": 0,
     "buildCount": 0
    },
-   "runsInPeriod": 20,
+   "runsInPeriod": 76,
    "runsToday": 20,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-11/SgLang/nightly-test-npu.yml",
-   "manifest": "archive/2026/2026-11/2026-11-11/SgLang/nightly-test-npu.yml/_manifest.json",
+   "manifest": "archive/2026/2026-11/2026-11-11/SgLang/nightly-test-npu.yml/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/SgLang/nightly-test-npu.yml/pipeline.json",
+   "layout": "pipeline/1",
    "records": 20,
    "runNumbers": [
     2144,
@@ -2279,22 +2351,22 @@
    "byCategory": {
     "success": 20
    },
-   "note": null
+   "note": null,
+   "pipelineId": "209837578"
   }
  ],
  "counts": {
   "components": 12,
-  "pipelines": 49,
-  "records": 86,
-  "tasks": 0,
-  "cases": 0,
-  "errorMessages": 0,
-  "evidenceFiles": 0,
+  "pipelines": 47,
+  "records": 83,
+  "tasks": 1,
+  "cases": 2,
+  "errorMessages": 4,
+  "evidenceFiles": 2,
   "byCategory": {
-   "success": 84,
-   "job_failure": 1,
+   "success": 82,
    "test_failure": 1
   }
  },
- "generatedAt": "2026-11-12 09:12:14"
+ "generatedAt": "2026-11-13 11:52:22"
 }

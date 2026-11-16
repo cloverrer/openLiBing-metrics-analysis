@@ -1,0 +1,11 @@
+===== case_logs/case_0059.html
+[L1698]                 <td class="step-indent"><div class="msg-scroll">aclnnMoeTokenUnpermuteWithEpGradGetWorkspaceSize <span style="color:#F44336;font-weight:bold">failed</span>! <span style="color:#F44336;font-weight:bold">error</span> code: 561002
+[L1699] ACL <span style="color:#F44336;font-weight:bold">Error</span> Details:
+[L1700] [PID: 52707] 2026-11-09-04:35:40.435.462 Execution_Error(EZ1008): <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+[L1701] Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function <span style="color:#F44336;font-weight:bold">fails</span> to be executed, check the implementation logic of the tiling function.
+[L1702] <span style="color:#F44336;font-weight:bold">TraceBack</span> (most recent call last):
+[L1703] topkNum (9) must equal probs dimension 1 (512).[FUNC:SetTilingForTiling4MoeTokenUnpermuteWithEpGrad][FILE:moe_token_unpermute_with_ep_grad_tiling.cpp][LINE:477]
+[L1704] <span style="color:#F44336;font-weight:bold">Failed</span> to execute operator MoeTokenUnpermuteWithEpGrad_0. Reason: <span style="color:#F44336;font-weight:bold">Failed</span> to execute tiling function.
+[L1705] Check NnopbaseExecutorDoTiling(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+[L1706] Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) <span style="color:#F44336;font-weight:bold">failed</span>
+

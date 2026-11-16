@@ -1,0 +1,47 @@
+===== github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt
+[L1256] 2026-11-08T16:13:50.4887609Z Traceback (most recent call last):
+[L1257] 2026-11-08T16:13:50.4890085Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 2541, in attach_hybrid_pool_to_unified_cache
+[L1258] 2026-11-08T16:13:50.4891326Z     result = strategy.build(
+[L1259] 2026-11-08T16:13:50.4891601Z              ^^^^^^^^^^^^^^^
+[L1260] 2026-11-08T16:13:50.4892181Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 2403, in build
+[L1261] 2026-11-08T16:13:50.4892854Z     host_pool_group = build_host_pool_group(config=config)
+[L1262] 2026-11-08T16:13:50.4893247Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1263] 2026-11-08T16:13:50.4893935Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 1570, in build_host_pool_group
+[L1264] 2026-11-08T16:13:50.4894613Z     root_host_pool = build_kv_host_pool(
+[L1265] 2026-11-08T16:13:50.4894925Z                      ^^^^^^^^^^^^^^^^^^^
+[L1266] 2026-11-08T16:13:50.4895555Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 203, in build_kv_host_pool
+[L1267] 2026-11-08T16:13:50.4896211Z     host_pool = kv_host_pool_cls(
+[L1268] 2026-11-08T16:13:50.4896498Z                 ^^^^^^^^^^^^^^^^^
+[L1269] 2026-11-08T16:13:50.4897004Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/pool_host/mha.py", line 219, in __init__
+[L1270] 2026-11-08T16:13:50.4897520Z     super().__init__(
+[L1271] 2026-11-08T16:13:50.4898206Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/pool_host/base.py", line 277, in __init__
+[L1272] 2026-11-08T16:13:50.4898766Z     self._allocate_host_buffer()
+[L1273] 2026-11-08T16:13:50.4899350Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/pool_host/base.py", line 324, in _allocate_host_buffer
+[L1274] 2026-11-08T16:13:50.4899964Z     self.kv_buffer = self.init_kv_buffer()
+[L1275] 2026-11-08T16:13:50.4900282Z                      ^^^^^^^^^^^^^^^^^^^^^
+[L1276] 2026-11-08T16:13:50.4900825Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/pool_host/mha.py", line 355, in init_kv_buffer
+[L1277] 2026-11-08T16:13:50.4901390Z     buffer = alloc_func(
+[L1278] 2026-11-08T16:13:50.4901653Z              ^^^^^^^^^^^
+[L1279] 2026-11-08T16:13:50.4902195Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/pool_host/common.py", line 468, in alloc_with_pin_memory
+[L1280] 2026-11-08T16:13:50.4902992Z     buffer = torch.empty(dims, dtype=dtype, device=device, pin_memory=pin_memory)
+[L1281] 2026-11-08T16:13:50.4903503Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1282] 2026-11-08T16:13:50.4904173Z   File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/contrib/transfer_to_npu.py", line 191, in decorated
+[L1283] 2026-11-08T16:13:50.4904800Z     return fn(*args, **kwargs)
+[L1284] 2026-11-08T16:13:50.4905071Z            ^^^^^^^^^^^^^^^^^^^
+[L1285] 2026-11-08T16:13:50.4906072Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 10004463616, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
+[L1286] 2026-11-08T16:13:50.4919447Z [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):
+[L1287] 2026-11-08T16:13:50.4920184Z   File "/sgl-workspace/sglang/python/sglang/srt/managers/scheduler.py", line 6724, in run_scheduler_process
+[L1288] 2026-11-08T16:13:50.4920814Z     scheduler = Scheduler(server_args, port_args)
+[L1289] 2026-11-08T16:13:50.4921157Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1290] 2026-11-08T16:13:50.4921678Z   File "/sgl-workspace/sglang/python/sglang/srt/managers/scheduler.py", line 617, in __init__
+[L1291] 2026-11-08T16:13:50.4922220Z     result = kv_cache_builder.build_kv_cache(
+[L1292] 2026-11-08T16:13:50.4922561Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1293] 2026-11-08T16:13:50.4923150Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/kv_cache_builder.py", line 505, in build_kv_cache
+[L1294] 2026-11-08T16:13:50.4923757Z     tree_cache = create_tree_cache(tree_context)
+[L1295] 2026-11-08T16:13:50.4924253Z                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1296] 2026-11-08T16:13:50.4924803Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/registry.py", line 264, in create_tree_cache
+[L1297] 2026-11-08T16:13:50.4925372Z     cache = default_radix_cache_factory(ctx)
+[L1298] 2026-11-08T16:13:50.4925705Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[L1299] 2026-11-08T16:13:50.4926493Z   File "/sgl-workspace/sglang/python/sglang/srt/mem_cache/registry.py", line 152, in default_radix_cache_factory
+[L1300] 2026-11-08T16:13:50.4927105Z     return create_unified_radix_cache(ctx)
+

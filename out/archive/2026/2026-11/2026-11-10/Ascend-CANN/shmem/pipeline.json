@@ -1,0 +1,1332 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-13 15:40:42",
+  "component": "Ascend-CANN",
+  "pipeline": "shmem",
+  "date": "2026-11-10",
+  "recordCount": 4
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-10",
+ "component": "Ascend-CANN",
+ "pipeline": "shmem",
+ "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+ "platform": "codearts",
+ "key": "Ascend-CANN|shmem",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-10",
+  "runs": [
+   {
+    "rn": 146,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-10 19:18:11"
+   },
+   {
+    "rn": 145,
+    "status": "FAILED",
+    "endedAt": "2026-11-10 17:19:56"
+   },
+   {
+    "rn": 144,
+    "status": "FAILED",
+    "endedAt": "2026-11-10 10:29:20"
+   },
+   {
+    "rn": 143,
+    "status": "FAILED",
+    "endedAt": "2026-11-10 03:37:10"
+   }
+  ]
+ },
+ "counts": {
+  "records": 4,
+  "tasks": 4,
+  "cases": 2,
+  "errorMessages": 10
+ },
+ "evidence": {
+  "files": 3,
+  "bytes": 907088,
+  "lines": 9510,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-13 15:40:42",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "product": {
+    "product": "Ascend-CANN",
+    "projectId": 300057,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 1.0,
+    "pipelineCount": 9,
+    "badPipelineCount": 0,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 9,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 9,
+     "sumRate": 9.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 28,
+     "buildCount": 28,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "Ascend-CANN|shmem",
+    "product": "Ascend-CANN",
+    "projectId": 300057,
+    "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+    "pipelineShortName": "shmem",
+    "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 4 次运行（当日 4 次），其中 3 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "date": "2026-11-10",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 143,
+     "rid": "0ea45a231d7547cf87aa39e2d3571b41",
+     "status": "FAILED",
+     "start": "11-10 03:00",
+     "startISO": "2026-11-10T03:00:54",
+     "endISO": "2026-11-10T03:37:10",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=0ea45a231d7547cf87aa39e2d3571b41",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "测试任务",
+     "cached": true
+    },
+    {
+     "rn": 144,
+     "rid": "ba1a1af3745e4d34880b78916b209766",
+     "status": "FAILED",
+     "start": "11-10 09:51",
+     "startISO": "2026-11-10T09:51:45",
+     "endISO": "2026-11-10T10:29:20",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=ba1a1af3745e4d34880b78916b209766",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "测试任务",
+     "cached": true
+    },
+    {
+     "rn": 145,
+     "rid": "96a91e4f3750433c9c0c23a1b5877f54",
+     "status": "FAILED",
+     "start": "11-10 17:00",
+     "startISO": "2026-11-10T17:00:09",
+     "endISO": "2026-11-10T17:19:56",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=96a91e4f3750433c9c0c23a1b5877f54",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "测试任务",
+     "cached": true
+    }
+   ],
+   "days": {
+    "11-10": [
+     "COMPLETED",
+     "FAILED",
+     "FAILED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 146,
+     "pipelineRunId": "8119983ccecb4e019750d510368b9986",
+     "start": "2026-11-10 18:17:59",
+     "end": "2026-11-10 19:18:11",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 145,
+     "pipelineRunId": "96a91e4f3750433c9c0c23a1b5877f54",
+     "start": "2026-11-10 17:00:09",
+     "end": "2026-11-10 17:19:56",
+     "status": "FAILED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 144,
+     "pipelineRunId": "ba1a1af3745e4d34880b78916b209766",
+     "start": "2026-11-10 09:51:45",
+     "end": "2026-11-10 10:29:20",
+     "status": "FAILED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 143,
+     "pipelineRunId": "0ea45a231d7547cf87aa39e2d3571b41",
+     "start": "2026-11-10 03:00:54",
+     "end": "2026-11-10 03:37:10",
+     "status": "FAILED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 146,
+     "start": "2026-11-10 18:17:59",
+     "end": "2026-11-10 19:18:11",
+     "status": "COMPLETED",
+     "rid": "8119983ccecb4e019750d510368b9986",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=8119983ccecb4e019750d510368b9986",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 145,
+     "start": "2026-11-10 17:00:09",
+     "end": "2026-11-10 17:19:56",
+     "status": "FAILED",
+     "rid": "96a91e4f3750433c9c0c23a1b5877f54",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=96a91e4f3750433c9c0c23a1b5877f54",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": null,
+     "iva": false,
+     "ftt": "测试任务"
+    },
+    {
+     "rn": 144,
+     "start": "2026-11-10 09:51:45",
+     "end": "2026-11-10 10:29:20",
+     "status": "FAILED",
+     "rid": "ba1a1af3745e4d34880b78916b209766",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=ba1a1af3745e4d34880b78916b209766",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": 92.31,
+     "iva": false,
+     "ftt": "测试任务"
+    },
+    {
+     "rn": 143,
+     "start": "2026-11-10 03:00:54",
+     "end": "2026-11-10 03:37:10",
+     "status": "FAILED",
+     "rid": "0ea45a231d7547cf87aa39e2d3571b41",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=0ea45a231d7547cf87aa39e2d3571b41",
+     "bc": 2,
+     "bpc": 2,
+     "cpr": 92.31,
+     "iva": false,
+     "ftt": "测试任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-10"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 4,
+   "keptFailedRuns": 3,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "test": [
+    {
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "0ea45a231d7547cf87aa39e2d3571b41",
+     "rn": 143,
+     "st": "11-10 03:00",
+     "jobId": "5c206919350e4793913fd4e0513578cf",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "17e7bf8974fd4bed90e6a2de19132e3c"
+     ],
+     "steps": [
+      {
+       "id": "17e7bf8974fd4bed90e6a2de19132e3c",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "caf2fb7db03f46acbba93968c8d98878",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f0349261654c485fa19c8427e4423eb9",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "5980e84e76f64a07b30c063bbe5a3d8e",
+     "cached": true
+    },
+    {
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "ba1a1af3745e4d34880b78916b209766",
+     "rn": 144,
+     "st": "11-10 09:51",
+     "jobId": "22da8923f4f34bb8878b34afd34b8306",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "aa1562ce46e846efbc9f365f857349e9"
+     ],
+     "steps": [
+      {
+       "id": "aa1562ce46e846efbc9f365f857349e9",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "36715beb5e8a45cebb99475c7ef3e8bf",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "cd9390a8a8444423b9424f24660fe274",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "5980e84e76f64a07b30c063bbe5a3d8e",
+     "cached": true
+    },
+    {
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "96a91e4f3750433c9c0c23a1b5877f54",
+     "rn": 145,
+     "st": "11-10 17:00",
+     "jobId": "5b96e0da93464c0ea7066a3d1b0ca534",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "376d40f905744f708a33749a317c9c47"
+     ],
+     "steps": [
+      {
+       "id": "376d40f905744f708a33749a317c9c47",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "030bb3c534e247f78bba62ba3aa0d6d4",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "0f10f291dd664edf8681e4b9880ae7ee",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "5980e84e76f64a07b30c063bbe5a3d8e",
+     "cached": true
+    }
+   ],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 3,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "results": [
+    {
+     "route": "test",
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "rn": 143,
+     "st": "11-10 03:00",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "0ea45a231d7547cf87aa39e2d3571b41",
+     "jobId": "5c206919350e4793913fd4e0513578cf",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "17e7bf8974fd4bed90e6a2de19132e3c"
+     ],
+     "steps": [
+      {
+       "id": "17e7bf8974fd4bed90e6a2de19132e3c",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "caf2fb7db03f46acbba93968c8d98878",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f0349261654c485fa19c8427e4423eb9",
+     "code": 200,
+     "summary": {
+      "total": 13,
+      "passed": 12,
+      "failed": 1,
+      "passRate": "92.31%"
+     },
+     "failedCases": [
+      {
+       "name": "test_example_allgather",
+       "number": "test_example_allgather",
+       "state": "failed",
+       "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+       "beginTime": "2026-11-10 03:27:02",
+       "endTime": "2026-11-10 03:33:00",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather_log.zip"
+      }
+     ],
+     "empty": false
+    },
+    {
+     "route": "test",
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "rn": 144,
+     "st": "11-10 09:51",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "ba1a1af3745e4d34880b78916b209766",
+     "jobId": "22da8923f4f34bb8878b34afd34b8306",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "aa1562ce46e846efbc9f365f857349e9"
+     ],
+     "steps": [
+      {
+       "id": "aa1562ce46e846efbc9f365f857349e9",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "36715beb5e8a45cebb99475c7ef3e8bf",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "cd9390a8a8444423b9424f24660fe274",
+     "code": 200,
+     "summary": {
+      "total": 13,
+      "passed": 12,
+      "failed": 1,
+      "passRate": "92.31%"
+     },
+     "failedCases": [
+      {
+       "name": "test_example_allgather",
+       "number": "test_example_allgather",
+       "state": "failed",
+       "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+       "beginTime": "2026-11-10 10:18:35",
+       "endTime": "2026-11-10 10:24:59",
+       "resultDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather.html",
+       "envDownloadUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather_log.zip"
+      }
+     ],
+     "empty": false
+    },
+    {
+     "route": "test",
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+     "rn": 145,
+     "st": "11-10 17:00",
+     "projectId": 300057,
+     "pipelineId": "93831fdaa3234c8a9dd0b8a0c220f939",
+     "rid": "96a91e4f3750433c9c0c23a1b5877f54",
+     "jobId": "5b96e0da93464c0ea7066a3d1b0ca534",
+     "jobName": "Test_shmem",
+     "stepIds": [
+      "376d40f905744f708a33749a317c9c47"
+     ],
+     "steps": [
+      {
+       "id": "376d40f905744f708a33749a317c9c47",
+       "name": "Test_shmem",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "030bb3c534e247f78bba62ba3aa0d6d4",
+       "jobIdParam": "5980e84e76f64a07b30c063bbe5a3d8e"
+      }
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "0f10f291dd664edf8681e4b9880ae7ee",
+     "code": 200,
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "failedCases": [],
+     "empty": true
+    }
+   ],
+   "caseErrors": [
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather.html",
+     "file": "case_0166.html",
+     "localLog": "case_logs/case_0166.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+     "status": "Failed",
+     "duration": "357.48s",
+     "fileBytes": 431491,
+     "fileLines": 4605,
+     "errors": [],
+     "deepHits": [
+      "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+     ]
+    },
+    {
+     "url": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather.html",
+     "file": "case_0195.html",
+     "localLog": "case_logs/case_0195.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+     "status": "Failed",
+     "duration": "383.68s",
+     "fileBytes": 433332,
+     "fileLines": 4626,
+     "errors": [],
+     "deepHits": [
+      "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 3,
+    "failedCases": 2,
+    "caseLogs": 2,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "Ascend-CANN|shmem",
+     "pipeline": "shmem",
+     "rn": 145,
+     "st": "11-10 17:00",
+     "rid": "96a91e4f3750433c9c0c23a1b5877f54",
+     "jobId": "5b96e0da93464c0ea7066a3d1b0ca534",
+     "jobName": "Test_shmem",
+     "fallback": true,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/13_shmem_145_Test_shmem.log",
+     "logBytes": 42265,
+     "logLines": 279,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L242: [2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-10T09:19:12Z', 'expires_at': '2026-11-10T15:19:12Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-96a91e4f3750",
+      "L245: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': 'no matching nodes for requested la",
+      "L246: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': '",
+      "L247: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L248: [2026/11/10 17:19:48.682 GMT+08:00] Traceback (most recent call last):",
+      "L252: [2026/11/10 17:19:48.683 GMT+08:00]     raise RuntimeError(",
+      "L253: [2026/11/10 17:19:48.683 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L254: [2026/11/10 17:19:48.683 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3, error: Environment allocation rejected: Unknown",
+      "L255: [2026/11/10 17:19:48.683 GMT+08:00] Traceback (most recent call last):",
+      "L261: [2026/11/10 17:19:48.683 GMT+08:00]     raise RuntimeError(",
+      "L262: [2026/11/10 17:19:48.683 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L264: [2026/11/10 17:19:48.683 GMT+08:00] [281473316450336] [ERROR] Failed to execute cases for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3",
+      "L272: [2026/11/10 17:19:48.683 GMT+08:00] [281473316450336] [ERROR] No test case result found. Exiting.",
+      "L274: [2026/11/10 17:19:48.683 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L275: [2026/11/10 17:19:48.683 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L277: [2026/11/10 17:19:48.813 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L279: [2026/11/10 17:19:51.527 GMT+08:00] Finished: FAILURE"
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 17
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:42",
+    "component": "Ascend-CANN",
+    "pipeline": "shmem",
+    "date": "2026-11-10",
+    "recordCount": 4
+   },
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "shmem",
+   "counts": {
+    "records": 4,
+    "tasks": 4,
+    "cases": 2,
+    "errorMessages": 10
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2324,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 6522,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 3535,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 5944,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 4040,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 461,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 508,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 848,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "Ascend-CANN|shmem#143",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "shmem",
+   "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+   "platform": "codearts",
+   "buildNumber": 143,
+   "pipelineRunId": "0ea45a231d7547cf87aa39e2d3571b41",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-10T03:00:54",
+   "endedAt": "2026-11-10T03:37:10",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T03:37:10",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=0ea45a231d7547cf87aa39e2d3571b41",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_shmem",
+     "type": "test",
+     "summary": {
+      "total": 13,
+      "passed": 12,
+      "failed": 1,
+      "passRate": "92.31%"
+     },
+     "cases": [
+      {
+       "name": "test_example_allgather",
+       "state": "failed",
+       "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+       "beginTime": "2026-11-10 03:27:02",
+       "endTime": "2026-11-10 03:33:00",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather.html",
+       "localLog": "case_logs/case_0166.html",
+       "errorMessages": [],
+       "deepHits": [
+        "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+       ]
+      }
+     ],
+     "emptyTestResult": false,
+     "stepErrMsgs": []
+    }
+   ],
+   "cases": [
+    {
+     "task": "Test_shmem",
+     "name": "test_example_allgather",
+     "state": "failed",
+     "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+     "beginTime": "2026-11-10 03:27:02",
+     "endTime": "2026-11-10 03:33:00",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611096799/test_example_allgather.html",
+     "localLog": "case_logs/case_0166.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+     ]
+    }
+   ],
+   "errorMessages": [
+    {
+     "task": "Test_shmem",
+     "case": "test_example_allgather",
+     "source": "case_logs/case_0166.html",
+     "line": null,
+     "level": "CASE",
+     "text": "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+     "assertion": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "case_logs/case_0166.html"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 1,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 1,
+    "errorMessages": 1,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "test_failure",
+    "text": "用例失败",
+    "confidence": 0.55,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_shmem 取到 1 条失败用例（无 job 日志，证据来自测试报告/用例日志）",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "Ascend-CANN|shmem#144",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "shmem",
+   "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+   "platform": "codearts",
+   "buildNumber": 144,
+   "pipelineRunId": "ba1a1af3745e4d34880b78916b209766",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-10T09:51:45",
+   "endedAt": "2026-11-10T10:29:20",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T10:29:20",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=ba1a1af3745e4d34880b78916b209766",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_shmem",
+     "type": "test",
+     "summary": {
+      "total": 13,
+      "passed": 12,
+      "failed": 1,
+      "passRate": "92.31%"
+     },
+     "cases": [
+      {
+       "name": "test_example_allgather",
+       "state": "failed",
+       "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+       "beginTime": "2026-11-10 10:18:35",
+       "endTime": "2026-11-10 10:24:59",
+       "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather.html",
+       "localLog": "case_logs/case_0195.html",
+       "errorMessages": [],
+       "deepHits": [
+        "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+       ]
+      }
+     ],
+     "emptyTestResult": false,
+     "stepErrMsgs": []
+    }
+   ],
+   "cases": [
+    {
+     "task": "Test_shmem",
+     "name": "test_example_allgather",
+     "state": "failed",
+     "description": "AssertionError: SHMEM example [allgather] 存在失败组合\nassert False",
+     "beginTime": "2026-11-10 10:18:35",
+     "endTime": "2026-11-10 10:24:59",
+     "logUrl": "https://ascend-cann-open.obs.cn-north-4.myhuaweicloud.com/version_smoke/1e20b309fcb34b00a0043a87e461c95a202611103294/test_example_allgather.html",
+     "localLog": "case_logs/case_0195.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather"
+     ]
+    }
+   ],
+   "errorMessages": [
+    {
+     "task": "Test_shmem",
+     "case": "test_example_allgather",
+     "source": "case_logs/case_0195.html",
+     "line": null,
+     "level": "CASE",
+     "text": "FAILED due to ERROR/FAIL logs: testcase/cann/shmem/test_example_allgather.py::TestShmemExampleAllgather::test_example_allgather",
+     "assertion": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "case_logs/case_0195.html"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 1,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 1,
+    "errorMessages": 1,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "test_failure",
+    "text": "用例失败",
+    "confidence": 0.55,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_shmem 取到 1 条失败用例（无 job 日志，证据来自测试报告/用例日志）",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "Ascend-CANN|shmem#145",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "shmem",
+   "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+   "platform": "codearts",
+   "buildNumber": 145,
+   "pipelineRunId": "96a91e4f3750433c9c0c23a1b5877f54",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-10T17:00:09",
+   "endedAt": "2026-11-10T17:19:56",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T17:19:56",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=96a91e4f3750433c9c0c23a1b5877f54",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_shmem",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Test_shmem",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/13_shmem_145_Test_shmem.log",
+     "logBytes": 42265,
+     "logLines": 279,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_shmem执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L242: [2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-10T09:19:12Z', 'expires_at': '2026-11-10T15:19:12Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-96a91e4f3750",
+      "L245: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': 'no matching nodes for requested la",
+      "L246: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': '",
+      "L247: [2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L248: [2026/11/10 17:19:48.682 GMT+08:00] Traceback (most recent call last):",
+      "L252: [2026/11/10 17:19:48.683 GMT+08:00]     raise RuntimeError(",
+      "L253: [2026/11/10 17:19:48.683 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L254: [2026/11/10 17:19:48.683 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3, error: Environment allocation rejected: Unknown",
+      "L255: [2026/11/10 17:19:48.683 GMT+08:00] Traceback (most recent call last):",
+      "L264: [2026/11/10 17:19:48.683 GMT+08:00] [281473316450336] [ERROR] Failed to execute cases for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3",
+      "L272: [2026/11/10 17:19:48.683 GMT+08:00] [281473316450336] [ERROR] No test case result found. Exiting.",
+      "L274: [2026/11/10 17:19:48.683 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L275: [2026/11/10 17:19:48.683 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L277: [2026/11/10 17:19:48.813 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L279: [2026/11/10 17:19:51.527 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 242,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-10T09:19:12Z', 'expires_at': '2026-11-10T15:19:12Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-93831fdaa3234c8a9dd0b8a0c220f939-96a91e4f3750"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 245,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [INFO] apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': 'no matching nodes for requested la"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 246,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-0449072c43bbd02071a1a8a306bf4420', 'groups': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'status': 'rejected', 'lease_id': 'lease-env-04490-954bcf793fb139e845586bc8d4c5791b', 'namespace': 'env-lease-env-0449072c43bbd02071a1a8a306bf4420-nodes1', 'error': '"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 247,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.682 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 274,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.683 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 275,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.683 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 277,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:48.813 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed"
+    },
+    {
+     "task": "Test_shmem",
+     "source": "job_logs/13_shmem_145_Test_shmem.log",
+     "line": 279,
+     "level": "LOG",
+     "text": "[2026/11/10 17:19:51.527 GMT+08:00] Finished: FAILURE"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/13_shmem_145_Test_shmem.log"
+    ],
+    "missing": [
+     "Test_shmem"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 1,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 8,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_shmem 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Test_shmem 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "Ascend-CANN|shmem#146",
+   "date": "2026-11-10",
+   "component": "Ascend-CANN",
+   "pipeline": "shmem",
+   "pipelineName": "Nightly-CI-Component-pipeline_shmem",
+   "platform": "codearts",
+   "buildNumber": 146,
+   "pipelineRunId": "8119983ccecb4e019750d510368b9986",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-10T18:17:59",
+   "endedAt": "2026-11-10T19:18:11",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T19:18:11",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=93831fdaa3234c8a9dd0b8a0c220f939&projectId=300057&pipelineRunId=8119983ccecb4e019750d510368b9986",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

@@ -1,0 +1,1488 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-13 15:40:43",
+  "component": "boostkit",
+  "pipeline": "Bigdata",
+  "date": "2026-11-10",
+  "recordCount": 2
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-10",
+ "component": "boostkit",
+ "pipeline": "Bigdata",
+ "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
+ "platform": "codearts",
+ "key": "boostkit|Bigdata",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-10",
+  "runs": [
+   {
+    "rn": 45,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-10 00:51:19"
+   },
+   {
+    "rn": 11,
+    "status": "FAILED",
+    "endedAt": "2026-11-10 10:58:37"
+   }
+  ]
+ },
+ "counts": {
+  "records": 2,
+  "tasks": 1,
+  "cases": 0,
+  "errorMessages": 23
+ },
+ "evidence": {
+  "files": 6,
+  "bytes": 33224898,
+  "lines": 111592,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-13 15:40:42",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "product": {
+    "product": "boostkit",
+    "projectId": 300059,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 0.9090909090909091,
+    "pipelineCount": 8,
+    "badPipelineCount": 1,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 1,
+    "analyze": true,
+    "collectedPipelineCount": 8,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 8,
+     "sumRate": 8.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 10,
+     "buildCount": 11,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "boostkit|Bigdata",
+    "product": "boostkit",
+    "projectId": 300059,
+    "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
+    "pipelineShortName": "Bigdata",
+    "pipelineId": "a74a64d931f34c98bc726e5ea599f8a3",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 2 次运行（当日 2 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "dateRange": {
+    "start": "2026-11-10",
+    "end": "2026-11-10"
+   },
+   "date": "2026-11-10",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 11,
+     "rid": "36146a33b2ce44e08d0b6f12bc1c1e23",
+     "status": "FAILED",
+     "start": "10-08 10:04",
+     "startISO": "2026-10-08T10:04:18",
+     "endISO": "2026-11-10T10:58:37",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=36146a33b2ce44e08d0b6f12bc1c1e23",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "构建任务",
+     "cached": true
+    }
+   ],
+   "days": {
+    "11-10": [
+     "COMPLETED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 45,
+     "pipelineRunId": "0913d5715ad34dda9435201f53190f85",
+     "start": "2026-11-10 00:01:44",
+     "end": "2026-11-10 00:51:19",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 11,
+     "pipelineRunId": "36146a33b2ce44e08d0b6f12bc1c1e23",
+     "start": "2026-10-08 10:04:18",
+     "end": "2026-11-10 10:58:37",
+     "status": "FAILED",
+     "endedDate": "2026-11-10",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 45,
+     "start": "2026-11-10 00:01:44",
+     "end": "2026-11-10 00:51:19",
+     "status": "COMPLETED",
+     "rid": "0913d5715ad34dda9435201f53190f85",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=0913d5715ad34dda9435201f53190f85",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 11,
+     "start": "2026-10-08 10:04:18",
+     "end": "2026-11-10 10:58:37",
+     "status": "FAILED",
+     "rid": "36146a33b2ce44e08d0b6f12bc1c1e23",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=36146a33b2ce44e08d0b6f12bc1c1e23",
+     "bc": 1,
+     "bpc": 0,
+     "cpr": null,
+     "iva": false,
+     "ftt": "构建任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-10"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 2,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "test": [],
+   "log": [
+    {
+     "key": "boostkit|Bigdata",
+     "pipeline": "Bigdata",
+     "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
+     "projectId": 300059,
+     "pipelineId": "a74a64d931f34c98bc726e5ea599f8a3",
+     "rid": "36146a33b2ce44e08d0b6f12bc1c1e23",
+     "rn": 11,
+     "st": "10-08 10:04",
+     "jobId": "9dc4eb132ab440b8b52fcf8986df4971",
+     "jobName": "Build_Gluten",
+     "stepIds": [
+      "60a19cdf907041628764b53c47e5cf56"
+     ],
+     "steps": [
+      {
+       "id": "60a19cdf907041628764b53c47e5cf56",
+       "name": "Build_Gluten",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "849f259004dc4cbc93815e693568cc17",
+       "jobIdParam": "30880ad793e04de9bc793ecdb4fbbd7a"
+      }
+     ],
+     "jobErrMsg": "步骤Build_Gluten执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "837017a606a3428dbcd243804f9d7338",
+     "route": "log",
+     "isBuild": true,
+     "buildJobId": "30880ad793e04de9bc793ecdb4fbbd7a",
+     "cached": true
+    }
+   ],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 1,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "boostkit|Bigdata",
+     "pipeline": "Bigdata",
+     "rn": 11,
+     "st": "10-08 10:04",
+     "rid": "36146a33b2ce44e08d0b6f12bc1c1e23",
+     "jobId": "9dc4eb132ab440b8b52fcf8986df4971",
+     "jobName": "Build_Gluten",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_Gluten执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "logBytes": 6160,
+     "logLines": 56,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L41: [2026/11/10 10:57:35.869 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler22.03_JDK8 failed",
+      "L43: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler22.03_JDK8 failed",
+      "L44: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler24.03_JDK17 failed",
+      "L45: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler24.03_JDK17 failed",
+      "L47: [2026/11/10 10:58:35.957 GMT+08:00] [ERROR] [build_flow:build_flow] : Job package_upload failed",
+      "L50: [2026/11/10 10:58:35.957 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 5, dispatched jobs num: 5, succeed jobs num: 0, failed jobs num: 5",
+      "L51: [2026/11/10 10:58:35.957 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [package_upload, Gluten_openEuler22.03_JDK8, Gluten_openEuler24.03_JDK17, OmniOperator_openEuler22.03_JDK8, OmniOperator_openEuler24.03_JDK17]",
+      "L52: [2026/11/10 10:58:35.958 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败",
+      "L53: [2026/11/10 10:58:36.033 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L54: [2026/11/10 10:58:36.035 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败",
+      "L56: [2026/11/10 10:58:37.754 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "OmniOperator_openEuler22.03_JDK8",
+       "buildNo": "3465",
+       "buildJobId": "540af103-ca63-4ccd-a9fd-385c93389201",
+       "status": "FAILURE",
+       "durationMs": 611186,
+       "startTime": "2026-11-10T02:47:05.000+00:00",
+       "finishTime": "2026-11-10T02:57:17.000+00:00",
+       "logFile": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 12260007,
+       "logLines": 30369,
+       "errorLines": [
+        "L913: [2026/11/10 10:48:00.550 GMT+08:00] [8/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L916: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L918: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L919: [2026/11/10 10:48:00.550 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L925: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L927: [2026/11/10 10:48:00.550 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L930: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L931: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L932: [2026/11/10 10:48:00.550 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L938: [2026/11/10 10:48:00.551 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1040: [2026/11/10 10:48:01.384 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1051: [2026/11/10 10:48:01.384 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1056: [2026/11/10 10:48:01.384 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1057: [2026/11/10 10:48:01.384 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1068: [2026/11/10 10:48:01.385 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1073: [2026/11/10 10:48:01.385 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1074: [2026/11/10 10:48:01.385 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1085: [2026/11/10 10:48:01.385 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1255: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1256: [2026/11/10 10:48:05.027 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1266: [2026/11/10 10:48:05.027 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1271: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1272: [2026/11/10 10:48:05.027 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1282: [2026/11/10 10:48:05.027 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1291: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1292: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1302: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1307: [2026/11/10 10:48:05.028 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1308: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1318: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1323: [2026/11/10 10:48:05.028 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1324: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1334: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1350: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1351: [2026/11/10 10:48:05.583 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1361: [2026/11/10 10:48:05.583 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1364: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1365: [2026/11/10 10:48:05.583 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1375: [2026/11/10 10:48:05.584 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1382: [2026/11/10 10:48:05.584 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1383: [2026/11/10 10:48:05.584 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1393: [2026/11/10 10:48:05.584 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1396: [2026/11/10 10:48:05.585 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1397: [2026/11/10 10:48:05.585 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1407: [2026/11/10 10:48:05.585 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1410: [2026/11/10 10:48:05.585 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1411: [2026/11/10 10:48:05.585 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1421: [2026/11/10 10:48:05.585 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L9955: [2026/11/10 10:52:40.502 GMT+08:00] [373/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L21612: [2026/11/10 10:56:40.173 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L24727: [2026/11/10 10:56:48.474 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L24729: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 59 kB/s)",
+        "L30031: [2026/11/10 10:57:03.132 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L30345: [2026/11/10 10:57:10.601 GMT+08:00] preprocessor error                     1",
+        "L30357: [2026/11/10 10:57:15.087 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L30358: [2026/11/10 10:57:15.088 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L30359: [2026/11/10 10:57:15.171 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L30360: [2026/11/10 10:57:15.173 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L30367: [2026/11/10 11:02:15.053 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L30369: [2026/11/10 10:57:21.551 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.excerpt.log"
+      },
+      {
+       "name": "OmniOperator_openEuler24.03_JDK17",
+       "buildNo": "3466",
+       "buildJobId": "9e348b10-7adc-44ca-acad-c61e91476fb1",
+       "status": "FAILURE",
+       "durationMs": 633640,
+       "startTime": "2026-11-10T02:47:06.000+00:00",
+       "finishTime": "2026-11-10T02:57:39.000+00:00",
+       "logFile": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 20909506,
+       "logLines": 80750,
+       "errorLines": [
+        "L1012: [2026/11/10 10:48:12.680 GMT+08:00] [9/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L1015: [2026/11/10 10:48:12.680 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1017: [2026/11/10 10:48:12.680 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1018: [2026/11/10 10:48:12.680 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1025: [2026/11/10 10:48:12.680 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1074: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1075: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1083: [2026/11/10 10:48:13.231 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1089: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1090: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1093: [2026/11/10 10:48:13.231 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1095: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1096: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1099: [2026/11/10 10:48:13.232 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1101: [2026/11/10 10:48:13.232 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1102: [2026/11/10 10:48:13.232 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1105: [2026/11/10 10:48:13.232 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1302: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1303: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1311: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1317: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1318: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1321: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1323: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1324: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1327: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1329: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1330: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1333: [2026/11/10 10:48:16.963 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1353: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1354: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1357: [2026/11/10 10:48:18.677 GMT+08:00]                  from /usr/include/c++/12/system_error:41,",
+        "L1365: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1371: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1372: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1375: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1377: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1378: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1381: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1383: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1384: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1387: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L52398: [2026/11/10 10:52:52.175 GMT+08:00] [375/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L72138: [2026/11/10 10:57:00.728 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L75362: [2026/11/10 10:57:08.841 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L75364: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 107 kB/s)",
+        "L80418: [2026/11/10 10:57:24.287 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L80744: [2026/11/10 10:57:37.715 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L80745: [2026/11/10 10:57:37.716 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L80746: [2026/11/10 10:57:37.786 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L80747: [2026/11/10 10:57:37.789 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L80748: [2026/11/10 10:57:01.937 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L80750: [2026/11/10 10:57:46.683 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.excerpt.log"
+      },
+      {
+       "name": "Gluten_openEuler22.03_JDK8",
+       "buildNo": "3467",
+       "buildJobId": "46daf256-1e48-4b65-93e9-92193870b9eb",
+       "status": "FAILURE",
+       "durationMs": 612337,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15352,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.885 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:540af103-ca63-4ccd-a9fd-385c93389201> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.886 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.996 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.998 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.940 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "Gluten_openEuler24.03_JDK17",
+       "buildNo": "3468",
+       "buildJobId": "d012af7a-9ea9-4010-b862-4d540573041a",
+       "status": "FAILURE",
+       "durationMs": 612319,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15399,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.890 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:9e348b10-7adc-44ca-acad-c61e91476fb1> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.891 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.967 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.970 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.926 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "package_upload",
+       "buildNo": "3469",
+       "buildJobId": "e4bdab63-ce36-4f00-b806-5f68f88e1fcd",
+       "status": "FAILURE",
+       "durationMs": 612934,
+       "startTime": "2026-11-10T02:48:06.000+00:00",
+       "finishTime": "2026-11-10T02:58:19.000+00:00",
+       "logFile": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 18474,
+       "logLines": 151,
+       "errorLines": [
+        "L142: [2026/11/10 10:58:14.637 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:46daf256-1e48-4b65-93e9-92193870b9eb> build status: FAILURE",
+        "L143: [2026/11/10 10:58:14.683 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:d012af7a-9ea9-4010-b862-4d540573041a> build status: FAILURE",
+        "L144: [2026/11/10 10:58:14.685 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L145: [2026/11/10 10:58:14.752 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L146: [2026/11/10 10:58:14.754 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L151: [2026/11/10 10:58:22.657 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 11
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "items": [
+    {
+     "rn": 11,
+     "jobName": "Build_Gluten",
+     "subTasks": [
+      {
+       "name": "OmniOperator_openEuler22.03_JDK8",
+       "buildNo": "3465",
+       "buildJobId": "540af103-ca63-4ccd-a9fd-385c93389201",
+       "status": "FAILURE",
+       "durationMs": 611186,
+       "startTime": "2026-11-10T02:47:05.000+00:00",
+       "finishTime": "2026-11-10T02:57:17.000+00:00",
+       "logFile": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 12260007,
+       "logLines": 30369,
+       "errorLines": [
+        "L913: [2026/11/10 10:48:00.550 GMT+08:00] [8/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L916: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L918: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L919: [2026/11/10 10:48:00.550 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L925: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L927: [2026/11/10 10:48:00.550 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L930: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L931: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L932: [2026/11/10 10:48:00.550 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L938: [2026/11/10 10:48:00.551 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1040: [2026/11/10 10:48:01.384 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1051: [2026/11/10 10:48:01.384 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1056: [2026/11/10 10:48:01.384 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1057: [2026/11/10 10:48:01.384 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1068: [2026/11/10 10:48:01.385 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1073: [2026/11/10 10:48:01.385 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1074: [2026/11/10 10:48:01.385 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1085: [2026/11/10 10:48:01.385 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1255: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1256: [2026/11/10 10:48:05.027 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1266: [2026/11/10 10:48:05.027 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1271: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1272: [2026/11/10 10:48:05.027 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1282: [2026/11/10 10:48:05.027 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1291: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1292: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1302: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1307: [2026/11/10 10:48:05.028 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1308: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1318: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1323: [2026/11/10 10:48:05.028 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1324: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1334: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1350: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1351: [2026/11/10 10:48:05.583 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1361: [2026/11/10 10:48:05.583 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1364: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1365: [2026/11/10 10:48:05.583 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1375: [2026/11/10 10:48:05.584 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1382: [2026/11/10 10:48:05.584 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1383: [2026/11/10 10:48:05.584 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1393: [2026/11/10 10:48:05.584 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1396: [2026/11/10 10:48:05.585 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1397: [2026/11/10 10:48:05.585 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1407: [2026/11/10 10:48:05.585 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1410: [2026/11/10 10:48:05.585 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1411: [2026/11/10 10:48:05.585 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1421: [2026/11/10 10:48:05.585 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L9955: [2026/11/10 10:52:40.502 GMT+08:00] [373/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L21612: [2026/11/10 10:56:40.173 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L24727: [2026/11/10 10:56:48.474 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L24729: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 59 kB/s)",
+        "L30031: [2026/11/10 10:57:03.132 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L30345: [2026/11/10 10:57:10.601 GMT+08:00] preprocessor error                     1",
+        "L30357: [2026/11/10 10:57:15.087 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L30358: [2026/11/10 10:57:15.088 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L30359: [2026/11/10 10:57:15.171 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L30360: [2026/11/10 10:57:15.173 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L30367: [2026/11/10 11:02:15.053 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L30369: [2026/11/10 10:57:21.551 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.excerpt.log"
+      },
+      {
+       "name": "OmniOperator_openEuler24.03_JDK17",
+       "buildNo": "3466",
+       "buildJobId": "9e348b10-7adc-44ca-acad-c61e91476fb1",
+       "status": "FAILURE",
+       "durationMs": 633640,
+       "startTime": "2026-11-10T02:47:06.000+00:00",
+       "finishTime": "2026-11-10T02:57:39.000+00:00",
+       "logFile": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 20909506,
+       "logLines": 80750,
+       "errorLines": [
+        "L1012: [2026/11/10 10:48:12.680 GMT+08:00] [9/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L1015: [2026/11/10 10:48:12.680 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1017: [2026/11/10 10:48:12.680 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1018: [2026/11/10 10:48:12.680 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1025: [2026/11/10 10:48:12.680 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1074: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1075: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1083: [2026/11/10 10:48:13.231 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1089: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1090: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1093: [2026/11/10 10:48:13.231 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1095: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1096: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1099: [2026/11/10 10:48:13.232 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1101: [2026/11/10 10:48:13.232 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1102: [2026/11/10 10:48:13.232 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1105: [2026/11/10 10:48:13.232 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1302: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1303: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1311: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1317: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1318: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1321: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1323: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1324: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1327: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1329: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1330: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1333: [2026/11/10 10:48:16.963 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1353: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1354: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1357: [2026/11/10 10:48:18.677 GMT+08:00]                  from /usr/include/c++/12/system_error:41,",
+        "L1365: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1371: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1372: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1375: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1377: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1378: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1381: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1383: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1384: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1387: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L52398: [2026/11/10 10:52:52.175 GMT+08:00] [375/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L72138: [2026/11/10 10:57:00.728 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L75362: [2026/11/10 10:57:08.841 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L75364: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 107 kB/s)",
+        "L80418: [2026/11/10 10:57:24.287 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L80744: [2026/11/10 10:57:37.715 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L80745: [2026/11/10 10:57:37.716 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L80746: [2026/11/10 10:57:37.786 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L80747: [2026/11/10 10:57:37.789 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L80748: [2026/11/10 10:57:01.937 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L80750: [2026/11/10 10:57:46.683 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.excerpt.log"
+      },
+      {
+       "name": "Gluten_openEuler22.03_JDK8",
+       "buildNo": "3467",
+       "buildJobId": "46daf256-1e48-4b65-93e9-92193870b9eb",
+       "status": "FAILURE",
+       "durationMs": 612337,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15352,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.885 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:540af103-ca63-4ccd-a9fd-385c93389201> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.886 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.996 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.998 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.940 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "Gluten_openEuler24.03_JDK17",
+       "buildNo": "3468",
+       "buildJobId": "d012af7a-9ea9-4010-b862-4d540573041a",
+       "status": "FAILURE",
+       "durationMs": 612319,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15399,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.890 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:9e348b10-7adc-44ca-acad-c61e91476fb1> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.891 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.967 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.970 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.926 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "package_upload",
+       "buildNo": "3469",
+       "buildJobId": "e4bdab63-ce36-4f00-b806-5f68f88e1fcd",
+       "status": "FAILURE",
+       "durationMs": 612934,
+       "startTime": "2026-11-10T02:48:06.000+00:00",
+       "finishTime": "2026-11-10T02:58:19.000+00:00",
+       "logFile": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 18474,
+       "logLines": 151,
+       "errorLines": [
+        "L142: [2026/11/10 10:58:14.637 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:46daf256-1e48-4b65-93e9-92193870b9eb> build status: FAILURE",
+        "L143: [2026/11/10 10:58:14.683 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:d012af7a-9ea9-4010-b862-4d540573041a> build status: FAILURE",
+        "L144: [2026/11/10 10:58:14.685 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L145: [2026/11/10 10:58:14.752 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L146: [2026/11/10 10:58:14.754 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L151: [2026/11/10 10:58:22.657 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "counts": {
+    "tasks": 1,
+    "subTasks": 5,
+    "failed": 5,
+    "logs": 5
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 15:40:43",
+    "component": "boostkit",
+    "pipeline": "Bigdata",
+    "date": "2026-11-10",
+    "recordCount": 2
+   },
+   "date": "2026-11-10",
+   "component": "boostkit",
+   "pipeline": "Bigdata",
+   "counts": {
+    "records": 2,
+    "tasks": 1,
+    "cases": 0,
+    "errorMessages": 23
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2337,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 4314,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1590,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 531,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 23074,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 20880,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 507,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 846,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "boostkit|Bigdata#11",
+   "date": "2026-11-10",
+   "component": "boostkit",
+   "pipeline": "Bigdata",
+   "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
+   "platform": "codearts",
+   "buildNumber": 11,
+   "pipelineRunId": "36146a33b2ce44e08d0b6f12bc1c1e23",
+   "status": "FAILED",
+   "failedTaskType": "构建任务",
+   "startedAt": "2026-10-08T10:04:18",
+   "endedAt": "2026-11-10T10:58:37",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T10:58:37",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=36146a33b2ce44e08d0b6f12bc1c1e23",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Build_Gluten",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "logBytes": 6160,
+     "logLines": 56,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_Gluten执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L41: [2026/11/10 10:57:35.869 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler22.03_JDK8 failed",
+      "L43: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler22.03_JDK8 failed",
+      "L44: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler24.03_JDK17 failed",
+      "L45: [2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler24.03_JDK17 failed",
+      "L47: [2026/11/10 10:58:35.957 GMT+08:00] [ERROR] [build_flow:build_flow] : Job package_upload failed",
+      "L50: [2026/11/10 10:58:35.957 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 5, dispatched jobs num: 5, succeed jobs num: 0, failed jobs num: 5",
+      "L51: [2026/11/10 10:58:35.957 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [package_upload, Gluten_openEuler22.03_JDK8, Gluten_openEuler24.03_JDK17, OmniOperator_openEuler22.03_JDK8, OmniOperator_openEuler24.03_JDK17]",
+      "L52: [2026/11/10 10:58:35.958 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败",
+      "L53: [2026/11/10 10:58:36.033 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L54: [2026/11/10 10:58:36.035 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败",
+      "L56: [2026/11/10 10:58:37.754 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "OmniOperator_openEuler22.03_JDK8",
+       "buildNo": "3465",
+       "buildJobId": "540af103-ca63-4ccd-a9fd-385c93389201",
+       "status": "FAILURE",
+       "durationMs": 611186,
+       "startTime": "2026-11-10T02:47:05.000+00:00",
+       "finishTime": "2026-11-10T02:57:17.000+00:00",
+       "logFile": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 12260007,
+       "logLines": 30369,
+       "errorLines": [
+        "L913: [2026/11/10 10:48:00.550 GMT+08:00] [8/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L916: [2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L918: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L919: [2026/11/10 10:48:00.550 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L927: [2026/11/10 10:48:00.550 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L931: [2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L938: [2026/11/10 10:48:00.551 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1040: [2026/11/10 10:48:01.384 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1051: [2026/11/10 10:48:01.384 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1056: [2026/11/10 10:48:01.384 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1068: [2026/11/10 10:48:01.385 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1073: [2026/11/10 10:48:01.385 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1074: [2026/11/10 10:48:01.385 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1255: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1256: [2026/11/10 10:48:05.027 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1266: [2026/11/10 10:48:05.027 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1271: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1291: [2026/11/10 10:48:05.027 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1292: [2026/11/10 10:48:05.028 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1302: [2026/11/10 10:48:05.028 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1307: [2026/11/10 10:48:05.028 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1350: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1351: [2026/11/10 10:48:05.583 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1361: [2026/11/10 10:48:05.583 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1364: [2026/11/10 10:48:05.583 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:38: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1375: [2026/11/10 10:48:05.584 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1382: [2026/11/10 10:48:05.584 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1383: [2026/11/10 10:48:05.584 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1396: [2026/11/10 10:48:05.585 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]",
+        "L1397: [2026/11/10 10:48:05.585 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1407: [2026/11/10 10:48:05.585 GMT+08:00]   106 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L9955: [2026/11/10 10:52:40.502 GMT+08:00] [373/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L21612: [2026/11/10 10:56:40.173 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L24727: [2026/11/10 10:56:48.474 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L24729: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 59 kB/s)",
+        "L30031: [2026/11/10 10:57:03.132 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L30345: [2026/11/10 10:57:10.601 GMT+08:00] preprocessor error                     1",
+        "L30357: [2026/11/10 10:57:15.087 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L30358: [2026/11/10 10:57:15.088 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L30359: [2026/11/10 10:57:15.171 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L30360: [2026/11/10 10:57:15.173 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L30367: [2026/11/10 11:02:15.053 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L30369: [2026/11/10 10:57:21.551 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.excerpt.log"
+      },
+      {
+       "name": "OmniOperator_openEuler24.03_JDK17",
+       "buildNo": "3466",
+       "buildJobId": "9e348b10-7adc-44ca-acad-c61e91476fb1",
+       "status": "FAILURE",
+       "durationMs": 633640,
+       "startTime": "2026-11-10T02:47:06.000+00:00",
+       "finishTime": "2026-11-10T02:57:39.000+00:00",
+       "logFile": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 20909506,
+       "logLines": 80750,
+       "errorLines": [
+        "L1012: [2026/11/10 10:48:12.680 GMT+08:00] [9/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o",
+        "L1015: [2026/11/10 10:48:12.680 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:",
+        "L1017: [2026/11/10 10:48:12.680 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1018: [2026/11/10 10:48:12.680 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1025: [2026/11/10 10:48:12.680 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1074: [2026/11/10 10:48:13.231 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1075: [2026/11/10 10:48:13.231 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1083: [2026/11/10 10:48:13.231 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1099: [2026/11/10 10:48:13.232 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1101: [2026/11/10 10:48:13.232 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1102: [2026/11/10 10:48:13.232 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1302: [2026/11/10 10:48:16.962 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1303: [2026/11/10 10:48:16.962 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1311: [2026/11/10 10:48:16.962 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1333: [2026/11/10 10:48:16.963 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L1353: [2026/11/10 10:48:18.677 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]",
+        "L1354: [2026/11/10 10:48:18.677 GMT+08:00]  1069 |             !std::uncaught_exception() &&",
+        "L1357: [2026/11/10 10:48:18.677 GMT+08:00]                  from /usr/include/c++/12/system_error:41,",
+        "L1365: [2026/11/10 10:48:18.677 GMT+08:00]   124 |   bool uncaught_exception() _GLIBCXX_USE_NOEXCEPT __attribute__ ((__pure__));",
+        "L52398: [2026/11/10 10:52:52.175 GMT+08:00] [375/435] Building CXX object core/src/reader/CMakeFiles/boostkit-omniop-reader-2.2.0-aarch64.dir/filesystem/io_exception.cpp.o",
+        "L72138: [2026/11/10 10:57:00.728 GMT+08:00] -- Installing: ***//lib/include/util/omni_exception.h",
+        "L75362: [2026/11/10 10:57:08.841 GMT+08:00] Downloading from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom",
+        "L75364: Downloaded from huaweicloud-maven: https://mirrors.huaweicloud.com/repository/maven/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (1.7 kB at 107 kB/s)",
+        "L80418: [2026/11/10 10:57:24.287 GMT+08:00] boostkit-omniop-operator-2.2.0-aarch64/include/util/omni_exception.h",
+        "L80744: [2026/11/10 10:57:37.715 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : DEV.CB.02202002,上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+        "L80745: [2026/11/10 10:57:37.716 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 错误信息: failed to upload",
+        "L80746: [2026/11/10 10:57:37.786 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : 该步骤执行失败",
+        "L80747: [2026/11/10 10:57:37.789 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:failed to upload",
+        "L80748: [2026/11/10 10:57:01.937 GMT+08:00] [ERROR] [上传文件到OBS:上传文件到OBS] : Error message:Request Error.OBS service Error Message.",
+        "L80750: [2026/11/10 10:57:46.683 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": "23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.excerpt.log"
+      },
+      {
+       "name": "Gluten_openEuler22.03_JDK8",
+       "buildNo": "3467",
+       "buildJobId": "46daf256-1e48-4b65-93e9-92193870b9eb",
+       "status": "FAILURE",
+       "durationMs": 612337,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15352,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.885 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:540af103-ca63-4ccd-a9fd-385c93389201> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.886 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.996 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.998 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.940 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "Gluten_openEuler24.03_JDK17",
+       "buildNo": "3468",
+       "buildJobId": "d012af7a-9ea9-4010-b862-4d540573041a",
+       "status": "FAILURE",
+       "durationMs": 612319,
+       "startTime": "2026-11-10T02:47:36.000+00:00",
+       "finishTime": "2026-11-10T02:57:48.000+00:00",
+       "logFile": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 15399,
+       "logLines": 133,
+       "errorLines": [
+        "L124: [2026/11/10 10:57:43.890 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:9e348b10-7adc-44ca-acad-c61e91476fb1> build status: FAILURE",
+        "L125: [2026/11/10 10:57:43.891 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L126: [2026/11/10 10:57:43.967 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L127: [2026/11/10 10:57:43.970 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L133: [2026/11/10 10:57:53.926 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "package_upload",
+       "buildNo": "3469",
+       "buildJobId": "e4bdab63-ce36-4f00-b806-5f68f88e1fcd",
+       "status": "FAILURE",
+       "durationMs": 612934,
+       "startTime": "2026-11-10T02:48:06.000+00:00",
+       "finishTime": "2026-11-10T02:58:19.000+00:00",
+       "logFile": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 18474,
+       "logLines": 151,
+       "errorLines": [
+        "L142: [2026/11/10 10:58:14.637 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:46daf256-1e48-4b65-93e9-92193870b9eb> build status: FAILURE",
+        "L143: [2026/11/10 10:58:14.683 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:d012af7a-9ea9-4010-b862-4d540573041a> build status: FAILURE",
+        "L144: [2026/11/10 10:58:14.685 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败",
+        "L145: [2026/11/10 10:58:14.752 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败",
+        "L146: [2026/11/10 10:58:14.754 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:依赖任务失败",
+        "L151: [2026/11/10 10:58:22.657 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 41,
+     "level": "LOG",
+     "text": "[2026/11/10 10:57:35.869 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler22.03_JDK8 failed"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 43,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler22.03_JDK8 failed"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 44,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job Gluten_openEuler24.03_JDK17 failed"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 45,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:05.923 GMT+08:00] [ERROR] [build_flow:build_flow] : Job OmniOperator_openEuler24.03_JDK17 failed"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 52,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:35.958 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 53,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:36.033 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 54,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:36.035 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[package_upload, Gluten_openEuler22.03_JDK8]】等构建失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "source": "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "line": 56,
+     "level": "LOG",
+     "text": "[2026/11/10 10:58:37.754 GMT+08:00] Finished: FAILURE"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler22.03_JDK8",
+     "source": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 913,
+     "text": "[2026/11/10 10:48:00.550 GMT+08:00] [8/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler22.03_JDK8",
+     "source": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 916,
+     "text": "[2026/11/10 10:48:00.550 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler22.03_JDK8",
+     "source": "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 918,
+     "text": "[2026/11/10 10:48:00.550 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:19: warning: 'bool std::uncaught_exception()' is deprecated [-Wdeprecated-declarations]"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler24.03_JDK17",
+     "source": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 1012,
+     "text": "[2026/11/10 10:48:12.680 GMT+08:00] [9/435] Building CXX object core/src/type/CMakeFiles/type.dir/tzdb/chrono_exception.cpp.o"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler24.03_JDK17",
+     "source": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 1015,
+     "text": "[2026/11/10 10:48:12.680 GMT+08:00]                  from ***//OmniOperatorJIT/core/src/type/tzdb/chrono_exception.cpp:9:"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "OmniOperator_openEuler24.03_JDK17",
+     "source": "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 1017,
+     "text": "[2026/11/10 10:48:12.680 GMT+08:00] ***//OmniOperatorJIT/core/src/type/tzdb/date.h:1069:37: warning: 'bool std::uncaught_exception()' is deprecated: use 'std::uncaught_exceptions()' instead [-Wdeprecated-declarations]"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler22.03_JDK8",
+     "source": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 124,
+     "text": "[2026/11/10 10:57:43.885 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:540af103-ca63-4ccd-a9fd-385c93389201> build status: FAILURE"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler22.03_JDK8",
+     "source": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 125,
+     "text": "[2026/11/10 10:57:43.886 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler22.03_JDK8",
+     "source": "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+     "level": "SUBTASK",
+     "line": 126,
+     "text": "[2026/11/10 10:57:43.996 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler24.03_JDK17",
+     "source": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 124,
+     "text": "[2026/11/10 10:57:43.890 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:9e348b10-7adc-44ca-acad-c61e91476fb1> build status: FAILURE"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler24.03_JDK17",
+     "source": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 125,
+     "text": "[2026/11/10 10:57:43.891 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "Gluten_openEuler24.03_JDK17",
+     "source": "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+     "level": "SUBTASK",
+     "line": 126,
+     "text": "[2026/11/10 10:57:43.967 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 该步骤执行失败"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "package_upload",
+     "source": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+     "level": "SUBTASK",
+     "line": 142,
+     "text": "[2026/11/10 10:58:14.637 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:46daf256-1e48-4b65-93e9-92193870b9eb> build status: FAILURE"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "package_upload",
+     "source": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+     "level": "SUBTASK",
+     "line": 143,
+     "text": "[2026/11/10 10:58:14.683 GMT+08:00] [INFO] [wait_job_depends:wait_job_depends] : Job [UNKNOWN]<id:d012af7a-9ea9-4010-b862-4d540573041a> build status: FAILURE"
+    },
+    {
+     "task": "Build_Gluten",
+     "subTask": "package_upload",
+     "source": "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log",
+     "level": "SUBTASK",
+     "line": 144,
+     "text": "[2026/11/10 10:58:14.685 GMT+08:00] [ERROR] [wait_job_depends:wait_job_depends] : 错误信息: 依赖任务失败"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/12_Bigdata_11_Build_Gluten.log",
+     "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log",
+     "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log",
+     "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log",
+     "job_logs/25_Bigdata_11_Build_Gluten_Gluten_openEuler24.03_JDK17.log",
+     "job_logs/26_Bigdata_11_Build_Gluten_package_upload.log"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 1,
+    "cases": 0,
+    "errorMessages": 23,
+    "evidenceFiles": 6
+   },
+   "verdict": {
+    "category": "compile_failure",
+    "text": "编译失败",
+    "confidence": 0.8,
+    "level": "高",
+    "basis": [
+     "Build 任务 Build_Gluten 下钻到 5 个失败子任务（OmniOperator_openEuler22.03_JDK8、OmniOperator_openEuler24.03_JDK17、Gluten_openEuler22.03_JDK8）",
+     "子任务日志/错误行命中编译报错特征（如 error: / fatal error / collect2）",
+     "基线 0.30",
+     "证据文件落盘 6 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "失败子任务日志落盘 +0.10"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)",
+    "issueType": "权限问题",
+    "issueDetail": "OBS 桶 boostkit-bigdata-public 写权限不足，构建产物…",
+    "rootCause": "构建产物上传被 OBS 桶写权限拒绝，问题出在上传凭据侧。失败发生在上传产物到 OBS 这一步：OmniOperator 的两个子任务（openEuler22.03_JDK8、openEuler24.03_JDK17）源码编译与打包都已成功，仅在上传产物到桶 boostkit-bigdata-public 时被读写权限校验拒绝，上传步骤因此判失败；Gluten 与 package_upload 等后继子任务随依赖失败一并退出。根因是该次运行使用的 OBS 上传凭据（AK/SK 或临时凭证）缺少该桶的写权限，与被测代码改动无关。",
+    "advice": "为 OBS 上传步骤换用有 boostkit-bigdata-public 桶写权限的凭据：在流水线的 OBS 上传配置（固定 AK/SK 或临时凭证获取）中改用具备该桶 PutObject、ListBucketMultipartUploads 等写权限的账号或委托；若走临时凭证，还需确认 STS 策略覆盖构建产物路径 buildcache/OmniOperator/ 的写权限。\n\n验证方式：重跑 Bigdata 流水线，要求两个 OmniOperator 子任务与 Gluten、package_upload 子任务全部成功、构建产物成功上传至该桶，Build_Gluten 任务状态为成功、该流水线编译成功率恢复到 100%。",
+    "cites": [
+     "job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log:L30357",
+     "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log:L80744",
+     "job_logs/12_Bigdata_11_Build_Gluten.log:L52",
+     "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log:L125"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log:L30357",
+    "updatedAt": "2026-11-13 15:45:00",
+    "firstAnalyzedAt": "2026-11-13 15:45:00",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "boostkit|Bigdata#45",
+   "date": "2026-11-10",
+   "component": "boostkit",
+   "pipeline": "Bigdata",
+   "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
+   "platform": "codearts",
+   "buildNumber": 45,
+   "pipelineRunId": "0913d5715ad34dda9435201f53190f85",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-10T00:01:44",
+   "endedAt": "2026-11-10T00:51:19",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-10T00:51:19",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=0913d5715ad34dda9435201f53190f85",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

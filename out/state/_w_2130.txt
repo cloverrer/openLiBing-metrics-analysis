@@ -1,0 +1,63 @@
+===== github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt
+[L250] 2026-11-09T11:44:05.2102062Z dcbab98ec06e3e92f5a8222e9808a5b26c603481
+[L251] 2026-11-09T11:44:05.8183028Z ##[group]Run # Sweep orphaned sglang-{run_id} dirs left by jobs killed before Post process.
+[L252] 2026-11-09T11:44:05.8183757Z [36;1m# Sweep orphaned sglang-{run_id} dirs left by jobs killed before Post process.[0m
+[L253] 2026-11-09T11:44:05.8184385Z [36;1mfind /root/.cache/tests -regextype posix-extended -maxdepth 1 -type d \[0m
+[L254] 2026-11-09T11:44:05.8184971Z [36;1m  -regex '.*/sglang-[0-9]+$' -mtime +7 -exec rm -rf {} + 2>/dev/null || true[0m
+[L255] 2026-11-09T11:44:05.8185408Z [36;1m[0m
+[L256] 2026-11-09T11:44:05.8185666Z [36;1m# copy source code to shared-disk[0m
+[L257] 2026-11-09T11:44:05.8186099Z [36;1m# Append run_id to isolate concurrent runs sharing the same PVC.[0m
+[L258] 2026-11-09T11:44:05.8186523Z [36;1mcurrent_path=$(pwd)[0m
+[L259] 2026-11-09T11:44:05.8186867Z [36;1mtarget_path=/root/.cache/tests/sglang-42611183075[0m
+[L260] 2026-11-09T11:44:05.8187228Z [36;1mrm -rf ${target_path}[0m
+[L261] 2026-11-09T11:44:05.8187522Z [36;1mmkdir -p ${target_path}[0m
+[L262] 2026-11-09T11:44:05.8187897Z [36;1mcp -r ${current_path}/* ${target_path}/[0m
+[L263] 2026-11-09T11:44:05.8188337Z shell: sh -e {0}
+[L264] 2026-11-09T11:44:05.8188572Z ##[endgroup]
+[L265] 2026-11-09T11:44:05.8288902Z ##[group]Run '/home/runner/k8s/index.js'
+[L266] 2026-11-09T11:44:05.8289992Z shell: /home/runner/externals/node24/bin/node {0}
+[L267] 2026-11-09T11:44:05.8290320Z ##[endgroup]
+[L268] 2026-11-09T11:44:06.0708104Z (node:323) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L269] 2026-11-09T11:44:06.0709434Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L270] 2026-11-09T11:44:06.0940259Z (node:323) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L271] 2026-11-09T11:44:06.1455709Z (node:323) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[L272] 2026-11-09T11:59:42.8957572Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[L273] 2026-11-09T11:59:42.9699186Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+[L274] 2026-11-09T11:59:42.9699626Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m
+[L275] 2026-11-09T11:59:42.9700040Z [36;1mkubectl get pods -n $NAMESPACE | grep $KUBE_JOB_NAME[0m
+[L276] 2026-11-09T11:59:42.9700593Z [36;1mkubectl delete -f ./k8s_multi_pd_*.yaml --ignore-not-found=true || true[0m
+[L277] 2026-11-09T11:59:42.9701029Z [36;1m[0m
+[L278] 2026-11-09T11:59:42.9701462Z [36;1mpod_name_prefix="${KUBE_JOB_NAME}-"[0m
+[L279] 2026-11-09T11:59:42.9701915Z [36;1mecho "kube name space: $NAMESPACE, pod name prefix: ${pod_name_prefix}"[0m
+[L280] 2026-11-09T11:59:42.9702335Z [36;1mwhile true; do[0m
+[L281] 2026-11-09T11:59:42.9702711Z [36;1m  if kubectl get po -A -n $NAMESPACE | grep -q "${pod_name_prefix}"; then[0m
+[L282] 2026-11-09T11:59:42.9703215Z [36;1m    echo "Found exist sglang job, sleeping for 30 seconds..."[0m
+[L283] 2026-11-09T11:59:42.9703807Z [36;1m    sleep 30[0m
+[L284] 2026-11-09T11:59:42.9704426Z [36;1m    kubectl get pods | grep "${pod_name_prefix}" | awk '{print $1}' | xargs kubectl delete pod -n $NAMESPACE || true[0m
+[L285] 2026-11-09T11:59:42.9704960Z [36;1m  else[0m
+[L286] 2026-11-09T11:59:42.9705252Z [36;1m    echo "No sglang job exist, start test case..."[0m
+[L287] 2026-11-09T11:59:42.9705588Z [36;1m    break[0m
+[L288] 2026-11-09T11:59:42.9705816Z [36;1m  fi[0m
+[L289] 2026-11-09T11:59:42.9706043Z [36;1mdone[0m
+[L290] 2026-11-09T11:59:42.9706405Z [36;1m# Cleanup the run-scoped source code directory on the shared PVC.[0m
+[L291] 2026-11-09T11:59:42.9706900Z [36;1mrm -rf /root/.cache/tests/sglang-42611183075 || true[0m
+[L292] 2026-11-09T11:59:42.9707380Z shell: sh -e {0}
+[L293] 2026-11-09T11:59:42.9707626Z ##[endgroup]
+[L294] 2026-11-09T11:59:42.9788571Z ##[group]Run '/home/runner/k8s/index.js'
+[L295] 2026-11-09T11:59:42.9789584Z shell: /home/runner/externals/node24/bin/node {0}
+[L296] 2026-11-09T11:59:42.9789927Z ##[endgroup]
+[L297] 2026-11-09T11:59:43.2150578Z (node:451) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+[L298] 2026-11-09T11:59:43.2151582Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[L299] 2026-11-09T11:59:43.2406674Z (node:451) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[L300] 2026-11-09T11:59:43.2939911Z (node:451) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[L301] 2026-11-09T11:59:43.8606146Z ##[error]Error: failed to run script step:
+[L302]   ✗ exit code: 1
+[L303]   → your script exited with a non-zero code; please check your script for errors
+[L304] 2026-11-09T11:59:43.8650487Z ##[error]Process completed with exit code 1.
+[L305] 2026-11-09T11:59:43.8767051Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+[L306] 2026-11-09T11:59:43.9587466Z Post job cleanup.
+[L307] 2026-11-09T11:59:43.9620540Z ##[group]Run '/home/runner/k8s/index.js'
+[L308] 2026-11-09T11:59:43.9621805Z shell: /home/runner/externals/node24/bin/node {0}
+[L309] 2026-11-09T11:59:43.9622147Z ##[endgroup]
+[L310] 2026-11-09T11:59:44.1976515Z (node:502) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+

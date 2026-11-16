@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3</h2>
+        <p><strong>Case ID:</strong> testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 120.72s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 62</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-05 18:49:30.204</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;cann_single_A3_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 256, &#39;npu_gen&#39;: &#39;A3&#39;, &#39;npu_model&#39;: &#39;Ascend 910C&#39;, &#39;npu_num&#39;: 16, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;memory_size&#39;: 1024, &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;192&#39;, &#39;limit&#39;: &#39;256&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;1008Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;mount_source_data&#39;: [&#39;cann_ops_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/testdata&#39;], &#39;image_label&#39;: &#39;swr.cn-north-4.myhuaweicloud.com/hw-ascend/smoke:hccl_hcomm-A3&#39;, &#39;pool&#39;: &#39;ascend-general-a3&#39;}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">echo &#39;10.244.210.159&#39; &gt; /home/sess_run/server_ip</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:97</td>
+            <td><div class="msg-scroll">Pre-action &#39;save_server_ip&#39; executed successfully</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1514</td>
+            <td><div class="msg-scroll">make_hccl_test</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1515</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1516</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">参数组合数量: 1</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1517</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:49:34.268</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1520</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: make_hccl_test</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:49:37.173</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat /home/sess_run/server_ip</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:49:37.173</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">10.244.210.159</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:49:37.173</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_ops.py:67</td>
+                <td class="step-indent"><div class="msg-scroll">正在节点 10.244.210.159 编译 HCCL test</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:50:09.108</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">[ -f /usr/local/Ascend/ascend-toolkit/latest/set_env.sh ] &amp;&amp; . /usr/local/Ascend/ascend-toolkit/latest/set_env.sh &amp;&amp; export LD_LIBRARY_PATH=/usr/local/mpich-3.2.1/lib:/usr/local/Ascend/ascend-toolkit/latest/lib64:$LD_LIBRARY_PATH &amp;&amp; cd /usr/local/Ascend/ascend-toolkit/latest/tools/hccl_test &amp;&amp; make MPI_HOME=/usr/local/mpich-3.2.1 ASCEND_DIR=/usr/local/Ascend/ascend-toolkit/latest</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:50:09.109</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_allgather_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/all_gather_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+all_gather_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_allgatherv_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/all_gatherv_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+all_gatherv_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_allreduce_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/all_reduce_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+all_reduce_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_alltoallv_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/alltoallv_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+alltoallv_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_alltoall_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/alltoall_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+alltoall_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_brocast_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/broadcast_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+broadcast_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_reducescatter_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/reduce_scatter_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+reduce_scatter_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_reducescatterv_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/reduce_scatterv_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+reduce_scatterv_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_reduce_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/reduce_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+reduce_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_scatter_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/scatter_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+scatter_test compile completed
+</span>g++ -std=c++11 -Werror -fstack-protector-strong -fPIE -pie -O2 -s -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,--copy-dt-needed-entries ./common/src/hccl_check_buf_init.cc ./common/src/hccl_check_common.cc ./common/src/hccl_opbase_rootinfo_base.cc ./common/src/hccl_test_common.cc ./common/src/hccl_test_main.cc ./opbase_test/hccl_alltoallvc_rootinfo_test.cc -I./common/src -I./opbase_test -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/Ascend/ascend-toolkit/latest/include -I/usr/local/mpich-3.2.1/include -I/usr/local/Ascend/ascend-toolkit/latest/include -o bin/alltoallvc_test -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lhccl -lhcomm -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lacl_rt -L/usr/local/mpich-3.2.1/lib -lmpi -L/usr/local/Ascend/ascend-toolkit/latest/lib64 -lmsprofiler
+alltoallvc_test compile completed
+</span></div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:50:11.981</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">ls /usr/local/Ascend/ascend-toolkit/latest/tools/hccl_test/bin</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:50:11.981</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">all_gather_test
+all_gatherv_test
+all_reduce_test
+alltoall_test
+alltoallv_test
+alltoallvc_test
+broadcast_test
+reduce_scatter_test
+reduce_scatterv_test
+reduce_test
+scatter_test</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-05 18:50:11.981</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_ops.py:72</td>
+                <td class="step-indent"><div class="msg-scroll">节点 10.244.210.159 编译成功</div></td>
+            </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:50:11.981</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1522</td>
+            <td>
+                <span id="toggle-step-5" class="step-toggle" onclick="toggleStep('step-5')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- ENV RECOVER --------------------------------</div>
+            </td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:11.981</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>test_hccl_ops.py:1527</td>
+            <td><div class="msg-scroll">Test Case End</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:11.981</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>registry.py:97</td>
+            <td><div class="msg-scroll">Pre-action &#39;make_hccl&#39; executed successfully</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:11.982</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>host.py:263</td>
+            <td><div class="msg-scroll">获取操作系统版本</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.083</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">cat /etc/os-release</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.083</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.083</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>host.py:267</td>
+            <td><div class="msg-scroll">OS版本信息: PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.184</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">arch</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.184</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.185</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>host.py:176</td>
+            <td><div class="msg-scroll">arch命令返回: aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.185</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>host.py:184</td>
+            <td><div class="msg-scroll">主机架构为 aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.889</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.889</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip  Phy-ID              | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     Ascend910           | OK            | 157.5                36                      0    / 0                |
+| 0     0                   | 0000:9D:00.0  | 0                    0    / 0                3143 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 0     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     1                   | 0000:9F:00.0  | 0                    0    / 0                2896 / 65536            |
++===========================+===============+======================================================================+
+| 1     Ascend910           | OK            | 164.2                39                      0    / 0                |
+| 0     2                   | 0000:99:00.0  | 0                    0    / 0                3147 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 1     Ascend910           | OK            | -                    35                      0    / 0                |
+| 1     3                   | 0000:9B:00.0  | 0                    0    / 0                2882 / 65536            |
++===========================+===============+======================================================================+
+| 2     Ascend910           | OK            | 163.1                37                      0    / 0                |
+| 0     4                   | 0000:95:00.0  | 0                    0    / 0                3137 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 2     Ascend910           | OK            | -                    37                      0    / 0                |
+| 1     5                   | 0000:97:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 3     Ascend910           | OK            | 163.8                37                      0    / 0                |
+| 0     6                   | 0000:91:00.0  | 0                    0    / 0                3159 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 3     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     7                   | 0000:93:00.0  | 0                    0    / 0                2889 / 65536            |
++===========================+===============+======================================================================+
+| 4     Ascend910           | OK            | 159.8                36                      0    / 0                |
+| 0     8                   | 0000:8D:00.0  | 0                    0    / 0                3161 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 4     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     9                   | 0000:8F:00.0  | 0                    0    / 0                2899 / 65536            |
++===========================+===============+======================================================================+
+| 5     Ascend910           | OK            | 161.6                39                      0    / 0                |
+| 0     10                  | 0000:89:00.0  | 0                    0    / 0                3143 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 5     Ascend910           | OK            | -                    36                      0    / 0                |
+| 1     11                  | 0000:8B:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
+| 6     Ascend910           | OK            | 159.5                39                      0    / 0                |
+| 0     12                  | 0000:85:00.0  | 0                    0    / 0                3150 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 6     Ascend910           | OK            | -                    40                      0    / 0                |
+| 1     13                  | 0000:87:00.0  | 0                    0    / 0                2887 / 65536            |
++===========================+===============+======================================================================+
+| 7     Ascend910           | OK            | 166.2                37                      0    / 0                |
+| 0     14                  | 0000:81:00.0  | 0                    0    / 0                3148 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 7     Ascend910           | OK            | -                    38                      0    / 0                |
+| 1     15                  | 0000:83:00.0  | 0                    0    / 0                2890 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 0                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 2                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 3                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 5                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.893</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.893</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.893</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;157.5&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;1&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;164.2&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;163.1&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;3&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;163.8&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;4&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;159.8&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;5&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;161.6&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;6&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;159.5&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;166.2&#39;, &#39;temp_c&#39;: &#39;37&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.894</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.894</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] cann_single_A3_device_cover_single_type-nodes_1-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>plugin.py:970</td>
+            <td><div class="msg-scroll">testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11811</td>
+            <td><div class="msg-scroll">HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11812</td>
+            <td>
+                <span id="toggle-step-6" class="step-toggle" onclick="toggleStep('step-6')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11813</td>
+            <td>
+                <span id="toggle-step-7" class="step-toggle" onclick="toggleStep('step-7')">+Expand step</span>
+                <div class="msg-scroll">参数组合数量: 2</div>
+            </td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11814</td>
+            <td>
+                <span id="toggle-step-8" class="step-toggle" onclick="toggleStep('step-8')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+        <tr class="step-error">
+            <td>2026-11-05 18:50:12.895</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11816</td>
+            <td>
+                <span id="toggle-step-9" class="step-toggle" onclick="toggleStep('step-9')">+Expand step</span>
+                <div class="msg-scroll">执行参数组合: HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3_1</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:50:12.895</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>hccl_pytorch.py:92</td>
+                <td class="step-indent"><div class="msg-scroll">执行PyTorch HCCL AIV Executor测试</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:07.875</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cd /home/sess_run/testscript &amp;&amp; rm -rf /root/ascend/log &amp;&amp; export ASCEND_GLOBAL_LOG_LEVEL=1 &amp;&amp; ./mul_server_pytorch_py38.sh 1 8 pytorch_hccl_allreduce_dynamic_graph_test.py 60 --dtype int8 --dynamic_flag dynamic --expansion_mode AIV </div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:07.876</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✅ Success: Activated py38_torch_2.10 via /usr/local/miniconda
+[INFO] Auto-detected network interface: eth0
+Executing command:
+python3 /home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py --master_ip 10.244.210.159 --dtype int8 --dynamic_flag dynamic --expansion_mode AIV --server_index 0 --server_num 1 --dev_num 8 &gt; /home/sess_run/result/1server_8N/train_0.log 2&gt;&amp;1
+master_ip        :10.244.210.159
+master_port      :50001
+dev_num          :8
+server_num       :1
+server_index     :0
+worksize         :8
+data_list        :[1024]
+dtype            :int8
+optype           :all
+mul_num          :1
+used_devices     :None
+used_algo        :auto_algo
+dynamic_flag     :True
+expansion_mode   :AIV
+main_pid         :3447
+current device: 7
+init_method  : tcp://10.244.210.159:50001
+rank : 7
+pid : 3659
+rank 7 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 4
+init_method  : tcp://10.244.210.159:50001
+rank : 4
+pid : 3653
+rank 4 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 6
+init_method  : tcp://10.244.210.159:50001
+rank : 6
+pid : 3657
+rank 6 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 3
+init_method  : tcp://10.244.210.159:50001
+rank : 3
+pid : 3651
+rank 3 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 2
+init_method  : tcp://10.244.210.159:50001
+rank : 2
+pid : 3649
+rank 2 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 1
+init_method  : tcp://10.244.210.159:50001
+rank : 1
+pid : 3647
+rank 1 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 0
+init_method  : tcp://10.244.210.159:50001
+rank : 0
+pid : 3645
+rank 0 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+current device: 5
+init_method  : tcp://10.244.210.159:50001
+rank : 5
+pid : 3655
+rank 5 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.SUM loop 1
+rank 5 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 5 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 5 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:5 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 2 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 2 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 2 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:2 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 1 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 1 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 1 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:1 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 7 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 7 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 7 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:7 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 4 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 4 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 4 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:4 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 0 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 0 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 0 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:0 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 3 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 3 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 3 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:3 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+rank 6 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MAX loop 1
+rank 6 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.MIN loop 1
+rank 6 data : 1024 data_type: torch.int8 all_reduce_op RedOpType.PRODUCT loop 1
+device:6 pytorch hccl test success
+/home/sess_run/code/pytorch_hccl_allreduce_dynamic_graph_test.py:111: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:334.)
+  if torch.isinf(tensor_temp).all() or torch.isinf(tensor_all_reduce).all():
+# Python process (pytorch_hccl_allreduce_dynamic_graph_test.py) has completed.
+检查通过：所有设备都找到了旧的成功标志。
+train_all exec success
+# Check passed. No cleanup needed.
+./mul_server_pytorch_py38.sh: line 108:  2988 Killed                  tail -f &quot;$host_log_file&quot;</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:10.775</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn AllReduceMeshAivSmallCountExecutor /root/ascend/log | head</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:10.775</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34331:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.844 [all_reduce_operator.cc:684] [3651][SelectAlgfor91093] AllReduce SelectAlgfor91093 is algName [AllReduceMeshAivSmallCountExecutor].
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34334:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.871 [coll_all_reduce_mesh_aiv_smallcount_executor.cc:76] [3651][CollAllReduceMeshAivSmallCountExecutor][CalNumBlocks] numBlocks is set to [8], limit[48], recommended[8]
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34335:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.881 [hccl_communicator_host.cc:796] [3651][HcclCommunicator][PrepareZeroCopy] algName[AllReduceMeshAivSmallCountExecutor] not support zerocopy.
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34338:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.892 [coll_all_reduce_mesh_aiv_smallcount_executor.cc:27] [3651][CollAllReduceMeshAivSmallCountExecutor][CalcStreamNum] tag[AllReduce_group_name_0] streamNum[0]
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34341:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.898 [coll_all_reduce_mesh_aiv_smallcount_executor.cc:48] [3651][CollAllReduceMeshAivSmallCountExecutor][CalcTransportMemType] tag[AllReduce_group_name_0] inputType[5], outputType[6].
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34363:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.544.955 [hccl_communicator_host.cc:6898] [3651][AllocAlgResource] tag[AllReduce_group_name_0ringAllReduceMeshAivSmallCountExecutor_device] alloc host slaveStreamNum[0],device slaveStreamNum[0], devNotifyNum[0], hostNotifyNum[0]
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:34385:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.547.821 [hccl_communicator_host.cc:6927] [3651][AllocAlgResource] tag[AllReduce_group_name_0ringAllReduceMeshAivSmallCountExecutor_device] alloc aiv buffer
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:36115:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.674.948 [coll_alg_operator.cc:278] [3651][CollAlgOperator][Orchestrate]algName[AllReduceMeshAivSmallCountExecutor]
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:36118:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.674.960 [coll_all_reduce_mesh_aiv_smallcount_executor.cc:76] [3651][CollAllReduceMeshAivSmallCountExecutor][CalNumBlocks] numBlocks is set to [8], limit[48], recommended[8]
+/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:36136:[INFO] HCCL(3651,python3):2026-11-05-18:50:56.676.002 [coll_all_reduce_mesh_aiv_smallcount_executor.cc:244] [3651][CollAllReduceMeshAivSmallCountExecutor][KernelRun]AllReduce aiv run success.</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:13.794</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">grep -rn ERROR /root/ascend/log | head -30</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:13.795</td>
+                <td class='INFO'>INFO</td>
+                <td>281473219768352</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/root/ascend/log/debug/plog/plog-3651_20261105185024911.log:36773:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3651,python3):2026-11-05-18:50:56.799.974 [op_impl_space_registry_v2_impl.cc:116]5294 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3659_20261105185024930.log:36769:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3659,python3):2026-11-05-18:50:56.798.522 [op_impl_space_registry_v2_impl.cc:116]5303 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3645_20261105185024793.log:37453:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3645,python3):2026-11-05-18:50:56.801.743 [op_impl_space_registry_v2_impl.cc:116]5273 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3653_20261105185024960.log:36680:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3653,python3):2026-11-05-18:50:56.795.071 [op_impl_space_registry_v2_impl.cc:116]5284 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3649_20261105185024938.log:36682:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3649,python3):2026-11-05-18:50:56.800.615 [op_impl_space_registry_v2_impl.cc:116]5296 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3657_20261105185024960.log:36678:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3657,python3):2026-11-05-18:50:56.794.867 [op_impl_space_registry_v2_impl.cc:116]5309 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3655_20261105185024892.log:36771:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3655,python3):2026-11-05-18:50:56.792.856 [op_impl_space_registry_v2_impl.cc:116]5282 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3647_20261105185024843.log:36683:[<span style="color:#F44336;font-weight:bold">ERROR</span>] GE(3647,python3):2026-11-05-18:50:56.798.755 [op_impl_space_registry_v2_impl.cc:116]5271 operator(): ErrorNo: 4294967295(<span style="color:#F44336;font-weight:bold">failed</span>)<span style="color:#F44336;font-weight:bold">Failed</span> to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:13.796</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">PyTorch HCCL AIV Executor pytorch_hccl_allreduce_dynamic_graph_test 日志中包含 ERROR: /root/ascend/log/debug/plog/plog-3651_20261105185024911.log:36773:[ERROR] GE(3651,python3):2026-11-05-18:50:56.799.974 [op_impl_space_registry_v2_impl.cc:116]5294 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3659_20261105185024930.log:36769:[ERROR] GE(3659,python3):2026-11-05-18:50:56.798.522 [op_impl_space_registry_v2_impl.cc:116]5303 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3645_20261105185024793.log:37453:[ERROR] GE(3645,python3):2026-11-05-18:50:56.801.743 [op_impl_space_registry_v2_impl.cc:116]5273 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3653_20261105185024960.log:36680:[ERROR] GE(3653,python3):2026-11-05-18:50:56.795.071 [op_impl_space_registry_v2_impl.cc:116]5284 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3649_20261105185024938.log:36682:[ERROR] GE(3649,python3):2026-11-05-18:50:56.800.615 [op_impl_space_registry_v2_impl.cc:116]5296 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3657_20261105185024960.log:36678:[ERROR] GE(3657,python3):2026-11-05-18:50:56.794.867 [op_impl_space_registry_v2_impl.cc:116]5309 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3655_20261105185024892.log:36771:[ERROR] GE(3655,python3):2026-11-05-18:50:56.792.856 [op_impl_space_registry_v2_impl.cc:116]5282 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.
+/root/ascend/log/debug/plog/plog-3647_20261105185024843.log:36683:[ERROR] GE(3647,python3):2026-11-05-18:50:56.798.755 [op_impl_space_registry_v2_impl.cc:116]5271 operator(): ErrorNo: 4294967295(failed)Failed to load built-in library `/usr/local/Ascend/cann-9.3.0/opp/built-in/op_graph/lib/linux/aarch64//libopgraph_hccl.so` via dlopen.</div></td>
+            </tr>
+            <tr class="step-content content-step-9">
+                <td>2026-11-05 18:51:13.797</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473219768352</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">HCCL 用例执行失败: HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3 failed</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-05 18:51:13.797</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>test_hccl_pytorch.py:11823</td>
+            <td><div class="msg-scroll">Test Case End</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:13.957</td>
+            <td class='FAIL'>FAIL</td>
+            <td>281473219768352</td>
+            <td>__init__.py:71</td>
+            <td><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/cann/hccl/test_hccl_pytorch.py::TestHcclPytorch::test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3
+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:16.833</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">test -d /root/ascend/log</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:16.833</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:16.834</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>device.py:1087</td>
+            <td><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3_18-49-30/cann_single_A3_device_cover_single_type-nodes_1-device via SCP</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:19.509</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:224</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device download &#39;/root/ascend/log&#39; -&gt; &#39;/home/pytest-infra/logs_5DIzG72Q/TestCases/2026-11-05/test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3_18-49-30/cann_single_A3_device_cover_single_type-nodes_1-device&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:24.464</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">mv /root/ascend/log /mnt/share/cann_autotest_log/test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3_20261105_185113</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:24.464</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:24.464</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>conftest.py:233</td>
+            <td><div class="msg-scroll">[mv_dir_on_teardown] cann_single_A3_device_cover_single_type-nodes_1-device &#39;mv /root/ascend/log /mnt/share/cann_autotest_log/test_HCCL_AllReduce_1server_Graph_Aiv_Executor_0001_A3_20261105_185113&#39; success</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:30.918</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">find /mnt/share/cann_autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:30.918</td>
+            <td class='INFO'>INFO</td>
+            <td>281473219768352</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">(empty)</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-05 18:51:30.920</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473219768352</td>
+            <td>plugin.py:1076</td>
+            <td><div class="msg-scroll">TestCase End, completed in 120.72s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

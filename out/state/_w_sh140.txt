@@ -1,0 +1,53 @@
+===== case_logs/case_0007.html
+[L4420] 15  1     524288         
+[L4421] 16  1    1048576         
+[L4422] 17  1    2097152         
+[L4423] 18  1    4194304         
+[L4424] 19  1    8388608         
+[L4425] 20  1   16777216         
+[L4426] 21  1   33554432         
+[L4427] 22  1   67108864         
+[L4428] 23  1  134217728         
+[L4429] [&#39;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109033557937_00017723AFMONNHH/mindstudio_profiler_output/task_time_20261109033611.csv&#39;, &#39;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109033557937_00017716GDQIDFMP/mindstudio_profiler_output/task_time_20261109033611.csv&#39;, &#39;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_2026110
+[L4430]             </tr>
+[L4431]             <tr class="step-content content-step-2">
+[L4432]                 <td>2026-11-09 03:36:14.403</td>
+[L4433]                 <td class='ERROR'>ERROR</td>
+[L4434]                 <td>281473420759072</td>
+[L4435]                 <td>__init__.py:71</td>
+[L4436]                 <td class="step-indent"><div class="msg-scroll">SHMEM [allgather_pes8_bfloat16_t] 测试失败</div></td>
+[L4437]             </tr>
+[L4438]         <tr class="step-error">
+[L4439]             <td>2026-11-09 03:36:14.403</td>
+[L4440]             <td class='TC_STEP'>TC_STEP</td>
+[L4441]             <td>281473420759072</td>
+[L4442]             <td>test_example_allgather.py:62</td>
+[L4443]             <td>
+[L4444]                 <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+[L4445]                 <div class="msg-scroll">-------------------------------- TEST ASSERT --------------------------------</div>
+[L4446]             </td>
+[L4447]         </tr>
+[L4448]             <tr class="step-content content-step-3">
+[L4449]                 <td>2026-11-09 03:36:14.404</td>
+[L4450]                 <td class='ERROR'>ERROR</td>
+[L4451]                 <td>281473420759072</td>
+[L4452]                 <td>__init__.py:71</td>
+[L4453]                 <td class="step-indent"><div class="msg-scroll">测试执行异常: SHMEM example [allgather] 存在失败组合
+[L4454] assert False</div></td>
+[L4455]             </tr>
+[L4456]         <tr class="step-error">
+[L4457]             <td>2026-11-09 03:36:14.404</td>
+[L4458]             <td class='TC_STEP'>TC_STEP</td>
+[L4459]             <td>281473420759072</td>
+[L4460]             <td>test_example_allgather.py:70</td>
+[L4461]             <td>
+[L4462]                 <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+[L4463]                 <div class="msg-scroll">-------------------------------- ENV RECOVER --------------------------------</div>
+[L4464]             </td>
+[L4465]         </tr>
+[L4466]             <tr class="step-content content-step-4">
+[L4467]                 <td>2026-11-09 03:36:14.404</td>
+[L4468]                 <td class='INFO'>INFO</td>
+[L4469]                 <td>281473420759072</td>
+[L4470]                 <td>test_example_allgather.py:72</td>
+

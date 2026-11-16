@@ -1,7 +1,7 @@
 {
   "date_range": {
-    "start": "",
-    "end": "",
+    "start": "2026-11-06",
+    "end": "2026-11-12",
     "_comment": "分析区间。每日跑数：留空字符串则取「前一个工作日」单日区间（自动向前跳过周末与法定节假日；周一跑取上周五，节后首日跑取节前最后一个工作日），不支持多日累计；夜间统计仅统计区间内工作日（服务端口径）。显式填写 start/end 时以配置为准（脚本直接按该区间筛选，不经 AI）"
   },
   "products": [],
@@ -41,6 +41,7 @@
     "detail_retry_times": 3,
     "detail_retry_backoff_ms": [1000, 2000],
     "n2_page_size": 100,
+    "t4_retry_times": 2,
     "t5_log_limit": 300,
     "t6_page_size": 100,
     "case_log_concurrency": 8,

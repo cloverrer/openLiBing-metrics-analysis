@@ -1,0 +1,3977 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-13 16:06:40",
+  "component": "SgLang",
+  "pipeline": "nightly-test-npu.yml",
+  "date": "2026-11-09",
+  "recordCount": 9
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-09",
+ "component": "SgLang",
+ "pipeline": "nightly-test-npu.yml",
+ "pipelineName": "nightly-test-npu.yml",
+ "platform": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-09",
+  "runs": [
+   {
+    "rn": 2133,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 21:03:53"
+   },
+   {
+    "rn": 2132,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 20:51:31"
+   },
+   {
+    "rn": 2130,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 19:59:57"
+   },
+   {
+    "rn": 2129,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 20:19:14"
+   },
+   {
+    "rn": 2128,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 14:13:42"
+   },
+   {
+    "rn": 2127,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 03:03:23"
+   },
+   {
+    "rn": 2126,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 01:38:49"
+   },
+   {
+    "rn": 2125,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 01:12:02"
+   },
+   {
+    "rn": 2124,
+    "status": "FAILED",
+    "endedAt": "2026-11-09 09:22:46"
+   }
+  ]
+ },
+ "counts": {
+  "records": 9,
+  "tasks": 26,
+  "cases": 0,
+  "errorMessages": 57
+ },
+ "evidence": {
+  "files": 39,
+  "bytes": 12546755,
+  "lines": 87296,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-13 16:06:39",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "dateRange": {
+    "start": "2026-11-09",
+    "end": "2026-11-09"
+   },
+   "product": {
+    "product": "SgLang",
+    "projectId": 300134,
+    "versionAvailabilityRate": 0.0,
+    "buildSuccessRate": null,
+    "pipelineCount": 1,
+    "badPipelineCount": 1,
+    "badPipelineCountVA": 1,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 1,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 1,
+     "sumRate": 0.0,
+     "avgRate": 0.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 区间工作日数；当日有 iva=true 的运行才算可用日；区间内无运行记录的流水线不参与均值）"
+    }
+   },
+   "pipeline": {
+    "key": "SgLang|nightly-test-npu.yml",
+    "product": "SgLang",
+    "projectId": 300134,
+    "pipelineName": "nightly-test-npu.yml",
+    "pipelineShortName": "nightly-test-npu.yml",
+    "pipelineId": "209837578",
+    "platform": "github",
+    "versionAvailabilityRate": 0,
+    "buildSuccessRate": null,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 9 次运行（当日 9 次），其中 9 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "dateRange": {
+    "start": "2026-11-09",
+    "end": "2026-11-09"
+   },
+   "date": "2026-11-09",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 2125,
+     "rid": "42502180491",
+     "status": "FAILED",
+     "start": "11-09 00:53",
+     "startISO": "2026-11-09T00:53:36",
+     "endISO": "2026-11-09T01:12:02",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42502180491",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42502180491",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "L3cache",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 18.43,
+     "cached": false
+    },
+    {
+     "rn": 2126,
+     "rid": "42503749318",
+     "status": "FAILED",
+     "start": "11-09 01:11",
+     "startISO": "2026-11-09T01:11:56",
+     "endISO": "2026-11-09T01:38:49",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42503749318",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42503749318",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "L3cache",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 26.88,
+     "cached": false
+    },
+    {
+     "rn": 2127,
+     "rid": "42509098847",
+     "status": "FAILED",
+     "start": "11-09 02:15",
+     "startISO": "2026-11-09T02:15:42",
+     "endISO": "2026-11-09T03:03:23",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42509098847",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42509098847",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "L3cache",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 47.68,
+     "cached": false
+    },
+    {
+     "rn": 2124,
+     "rid": "42498125758",
+     "status": "FAILED",
+     "start": "11-09 00:05",
+     "startISO": "2026-11-09T00:05:48",
+     "endISO": "2026-11-09T09:22:46",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42498125758",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42498125758",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "Nightly Test (NPU)",
+     "ghEvent": "schedule",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 556.97,
+     "cached": false
+    },
+    {
+     "rn": 2128,
+     "rid": "42563835653",
+     "status": "FAILED",
+     "start": "11-09 12:48",
+     "startISO": "2026-11-09T12:48:48",
+     "endISO": "2026-11-09T14:13:42",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42563835653",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42563835653",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 84.9,
+     "cached": false
+    },
+    {
+     "rn": 2130,
+     "rid": "42611183075",
+     "status": "FAILED",
+     "start": "11-09 19:42",
+     "startISO": "2026-11-09T19:42:43",
+     "endISO": "2026-11-09T19:59:57",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42611183075",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42611183075",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Test] [Ascend] npu: GLM-5.3 1P1D accuracy cases + weekday gsm8k",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 17.23,
+     "cached": false
+    },
+    {
+     "rn": 2129,
+     "rid": "42608919924",
+     "status": "FAILED",
+     "start": "11-09 19:25",
+     "startISO": "2026-11-09T19:25:23",
+     "endISO": "2026-11-09T20:19:14",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42608919924",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42608919924",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 53.85,
+     "cached": false
+    },
+    {
+     "rn": 2132,
+     "rid": "42620484793",
+     "status": "FAILED",
+     "start": "11-09 20:51",
+     "startISO": "2026-11-09T20:51:29",
+     "endISO": "2026-11-09T20:51:31",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42620484793",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620484793",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 0.03,
+     "cached": false
+    },
+    {
+     "rn": 2133,
+     "rid": "42620485286",
+     "status": "FAILED",
+     "start": "11-09 20:51",
+     "startISO": "2026-11-09T20:51:29",
+     "endISO": "2026-11-09T21:03:53",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/42620485286",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620485286",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 12.4,
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-09": [
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 2133,
+     "pipelineRunId": "42620485286",
+     "start": "2026-11-09 20:51:29",
+     "end": "2026-11-09 21:03:53",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2132,
+     "pipelineRunId": "42620484793",
+     "start": "2026-11-09 20:51:29",
+     "end": "2026-11-09 20:51:31",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2130,
+     "pipelineRunId": "42611183075",
+     "start": "2026-11-09 19:42:43",
+     "end": "2026-11-09 19:59:57",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2129,
+     "pipelineRunId": "42608919924",
+     "start": "2026-11-09 19:25:23",
+     "end": "2026-11-09 20:19:14",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2128,
+     "pipelineRunId": "42563835653",
+     "start": "2026-11-09 12:48:48",
+     "end": "2026-11-09 14:13:42",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2127,
+     "pipelineRunId": "42509098847",
+     "start": "2026-11-09 02:15:42",
+     "end": "2026-11-09 03:03:23",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2126,
+     "pipelineRunId": "42503749318",
+     "start": "2026-11-09 01:11:56",
+     "end": "2026-11-09 01:38:49",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2125,
+     "pipelineRunId": "42502180491",
+     "start": "2026-11-09 00:53:36",
+     "end": "2026-11-09 01:12:02",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2124,
+     "pipelineRunId": "42498125758",
+     "start": "2026-11-09 00:05:48",
+     "end": "2026-11-09 09:22:46",
+     "status": "FAILED",
+     "endedDate": "2026-11-09",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 2133,
+     "start": "2026-11-09 20:51:29",
+     "end": "2026-11-09 21:03:53",
+     "status": "FAILED",
+     "rid": "42620485286",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620485286",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2132,
+     "start": "2026-11-09 20:51:29",
+     "end": "2026-11-09 20:51:31",
+     "status": "FAILED",
+     "rid": "42620484793",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620484793",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2130,
+     "start": "2026-11-09 19:42:43",
+     "end": "2026-11-09 19:59:57",
+     "status": "FAILED",
+     "rid": "42611183075",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42611183075",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2129,
+     "start": "2026-11-09 19:25:23",
+     "end": "2026-11-09 20:19:14",
+     "status": "FAILED",
+     "rid": "42608919924",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42608919924",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2128,
+     "start": "2026-11-09 12:48:48",
+     "end": "2026-11-09 14:13:42",
+     "status": "FAILED",
+     "rid": "42563835653",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42563835653",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2127,
+     "start": "2026-11-09 02:15:42",
+     "end": "2026-11-09 03:03:23",
+     "status": "FAILED",
+     "rid": "42509098847",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42509098847",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2126,
+     "start": "2026-11-09 01:11:56",
+     "end": "2026-11-09 01:38:49",
+     "status": "FAILED",
+     "rid": "42503749318",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42503749318",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2125,
+     "start": "2026-11-09 00:53:36",
+     "end": "2026-11-09 01:12:02",
+     "status": "FAILED",
+     "rid": "42502180491",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42502180491",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2124,
+     "start": "2026-11-09 00:05:48",
+     "end": "2026-11-09 09:22:46",
+     "status": "FAILED",
+     "rid": "42498125758",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42498125758",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-09"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 9,
+   "keptFailedRuns": 9,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "test": [],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "logFiles": 0,
+    "errorLines": 0
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09"
+   },
+   "results": [
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2125,
+     "rid": "42502180491",
+     "st": "11-09 00:53",
+     "runId": 42502180491,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 18.43,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updatedAt": "2026-11-08T17:12:02Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "取消 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "cancelledJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128797142436
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 128801839738
+      }
+     ],
+     "jobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128797142436,
+       "conclusion": "cancelled",
+       "startedAt": "2026-11-08T16:54:07Z",
+       "completedAt": "2026-11-08T17:12:01Z",
+       "logFile": "github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+       "logBytes": 206236,
+       "logLines": 1033,
+       "errorLines": [],
+       "githubSteps": [],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 128801839738,
+       "status": "404_not_retained"
+      }
+     ],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2126,
+     "rid": "42503749318",
+     "st": "11-09 01:11",
+     "runId": 42503749318,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 26.88,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-08T17:38:49Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "失败 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 16,
+     "failedJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128801862265,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128805033836,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128801862265,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T17:12:27Z",
+       "completedAt": "2026-11-08T17:24:28Z",
+       "logFile": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+       "logBytes": 64387,
+       "logLines": 620,
+       "errorLines": [
+        "L503: Traceback (most recent call last):",
+        "L513: Traceback (most recent call last):",
+        "L521: ##[error]Error: failed to run script step:",
+        "L522: ✗ exit code: 1",
+        "L528: Traceback (most recent call last):",
+        "L538: Traceback (most recent call last):",
+        "L546: ##[error]Process completed with exit code 1.",
+        "L547: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128805033836,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T17:24:50Z",
+       "completedAt": "2026-11-08T17:38:48Z",
+       "logFile": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+       "logBytes": 65374,
+       "logLines": 624,
+       "errorLines": [
+        "L505: Traceback (most recent call last):",
+        "L515: Traceback (most recent call last):",
+        "L523: ##[error]Error: failed to run script step:",
+        "L524: ✗ exit code: 1",
+        "L530: Traceback (most recent call last):",
+        "L540: Traceback (most recent call last):",
+        "L548: ##[error]Process completed with exit code 1.",
+        "L549: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2127,
+     "rid": "42509098847",
+     "st": "11-09 02:15",
+     "runId": 42509098847,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 47.68,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-08T19:03:23Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "失败 job 1 个（≤5，逐 job 精取）",
+     "totalJobs": 16,
+     "failedJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128826435180,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128826435180,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T18:49:20Z",
+       "completedAt": "2026-11-08T19:03:22Z",
+       "logFile": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+       "logBytes": 65384,
+       "logLines": 624,
+       "errorLines": [
+        "L505: Traceback (most recent call last):",
+        "L515: Traceback (most recent call last):",
+        "L523: ##[error]Error: failed to run script step:",
+        "L524: ✗ exit code: 1",
+        "L530: Traceback (most recent call last):",
+        "L540: Traceback (most recent call last):",
+        "L548: ##[error]Process completed with exit code 1.",
+        "L549: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2124,
+     "rid": "42498125758",
+     "st": "11-09 00:05",
+     "runId": 42498125758,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "Nightly Test (NPU)",
+     "event": "schedule",
+     "status": "FAILED",
+     "duration": 556.97,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-09T01:22:46Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "zip",
+     "why": "失败 job 12 个（>5，整包一次下载更省时）",
+     "totalJobs": 26,
+     "failedJobs": [
+      {
+       "name": "nightly-1-npu-a3 / run (0)",
+       "id": 128784818138,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-8-npu-a3 / run (0)",
+       "id": 128784818189,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+       "id": 128784818471,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818643,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818648,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818756,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 128804250725,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128812967524,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128817183125,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_2/test... / glm_5_2_w8a8_2p2d_32p_dcp_gpqa",
+       "id": 128822652327,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128913713161,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 128928729571,
+       "steps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "nightly-1-npu-a3 / run (0)",
+       "id": 128784818138,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:29Z",
+       "completedAt": "2026-11-08T16:52:53Z",
+       "logFile": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+       "logBytes": 2880561,
+       "logLines": 18227,
+       "errorLines": [
+        "L1108: [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L1256: Traceback (most recent call last):",
+        "L1286: [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):",
+        "L1342: Traceback (most recent call last):",
+        "L1437: [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L1443: [2026-11-08 16:14:58] Scheduler hit an exception: Traceback (most recent call last):",
+        "L1500: 0: No such file or directory (os error 2)",
+        "L1501: 1: No such file or directory (os error 2)",
+        "L1512: Traceback (most recent call last):",
+        "L1638: [2026-11-08 16:17:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L4319: [2026-11-08 16:26:02] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L7491: [2026-11-08 16:34:16] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L10326: [2026-11-08 16:38:37] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L13130: [2026-11-08 16:41:32] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L15585: [2026-11-08 16:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L18171: ##[error]Error: failed to run script step:",
+        "L18172: ✗ exit code: 255",
+        "L18196: ##[error]Process completed with exit code 1.",
+        "L18197: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-8-npu-a3 / run (0)",
+       "id": 128784818189,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:19Z",
+       "completedAt": "2026-11-08T16:19:15Z",
+       "logFile": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+       "logBytes": 826016,
+       "logLines": 5487,
+       "errorLines": [
+        "L1380: [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L3079: [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L3085: [2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):",
+        "L3128: [2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4074: [2026-11-08 16:17:46 TP2 EP2] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4163: Traceback (most recent call last):",
+        "L4238: [2026-11-08 16:17:46 TP4 EP4] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4327: Traceback (most recent call last):",
+        "L4402: [2026-11-08 16:17:46 TP5 EP5] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4491: Traceback (most recent call last):",
+        "L4566: [2026-11-08 16:17:46 TP1 EP1] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4655: Traceback (most recent call last):",
+        "L4730: [2026-11-08 16:17:46 TP6 EP6] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4819: Traceback (most recent call last):",
+        "L4894: [2026-11-08 16:17:46 TP3 EP3] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4983: Traceback (most recent call last):",
+        "L5370: 0: No such file or directory (os error 2)",
+        "L5371: 1: No such file or directory (os error 2)",
+        "L5376: 0: No such file or directory (os error 2)",
+        "L5377: 1: No such file or directory (os error 2)",
+        "L5394: Traceback (most recent call last):",
+        "L5431: ##[error]Error: failed to run script step:",
+        "L5432: ✗ exit code: 255",
+        "L5456: ##[error]Process completed with exit code 1.",
+        "L5457: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+       "id": 128784818471,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:37Z",
+       "completedAt": "2026-11-08T17:18:51Z",
+       "logFile": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+       "logBytes": 1707911,
+       "logLines": 10268,
+       "errorLines": [
+        "L982: [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L1743: [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L2912: [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L3952: [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L4593: [2026-11-08 16:35:40] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L4685: [2026-11-08 16:36:53 TP1] Scheduler hit an exception: Traceback (most recent call last):",
+        "L4788: [2026-11-08 16:36:54 TP0] Scheduler hit an exception: Traceback (most recent call last):",
+        "L5341: [2026-11-08 16:39:00] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L7602: [2026-11-08 16:59:06] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L8321: [2026-11-08 17:05:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L8896: [2026-11-08 17:10:03] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L9568: [2026-11-08 17:14:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L10212: ##[error]Error: failed to run script step:",
+        "L10213: ✗ exit code: 255",
+        "L10237: ##[error]Process completed with exit code 1.",
+        "L10238: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818643,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:49Z",
+       "completedAt": "2026-11-08T17:01:49Z",
+       "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+       "logBytes": 781711,
+       "logLines": 4202,
+       "errorLines": [
+        "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818648,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:47Z",
+       "completedAt": "2026-11-08T16:16:19Z",
+       "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+       "logBytes": 781711,
+       "logLines": 4202,
+       "errorLines": [
+        "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818756,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T16:06:52Z",
+       "completedAt": "2026-11-08T16:13:46Z",
+       "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+       "logBytes": 781711,
+       "logLines": 4202,
+       "errorLines": [
+        "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 128804250725,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T17:21:47Z",
+       "completedAt": "2026-11-08T17:56:13Z",
+       "logFile": "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+       "logBytes": 516987,
+       "logLines": 2749,
+       "errorLines": [
+        "L604: │ exit code: 1",
+        "L2555: Traceback (most recent call last):",
+        "L2588: Traceback (most recent call last):",
+        "L2618: Traceback (most recent call last):",
+        "L2630: Traceback (most recent call last):",
+        "L2641: Traceback (most recent call last):",
+        "L2649: ##[error]Error: failed to run script step:",
+        "L2650: ✗ exit code: 1",
+        "L2655: Traceback (most recent call last):",
+        "L2666: Traceback (most recent call last):",
+        "L2674: ##[error]Process completed with exit code 1.",
+        "L2675: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128812967524,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T17:56:39Z",
+       "completedAt": "2026-11-08T18:12:27Z",
+       "logFile": "github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+       "logBytes": 1159124,
+       "logLines": 4179,
+       "errorLines": [
+        "L886: Traceback (most recent call last):",
+        "L3577: Traceback (most recent call last):",
+        "L3893: Traceback (most recent call last):",
+        "L3971: Traceback (most recent call last):",
+        "L3999: Traceback (most recent call last):",
+        "L4011: Traceback (most recent call last):",
+        "L4022: Traceback (most recent call last):",
+        "L4048: Traceback (most recent call last):",
+        "L4060: Traceback (most recent call last):",
+        "L4071: Traceback (most recent call last):",
+        "L4079: ##[error]Error: failed to run script step:",
+        "L4080: ✗ exit code: 1",
+        "L4085: Traceback (most recent call last):",
+        "L4096: Traceback (most recent call last):",
+        "L4104: ##[error]Process completed with exit code 1.",
+        "L4105: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128817183125,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T18:12:54Z",
+       "completedAt": "2026-11-08T18:33:39Z",
+       "logFile": "github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+       "logBytes": 710139,
+       "logLines": 2801,
+       "errorLines": [
+        "L914: Traceback (most recent call last):",
+        "L2329: Traceback (most recent call last):",
+        "L2513: Traceback (most recent call last):",
+        "L2591: Traceback (most recent call last):",
+        "L2619: Traceback (most recent call last):",
+        "L2630: Traceback (most recent call last):",
+        "L2641: Traceback (most recent call last):",
+        "L2667: Traceback (most recent call last):",
+        "L2680: Traceback (most recent call last):",
+        "L2691: Traceback (most recent call last):",
+        "L2699: ##[error]Error: failed to run script step:",
+        "L2700: ✗ exit code: 1",
+        "L2705: Traceback (most recent call last):",
+        "L2716: Traceback (most recent call last):",
+        "L2724: ##[error]Process completed with exit code 1.",
+        "L2725: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_2/test... / glm_5_2_w8a8_2p2d_32p_dcp_gpqa",
+       "id": 128822652327,
+       "conclusion": "failure",
+       "startedAt": "2026-11-08T18:34:06Z",
+       "completedAt": "2026-11-08T18:39:34Z",
+       "logFile": "github_logs/gh_42498125758/6_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt",
+       "logBytes": 65970,
+       "logLines": 604,
+       "errorLines": [
+        "L492: Traceback (most recent call last):",
+        "L502: Traceback (most recent call last):",
+        "L510: ##[error]Error: failed to run script step:",
+        "L511: ✗ exit code: 1",
+        "L517: Traceback (most recent call last):",
+        "L527: Traceback (most recent call last):",
+        "L535: ##[error]Process completed with exit code 1.",
+        "L536: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128913713161,
+       "conclusion": "failure",
+       "startedAt": "2026-11-09T00:28:55Z",
+       "completedAt": "2026-11-09T01:22:40Z",
+       "logFile": "github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+       "logBytes": 1690947,
+       "logLines": 17239,
+       "errorLines": [
+        "L15168: [2026-11-09 08:54:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L15281: │ exit code: 1",
+        "L17059: Traceback (most recent call last):",
+        "L17094: Traceback (most recent call last):",
+        "L17105: Traceback (most recent call last):",
+        "L17117: Traceback (most recent call last):",
+        "L17128: Traceback (most recent call last):",
+        "L17136: ##[error]Error: failed to run script step:",
+        "L17137: ✗ exit code: 1",
+        "L17142: Traceback (most recent call last):",
+        "L17153: Traceback (most recent call last):",
+        "L17161: ##[error]Process completed with exit code 1.",
+        "L17162: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 128928729571,
+       "conclusion": "failure",
+       "startedAt": "2026-11-09T01:22:42Z",
+       "completedAt": "2026-11-09T01:22:45Z",
+       "logFile": "github_logs/gh_42498125758/0_check-all-jobs.txt",
+       "logBytes": 6495,
+       "logLines": 99,
+       "errorLines": [
+        "L98: ##[error]Process completed with exit code 1."
+       ],
+       "githubSteps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "systemLogs": [
+      "github_logs/gh_42498125758/sys_check-all-jobs.txt",
+      "github_logs/gh_42498125758/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+      "github_logs/gh_42498125758/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+      "github_logs/gh_42498125758/sys_multi-node-mix-poc (deepseek_v4_pro_16p_in128k_out1k_prefix90_20ms, 2, test_regi~158988.txt",
+      "github_logs/gh_42498125758/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+      "github_logs/gh_42498125758/sys_multi-node-poc (glm_5_2_w8a8_2p2d_32p_pcp_gpqa, 2, 2, 1, test_registered_npu_acc~cc387a.txt",
+      "github_logs/gh_42498125758/sys_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt",
+      "github_logs/gh_42498125758/sys_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+      "github_logs/gh_42498125758/sys_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+      "github_logs/gh_42498125758/sys_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+      "github_logs/gh_42498125758/sys_nightly-acc-4-npu-a5 _ nightly-acc-4-npu-a5.txt",
+      "github_logs/gh_42498125758/sys_nightly-perf-4-npu-a3 _ nightly-perf-4-npu-a3.txt",
+      "github_logs/gh_42498125758/sys_nightly-16-npu-a3 _ run (0).txt",
+      "github_logs/gh_42498125758/sys_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+      "github_logs/gh_42498125758/sys_nightly-4-npu-a3 _ run (1).txt",
+      "github_logs/gh_42498125758/sys_nightly-4-npu-a3 _ run (0).txt",
+      "github_logs/gh_42498125758/sys_nightly-2-npu-a3 _ run (0).txt",
+      "github_logs/gh_42498125758/sys_nightly-1-npu-a3 _ run (0).txt",
+      "github_logs/gh_42498125758/sys_nightly-perf-16-npu-a3 _ nightly-perf-16-npu-a3.txt",
+      "github_logs/gh_42498125758/sys_nightly-acc-16-npu-a3 _ nightly-acc-16-npu-a3.txt",
+      "github_logs/gh_42498125758/sys_nightly-8-npu-a3 _ run (0).txt",
+      "github_logs/gh_42498125758/sys_set-image-config.txt"
+     ],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2128,
+     "rid": "42563835653",
+     "st": "11-09 12:48",
+     "runId": 42563835653,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 84.9,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updatedAt": "2026-11-09T06:13:42Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "取消 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "cancelledJobs": [
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128985919742
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 129010475798
+      }
+     ],
+     "jobs": [],
+     "missing": [
+      {
+       "job": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128985919742,
+       "status": "404_not_retained"
+      },
+      {
+       "job": "check-all-jobs",
+       "id": 129010475798,
+       "status": "404_not_retained"
+      }
+     ],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2130,
+     "rid": "42611183075",
+     "st": "11-09 19:42",
+     "runId": 42611183075,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [Ascend] npu: GLM-5.3 1P1D accuracy cases + weekday gsm8k",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 17.23,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updatedAt": "2026-11-09T11:59:57Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "取消 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "cancelledJobs": [
+      {
+       "name": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+       "id": 129139754348
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 129147126954
+      }
+     ],
+     "jobs": [
+      {
+       "name": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+       "id": 129139754348,
+       "conclusion": "cancelled",
+       "startedAt": "2026-11-09T11:43:13Z",
+       "completedAt": "2026-11-09T11:59:56Z",
+       "logFile": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+       "logBytes": 34807,
+       "logLines": 335,
+       "errorLines": [
+        "L272: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L301: ##[error]Error: failed to run script step:",
+        "L302: ✗ exit code: 1",
+        "L304: ##[error]Process completed with exit code 1.",
+        "L305: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Prepare code for testing",
+         "conclusion": "failure"
+        },
+        {
+         "name": "Post process",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 129147126954,
+       "status": "404_not_retained"
+      }
+     ],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2129,
+     "rid": "42608919924",
+     "st": "11-09 19:25",
+     "runId": 42608919924,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 53.85,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-09T12:19:14Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "失败 job 1 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 129131958688,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 129131958688,
+       "conclusion": "failure",
+       "startedAt": "2026-11-09T11:25:53Z",
+       "completedAt": "2026-11-09T12:19:13Z",
+       "logFile": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+       "logBytes": 1677751,
+       "logLines": 17314,
+       "errorLines": [
+        "L15335: [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+        "L15452: │ exit code: 1",
+        "L17136: Traceback (most recent call last):",
+        "L17170: Traceback (most recent call last):",
+        "L17182: Traceback (most recent call last):",
+        "L17194: Traceback (most recent call last):",
+        "L17205: Traceback (most recent call last):",
+        "L17213: ##[error]Error: failed to run script step:",
+        "L17214: ✗ exit code: 1",
+        "L17219: Traceback (most recent call last):",
+        "L17230: Traceback (most recent call last):",
+        "L17238: ##[error]Process completed with exit code 1.",
+        "L17239: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2132,
+     "rid": "42620484793",
+     "st": "11-09 20:51",
+     "runId": 42620484793,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 0.03,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updatedAt": "2026-11-09T12:51:31Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "取消 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "cancelledJobs": [
+      {
+       "name": "set-image-config",
+       "id": 129171021001
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 129171030139
+      }
+     ],
+     "jobs": [],
+     "missing": [
+      {
+       "job": "set-image-config",
+       "id": 129171021001,
+       "status": "404_not_retained"
+      },
+      {
+       "job": "check-all-jobs",
+       "id": 129171030139,
+       "status": "404_not_retained"
+      }
+     ],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2133,
+     "rid": "42620485286",
+     "st": "11-09 20:51",
+     "runId": 42620485286,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 12.4,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "cancelled",
+      "updatedAt": "2026-11-09T13:03:53Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "取消 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "cancelledJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset",
+       "id": 129171078482
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 129176843219
+      }
+     ],
+     "jobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset",
+       "id": 129171078482,
+       "conclusion": "cancelled",
+       "startedAt": "2026-11-09T12:52:01Z",
+       "completedAt": "2026-11-09T13:03:52Z",
+       "logFile": "github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt",
+       "logBytes": 62888,
+       "logLines": 588,
+       "errorLines": [
+        "L523: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 129176843219,
+       "status": "404_not_retained"
+      }
+     ],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "runs": 9,
+    "jobs": 19,
+    "missing": 7
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-13 16:06:40",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-09",
+    "recordCount": 9
+   },
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "counts": {
+    "records": 9,
+    "tasks": 26,
+    "cases": 0,
+    "errorMessages": 57
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2093,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 13239,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 622,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 542,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 478,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 471,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 38617,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 869,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2124",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2124,
+   "pipelineRunId": "42498125758",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T00:05:48",
+   "endedAt": "2026-11-09T09:22:46",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T09:22:46",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42498125758",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42498125758",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42498125758"
+   },
+   "tasks": [
+    {
+     "jobName": "nightly-1-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "logBytes": 2880561,
+     "logLines": 18227,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1108: [2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L1256: Traceback (most recent call last):",
+      "L1286: [2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):",
+      "L1437: [2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L1443: [2026-11-08 16:14:58] Scheduler hit an exception: Traceback (most recent call last):",
+      "L1500: 0: No such file or directory (os error 2)",
+      "L1501: 1: No such file or directory (os error 2)",
+      "L1638: [2026-11-08 16:17:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L4319: [2026-11-08 16:26:02] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L7491: [2026-11-08 16:34:16] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L10326: [2026-11-08 16:38:37] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L13130: [2026-11-08 16:41:32] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L15585: [2026-11-08 16:48:24] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L18171: ##[error]Error: failed to run script step:",
+      "L18172: ✗ exit code: 255",
+      "L18196: ##[error]Process completed with exit code 1.",
+      "L18197: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128784818138,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:29Z",
+      "completedAt": "2026-11-08T16:52:53Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-8-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "logBytes": 826016,
+     "logLines": 5487,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1380: [2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L3079: [2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L3085: [2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):",
+      "L3128: [2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4074: [2026-11-08 16:17:46 TP2 EP2] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4163: Traceback (most recent call last):",
+      "L4238: [2026-11-08 16:17:46 TP4 EP4] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4402: [2026-11-08 16:17:46 TP5 EP5] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4566: [2026-11-08 16:17:46 TP1 EP1] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4730: [2026-11-08 16:17:46 TP6 EP6] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4894: [2026-11-08 16:17:46 TP3 EP3] Scheduler hit an exception: Traceback (most recent call last):",
+      "L5370: 0: No such file or directory (os error 2)",
+      "L5371: 1: No such file or directory (os error 2)",
+      "L5431: ##[error]Error: failed to run script step:",
+      "L5432: ✗ exit code: 255",
+      "L5456: ##[error]Process completed with exit code 1.",
+      "L5457: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128784818189,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:19Z",
+      "completedAt": "2026-11-08T16:19:15Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "logBytes": 1707911,
+     "logLines": 10268,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L982: [2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L1743: [2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L2912: [2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L3952: [2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L4593: [2026-11-08 16:35:40] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L4685: [2026-11-08 16:36:53 TP1] Scheduler hit an exception: Traceback (most recent call last):",
+      "L4788: [2026-11-08 16:36:54 TP0] Scheduler hit an exception: Traceback (most recent call last):",
+      "L5341: [2026-11-08 16:39:00] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L7602: [2026-11-08 16:59:06] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L8321: [2026-11-08 17:05:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L8896: [2026-11-08 17:10:03] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L9568: [2026-11-08 17:14:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L10212: ##[error]Error: failed to run script step:",
+      "L10213: ✗ exit code: 255",
+      "L10237: ##[error]Process completed with exit code 1.",
+      "L10238: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128784818471,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:37Z",
+      "completedAt": "2026-11-08T17:18:51Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "logBytes": 781711,
+     "logLines": 4202,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+     ],
+     "githubJob": {
+      "id": 128784818643,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:49Z",
+      "completedAt": "2026-11-08T17:01:49Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "logBytes": 781711,
+     "logLines": 4202,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+     ],
+     "githubJob": {
+      "id": 128784818648,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:47Z",
+      "completedAt": "2026-11-08T16:16:19Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "logBytes": 781711,
+     "logLines": 4202,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L995: [2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+     ],
+     "githubJob": {
+      "id": 128784818756,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T16:06:52Z",
+      "completedAt": "2026-11-08T16:13:46Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "logBytes": 516987,
+     "logLines": 2749,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L604: │ exit code: 1",
+      "L2555: Traceback (most recent call last):",
+      "L2649: ##[error]Error: failed to run script step:",
+      "L2650: ✗ exit code: 1",
+      "L2674: ##[error]Process completed with exit code 1.",
+      "L2675: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128804250725,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T17:21:47Z",
+      "completedAt": "2026-11-08T17:56:13Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "logBytes": 1159124,
+     "logLines": 4179,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L886: Traceback (most recent call last):",
+      "L4079: ##[error]Error: failed to run script step:",
+      "L4080: ✗ exit code: 1",
+      "L4104: ##[error]Process completed with exit code 1.",
+      "L4105: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128812967524,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T17:56:39Z",
+      "completedAt": "2026-11-08T18:12:27Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "logBytes": 710139,
+     "logLines": 2801,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L914: Traceback (most recent call last):",
+      "L2699: ##[error]Error: failed to run script step:",
+      "L2700: ✗ exit code: 1",
+      "L2724: ##[error]Process completed with exit code 1.",
+      "L2725: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128817183125,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T18:12:54Z",
+      "completedAt": "2026-11-08T18:33:39Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_2/test... / glm_5_2_w8a8_2p2d_32p_dcp_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/6_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt",
+     "logBytes": 65970,
+     "logLines": 604,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L492: Traceback (most recent call last):",
+      "L510: ##[error]Error: failed to run script step:",
+      "L511: ✗ exit code: 1",
+      "L535: ##[error]Process completed with exit code 1.",
+      "L536: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128822652327,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T18:34:06Z",
+      "completedAt": "2026-11-08T18:39:34Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+     "logBytes": 1690947,
+     "logLines": 17239,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L15168: [2026-11-09 08:54:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L15281: │ exit code: 1",
+      "L17059: Traceback (most recent call last):",
+      "L17136: ##[error]Error: failed to run script step:",
+      "L17137: ✗ exit code: 1",
+      "L17161: ##[error]Process completed with exit code 1.",
+      "L17162: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128913713161,
+      "conclusion": "failure",
+      "startedAt": "2026-11-09T00:28:55Z",
+      "completedAt": "2026-11-09T01:22:40Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42498125758/0_check-all-jobs.txt",
+     "logBytes": 6495,
+     "logLines": 99,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L98: ##[error]Process completed with exit code 1."
+     ],
+     "githubJob": {
+      "id": 128928729571,
+      "conclusion": "failure",
+      "startedAt": "2026-11-09T01:22:42Z",
+      "completedAt": "2026-11-09T01:22:45Z",
+      "steps": [
+       {
+        "name": "Generate results table",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 1108,
+     "level": "LOG",
+     "text": "[2026-11-08 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 1256,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 1286,
+     "level": "LOG",
+     "text": "[2026-11-08 16:13:50] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 1437,
+     "level": "LOG",
+     "text": "[2026-11-08 16:14:57] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 18171,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 18172,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 18196,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "line": 18197,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 1380,
+     "level": "LOG",
+     "text": "[2026-11-08 16:11:50] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 3079,
+     "level": "LOG",
+     "text": "[2026-11-08 16:17:36] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 3085,
+     "level": "LOG",
+     "text": "[2026-11-08 16:17:37 TP0 EP0] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 3128,
+     "level": "LOG",
+     "text": "[2026-11-08 16:17:38 TP7 EP7] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 5431,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 5432,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 5456,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-8-npu-a3 / run (0)",
+     "source": "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "line": 5457,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 982,
+     "level": "LOG",
+     "text": "[2026-11-08 16:09:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 1743,
+     "level": "LOG",
+     "text": "[2026-11-08 16:18:43] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 2912,
+     "level": "LOG",
+     "text": "[2026-11-08 16:26:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 3952,
+     "level": "LOG",
+     "text": "[2026-11-08 16:32:29] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 10212,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 10213,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 10237,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+     "source": "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "line": 10238,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "source": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "line": 995,
+     "level": "LOG",
+     "text": "[2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "source": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "line": 995,
+     "level": "LOG",
+     "text": "[2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+     "source": "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "line": 995,
+     "level": "LOG",
+     "text": "[2026-11-08 16:12:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 604,
+     "level": "LOG",
+     "text": "│ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 2555,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 2649,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42498125758/0_check-all-jobs.txt",
+     "github_logs/gh_42498125758/16_nightly-acc-2-npu-a3 _ nightly-acc-2-npu-a3.txt",
+     "github_logs/gh_42498125758/17_nightly-perf-2-npu-a3 _ nightly-perf-2-npu-a3.txt",
+     "github_logs/gh_42498125758/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+     "github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt",
+     "github_logs/gh_42498125758/6_multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~83db7b.txt",
+     "github_logs/gh_42498125758/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "github_logs/gh_42498125758/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "github_logs/gh_42498125758/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 42498125758,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "Nightly Test (NPU)",
+     "mode": "zip",
+     "totalJobs": 26,
+     "failedJobs": [
+      {
+       "name": "nightly-1-npu-a3 / run (0)",
+       "id": 128784818138,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-8-npu-a3 / run (0)",
+       "id": 128784818189,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-perf-2-npu-a3 / nightly-perf-2-npu-a3",
+       "id": 128784818471,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818643,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818648,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-2-npu-a3 / nightly-acc-2-npu-a3",
+       "id": 128784818756,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 128804250725,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128812967524,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128817183125,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (glm_5_2_w8a8_2p2d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_2/test... / glm_5_2_w8a8_2p2d_32p_dcp_gpqa",
+       "id": 128822652327,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128913713161,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 128928729571,
+       "steps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 12,
+    "testTasks": 0,
+    "logTasks": 12,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 30,
+    "evidenceFiles": 10
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 nightly-1-npu-a3 / run (0) 日志命中 17 条错误行（非编译特征），见 github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt",
+     "基线 0.30",
+     "证据文件落盘 10 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2125",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2125,
+   "pipelineRunId": "42502180491",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T00:53:36",
+   "endedAt": "2026-11-09T01:12:02",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T01:12:02",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42502180491",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42502180491",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42502180491"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "logBytes": 206236,
+     "logLines": 1033,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [],
+     "githubJob": {
+      "id": 128797142436,
+      "conclusion": "cancelled",
+      "startedAt": "2026-11-08T16:54:07Z",
+      "completedAt": "2026-11-08T17:12:01Z",
+      "steps": []
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    }
+   ],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42502180491/128797142436_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt"
+    ],
+    "missing": [
+     "check-all-jobs"
+    ],
+    "github": {
+     "runId": 42502180491,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 128801839738,
+       "status": "404_not_retained"
+      }
+     ],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "unknown",
+    "text": "证据不足待人工确认",
+    "confidence": 0.35,
+    "level": "低",
+    "basis": [
+     "失败任务已取到日志但未命中错误特征，需按日志尾部人工确认",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务 check-all-jobs 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2126",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2126,
+   "pipelineRunId": "42503749318",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T01:11:56",
+   "endedAt": "2026-11-09T01:38:49",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T01:38:49",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42503749318",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42503749318",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42503749318"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "logBytes": 64387,
+     "logLines": 620,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L503: Traceback (most recent call last):",
+      "L521: ##[error]Error: failed to run script step:",
+      "L522: ✗ exit code: 1",
+      "L546: ##[error]Process completed with exit code 1.",
+      "L547: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128801862265,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T17:12:27Z",
+      "completedAt": "2026-11-08T17:24:28Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "logBytes": 65374,
+     "logLines": 624,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L505: Traceback (most recent call last):",
+      "L523: ##[error]Error: failed to run script step:",
+      "L524: ✗ exit code: 1",
+      "L548: ##[error]Process completed with exit code 1.",
+      "L549: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128805033836,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T17:24:50Z",
+      "completedAt": "2026-11-08T17:38:48Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "line": 503,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "line": 521,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "line": 522,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "line": 546,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "line": 547,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 505,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 523,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 524,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 548,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 549,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "github_logs/gh_42503749318/128805033836_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 42503749318,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "mode": "perjob",
+     "totalJobs": 16,
+     "failedJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 128801862265,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128805033836,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 10,
+    "evidenceFiles": 2
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa 日志命中 5 条错误行（非编译特征），见 github_logs/gh_42503749318/128801862265_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt",
+     "基线 0.30",
+     "证据文件落盘 2 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2127",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2127,
+   "pipelineRunId": "42509098847",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T02:15:42",
+   "endedAt": "2026-11-09T03:03:23",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T03:03:23",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42509098847",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42509098847",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42509098847"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "logBytes": 65384,
+     "logLines": 624,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L505: Traceback (most recent call last):",
+      "L523: ##[error]Error: failed to run script step:",
+      "L524: ✗ exit code: 1",
+      "L548: ##[error]Process completed with exit code 1.",
+      "L549: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 128826435180,
+      "conclusion": "failure",
+      "startedAt": "2026-11-08T18:49:20Z",
+      "completedAt": "2026-11-08T19:03:22Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 505,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 523,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 524,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 548,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "source": "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "line": 549,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 42509098847,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "L3cache",
+     "mode": "perjob",
+     "totalJobs": 16,
+     "failedJobs": [
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 128826435180,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 5,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa 日志命中 5 条错误行（非编译特征），见 github_logs/gh_42509098847/128826435180_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2128",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2128,
+   "pipelineRunId": "42563835653",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T12:48:48",
+   "endedAt": "2026-11-09T14:13:42",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T14:13:42",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42563835653",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42563835653",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42563835653"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    }
+   ],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [
+     "check-all-jobs",
+     "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix"
+    ],
+    "github": {
+     "runId": 42563835653,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "missing": [
+      {
+       "job": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 128985919742,
+       "status": "404_not_retained"
+      },
+      {
+       "job": "check-all-jobs",
+       "id": 129010475798,
+       "status": "404_not_retained"
+      }
+     ],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.1,
+    "level": "低",
+    "basis": [
+     "全部失败任务均无日志落盘",
+     "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）",
+     "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）",
+     "基线 0.30",
+     "任务 multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix 无任何证据 −0.20",
+     "任务 check-all-jobs 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2129",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2129,
+   "pipelineRunId": "42608919924",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T19:25:23",
+   "endedAt": "2026-11-09T20:19:14",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T20:19:14",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42608919924",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42608919924",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42608919924"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "logBytes": 1677751,
+     "logLines": 17314,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L15335: [2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+      "L15452: │ exit code: 1",
+      "L17136: Traceback (most recent call last):",
+      "L17213: ##[error]Error: failed to run script step:",
+      "L17214: ✗ exit code: 1",
+      "L17238: ##[error]Process completed with exit code 1.",
+      "L17239: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 129131958688,
+      "conclusion": "failure",
+      "startedAt": "2026-11-09T11:25:53Z",
+      "completedAt": "2026-11-09T12:19:13Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 15335,
+     "level": "LOG",
+     "text": "[2026-11-09 19:51:04] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))"
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 15452,
+     "level": "LOG",
+     "text": "│ exit code: 1"
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 17136,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 17213,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 17214,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 17238,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "source": "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "line": 17239,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 42608919924,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [NPU] kimi_k3: run the 128k decode prefix case at C4 with repeat_rate=1",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 129131958688,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 7,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix 日志命中 7 条错误行（非编译特征），见 github_logs/gh_42608919924/129131958688_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2130",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2130,
+   "pipelineRunId": "42611183075",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T19:42:43",
+   "endedAt": "2026-11-09T19:59:57",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T19:59:57",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42611183075",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42611183075",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42611183075"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "logBytes": 34807,
+     "logLines": 335,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L272: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L301: ##[error]Error: failed to run script step:",
+      "L302: ✗ exit code: 1",
+      "L304: ##[error]Process completed with exit code 1."
+     ],
+     "githubJob": {
+      "id": 129139754348,
+      "conclusion": "cancelled",
+      "startedAt": "2026-11-09T11:43:13Z",
+      "completedAt": "2026-11-09T11:59:56Z",
+      "steps": [
+       {
+        "name": "Prepare code for testing",
+        "conclusion": "failure"
+       },
+       {
+        "name": "Post process",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "line": 272,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "line": 301,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "line": 302,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "line": 304,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt"
+    ],
+    "missing": [
+     "check-all-jobs"
+    ],
+    "github": {
+     "runId": 42611183075,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test] [Ascend] npu: GLM-5.3 1P1D accuracy cases + weekday gsm8k",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 129147126954,
+       "status": "404_not_retained"
+      }
+     ],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 4,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "任务 multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms 日志命中 4 条错误行（非编译特征），见 github_logs/gh_42611183075/129139754348_multi-node-poc (glm_5_3_w8a8_2p2d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~e59536.txt",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 check-all-jobs 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2132",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2132,
+   "pipelineRunId": "42620484793",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T20:51:29",
+   "endedAt": "2026-11-09T20:51:31",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T20:51:31",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620484793",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42620484793",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42620484793"
+   },
+   "tasks": [
+    {
+     "jobName": "set-image-config",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    }
+   ],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [
+     "check-all-jobs",
+     "set-image-config"
+    ],
+    "github": {
+     "runId": 42620484793,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "missing": [
+      {
+       "job": "set-image-config",
+       "id": 129171021001,
+       "status": "404_not_retained"
+      },
+      {
+       "job": "check-all-jobs",
+       "id": 129171030139,
+       "status": "404_not_retained"
+      }
+     ],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.1,
+    "level": "低",
+    "basis": [
+     "全部失败任务均无日志落盘",
+     "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）",
+     "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）",
+     "基线 0.30",
+     "任务 set-image-config 无任何证据 −0.20",
+     "任务 check-all-jobs 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2133",
+   "date": "2026-11-09",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2133,
+   "pipelineRunId": "42620485286",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-09T20:51:29",
+   "endedAt": "2026-11-09T21:03:53",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-09T21:03:53",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va"
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=42620485286",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/42620485286",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/42620485286"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt",
+     "logBytes": 62888,
+     "logLines": 588,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L523: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 129171078482,
+      "conclusion": "cancelled",
+      "startedAt": "2026-11-09T12:52:01Z",
+      "completedAt": "2026-11-09T13:03:52Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": null,
+     "errorLines": [],
+     "download": "github-404",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "evidenceNote": "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）"
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset",
+     "source": "github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt",
+     "line": 523,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt"
+    ],
+    "missing": [
+     "check-all-jobs"
+    ],
+    "github": {
+     "runId": 42620485286,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+     "mode": "perjob",
+     "totalJobs": 15,
+     "failedJobs": [],
+     "missing": [
+      {
+       "job": "check-all-jobs",
+       "id": 129176843219,
+       "status": "404_not_retained"
+      }
+     ],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 1,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, 1, 1, test/regist... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset 日志命中 1 条错误行（非编译特征），见 github_logs/gh_42620485286/129171078482_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap_fia_unset, 1, ~ff27a8.txt",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 check-all-jobs 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "pending",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

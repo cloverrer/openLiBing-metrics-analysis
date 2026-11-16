@@ -1,0 +1,138 @@
+[case_logs/case_0196.html:L25]         th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+[case_logs/case_0196.html:L26]         th { background-color: #9E9E9E; color: white; }
+[case_logs/case_0196.html:L27]         .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+[case_logs/case_0196.html:L28]         .WARN { color: #FF9800; font-weight: bold; }
+[case_logs/case_0196.html:L29]         .INFO, .PASS { color: #2E8B57; }
+----
+[case_logs/case_0196.html:L38] 
+[case_logs/case_0196.html:L39]         /* Step row status colors - all cells in the row */
+[case_logs/case_0196.html:L40]         .step-error td { color: #F44336; }
+[case_logs/case_0196.html:L41]         .step-warning td { color: #FF9800; }
+[case_logs/case_0196.html:L42]         .step-success td { color: #2E8B57; }
+----
+[case_logs/case_0196.html:L94]         <h2>Log Report: testcase/mindie/motor/pymotor/ras/manual_scaling/test_manual_scaling.py::TestPyMotorRasUpDownScale::test_pymotor_ras_up_down_scale</h2>
+[case_logs/case_0196.html:L95]         <p><strong>Case ID:</strong> testcase/mindie/motor/pymotor/ras/manual_scaling/test_manual_scaling.py::TestPyMotorRasUpDownScale::test_pymotor_ras_up_down_scale</p>
+[case_logs/case_0196.html:L96]         <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+[case_logs/case_0196.html:L97]         <p><strong>Duration:</strong> 974.38s</p>
+[case_logs/case_0196.html:L98]     </div>
+----
+[case_logs/case_0196.html:L709]             </td>
+[case_logs/case_0196.html:L710]         </tr>
+[case_logs/case_0196.html:L711]         <tr class="step-error">
+[case_logs/case_0196.html:L712]             <td>2026-11-08 23:28:37.231</td>
+[case_logs/case_0196.html:L713]             <td class='TC_STEP'>TC_STEP</td>
+----
+[case_logs/case_0196.html:L4409]                   command: [&quot;bash&quot;, &quot;-c&quot;, &quot;$CONFIGMAP_PATH/probe.sh startup&quot;]
+[case_logs/case_0196.html:L4410]                 periodSeconds: 10
+[case_logs/case_0196.html:L4411]                 failureThreshold: 100
+[case_logs/case_0196.html:L4412]               readinessProbe:
+[case_logs/case_0196.html:L4413]                 exec:
+----
+[case_logs/case_0196.html:L4540]                   command: [&quot;bash&quot;, &quot;-c&quot;, &quot;$CONFIGMAP_PATH/probe.sh startup&quot;]
+[case_logs/case_0196.html:L4541]                 periodSeconds: 10
+[case_logs/case_0196.html:L4542]                 failureThreshold: 100
+[case_logs/case_0196.html:L4543]               readinessProbe:
+[case_logs/case_0196.html:L4544]                 exec:
+----
+[case_logs/case_0196.html:L4546]                 periodSeconds: 10
+[case_logs/case_0196.html:L4547]                 timeoutSeconds: 30
+[case_logs/case_0196.html:L4548]                 failureThreshold: 5
+[case_logs/case_0196.html:L4549]               livenessProbe:
+[case_logs/case_0196.html:L4550]                 exec:
+----
+[case_logs/case_0196.html:L4552]                 periodSeconds: 10
+[case_logs/case_0196.html:L4553]                 timeoutSeconds: 30
+[case_logs/case_0196.html:L4554]                 failureThreshold: 5
+[case_logs/case_0196.html:L4555]               env:
+[case_logs/case_0196.html:L4556]               - name: POD_IP
+----
+[case_logs/case_0196.html:L5252]                 exec:
+[case_logs/case_0196.html:L5253]                   command: [&quot;bash&quot;, &quot;-c&quot;, &quot;$CONFIGMAP_PATH/probe.sh startup&quot;]
+[case_logs/case_0196.html:L5254]                 failureThreshold: 30
+[case_logs/case_0196.html:L5255]                 periodSeconds: 10
+[case_logs/case_0196.html:L5256]                 timeoutSeconds: 3
+----
+[case_logs/case_0196.html:L5260]                 periodSeconds: 10
+[case_logs/case_0196.html:L5261]                 timeoutSeconds: 3
+[case_logs/case_0196.html:L5262]                 failureThreshold: 3
+[case_logs/case_0196.html:L5263]               readinessProbe:
+[case_logs/case_0196.html:L5264]                 exec:
+----
+[case_logs/case_0196.html:L5266]                 periodSeconds: 5
+[case_logs/case_0196.html:L5267]                 timeoutSeconds: 3
+[case_logs/case_0196.html:L5268]                 failureThreshold: 2
+[case_logs/case_0196.html:L5269]               resources:
+[case_logs/case_0196.html:L5270]                 requests:
+----
+[case_logs/case_0196.html:L5841]                                 ]
+[case_logs/case_0196.html:L5842]                             },
+[case_logs/case_0196.html:L5843]                             &quot;failureThreshold&quot;: 3,
+[case_logs/case_0196.html:L5844]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L5845]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L5855]                                 ]
+[case_logs/case_0196.html:L5856]                             },
+[case_logs/case_0196.html:L5857]                             &quot;failureThreshold&quot;: 3,
+[case_logs/case_0196.html:L5858]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L5859]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L5889]                                 ]
+[case_logs/case_0196.html:L5890]                             },
+[case_logs/case_0196.html:L5891]                             &quot;failureThreshold&quot;: 100,
+[case_logs/case_0196.html:L5892]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L5893]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L6207]                                 ]
+[case_logs/case_0196.html:L6208]                             },
+[case_logs/case_0196.html:L6209]                             &quot;failureThreshold&quot;: 5,
+[case_logs/case_0196.html:L6210]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L6211]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L6221]                                 ]
+[case_logs/case_0196.html:L6222]                             },
+[case_logs/case_0196.html:L6223]                             &quot;failureThreshold&quot;: 5,
+[case_logs/case_0196.html:L6224]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L6225]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L6255]                                 ]
+[case_logs/case_0196.html:L6256]                             },
+[case_logs/case_0196.html:L6257]                             &quot;failureThreshold&quot;: 100,
+[case_logs/case_0196.html:L6258]                             &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L6259]                             &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L9049]                         ]
+[case_logs/case_0196.html:L9050]                     },
+[case_logs/case_0196.html:L9051]                     &quot;failureThreshold&quot;: 5,
+[case_logs/case_0196.html:L9052]                     &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L9053]                     &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L9063]                         ]
+[case_logs/case_0196.html:L9064]                     },
+[case_logs/case_0196.html:L9065]                     &quot;failureThreshold&quot;: 5,
+[case_logs/case_0196.html:L9066]                     &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L9067]                     &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L9097]                         ]
+[case_logs/case_0196.html:L9098]                     },
+[case_logs/case_0196.html:L9099]                     &quot;failureThreshold&quot;: 100,
+[case_logs/case_0196.html:L9100]                     &quot;periodSeconds&quot;: 10,
+[case_logs/case_0196.html:L9101]                     &quot;successThreshold&quot;: 1,
+----
+[case_logs/case_0196.html:L29881]             <tr class="step-content content-step-2">
+[case_logs/case_0196.html:L29882]                 <td>2026-11-08 23:44:15.951</td>
+[case_logs/case_0196.html:L29883]                 <td class='ERROR'>ERROR</td>
+[case_logs/case_0196.html:L29884]                 <td>281473125900320</td>
+[case_logs/case_0196.html:L29885]                 <td>__init__.py:71</td>
+----
+[case_logs/case_0196.html:L30013]             <tr class="step-content content-step-2">
+[case_logs/case_0196.html:L30014]                 <td>2026-11-08 23:44:48.085</td>
+[case_logs/case_0196.html:L30015]                 <td class='FAIL'>FAIL</td>
+[case_logs/case_0196.html:L30016]                 <td>281473125900320</td>
+[case_logs/case_0196.html:L30017]                 <td>plugin.py:999</td>
+----
+[case_logs/case_0196.html:L30016]                 <td>281473125900320</td>
+[case_logs/case_0196.html:L30017]                 <td>plugin.py:999</td>
+[case_logs/case_0196.html:L30018]                 <td class="step-indent"><div class="msg-scroll">Test FAILED due to ERROR/FAIL logs: testcase/mindie/motor/pymotor/ras/manual_scaling/test_manual_scaling.py::TestPyMotorRasUpDownScale::test_pymotor_ras_up_down_scale
+[case_logs/case_0196.html:L30019] </div></td>
+[case_logs/case_0196.html:L30020]             </tr>
+----

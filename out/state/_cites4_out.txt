@@ -1,0 +1,47 @@
+  [nightly-test-npu.yml|pipeline.evidence.json] run_unittest_files\(\) got an unexpected keyword -> 0 hits
+  [nightly-test-npu.yml|pipeline.evidence.json] ModuleNotFoundError: No module named -> 0 hits
+  [nightly-test-npu.yml|pipeline.evidence.json] AssertionError: 40.1 not less than -> 2 hits
+    L31689 : "2026-11-09T01:16:11.2860930Z AssertionError: 40.1 not less than or equal to 31.0",
+    L31703 : "2026-11-09T01:16:11.2868014Z AssertionError: 40.1 not less than or equal to 31.0",
+  [nightly-test-npu.yml|pipeline.evidence.json] Scheduler hit an exception -> 12 hits
+    L9011 : "2026-11-08T16:36:53.8367978Z [2026-11-08 16:36:53 TP1] Scheduler hit an exception: Traceback (most recent call last):",
+    L9114 : "2026-11-08T16:36:54.7728413Z [2026-11-08 16:36:54 TP0] Scheduler hit an exception: Traceback (most recent call last):",
+  [nightly-test-npu.yml|pipeline.evidence.json] is not running, status: Succeeded -> 4 hits
+    L56068 : "2026-11-08T18:37:45.4963429Z 2026-11-08 18:37:45,494 - ERROR - Pod ascend-42498125758-ac8b627eaeo1jild-sglang-decode-0 is not running, status: Succeeded",
+    L67964 : "2026-11-08T17:21:08.0934013Z 2026-11-08 17:21:08,091 - ERROR - Pod ascend-42503749318-dccfacb1a2unb40v-sglang-prefill-0 is not running, status: Succeeded",
+  [nightly-test-npu.yml|pipeline.evidence.json] Timeout: Failed to get complete node information -> 0 hits
+  [nightly-test-npu.yml|pipeline.evidence.json] run_unittest_files\(\) got an unexpected keyword -> 6 hits
+    L936 : "2026-11-05T14:51:40.5842123Z TypeError: run_unittest_files() got an unexpected keyword argument 'fork_worker_preload'",
+    L961 : "  TypeError: run_unittest_files() got an unexpected keyword argument 'fork_worker_preload'",
+  [nightly-test-npu.yml|pipeline.evidence.json] AssertionError: 0.849 -> 2 hits
+    L39481 : "2026-11-05T17:06:43.5474604Z AssertionError: 0.8490000000000001 not greater than or equal to 0.8527474747474747 : Accuracy check failed. Expected >= 0.8527474747474747, Got: 0.8490000000000001",
+    L39495 : "2026-11-05T17:06:44.1178872Z AssertionError: 0.8490000000000001 not greater than or equal to 0.8527474747474747 : Accuracy check failed. Expected >= 0.8527474747474747, Got: 0.8490000000000001",
+  [nightly-test-npu.yml|pipeline.evidence.json] AssertionError: 47.9 -> 2 hits
+    L35635 : "2026-11-06T05:08:41.8217025Z AssertionError: 47.9 not less than or equal to 31.0",
+    L35648 : "2026-11-06T05:08:41.8223021Z AssertionError: 47.9 not less than or equal to 31.0",
+  [nightly-test-npu.yml|pipeline.evidence.json] AssertionError: 58.34 -> 2 hits
+    L75987 : "2026-11-06T01:51:08.2784698Z AssertionError: 58.34 not less than or equal to 51.0",
+    L76002 : "2026-11-06T01:51:09.1467236Z AssertionError: 58.34 not less than or equal to 51.0",
+  [nightly-test-npu.yml|pipeline.evidence.json] AssertionError: 39.9 -> 2 hits
+    L129400 : "2026-11-06T15:27:48.9163014Z AssertionError: 39.9 not less than or equal to 31.0",
+    L129413 : "2026-11-06T15:27:48.9168865Z AssertionError: 39.9 not less than or equal to 31.0",
+  [nightly-test-npu.yml|pipeline.evidence.json] can't multiply sequence -> 2 hits
+    L113638 : "2026-11-06T11:27:16.1157698Z TypeError: can't multiply sequence by non-int of type 'float'",
+    L113661 : "2026-11-06T11:27:17.4507805Z TypeError: can't multiply sequence by non-int of type 'float'",
+  [nightly-test-npu.yml|pipeline.evidence.json] FileNotFoundError.*test_npu_de -> 2 hits
+    L108303 : "2026-11-06T11:00:03.9012304Z FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/tests/output/shun8686-overlapschedule-20261106-1838-42204167966-1/Nightly_Test_NPU--cann9.1.0-a3-B010/perf/nightly-perf-16-npu-a3/test_npu_deepseek_v4_flash_w8a
+    L108329 : "2026-11-06T11:00:04.9786038Z FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/tests/output/shun8686-overlapschedule-20261106-1838-42204167966-1/Nightly_Test_NPU--cann9.1.0-a3-B010/perf/nightly-perf-16-npu-a3/test_npu_deepseek_v4_flash_w8a
+  [nightly-test-npu.yml|pipeline.evidence.json] not running, status: Succeeded -> 7 hits
+    L1570 : "2026-11-05T22:13:50.5859729Z 2026-11-05 22:13:50,584 - ERROR - Pod ascend-42047810705-b1a81a42pb1olqs0-sglang-decode-1 is not running, status: Succeeded",
+    L41967 : "2026-11-05T19:47:24.1722266Z 2026-11-05 19:47:24,171 - ERROR - Pod ascend-42061473997-204c7c676sqnzed4-sglang-decode-0 is not running, status: Succeeded",
+  [nightly-test-npu.yml|pipeline.evidence.json] Timeout: Failed to get complete node -> 1 hits
+    L41966 : "2026-11-05T19:46:45.6074508Z RuntimeError: Timeout: Failed to get complete node information from ConfigMap",
+  [nightly-test-npu.yml|pipeline.evidence.json] Could not find a version that satisfies -> 6 hits
+    L12606 : "2026-11-05T15:05:20.6625680Z       ERROR: Could not find a version that satisfies the requirement regex>=2021.8.3 (from nltk) (from versions: none)",
+    L34320 : "2026-11-06T04:51:15.2555722Z       ERROR: Could not find a version that satisfies the requirement regex>=2021.8.3 (from nltk) (from versions: none)",
+  [nightly-test-npu.yml|pipeline.evidence.json] ERR99999 -> 25 hits
+    L937 : "2026-11-05T14:51:40.5959485Z [ERROR] 2026-11-05-14:51:40 (PID:3049, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception",
+    L962 : "  [ERROR] 2026-11-05-14:51:40 (PID:3049, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception",
+  [nightly-test-npu.yml|pipeline.evidence.json] Decode transfer failed -> 282 hits
+    L40368 : "2026-11-05T20:02:38.8319130Z \u001b[A2026-11-06 04:02:38 - evalscope - \u001b[33mWARNING\u001b[0m: Attempt 1 / 5 failed: Decode transfer failed for request rank=28 decode_req.req.rid='fca4dd5c1f4c4704948c27d462cca4e6' decode_req.req.bootstrap_room=61980302159
+    L40371 : "2026-11-05T20:02:38.8322905Z \u001b[A2026-11-06 04:02:38 - evalscope - \u001b[33mWARNING\u001b[0m: Attempt 1 / 5 failed: Decode transfer failed for request rank=28 decode_req.req.rid='3118dd2d11f04ee1a10766912736c5a9' decode_req.req.bootstrap_room=67986056444

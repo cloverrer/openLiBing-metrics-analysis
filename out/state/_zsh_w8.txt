@@ -1,0 +1,42 @@
+===== case_logs/case_0008.html (total 4607)
+[L1270] Case: 131072 Started.
+[L1271] Case: 131072 Finished !! Result Correct !!
+[L1272] Case: 262144 Started.
+[L1273] Case: 262144 Finished !! Result Correct !!
+[L1274] Case: 524288 Started.
+[L1275] Case: 524288 Finished !! Result Correct !!
+[L1276] Case: 1048576 Started.
+[L1277] Case: 1048576 Finished !! Result Correct !!
+[L1278] Case: 2097152 Started.
+[L1279] Case: 2097152 Finished !! Result Correct !!
+[L1280] Case: 4194304 Started.
+[L1281] Case: 4194304 Finished !! Result Correct !!
+[L1282] Case: 8388608 Started.
+[L1283] Case: 8388608 Finished !! Result Correct !!
+[L1284] Case: 16777216 Started.
+[L1285] Case: 16777216 Finished !! Result Correct !!
+[L1286] Case: 33554432 Started.
+[L1287] Case: 33554432 Finished !! Result Correct !!
+[L1288] Case: 67108864 Started.
+[L1289] Case: 67108864 Finished !! Result Correct !!
+[L1290] Case: 134217728 Started.
+[L1291] Case: 134217728 Finished !! Result Correct !!
+[L1292] [SUCCESS] demo run success in pe 1
+[L1293] [SUCCESS] demo run success in pe 0
+[L1294] [INFO] Start export data in PROF_000001_20261109220536816_00006993ANCNJPEB.
+[L1295] Mon 09 Nov 2026 22:05:52 [WARNING] [MSVP] [7133] msprof_entrance.py: Msprof analysis is parsing data as root, which may cause potential system security risks.
+[L1296] Mon 09 Nov 2026 22:05:52 [INFO] [MSVP] [7135] msprof_common.py: Start analyzing data in &quot;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB/host&quot; ...
+[L1297] Mon 09 Nov 2026 22:05:52 [INFO] [MSVP] [7135] msprof_common.py: It may take few minutes, please be patient ...
+[L1298] Mon 09 Nov 2026 22:05:53 [INFO] [MSVP] [7135] msprof_common.py: Analysis data in &quot;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB/host&quot; finished.
+[L1299] Mon 09 Nov 2026 22:05:53 [INFO] [MSVP] [7135] msprof_common.py: Start analyzing data in &quot;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB/device_1&quot; ...
+[L1300] Mon 09 Nov 2026 22:05:53 [INFO] [MSVP] [7135] msprof_common.py: It may take few minutes, please be patient ...
+[L1301] Mon 09 Nov 2026 22:05:53 [INFO] [MSVP] [7135] msprof_common.py: Analysis data in &quot;/home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB/device_1&quot; finished.
+[L1302] Mon 09 Nov 2026 22:05:53 [INFO] [MSVP] [7135] msprof_export.py: All collected data will be exported, path is: /home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB/device_1.
+[L1303] 2026-11-09 22:05:53 [INFO] [7269] export_manager.cpp: Start to load data!
+[L1304] 2026-11-09 22:05:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7269] data_processor.cpp: COMPUTE_TASK_INFO run <span style="color:#F44336;font-weight:bold">failed</span>!
+[L1305] 2026-11-09 22:05:53 [<span style="color:#F44336;font-weight:bold">ERROR</span>] [7269] export_manager.cpp: The /home/shmem_test/shmem/examples/allgather/output/PROF_000001_20261109220536816_00006993ANCNJPEB for data process <span style="color:#F44336;font-weight:bold">failed</span> to be executed. Please check msprof_analysis_log in outputPath for more info.
+[L1306] 2026-11-09 22:05:53 [INFO] [7269] db_assembler.cpp: Start exporting the db!
+[L1307] 2026-11-09 22:05:53 [INFO] [7269] export_manager.cpp: The report parameter is not used.
+[L1308] 2026-11-09 22:05:53 [INFO] [7269] timeline_manager.cpp: Start exporting the timeline!
+[L1309] 2026-11-09 22:05:53 [INFO] [7269] timeline_manager.cpp: End exporting timeline output_file. The file is stored in the PROF file.
+[L1310] 2026-11-09 22:05:53 [INFO] [7269] db_assembler.cpp: End exporting db output_file. The file is stored in the PROF file.

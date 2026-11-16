@@ -1,0 +1,42 @@
+===== case_logs/case_0060.html (total 8872)
+[L1160]   Expected `Union[definition-ref, list[definition-ref]]` but got `dict` with value `{&#39;dtype&#39;: &#39;torch.bfloat16...24], &#39;stride&#39;: [224, 1]}` - serialized value may not be as expected
+[L1161]   return self.__pydantic_serializer__.to_python(
+[L1162] </span></span>
+[L1163] [2026-11-09 03:32:58]</span> [WARNING]</span> [MainProcess]</span> [14885]</span> [warnings.py</span>:109</span>]  <span style="color:#FFC107">/usr/local/lib/python3.9/dist-packages/pydantic/main.py:389: UserWarning: Pydantic serializer warnings:
+[L1164]   Expected `enum` but got `int` with value `0` - serialized value may not be as expected
+[L1165]   return self.__pydantic_serializer__.to_python(
+[L1166] </span></span>
+[L1167]  * Serving Flask app &#39;sqlite_web.sqlite_web&#39;
+[L1168]  * Debug mode: off
+[L1169] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+[L1170]  * Running on all addresses (0.0.0.0)
+[L1171]  * Running on http://127.0.0.1:8881
+[L1172]  * Running on http://10.0.0.231:8881
+[L1173] Press CTRL+C to quit
+[L1174] [2026-11-09 03:32:58]</span> [INFO]</span> [ForkPoolWorker-1]</span> [15073]</span> [trace.py</span>:736</span>]  <span style="color:#2196F3">[case 0] start CREATE DATASET.</span></span>
+[L1175] ATK任务进度:   0%|          | 0/4 [00:01&lt;?, ?it/s][2026-11-09 03:32:59]</span> [INFO]</span> [127.0.0.1:9090@device_run_0]</span> [15079]</span> [trace.py</span>:736</span>]  <span style="color:#2196F3">[case 0] start run PYACLNN OPP TASK.</span></span>
+[L1176] [2026-11-09 03:32:59]</span> [INFO]</span> [127.0.0.1:9090@device_run_1]</span> [15083]</span> [trace.py</span>:736</span>]  <span style="color:#2196F3">[case 0] start run PYACLNN OPP TASK.</span></span>
+[L1177] ATK任务进度:   0%|          | 0/4 [00:02&lt;?, ?it/s][2026-11-09 03:33:00]</span> [INFO]</span> [ForkPoolWorker-1]</span> [15097]</span> [trace.py</span>:736</span>]  <span style="color:#2196F3">[case 0] start run CPU OPP TASK.</span></span>
+[L1178] ATK任务进度:   0%|          | 0/4 [00:03&lt;?, ?it/s][2026-11-09 03:33:01]</span> [WARNING]</span> [127.0.0.1:9090@device_run_0]</span> [15079]</span> [trace.py</span>:736</span>]  <span style="color:#FFC107">[case 0][rank 0/2] dist run_failed, backend=pyaclnn, dist_backend=hccl, device_id=0, host=127.0.0.1, port=9090, master_ip=127.0.0.1, master_port=25178, init_method=tcp://127.0.0.1:25178, dist_ini
+[L1179] [2026-11-09 03:33:01]</span> [<span style="color:#F44336;font-weight:bold">ERROR</span>]</span> [127.0.0.1:9090@device_run_0]</span> [15079]</span> [trace.py</span>:736</span>]  <span style="color:#F44336">case 0 run opp <span style="color:#F44336;font-weight:bold">failed</span>: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weigh
+[L1180] [<span style="color:#F44336;font-weight:bold">ERROR</span>] 2026-11-09-03:33:01 (PID:15079, Device:0, RankID:-1) ERR02200 DIST call hccl api <span style="color:#F44336;font-weight:bold">failed</span>.
+[L1181] </span></span>
+[L1182] [2026-11-09 03:33:02]</span> [WARNING]</span> [127.0.0.1:9090@device_run_1]</span> [15083]</span> [trace.py</span>:736</span>]  <span style="color:#FFC107">[case 0][rank 1/2] dist run_failed, backend=pyaclnn, dist_backend=hccl, device_id=1, host=127.0.0.1, port=9090, master_ip=127.0.0.1, master_port=25178, init_method=tcp://127.0.0.1:25178, dist_initialized=True</span></span>
+[L1183] [2026-11-09 03:33:02]</span> [<span style="color:#F44336;font-weight:bold">ERROR</span>]</span> [127.0.0.1:9090@device_run_1]</span> [15083]</span> [trace.py</span>:736</span>]  <span style="color:#F44336">case 0 run opp <span style="color:#F44336;font-weight:bold">failed</span>: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function <span style="color:#F44336;font-weigh
+[L1184] [<span style="color:#F44336;font-weight:bold">ERROR</span>] 2026-11-09-03:33:02 (PID:15083, Device:1, RankID:-1) ERR02200 DIST call hccl api <span style="color:#F44336;font-weight:bold">failed</span>.
+[L1185] </span></span>
+[L1186] ATK任务进度:   0%|          | 0/4 [00:04&lt;?, ?it/s]</div></td>
+[L1187]             </tr>
+[L1188]             <tr class="step-content content-step-3">
+[L1189]                 <td>2026-11-09 03:33:04.517</td>
+[L1190]                 <td class='INFO'>INFO</td>
+[L1191]                 <td>281472872763408</td>
+[L1192]                 <td>sendcmd[device]</td>
+[L1193]                 <td class="step-indent"><div class="msg-scroll">tail -n 100 /autotest/atk_output/log/aclnnAlltoAllQuantMatmul_Smoke_a16w8_20261109033242.log</div></td>
+[L1194]             </tr>
+[L1195]             <tr class="step-content content-step-3">
+[L1196]                 <td>2026-11-09 03:33:04.517</td>
+[L1197]                 <td class='INFO'>INFO</td>
+[L1198]                 <td>281472872763408</td>
+[L1199]                 <td>recvcmd[device]</td>
+[L1200]                 <td class="step-indent"><div class="msg-scroll">[2026-11-09 03:32:57]</span> [INFO]</span> [MainProcess]</span> [14885]</span> [decorators.py</span>:33</span>]  <span style="color:#2196F3">Module function_aclnn_alltoall_quant_matmul_a16w4 has been registered.</span></span>

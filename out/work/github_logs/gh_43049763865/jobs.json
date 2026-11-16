@@ -1,0 +1,5113 @@
+[
+ {
+  "id": 130858380028,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8Rq_A",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858380028",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858380028",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:35:12Z",
+  "completed_at": "2026-11-11T15:35:24Z",
+  "name": "Parse trigger and determine test scope",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:35:14Z",
+    "completed_at": "2026-11-11T15:35:18Z"
+   },
+   {
+    "name": "Parse trigger",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:35:18Z",
+    "completed_at": "2026-11-11T15:35:19Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:35:19Z",
+    "completed_at": "2026-11-11T15:35:19Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858380028",
+  "labels": [
+   "linux-aarch64-a2b3-0"
+  ],
+  "runner_id": 885649,
+  "runner_name": "linux-aarch64-a2b3-0-v2s5p-runner-t9l85",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858380386,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8RsYg",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858380386",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858380386",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:35:46Z",
+  "completed_at": "2026-11-11T15:40:54Z",
+  "name": "Generate accuracy test matrix",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:35:48Z",
+    "completed_at": "2026-11-11T15:35:57Z"
+   },
+   {
+    "name": "Checkout repository",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:35:57Z",
+    "completed_at": "2026-11-11T15:36:48Z"
+   },
+   {
+    "name": "Checkout PR code",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 3,
+    "started_at": "2026-11-11T15:36:48Z",
+    "completed_at": "2026-11-11T15:36:48Z"
+   },
+   {
+    "name": "Setup Python",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 4,
+    "started_at": "2026-11-11T15:36:48Z",
+    "completed_at": "2026-11-11T15:40:25Z"
+   },
+   {
+    "name": "Read accuracy group config",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 5,
+    "started_at": "2026-11-11T15:40:25Z",
+    "completed_at": "2026-11-11T15:40:29Z"
+   },
+   {
+    "name": "Post Setup Python",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 9,
+    "started_at": "2026-11-11T15:40:29Z",
+    "completed_at": "2026-11-11T15:40:29Z"
+   },
+   {
+    "name": "Post Checkout repository",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:40:29Z",
+    "completed_at": "2026-11-11T15:40:30Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 11,
+    "started_at": "2026-11-11T15:40:30Z",
+    "completed_at": "2026-11-11T15:40:30Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858380386",
+  "labels": [
+   "linux-aarch64-a2b3-0"
+  ],
+  "runner_id": 885661,
+  "runner_name": "linux-aarch64-a2b3-0-v2s5p-runner-r496k",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858381127,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8RvRw",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858381127",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858381127",
+  "status": "completed",
+  "conclusion": "skipped",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T23:29:18Z",
+  "completed_at": "2026-11-11T23:29:17Z",
+  "name": "Build nightly-a2 image",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858381127",
+  "labels": [],
+  "runner_id": null,
+  "runner_name": null,
+  "runner_group_id": null,
+  "runner_group_name": null
+ },
+ {
+  "id": 130858381976,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8RymA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858381976",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858381976",
+  "status": "completed",
+  "conclusion": "skipped",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T23:29:18Z",
+  "completed_at": "2026-11-11T23:29:18Z",
+  "name": "single-node-accuracy-tests-pr-only",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858381976",
+  "labels": [],
+  "runner_id": null,
+  "runner_name": null,
+  "runner_group_id": null,
+  "runner_group_name": null
+ },
+ {
+  "id": 130858382115,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8RzIw",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858382115",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858382115",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T23:29:38Z",
+  "completed_at": "2026-11-12T00:13:06Z",
+  "name": "single-node-accuracy-tests (main, accuracy-group-3, linux-aarch64-a2b3-2, Qwen3-30B-A3B, Qwen3-VL... / [\n  \"Qwen3-30B-A3B\",\n  \"Qwen3-VL-30B-A3B-Instruct\",\n  \"Qwen3-30B-A3B-W8A8\"\n] accuracy test",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T23:29:40Z",
+    "completed_at": "2026-11-11T23:29:43Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T23:29:43Z",
+    "completed_at": "2026-11-11T23:30:24Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T23:30:24Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Uninstall vllm and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Move vllm-ascend code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:30Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T23:30:30Z",
+    "completed_at": "2026-11-11T23:30:31Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T23:30:31Z",
+    "completed_at": "2026-11-11T23:30:31Z"
+   },
+   {
+    "name": "Install tensorflow (for Molmo-7B-D-0924)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T23:30:31Z",
+    "completed_at": "2026-11-11T23:30:31Z"
+   },
+   {
+    "name": "Get vLLM commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 13,
+    "started_at": "2026-11-11T23:30:31Z",
+    "completed_at": "2026-11-11T23:30:33Z"
+   },
+   {
+    "name": "Get vLLM-Ascend commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T23:30:33Z",
+    "completed_at": "2026-11-11T23:30:34Z"
+   },
+   {
+    "name": "Collect version info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T23:30:34Z",
+    "completed_at": "2026-11-11T23:30:41Z"
+   },
+   {
+    "name": "Compute effective model list",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T23:30:41Z",
+    "completed_at": "2026-11-11T23:30:42Z"
+   },
+   {
+    "name": "Run vllm-project/vllm-ascend accuracy test",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T23:30:42Z",
+    "completed_at": "2026-11-12T00:12:55Z"
+   },
+   {
+    "name": "Generate step summary",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-12T00:12:55Z",
+    "completed_at": "2026-11-12T00:12:57Z"
+   },
+   {
+    "name": "Set artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-12T00:12:57Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Upload Report",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Upload Report (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 21,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 22,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 23,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 46,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 47,
+    "started_at": "2026-11-12T00:12:59Z",
+    "completed_at": "2026-11-12T00:12:59Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858382115",
+  "labels": [
+   "linux-aarch64-a2b3-2"
+  ],
+  "runner_id": 886179,
+  "runner_name": "linux-aarch64-a2b3-fed-2-runner-2zgx6",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858382192,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8RzcA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858382192",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858382192",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T23:29:44Z",
+  "completed_at": "2026-11-11T23:48:29Z",
+  "name": "single-node (main, qwen3-30b-a3b-w8a8-a2-performance, linux-aarch64-a2b3-8, Qwen3-30B-A3B-W8A8-A2... / qwen3-30b-a3b-w8a8-a2-performance",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T23:29:47Z",
+    "completed_at": "2026-11-11T23:29:55Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T23:29:55Z",
+    "completed_at": "2026-11-11T23:30:29Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T23:30:29Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:36Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T23:30:36Z",
+    "completed_at": "2026-11-11T23:30:38Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T23:30:38Z",
+    "completed_at": "2026-11-11T23:30:38Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T23:30:38Z",
+    "completed_at": "2026-11-11T23:30:38Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T23:30:38Z",
+    "completed_at": "2026-11-11T23:30:38Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T23:30:38Z",
+    "completed_at": "2026-11-11T23:30:41Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T23:30:41Z",
+    "completed_at": "2026-11-11T23:30:52Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T23:30:52Z",
+    "completed_at": "2026-11-11T23:30:55Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T23:30:55Z",
+    "completed_at": "2026-11-11T23:30:55Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T23:30:55Z",
+    "completed_at": "2026-11-11T23:30:55Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T23:30:55Z",
+    "completed_at": "2026-11-11T23:30:57Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T23:30:57Z",
+    "completed_at": "2026-11-11T23:30:57Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "failure",
+    "number": 21,
+    "started_at": "2026-11-11T23:30:57Z",
+    "completed_at": "2026-11-11T23:47:41Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T23:47:41Z",
+    "completed_at": "2026-11-11T23:47:44Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T23:47:44Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 24,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:51Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T23:47:51Z",
+    "completed_at": "2026-11-11T23:47:55Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T23:47:55Z",
+    "completed_at": "2026-11-11T23:47:55Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T23:47:55Z",
+    "completed_at": "2026-11-11T23:47:55Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T23:47:55Z",
+    "completed_at": "2026-11-11T23:47:55Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T23:47:55Z",
+    "completed_at": "2026-11-11T23:48:08Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T23:48:08Z",
+    "completed_at": "2026-11-11T23:48:13Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T23:48:13Z",
+    "completed_at": "2026-11-11T23:48:22Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T23:48:22Z",
+    "completed_at": "2026-11-11T23:48:22Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T23:48:22Z",
+    "completed_at": "2026-11-11T23:48:22Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T23:48:22Z",
+    "completed_at": "2026-11-11T23:48:23Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T23:48:23Z",
+    "completed_at": "2026-11-11T23:48:23Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858382192",
+  "labels": [
+   "linux-aarch64-a2b3-8"
+  ],
+  "runner_id": 886180,
+  "runner_name": "linux-aarch64-a2b3-8-c2fff-runner-cfr5q",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858382361,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R0GQ",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858382361",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858382361",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T23:29:41Z",
+  "completed_at": "2026-11-11T23:47:16Z",
+  "name": "single-node (main, qwen3-30b-a3b-bf16-a2-performance, linux-aarch64-a2b3-8, Qwen3-30B-A3B-BF16-A2... / qwen3-30b-a3b-bf16-a2-performance",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T23:29:44Z",
+    "completed_at": "2026-11-11T23:29:52Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T23:29:52Z",
+    "completed_at": "2026-11-11T23:30:09Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T23:30:09Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:16Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T23:30:16Z",
+    "completed_at": "2026-11-11T23:30:18Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T23:30:18Z",
+    "completed_at": "2026-11-11T23:30:18Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T23:30:18Z",
+    "completed_at": "2026-11-11T23:30:18Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T23:30:18Z",
+    "completed_at": "2026-11-11T23:30:18Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T23:30:18Z",
+    "completed_at": "2026-11-11T23:30:21Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T23:30:21Z",
+    "completed_at": "2026-11-11T23:30:35Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T23:30:35Z",
+    "completed_at": "2026-11-11T23:30:37Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T23:30:37Z",
+    "completed_at": "2026-11-11T23:30:37Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T23:30:37Z",
+    "completed_at": "2026-11-11T23:30:37Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T23:30:37Z",
+    "completed_at": "2026-11-11T23:30:40Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T23:30:40Z",
+    "completed_at": "2026-11-11T23:30:40Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T23:30:40Z",
+    "completed_at": "2026-11-11T23:46:23Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T23:46:23Z",
+    "completed_at": "2026-11-11T23:46:27Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T23:46:27Z",
+    "completed_at": "2026-11-11T23:46:33Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T23:46:33Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:37Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T23:46:37Z",
+    "completed_at": "2026-11-11T23:46:41Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T23:46:41Z",
+    "completed_at": "2026-11-11T23:46:41Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T23:46:41Z",
+    "completed_at": "2026-11-11T23:46:41Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T23:46:41Z",
+    "completed_at": "2026-11-11T23:46:41Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T23:46:41Z",
+    "completed_at": "2026-11-11T23:46:52Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T23:46:52Z",
+    "completed_at": "2026-11-11T23:47:00Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T23:47:00Z",
+    "completed_at": "2026-11-11T23:47:10Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T23:47:10Z",
+    "completed_at": "2026-11-11T23:47:10Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T23:47:10Z",
+    "completed_at": "2026-11-11T23:47:10Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T23:47:10Z",
+    "completed_at": "2026-11-11T23:47:10Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T23:47:10Z",
+    "completed_at": "2026-11-11T23:47:11Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858382361",
+  "labels": [
+   "linux-aarch64-a2b3-8"
+  ],
+  "runner_id": 886178,
+  "runner_name": "linux-aarch64-a2b3-8-c2fff-runner-5kj7h",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858383624,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R5CA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858383624",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858383624",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:27Z",
+  "completed_at": "2026-11-11T17:03:15Z",
+  "name": "single-node-accuracy-tests (main, accuracy-group-1, linux-aarch64-a2b3-1, Qwen3-VL-8B-Instruct-W8... / [\n  \"Qwen3-VL-8B-Instruct-W8A8\",\n  \"Qwen3-8B\",\n  \"Qwen2-Audio-7B-Instruct\",\n  \"Qwen3-8B-W8A8\",\n  \"Qwen3-VL-8B-Instruct\",\n  \"Minitron-8B-Base\"\n] accuracy test",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:30Z",
+    "completed_at": "2026-11-11T15:41:39Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:39Z",
+    "completed_at": "2026-11-11T16:03:15Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T16:03:15Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Uninstall vllm and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Move vllm-ascend code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:21Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:03:21Z",
+    "completed_at": "2026-11-11T16:03:23Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T16:03:23Z",
+    "completed_at": "2026-11-11T16:03:23Z"
+   },
+   {
+    "name": "Install tensorflow (for Molmo-7B-D-0924)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T16:03:23Z",
+    "completed_at": "2026-11-11T16:03:23Z"
+   },
+   {
+    "name": "Get vLLM commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 13,
+    "started_at": "2026-11-11T16:03:23Z",
+    "completed_at": "2026-11-11T16:03:25Z"
+   },
+   {
+    "name": "Get vLLM-Ascend commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T16:03:25Z",
+    "completed_at": "2026-11-11T16:03:27Z"
+   },
+   {
+    "name": "Collect version info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T16:03:27Z",
+    "completed_at": "2026-11-11T16:03:34Z"
+   },
+   {
+    "name": "Compute effective model list",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T16:03:34Z",
+    "completed_at": "2026-11-11T16:03:37Z"
+   },
+   {
+    "name": "Run vllm-project/vllm-ascend accuracy test",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T16:03:37Z",
+    "completed_at": "2026-11-11T17:03:02Z"
+   },
+   {
+    "name": "Generate step summary",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-11T17:03:02Z",
+    "completed_at": "2026-11-11T17:03:05Z"
+   },
+   {
+    "name": "Set artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T17:03:05Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Upload Report",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Upload Report (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 21,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 22,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 23,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 46,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 47,
+    "started_at": "2026-11-11T17:03:09Z",
+    "completed_at": "2026-11-11T17:03:09Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858383624",
+  "labels": [
+   "linux-aarch64-a2b3-1"
+  ],
+  "runner_id": 885670,
+  "runner_name": "linux-aarch64-a2b3-1-nps7n-runner-5bc2s",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858383837,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R53Q",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858383837",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858383837",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:30Z",
+  "completed_at": "2026-11-11T16:42:47Z",
+  "name": "single-node-accuracy-tests (main, accuracy-group-4, linux-aarch64-a2b3-4, Qwen3-Next-80B-A3B-Inst... / [\n  \"Qwen3-Next-80B-A3B-Instruct\",\n  \"Qwen3-Omni-30B-A3B-Instruct\",\n  \"Mixtral-8x7B-Instruct-v0.1\"\n] accuracy test",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:32Z",
+    "completed_at": "2026-11-11T15:41:40Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:40Z",
+    "completed_at": "2026-11-11T16:03:19Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T16:03:19Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Uninstall vllm and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Move vllm-ascend code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:26Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:03:26Z",
+    "completed_at": "2026-11-11T16:03:28Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T16:03:28Z",
+    "completed_at": "2026-11-11T16:03:28Z"
+   },
+   {
+    "name": "Install tensorflow (for Molmo-7B-D-0924)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T16:03:28Z",
+    "completed_at": "2026-11-11T16:03:28Z"
+   },
+   {
+    "name": "Get vLLM commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 13,
+    "started_at": "2026-11-11T16:03:28Z",
+    "completed_at": "2026-11-11T16:03:30Z"
+   },
+   {
+    "name": "Get vLLM-Ascend commit hash and URL",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T16:03:30Z",
+    "completed_at": "2026-11-11T16:03:32Z"
+   },
+   {
+    "name": "Collect version info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T16:03:32Z",
+    "completed_at": "2026-11-11T16:03:39Z"
+   },
+   {
+    "name": "Compute effective model list",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T16:03:39Z",
+    "completed_at": "2026-11-11T16:03:42Z"
+   },
+   {
+    "name": "Run vllm-project/vllm-ascend accuracy test",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T16:03:42Z",
+    "completed_at": "2026-11-11T16:42:34Z"
+   },
+   {
+    "name": "Generate step summary",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-11T16:42:34Z",
+    "completed_at": "2026-11-11T16:42:37Z"
+   },
+   {
+    "name": "Set artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T16:42:37Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Upload Report",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Upload Report (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 21,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 22,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 23,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 46,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 47,
+    "started_at": "2026-11-11T16:42:41Z",
+    "completed_at": "2026-11-11T16:42:41Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858383837",
+  "labels": [
+   "linux-aarch64-a2b3-4"
+  ],
+  "runner_id": 885671,
+  "runner_name": "linux-aarch64-a2b3-4-cpsqx-runner-hnfk7",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858383961,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R6WQ",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858383961",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858383961",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:32Z",
+  "completed_at": "2026-11-11T16:39:35Z",
+  "name": "single-node (main, qwen3-32b-int8, linux-aarch64-a2b3-4, Qwen3-32B-Int8-A2.yaml, tests/SIT/cases/... / qwen3-32b-int8",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:57Z",
+    "completed_at": "2026-11-11T15:42:02Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:42:02Z",
+    "completed_at": "2026-11-11T16:07:06Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T16:07:06Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:12Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:07:12Z",
+    "completed_at": "2026-11-11T16:07:13Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T16:07:13Z",
+    "completed_at": "2026-11-11T16:07:13Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T16:07:13Z",
+    "completed_at": "2026-11-11T16:07:14Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T16:07:14Z",
+    "completed_at": "2026-11-11T16:07:14Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T16:07:14Z",
+    "completed_at": "2026-11-11T16:07:16Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T16:07:16Z",
+    "completed_at": "2026-11-11T16:07:24Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T16:07:24Z",
+    "completed_at": "2026-11-11T16:07:26Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T16:07:26Z",
+    "completed_at": "2026-11-11T16:07:26Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T16:07:26Z",
+    "completed_at": "2026-11-11T16:07:26Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T16:07:26Z",
+    "completed_at": "2026-11-11T16:07:28Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T16:07:28Z",
+    "completed_at": "2026-11-11T16:07:28Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T16:07:28Z",
+    "completed_at": "2026-11-11T16:39:07Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:39:07Z",
+    "completed_at": "2026-11-11T16:39:09Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:39:09Z",
+    "completed_at": "2026-11-11T16:39:17Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:39:17Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:19Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:39:19Z",
+    "completed_at": "2026-11-11T16:39:22Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:39:22Z",
+    "completed_at": "2026-11-11T16:39:22Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:39:22Z",
+    "completed_at": "2026-11-11T16:39:22Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:39:22Z",
+    "completed_at": "2026-11-11T16:39:22Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:39:22Z",
+    "completed_at": "2026-11-11T16:39:30Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:39:30Z",
+    "completed_at": "2026-11-11T16:39:39Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:39:39Z",
+    "completed_at": "2026-11-11T16:39:50Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:39:50Z",
+    "completed_at": "2026-11-11T16:39:50Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:39:50Z",
+    "completed_at": "2026-11-11T16:39:50Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:39:50Z",
+    "completed_at": "2026-11-11T16:39:50Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:39:50Z",
+    "completed_at": "2026-11-11T16:39:50Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858383961",
+  "labels": [
+   "linux-aarch64-a2b3-4"
+  ],
+  "runner_id": 885675,
+  "runner_name": "linux-aarch64-a2b3-fed-4-runner-bqjtk",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384115,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R68w",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384115",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384115",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:46Z",
+  "completed_at": "2026-11-11T16:19:13Z",
+  "name": "single-node (main, gemma4-31b-dense, linux-aarch64-a2b3-4, Gemma4-31B-Dense.yaml, tests/SIT/cases... / gemma4-31b-dense",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:49Z",
+    "completed_at": "2026-11-11T15:41:59Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:59Z",
+    "completed_at": "2026-11-11T15:54:34Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:54:34Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:43Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T15:54:43Z",
+    "completed_at": "2026-11-11T15:54:43Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T15:54:43Z",
+    "completed_at": "2026-11-11T15:54:43Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T15:54:43Z",
+    "completed_at": "2026-11-11T15:54:43Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T15:54:43Z",
+    "completed_at": "2026-11-11T15:54:46Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T15:54:46Z",
+    "completed_at": "2026-11-11T15:54:58Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:54:58Z",
+    "completed_at": "2026-11-11T15:55:01Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T15:55:01Z",
+    "completed_at": "2026-11-11T15:55:01Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T15:55:01Z",
+    "completed_at": "2026-11-11T15:55:01Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:55:01Z",
+    "completed_at": "2026-11-11T15:55:04Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T15:55:04Z",
+    "completed_at": "2026-11-11T15:55:04Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T15:55:04Z",
+    "completed_at": "2026-11-11T16:18:21Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:18:21Z",
+    "completed_at": "2026-11-11T16:18:24Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:18:24Z",
+    "completed_at": "2026-11-11T16:18:31Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:18:31Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:39Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:18:39Z",
+    "completed_at": "2026-11-11T16:18:39Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:18:39Z",
+    "completed_at": "2026-11-11T16:18:39Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:18:39Z",
+    "completed_at": "2026-11-11T16:18:39Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:18:39Z",
+    "completed_at": "2026-11-11T16:18:50Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:18:50Z",
+    "completed_at": "2026-11-11T16:18:58Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:18:58Z",
+    "completed_at": "2026-11-11T16:19:07Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:19:07Z",
+    "completed_at": "2026-11-11T16:19:07Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:19:07Z",
+    "completed_at": "2026-11-11T16:19:07Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:19:07Z",
+    "completed_at": "2026-11-11T16:19:08Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:19:08Z",
+    "completed_at": "2026-11-11T16:19:08Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384115",
+  "labels": [
+   "linux-aarch64-a2b3-4"
+  ],
+  "runner_id": 885686,
+  "runner_name": "linux-aarch64-a2b3-4-cpsqx-runner-mvmzx",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384190,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R7Pg",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384190",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384190",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:32Z",
+  "completed_at": "2026-11-11T16:18:19Z",
+  "name": "single-node (main, Qwen3.8-27B-w8a8-A2, linux-aarch64-a2b3-2, Qwen3.8-27B-w8a8-A2.yaml, tests/SIT... / Qwen3.8-27B-w8a8-A2",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:57Z",
+    "completed_at": "2026-11-11T15:42:02Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:42:02Z",
+    "completed_at": "2026-11-11T16:01:05Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T16:01:05Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:10Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:01:10Z",
+    "completed_at": "2026-11-11T16:01:12Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T16:01:12Z",
+    "completed_at": "2026-11-11T16:01:12Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T16:01:12Z",
+    "completed_at": "2026-11-11T16:01:12Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T16:01:12Z",
+    "completed_at": "2026-11-11T16:01:12Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T16:01:12Z",
+    "completed_at": "2026-11-11T16:01:15Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T16:01:15Z",
+    "completed_at": "2026-11-11T16:01:23Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T16:01:23Z",
+    "completed_at": "2026-11-11T16:01:25Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T16:01:25Z",
+    "completed_at": "2026-11-11T16:01:25Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T16:01:25Z",
+    "completed_at": "2026-11-11T16:01:25Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T16:01:25Z",
+    "completed_at": "2026-11-11T16:01:27Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T16:01:27Z",
+    "completed_at": "2026-11-11T16:01:27Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T16:01:27Z",
+    "completed_at": "2026-11-11T16:17:54Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:17:54Z",
+    "completed_at": "2026-11-11T16:17:57Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:17:57Z",
+    "completed_at": "2026-11-11T16:18:03Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:18:03Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:06Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:18:06Z",
+    "completed_at": "2026-11-11T16:18:08Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:18:08Z",
+    "completed_at": "2026-11-11T16:18:08Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:18:08Z",
+    "completed_at": "2026-11-11T16:18:08Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:18:08Z",
+    "completed_at": "2026-11-11T16:18:08Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:18:08Z",
+    "completed_at": "2026-11-11T16:18:16Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:18:16Z",
+    "completed_at": "2026-11-11T16:18:23Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:18:23Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:35Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:18:35Z",
+    "completed_at": "2026-11-11T16:18:36Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:18:36Z",
+    "completed_at": "2026-11-11T16:18:36Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384190",
+  "labels": [
+   "linux-aarch64-a2b3-2"
+  ],
+  "runner_id": 885678,
+  "runner_name": "linux-aarch64-a2b3-fed-2-runner-p52sg",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384293,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R7pQ",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384293",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384293",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:46Z",
+  "completed_at": "2026-11-11T16:42:14Z",
+  "name": "multi-node (main, multi-node-GLM-5.1-w8a8-A2, GLM5_1-W8A8-A2-dual-nodes.yaml, tests/SIT/cases/mod... / GLM5_1-W8A8-A2-dual-nodes.yaml",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:48Z",
+    "completed_at": "2026-11-11T15:41:56Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:56Z",
+    "completed_at": "2026-11-11T15:42:05Z"
+   },
+   {
+    "name": "Decode kubeconfig",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:42:05Z",
+    "completed_at": "2026-11-11T15:42:06Z"
+   },
+   {
+    "name": "Checkout code",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 4,
+    "started_at": "2026-11-11T15:42:06Z",
+    "completed_at": "2026-11-11T15:42:11Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 5,
+    "started_at": "2026-11-11T15:42:11Z",
+    "completed_at": "2026-11-11T15:42:12Z"
+   },
+   {
+    "name": "Set job variables",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 6,
+    "started_at": "2026-11-11T15:42:12Z",
+    "completed_at": "2026-11-11T15:42:14Z"
+   },
+   {
+    "name": "Prepare scripts",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 7,
+    "started_at": "2026-11-11T15:42:14Z",
+    "completed_at": "2026-11-11T15:42:16Z"
+   },
+   {
+    "name": "Launch cluster",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 8,
+    "started_at": "2026-11-11T15:42:16Z",
+    "completed_at": "2026-11-11T15:42:18Z"
+   },
+   {
+    "name": "Wait for pods ready",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 9,
+    "started_at": "2026-11-11T15:42:18Z",
+    "completed_at": "2026-11-11T16:02:24Z"
+   },
+   {
+    "name": "Stream logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:02:24Z",
+    "completed_at": "2026-11-11T16:37:52Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 11,
+    "started_at": "2026-11-11T16:37:52Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 14,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 15,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 16,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:55Z"
+   },
+   {
+    "name": "Fetch benchmark results from PVC",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T16:37:55Z",
+    "completed_at": "2026-11-11T16:37:58Z"
+   },
+   {
+    "name": "Post process",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-11T16:37:58Z",
+    "completed_at": "2026-11-11T16:41:09Z"
+   },
+   {
+    "name": "Collect requested paths from test pods",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 19,
+    "started_at": "2026-11-11T16:41:09Z",
+    "completed_at": "2026-11-11T16:41:09Z"
+   },
+   {
+    "name": "Upload requested paths",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T16:41:09Z",
+    "completed_at": "2026-11-11T16:41:09Z"
+   },
+   {
+    "name": "Remove uploaded archives from shared storage",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 21,
+    "started_at": "2026-11-11T16:41:09Z",
+    "completed_at": "2026-11-11T16:41:09Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:41:09Z",
+    "completed_at": "2026-11-11T16:41:12Z"
+   },
+   {
+    "name": "Upload Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:41:12Z",
+    "completed_at": "2026-11-11T16:41:22Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:41:22Z",
+    "completed_at": "2026-11-11T16:41:30Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 25,
+    "started_at": "2026-11-11T16:41:30Z",
+    "completed_at": "2026-11-11T16:41:34Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 26,
+    "started_at": "2026-11-11T16:41:34Z",
+    "completed_at": "2026-11-11T16:41:44Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 27,
+    "started_at": "2026-11-11T16:41:44Z",
+    "completed_at": "2026-11-11T16:41:52Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 28,
+    "started_at": "2026-11-11T16:41:52Z",
+    "completed_at": "2026-11-11T16:42:01Z"
+   },
+   {
+    "name": "Post Checkout code",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 55,
+    "started_at": "2026-11-11T16:42:01Z",
+    "completed_at": "2026-11-11T16:42:06Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 56,
+    "started_at": "2026-11-11T16:42:06Z",
+    "completed_at": "2026-11-11T16:42:07Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 57,
+    "started_at": "2026-11-11T16:42:07Z",
+    "completed_at": "2026-11-11T16:42:07Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384293",
+  "labels": [
+   "linux-amd64-cpu-8-hk"
+  ],
+  "runner_id": 885682,
+  "runner_name": "linux-amd64-cpu-8-hk-7mfx2-runner-vb28c",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384403,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R8Ew",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384403",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384403",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:35Z",
+  "completed_at": "2026-11-11T16:09:01Z",
+  "name": "single-node (main, qwen3-vl-32b-instruct-w8a8, linux-aarch64-a2b3-4, Qwen3-VL-32B-Instruct-W8A8.y... / qwen3-vl-32b-instruct-w8a8",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:38Z",
+    "completed_at": "2026-11-11T15:41:46Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:46Z",
+    "completed_at": "2026-11-11T15:54:41Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:54:41Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:47Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:54:47Z",
+    "completed_at": "2026-11-11T15:54:49Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T15:54:49Z",
+    "completed_at": "2026-11-11T15:54:49Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T15:54:49Z",
+    "completed_at": "2026-11-11T15:54:49Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T15:54:49Z",
+    "completed_at": "2026-11-11T15:54:49Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T15:54:49Z",
+    "completed_at": "2026-11-11T15:54:52Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T15:54:52Z",
+    "completed_at": "2026-11-11T15:55:04Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:55:04Z",
+    "completed_at": "2026-11-11T15:55:06Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T15:55:06Z",
+    "completed_at": "2026-11-11T15:55:06Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T15:55:06Z",
+    "completed_at": "2026-11-11T15:55:06Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:55:06Z",
+    "completed_at": "2026-11-11T15:55:09Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T15:55:09Z",
+    "completed_at": "2026-11-11T15:55:09Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T15:55:09Z",
+    "completed_at": "2026-11-11T16:08:07Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:08:07Z",
+    "completed_at": "2026-11-11T16:08:10Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:08:10Z",
+    "completed_at": "2026-11-11T16:08:17Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:08:17Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:21Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:08:21Z",
+    "completed_at": "2026-11-11T16:08:25Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:08:25Z",
+    "completed_at": "2026-11-11T16:08:25Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:08:25Z",
+    "completed_at": "2026-11-11T16:08:25Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:08:25Z",
+    "completed_at": "2026-11-11T16:08:25Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:08:25Z",
+    "completed_at": "2026-11-11T16:08:37Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:08:38Z",
+    "completed_at": "2026-11-11T16:08:45Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:08:45Z",
+    "completed_at": "2026-11-11T16:08:54Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:08:54Z",
+    "completed_at": "2026-11-11T16:08:54Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:08:54Z",
+    "completed_at": "2026-11-11T16:08:54Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:08:54Z",
+    "completed_at": "2026-11-11T16:08:55Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:08:55Z",
+    "completed_at": "2026-11-11T16:08:55Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384403",
+  "labels": [
+   "linux-aarch64-a2b3-4"
+  ],
+  "runner_id": 885672,
+  "runner_name": "linux-aarch64-a2b3-4-cpsqx-runner-bhlgj",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384420,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R8JA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384420",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384420",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:45Z",
+  "completed_at": "2026-11-11T16:34:16Z",
+  "name": "single-node (main, Qwen3.5-397B-A17B-w4a8-mtp, linux-aarch64-a2b3-8, Qwen3.5-397B-A17B-w4a8-mtp-A... / Qwen3.5-397B-A17B-w4a8-mtp",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:48Z",
+    "completed_at": "2026-11-11T15:41:57Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:57Z",
+    "completed_at": "2026-11-11T15:48:51Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:48:51Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:48:57Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:48:57Z",
+    "completed_at": "2026-11-11T15:49:00Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T15:49:00Z",
+    "completed_at": "2026-11-11T15:49:00Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T15:49:00Z",
+    "completed_at": "2026-11-11T15:49:00Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T15:49:00Z",
+    "completed_at": "2026-11-11T15:49:00Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T15:49:00Z",
+    "completed_at": "2026-11-11T15:49:03Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T15:49:03Z",
+    "completed_at": "2026-11-11T15:49:14Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:49:14Z",
+    "completed_at": "2026-11-11T15:49:16Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T15:49:16Z",
+    "completed_at": "2026-11-11T15:49:16Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T15:49:16Z",
+    "completed_at": "2026-11-11T15:49:16Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:49:16Z",
+    "completed_at": "2026-11-11T15:49:19Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T15:49:19Z",
+    "completed_at": "2026-11-11T15:49:19Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T15:49:19Z",
+    "completed_at": "2026-11-11T16:33:22Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:33:22Z",
+    "completed_at": "2026-11-11T16:33:25Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:33:25Z",
+    "completed_at": "2026-11-11T16:33:32Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:33:32Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:36Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:33:36Z",
+    "completed_at": "2026-11-11T16:33:40Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:33:40Z",
+    "completed_at": "2026-11-11T16:33:40Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:33:40Z",
+    "completed_at": "2026-11-11T16:33:40Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:33:40Z",
+    "completed_at": "2026-11-11T16:33:40Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:33:40Z",
+    "completed_at": "2026-11-11T16:33:51Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:33:51Z",
+    "completed_at": "2026-11-11T16:33:59Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:33:59Z",
+    "completed_at": "2026-11-11T16:34:09Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:34:09Z",
+    "completed_at": "2026-11-11T16:34:09Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:34:09Z",
+    "completed_at": "2026-11-11T16:34:09Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:34:09Z",
+    "completed_at": "2026-11-11T16:34:10Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:34:10Z",
+    "completed_at": "2026-11-11T16:34:10Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384420",
+  "labels": [
+   "linux-aarch64-a2b3-8"
+  ],
+  "runner_id": 885684,
+  "runner_name": "linux-aarch64-a2b3-8-c2fff-runner-bp7h5",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384557,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R8rQ",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384557",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384557",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:32Z",
+  "completed_at": "2026-11-11T16:00:32Z",
+  "name": "single-node (main, Qwen3.5-27B-w8a8-A2, linux-aarch64-a2b3-2, Qwen3.5-27B-w8a8-A2.yaml, tests/SIT... / Qwen3.5-27B-w8a8-A2",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:57Z",
+    "completed_at": "2026-11-11T15:42:00Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:42:00Z",
+    "completed_at": "2026-11-11T15:44:52Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:44:52Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:59Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T15:44:59Z",
+    "completed_at": "2026-11-11T15:44:59Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T15:44:59Z",
+    "completed_at": "2026-11-11T15:44:59Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T15:44:59Z",
+    "completed_at": "2026-11-11T15:44:59Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T15:44:59Z",
+    "completed_at": "2026-11-11T15:45:01Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T15:45:01Z",
+    "completed_at": "2026-11-11T15:45:09Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:45:09Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:13Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T15:45:13Z",
+    "completed_at": "2026-11-11T15:45:13Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T15:45:13Z",
+    "completed_at": "2026-11-11T15:59:42Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T15:59:42Z",
+    "completed_at": "2026-11-11T15:59:44Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T15:59:44Z",
+    "completed_at": "2026-11-11T15:59:52Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T15:59:52Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:54Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T15:59:54Z",
+    "completed_at": "2026-11-11T15:59:57Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T15:59:57Z",
+    "completed_at": "2026-11-11T15:59:57Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T15:59:57Z",
+    "completed_at": "2026-11-11T15:59:57Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T15:59:57Z",
+    "completed_at": "2026-11-11T15:59:57Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T15:59:57Z",
+    "completed_at": "2026-11-11T16:00:29Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:00:29Z",
+    "completed_at": "2026-11-11T16:00:37Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:00:37Z",
+    "completed_at": "2026-11-11T16:00:47Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:00:47Z",
+    "completed_at": "2026-11-11T16:00:47Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:00:47Z",
+    "completed_at": "2026-11-11T16:00:47Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:00:47Z",
+    "completed_at": "2026-11-11T16:00:48Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:00:48Z",
+    "completed_at": "2026-11-11T16:00:48Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384557",
+  "labels": [
+   "linux-aarch64-a2b3-2"
+  ],
+  "runner_id": 885679,
+  "runner_name": "linux-aarch64-a2b3-fed-2-runner-74qmd",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858384731,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R9Ww",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858384731",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858384731",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:35Z",
+  "completed_at": "2026-11-11T17:25:28Z",
+  "name": "multi-node (main, multi-node-qwen3-235b-dp, Qwen3-235B-A22B-A2.yaml, tests/SIT/cases/models/confi... / Qwen3-235B-A22B-A2.yaml",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:37Z",
+    "completed_at": "2026-11-11T15:41:46Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:46Z",
+    "completed_at": "2026-11-11T15:42:19Z"
+   },
+   {
+    "name": "Decode kubeconfig",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:42:19Z",
+    "completed_at": "2026-11-11T15:42:20Z"
+   },
+   {
+    "name": "Checkout code",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 4,
+    "started_at": "2026-11-11T15:42:20Z",
+    "completed_at": "2026-11-11T15:42:24Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 5,
+    "started_at": "2026-11-11T15:42:24Z",
+    "completed_at": "2026-11-11T15:42:26Z"
+   },
+   {
+    "name": "Set job variables",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 6,
+    "started_at": "2026-11-11T15:42:26Z",
+    "completed_at": "2026-11-11T15:42:27Z"
+   },
+   {
+    "name": "Prepare scripts",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 7,
+    "started_at": "2026-11-11T15:42:27Z",
+    "completed_at": "2026-11-11T15:42:29Z"
+   },
+   {
+    "name": "Launch cluster",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 8,
+    "started_at": "2026-11-11T15:42:29Z",
+    "completed_at": "2026-11-11T15:42:32Z"
+   },
+   {
+    "name": "Wait for pods ready",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 9,
+    "started_at": "2026-11-11T15:42:32Z",
+    "completed_at": "2026-11-11T16:00:29Z"
+   },
+   {
+    "name": "Stream logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T16:00:29Z",
+    "completed_at": "2026-11-11T17:23:02Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 11,
+    "started_at": "2026-11-11T17:23:02Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 14,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 15,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 16,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:04Z"
+   },
+   {
+    "name": "Fetch benchmark results from PVC",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T17:23:04Z",
+    "completed_at": "2026-11-11T17:23:08Z"
+   },
+   {
+    "name": "Post process",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-11T17:23:08Z",
+    "completed_at": "2026-11-11T17:24:18Z"
+   },
+   {
+    "name": "Collect requested paths from test pods",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 19,
+    "started_at": "2026-11-11T17:24:18Z",
+    "completed_at": "2026-11-11T17:24:18Z"
+   },
+   {
+    "name": "Upload requested paths",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T17:24:18Z",
+    "completed_at": "2026-11-11T17:24:18Z"
+   },
+   {
+    "name": "Remove uploaded archives from shared storage",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 21,
+    "started_at": "2026-11-11T17:24:18Z",
+    "completed_at": "2026-11-11T17:24:18Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T17:24:18Z",
+    "completed_at": "2026-11-11T17:24:22Z"
+   },
+   {
+    "name": "Upload Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T17:24:22Z",
+    "completed_at": "2026-11-11T17:24:32Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T17:24:32Z",
+    "completed_at": "2026-11-11T17:24:40Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 25,
+    "started_at": "2026-11-11T17:24:40Z",
+    "completed_at": "2026-11-11T17:24:44Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 26,
+    "started_at": "2026-11-11T17:24:44Z",
+    "completed_at": "2026-11-11T17:24:54Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 27,
+    "started_at": "2026-11-11T17:24:54Z",
+    "completed_at": "2026-11-11T17:25:02Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 28,
+    "started_at": "2026-11-11T17:25:02Z",
+    "completed_at": "2026-11-11T17:25:15Z"
+   },
+   {
+    "name": "Post Checkout code",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 55,
+    "started_at": "2026-11-11T17:25:15Z",
+    "completed_at": "2026-11-11T17:25:20Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 56,
+    "started_at": "2026-11-11T17:25:20Z",
+    "completed_at": "2026-11-11T17:25:21Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 57,
+    "started_at": "2026-11-11T17:25:21Z",
+    "completed_at": "2026-11-11T17:25:21Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858384731",
+  "labels": [
+   "linux-amd64-cpu-8-hk"
+  ],
+  "runner_id": 885676,
+  "runner_name": "linux-amd64-cpu-8-hk-7mfx2-runner-zthht",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858385163,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8R_Cw",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858385163",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858385163",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:18Z",
+  "started_at": "2026-11-11T15:41:30Z",
+  "completed_at": "2026-11-11T16:05:22Z",
+  "name": "single-node (main, gemma4, linux-aarch64-a2b3-4, Gemma4.yaml, tests/SIT/cases/models/configs/Gemma) / gemma4",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:41:55Z",
+    "completed_at": "2026-11-11T15:41:58Z"
+   },
+   {
+    "name": "Initialize containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:41:58Z",
+    "completed_at": "2026-11-11T15:44:51Z"
+   },
+   {
+    "name": "Check npu and CANN info",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:44:51Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Install vllm from ref",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 4,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "uninstall vlm vllm-ascend and remove code (if pr test)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Checkout vllm-project/vllm-ascend repo",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 6,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Check layout and stage actions",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 7,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Restore incremental cache for source checkout",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 8,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Move code to /vllm-workspace",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 9,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:57Z"
+   },
+   {
+    "name": "Set MAX_JOBS based on runner",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 10,
+    "started_at": "2026-11-11T15:44:57Z",
+    "completed_at": "2026-11-11T15:44:58Z"
+   },
+   {
+    "name": "Install vllm-project/vllm-ascend",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 11,
+    "started_at": "2026-11-11T15:44:58Z",
+    "completed_at": "2026-11-11T15:44:58Z"
+   },
+   {
+    "name": "Uninstall Triton for 310P tests",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 12,
+    "started_at": "2026-11-11T15:44:58Z",
+    "completed_at": "2026-11-11T15:44:58Z"
+   },
+   {
+    "name": "Install aisbench",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 13,
+    "started_at": "2026-11-11T15:44:58Z",
+    "completed_at": "2026-11-11T15:44:58Z"
+   },
+   {
+    "name": "Show vLLM and vLLM-Ascend version",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 14,
+    "started_at": "2026-11-11T15:44:58Z",
+    "completed_at": "2026-11-11T15:45:01Z"
+   },
+   {
+    "name": "Install clang",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15,
+    "started_at": "2026-11-11T15:45:01Z",
+    "completed_at": "2026-11-11T15:45:09Z"
+   },
+   {
+    "name": "Validate Inputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:45:09Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Configure profiling",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 17,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Initialize profiling job",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 18,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:11Z"
+   },
+   {
+    "name": "Clear Ascend logs before tests",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:45:11Z",
+    "completed_at": "2026-11-11T15:45:13Z"
+   },
+   {
+    "name": "Run Pytest (py-driven)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 20,
+    "started_at": "2026-11-11T15:45:13Z",
+    "completed_at": "2026-11-11T15:45:13Z"
+   },
+   {
+    "name": "Run Pytest (YAML-driven)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 21,
+    "started_at": "2026-11-11T15:45:13Z",
+    "completed_at": "2026-11-11T16:04:40Z"
+   },
+   {
+    "name": "Collect Ascend logs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 22,
+    "started_at": "2026-11-11T16:04:40Z",
+    "completed_at": "2026-11-11T16:04:42Z"
+   },
+   {
+    "name": "Upload Ascend logs (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 23,
+    "started_at": "2026-11-11T16:04:42Z",
+    "completed_at": "2026-11-11T16:04:49Z"
+   },
+   {
+    "name": "Update good_table.csv on success",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 24,
+    "started_at": "2026-11-11T16:04:49Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Capture test result",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 25,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Classify failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 26,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Skip - env issue",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 27,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Check commit age",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 28,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Skip - old commit",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 29,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Process - recent real failure",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 30,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Collect AOP bisect diagnostics",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 31,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Upload AOP bisect diagnostics (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 32,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "On success",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 33,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:51Z"
+   },
+   {
+    "name": "Set benchmark artifact timestamp",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 34,
+    "started_at": "2026-11-11T16:04:51Z",
+    "completed_at": "2026-11-11T16:04:54Z"
+   },
+   {
+    "name": "Publish profiling data",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 35,
+    "started_at": "2026-11-11T16:04:54Z",
+    "completed_at": "2026-11-11T16:04:54Z"
+   },
+   {
+    "name": "Upload profiling index",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 36,
+    "started_at": "2026-11-11T16:04:54Z",
+    "completed_at": "2026-11-11T16:04:54Z"
+   },
+   {
+    "name": "Profiling summary",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 37,
+    "started_at": "2026-11-11T16:04:54Z",
+    "completed_at": "2026-11-11T16:04:54Z"
+   },
+   {
+    "name": "Upload benchmark results",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 38,
+    "started_at": "2026-11-11T16:04:54Z",
+    "completed_at": "2026-11-11T16:05:20Z"
+   },
+   {
+    "name": "Upload benchmark results (GitHub Artifacts)",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 39,
+    "started_at": "2026-11-11T16:05:20Z",
+    "completed_at": "2026-11-11T16:05:27Z"
+   },
+   {
+    "name": "Upload AISBench outputs",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 40,
+    "started_at": "2026-11-11T16:05:27Z",
+    "completed_at": "2026-11-11T16:05:35Z"
+   },
+   {
+    "name": "Collect requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 41,
+    "started_at": "2026-11-11T16:05:35Z",
+    "completed_at": "2026-11-11T16:05:35Z"
+   },
+   {
+    "name": "Upload requested path",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 42,
+    "started_at": "2026-11-11T16:05:35Z",
+    "completed_at": "2026-11-11T16:05:35Z"
+   },
+   {
+    "name": "Stop containers",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 84,
+    "started_at": "2026-11-11T16:05:35Z",
+    "completed_at": "2026-11-11T16:05:36Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 85,
+    "started_at": "2026-11-11T16:05:36Z",
+    "completed_at": "2026-11-11T16:05:36Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858385163",
+  "labels": [
+   "linux-aarch64-a2b3-4"
+  ],
+  "runner_id": 885680,
+  "runner_name": "linux-aarch64-a2b3-fed-4-runner-2r6mr",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130858387532,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8SITA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858387532",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858387532",
+  "status": "completed",
+  "conclusion": "skipped",
+  "created_at": "2026-11-11T23:29:19Z",
+  "started_at": "2026-11-11T23:29:19Z",
+  "completed_at": "2026-11-11T23:29:19Z",
+  "name": "Parse multi-node profiles",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858387532",
+  "labels": [],
+  "runner_id": null,
+  "runner_name": null,
+  "runner_group_id": null,
+  "runner_group_name": null
+ },
+ {
+  "id": 130858389518,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8SQDg",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858389518",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858389518",
+  "status": "completed",
+  "conclusion": "skipped",
+  "created_at": "2026-11-11T23:29:19Z",
+  "started_at": "2026-11-11T23:29:19Z",
+  "completed_at": "2026-11-11T17:25:28Z",
+  "name": "clear-pre-logs",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858389518",
+  "labels": [
+   "linux-aarch64-a2b3-0"
+  ],
+  "runner_id": null,
+  "runner_name": null,
+  "runner_group_id": null,
+  "runner_group_name": null
+ },
+ {
+  "id": 130858442252,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAed8VeDA",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130858442252",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130858442252",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:29:27Z",
+  "started_at": "2026-11-11T15:35:45Z",
+  "completed_at": "2026-11-11T15:41:06Z",
+  "name": "Export global env vars as job outputs",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T15:35:47Z",
+    "completed_at": "2026-11-11T15:35:59Z"
+   },
+   {
+    "name": "Cancel PR nightly runs before scheduled test",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T15:35:59Z",
+    "completed_at": "2026-11-11T15:36:03Z"
+   },
+   {
+    "name": "Run {",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T15:36:03Z",
+    "completed_at": "2026-11-11T15:36:03Z"
+   },
+   {
+    "name": "Checkout repository",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 4,
+    "started_at": "2026-11-11T15:36:03Z",
+    "completed_at": "2026-11-11T15:36:54Z"
+   },
+   {
+    "name": "Checkout PR code",
+    "status": "completed",
+    "conclusion": "skipped",
+    "number": 5,
+    "started_at": "2026-11-11T15:36:54Z",
+    "completed_at": "2026-11-11T15:36:54Z"
+   },
+   {
+    "name": "Setup Python",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 6,
+    "started_at": "2026-11-11T15:36:54Z",
+    "completed_at": "2026-11-11T15:40:31Z"
+   },
+   {
+    "name": "Checkout profiling tools",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 7,
+    "started_at": "2026-11-11T15:40:31Z",
+    "completed_at": "2026-11-11T15:40:35Z"
+   },
+   {
+    "name": "Normalize profiling options",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 8,
+    "started_at": "2026-11-11T15:40:35Z",
+    "completed_at": "2026-11-11T15:40:36Z"
+   },
+   {
+    "name": "Read A2 test matrix config",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 9,
+    "started_at": "2026-11-11T15:40:36Z",
+    "completed_at": "2026-11-11T15:40:40Z"
+   },
+   {
+    "name": "Post Checkout profiling tools",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 16,
+    "started_at": "2026-11-11T15:40:40Z",
+    "completed_at": "2026-11-11T15:40:40Z"
+   },
+   {
+    "name": "Post Setup Python",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 17,
+    "started_at": "2026-11-11T15:40:40Z",
+    "completed_at": "2026-11-11T15:40:41Z"
+   },
+   {
+    "name": "Post Checkout repository",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 18,
+    "started_at": "2026-11-11T15:40:41Z",
+    "completed_at": "2026-11-11T15:40:41Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 19,
+    "started_at": "2026-11-11T15:40:41Z",
+    "completed_at": "2026-11-11T15:40:41Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130858442252",
+  "labels": [
+   "linux-aarch64-a2b3-0"
+  ],
+  "runner_id": 885660,
+  "runner_name": "linux-aarch64-a2b3-0-v2s5p-runner-pq4rs",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130866579693,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAeeEGI7Q",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130866579693",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130866579693",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-11T23:48:29Z",
+  "started_at": "2026-11-11T23:48:50Z",
+  "completed_at": "2026-11-11T23:49:08Z",
+  "name": "Merge benchmark artifacts into nightly-a2.zip",
+  "steps": [
+   {
+    "name": "Set up job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 1,
+    "started_at": "2026-11-11T23:48:52Z",
+    "completed_at": "2026-11-11T23:48:56Z"
+   },
+   {
+    "name": "Merge all benchmark result artifacts",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 2,
+    "started_at": "2026-11-11T23:48:56Z",
+    "completed_at": "2026-11-11T23:49:04Z"
+   },
+   {
+    "name": "Complete job",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 3,
+    "started_at": "2026-11-11T23:49:04Z",
+    "completed_at": "2026-11-11T23:49:04Z"
+   }
+  ],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130866579693",
+  "labels": [
+   "linux-aarch64-a2b3-0"
+  ],
+  "runner_id": 886205,
+  "runner_name": "linux-aarch64-a2b3-0-v2s5p-runner-fvr8r",
+  "runner_group_id": 1,
+  "runner_group_name": "Default"
+ },
+ {
+  "id": 130866582137,
+  "run_id": 43049763865,
+  "workflow_name": "Nightly-A2 (scheduled)",
+  "head_branch": "main",
+  "run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/runs/43049763865",
+  "run_attempt": 2,
+  "node_id": "CR_kwDONxQEAc8AAAAeeEGSeQ",
+  "head_sha": "c251a6a5ed5cc10f7ec6daa5b87d410d731bf6fd",
+  "url": "https://api.github.com/repos/vllm-project/vllm-ascend/actions/jobs/130866582137",
+  "html_url": "https://github.com/vllm-project/vllm-ascend/actions/runs/43049763865/job/130866582137",
+  "status": "completed",
+  "conclusion": "skipped",
+  "created_at": "2026-11-11T23:48:30Z",
+  "started_at": "2026-11-11T23:48:30Z",
+  "completed_at": "2026-11-11T23:48:29Z",
+  "name": "Parse single-node profiles",
+  "steps": [],
+  "check_run_url": "https://api.github.com/repos/vllm-project/vllm-ascend/check-runs/130866582137",
+  "labels": [],
+  "runner_id": null,
+  "runner_name": null,
+  "runner_group_id": null,
+  "runner_group_name": null
+ }
+]

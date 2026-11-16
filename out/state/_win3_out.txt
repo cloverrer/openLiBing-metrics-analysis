@@ -1,0 +1,18 @@
+L127 : "            <td><div class=\"msg-scroll\">environment requirements: [{&#39;name&#39;: &#39;cann_single_A3_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 256, &#
+L983 : "-- Installing: /home/shmem_test/shmem/install/shmem/include/device_simt/shmem_simt_common_types.h",
+L1007 : "-- Installing: /home/shmem_test/shmem/install/shmem/include/host_device/shmem_common_types.h",
+L1081 : "-- Installing: /home/shmem_test/shmem/install/shmem/src/host_device/shmemi_common_types.h",
+L1112 : "./shmem/include/device_simt/shmem_simt_common_types.h",
+L1127 : "./shmem/include/host_device/shmem_common_types.h",
+L1185 : "./shmem/src/host_device/shmemi_common_types.h",
+L4740 : "            <td><div class=\"msg-scroll\">environment requirements: [{&#39;name&#39;: &#39;cann_single_A3_device_cover_single_type-nodes_1-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 256, &#
+L5617 : "-- Installing: /home/shmem_test/shmem/install/shmem/include/device_simt/shmem_simt_common_types.h",
+L5641 : "-- Installing: /home/shmem_test/shmem/install/shmem/include/host_device/shmem_common_types.h",
+L5715 : "-- Installing: /home/shmem_test/shmem/install/shmem/src/host_device/shmemi_common_types.h",
+L5746 : "./shmem/include/device_simt/shmem_simt_common_types.h",
+L5761 : "./shmem/include/host_device/shmem_common_types.h",
+L5819 : "./shmem/src/host_device/shmemi_common_types.h",
+L9299 : "[2026/11/10 17:20:21.134 GMT+08:00]  > git config core.sparsecheckout # timeout=10",
+L9420 : "[2026/11/10 17:18:59.923 GMT+08:00] [281473316450336] [INFO] Read pytest config from ***//openlibing-pytest-executor-workspace/pytest-infra/resources/pytest_cann_shmem.ini: {'infra_log_level': 'INFO', 'error_log_fail': 'true'}",
+L9494 : "[2026/11/10 17:19:13.996 GMT+08:00] [281473278472480] [INFO] apply_env_k8s, payload={'env_definition': {'nodes_1': [{'name': 'device', 'res_type': 'container', 'cpu_arch': 'ARM', 'cpu_core_num': 256, 'npu_gen': 'A3', 'npu_model': 'Ascend 910C', 'npu_num': 16,
+L9510 : "[2026/11/10 17:19:48.683 GMT+08:00] [281473278472480] [ERROR] Failed to allocate environment for env_id: cann_single_A3_device_cover_single_type-nodes_1-A3, error: Environment allocation rejected: Unknown",
