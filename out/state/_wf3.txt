@@ -1,9 +1,0 @@
-===== case_logs/case_0138.html
-[L1076] [2026-11-09 18:19:05]</span> [<span style="color:#F44336;font-weight:bold">ERROR</span>]</span> [127.0.0.1:9090@device_run_1]</span> [111028]</span> [trace.py</span>:736</span>]  <span style="color:#F44336">case 261 run opp <span style="color:#F44336;font-weight:bold">failed</span>: 
-[L1077] aclnnFakeQuantPerChannelAffineCachemaskGetWorkspaceSize <span style="color:#F44336;font-weight:bold">failed</span>! <span style="color:#F44336;font-weight:bold">error</span> code: 161002
-[L1078] ACL <span style="color:#F44336;font-weight:bold">Error</span> Details:
-[L1079] [PID: 111028] 2026-11-09-18:19:05.250.290 AclNN_Parameter_Error(EZ1001): Tensor scale expected dtype is DT_FLOAT but found DT_FLOAT16.
-[L1080] </span></span>
-[L1081] [2026-11-09 18:19:05]</span> [<span style="color:#F44336;font-weight:bold">ERROR</span>]</span> [127.0.0.1:9090@device_run_1]</span> [111028]</span> [trace.py</span>:736</span>]  <span style="color:#F44336">
-[L1082] aclnnFakeQuantPerChannelAffineCachemaskGetWorkspaceSize <span style="color:#F44336;font-weight:bold">failed</span>! <span style="color:#F44336;font-weight:bold">error</span> code: 161002
-

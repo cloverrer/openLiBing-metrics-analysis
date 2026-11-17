@@ -1,8 +1,0 @@
-### boostkit|Bigdata#11
-  issueType=权限问题 | issueDetail=OBS 桶 boostkit-bigdata-public 写权限不足，构建产物…
-  keyError=上传文件失败:请检查当前用户或其他用户的读/写权限(桶:boostkit-bigdata-public)
-  rootCause=构建产物上传被 OBS 桶写权限拒绝，问题出在上传凭据侧。失败发生在上传产物到 OBS 这一步：OmniOperator 的两个子任务（openEuler22.03_JDK8、openEuler24.03_JDK17）源码编译与打包都已成功，仅在上传产物到桶 boostkit-bigdata-public 时被读写权限校验拒绝，上传步骤因此判失败；Gluten 与 package_upload 等后继子任务随依赖失败一并退出。根因是该次运行使用的 OBS 上传凭据（AK/SK 或临时凭证）缺少该桶的写权限，与被测代码改动无关。
-  advice=为 OBS 上传步骤换用有 boostkit-bigdata-public 桶写权限的凭据：在流水线的 OBS 上传配置（固定 AK/SK 或临时凭证获取）中改用具备该桶 PutObject、ListBucketMultipartUploads 等写权限的账号或委托；若走临时凭证，还需确认 STS 策略覆盖构建产物路径 buildcache/OmniOperator/ 的写权限。
-
-验证方式：重跑 Bigdata 流水线，要求两个 OmniOperator 子任务与 Gluten、package_upload 子任务全部成功、构建产物成功上传至该桶，Build_Gluten 任务状态为成功、该流水线编译成功率恢复到 100%。
-  cites=["job_logs/22_Bigdata_11_Build_Gluten_OmniOperator_openEuler22.03_JDK8.log:L30357", "job_logs/23_Bigdata_11_Build_Gluten_OmniOperator_openEuler24.03_JDK17.log:L80744", "job_logs/12_Bigdata_11_Build_Gluten.log:L52", "job_logs/24_Bigdata_11_Build_Gluten_Gluten_openEuler22.03_JDK8.log:L125"]

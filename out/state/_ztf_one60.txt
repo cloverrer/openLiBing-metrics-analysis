@@ -1,7 +1,0 @@
-=== case_logs/case_0060.html (total 8872)
-[L1178] ATK任务进度:   0%|          | 0/4 [00:03<?, ?it/s][2026-11-09 03:33:01] [WARNING] [127.0.0.1:9090@device_run_0] [15079] [trace.py:736]  [case 0][rank 0/2] dist run_failed, backend=pyaclnn, dist_backend=hccl, device_id=0, host=127.0.0.1, port=9090, master_ip=127.0.0.1, master_port=25178, init_method=tcp://127.0.0.1:25178, dist_initialized=True
-[L1179] [2026-11-09 03:33:01] [ERROR] [127.0.0.1:9090@device_run_0] [15079] [trace.py:736]  case 0 run opp failed: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function error: hcclCommInitRootInfoConfig(numRanks, &rootInfo, rank, config, &(comm->hcclComm_)), error code is 4
-[L1180] [ERROR] 2026-11-09-03:33:01 (PID:15079, Device:0, RankID:-1) ERR02200 DIST call hccl api failed.
-[L1182] [2026-11-09 03:33:02] [WARNING] [127.0.0.1:9090@device_run_1] [15083] [trace.py:736]  [case 0][rank 1/2] dist run_failed, backend=pyaclnn, dist_backend=hccl, device_id=1, host=127.0.0.1, port=9090, master_ip=127.0.0.1, master_port=25178, init_method=tcp://127.0.0.1:25178, dist_initialized=True
-[L1183] [2026-11-09 03:33:02] [ERROR] [127.0.0.1:9090@device_run_1] [15083] [trace.py:736]  case 0 run opp failed: create_config:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:130 HCCL function error: hcclCommInitRootInfoConfig(numRanks, &rootInfo, rank, config, &(comm->hcclComm_)), error code is 4
-[L1184] [ERROR] 2026-11-09-03:33:02 (PID:15083, Device:1, RankID:-1) ERR02200 DIST call hccl api failed.

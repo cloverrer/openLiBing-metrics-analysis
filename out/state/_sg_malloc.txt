@@ -1,8 +1,0 @@
-[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1285] 2026-11-08T16:13:50.4906072Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 10004463616, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
-----
-[github_logs/gh_42498125758/21_nightly-1-npu-a3 _ run (0).txt:L1334] 2026-11-08T16:13:50.4945530Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 10004463616, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
-----
-[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3124] 2026-11-08T16:17:37.9620356Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 48, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
-----
-[github_logs/gh_42498125758/24_nightly-8-npu-a3 _ run (0).txt:L3167] 2026-11-08T16:17:38.2350680Z RuntimeError: Malloc pin memory failed, host out of memory, Rried to allocate size: 48, total_allocated_memory: 0, total_reserved_memory: 0. You might be able to retry after freeing up memory using torch_npu.npu.host_empty_cache().
-----

@@ -1,8 +1,8 @@
-run_pipeline 启动 2026-11-17 15:11:20  参数: start=(config) end=(config) products=(config) fresh=False retries=1
+run_pipeline 启动 2026-11-17 15:43:43  参数: start=(config) end=(config) products=(config) fresh=False retries=1
 目标区间: 2026-11-06 ~ 2026-11-12（config.date_range 显式指定）
 
 ============================================================
-[15:11:20] 第 9 步 生成展示页（静态壳 → out/html/，数据运行时读归档）
+[15:43:43] 第 9 步 生成展示页（静态壳 → out/html/，数据运行时读归档）
 ============================================================
 == 工作日日历 2026-11-10 ~ 2026-11-17：6 个工作日（法定工作日历: timor.tech API（1 年））
 == 第 9 步 展示页已生成（只含静态壳，业务数据运行时读 out/archive/）
