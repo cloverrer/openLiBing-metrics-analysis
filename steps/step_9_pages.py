@@ -172,8 +172,9 @@ function caliberItems(){
      '按流水线<b>执行结束时间</b>归属日期（GitHub 平台取 <span class="mono">run.updated_at</span>），'
      + '结束时间落在所选区间内才计入；换区间即按新区间整体重算。'],
     ['版本可用度（流水线）',
-     '<b>可用日 ÷ 区间法定工作日数</b>。可用日 = 当天有<b>执行成功</b>的运行，'
-     + '<b>并且该运行的测试用例通过率 100%</b>。'],
+     '<b>可用日 ÷ 该流水线在区间内有执行记录的天数</b>（当天有运行<b>开始或结束</b>才算'
+     + '「有执行记录」；当天没启动、没跑过的日子不进分母）。'
+     + '可用日 = 当天有<b>执行成功</b>的运行，<b>并且该运行的测试用例通过率 100%</b>。'],
     ['版本可用度（组件）',
      '该组件各流水线版本可用度之和 ÷ 流水线条数（算术平均），'
      + '不是 Σ可用日 ÷ Σ有运行日。'],
@@ -293,13 +294,10 @@ function dotOf(l){ const m = {'绿': 'green', '黄': 'yellow', '红': 'red'}; re
 /* 组件级版本可用度的 title：把「哪几条流水线、各是多少、加起来除以几条」摊开写，
    口径变了要能一眼核对 —— 组件级 = Σ各流水线版本可用度 ÷ 流水线条数。 */
 function vaTitleOf(mineVA, vals, rate, wdN, from, to){
-  /* 社区组件（rateRule='days'，口径对齐 pr-ci-board）：分母是各流水线**有执行记录的天数**，
-     未执行的日子不进分母；openlibing 组件仍以区间法定工作日数为分母。 */
-  const isDays = isDaysRule(mineVA);
+  /* 分母统一为「该流水线有执行记录的天数」：当天有运行开始或结束才算，没启动 / 没跑过的
+     日子不进分母（老归档缺 vaDetail 时才退回区间法定工作日数 wdN 兜底）。 */
   const lines = ['版本可用度（组件级 = 各流水线版本可用度之和 ÷ 流水线条数）',
-                 '统计区间 ' + from + ' ~ ' + to + (isDays
-                   ? ' ｜ 口径：成功天数 ÷ 有执行记录的天数'
-                   : ' ｜ 法定工作日 ' + wdN + ' 天')];
+                 '统计区间 ' + from + ' ~ ' + to + ' ｜ 口径：可用天数 ÷ 有执行记录的天数'];
   if (!vals.length){
     lines.push(mineVA.length
       ? '该组件的流水线在本区间内都没有执行记录，可用度显示 --（不纳入统计）'
@@ -310,19 +308,17 @@ function vaTitleOf(mineVA, vals, rate, wdN, from, to){
   vals.forEach(function(v){ sum += Number(v); });
   mineVA.forEach(function(p){
     const skipped = (p.vaRate === null || p.vaRate === undefined || isNaN(p.vaRate));
-    const den = (p.rateRule === 'days') ? (Number(p.vaN) || 0) : wdN;
+    const den = (Number(p.vaN) > 0) ? Number(p.vaN) : wdN;
     lines.push('  ' + plDisp(p) + (skipped
       ? '  区间内无执行记录 → --（不纳入统计）'
-      : '  可用日 ' + p.vaA + ' / ' + den + ((p.rateRule === 'days') ? ' 个执行日' : '')
-        + ' → ' + fmtPct(p.vaRate)));
+      : '  可用日 ' + p.vaA + ' / 有执行记录 ' + den + ' 天 → ' + fmtPct(p.vaRate)));
   });
   lines.push('合计 ' + fmtPct(sum) + ' ÷ ' + vals.length + ' 条流水线 = ' + fmtPct(rate)
     + (mineVA.length > vals.length
       ? '（另有 ' + (mineVA.length - vals.length) + ' 条区间内无执行记录，已排除）' : ''));
   lines.push('流水线级口径：当日存在任一条成功运行即算「当天有可用版本」，'
-             + (isDays
-                ? '分母是该流水线有执行记录的天数（社区口径：aborted 与未执行的日子都不计入）'
-                : '分母是区间法定工作日数（不是有运行的天数）'));
+             + '分母是该流水线有执行记录的天数（当天有运行开始或结束才算；没启动的日子、'
+             + '以及当天只有 canceled 运行的都不计入）');
   return lines.join('\n');
 }
 
@@ -505,14 +501,15 @@ function render(docs, from, to){
   });
 
   const pipeList = Array.from(pipes.values());
-  /* 版本可用度的分母 = **区间法定工作日数**（不是「这区间里有几天跑了数」）。
-     wdInRange 数的是注入进来的法定工作日历（含节假日/调休补班），
-     与后端 step_2 采集、step_7 归档用的分母同源：区间从 1 天拉到 5 天，分母就变 5。
-     例：5 个工作日里只有 2 天出过可用版本 → 2/5 = 40%。 */
+  /* 版本可用度的分母 = **该流水线在区间内有执行记录的天数**（不是区间法定工作日数）。
+     逐日归档的 vaDetail.daysInPeriod 只有「当天有运行开始或结束（非取消）」才记 1
+     （跨午夜运行的开始日由 step_7 补一条逐日条目），所以没启动 / 没跑过的日子天然不进分母：
+     一条只在 2 天跑过的流水线是 x/2，而不是 x/5。
+     老归档缺 vaDetail（daysInPeriod 全 0）时才退回区间法定工作日数兜底（见 vaDenOf）。 */
   const wdN = wdInRange(from, to);
   pipeList.forEach(function(p){
     /* 流水线级：分子 = 可用日（当日存在任一条 iva=true 的运行即算「当天有可用版本」），
-       分母 = 区间工作日数；构建成功率仍是 Σ编译通过 / Σ编译次数。
+       分母 = 该流水线有执行记录的天数；构建成功率仍是 Σ编译通过 / Σ编译次数。
        **区间内完全没有执行记录**的流水线（RAGSDK、VisionSDK 这类只有看板配置、一次都没跑过的）
        不参与任何计算：既不能算 0%（会被当成「全部不可用」并拉低组件均值），也不能算 100%，
        比率一律给 null → 页面显示 --，组件级平均与「流水线条数」都不含它。
@@ -522,9 +519,6 @@ function render(docs, from, to){
     const noVA = !(p.vaN > 0 || p.vaVals.length);
     const noBS = !(p.bsC > 0 || p.bsVals.length);
     p.noRun = noVA && noBS;                 /* 两个维度都没有任何运行 = 该流水线无执行记录 */
-    /* 分母按口径分两套（见 lib/ui.py 的 vaDenOf）：社区组件走「有执行记录的天数」，
-       openlibing 走「区间法定工作日数」。社区口径下 wdN 会算错 —— 一条只在 2 天出过
-       构建的流水线不该拿 4 天当分母。 */
     p.vaDen = vaDenOf(p.rateRule, p.vaN, wdN);
     p.vaRate = noVA ? null : (p.vaDen > 0 ? Math.min(1, p.vaA / p.vaDen) : avgOf(p.vaVals));
     p.bsRate = noBS ? null : (p.bsC > 0 ? p.bsP / p.bsC : avgOf(p.bsVals));
@@ -753,15 +747,15 @@ function pipesModal(i){
   /* 分母只数「真的能算出可用度」的流水线：区间内一次都没跑过的（无执行记录）显示 --，
      既不进这个平均、也不算条数，否则一条没跑过的流水线会把组件均值直接拉成 0% */
   const vaList = list.filter(function(p){ return p.dims.va && p.vaRate !== null && p.vaRate !== undefined; });
-  const trs = list.map(function(p, k){
+  const trs = list.map(function(p){
     const hasVA = !!p.dims.va, hasBS = !!p.dims.bs;
     const va = (hasVA && p.vaRate !== null && p.vaRate !== undefined) ? fmtPct(p.vaRate) : '--';
     const bs = (hasBS && p.bsRate !== null && p.bsRate !== undefined) ? fmtPct(p.bsRate) : '--';
     const vaT = !hasVA ? '该流水线在区间内没有版本可用度维度'
       : (p.noRun || p.vaRate === null || p.vaRate === undefined)
         ? '该流水线在区间内没有执行记录 → 显示 --，不纳入统计'
-        : ('可用日 ' + p.vaA + ' / ' + (p.rateRule === 'days' ? '执行日 ' : '区间工作日 ')
-           + ((p.vaDen === undefined || p.vaDen === null) ? wdN : p.vaDen) + ' = ' + va);
+        : ('可用日 ' + p.vaA + ' / 有执行记录 '
+           + ((p.vaDen === undefined || p.vaDen === null) ? wdN : p.vaDen) + ' 天 = ' + va);
     const bsT = hasBS
       ? ('编译通过 ' + p.bsP + ' / 编译次数 ' + p.bsC + ' = ' + bs)
       : '该流水线在区间内没有构建成功率维度';
@@ -783,8 +777,8 @@ function pipesModal(i){
                  : '<span class="dim">--</span>') + '</td>'
       + '<td class="ctr">'
         + (p.noRun ? '<span class="dim" title="' + rfEsc(execT) + '">--</span>'
-                   : '<span class="lnk" data-exec="' + i + ':' + k + '" title="'
-                     + rfEsc(execT) + '">查看</span>')
+                   : '<span class="lnk" data-exec="' + i + '" data-pipekey="'
+                     + rfEsc(p.key) + '" title="' + rfEsc(execT) + '">查看</span>')
         + '</td>'
       + '</tr>';
   }).join('');
@@ -795,9 +789,7 @@ function pipesModal(i){
     + '<th>执行记录</th></tr></thead>'
     + '<tbody>' + trs + '</tbody></table></div>'
     + '<div class="mrec-note">区间 ' + rfEsc(r.from) + ' ~ ' + rfEsc(r.to)
-    + (isDaysRule(list)
-        ? ' · 版本可用度 = 可用日 ÷ 该流水线有执行记录的天数（社区口径，未执行的日子不计入）'
-        : ' · 法定工作日 ' + wdN + ' 天 ｜ 版本可用度 = 可用日 ÷ 区间工作日数')
+    + ' · 版本可用度 = 可用日 ÷ 该流水线有执行记录的天数（当天有运行开始或结束才算，没启动、没跑过的日子不计入）'
     + '（本组件 ' + fmtPct(r.vaRate) + ' = 各流水线之和 ÷ ' + vaList.length + ' 条可统计流水线'
     + (list.length > vaList.length ? '，另有 ' + (list.length - vaList.length) + ' 条无执行记录已排除' : '')
     + '）'
@@ -862,9 +854,7 @@ function execTable(runs, r, p){
       + '<td class="nowrap dim">' + rfEsc(tm(x.end)) + '</td>'
       + '</tr>';
   }).join('');
-  const wdN = r.wdN || 0;
-  const isDays = !!(p && p.rateRule === 'days');
-  const vaDen = isDays ? (Number(p.vaDen) || 0) : wdN;
+  const vaDen = Number(p.vaDen) || 0;
   return '<div class="mtbl"><table class="rca"><colgroup><col style="width:8%"><col style="width:9%">'
     + '<col style="width:12%"><col style="width:8%"><col style="width:11%">'
     + '<col style="width:9%"><col style="width:21.5%"><col style="width:21.5%"></colgroup>'
@@ -873,15 +863,19 @@ function execTable(runs, r, p){
     + '<tbody>' + rows + '</tbody></table></div>'
     + '<div class="mrec-note">区间 ' + rfEsc(from) + ' ~ ' + rfEsc(to)
     + ' · 区间内每一次运行逐条平铺（不按天汇总），按结束时间倒序 · 可用日 '
-    + Object.keys(okDay).length + '/' + vaDen + (isDays ? ' 个执行日' : ' 个工作日') + ' · 编译全通过 '
+    + Object.keys(okDay).length + '/' + vaDen + ' 个执行日 · 编译全通过 '
     + Object.keys(bsDay).length + ' 天 · 运行来自归档 pipeline.json 的 runHistory'
     + '（按执行结束时间归属日期）· 执行成功也逐条列出 · 点构建号直接在 openLiBing 打开该次执行。</div>';
 }
 /* 点「查看」：按流水线 key 逐日找到归档目录，再按需读 pipeline.json 取运行历史
-   （首页首屏只算比率、不带运行明细，所以这里现取；多个归档日各带同一份整区间历史，按 rn 去重） */
-function openExecOf(i, k){
+   （首页首屏只算比率、不带运行明细，所以这里现取；多个归档日各带同一份整区间历史，按 rn 去重）
+
+   入参用**身份键**而不是弹窗里的排序下标：pipesModal 渲染的是 r.pipes 按短名排序后的副本，
+   下标与 r.pipes 的原始顺序不一致，之前按下标取就会「点 A 打开 B」。 */
+function openExecOf(i, key){
   const r = ROWS[i];
-  const p = (r && r.pipes) ? r.pipes[k] : null;
+  const p = (r && r.pipes)
+    ? r.pipes.filter(function(x){ return x.key === key; })[0] : null;
   if (!r || !p) return;
   const label = plDisp(p) || p.key || '流水线';
   const from = r.from, to = r.to;
@@ -934,8 +928,8 @@ document.addEventListener('click', function(ev){
     const ex = t.closest('[data-exec]');
     if (ex){
       ev.preventDefault();
-      const a = String(ex.getAttribute('data-exec') || '').split(':');
-      openExecOf(Number(a[0]), Number(a[1]));
+      openExecOf(Number(ex.getAttribute('data-exec')),
+                 ex.getAttribute('data-pipekey') || '');
       return;
     }
     const el = t.closest('[data-pipes]');
@@ -1578,8 +1572,8 @@ function dayLights(ctx){
   return out;
 }
 /* 区间重算：只统计「执行结束时间落在当前统计区间内」的运行，逐日判定是否达标。
-   dim=va：比率 = 达标日 / **区间法定工作日数**（用户口径：当日任一条运行 iva=true 即算当天可用；
-           5 个工作日只有 2 天可用 = 2/5 = 40%，分母不含「这天有没有跑数」）
+   dim=va：比率 = 可用日 / **该流水线在区间内有执行记录的天数**（用户口径：当日任一条运行
+           iva=true 即算当天可用；当日没启动 / 没跑过的日子不进分母，被取消的运行当天也不进）
    dim=bs：比率 = Σ编译通过 / Σ编译次数（该维度口径未改）
    区间一变，分子分母同时按新区间重算，不再沿用归档当日写死的比率。 */
 function rangeStats(ctx, dim){
@@ -1616,24 +1610,22 @@ function rangeStats(ctx, dim){
     Object.keys(dayRuns).forEach(function(k){
       dayRuns[k].sort(function(a, b){ return String(a.end || '') < String(b.end || '') ? 1 : -1; });
     });
-    /* dim=va 的分母是区间工作日数（与首页、与采集口径同一个数）；
-       只有日历拿不到（wdInRange 返回 0）时才退回「有运行的天数」，保证不会出现 0/0 */
-    const wdN = wdInRange(from, to);
-    let total = (dim === 'bs') ? dayList.length : (wdN > 0 ? wdN : dayList.length);
+    /* dim=va 的分母 = 该流水线在区间内**有执行记录的天数**（没启动的日子不进分母）；
+       dim=bs 的分母 = 区间内有运行的天数。这里只是组件级的兜底值，
+       下面按流水线身份聚合后会覆盖成「各流水线的分子分母」。 */
+    let total = dayList.length;
     let availDays = okDays;
     let rate = (dim === 'bs') ? (bc > 0 ? bpc / bc : null)
                               : (total ? Math.min(1, okDays / total) : null);
     /* 组件级版本可用度（用户口径）= 该组件各流水线版本可用度的**算术平均**
        （Σ流水线可用度 ÷ 流水线条数），与首页组件行同一个算法、同一套逐日重算。
-       openlibing 组件的每条流水线分母都是同一个「区间法定工作日数」，所以算术平均等价于
-       Σ各流水线可用日 ÷ Σ各流水线工作日 —— 这里直接用分子分母求和算，避免精度损失，
-       二级页区块头的数字就能和首页点进来的数字一眼对上；社区组件（rateRule='days'）的分母
-       换成各流水线「有执行记录的天数」，同一套分子分母求和仍然等价。
+       各流水线的分母不再相同（各条「有执行记录的天数」不一样），所以必须逐条算比率再平均，
+       不能拿 Σ可用日 ÷ Σ有执行日；这样二级页区块头的数字才能和首页点进来的数字一眼对上。
        只统计带版本可用度维度的流水线（只做编译的流水线不该被算成 0%）；
-       被取消的运行不计入（用户口径：aborted 与进行中都不算）。 */
+       被取消的运行不计入（用户口径：canceled 与进行中都不算）。 */
     let pipeCount = 0;
-    /* 社区组件（rateRule='days'）的版本可用度分母 = 各流水线**有执行记录的天数**，
-       取自逐日归档的 vaDetail.daysInPeriod（aborted 当天不计入）；空表 = 全部走 openlibing 口径。 */
+    /* 各流水线的版本可用度分母 = **有执行记录的天数**，取自逐日归档的 vaDetail.daysInPeriod
+       （当天只有 canceled 运行 / 没跑过的日子记 0）；归档没这份数据时退回区间内有运行的天数。 */
     const denByPipe = vaDaysDenByPipe(ctx);
     if (dim !== 'bs'){
       /* 维度表按**身份键**建：同组件下两平台重名的流水线（openUBMC 的 codearts / gitcode）
@@ -1660,13 +1652,11 @@ function rangeStats(ctx, dim){
         const a = agg[k];
         pipeCount += 1;
         const okn = Object.keys(a.ok).length;
-        const dn = (denByPipe[k] !== undefined) ? denByPipe[k]
-                                               : (wdN > 0 ? wdN : Object.keys(a.ran).length);
+        const dn = (Number(denByPipe[k]) > 0) ? Number(denByPipe[k]) : Object.keys(a.ran).length;
         num += okn; den += dn;
         /* 组件级版本可用度 = 各流水线版本可用度的**算术平均**（用户口径：与首页组件行完全一致）。
-           openlibing 各流水线分母相同，算术平均等价于 Σ可用日 ÷ Σ工作日；
-           社区组件各流水线「有执行记录天数」各不相同，两者不再等价 ——
-           必须逐条算比率再平均，否则区块头会和首页点进来的数字对不上。 */
+           各流水线分母各不相同（各有各的执行天数），所以必须逐条算比率再平均 ——
+           否则区块头会和首页点进来的数字对不上。 */
         if (dn > 0){ rateSum += okn / dn; rateN += 1; }
       });
       if (pipeCount){
@@ -1675,9 +1665,8 @@ function rangeStats(ctx, dim){
       }
     }
     return {source: 'runs', ran: ran, runs: inRange, byDay: byDay, dayRuns: dayRuns,
-            dayList: dayList, dayOk: dayOk, total: total, workdays: wdN, availDays: availDays,
-            ranDays: dayList.length, bc: bc, bpc: bpc, pipeCount: pipeCount, rate: rate,
-            isDays: Object.keys(denByPipe).length > 0};
+            dayList: dayList, dayOk: dayOk, total: total, availDays: availDays,
+            ranDays: dayList.length, bc: bc, bpc: bpc, pipeCount: pipeCount, rate: rate};
   }
   /* 兜底：老归档没有 step_2_runs.json 的运行历史时，退回「归档日逐日灯态」口径（灯态由比率就地算）。
      只统计有灯态的日子：既没有比率也没有灯色字段的日子不计入分母，避免被当成达标日。 */
@@ -1687,7 +1676,7 @@ function rangeStats(ctx, dim){
   const total = dls.length;
   const okDays = Math.max(0, total - Object.keys(bad).length);
   return {source: 'lights', ran: ran, runs: [], byDay: {}, dayRuns: {}, dayList: [], dayOk: {},
-          total: total, availDays: okDays, bc: 0, bpc: 0, isDays: false,
+          total: total, availDays: okDays, bc: 0, bpc: 0,
           rate: total ? okDays / total : null};
 }
 /* 根因：只取本条记录的 AI 分析结论（不做任何历史结论复用），没有就留空走兜底文案 */
@@ -2322,22 +2311,17 @@ function renderRecs(recs, ctx){
   const isVA = dim !== 'bs';
   const pipeN = st.pipeCount || 0;
   /* dim=va 的组件级口径 = 各流水线版本可用度的算术平均（与首页组件行同一个算法、同一套逐日重算）：
-     openlibing 每条流水线的分母都是同一个区间法定工作日数，等价于 Σ可用日 ÷ Σ流水线工作日；
-     社区组件各流水线「有执行记录天数」不同，两者不再等价 —— 区块头按「各流水线可用度求和 ÷ 条数」算，
-     数字与首页点进来的那一行一致。
-     dim=bs 仍是 Σ编译通过 ÷ Σ编译次数，分母是「区间内有运行的工作日数」。 */
+     各流水线的分母是各自「有执行记录的天数」（当日没启动、没跑过的日子不进分母），
+     分母不同，所以只能逐条算比率再平均 —— 区块头的数字与首页点进来的那一行一致。
+     dim=bs 仍是 Σ编译通过 ÷ Σ编译次数，分母是「区间内有运行的天数」。 */
   const denomTip = (dim === 'bs')
     ? ('区间内有运行的工作日 ' + total + ' 天，其中 ' + okDays + ' 天' + okWord)
-    : (st.isDays
-        ? ('各流水线版本可用度平均：' + pipeN
-           + ' 条流水线各自「可用天数 ÷ 有执行记录天数」求和 ÷ ' + pipeN)
-        : ('各流水线版本可用度平均：区间法定工作日 ' + st.workdays + ' 天 × ' + pipeN
-           + ' 条流水线，Σ' + okWord + ' ' + okDays + ' ÷ Σ工作日 ' + total));
+    : ('各流水线版本可用度平均：' + pipeN
+       + ' 条流水线各自「可用天数 ÷ 有执行记录天数」求和 ÷ ' + pipeN
+       + '，合计可用 ' + okDays + ' 天 / 有执行记录 ' + total + ' 天');
   const denomRule = (dim === 'bs')
     ? '分母 = 区间内有运行的工作日数'
-    : (st.isDays
-        ? '分母 = 各流水线有执行记录的天数（社区口径：未执行的日子与 aborted 都不计入）'
-        : '分母 = 区间法定工作日数（不是有运行的天数）');
+    : '分母 = 各流水线在区间内有执行记录的天数（当天有运行开始或结束才算；没启动、没跑过，以及当天只有 canceled 运行的都不计入）';
   const h3 = '<h3 title="' + DIMNAME[dim] + '（组件级）：' + (st.source === 'runs'
       ? denomTip + '（逐日按执行结果重算，统计区间一变即重算；' + denomRule + '）'
       : (st.ran
@@ -2417,7 +2401,6 @@ function openExecByPipe(){
   const ctx = CTX || {};
   const dim = dimOf();
   const from = ctx.from || '', to = ctx.to || '';
-  const wdN = wdInRange(from, to);
   const grp = {}, order = [];
   (ctx.runs || []).forEach(function(x){
     const k = x.__plk || '--';
@@ -2441,15 +2424,14 @@ function openExecByPipe(){
     return {key: k, label: pipeMeta[k] || k, runs: grp[k]};
   });
   /* 两条轨道各自保持「与区块头同口径」，否则点开弹窗会看到组头 100%、组件头 96%：
-     va  组头 = 成功工作日 / 区间法定工作日（各流水线平均，分子分母分别求和 = 组件级）；
+     va  组头 = 成功天数 / 该流水线在区间内有执行记录的天数（各流水线逐条算比率再平均）；
      bs  组头 = Σ编译通过 / Σ编译次数（用户口径：最终编译成功率 = 所有通过次数 ÷ 所有编译次数，
           各流水线的分子分母分别求和就是组件级的值，所以逐条也能加得起来）。
      「共 N 次」把取消的运行也算进去（当天确实跑过），但取消的运行不算成功、也不带编译次数。 */
   const isBS = (dim === 'bs');
-  /* 社区组件（rateRule='days'）的组头分母 = 该流水线有执行记录的天数（逐日 vaDetail 累加）；
-     openlibing 仍是区间法定工作日数。与区块头 / 首页同一套分母，组头才能和组件头对上。 */
+  /* 组头分母 = 该流水线在区间内**有执行记录的天数**（逐日 vaDetail 累加，没启动的日子不进分母）。
+     与区块头 / 首页同一套分母，组头才能和组件头对上。 */
   const denDays = isBS ? {} : vaDaysDenByPipe(ctx);
-  const isDays = !isBS && Object.keys(denDays).length > 0;
   let sumNum = 0, sumDen = 0, sumPass = 0, sumCnt = 0, sumRate = 0, sumRateN = 0;
   const blocks = EXEC_GROUPS.map(function(g, gi){
     const byDay = {};
@@ -2473,11 +2455,11 @@ function openExecByPipe(){
            + '（Σ编译通过 ' + pPass + ' / Σ编译次数 ' + pCnt + '）';
       dayOk = function(e){ return e.c > 0 && e.p >= e.c; };
     } else {
-      const dd = (denDays[g.key] !== undefined);
-      den = dd ? denDays[g.key] : wdN;
+      const dd = Number(denDays[g.key]) > 0;
+      den = dd ? Number(denDays[g.key]) : days.length;
       num = days.filter(function(d){ return byDay[d].ok > 0; }).length;
       head = (den > 0 ? (num / den * 100).toFixed(2) + '%' : '--')
-           + '（成功 ' + num + ' / ' + (dd ? '已执行 ' : '已执行工作日 ') + den + '）';
+           + '（成功 ' + num + ' / 有执行记录 ' + den + ' 天）';
       dayOk = function(e){ return e.ok > 0; };
     }
     sumNum += num; sumDen += den; sumPass += pPass; sumCnt += pCnt;
@@ -2501,11 +2483,9 @@ function openExecByPipe(){
   openModal('执行记录 · 按流水线 · ' + rfEsc(COMP),
     '<div class="pexec-sum">区间 ' + rfEsc(from) + ' ~ ' + rfEsc(to) + ' · ' + EXEC_GROUPS.length
     + ' 条流水线' + (isBS ? ' · 合计编译通过 ' + sumPass + ' / 合计编译 ' + sumCnt + ' 次'
-                          : (isDays
-                              ? '平均 · ' + sumRateN + ' 条流水线可用度平均 '
-                                + fmtPct(sumRateN ? sumRate / sumRateN : null)
-                                + '（Σ可用 ' + sumNum + ' 天 ÷ Σ有执行 ' + sumDen + ' 天）'
-                              : '平均 · 合计可用 ' + sumNum + ' 天 / 合计执行 ' + sumDen + ' 个工作日'))
+                          : (' · 平均（' + sumRateN + ' 条流水线可用度平均）'
+                             + fmtPct(sumRateN ? sumRate / sumRateN : null)
+                             + '（Σ可用 ' + sumNum + ' 天 ÷ Σ有执行记录 ' + sumDen + ' 天）'))
     + ' · 按流水线分组，组内按日期倒序</div>'
     + '<div class="pexec-lg">' + execDot(true)
     + (isBS ? '当天编译全部通过' : '当天存在成功构建') + execDot(false)
@@ -2846,13 +2826,13 @@ boot();
 def workday_cal(days):
     """页面可选区间（归档首日 ~ 今天）的**法定工作日日历**，注入成页面的 WD_CAL。
 
-    版本可用度的分母是「区间法定工作日数」，前端按用户所选子区间就地数工作日，
-    所以这份日历必须覆盖用户能选到的全部范围：筛选条把最小日夹到归档首日、
+    版本可用度的分母已改成「该流水线在区间内有执行记录的天数」，这份日历现在只用于
+    顶部「工作日 N 天」的展示，以及老归档缺 vaDetail 时的分母兜底（见 lib/ui.py 的 vaDenOf）。
+    仍按用户所选子区间覆盖全部可选范围：筛选条把最小日夹到归档首日、
     最大日放到「今天」，因此取 [min(归档首日, 今天), max(归档末日, 今天)]。
 
     数据源与采集同源（lib/workdays.build_workday_set：法定节假日 + 调休补班，
-    优先 config.workday_overrides），这样「首页/二级页按子区间算出来的分母」
-    与「后端 step_2 采集、step_7 归档写下的分母」永远是同一份口径，跨长假也不会分叉。
+    优先 config.workday_overrides），日历与后端 step_2 采集用的是同一份，跨长假也不会分叉。
     取不到就返回空列表，页面自动退回周一~周五（见 lib/ui.py 的 wdInRange）。
     """
     if not days:
@@ -2932,7 +2912,7 @@ def main():
              "note": "单层结构：一个组件一个浅蓝底 h3 区块 + 一张 9 列固定列宽（12/7/11/11/10/12/17/9/11）的 table.rca，"
                      "table-layout:fixed 保证列宽不随内容变化；"
                      "区块头比率与首页组件行同一个口径：版本可用度 = 该组件各流水线版本可用度的算术平均"
-                     "（每条流水线的分母都是区间法定工作日数，等价于 Σ可用日 ÷ Σ流水线工作日），"
+                     "（每条流水线的分母是它自己在区间内有执行记录的天数，当天有运行开始或结束才算，没启动的日子不进分母），"
                      "构建成功率 = Σ编译通过 ÷ Σ编译次数，首页点进来数字对得上；"
                      "每行 = 一次执行记录（一条构建一行，不做任何聚合）：首列「流水线」标明这条记录属于哪一条流水线"
                      "（区间内该组件可能有多条流水线、每条每天一个归档目录，全部收进同一张表）；"
@@ -2960,9 +2940,9 @@ def main():
                      "定性写「执行成功，用例通过率 xx（未达 100%）」、用例列给通过率、错误信息列写「任务执行成功，无失败日志」，"
                      "不取证、不送 AI，不计入「需根因执行记录」，在「失败类型分布」里按「用例未 100%」单独计数）；"
                      "没有根因正文（analysis.status=na）显示 --，还没分析的显示「待 AI 根因分析」；"
-                     "区块头「可用 N/M 工作日」之后是「执行记录」入口（不再摊列「N 条流水线：a、b、c…」）："
+                     "区块头「可用 N/M 天」之后是「执行记录」入口（不再摊列「N 条流水线：a、b、c…」）："
                      "弹窗按流水线分组、组内按日期倒序逐天给灯态与「成功 x / 共 y 次」，"
-                     "组头给该流水线达成率（成功工作日 / 已执行工作日），点「逐条」再进该流水线的逐条运行；"
+                     "组头给该流水线达成率（成功天数 / 该流水线有执行记录的天数），点「逐条」再进该流水线的逐条运行；"
                      "弹窗共 2 个入口（失败用例 / 日志证据）；"
                      "同组分析对比入口已随拆行下线；"
                      "不读 step_6_records.json（单份可达 80KB+），记录正文随该流水线的 pipeline.json 一次取回"},
@@ -2972,7 +2952,7 @@ def main():
             "where": "只有首页：首页表格下方的 #tnote（二级页不再放统计口径，脚本唯一来源 CALIBER_JS）",
             "format": "按条展示：一条一个 <li>（小标题加粗 + 一句说明），不是一整条长文字",
             "items": ["统计区间（执行结束时间）",
-                      "版本可用度（流水线）：可用日 ÷ 区间法定工作日数；可用日 = 当天有成功执行且测试用例通过率 100%",
+                      "版本可用度（流水线）：可用日 ÷ 该流水线在区间内有执行记录的天数（当天有运行开始或结束才算，没启动、没跑过的不进分母）；可用日 = 当天有成功执行且测试用例通过率 100%",
                       "版本可用度（组件）：各流水线之和 ÷ 流水线条数",
                       "特例（括号内一句）：GitHub 平台流水线不看用例 100%；vllm-ascend 只采集定时任务（schedule）运行",
                       "区间内无执行记录显示 --（不参与平均、不计条数、不算待分析数）",

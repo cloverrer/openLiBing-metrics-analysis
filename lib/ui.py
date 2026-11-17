@@ -221,9 +221,10 @@ function rfWorkdays(f, t){
   }
   return n;
 }
-/* 区间内「法定工作日数」= 版本可用度的分母（顶部「工作日 N 天」也用它）。
+/* 区间内「法定工作日数」。现在只用于顶部「工作日 N 天」的展示与老归档兜底：
+   版本可用度的分母已改成「该流水线有执行记录的天数」（见 vaDenOf），不再用工作日数。
    WD_CAL 由第 9 步注入（lib/workdays.build_workday_set 的结果，含节假日与调休补班），
-   与后端 step_2/step_7 的分母同源；只有区间超出日历覆盖范围
+   与后端 step_2/step_7 的工作日历同源；只有区间超出日历覆盖范围
    （早于归档首日 / 晚于今天）时才退回周一~周五估算。 */
 function wdInRange(f, t){
   if (!f || !t) return 0;
@@ -245,13 +246,15 @@ function ranInPeriod(pl){
   if (v === null || v === undefined || v === '') return true;
   return Number(v) > 0;
 }
-/* 版本可用度的**分母**有两套口径，必须在这一处判，否则社区组件会被算错：
-   openlibing 侧（rateRule='runs'，老归档缺字段也按此）：分母 = 区间法定工作日数 wdN；
-   社区侧（rateRule='days'，口径对齐 pr-ci-board）：分母 = 该流水线**有执行记录的天数**
-   （逐日归档 vaDetail.daysInPeriod 累加：aborted 构建当天不进分母，没执行的日子也不进）。
-   daysN 是社区口径的逐日累加值，wdN 是区间法定工作日数。 */
+/* 版本可用度的**分母**（统一口径，用户确认）：分母 = 该流水线在区间内**有执行记录的天数**
+   （逐日归档 vaDetail.daysInPeriod 累加：当天没启动 / 没跑过、以及当天只有 canceled 运行的，
+   都不进分母）。流水线当日没启动 → 当日不计入版本可用度，所以「只在 2 天跑过的流水线」
+   不会拿 5 个法定工作日当分母（那等于把「没跑」当成「不可用」）。
+   daysN 为该口径的逐日累加值；只有老归档缺 vaDetail（daysN=0）时才退回区间法定工作日数 wdN 兜底。
+   rateRule 仅保留给调用点用，不再区分口径（openlibing 与社区同一套算法）。 */
 function vaDenOf(rateRule, daysN, wdN){
-  return (rateRule === 'days') ? (Number(daysN) || 0) : wdN;
+  const n = Number(daysN) || 0;
+  return n > 0 ? n : wdN;
 }
 /* 流水线身份键：**不能只用流水线名**。同一个组件下可能有两平台完全重名的流水线
    （openUBMC 的 Nightly-CI-Version-pipeline_openUBMC 同时存在于 codearts 与 gitcode），
@@ -270,23 +273,18 @@ function plDisp(p){
   const plat = String((p || {}).platform || '');
   return (plat && /~[0-9a-f]{6}$/i.test(s)) ? (s.replace(/~[0-9a-f]{6}$/i, '') + '-' + plat) : s;
 }
-/* 二级页/弹窗手里只有逐日归档条目（ctx.dirs，每条带 pl.rateRule 与 pl.vaDetail）：
-   按**流水线身份**把「有执行记录的天数」加出来，作为版本可用度的分母。
+/* 二级页/弹窗手里只有逐日归档条目（ctx.dirs，每条带 pl.vaDetail）：
+   按**流水线身份**把「有执行记录的天数」加出来，作为版本可用度的分母（全部组件同一口径）。
    键必须和调用方的身份键（plKeyOf）完全一致，否则同名流水线会互相覆盖累计值。 */
 function vaDaysDenByPipe(ctx){
   const m = {};
   ((ctx || {}).dirs || []).forEach(function(d){
     const pl = (d || {}).pl || {};
-    if (pl.rateRule !== 'days') return;
     const k = plKeyOf(pl);
     if (!k || k === '|') return;
     m[k] = (m[k] || 0) + (Number(((pl.vaDetail || {}).daysInPeriod)) || 0);
   });
   return m;
-}
-/* 这组流水线是否走社区「有执行天数」口径（同一组件的流水线口径一致，只用于区块头/提示文案） */
-function isDaysRule(list){
-  return !!(list && list.length) && list.every(function(p){ return (p.rateRule || 'runs') === 'days'; });
 }
 function rfClamp(v){return (v && rfState.min && v<rfState.min) ? rfState.min : ((v && rfState.max && v>rfState.max) ? rfState.max : v);}
 

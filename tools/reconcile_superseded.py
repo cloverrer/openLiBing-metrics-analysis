@@ -14,9 +14,17 @@
 其余从该日 pipeline.json 的 `records[]` 与 `steps.step_2_runs.runHistory` 中移除，
 并同步重算该日的 vaDetail/bsDetail、比率、记录计数与 `_day.json` 汇总。
 
+附带「版本可用度逐日口径重算」（--recalib-va）：口径升级成「当天有运行**开始或结束**都算
+有执行记录」后，历史归档里写死的 vaDetail 会失真（跨午夜运行的开始日在旧口径下不进分母）。
+该模式按磁盘上已归档的 pipeline.json runHistory 就地重算 openlibing 流水线的逐日 vaDetail，
+跨午夜开始日缺条目时补一条轻量 synth 条目；社区条目由 tools/rebuild_community_day.py 负责。
+只读归档、不联网、不重新取证，可反复安全重跑。
+
 用法:
-  python tools/reconcile_superseded.py            # 只扫描并列清单（不改任何文件）
-  python tools/reconcile_superseded.py --apply    # 就地清理陈旧副本并重算当日汇总
+  python tools/reconcile_superseded.py                   # 只扫描并列清单（不改任何文件）
+  python tools/reconcile_superseded.py --apply           # 就地清理陈旧副本并重算当日汇总
+  python tools/reconcile_superseded.py --recalib-va      # 扫描版本可用度口径差异（不改文件）
+  python tools/reconcile_superseded.py --recalib-va --apply   # 就地重算归档逐日 vaDetail
 """
 import argparse
 import json
@@ -26,7 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from lib import pipeline_doc  # noqa: E402
+from lib import pipeline_doc, va_caliber  # noqa: E402
 from lib.paths import (ARCHIVE_ROOT, archive_day_dir, date_of,  # noqa: E402
                        iter_archive_days, iter_scoped_pipelines)
 
@@ -147,8 +155,7 @@ def _recompute_pipeline(adir, day, drop_rids):
     doc["dateBasis"]["runs"] = [{"rn": h.get("rn"), "status": h.get("status"),
                                  "endedAt": h.get("end")} for h in today]
 
-    # 5) 当日分子/分母 + 比率（比率按本归档自身的 runHistory 重算）
-    day_va = 1 if any(h.get("iva") is True for h in today) else 0
+    # 5) 编译分子/分母（比率由调用方按统一口径重算，见 _recompute_day）
     day_bc = sum((h.get("bc") or 0) for h in today if h.get("bc") is not None)
     day_bpc = sum((h.get("bpc") or 0) for h in today if h.get("bpc") is not None)
     all_bc = sum((h.get("bc") or 0) for h in rh if h.get("bc") is not None)
@@ -159,7 +166,6 @@ def _recompute_pipeline(adir, day, drop_rids):
         "failed_today": [r for r in recs
                          if str(r.get("status") or "").upper() in FAIL_STATUS],
         "runsInPeriod": len(rh),
-        "vaDetail": {"availDays": day_va, "daysInPeriod": 1 if today else 0},
         "bsDetail": {"buildPassCount": day_bpc, "buildCount": day_bc},
         "bsRate": (min(1.0, all_bpc / float(all_bc)) if all_bc > 0 else None),
         "byCategory": _by_category(recs),
@@ -188,16 +194,21 @@ def _recompute_day(day, patches):
             entry["runsInPeriod"] = info["runsInPeriod"]
             entry["runsToday"] = len(info["today"])
             entry["failedRunsToday"] = len(info["failed_today"])
-            entry["vaDetail"] = info["vaDetail"]
             entry["bsDetail"] = info["bsDetail"]
             entry["bsRate"] = info["bsRate"]
-            if workdays:
-                # 版本可用度 = 可用日 / 区间法定工作日数（可用日 = 区间内有 isVersionAvailable=true
-                # 运行的工作日），与 step_7 的 recompute_rates 同口径；必须用**整区间** runHistory
-                # 而不是「当日运行」，否则分母是整天数、分子只有一天，比率会被算成 1/N。
-                avail = {_day_of(h.get("end")) for h in info["runHistory"]
-                         if h.get("iva") is True} & workdays
-                entry["vaRate"] = len(avail) / float(len(workdays))
+            # 版本可用度 = 可用日 / 该流水线有执行记录的天数（当天有运行**开始或结束**才算，
+            # 跨午夜运行的开始日也进分母）。与 step_7 的 recompute_rates、页面 vaDenOf 同口径：
+            # 必须用**整区间** runHistory 重算，而不是「当日运行」，否则分母只有一天、比率会算成 1/N。
+            vm = va_caliber.day_va(
+                [{"status": h.get("status"), "start": h.get("start"),
+                  "end": h.get("end"), "iva": h.get("iva") is True}
+                 for h in info["runHistory"]],
+                skip_statuses=("CANCELED", "CANCELLED"),
+                days_in_scope=(workdays or None))
+            av = sum(1 for v in vm.values() if v.get("availDays"))
+            dn = sum(1 for v in vm.values() if v.get("daysInPeriod"))
+            entry["vaDetail"] = vm.get(day) or {"availDays": 0, "daysInPeriod": 0}
+            entry["vaRate"] = (av / float(dn)) if dn > 0 else None
             if not info["today"]:
                 entry["note"] = "当日无任何运行记录（该流水线的运行按结束时间归属到了别的日期）"
             break
@@ -237,10 +248,165 @@ def _refresh_index():
     _save_json(ip, idx)
 
 
+# ---------------------------------------------- 版本可用度逐日口径重算（口径变更后的归档修复）
+# 口径（lib/va_caliber）：分母 = 当天有运行**开始或结束**（去重）→ 跨午夜运行的开始日也进分母；
+# 分子 = 当天有 iva=true 的运行**结束**。归档里写死的 vaDetail 一旦口径升级就会失真，
+# 这里按磁盘上已经归档好的 pipeline.json runHistory 就地重算，不联网、不重新取证。
+OL_SKIP = ("CANCELED", "CANCELLED")     # openlibing 侧的取消状态
+# 同一运行跨日会有多份副本，只认结束时间最晚的权威副本（口径见模块 docstring）
+def _scan_archive():
+    """返回 (union, entries, channels)：
+    union    {key: {rn: run}}   各流水线整区间运行清单（跨日副本去重，取 end 最晚）
+    entries  {day: {key: entry}} 各归档日 _day.json 的流水线条目
+    channels {key: 'community' | 'openlibing'}
+    """
+    union, entries, channels = {}, {}, {}
+    for day, day_dir in iter_archive_days():
+        for it in (_load_json(day_dir / "_day.json") or {}).get("pipelines") or []:
+            key = it.get("key") or ("%s|%s" % (it.get("component"), it.get("pipeline")))
+            entries.setdefault(day, {})[key] = it
+            channels[key] = "community" if it.get("channel") == "community" else "openlibing"
+        for comp, pipe, adir in iter_scoped_pipelines(day_dir):
+            doc = pipeline_doc.load(adir)
+            if not doc:
+                continue
+            key = doc.get("key") or ("%s|%s" % (comp, pipe))
+            m = union.setdefault(key, {})
+            rh = ((doc.get("steps") or {}).get("step_2_runs") or {}).get("runHistory") or []
+            for h in rh:
+                rn = h.get("rn")
+                cur = m.get(rn)
+                if cur is None or str(h.get("end") or "") > str(cur.get("end") or ""):
+                    m[rn] = h
+    return union, entries, channels
+
+
+def _synth_from(template, vd):
+    """当天只有运行「开始」、没有任何运行「结束」：补一条轻量条目进分母（分子 0）。"""
+    e = json.loads(json.dumps(template, ensure_ascii=False))
+    e["vaDetail"] = {"availDays": int(vd.get("availDays") or 0),
+                     "daysInPeriod": int(vd.get("daysInPeriod") or 0)}
+    e["runsToday"] = 0
+    e["failedRunsToday"] = 0
+    e["records"] = 0
+    e["runNumbers"] = []
+    e["tasks"] = e["cases"] = e["errorMessages"] = 0
+    e["evidenceFiles"] = 0
+    e["byCategory"] = {}
+    e["note"] = ("当日仅启动、未结束（跨午夜运行）：计入版本可用度分母，当天不计可用")
+    return e
+
+
+def _refresh_day_counts(day):
+    """按当日 _day.json 的流水线条目重算日级计数（补 synth 条目后必须同步）。"""
+    p = archive_day_dir(day) / "_day.json"
+    d = _load_json(p) or {}
+    pipes = d.get("pipelines") or []
+    counts = d.setdefault("counts", {})
+    counts.update({
+        "components": len({x.get("component") for x in pipes}),
+        "pipelines": len(pipes),
+        "records": sum(int(x.get("records") or 0) for x in pipes),
+        "tasks": sum(int(x.get("tasks") or 0) for x in pipes),
+        "cases": sum(int(x.get("cases") or 0) for x in pipes),
+        "errorMessages": sum(int(x.get("errorMessages") or 0) for x in pipes),
+        "evidenceFiles": sum(int(x.get("evidenceFiles") or 0) for x in pipes),
+    })
+    _save_json(p, d)
+
+
+def recalib_va(apply=False):
+    """按新口径重算归档里每条 openlibing 流水线的逐日 vaDetail（社区条目不动，另有重建工具）。
+
+    只改 vaDetail 与流水线级 vaRate，其余字段（records/runNumbers/path/platform/dims …）
+    一律保留；跨午夜开始日缺条目时补一条 synth 条目（与第 7 步归档同口径）。
+    """
+    days = [day for day, _ in iter_archive_days()]
+    if not days:
+        print("!! 归档区为空，无可重算")
+        return 0
+    scope = set(days)
+    union, entries, channels = _scan_archive()
+    changes, synths = [], []
+    for key in sorted(union):
+        if channels.get(key) == "community":
+            continue
+        runs = [{"status": h.get("status"), "start": h.get("start"),
+                 "end": h.get("end"), "iva": h.get("iva") is True}
+                for h in union[key].values()]
+        vm = va_caliber.day_va(runs, skip_statuses=OL_SKIP, days_in_scope=scope)
+        a = sum(1 for v in vm.values() if v.get("availDays"))
+        n = sum(1 for v in vm.values() if v.get("daysInPeriod"))
+        for day in sorted(vm):
+            v = vm[day]
+            exp = {"availDays": int(v.get("availDays") or 0),
+                   "daysInPeriod": int(v.get("daysInPeriod") or 0)}
+            if not exp["daysInPeriod"]:
+                continue
+            ent = (entries.get(day) or {}).get(key)
+            if ent is None:
+                synths.append((day, key, exp))
+                continue
+            cur = ent.get("vaDetail") or {}
+            if (int(cur.get("availDays") or 0) != exp["availDays"]
+                    or int(cur.get("daysInPeriod") or 0) != exp["daysInPeriod"]):
+                changes.append((day, key, cur, exp,
+                                (a / float(n)) if n > 0 else None, ent.get("rateRule")))
+    print("== 版本可用度逐日口径重算（分母 = 当天有运行开始或结束）==")
+    print("需要更新 vaDetail 的条目：%d 条" % len(changes))
+    for day, key, cur, exp, rate, rule in changes:
+        print("  %s %-52s %s -> %s" % (day, key, cur, exp))
+    print("需要新补 synth 条目：%d 条" % len(synths))
+    for day, key, exp in synths:
+        print("  %s %-52s %s" % (day, key, exp))
+    if not changes and not synths:
+        print("结论：归档逐日口径已与当前口径一致，无需改动")
+        return 0
+    if not apply:
+        print("（dry-run，未改动任何文件；加 --apply 就地写回）")
+        return 0
+    touched = set()
+    for day, key, cur, exp, rate, rule in changes:
+        p = archive_day_dir(day) / "_day.json"
+        d = _load_json(p) or {}
+        for it in d.get("pipelines") or []:
+            k = it.get("key") or ("%s|%s" % (it.get("component"), it.get("pipeline")))
+            if k != key:
+                continue
+            it["vaDetail"] = dict(exp)
+            if rule == "runs" and rate is not None:
+                it["vaRate"] = rate
+        _save_json(p, d)
+        touched.add(day)
+    for day, key, exp in synths:
+        p = archive_day_dir(day) / "_day.json"
+        d = _load_json(p) or {}
+        template = None
+        for d2 in sorted(days, reverse=True):        # 取该流水线已有的条目当模板
+            template = (entries.get(d2) or {}).get(key)
+            if template is not None:
+                break
+        if template is None:
+            continue
+        (d.setdefault("pipelines", [])).append(_synth_from(template, exp))
+        _save_json(p, d)
+        touched.add(day)
+    for day in sorted(touched):
+        _refresh_day_counts(day)
+    _refresh_index()
+    print("== 已重算 %d 个归档日（更新 %d 条 + 新增 %d 条）=="
+          % (len(touched), len(changes), len(synths)))
+    return 0
+
+
 def main():
-    ap = argparse.ArgumentParser(description="清理同一 pipelineRunId 的跨日陈旧副本")
-    ap.add_argument("--apply", action="store_true", help="就地清理并重算当日汇总（默认只扫描）")
+    ap = argparse.ArgumentParser(description="清理同一 pipelineRunId 的跨日陈旧副本 / 重算版本可用度口径")
+    ap.add_argument("--apply", action="store_true", help="就地写回（默认只扫描，不改任何文件）")
+    ap.add_argument("--recalib-va", action="store_true",
+                    help="按当前版本可用度口径重算归档逐日 vaDetail（口径变更后的历史修复）")
     args = ap.parse_args()
+    if args.recalib_va:
+        return recalib_va(apply=args.apply)
 
     dups = scan()
     keeps, drops = plan(dups)

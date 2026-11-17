@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """模拟页面组件级版本可用度：读 _day.json，按 page 口径（逐日 vaA/vaN 累加、
-无运行流水线排除、社区 rateRule=days 分母=Σ天 否则 wdN）算每个组件在区间内的可用度。"""
+无运行流水线排除、分母=该流水线在区间内有执行记录的天数 vaN，缺 vaDetail 才退回 wdN）
+算每个组件在区间内的可用度。"""
 import io
 import json
 import os
@@ -62,7 +63,7 @@ def main():
             if "va" not in r["dims"]:
                 continue
             no_run = not (r["vaN"] > 0 or r["vaVals"])
-            den = r["vaN"] if r["rule"] == "days" else wdN
+            den = r["vaN"] if r["vaN"] > 0 else wdN   # 分母=有执行记录的天数，缺 vaDetail 才退回工作日数
             if no_run:
                 print("   %-56s 无执行记录(排除) 逐日=%s" % (r["name"], r["days"]))
                 continue

@@ -99,10 +99,13 @@ def load_json(p, default=None):
 
 
 def window_from_config(args):
+    """区间取值：--start/--end > 环境变量 RCA_START/RCA_END（run_pipeline 传入）> config.date_range。"""
     cfg = load_json(CONFIG, {}) or {}
     dr = cfg.get("date_range") or {}
-    start = args.start or str(dr.get("start") or "").strip()
-    end = args.end or str(dr.get("end") or "").strip()
+    start = (args.start or os.environ.get("RCA_START")
+             or str(dr.get("start") or "").strip())
+    end = (args.end or os.environ.get("RCA_END")
+           or str(dr.get("end") or "").strip())
     if not start or not end:
         raise SystemExit("!! 未指定区间（--start/--end）且 config.date_range 为空")
     return start, end
@@ -776,8 +779,11 @@ def _ol_tasks(arch, cid, short, it_list, t6, t5):
     return tasks
 
 
-def collect_openlibing_community(comm, start, end, day_entries, prod_acc):
-    """openLiBing 侧社区流水线采集并归档（与 Jenkins 社区同归并口径）。"""
+def collect_openlibing_community(comm, start, end, day_entries, prod_acc, scope):
+    """openLiBing 侧社区流水线采集并归档（与 Jenkins 社区同归并口径）。
+
+    scope = 采集窗口内的自然日集合，逐日 vaDetail 只认窗口内的日子（窗口外的开始日不进分母）。
+    """
     cid = comm["id"]
     cfg = load_json(CONFIG, {}) or {}
     pipe_rates, pipe_bs = [], []
@@ -1123,17 +1129,15 @@ def merge_products(prods):
 
 
 # ------------------------------------------------------------------ 主流程
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--start")
-    ap.add_argument("--end")
-    ap.add_argument("--community", help="只采集指定社区（缺省为全部）")
-    args = ap.parse_args()
-    start, end = window_from_config(args)
+def run(start, end, community=None):
+    """按区间 [start, end] 采集社区 Nightly 并归档（供 CLI 与第 7b 步共用）。
 
+    community 指定时只采集该社区；缺省采集 community_sources.json 里的全部社区。
+    产出与第 7 步同层：归档目录 + 并入当日 _day.json + 刷新 _products.json / _index.json。
+    """
     src = load_json(SOURCES, {}) or {}
     comms = [c for c in (src.get("communities") or [])
-             if not args.community or c.get("id") == args.community]
+             if not community or c.get("id") == community]
     if not comms:
         raise SystemExit("!! community_sources.json 里没有匹配的社区")
     print("== 社区 Nightly 采集：%s ~ %s ｜ %d 个社区" %
@@ -1146,7 +1150,7 @@ def main():
         mode = comm.get("fetch_mode") or "ajax"
         print("\n-- 社区 %s（%s ｜ %s）" % (cid, comm.get("jenkins_base") or "openLiBing", mode))
         if mode == "openlibing":              # openLiBing 侧社区流水线：走 N2/T4/T6/T5 采集链路
-            collect_openlibing_community(comm, start, end, day_entries, prod_acc)
+            collect_openlibing_community(comm, start, end, day_entries, prod_acc, scope)
             continue
         base = comm["jenkins_base"].rstrip("/")
         headers, auth_note = auth_headers(cid, comm)
@@ -1220,6 +1224,17 @@ def main():
     merge_index(set(day_entries))
     print("\n== 归档完成：%d 个归档日被更新，%d 个社区组件并入 _products.json"
           % (len(day_entries), len(prod_acc)))
+    return day_entries, prod_acc
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--start")
+    ap.add_argument("--end")
+    ap.add_argument("--community", help="只采集指定社区（缺省为全部）")
+    args = ap.parse_args()
+    start, end = window_from_config(args)
+    run(start, end, args.community)
 
 
 if __name__ == "__main__":

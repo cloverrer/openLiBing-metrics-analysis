@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""openLiBing 夜间流水线根因分析：唯一入口 —— 第 1 段（第 1~7 步采集归档）+ 第 3 段（第 9 步生成展示页）。
+"""openLiBing 夜间流水线根因分析：唯一入口 —— 第 1 段（第 1~7b 步采集归档）+ 第 3 段（第 9 步生成展示页）。
 
 本 skill 是「取数 → AI 根因 → 出页」的完整流程，共三段，不可中途汇报完成:
   第 1 段 本脚本（默认参数）取数归档 + 出静态壳；退出码 0 表示采集完成，必须接着做第 2 段。
@@ -71,6 +71,7 @@ STEPS = [
     ("step_5c_github", "第 5c 步【GitHub】github 平台运行日志取证"),
     ("step_6_records", "第 6 步 证据合并 → 逐条执行记录"),
     ("step_7_archive", "第 7 步 逐层归档（日期/组件/流水线）"),
+    ("step_7b_community", "第 7b 步 社区 Nightly 采集（openGauss / openEuler / UBS Core）"),
     ("step_9_pages", "第 9 步 生成展示页（静态壳 → out/html/，数据运行时读归档）"),
 ]
 EXIT_EARLY_OK = 42
@@ -80,9 +81,10 @@ LOG_NAME = "run_pipeline.log"
 SERVE_HOST = "127.0.0.1"
 SERVE_PORT = 8765
 # 需要真实浏览器（CDP 跑页面脚本取数）的步骤；其余步骤纯本地读写，不碰浏览器
+# （第 7b 步的 openLiBing 侧社区流水线，如 UBS Core，走 N2/T4/T6/T5 页面脚本，需浏览器）
 NEEDS_BROWSER = {
     "step_1_nightly", "step_2_runs", "step_3_tasks", "step_4_testreport",
-    "step_5_logs", "step_5b_subtasks", "step_5c_github",
+    "step_5_logs", "step_5b_subtasks", "step_5c_github", "step_7b_community",
 }
 
 

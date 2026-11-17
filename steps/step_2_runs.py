@@ -7,9 +7,11 @@
       isVersionAvailable/buildCount/buildPassCount/failedTaskType/casePassRate/workflowRunUrl；
       待查运行直接以记录内 pipelineRunId 构造 openlibing /apps/pipelineDetail 链接下钻
       （第 3 步 T4 用同一 pipelineRunId 取任务图谱）。
-时间口径: 运行按【结束时间】归属——是否落入统计周期、归属哪一天、是否工作日
+时间口径: 运行归档按【结束时间】归属——是否落入统计周期、归属哪一天、是否工作日
           均以 pipelineRunEndtime 判定（跨午夜运行归到结束日）；
           无结束时间的记录（进行中/排队中）不纳入本周期统计。
+版本可用度逐日口径（lib/va_caliber）: 分母 = 当天有运行**开始或结束**（去重，跨午夜运行的
+          开始日也进分母）；分子 = 当天有 iva=true 的运行**结束**；当天完全没启动的日子不计入。
 同运行去重: 同一运行可能有多条评估记录（挂起运行按日重复评估），
           按 pipelineRunNumber 去重保留 pipelineRunEndtime 最新一条。
 VA 日可用口径（双指标）: 当天任一次运行 服务端 isVersionAvailable=true → 当天可用，跳过当天全部失败；
@@ -23,7 +25,8 @@ N2 接口失败的流水线: 无执行记录数据，记入 _meta.dashFailed 待
           运行仍可能是构建失败（Build* 任务失败拉低 buildSuccess，与当天可用与否无关），
           补圈为 bs-only 待查（dims 仅含 bs）；Build 是否真失败在第 3 步 T4 详情后过滤
 说明: CANCELED（人工取消/已停止）运行同样纳入取证范围；第 1 步看板比率只作兜底，
-      版本可用度 / 编译成功率一律在此按逐运行记录重算（可用日 / 有运行日、ΣbuildPassCount/ΣbuildCount）；
+      版本可用度 / 编译成功率一律在此按逐运行记录重算（可用日 / 有执行记录的天数、
+      ΣbuildPassCount/ΣbuildCount）；
       runHistory 为**区间内全部运行**（成功 + 失败），是归档层「每天全部构建记录」的唯一来源；
       逐运行附 编译次数/编译成功次数/失败任务类型（未失败为 null，报告展示"--"）及构建号跳转链接；
       github 平台流水线不计算编译成功率（buildSuccess 恒 null），bc/bpc 置 null 不采集不展示。
@@ -47,6 +50,7 @@ from lib.cdp_exec import (OUT_DIR, chunks, date_range_source, load_config,
                           save_json)
 from lib.cache import (cache_enabled, entry_key, entry_valid, load_cache,
                        prune_cache, save_cache)
+from lib.va_caliber import day_va
 from lib.workdays import build_workday_set
 
 
@@ -151,6 +155,7 @@ def main():
                     "dur": r.get("actualDurationMinutes"),
                 }
         by_day = {}
+        va_input = []          # 版本可用度逐日口径的输入（lib/va_caliber，开始日/结束日都要用）
         # 口径例外：只采定时任务运行 —— 含 PR 的运行一律不采集、不进待查、不做根因
         dropped_pr = 0
         if meta[key].get("scheduledOnly"):
@@ -174,18 +179,25 @@ def main():
                 skipped_non_workday += 1
                 continue
             by_day.setdefault(dt.strftime("%m-%d"), []).append((m, dt, sdt))
+            va_input.append({"status": m["status"], "start": m["st"], "end": m["et"],
+                             "iva": m["iva"] is True})
 
-        days, failed_runs, run_history, avail_days = {}, [], [], 0
-        day_avail = {}
+        # 版本可用度逐日口径（与 step_7 / 社区链路同一份 lib/va_caliber）：
+        # 当天有运行**开始或结束** → 进分母（去重）；当天有 iva=true 的运行**结束** → 记可用。
+        # 跨午夜运行时开始日也进分母，只有当天完全没启动 / 没跑过的日子才不计入。
+        va_map = day_va(va_input, skip_statuses=("CANCELED", "CANCELLED"),
+                        days_in_scope=set(workdays))
+        avail_days = sum(1 for v in va_map.values() if v.get("availDays"))
+        days_in_period = sum(1 for v in va_map.values() if v.get("daysInPeriod"))
+
+        days, failed_runs, run_history = {}, [], []
+        day_avail = {d[5:]: int(v.get("availDays") or 0) for d, v in va_map.items()}
         is_gh = (meta[key].get("platform") or "").lower() == "github"
         for dstr, pairs in sorted(by_day.items()):
             statuses = sorted(m["status"] or "?" for m, _, _ in pairs)
             days[dstr] = statuses
             # VA 双指标口径：构建成功且用例通过率 100%（-- 视为失败），以服务端逐运行 isVersionAvailable 为准
             day_ok = any(m["iva"] is True for m, _, _ in pairs)
-            day_avail[dstr] = 1 if day_ok else 0
-            if day_ok:
-                avail_days += 1
             for m, dt, sdt in pairs:
                 url = ("https://www.openlibing.com/apps/pipelineDetail"
                        "?pipelineId=%s&projectId=%s&pipelineRunId=%s"
@@ -248,18 +260,20 @@ def main():
             "failedRuns": failed_runs, "days": days,
             "runHistory": run_history,
             "runsInPeriod": len(run_history),
-            "availDays": avail_days, "daysInPeriod": len(days),
-            # 比率一律按采集到的运行重算（可用日 / 有运行日），看板比率仅作无运行记录时兜底
+            # 版本可用度分母 = 有执行记录的天数（当天有运行开始或结束），不是工作日数
+            "availDays": avail_days, "daysInPeriod": days_in_period,
+            # 比率一律按采集到的运行重算（可用日 / 有执行记录的天数），看板比率仅作无运行记录时兜底
             "recompute": recompute,
             "scheduledOnly": bool(meta[key].get("scheduledOnly")),
             "droppedPrRuns": dropped_pr,
             "dayAvail": day_avail,
-            "vaRateRecomputed": (avail_days / float(len(days))) if days else None,
+            "vaDetailByDay": va_map,
+            "vaRateRecomputed": (avail_days / float(days_in_period)) if days_in_period else None,
         }
-        print("  {:<36} 全量运行 {} 次 | 可用 {}/{} 工作日{} | 待查运行 {} 次（失败日 {} + 豁免日BS补圈 {}）".format(
-            key, len(run_history), avail_days, len(days),
-            ("  [重算可用度 %.2f%%，剔除 PR 运行 %d 次]" % (avail_days * 100.0 / len(days), dropped_pr))
-            if days else "",
+        print("  {:<36} 全量运行 {} 次 | 可用 {}/{} 个有执行日{} | 待查运行 {} 次（失败日 {} + 豁免日BS补圈 {}）".format(
+            key, len(run_history), avail_days, days_in_period,
+            ("  [重算可用度 %.2f%%，剔除 PR 运行 %d 次]" % (avail_days * 100.0 / days_in_period, dropped_pr))
+            if days_in_period else "",
             len(failed_runs),
             sum(1 for f in failed_runs if f["track"] == "va"),
             sum(1 for f in failed_runs if f["track"] == "bs")))
