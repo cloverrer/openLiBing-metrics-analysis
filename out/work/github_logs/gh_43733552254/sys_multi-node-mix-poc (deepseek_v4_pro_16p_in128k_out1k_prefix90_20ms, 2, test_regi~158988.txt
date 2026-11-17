@@ -1,0 +1,14 @@
+2026-11-15T19:51:07.9860000Z Requested labels: linux-amd64-cpu-4
+2026-11-15T19:51:07.9860000Z Job defined at: sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main
+2026-11-15T19:51:07.9860000Z Reusable workflow chain:
+2026-11-15T19:51:07.9860000Z sgl-project/sglang/.github/workflows/nightly-test-npu.yml@refs/heads/main (e4c3f001d6bc8cb43e778b6b27d562af550db8c9)
+2026-11-15T19:51:07.9860000Z -> sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main (e4c3f001d6bc8cb43e778b6b27d562af550db8c9)
+2026-11-15T19:51:07.9860000Z Waiting for a runner to pick up this job...
+2026-11-15T19:51:07.9850000Z Evaluating nightly-poc-multi-node-mix-tests.if
+2026-11-15T19:51:07.9850000Z Evaluating: (!cancelled() && (((needs.set-image-config.outputs.job_filter == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-mix-tests,'))))
+2026-11-15T19:51:07.9850000Z Expanded: (!false && (('all' == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-mix-tests,')))
+2026-11-15T19:51:07.9850000Z Result: true
+2026-11-15T19:51:07.9850000Z Evaluating nightly-poc-multi-node-mix-tests.deepseek_v4_pro_16p_in128.e2e.if
+2026-11-15T19:51:07.9850000Z Evaluating: success()
+2026-11-15T19:51:07.9850000Z Result: true
+2026-11-15T19:51:08.0090000Z Job is about to start running on the runner: linux-amd64-cpu-4

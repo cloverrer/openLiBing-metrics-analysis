@@ -1,0 +1,14 @@
+2026-11-15T20:20:52.0130000Z Evaluating nightly-poc-multi-node-mix-tests.if
+2026-11-15T20:20:52.0130000Z Evaluating: (!cancelled() && (((needs.set-image-config.outputs.job_filter == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-mix-tests,'))))
+2026-11-15T20:20:52.0130000Z Expanded: (!false && (('all' == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-mix-tests,')))
+2026-11-15T20:20:52.0130000Z Result: true
+2026-11-15T20:20:52.0130000Z Evaluating nightly-poc-multi-node-mix-tests.kimi_k3_w4a8_32p_mix_in12.e2e.if
+2026-11-15T20:20:52.0130000Z Evaluating: success()
+2026-11-15T20:20:52.0130000Z Result: true
+2026-11-15T20:20:52.0220000Z Job is about to start running on the runner: linux-amd64-cpu-4
+2026-11-15T20:20:52.0140000Z Requested labels: linux-amd64-cpu-4
+2026-11-15T20:20:52.0140000Z Job defined at: sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main
+2026-11-15T20:20:52.0140000Z Reusable workflow chain:
+2026-11-15T20:20:52.0140000Z sgl-project/sglang/.github/workflows/nightly-test-npu.yml@refs/heads/main (e4c3f001d6bc8cb43e778b6b27d562af550db8c9)
+2026-11-15T20:20:52.0140000Z -> sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main (e4c3f001d6bc8cb43e778b6b27d562af550db8c9)
+2026-11-15T20:20:52.0140000Z Waiting for a runner to pick up this job...

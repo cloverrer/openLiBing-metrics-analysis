@@ -1,0 +1,123 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "148f427eaa98ec941f34ddcf9ed5d48f98127e1c",
+   "lines": [
+    "[2026/11/11 12:11:32.465 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 12:11:32.466 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 12:11:32.541 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "e4d0c487572792c5a8d4bce591aa16a19f0ce9f7",
+   "lines": [
+    "[2026/11/11 12:36:53.992 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 12:36:53.993 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 12:36:54.154 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "598446dc71d7b4a26189671717dae2067f4c5098",
+   "lines": [
+    "[2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 12:11:33.431 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log": {
+   "bytes": 700,
+   "lineCount": 6,
+   "eol": true,
+   "sha1": "03c7d207b7ca5c875afcd13ac3dd89b3a819f7af",
+   "lines": [
+    "[2026/11/12 17:21:57.147 GMT+08:00] [INFO]  : Task execution completed.",
+    "[2026/11/12 17:21:57.174 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : [frame] start to send status data to service.",
+    "[2026/11/12 17:21:57.248 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : [frame] finish to save status data to service.",
+    "[2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/12 17:21:57.455 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "9dbda525097e0c07c19ae1dbf686589ee9cc8d3f",
+   "lines": [
+    "[2026/11/11 01:56:45.217 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 01:56:45.218 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 01:56:45.337 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "6bc7a8963fa5a954b504f316765178cfcb43d50b",
+   "lines": [
+    "[2026/11/12 19:20:47.304 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/12 19:20:47.305 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/12 19:20:47.390 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "7e3c03d7cdb432d10737e0cab0e441e50ac63759",
+   "lines": [
+    "[2026/11/12 20:20:54.446 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/12 20:20:54.447 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/12 20:20:54.539 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "cb3966ab2e015fc60d665a33a0122204b78b593d",
+   "lines": [
+    "[2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 00:54:05.401 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "bcc64909e7711b077cb3da0ce6702acfb7f16c04",
+   "lines": [
+    "[2026/11/11 01:25:59.735 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 01:25:59.736 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 01:25:59.834 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "15abd42854a3d1d841886129079682105e605ad7",
+   "lines": [
+    "[2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/11 01:10:28.615 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  }
+ },
+ "counts": {
+  "files": 10,
+  "bytes": 4003,
+  "lines": 33
+ }
+}

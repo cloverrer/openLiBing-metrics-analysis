@@ -5,20 +5,20 @@
   "source": "第 1~6 步中间产物（out/work/）",
   "criteria": "按执行结束时间分层归档的日期清单，逐层可查",
   "dateField": "pipelineRunEndtime",
-  "generatedAt": "2026-11-16 11:59:18",
+  "generatedAt": "2026-11-17 09:07:20",
   "indexType": "day"
  },
- "generatedAt": "2026-11-16 11:59:17",
- "dayCount": 4,
- "productCount": 13,
+ "generatedAt": "2026-11-17 09:07:20",
+ "dayCount": 5,
+ "productCount": 16,
  "productsFile": "_products.json",
  "days": [
   {
    "date": "2026-11-10",
    "path": "archive/2026/2026-11/2026-11-10",
-   "components": 12,
-   "pipelines": 47,
-   "records": 79,
+   "components": 15,
+   "pipelines": 56,
+   "records": 92,
    "tasks": 8,
    "cases": 6,
    "errorMessages": 46
@@ -26,9 +26,9 @@
   {
    "date": "2026-11-11",
    "path": "archive/2026/2026-11/2026-11-11",
-   "components": 12,
-   "pipelines": 47,
-   "records": 83,
+   "components": 15,
+   "pipelines": 56,
+   "records": 92,
    "tasks": 1,
    "cases": 2,
    "errorMessages": 4
@@ -36,22 +36,32 @@
   {
    "date": "2026-11-12",
    "path": "archive/2026/2026-11/2026-11-12",
-   "components": 12,
-   "pipelines": 47,
-   "records": 83,
-   "tasks": 6,
+   "components": 15,
+   "pipelines": 55,
+   "records": 94,
+   "tasks": 28,
    "cases": 0,
-   "errorMessages": 32
+   "errorMessages": 192
   },
   {
    "date": "2026-11-13",
    "path": "archive/2026/2026-11/2026-11-13",
-   "components": 12,
-   "pipelines": 49,
-   "records": 67,
-   "tasks": 17,
+   "components": 15,
+   "pipelines": 55,
+   "records": 74,
+   "tasks": 27,
    "cases": 14,
-   "errorMessages": 86
+   "errorMessages": 103
+  },
+  {
+   "date": "2026-11-16",
+   "path": "archive/2026/2026-11/2026-11-16",
+   "components": 15,
+   "pipelines": 50,
+   "records": 81,
+   "tasks": 54,
+   "cases": 0,
+   "errorMessages": 203
   }
  ]
 }

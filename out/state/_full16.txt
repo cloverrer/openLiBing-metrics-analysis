@@ -1,0 +1,119 @@
+### Ascend-CANN|os#153  ti=0 L96-98
+  L96 | [2026/11/16 15:01:28.901 GMT+08:00] [INFO] [制作镜像并推送到SWR仓库:external_docker_builder] : 未使用镜像缓存。
+  L97 | [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transfe
+  L98 | [2026/11/16 15:11:11.577 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败
+
+### SgLang|nightly-test-npu.yml#2223  ti=0 L712-716
+  L712 | 2026-11-16T13:02:20.4625262Z 2026-11-16 21:02:20,457 - INFO - Node 172.22.3.158:8000 is ready
+  L713 | 2026-11-16T13:02:20.4625830Z 2026-11-16 21:02:20,458 - INFO - Waiting for 1 more nodes to be ready...
+  L714 | 2026-11-16T13:57:35.6721957Z 2026-11-16 21:57:35,669 - INFO - Timeout: Not all nodes are ready after 3600 seconds
+  L715 | 2026-11-16T13:57:35.6722394Z Exception in thread Thread-1 (launch_router):
+  L716 | 2026-11-16T13:57:35.6722644Z Traceback (most recent call last):
+
+### SgLang|nightly-test-npu.yml#2224  ti=0 L2937-2940
+  L2937 | 2026-11-16T16:24:16.4731032Z 2026-11-16 16:24:16,471 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+  L2938 | 2026-11-16T16:24:21.4733072Z 2026-11-16 16:24:21,472 - INFO - timeout in 12600s
+  L2939 | 2026-11-16T16:24:21.4746185Z 2026-11-16 16:24:21,473 - INFO - Pod not ready, maybe not enough resource
+  L2940 | 2026-11-16T16:24:21.4755073Z 2026-11-16 16:24:21,474 - INFO - Starting to monitor logs for Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0
+
+### vllm-ascend|a3.yaml#16563  ti=0 L2308-2312
+  L2308 | 2026-11-15T15:47:51.6443172Z ╘═════════════════════════╧═════════╧═════════════════════╛[2026-11-15 15:47:47,281] [ais_bench] [[32mINFO[0m] Performance Result files located in outputs/default/20261115_154446/performances/vllm-api-stream-c
+  L2309 | 2026-11-15T15:47:51.6644402Z
+  L2310 | 2026-11-15T15:47:51.6645582Z [2026-11-15 15:47:51] [ERROR] [5/5] Benchmark failed: pure_decode_99, reason: Performance verification failed. The current Output Token Throughput is 1041.954 token/s, which is not greater than or equal to 0.97 
+  L2311 | 2026-11-15T15:47:51.6649049Z [2026-11-15 15:47:51] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix99_in131072_bs500_MiniMax_w8a8_0626', 'request_conf': 'vllm_api_stream_chat
+  L2312 | 2026-11-15T15:47:51.6651894Z [2026-11-15 15:47:51] [INFO] Running AISBench finished: elapsed=876s
+
+### vllm-ascend|a3.yaml#16564  ti=0 L2913-2916
+  L2913 | 2026-11-15T23:44:33.7070011Z pending_labels = "; ".join(rank_label(rank) for rank in pending)
+  L2914 | 2026-11-15T23:44:33.7080031Z > raise TimeoutError(f"Timed out waiting for external DP ranks ready: {pending_labels}")
+  L2915 | 2026-11-15T23:44:33.7093251Z E TimeoutError: Timed out waiting for external DP ranks ready: node=1 rank=0 role=decoder url=http://10.0.0.76:7100/health; node=1 rank=1 role=decoder url=http://10.0.0.76:7101/health; node=1 rank=2 role=decoder
+  L2916 | 2026-11-15T23:44:33.7101451Z
+
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#261  ti=1 L1-3
+  L1 | [2026/11/16 20:38:50.334 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: COCT.1140001.450,任务被终止执行
+  L2 | [2026/11/16 20:38:50.408 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  L3 !! 读不到
+
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#262  ti=1 L1-3
+  L1 | [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+  L2 | [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+  L3 | [2026/11/16 20:38:27.846 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+
+### SgLang|nightly-test-npu.yml#2211  ti=0 L808-815
+  L808 | 2026-11-15T15:53:34.8326192Z from sglang.srt.mem_cache.memory_pool_host import (
+  L809 | 2026-11-15T15:53:34.8326758Z File "/root/sglang/python/sglang/srt/mem_cache/memory_pool_host.py", line 66, in <module>
+  L810 | 2026-11-15T15:53:34.8327275Z from sgl_kernel_npu.operators.mem_cache import (
+  L811 | 2026-11-15T15:53:34.8327709Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'
+  L812 | 2026-11-15T15:53:34.8328271Z [ERROR] 2026-11-15-23:53:24 (PID:740, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+  L813 | 2026-11-15T15:53:34.8328929Z 2026-11-15 23:53:30,418 - INFO - kill_process_tree called: parent_pid=740, include_parent=True, pid=596
+  L814 | 2026-11-15T15:53:34.8329417Z E
+  L815 | 2026-11-15T15:53:34.8329664Z ======================================================================
+
+### SgLang|nightly-test-npu.yml#2212  ti=1 L508-512
+  L508 | 2026-11-15T17:13:45.4755459Z ASCEND_VISIBLE_DEVICES=
+  L509 | 2026-11-15T17:13:46.7293042Z can not use command: npu-smi info
+  L510 | 2026-11-15T17:13:49.7885936Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+  L511 | 2026-11-15T17:13:49.7887295Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+  L512 | 2026-11-15T17:13:49.7888480Z Running test case test/registered/npu/performance/deepseek_v4_flash/test_npu_deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms.py
+
+### SgLang|nightly-test-npu.yml#2213  ti=0 L529-533
+  L529 | 2026-11-15T16:17:30.0459611Z File "/sgl-workspace/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 22, in <module>
+  L530 | 2026-11-15T16:17:30.0460277Z from sglang.test.server_fixtures.disaggregation_fixture import (
+  L531 | 2026-11-15T16:17:30.0461427Z ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+  L532 | 2026-11-15T16:17:30.0462922Z [ERROR] 2026-11-16-00:17:30 (PID:244, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+  L533 | 2026-11-15T16:17:31.8863620Z Finished test case test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+
+### SgLang|nightly-test-npu.yml#2214  ti=0 L716-720
+  L716 | 2026-11-16T04:36:39.2406396Z File "/root/sglang/python/sglang/srt/mem_cache/memory_pool_host.py", line 66, in <module>
+  L717 | 2026-11-16T04:36:39.2406863Z from sgl_kernel_npu.operators.mem_cache import (
+  L718 | 2026-11-16T04:36:39.2407249Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators.mem_cache'
+  L719 | 2026-11-16T04:36:40.0077072Z [ERROR] 2026-11-16-12:36:39 (PID:419, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+  L720 | 2026-11-16T04:36:47.9569788Z 2026-11-16 12:36:47,953 - INFO - kill_process_tree called: parent_pid=419, include_parent=True, pid=273
+
+### SgLang|nightly-test-npu.yml#2215  ti=0 L1358-1362
+  L1358 | 2026-11-16T04:47:52.0212531Z File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py", line 3014, in all_reduce
+  L1359 | 2026-11-16T04:47:52.0213112Z work.wait()
+  L1360 | 2026-11-16T04:47:52.0213687Z RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [172.22.3.138]:43400
+  L1361 | 2026-11-16T04:47:52.0214324Z
+  L1362 | 2026-11-16T04:47:52.0214603Z [2026-11-16 12:47:52] Received sigquit from a child process. It usually means the child failed.
+
+### SgLang|nightly-test-npu.yml#2218  ti=0 L712-716
+  L712 | 2026-11-16T13:45:05.0602997Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+  L713 | 2026-11-16T13:45:05.0603579Z raise Exception("Monitoring ended but target pattern was not detected")
+  L714 | 2026-11-16T13:45:05.0604040Z Exception: Monitoring ended but target pattern was not detected
+  L715 | 2026-11-16T13:45:05.0733687Z 2026-11-16 13:45:05,072 - INFO - Metrics JSON written to /root/.cache/tests/output/YZY00Raiser-pryzy1112dspark-20261116-2032-43867439699-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_
+  L716 | 2026-11-16T13:45:05.0981270Z ConfigMap sglang-configmap-5abb10e8uj37trgf is deleted.
+
+### SgLang|nightly-test-npu.yml#2220  ti=0 L310-313
+  L310 | 2026-11-16T12:39:43.9203539Z (node:536) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+  L311 | 2026-11-16T12:40:02.4368685Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  L312 | 2026-11-16T12:40:02.5101648Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+  L313 | 2026-11-16T12:40:02.5102138Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m
+
+### SgLang|nightly-test-npu.yml#2222  ti=0 L685-689
+  L685 | 2026-11-16T12:56:11.9688973Z File "/root/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py", line 295, in find_sgl_router_binary
+  L686 | 2026-11-16T12:56:11.9689471Z raise FileNotFoundError(
+  L687 | 2026-11-16T12:56:11.9690148Z FileNotFoundError: sgl-router binary 'sgl-router' not found: build it with `cargo build --release --bin sgl-router` in sgl-router/, then put it on PATH or set SGLANG_TEST_PD_ROUTER_BINARY to its path.
+  L688 | 2026-11-16T12:56:11.9690717Z
+  L689 | 2026-11-16T12:56:11.9690868Z ----------------------------------------------------------------------
+
+### SgLang|nightly-test-npu.yml#2225  ti=0 L552-556
+  L552 | 2026-11-16T13:24:12.9875906Z 2026-11-16 21:24:12,985 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.71:8000'], decode_url=['172.22.3.77:8000'], node_ip_list=['172.22.3.77', '172.22.3.71']
+  L553 | 2026-11-16T13:25:04.2261950Z 2026-11-16 13:25:04,225 - ERROR - Pod ascend-43874714626-8e45754982vgkrzv-sglang-prefill-0 is not running, status: Succeeded
+  L554 | 2026-11-16T13:25:04.2266470Z 2026-11-16 13:25:04,225 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+  L555 | 2026-11-16T13:25:04.3146766Z 2026-11-16 13:25:04,313 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+  L556 | 2026-11-16T13:25:04.3147579Z Traceback (most recent call last):
+
+### SgLang|nightly-test-npu.yml#2226  ti=0 L671-675
+  L671 | 2026-11-16T14:53:38.2218518Z 2026-11-16 22:53:38,218 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.158:8000'], decode_url=['172.22.3.154:8000'], node_ip_list=['172.22.3.154', '172.22.3.158']
+  L672 | 2026-11-16T14:54:57.4256928Z 2026-11-16 14:54:57,424 - ERROR - Pod ascend-43888687387-474da6e2pwuzqa1g-sglang-prefill-0 is not running, status: Succeeded
+  L673 | 2026-11-16T14:54:57.4262443Z 2026-11-16 14:54:57,425 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+  L674 | 2026-11-16T14:54:57.5040801Z 2026-11-16 14:54:57,502 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+  L675 | 2026-11-16T14:54:57.5041587Z Traceback (most recent call last):
+
+### SgLang|nightly-test-npu.yml#2227  ti=0 L636-640
+  L636 | 2026-11-16T15:16:22.4051136Z can not use command: npu-smi info
+  L637 | 2026-11-16T15:16:22.4052075Z Upgrade sgl_kernel_npu from https://github.com/sgl-project/sgl-kernel-npu/releases/download/2026.11.0.post5/sgl-kernel-npu-2026.11.0.post5-torch2.10.0-py312-cann9.1.0-a3-aarch64.zip
+  L638 | 2026-11-16T15:46:39.4359793Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  L639 | 2026-11-16T15:46:39.4952878Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+  L640 | 2026-11-16T15:46:39.4953298Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m

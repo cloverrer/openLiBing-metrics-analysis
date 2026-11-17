@@ -1,0 +1,82 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_260_Test_BeiMing.log": {
+   "bytes": 1992,
+   "lineCount": 21,
+   "eol": true,
+   "sha1": "4c1894ab39fa8db6832b831749dd6705ad0d202b",
+   "lines": [
+    "[2026/11/13 11:51:24.475 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : 该步骤开始执行",
+    "[2026/11/13 11:51:24.476 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] start to send status data to service.",
+    "[2026/11/13 11:51:24.476 GMT+08:00] [INFO]  : Start to execute task.",
+    "[2026/11/13 11:51:24.503 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] finish to save status data to service.",
+    "[2026/11/13 11:51:24.954 GMT+08:00] [INFO]  : Task execution completed.",
+    "[2026/11/13 11:51:24.977 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] start to send status data to service.",
+    "[2026/11/13 11:51:24.978 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:51:25.008 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] finish to save status data to service.",
+    "[2026/11/13 11:51:25.014 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/13 11:51:34.977 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:51:35.016 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/13 11:51:44.977 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:51:45.013 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/13 11:51:54.977 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:51:55.067 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/13 11:52:04.977 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:52:05.014 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/13 11:52:14.977 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/13 11:52:15.027 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.",
+    "[2026/11/13 11:52:15.028 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!",
+    "[2026/11/13 11:52:15.097 GMT+08:00] [INFO]  : 开始: Get output to CloudBuild Task!"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_engine.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "98be6474c2796a30caef08587311f9ffc95a7671",
+   "lines": [
+    "[2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/13 13:04:41.404 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "28ba8536927ce5a235ad822aa9635c155c4ecca5",
+   "lines": [
+    "[2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/16 16:07:13.120 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_virt_container.log": {
+   "bytes": 244,
+   "lineCount": 2,
+   "eol": true,
+   "sha1": "595e8521919def6fadc3419b83e845ea9579d82a",
+   "lines": [
+    "[2026/11/16 20:38:50.334 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: COCT.1140001.450,任务被终止执行",
+    "[2026/11/16 20:38:50.408 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap_memory_fragment.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "b8458da210e71ed6d49018ae97d49c908dfa76f3",
+   "lines": [
+    "[2026/11/13 12:52:35.815 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/13 12:52:35.816 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/13 12:52:35.905 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  }
+ },
+ "counts": {
+  "files": 5,
+  "bytes": 3337,
+  "lines": 32
+ }
+}

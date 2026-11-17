@@ -1,6 +1,6 @@
 ---
 name: openlibing-nightly-rca
-description: openLiBing 工程运营看板的夜间指标取证与 AI 根因分析。一次调用跑完三件事：脚本取数归档出壳页（python run_pipeline.py）→ AI 补根因（python tools/list_pending.py → 分析 → python tools/write_analysis.py）→ 脚本重出页面（python run_pipeline.py --only step9）。当用户要求「根因分析」「分析不达标/红灯指标」「nightly 失败原因」「工程运营看板取数」「切换周期看数据」时调用。
+description: openLiBing 工程运营看板的夜间指标取证与 AI 根因分析。一次调用跑完三件事：脚本取数归档出壳页（python run_pipeline.py；社区侧 python tools/collect_community_nightly.py 通用采集）→ AI 补根因（python tools/digest_pending.py 一次拿到纯文本取证包 → 写纯文本结论 → python tools/write_analysis.py 写回）→ 脚本重出页面（python run_pipeline.py --only step9）。当用户要求「根因分析」「分析不达标/红灯指标」「nightly 失败原因」「工程运营看板取数」「切换周期看数据」时调用。
 ---
 
 # openLiBing 夜间指标取证 + 根因分析
@@ -21,16 +21,18 @@ python run_pipeline.py
 
 ## 第 2 段 AI 根因分析（agent 必须执行，脚本不做）
 
+**一次交互做完：读一份纯文本取证包 → 写一份纯文本结论 → 写回。** AI 只做「定位（哪一行原文是失败点）+ 定性（分类/根因/建议）」，不写脚本、不写 HTML、不改归档、不抓接口。
+
 ```powershell
-python tools/list_pending.py                                              # 脚本给待分析清单（只读）
-# AI 按 agent/agent_task.md 逐条分析，写出结论文件 out/state/analysis_result.json
-python tools/write_analysis.py --file out/state/analysis_result.json --dry-run
-python tools/write_analysis.py --file out/state/analysis_result.json      # 脚本原子写回
+python tools/digest_pending.py                                            # 唯一输入：清单 + 每条记录的失败任务/报错点/证据原文（带行号），一次拿全
+# AI 按 agent/agent_task.md 写结论到 out/state/analysis_result.txt（纯文本块，不用 JSON）
+python tools/write_analysis.py --file out/state/analysis_result.txt --dry-run
+python tools/write_analysis.py --file out/state/analysis_result.txt       # 脚本原子写回
 ```
 
-清单里有几条就分析几条，不跳、不合并、不按流水线打包。AI 只做「读证据 → 写根因结论」：不生成页面、不做数据筛选、不改归档。写回只允许改 `analysis` 字段、只接受 `pending` 记录，越界一律报错跳过。分析口径（分类体系、置信度分档、措辞规则、取证路径）在 `agent/analysis_profile.json`。写回成功后立刻做第 3 段，不要在这里收工。
+清单里有几条就分析几条，不跳、不合并、不按流水线打包，**也不要拆成多轮对话**（每轮只回几条会成倍拉长时长、浪费 token）。记录多时用 `--max-records` / `--record` 分批取证，不要逐条 `--show` / `--grep` 往返。写回只允许改 `analysis` 字段、只接受 `pending` 记录，越界一律报错跳过。分析口径（分类体系、置信度分档、措辞规则、取证路径）在 `agent/analysis_profile.json`。写回成功后立刻做第 3 段，不要在这里收工。
 
-取证：证据原文已逐行内嵌在归档的 `pipeline.evidence.json`（磁盘上没有散日志），一律按行号窗口取——`python tools/read_evidence.py --record "组件|流水线#构建号" --list` / `… "job_logs/x.log:L138"` / `… --grep "ERROR|fatal" --ctx 2`；不要整读 `pipeline.json` 与 `pipeline.evidence.json`。
+只有某条确实需要再往下挖时才补读取证：证据原文已逐行内嵌在归档的 `pipeline.evidence.json`（磁盘上没有散日志），一律按行号窗口取——`python tools/read_evidence.py --record "组件|流水线#构建号" --list` / `… "job_logs/x.log:L138"` / `… --grep "ERROR|fatal" --ctx 2`；不要整读 `pipeline.json` 与 `pipeline.evidence.json`。
 
 ## 第 3 段 重出页面（脚本执行）
 

@@ -1,0 +1,99 @@
+﻿2026-11-16T12:57:39.3689777Z Current runner version: '2.338.2'
+2026-11-16T12:57:39.3712339Z ##[group]Runner Image Provisioner
+2026-11-16T12:57:39.3712991Z Hosted Compute Agent
+2026-11-16T12:57:39.3713388Z Version: 20261103.629
+2026-11-16T12:57:39.3713809Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-16T12:57:39.3714257Z Build Date: 2026-11-03T17:26:59Z
+2026-11-16T12:57:39.3714665Z Worker ID: {f7c3c4c7-4a93-4190-a6b6-f07a572c1602}
+2026-11-16T12:57:39.3715119Z Region: centralus
+2026-11-16T12:57:39.3715490Z Cloud: Azure
+2026-11-16T12:57:39.3715811Z ##[endgroup]
+2026-11-16T12:57:39.3716629Z ##[group]Operating System
+2026-11-16T12:57:39.3717232Z Ubuntu
+2026-11-16T12:57:39.3717626Z 26.04.1
+2026-11-16T12:57:39.3717977Z LTS
+2026-11-16T12:57:39.3718295Z ##[endgroup]
+2026-11-16T12:57:39.3718677Z ##[group]Runner Image
+2026-11-16T12:57:39.3719036Z Image: ubuntu-26.04
+2026-11-16T12:57:39.3719409Z Version: 20261111.196.1
+2026-11-16T12:57:39.3720222Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-16T12:57:39.3721154Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-16T12:57:39.3721719Z ##[endgroup]
+2026-11-16T12:57:39.3722520Z ##[group]GITHUB_TOKEN Permissions
+2026-11-16T12:57:39.3724186Z Contents: read
+2026-11-16T12:57:39.3724613Z Metadata: read
+2026-11-16T12:57:39.3724969Z Packages: read
+2026-11-16T12:57:39.3725314Z ##[endgroup]
+2026-11-16T12:57:39.3727125Z Secret source: None
+2026-11-16T12:57:39.3727659Z Cache mode: write
+2026-11-16T12:57:39.3728323Z Prepare workflow directory
+2026-11-16T12:57:39.3936008Z Prepare all required actions
+2026-11-16T12:57:39.4004883Z Complete job name: check-all-jobs
+2026-11-16T12:57:39.4817163Z ##[group]Run multi_result="failure"
+2026-11-16T12:57:39.4817616Z [36;1mmulti_result="failure"[0m
+2026-11-16T12:57:39.4818029Z [36;1mmix_result="skipped"[0m
+2026-11-16T12:57:39.4818326Z [36;1m[0m
+2026-11-16T12:57:39.4818745Z [36;1m# single-node suites are reported per suite; overall status is success if none failed[0m
+2026-11-16T12:57:39.4819251Z [36;1msingle_result="success"[0m
+2026-11-16T12:57:39.4819549Z [36;1mfor r in \[0m
+2026-11-16T12:57:39.4819817Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4820107Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4820382Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4820658Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4820930Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4821202Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4821475Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4821747Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4822020Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4822290Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4822588Z [36;1m  "skipped" \[0m
+2026-11-16T12:57:39.4822864Z [36;1m  "skipped"; do[0m
+2026-11-16T12:57:39.4823210Z [36;1m  if [ "${r}" != "success" ] && [ "${r}" != "skipped" ]; then[0m
+2026-11-16T12:57:39.4823589Z [36;1m    single_result="failure"[0m
+2026-11-16T12:57:39.4823894Z [36;1m  fi[0m
+2026-11-16T12:57:39.4824142Z [36;1mdone[0m
+2026-11-16T12:57:39.4824387Z [36;1m[0m
+2026-11-16T12:57:39.4824628Z [36;1mgroup_icon() {[0m
+2026-11-16T12:57:39.4824906Z [36;1m  case "$1" in[0m
+2026-11-16T12:57:39.4825214Z [36;1m    success)   echo "✅" ;;[0m
+2026-11-16T12:57:39.4825520Z [36;1m    failure)   echo "❌" ;;[0m
+2026-11-16T12:57:39.4825821Z [36;1m    cancelled) echo "⏭️" ;;[0m
+2026-11-16T12:57:39.4826130Z [36;1m    skipped)   echo "⏭️" ;;[0m
+2026-11-16T12:57:39.4826431Z [36;1m    *)         echo "❓" ;;[0m
+2026-11-16T12:57:39.4826896Z [36;1m  esac[0m
+2026-11-16T12:57:39.4827150Z [36;1m}[0m
+2026-11-16T12:57:39.4827377Z [36;1m[0m
+2026-11-16T12:57:39.4827693Z [36;1mecho "## Nightly Test Results" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4828084Z [36;1mecho "" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4828442Z [36;1mecho "| Group | Status |" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4828840Z [36;1mecho "|-------|--------|" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4829432Z [36;1mfor entry in \[0m
+2026-11-16T12:57:39.4829723Z [36;1m  "nightly-1-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4830053Z [36;1m  "nightly-2-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4830377Z [36;1m  "nightly-4-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4830696Z [36;1m  "nightly-8-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4831021Z [36;1m  "nightly-16-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4831366Z [36;1m  "nightly-perf-2-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4831715Z [36;1m  "nightly-perf-4-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4832063Z [36;1m  "nightly-perf-16-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4832414Z [36;1m  "nightly-acc-2-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4832764Z [36;1m  "nightly-acc-16-npu-a3:skipped" \[0m
+2026-11-16T12:57:39.4833114Z [36;1m  "nightly-perf-4-npu-a5:skipped" \[0m
+2026-11-16T12:57:39.4833455Z [36;1m  "nightly-acc-4-npu-a5:skipped"; do[0m
+2026-11-16T12:57:39.4833789Z [36;1m  suite="${entry%%:*}"[0m
+2026-11-16T12:57:39.4834078Z [36;1m  r="${entry##*:}"[0m
+2026-11-16T12:57:39.4834459Z [36;1m  echo "| ${suite} | $(group_icon ${r}) ${r} |" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4834849Z [36;1mdone[0m
+2026-11-16T12:57:39.4835277Z [36;1mecho "| multi-node-poc | $(group_icon ${multi_result}) ${multi_result} |" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4835943Z [36;1mecho "| multi-node-mix-poc | $(group_icon ${mix_result}) ${mix_result} |" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4836439Z [36;1mecho "" >> $GITHUB_STEP_SUMMARY[0m
+2026-11-16T12:57:39.4836816Z [36;1m[0m
+2026-11-16T12:57:39.4837147Z [36;1mFAIL=0[0m
+2026-11-16T12:57:39.4837594Z [36;1mfor r in "${single_result}" "${multi_result}" "${mix_result}"; do[0m
+2026-11-16T12:57:39.4838063Z [36;1m  if [ "${r}" != "success" ] && [ "${r}" != "skipped" ]; then FAIL=1; fi[0m
+2026-11-16T12:57:39.4838436Z [36;1mdone[0m
+2026-11-16T12:57:39.4838673Z [36;1mexit $FAIL[0m
+2026-11-16T12:57:39.5383652Z shell: /usr/bin/bash -e {0}
+2026-11-16T12:57:39.5384172Z ##[endgroup]
+2026-11-16T12:57:39.5617572Z ##[error]Process completed with exit code 1.
+2026-11-16T12:57:39.5795900Z Cleaning up orphan processes

@@ -1,0 +1,1325 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": null,
+  "component": "UBS Core",
+  "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+  "date": "2026-11-12",
+  "recordCount": 2
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-12",
+ "component": "UBS Core",
+ "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+ "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+ "platform": "codearts",
+ "key": "UBS Core|Nightly-CI-Version-pipeline_BeiMing",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "value": "2026-11-12",
+  "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）",
+  "runs": [
+   {
+    "rn": 258,
+    "status": "FAILED",
+    "endedAt": "2026-11-12T20:22:57"
+   },
+   {
+    "rn": 259,
+    "status": "CANCELED",
+    "endedAt": "2026-11-12T17:23:59"
+   }
+  ]
+ },
+ "counts": {
+  "records": 2,
+  "tasks": 20,
+  "cases": 0,
+  "errorMessages": 40
+ },
+ "evidence": {
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files（键=相对本目录路径），行号 1 起",
+  "rule": "任务日志逐行内嵌，bytes/sha1/eol 可无损还原"
+ },
+ "source": {
+  "step": "tools/collect_community_nightly.py",
+  "generatedAt": "2026-11-16 20:46:21",
+  "note": "openLiBing 侧社区流水线（N2 执行记录 + T4/T6/T5 任务取证）"
+ },
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "openLiBing 侧社区 Nightly 流水线点灯依据",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-16 20:46:21",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-12"
+   },
+   "pipeline": {
+    "product": "UBS Core",
+    "pipelineShortName": "Nightly-CI-Version-pipeline_BeiMing",
+    "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+    "platform": "codearts",
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "pipelineId": "openlibing:UBS Core:b51d159e1b9d4c6798dcda723e1876db",
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "days",
+    "reason": "openLiBing 侧社区采集：当日 2 次运行，版本可用度按「成功天数÷有执行天数」、编译成功率按「Σ编译成功次数÷Σ编译次数」统计"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "N2 nightly-dashboard-detail 逐运行明细（按结束时间归属）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 20:46:21",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-12"
+   },
+   "date": "2026-11-12",
+   "runHistory": [
+    {
+     "rn": 258,
+     "rid": "9a6238b364d44d1b98df4eb9adcd3bb3",
+     "status": "FAILED",
+     "start": "2026-11-11T00:00:22",
+     "end": "2026-11-12T20:22:57",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=9a6238b364d44d1b98df4eb9adcd3bb3"
+    },
+    {
+     "rn": 259,
+     "rid": "cf0dfc8ef1024a22a25cb9628f4feac3",
+     "status": "CANCELED",
+     "start": "2026-11-11T12:00:06",
+     "end": "2026-11-12T17:23:59",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=cf0dfc8ef1024a22a25cb9628f4feac3"
+    }
+   ],
+   "runs": [
+    {
+     "rn": 258,
+     "status": "FAILED",
+     "start": "2026-11-11T00:00:22",
+     "end": "2026-11-12T20:22:57",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    },
+    {
+     "rn": 259,
+     "status": "CANCELED",
+     "start": "2026-11-11T12:00:06",
+     "end": "2026-11-12T17:23:59",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    }
+   ],
+   "failedRuns": [
+    {
+     "rn": 258,
+     "rid": "9a6238b364d44d1b98df4eb9adcd3bb3",
+     "status": "FAILED",
+     "start": "2026-11-11T00:00:22",
+     "end": "2026-11-12T20:22:57",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=9a6238b364d44d1b98df4eb9adcd3bb3"
+    },
+    {
+     "rn": 259,
+     "rid": "cf0dfc8ef1024a22a25cb9628f4feac3",
+     "status": "CANCELED",
+     "start": "2026-11-11T12:00:06",
+     "end": "2026-11-12T17:23:59",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=cf0dfc8ef1024a22a25cb9628f4feac3"
+    }
+   ],
+   "keptRuns": 2,
+   "keptFailedRuns": 2
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "T4 任务图谱分流：任务名 test 开头 → T6，其余 → T5",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 20:46:21",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-12"
+   },
+   "results": [],
+   "counts": {
+    "tasks": 20
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "T5 任务日志取证（导出失败自动回退分页接口）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 20:46:21",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-12"
+   },
+   "results": [
+    {
+     "jobName": "Deploy_Test_ubs_comm",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_comm执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:56:45.217 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:56:45.218 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/12 19:20:47.304 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/12 19:20:47.305 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/12 20:20:54.446 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/12 20:20:54.447 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs-virt",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs-virt执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:25:59.735 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:25:59.736 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:11:32.465 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:11:32.466 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:36:53.992 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:36:53.993 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_virt_container",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "logBytes": 700,
+     "logLines": 6,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_virt_container执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L4: [2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L5: [2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 10,
+    "logFiles": 10,
+    "errorLines": 20
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次运行」为最小单位合并记录（openLiBing 社区）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 20:46:21",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-12"
+   },
+   "date": "2026-11-12",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "counts": {
+    "records": 2,
+    "tasks": 20,
+    "cases": 0,
+    "errorMessages": 40
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 972,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "openLiBing 侧社区 Nightly 流水线点灯依据",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 2239,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "N2 nightly-dashboard-detail 逐运行明细（按结束时间归属）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 442,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "T4 任务图谱分流：任务名 test 开头 → T6，其余 → T5",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 8812,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "T5 任务日志取证（导出失败自动回退分页接口）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 812,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次运行」为最小单位合并记录（openLiBing 社区）",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#258",
+   "date": "2026-11-12",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "buildNumber": 258,
+   "pipelineRunId": "9a6238b364d44d1b98df4eb9adcd3bb3",
+   "status": "FAILED",
+   "failedTaskType": "其他任务",
+   "startedAt": "2026-11-11T00:00:22",
+   "endedAt": "2026-11-12T20:22:57",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-12T20:22:57",
+    "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）"
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": null,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=9a6238b364d44d1b98df4eb9adcd3bb3",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Deploy_Test_ubs_comm",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_comm",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_comm执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:56:45.217 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:56:45.218 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/12 19:20:47.304 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/12 19:20:47.305 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/12 20:20:54.446 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/12 20:20:54.447 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs-virt",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs-virt",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs-virt执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:25:59.735 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:25:59.736 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Deploy_Test_ubs_comm",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 01:56:45.217 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_comm",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 01:56:45.218 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_comm",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_comm执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_comm",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/12 19:20:47.304 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/12 19:20:47.305 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/12 20:20:54.446 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/12 20:20:54.447 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 00:54:05.313 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubturbo_smap执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs-virt",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 01:25:59.735 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs-virt",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 01:25:59.736 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs-virt",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs-virt执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs-virt",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 01:10:28.503 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log"
+    ],
+    "missing": [
+     "Deploy_Test_ubs-virt",
+     "Deploy_Test_ubs_comm",
+     "Deploy_Test_ubs_engine",
+     "Deploy_Test_ubs_mem",
+     "Deploy_Test_ubturbo_smap",
+     "Deploy_Test_ubturbo_smap_memory_fragment"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 12,
+    "testTasks": 6,
+    "logTasks": 6,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 24,
+    "evidenceFiles": 6
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.1,
+    "level": "低",
+    "basis": [
+     "test 任务 Deploy_Test_ubs_comm 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 6 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Deploy_Test_ubs_comm 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs_mem 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs_engine 无任何证据 −0.20",
+     "任务 Deploy_Test_ubturbo_smap 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs-virt 无任何证据 −0.20",
+     "任务 Deploy_Test_ubturbo_smap_memory_fragment 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "issueType": "基础设施/平台",
+    "issueDetail": "被桥接测试任务执行失败且未回传报错",
+    "rootCause": "本次运行中 6 个测试任务（Deploy_Test_ubs_comm、Deploy_Test_ubs_mem、Deploy_Test_ubs_engine、Deploy_Test_ubs-virt、Deploy_Test_ubturbo_smap、Deploy_Test_ubturbo_smap_memory_fragment）在被桥接的执行环节先后失败，桥接层把失败统一收口为「任务执行失败」，被桥接任务自身没有回传任何具体报错（错误信息为空），因此本次运行既没有可用的测试报告，也拿不到下层任务的失败堆栈。失败时间分散在 11-11 00:54～01:56 与 11-12 19:20～20:20 两个时间窗，属于被桥接的测试任务侧执行失败；同次运行 9 个编译任务全部通过，问题不在编译环节。",
+    "advice": "到被桥接的测试任务侧（BeiMing 日常测试流水线下这 6 个 Deploy_Test_* 任务）逐个核对对应构建的控制台日志，确认是环境准备失败还是测试脚本本身失败；同时建议在平台侧补齐桥接任务的报错回传，否则看板只能停在这一层。\n\n验证方式：定位并修复下层任务后重跑 Nightly-CI-Version-pipeline_BeiMing，确认 6 个 Deploy_Test_* 任务全部通过、当日版本可用度恢复。",
+    "cites": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_mem.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_engine.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs-virt.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubturbo_smap_memory_fragment.log:2"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_258_Deploy_Test_ubs_comm.log:2",
+    "updatedAt": "2026-11-16 20:58:50",
+    "firstAnalyzedAt": "2026-11-16 20:58:50",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#259",
+   "date": "2026-11-12",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "buildNumber": 259,
+   "pipelineRunId": "cf0dfc8ef1024a22a25cb9628f4feac3",
+   "status": "CANCELED",
+   "failedTaskType": "其他任务",
+   "startedAt": "2026-11-11T12:00:06",
+   "endedAt": "2026-11-12T17:23:59",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-12T17:23:59",
+    "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）"
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": null,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=cf0dfc8ef1024a22a25cb9628f4feac3",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:11:32.465 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:11:32.466 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_mem",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:36:53.992 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:36:53.993 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_engine",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_virt_container",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Deploy_Test_ubs_virt_container",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "logBytes": 700,
+     "logLines": 6,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Deploy_Test_ubs_virt_container执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L4: [2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L5: [2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 12:11:32.465 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 12:11:32.466 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubturbo_smap_memory_fragment执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubturbo_smap_memory_fragment",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 12:36:53.992 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 12:36:53.993 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_mem执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_mem",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/11 12:11:33.360 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_engine执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_engine",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_virt_container",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "line": 4,
+     "level": "LOG",
+     "text": "[2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Deploy_Test_ubs_virt_container",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "line": 5,
+     "level": "LOG",
+     "text": "[2026/11/12 17:21:57.377 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Deploy_Test_ubs_virt_container",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Deploy_Test_ubs_virt_container执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Deploy_Test_ubs_virt_container",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log"
+    ],
+    "missing": [
+     "Deploy_Test_ubs_engine",
+     "Deploy_Test_ubs_mem",
+     "Deploy_Test_ubs_virt_container",
+     "Deploy_Test_ubturbo_smap_memory_fragment"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 8,
+    "testTasks": 4,
+    "logTasks": 4,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 16,
+    "evidenceFiles": 4
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.1,
+    "level": "低",
+    "basis": [
+     "test 任务 Deploy_Test_ubturbo_smap_memory_fragment 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 4 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Deploy_Test_ubturbo_smap_memory_fragment 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs_mem 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs_engine 无任何证据 −0.20",
+     "任务 Deploy_Test_ubs_virt_container 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "issueType": "无法判定",
+    "issueDetail": "运行被人工取消，执行中任务被终止",
+    "rootCause": "本次运行被人工取消（CANCELED），运行期间正在执行的 4 个测试任务（Deploy_Test_ubturbo_smap_memory_fragment、Deploy_Test_ubs_mem、Deploy_Test_ubs_engine、Deploy_Test_ubs_virt_container）随之被终止，桥接层以「任务执行失败」收尾。属于运行被取消导致的中断，不是任务自身的缺陷。",
+    "advice": "无需修复动作；如需追溯，确认本次取消的发起人与原因即可。\n\n验证方式：确认取消属预期操作后重跑该流水线，观察这 4 个任务是否正常通过。",
+    "cites": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_mem.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_engine.log:2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubs_virt_container.log:5"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_259_Deploy_Test_ubturbo_smap_memory_fragment.log:2",
+    "updatedAt": "2026-11-16 20:58:50",
+    "firstAnalyzedAt": "2026-11-16 20:58:50",
+    "revisions": 1,
+    "source": "agent"
+   }
+  }
+ ],
+ "pathBase": "steps.* / records[] 相对本文件；证据正文见 pipeline.evidence.json 的 files（键=相对本目录的路径）",
+ "channel": "community"
+}

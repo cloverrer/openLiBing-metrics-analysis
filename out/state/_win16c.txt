@@ -1,0 +1,693 @@
+### 2211-module :: github_logs/gh_43731798211/132866286657_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt (total 1617)
+L800: 2026-11-15T15:53:34.8321253Z     from sglang.srt.managers.data_parallel_controller import (
+L801: 2026-11-15T15:53:34.8321867Z   File "/root/sglang/python/sglang/srt/managers/data_parallel_controller.py", line 56, in <module>
+L802: 2026-11-15T15:53:34.8322463Z     from sglang.srt.managers.scheduler import run_scheduler_process
+L803: 2026-11-15T15:53:34.8323008Z   File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 102, in <module>
+L804: 2026-11-15T15:53:34.8323577Z     from sglang.srt.disaggregation.decode_kvcache_offload_manager import (
+L805: 2026-11-15T15:53:34.8324239Z   File "/root/sglang/python/sglang/srt/disaggregation/decode_kvcache_offload_manager.py", line 29, in <module>
+L806: 2026-11-15T15:53:34.8324969Z     from sglang.srt.mem_cache.hybrid_cache.hybrid_pool_assembler import (
+L807: 2026-11-15T15:53:34.8325612Z   File "/root/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 30, in <module>
+L808: 2026-11-15T15:53:34.8326192Z     from sglang.srt.mem_cache.memory_pool_host import (
+L809: 2026-11-15T15:53:34.8326758Z   File "/root/sglang/python/sglang/srt/mem_cache/memory_pool_host.py", line 66, in <module>
+L810: 2026-11-15T15:53:34.8327275Z     from sgl_kernel_npu.operators.mem_cache import (
+L811: 2026-11-15T15:53:34.8327709Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'
+L812: 2026-11-15T15:53:34.8328271Z [ERROR] 2026-11-15-23:53:24 (PID:740, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+L813: 2026-11-15T15:53:34.8328929Z 2026-11-15 23:53:30,418 - INFO - kill_process_tree called: parent_pid=740, include_parent=True, pid=596
+L814: 2026-11-15T15:53:34.8329417Z E
+L815: 2026-11-15T15:53:34.8329664Z ======================================================================
+
+### 2214-memcache :: github_logs/gh_43804251765/133091277942_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt (total 874)
+L710: 2026-11-16T04:36:39.2359384Z   File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 102, in <module>
+L711: 2026-11-16T04:36:39.2380606Z     from sglang.srt.disaggregation.decode_kvcache_offload_manager import (
+L712: 2026-11-16T04:36:39.2381227Z   File "/root/sglang/python/sglang/srt/disaggregation/decode_kvcache_offload_manager.py", line 29, in <module>
+L713: 2026-11-16T04:36:39.2381749Z     from sglang.srt.mem_cache.hybrid_cache.hybrid_pool_assembler import (
+L714: 2026-11-16T04:36:39.2382528Z   File "/root/sglang/python/sglang/srt/mem_cache/hybrid_cache/hybrid_pool_assembler.py", line 30, in <module>
+L715: 2026-11-16T04:36:39.2405969Z     from sglang.srt.mem_cache.memory_pool_host import (
+L716: 2026-11-16T04:36:39.2406396Z   File "/root/sglang/python/sglang/srt/mem_cache/memory_pool_host.py", line 66, in <module>
+L717: 2026-11-16T04:36:39.2406863Z     from sgl_kernel_npu.operators.mem_cache import (
+L718: 2026-11-16T04:36:39.2407249Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators.mem_cache'
+L719: 2026-11-16T04:36:40.0077072Z [ERROR] 2026-11-16-12:36:39 (PID:419, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+L720: 2026-11-16T04:36:47.9569788Z 2026-11-16 12:36:47,953 - INFO - kill_process_tree called: parent_pid=419, include_parent=True, pid=273
+L721: 2026-11-16T04:36:47.9570287Z Exception in thread Thread-1 (launch_pd_mix_node):
+L722: 2026-11-16T04:36:47.9570810Z Traceback (most recent call last):
+L723: 2026-11-16T04:36:47.9571456Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 508, in launch_pd_mix_node
+L724: 2026-11-16T04:36:47.9578168Z     process = popen_launch_server(
+L725: 2026-11-16T04:36:47.9578471Z               ^^^^^^^^^^^^^^^^^^^^
+
+### 2212-setenv :: github_logs/gh_43733552254/10_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt (total 1382)
+L505: 2026-11-15T17:13:45.4754467Z kernel.numa_balancing = 0
+L506: 2026-11-15T17:13:45.4754764Z kernel.sched_migration_cost_ns = 50000
+L507: 2026-11-15T17:13:45.4755114Z sgl-router: /root/sglang/sgl-router-bin/sgl-router
+L508: 2026-11-15T17:13:45.4755459Z ASCEND_VISIBLE_DEVICES=
+L509: 2026-11-15T17:13:46.7293042Z can not use command: npu-smi info
+L510: 2026-11-15T17:13:49.7885936Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+L511: 2026-11-15T17:13:49.7887295Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+L512: 2026-11-15T17:13:49.7888480Z Running test case test/registered/npu/performance/deepseek_v4_flash/test_npu_deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms.py
+L513: 2026-11-15T17:13:49.8026661Z Log path: /root/.cache/tests/logs/log/main-20261116-0006-43733552254-1/Nightly_Test_NPU--main-cann9.1.0-a3/test_npu_deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms/ascend-43733552254-7c89c0fcwjlo7urk-sglang-router-0
+L514: 2026-11-15T17:13:52.5920430Z can not use command: npu-smi info
+L515: 2026-11-15T17:13:59.7612757Z 2026-11-16 01:13:59,758 - INFO - get env NAMESPACE = sgl-project
+
+### 2213-import :: github_logs/gh_43734093288/132873418319_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt (total 1028)
+L524: 2026-11-15T16:17:30.0432809Z Traceback (most recent call last):
+L525: 2026-11-15T16:17:30.0433563Z   File "/root/sglang/test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py", line 6, in <module>
+L526: 2026-11-15T16:17:30.0457668Z     from sglang.test.ascend.e2e.test_npu_accuracy_utils import (
+L527: 2026-11-15T16:17:30.0458366Z   File "/sgl-workspace/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 16, in <module>
+L528: 2026-11-15T16:17:30.0458994Z     from sglang.test.ascend.e2e.test_npu_multi_node_utils import (
+L529: 2026-11-15T16:17:30.0459611Z   File "/sgl-workspace/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 22, in <module>
+L530: 2026-11-15T16:17:30.0460277Z     from sglang.test.server_fixtures.disaggregation_fixture import (
+L531: 2026-11-15T16:17:30.0461427Z ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+L532: 2026-11-15T16:17:30.0462922Z [ERROR] 2026-11-16-00:17:30 (PID:244, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+L533: 2026-11-15T16:17:31.8863620Z Finished test case test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+L534: 2026-11-15T16:17:31.9109909Z Metrics log saved to /root/.cache/tests/output/YZY00Raiser-pryzy1112-20261116-0013-43734093288-1/Nightly_Test_NPU--cann9.1.0-a3-B106/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa/test_output.log
+L535: 2026-11-15T16:17:34.2537937Z 2026-11-15 16:17:34,252 - ERROR - Pod ascend-43734093288-7cb37433h06y0cfv-sglang-router-0 is not running, status: Succeeded
+L536: 2026-11-15T16:17:34.2538856Z 2026-11-15 16:17:34,253 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+
+### 2220-runner :: github_logs/gh_43868335184/133302785092_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt (total 374)
+L300: 2026-11-16T12:39:43.6688783Z [36;1mmkdir -p ${target_path}[0m
+L301: 2026-11-16T12:39:43.6689062Z [36;1mcp -r ${current_path}/* ${target_path}/[0m
+L302: 2026-11-16T12:39:43.6689500Z shell: sh -e {0}
+L303: 2026-11-16T12:39:43.6689684Z ##[endgroup]
+L304: 2026-11-16T12:39:43.6773811Z ##[group]Run '/home/runner/k8s/index.js'
+L305: 2026-11-16T12:39:43.6774586Z shell: /home/runner/externals/node24/bin/node {0}
+L306: 2026-11-16T12:39:43.6774952Z ##[endgroup]
+L307: 2026-11-16T12:39:43.8548516Z (node:536) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L308: 2026-11-16T12:39:43.8549077Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L309: 2026-11-16T12:39:43.8715312Z (node:536) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L310: 2026-11-16T12:39:43.9203539Z (node:536) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+L311: 2026-11-16T12:40:02.4368685Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L312: 2026-11-16T12:40:02.5101648Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+L313: 2026-11-16T12:40:02.5102138Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m
+L314: 2026-11-16T12:40:02.5102578Z [36;1mkubectl get pods -n $NAMESPACE | grep $KUBE_JOB_NAME[0m
+L315: 2026-11-16T12:40:02.5103036Z [36;1mkubectl delete -f ./k8s_multi_pd_*.yaml --ignore-not-found=true || true[0m
+L316: 2026-11-16T12:40:02.5103422Z [36;1m[0m
+L317: 2026-11-16T12:40:02.5103694Z [36;1mpod_name_prefix="${KUBE_JOB_NAME}-"[0m
+L318: 2026-11-16T12:40:02.5104116Z [36;1mecho "kube name space: $NAMESPACE, pod name prefix: ${pod_name_prefix}"[0m
+L319: 2026-11-16T12:40:02.5104515Z [36;1mwhile true; do[0m
+L320: 2026-11-16T12:40:02.5104879Z [36;1m  if kubectl get po -A -n $NAMESPACE | grep -q "${pod_name_prefix}"; then[0m
+L321: 2026-11-16T12:40:02.5105311Z [36;1m    echo "Found exist sglang job, sleeping for 30 seconds..."[0m
+L322: 2026-11-16T12:40:02.5105747Z [36;1m    sleep 30[0m
+L323: 2026-11-16T12:40:02.5106440Z [36;1m    kubectl get pods | grep "${pod_name_prefix}" | awk '{print $1}' | xargs kubectl delete pod -n $NAMESPACE || true[0m
+L324: 2026-11-16T12:40:02.5106900Z [36;1m  else[0m
+L325: 2026-11-16T12:40:02.5107171Z [36;1m    echo "No sglang job exist, start test case..."[0m
+L326: 2026-11-16T12:40:02.5107537Z [36;1m    break[0m
+L327: 2026-11-16T12:40:02.5107776Z [36;1m  fi[0m
+L328: 2026-11-16T12:40:02.5108008Z [36;1mdone[0m
+L329: 2026-11-16T12:40:02.5108331Z [36;1m# Cleanup the run-scoped source code directory on the shared PVC.[0m
+L330: 2026-11-16T12:40:02.5108886Z [36;1mrm -rf /root/.cache/tests/sglang-43868335184 || true[0m
+L331: 2026-11-16T12:40:02.5109337Z shell: sh -e {0}
+L332: 2026-11-16T12:40:02.5109587Z ##[endgroup]
+L333: 2026-11-16T12:40:02.5202843Z ##[group]Run '/home/runner/k8s/index.js'
+L334: 2026-11-16T12:40:02.5203787Z shell: /home/runner/externals/node24/bin/node {0}
+L335: 2026-11-16T12:40:02.5204188Z ##[endgroup]
+L336: 2026-11-16T12:40:02.7225861Z (node:586) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L337: 2026-11-16T12:40:02.7226917Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L338: 2026-11-16T12:40:02.7414398Z (node:586) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L339: 2026-11-16T12:40:02.8103514Z (node:586) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+L340: 2026-11-16T12:40:03.4981957Z ##[error]Error: failed to run script step:
+L341:   ✗ exit code: 1
+L342:   → your script exited with a non-zero code; please check your script for errors
+L343: 2026-11-16T12:40:03.5022066Z ##[error]Process completed with exit code 1.
+L344: 2026-11-16T12:40:03.5131438Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L345: 2026-11-16T12:40:03.5857947Z Post job cleanup.
+L346: 2026-11-16T12:40:03.5888105Z ##[group]Run '/home/runner/k8s/index.js'
+L347: 2026-11-16T12:40:03.5889037Z shell: /home/runner/externals/node24/bin/node {0}
+L348: 2026-11-16T12:40:03.5889343Z ##[endgroup]
+L349: 2026-11-16T12:40:03.7687960Z (node:647) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L350: 2026-11-16T12:40:03.7688858Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L351: 2026-11-16T12:40:03.7868694Z (node:647) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L352: 2026-11-16T12:40:03.8316201Z (node:647) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+L353: 2026-11-16T12:40:04.4700657Z [command]/usr/bin/git version
+L354: 2026-11-16T12:40:04.4736593Z git version 2.34.1
+L355: 2026-11-16T12:40:04.4764564Z Copying '/root/.gitconfig' to '/__w/_temp/1963b09c-3497-4464-9262-410557d3280c/.gitconfig'
+L356: 2026-11-16T12:40:04.4771809Z Temporarily overriding HOME='/__w/_temp/1963b09c-3497-4464-9262-410557d3280c' before making global git config changes
+L357: 2026-11-16T12:40:04.4772553Z Adding repository directory to the temporary git global config as a safe directory
+L358: 2026-11-16T12:40:04.4777534Z [command]/usr/bin/git config --global --add safe.directory /__w/sglang/sglang
+L359: 2026-11-16T12:40:04.4811729Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+L360: 2026-11-16T12:40:04.4842643Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+L361: 2026-11-16T12:40:04.5143489Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+L362: 2026-11-16T12:40:04.5159778Z http.https://github.com/.extraheader
+L363: 2026-11-16T12:40:04.5167897Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+L364: 2026-11-16T12:40:04.5199308Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+L365: 2026-11-16T12:40:04.5480270Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+L366: 2026-11-16T12:40:04.5509924Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+L367: 2026-11-16T12:40:05.5936418Z ##[group]Run '/home/runner/k8s/index.js'
+L368: 2026-11-16T12:40:05.5937421Z shell: /home/runner/externals/node24/bin/node {0}
+L369: 2026-11-16T12:40:05.5937737Z ##[endgroup]
+L370: 2026-11-16T12:40:05.7787566Z (node:758) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L371: 2026-11-16T12:40:05.7788548Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L372: 2026-11-16T12:40:05.7959746Z (node:758) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L373: 2026-11-16T12:40:05.8985855Z Cleaning up orphan processes
+L374: 2026-11-16T12:40:05.9049388Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+### 2222-router :: github_logs/gh_43868640459/133303671681_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt (total 805)
+L660: 2026-11-16T12:56:11.9648544Z 2026-11-16 20:56:11,959 - WARNING - [accuracy-dataset] NPU_ACCURACY_DATASET=gsm8k ignored for TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHighOverlap: no dataset_baselines['gsm8k'], keeping datasets=['gpqa_diamond'].
+L661: 2026-11-16T12:56:11.9649530Z 2026-11-16 20:56:11,959 - INFO - get env POD_IP = 172.22.3.181
+L662: 2026-11-16T12:56:11.9649995Z 2026-11-16 20:56:11,959 - INFO - get env HOSTNAME = ascend-43868640459-334c4041jqonot4o-sgl-router-0
+L663: 2026-11-16T12:56:11.9650490Z 2026-11-16 20:56:11,960 - INFO - Init 172.22.3.181 cls.role='router'!
+L664: 2026-11-16T12:56:11.9650948Z 2026-11-16 20:56:11,960 - INFO - The current node is router, skip this function start_pd_server.
+L665: 2026-11-16T12:56:11.9651484Z 2026-11-16 20:56:11,960 - INFO - Starting router in thread...
+L666: 2026-11-16T12:56:11.9653593Z 2026-11-16 20:56:11,960 - INFO - get env PATH = /usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/bin:/usr/local/Ascend/cann-9.1.0/bin:/usr/local/Ascend/cann-9.1.0/tools/ccec_compiler/bin:/usr/local/Ascend/cann-9.1.0/tools/profiler/bin:/usr/local/Ascend/cann-9.1.0/tools/ascend_system_advisor/
+L667: 2026-11-16T12:56:11.9680962Z E
+L668: 2026-11-16T12:56:11.9681319Z ======================================================================
+L669: 2026-11-16T12:56:11.9681816Z ERROR: setUpClass (__main__.TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHighOverlap)
+L670: 2026-11-16T12:56:11.9682417Z ----------------------------------------------------------------------
+L671: 2026-11-16T12:56:11.9682777Z Traceback (most recent call last):
+L672: 2026-11-16T12:56:11.9683173Z   File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+L673: 2026-11-16T12:56:11.9683575Z     orig_func(klass)
+L674: 2026-11-16T12:56:11.9683985Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 701, in setUpClass
+L675: 2026-11-16T12:56:11.9684551Z     cls.start_router_server()
+L676: 2026-11-16T12:56:11.9684973Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 434, in wrapper
+L677: 2026-11-16T12:56:11.9685423Z     return func(self, *args, **kwargs)
+L678: 2026-11-16T12:56:11.9685740Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+L679: 2026-11-16T12:56:11.9686192Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 714, in start_router_server
+L680: 2026-11-16T12:56:11.9686678Z     start_router_thread(cls.model_config, cls.base_url)
+L681: 2026-11-16T12:56:11.9687251Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 808, in start_router_thread
+L682: 2026-11-16T12:56:11.9687728Z     router_binary = find_sgl_router_binary()
+L683: 2026-11-16T12:56:11.9688020Z                     ^^^^^^^^^^^^^^^^^^^^^^^^
+L684: 2026-11-16T12:56:11.9688387Z 2026-11-16 12:56:11,967 - INFO - Detected complete test completion pattern!
+L685: 2026-11-16T12:56:11.9688973Z   File "/root/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py", line 295, in find_sgl_router_binary
+L686: 2026-11-16T12:56:11.9689471Z     raise FileNotFoundError(
+L687: 2026-11-16T12:56:11.9690148Z FileNotFoundError: sgl-router binary 'sgl-router' not found: build it with `cargo build --release --bin sgl-router` in sgl-router/, then put it on PATH or set SGLANG_TEST_PD_ROUTER_BINARY to its path.
+L688: 2026-11-16T12:56:11.9690717Z 
+L689: 2026-11-16T12:56:11.9690868Z ----------------------------------------------------------------------
+L690: 2026-11-16T12:56:11.9691346Z Ran 0 tests in 13.672s
+L691: 2026-11-16T12:56:11.9691511Z 
+L692: 2026-11-16T12:56:11.9691590Z FAILED (errors=1)
+L693: 2026-11-16T12:56:12.0123113Z 2026-11-16 12:56:12,010 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+L694: 2026-11-16T12:56:12.0123755Z Traceback (most recent call last):
+L695: 2026-11-16T12:56:12.0124674Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L696: 2026-11-16T12:56:12.0125166Z     monitor_pod_logs(
+L697: 2026-11-16T12:56:12.0125605Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+L698: 2026-11-16T12:56:12.0126119Z     raise Exception("The test result was FAILED!")
+L699: 2026-11-16T12:56:12.0126469Z Exception: The test result was FAILED!
+L700: 2026-11-16T12:56:12.0182688Z 2026-11-16 12:56:12,016 - WARNING - Metrics log file not found: /root/.cache/tests/output/shun8686-overlapschedule-20261116-2040-43868640459-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap/test_output.log
+L701: 2026-11-16T12:56:12.0233376Z 2026-11-16 12:56:12,022 - INFO - Metrics JSON written to /root/.cache/tests/output/shun8686-overlapschedule-20261116-2040-43868640459-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap/metrics.json
+L702: 2026-11-16T12:56:12.0603473Z ConfigMap sglang-configmap-334c4041jqonot4o is deleted.
+L703: 2026-11-16T12:56:12.0908457Z 2026-11-16 12:56:12,089 - INFO - Deleted job ascend-43868640459-334c4041jqonot4o
+L704: 2026-11-16T12:56:12.0910338Z 2026-11-16 12:56:12,090 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T12:42:51Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T12:42:52Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T12:55:26Z', 'status': 'Pending'}, {'lastTransitionTi
+L705: 2026-11-16T12:56:12.0913587Z Traceback (most recent call last):
+L706: 2026-11-16T12:56:12.0914056Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L707: 2026-11-16T12:56:12.0914710Z     run_npu_e2e_test_case(
+L708: 2026-11-16T12:56:12.0915185Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L709: 2026-11-16T12:56:12.0915668Z     monitor_pod_logs(
+L710: 2026-11-16T12:56:12.0916119Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+L711: 2026-11-16T12:56:12.0916592Z     raise Exception("The test result was FAILED!")
+L712: 2026-11-16T12:56:12.0916919Z Exception: The test result was FAILED!
+L713: 2026-11-16T12:56:12.2224112Z ##[error]Error: failed to run script step:
+L714:   ✗ exit code: 1
+L715:   → your script exited with a non-zero code; please check your script for errors
+
+### 2225-pod :: github_logs/gh_43874714626/133324841013_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt (total 665)
+L545: 2026-11-16T13:24:12.6008343Z 2026-11-16 21:24:12,597 - INFO - launch_router start ......
+L546: 2026-11-16T13:24:12.6008894Z 2026-11-16 21:24:12,597 - INFO - Waiting for router to be ready at http://172.22.3.181:6677/readiness
+L547: 2026-11-16T13:24:12.6009535Z 2026-11-16 21:24:12,597 - INFO - Waiting for the server to start at http://172.22.3.181:6677/readiness...
+L548: 2026-11-16T13:24:12.7700384Z 2026-11-16 21:24:12,767 - INFO - get env KUBECONFIG = /root/.cache/.cache/kb.yaml
+L549: 2026-11-16T13:24:12.9418205Z 2026-11-16 21:24:12,939 - INFO - Discovered 4 worker nodes (prefill: 2, decode: 2)
+L550: 2026-11-16T13:24:12.9855565Z 2026-11-16 21:24:12,983 - INFO - Successfully queried ConfigMap sglang-configmap-8e45754982vgkrzv in namespace sgl-project
+L551: 2026-11-16T13:24:12.9874094Z 2026-11-16 21:24:12,985 - INFO - Retrieved ConfigMap data: {'ascend-43874714626-8e45754982vgkrzv-sgl-router-0': '172.22.3.181', 'ascend-43874714626-8e45754982vgkrzv-sglang-decode-0': '172.22.3.77', 'ascend-43874714626-8e45754982vgkrzv-sglang-prefill-0': '172.22.3.71'}
+L552: 2026-11-16T13:24:12.9875906Z 2026-11-16 21:24:12,985 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.71:8000'], decode_url=['172.22.3.77:8000'], node_ip_list=['172.22.3.77', '172.22.3.71']
+L553: 2026-11-16T13:25:04.2261950Z 2026-11-16 13:25:04,225 - ERROR - Pod ascend-43874714626-8e45754982vgkrzv-sglang-prefill-0 is not running, status: Succeeded
+L554: 2026-11-16T13:25:04.2266470Z 2026-11-16 13:25:04,225 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L555: 2026-11-16T13:25:04.3146766Z 2026-11-16 13:25:04,313 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+L556: 2026-11-16T13:25:04.3147579Z Traceback (most recent call last):
+L557: 2026-11-16T13:25:04.3148136Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L558: 2026-11-16T13:25:04.3148683Z     monitor_pod_logs(
+L559: 2026-11-16T13:25:04.3149160Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L560: 2026-11-16T13:25:04.3149843Z     raise Exception("Monitoring ended but target pattern was not detected")
+L561: 2026-11-16T13:25:04.3150348Z Exception: Monitoring ended but target pattern was not detected
+L562: 2026-11-16T13:25:04.3270538Z 2026-11-16 13:25:04,326 - INFO - Metrics JSON written to /root/.cache/tests/output/shun8686-overlapschedule-20261116-2119-43874714626-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap/metrics.json
+L563: 2026-11-16T13:25:04.3587635Z ConfigMap sglang-configmap-8e45754982vgkrzv is deleted.
+L564: 2026-11-16T13:25:04.4060762Z 2026-11-16 13:25:04,401 - INFO - Deleted job ascend-43874714626-8e45754982vgkrzv
+L565: 2026-11-16T13:25:04.4063811Z 2026-11-16 13:25:04,401 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T13:23:10Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:23:10Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:23:33Z', 'status': 'Pending'}, {'lastTransitionTi
+L566: 2026-11-16T13:25:04.4066274Z Traceback (most recent call last):
+L567: 2026-11-16T13:25:04.4066776Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L568: 2026-11-16T13:25:04.4067335Z     run_npu_e2e_test_case(
+L569: 2026-11-16T13:25:04.4067844Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L570: 2026-11-16T13:25:04.4068375Z     monitor_pod_logs(
+L571: 2026-11-16T13:25:04.4068859Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L572: 2026-11-16T13:25:04.4069505Z     raise Exception("Monitoring ended but target pattern was not detected")
+L573: 2026-11-16T13:25:04.4070024Z Exception: Monitoring ended but target pattern was not detected
+L574: 2026-11-16T13:25:04.5397944Z ##[error]Error: failed to run script step:
+L575:   ✗ exit code: 1
+L576:   → your script exited with a non-zero code; please check your script for errors
+L577: ------------------------------------------------------------
+L578: Last output:
+L579:   2026-11-16 13:25:04,225 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L580:   2026-11-16 13:25:04,313 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+L581:   Traceback (most recent call last):
+L582:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L583:       monitor_pod_logs(
+L584:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L585:       raise Exception("Monitoring ended but target pattern was not detected")
+L586:   Exception: Monitoring ended but target pattern was not detected
+L587:   2026-11-16 13:25:04,326 - INFO - Metrics JSON written to /root/.cache/tests/output/shun8686-overlapschedule-20261116-2119-43874714626-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap/metrics.json
+L588:   ConfigMap sglang-configmap-8e45754982vgkrzv is deleted.
+L589:   2026-11-16 13:25:04,401 - INFO - Deleted job ascend-43874714626-8e45754982vgkrzv
+L590:   2026-11-16 13:25:04,401 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T13:23:10Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:23:10Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:23:33Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:23:40Z'
+L591:   Traceback (most recent call last):
+L592:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L593:       run_npu_e2e_test_case(
+L594:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L595:       monitor_pod_logs(
+L596:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L597:       raise Exception("Monitoring ended but target pattern was not detected")
+L598:   Exception: Monitoring ended but target pattern was not detected
+L599: 2026-11-16T13:25:04.5418560Z ##[error]Process completed with exit code 1.
+L600: 2026-11-16T13:25:04.5614174Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### 2226-pod :: github_logs/gh_43888687387/133373908398_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt (total 784)
+L662: 2026-11-16T14:53:25.2497564Z 2026-11-16 22:52:38,069 - INFO - ConfigMap data is not available yet, waiting for 15s...
+L663: 2026-11-16T14:53:25.2498149Z 2026-11-16 22:52:53,101 - INFO - Successfully queried ConfigMap sglang-configmap-474da6e2pwuzqa1g in namespace sgl-project
+L664: 2026-11-16T14:53:25.2498735Z 2026-11-16 22:52:53,103 - INFO - ConfigMap data is not available yet, waiting for 15s...
+L665: 2026-11-16T14:53:25.2499340Z 2026-11-16 22:53:08,139 - INFO - Successfully queried ConfigMap sglang-configmap-474da6e2pwuzqa1g in namespace sgl-project
+L666: 2026-11-16T14:53:25.2499890Z 2026-11-16 22:53:08,141 - INFO - ConfigMap data is not available yet, waiting for 15s...
+L667: 2026-11-16T14:53:25.2500473Z 2026-11-16 22:53:23,177 - INFO - Successfully queried ConfigMap sglang-configmap-474da6e2pwuzqa1g in namespace sgl-project
+L668: 2026-11-16T14:53:25.2501146Z 2026-11-16 22:53:23,179 - INFO - ConfigMap data is not available yet, waiting for 15s...
+L669: 2026-11-16T14:53:38.2182659Z 2026-11-16 22:53:38,216 - INFO - Successfully queried ConfigMap sglang-configmap-474da6e2pwuzqa1g in namespace sgl-project
+L670: 2026-11-16T14:53:38.2217245Z 2026-11-16 22:53:38,218 - INFO - Retrieved ConfigMap data: {'ascend-43888687387-474da6e2pwuzqa1g-sgl-router-0': '172.22.3.227', 'ascend-43888687387-474da6e2pwuzqa1g-sglang-decode-0': '172.22.3.154', 'ascend-43888687387-474da6e2pwuzqa1g-sglang-prefill-0': '172.22.3.158'}
+L671: 2026-11-16T14:53:38.2218518Z 2026-11-16 22:53:38,218 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.158:8000'], decode_url=['172.22.3.154:8000'], node_ip_list=['172.22.3.154', '172.22.3.158']
+L672: 2026-11-16T14:54:57.4256928Z 2026-11-16 14:54:57,424 - ERROR - Pod ascend-43888687387-474da6e2pwuzqa1g-sglang-prefill-0 is not running, status: Succeeded
+L673: 2026-11-16T14:54:57.4262443Z 2026-11-16 14:54:57,425 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L674: 2026-11-16T14:54:57.5040801Z 2026-11-16 14:54:57,502 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+L675: 2026-11-16T14:54:57.5041587Z Traceback (most recent call last):
+L676: 2026-11-16T14:54:57.5042143Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L677: 2026-11-16T14:54:57.5042613Z     monitor_pod_logs(
+L678: 2026-11-16T14:54:57.5043009Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L679: 2026-11-16T14:54:57.5043589Z     raise Exception("Monitoring ended but target pattern was not detected")
+L680: 2026-11-16T14:54:57.5044034Z Exception: Monitoring ended but target pattern was not detected
+L681: 2026-11-16T14:54:57.5252817Z 2026-11-16 14:54:57,524 - INFO - Metrics JSON written to /root/.cache/tests/output/shun8686-overlapschedule-20261116-2243-43888687387-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap/metrics.json
+L682: 2026-11-16T14:54:57.5542481Z ConfigMap sglang-configmap-474da6e2pwuzqa1g is deleted.
+L683: 2026-11-16T14:54:57.5974056Z 2026-11-16 14:54:57,596 - INFO - Deleted job ascend-43888687387-474da6e2pwuzqa1g
+L684: 2026-11-16T14:54:57.5976232Z 2026-11-16 14:54:57,596 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T14:46:45Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T14:46:46Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T14:51:23Z', 'status': 'Pending'}, {'lastTransitionTi
+L685: 2026-11-16T14:54:57.5979113Z Traceback (most recent call last):
+L686: 2026-11-16T14:54:57.5979566Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L687: 2026-11-16T14:54:57.5979996Z     run_npu_e2e_test_case(
+L688: 2026-11-16T14:54:57.5980453Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L689: 2026-11-16T14:54:57.5980938Z     monitor_pod_logs(
+L690: 2026-11-16T14:54:57.5981498Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L691: 2026-11-16T14:54:57.5982023Z     raise Exception("Monitoring ended but target pattern was not detected")
+L692: 2026-11-16T14:54:57.5982455Z Exception: Monitoring ended but target pattern was not detected
+L693: 2026-11-16T14:54:57.6994839Z ##[error]Error: failed to run script step:
+L694:   ✗ exit code: 1
+L695:   → your script exited with a non-zero code; please check your script for errors
+L696: ------------------------------------------------------------
+L697: Last output:
+L698:   2026-11-16 14:54:57,425 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L699:   2026-11-16 14:54:57,502 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+L700:   Traceback (most recent call last):
+
+### 2227-tail :: github_logs/gh_43892530840/133388055851_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt (total 707)
+L620: 2026-11-16T15:16:22.4040608Z ===== Install missing deps - Begin =====
+L621: 2026-11-16T15:16:22.4041037Z Looking in indexes: https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+L622: 2026-11-16T15:16:22.4041603Z Collecting blake3
+L623: 2026-11-16T15:16:22.4042056Z   Using cached blake3-1.0.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (369 kB)
+L624: 2026-11-16T15:16:22.4042785Z Requirement already satisfied: grpcio>=1.81.1 in /usr/local/python3.12.13/lib/python3.12/site-packages (1.85.0)
+L625: 2026-11-16T15:16:22.4043607Z Requirement already satisfied: grpcio-health-checking>=1.81.1 in /usr/local/python3.12.13/lib/python3.12/site-packages (1.85.0)
+L626: 2026-11-16T15:16:22.4044465Z Requirement already satisfied: grpcio-reflection>=1.81.1 in /usr/local/python3.12.13/lib/python3.12/site-packages (1.85.0)
+L627: 2026-11-16T15:16:22.4045257Z Requirement already satisfied: protobuf>=6.33.5 in /usr/local/python3.12.13/lib/python3.12/site-packages (7.36.2)
+L628: 2026-11-16T15:16:22.4046120Z Requirement already satisfied: typing-extensions~=4.12 in /usr/local/python3.12.13/lib/python3.12/site-packages (from grpcio>=1.81.1) (4.16.0)
+L629: 2026-11-16T15:16:22.4046768Z Installing collected packages: blake3
+L630: 2026-11-16T15:16:22.4047180Z Successfully installed blake3-1.0.11
+L631: 2026-11-16T15:16:22.4048560Z WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action 
+L632: 2026-11-16T15:16:22.4049843Z 
+L633: 2026-11-16T15:16:22.4050015Z [notice] A new release of pip is available: 26.2 -> 26.3
+L634: 2026-11-16T15:16:22.4050418Z [notice] To update, run: pip install --upgrade pip
+L635: 2026-11-16T15:16:22.4050826Z ===== Install missing deps - End =====
+L636: 2026-11-16T15:16:22.4051136Z can not use command: npu-smi info
+L637: 2026-11-16T15:16:22.4052075Z Upgrade sgl_kernel_npu from https://github.com/sgl-project/sgl-kernel-npu/releases/download/2026.11.0.post5/sgl-kernel-npu-2026.11.0.post5-torch2.10.0-py312-cann9.1.0-a3-aarch64.zip
+L638: 2026-11-16T15:46:39.4359793Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L639: 2026-11-16T15:46:39.4952878Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+L640: 2026-11-16T15:46:39.4953298Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m
+L641: 2026-11-16T15:46:39.4953701Z [36;1mkubectl get pods -n $NAMESPACE | grep $KUBE_JOB_NAME[0m
+L642: 2026-11-16T15:46:39.4954210Z [36;1mkubectl delete -f ./k8s_multi_pd_*.yaml --ignore-not-found=true || true[0m
+L643: 2026-11-16T15:46:39.4954624Z [36;1m[0m
+L644: 2026-11-16T15:46:39.4954871Z [36;1mpod_name_prefix="${KUBE_JOB_NAME}-"[0m
+L645: 2026-11-16T15:46:39.4955426Z [36;1mecho "kube name space: $NAMESPACE, pod name prefix: ${pod_name_prefix}"[0m
+L646: 2026-11-16T15:46:39.4955847Z [36;1mwhile true; do[0m
+L647: 2026-11-16T15:46:39.4956233Z [36;1m  if kubectl get po -A -n $NAMESPACE | grep -q "${pod_name_prefix}"; then[0m
+L648: 2026-11-16T15:46:39.4956736Z [36;1m    echo "Found exist sglang job, sleeping for 30 seconds..."[0m
+L649: 2026-11-16T15:46:39.4957114Z [36;1m    sleep 30[0m
+L650: 2026-11-16T15:46:39.4957657Z [36;1m    kubectl get pods | grep "${pod_name_prefix}" | awk '{print $1}' | xargs kubectl delete pod -n $NAMESPACE || true[0m
+L651: 2026-11-16T15:46:39.4958183Z [36;1m  else[0m
+L652: 2026-11-16T15:46:39.4958463Z [36;1m    echo "No sglang job exist, start test case..."[0m
+L653: 2026-11-16T15:46:39.4958806Z [36;1m    break[0m
+L654: 2026-11-16T15:46:39.4959029Z [36;1m  fi[0m
+L655: 2026-11-16T15:46:39.4959243Z [36;1mdone[0m
+L656: 2026-11-16T15:46:39.4959578Z [36;1m# Cleanup the run-scoped source code directory on the shared PVC.[0m
+L657: 2026-11-16T15:46:39.4960044Z [36;1mrm -rf /root/.cache/tests/sglang-43892530840 || true[0m
+L658: 2026-11-16T15:46:39.4960741Z shell: sh -e {0}
+L659: 2026-11-16T15:46:39.4960963Z ##[endgroup]
+L660: 2026-11-16T15:46:39.5058403Z ##[group]Run '/home/runner/k8s/index.js'
+L661: 2026-11-16T15:46:39.5059333Z shell: /home/runner/externals/node24/bin/node {0}
+L662: 2026-11-16T15:46:39.5059656Z ##[endgroup]
+L663: 2026-11-16T15:46:39.7567160Z (node:988) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L664: 2026-11-16T15:46:39.7567998Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L665: 2026-11-16T15:46:39.7796151Z (node:988) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L666: 2026-11-16T15:46:39.8292750Z (node:988) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+L667: 2026-11-16T15:46:40.5771805Z ascend-43892530840-e1fb3952nxy19il8-sgl-router-0       1/1     Running            0          37m
+L668: 2026-11-16T15:46:40.5772673Z ascend-43892530840-e1fb3952nxy19il8-sglang-decode-0    1/1     Running            0          37m
+L669: 2026-11-16T15:46:40.5773391Z ascend-43892530840-e1fb3952nxy19il8-sglang-prefill-0   1/1     Running            0          37m
+L670: 2026-11-16T15:46:40.7068433Z configmap "sglang-configmap-e1fb3952nxy19il8" deleted
+L671: 2026-11-16T15:46:40.7227769Z job.batch.volcano.sh "ascend-43892530840-e1fb3952nxy19il8" deleted
+L672: 2026-11-16T15:46:40.7463311Z kube name space: sgl-project, pod name prefix: ascend-43892530840-
+L673: 2026-11-16T15:46:41.1492211Z Found exist sglang job, sleeping for 30 seconds...
+L674: 2026-11-16T15:47:11.3834571Z error: resource(s) were provided, but no name was specified
+L675: 2026-11-16T15:47:11.7036468Z Found exist sglang job, sleeping for 30 seconds...
+L676: 2026-11-16T15:47:41.8758699Z error: resource(s) were provided, but no name was specified
+L677: 2026-11-16T15:47:42.1737009Z No sglang job exist, start test case...
+L678: 2026-11-16T15:48:25.0079239Z Post job cleanup.
+L679: 2026-11-16T15:48:25.0115524Z ##[group]Run '/home/runner/k8s/index.js'
+L680: 2026-11-16T15:48:25.0116490Z shell: /home/runner/externals/node24/bin/node {0}
+L681: 2026-11-16T15:48:25.0116826Z ##[endgroup]
+L682: 2026-11-16T15:48:25.2569094Z (node:1134) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L683: 2026-11-16T15:48:25.2569918Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L684: 2026-11-16T15:48:25.2796433Z (node:1134) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L685: 2026-11-16T15:48:25.3339576Z (node:1134) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+L686: 2026-11-16T15:48:26.0347357Z [command]/usr/bin/git version
+L687: 2026-11-16T15:48:26.0383369Z git version 2.34.1
+L688: 2026-11-16T15:48:26.0412264Z Copying '/root/.gitconfig' to '/__w/_temp/305401d8-58e0-4ce1-aa1e-0a2d103df745/.gitconfig'
+L689: 2026-11-16T15:48:26.0421991Z Temporarily overriding HOME='/__w/_temp/305401d8-58e0-4ce1-aa1e-0a2d103df745' before making global git config changes
+L690: 2026-11-16T15:48:26.0422930Z Adding repository directory to the temporary git global config as a safe directory
+L691: 2026-11-16T15:48:26.0426104Z [command]/usr/bin/git config --global --add safe.directory /__w/sglang/sglang
+L692: 2026-11-16T15:48:26.0461950Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+L693: 2026-11-16T15:48:26.0492510Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+L694: 2026-11-16T15:48:26.0826043Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+L695: 2026-11-16T15:48:26.0851259Z http.https://github.com/.extraheader
+L696: 2026-11-16T15:48:26.0860957Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+L697: 2026-11-16T15:48:26.0907861Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+L698: 2026-11-16T15:48:26.1250235Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+L699: 2026-11-16T15:48:26.1251496Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+L700: 2026-11-16T15:48:27.4997367Z ##[group]Run '/home/runner/k8s/index.js'
+L701: 2026-11-16T15:48:27.4998368Z shell: /home/runner/externals/node24/bin/node {0}
+L702: 2026-11-16T15:48:27.4998700Z ##[endgroup]
+L703: 2026-11-16T15:48:27.7469734Z (node:1278) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+L704: 2026-11-16T15:48:27.7470653Z (Use `node --trace-deprecation ...` to show where the warning was created)
+L705: 2026-11-16T15:48:27.7694869Z (node:1278) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+L706: 2026-11-16T15:48:27.9339687Z Cleaning up orphan processes
+L707: 2026-11-16T15:48:27.9416062Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+### 2218-a-pod :: github_logs/gh_43867439699/133327323785_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt (total 826)
+L700: 2026-11-16T13:44:59.5849599Z [2m2026-11-16T13:44:59.582768Z[0m [33m WARN[0m [2msgl_router::state::kv_events::discovery[0m[2m:[0m kv-events discovery: /server_info request failed; will retry [3mworker_url[0m[2m=[0m"http://172.22.3.138:8000" [3mattempt[0m[2m=[0m1 [3merror[0m[2m=[0merror sending reques
+L701: 2026-11-16T13:44:59.7216355Z [2m2026-11-16T13:44:59.718447Z[0m [33m WARN[0m [2msgl_router::state::kv_events::discovery[0m[2m:[0m kv-events discovery: /server_info request failed; will retry [3mworker_url[0m[2m=[0m"http://172.22.3.138:8000" [3mattempt[0m[2m=[0m2 [3merror[0m[2m=[0merror sending reques
+L702: 2026-11-16T13:44:59.9222964Z [2m2026-11-16T13:44:59.920112Z[0m [33m WARN[0m [2msgl_router::state::kv_events::discovery[0m[2m:[0m kv-events discovery: /server_info request failed; will retry [3mworker_url[0m[2m=[0m"http://172.22.3.138:8000" [3mattempt[0m[2m=[0m3 [3merror[0m[2m=[0merror sending reques
+L703: 2026-11-16T13:44:59.9224984Z [2m2026-11-16T13:44:59.920132Z[0m [33m WARN[0m [2msgl_router::state::kv_events::index[0m[2m:[0m kv-events: /server_info introspection failed; skipping subscriber [3mworker_url[0m[2m=[0mhttp://172.22.3.138:8000 [3merror[0m[2m=[0m/server_info failed after 3 attempts: network e
+L704: 2026-11-16T13:45:04.6086085Z 2026-11-16 21:45:04,601 - INFO - Server http://172.22.3.181:6677/readiness is ready!
+L705: 2026-11-16T13:45:04.6086928Z 2026-11-16 21:45:04,601 - INFO - Waiting 120 seconds for the server to fully initialize...
+L706: 2026-11-16T13:45:04.9618242Z 2026-11-16 13:45:04,957 - ERROR - Pod ascend-43867439699-5abb10e8uj37trgf-sglang-prefill-0 is not running, status: Succeeded
+L707: 2026-11-16T13:45:04.9619068Z 2026-11-16 13:45:04,958 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L708: 2026-11-16T13:45:05.0600452Z 2026-11-16 13:45:05,053 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+L709: 2026-11-16T13:45:05.0601477Z Traceback (most recent call last):
+L710: 2026-11-16T13:45:05.0602030Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L711: 2026-11-16T13:45:05.0602548Z     monitor_pod_logs(
+L712: 2026-11-16T13:45:05.0602997Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L713: 2026-11-16T13:45:05.0603579Z     raise Exception("Monitoring ended but target pattern was not detected")
+L714: 2026-11-16T13:45:05.0604040Z Exception: Monitoring ended but target pattern was not detected
+L715: 2026-11-16T13:45:05.0733687Z 2026-11-16 13:45:05,072 - INFO - Metrics JSON written to /root/.cache/tests/output/YZY00Raiser-pryzy1112dspark-20261116-2032-43867439699-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa/metrics.json
+L716: 2026-11-16T13:45:05.0981270Z ConfigMap sglang-configmap-5abb10e8uj37trgf is deleted.
+L717: 2026-11-16T13:45:05.1393592Z 2026-11-16 13:45:05,138 - INFO - Deleted job ascend-43867439699-5abb10e8uj37trgf
+L718: 2026-11-16T13:45:05.1395840Z 2026-11-16 13:45:05,138 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T13:27:25Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:27:25Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:38:04Z', 'status': 'Pending'}, {'lastTransitionTi
+L719: 2026-11-16T13:45:05.1397778Z Traceback (most recent call last):
+L720: 2026-11-16T13:45:05.1398292Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L721: 2026-11-16T13:45:05.1398752Z     run_npu_e2e_test_case(
+L722: 2026-11-16T13:45:05.1399192Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L723: 2026-11-16T13:45:05.1399665Z     monitor_pod_logs(
+L724: 2026-11-16T13:45:05.1400165Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L725: 2026-11-16T13:45:05.1400771Z     raise Exception("Monitoring ended but target pattern was not detected")
+L726: 2026-11-16T13:45:05.1401331Z Exception: Monitoring ended but target pattern was not detected
+L727: 2026-11-16T13:45:05.2437249Z ##[error]Error: failed to run script step:
+L728:   ✗ exit code: 1
+L729:   → your script exited with a non-zero code; please check your script for errors
+L730: ------------------------------------------------------------
+L731: Last output:
+L732:   2026-11-16 13:45:04,958 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L733:   2026-11-16 13:45:05,053 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+L734:   Traceback (most recent call last):
+L735:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+
+### 2218-b-ready :: github_logs/gh_43867439699/133340755431_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark, 1, 1, 1, te~b169c2.txt (total 756)
+L605: 2026-11-16T13:58:25.6887827Z [2m2026-11-16T13:58:25.683516Z[0m [32m INFO[0m [2msgl_router::server::routes::chat[0m[2m:[0m request body cap [3mmax_body_bytes[0m[2m=[0m33554432 [3msource[0m[2m=[0m"default"
+L606: 2026-11-16T13:58:25.6889755Z [2m2026-11-16T13:58:25.685360Z[0m [33m WARN[0m [2msgl_router[0m[2m:[0m shutdown drain leaves no room under terminationGracePeriodSeconds for the in-flight drain that follows it; raise the grace period to at least the drain plus in-flight request time, or lower the drain. If the grac
+L607: 2026-11-16T13:58:25.6891931Z [2m2026-11-16T13:58:25.685365Z[0m [32m INFO[0m [2msgl_router[0m[2m:[0m sgl-router 0.1.0 starting on 0.0.0.0:6677 [3mconfigured_decode_policy[0m[2m=[0mPowerOfTwo
+L608: 2026-11-16T13:58:25.6935694Z [2m2026-11-16T13:58:25.688295Z[0m [32m INFO[0m [2msgl_router::tokenizer[0m[2m:[0m tokenizer disabled; workers tokenize requests [3mmodel[0m[2m=[0m/root/.cache/modelscope/hub/models/Eco-Tech/DeepSeek-V4-Flash-0731-w8a8
+L609: 2026-11-16T13:58:25.7061831Z [2m2026-11-16T13:58:25.702759Z[0m [33m WARN[0m [2msgl_router::state::kv_events::index[0m[2m:[0m kv-events pump: receiver closed unexpectedly; exiting
+L610: 2026-11-16T13:58:25.7062728Z Error: --no-tokenizer is incompatible with cache-aware routing and prefix-cache terms or filters
+L611: 2026-11-16T14:52:10.8911537Z E
+L612: 2026-11-16T14:52:10.8911951Z ======================================================================
+L613: 2026-11-16T14:52:10.8912478Z ERROR: setUpClass (__main__.TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHigh)
+L614: 2026-11-16T14:52:10.8913214Z ----------------------------------------------------------------------
+L615: 2026-11-16T14:52:10.8913690Z Traceback (most recent call last):
+L616: 2026-11-16T14:52:10.8914104Z   File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+L617: 2026-11-16T14:52:10.8914601Z     orig_func(klass)
+L618: 2026-11-16T14:52:10.8914999Z 2026-11-16 14:52:10,890 - INFO - Detected complete test completion pattern!
+L619: 2026-11-16T14:52:10.8915527Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 699, in setUpClass
+L620: 2026-11-16T14:52:10.8916027Z     cls.start_router_server()
+L621: 2026-11-16T14:52:10.8916449Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 434, in wrapper
+L622: 2026-11-16T14:52:10.8916893Z     return func(self, *args, **kwargs)
+L623: 2026-11-16T14:52:10.8917202Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+L624: 2026-11-16T14:52:10.8917690Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 712, in start_router_server
+L625: 2026-11-16T14:52:10.8918200Z     start_router_thread(cls.model_config, cls.base_url)
+L626: 2026-11-16T14:52:10.8918849Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 819, in start_router_thread
+L627: 2026-11-16T14:52:10.8919435Z     wait_server_ready(health_check_url)
+L628: 2026-11-16T14:52:10.8919901Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 853, in wait_server_ready
+L629: 2026-11-16T14:52:10.8920353Z     raise RuntimeError(
+L630: 2026-11-16T14:52:10.8920832Z RuntimeError: Server http://172.22.3.181:6677/readiness failed to start in 3600s (elapsed: 3600.80s)
+L631: 2026-11-16T14:52:10.8921280Z 
+L632: 2026-11-16T14:52:10.8921453Z ----------------------------------------------------------------------
+L633: 2026-11-16T14:52:10.8921783Z Ran 0 tests in 3620.872s
+L634: 2026-11-16T14:52:10.8921966Z 
+L635: 2026-11-16T14:52:10.8922059Z FAILED (errors=1)
+L636: 2026-11-16T14:52:10.9721896Z 2026-11-16 14:52:10,970 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark.py
+L637: 2026-11-16T14:52:10.9722585Z Traceback (most recent call last):
+L638: 2026-11-16T14:52:10.9723100Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L639: 2026-11-16T14:52:10.9723545Z     monitor_pod_logs(
+L640: 2026-11-16T14:52:10.9724007Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+L641: 2026-11-16T14:52:10.9724821Z     raise Exception("The test result was FAILED!")
+L642: 2026-11-16T14:52:10.9725172Z Exception: The test result was FAILED!
+L643: 2026-11-16T14:52:10.9767188Z 2026-11-16 14:52:10,976 - WARNING - Metrics log file not found: /root/.cache/tests/output/YZY00Raiser-pryzy1112dspark-20261116-2032-43867439699-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark/test_output.log
+L644: 2026-11-16T14:52:10.9823097Z 2026-11-16 14:52:10,981 - INFO - Metrics JSON written to /root/.cache/tests/output/YZY00Raiser-pryzy1112dspark-20261116-2032-43867439699-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark/metrics.json
+L645: 2026-11-16T14:52:11.0066277Z ConfigMap sglang-configmap-859d35607vud340c is deleted.
+L646: 2026-11-16T14:52:11.0406939Z 2026-11-16 14:52:11,039 - INFO - Deleted job ascend-43867439699-859d35607vud340c
+L647: 2026-11-16T14:52:11.0409041Z 2026-11-16 14:52:11,039 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T13:51:22Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:51:22Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:51:24Z', 'status': 'Pending'}, {'lastTransitionTi
+L648: 2026-11-16T14:52:11.0410726Z Traceback (most recent call last):
+L649: 2026-11-16T14:52:11.0411300Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+L650: 2026-11-16T14:52:11.0411778Z     run_npu_e2e_test_case(
+L651: 2026-11-16T14:52:11.0412243Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+L652: 2026-11-16T14:52:11.0412698Z     monitor_pod_logs(
+L653: 2026-11-16T14:52:11.0413105Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+L654: 2026-11-16T14:52:11.0413614Z     raise Exception("The test result was FAILED!")
+L655: 2026-11-16T14:52:11.0413924Z Exception: The test result was FAILED!
+L656: 2026-11-16T14:52:11.1513439Z ##[error]Error: failed to run script step:
+L657:   ✗ exit code: 1
+L658:   → your script exited with a non-zero code; please check your script for errors
+L659: ------------------------------------------------------------
+L660: Last output:
+L661:   2026-11-16 14:52:10,970 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark.py
+L662:   Traceback (most recent call last):
+
+### 2223-a-notready :: github_logs/gh_43868646557/133303913207_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt (total 4086)
+L712: 2026-11-16T13:02:20.4625262Z 2026-11-16 21:02:20,457 - INFO - Node 172.22.3.158:8000 is ready
+L713: 2026-11-16T13:02:20.4625830Z 2026-11-16 21:02:20,458 - INFO - Waiting for 1 more nodes to be ready...
+L714: 2026-11-16T13:57:35.6721957Z 2026-11-16 21:57:35,669 - INFO - Timeout: Not all nodes are ready after 3600 seconds
+L715: 2026-11-16T13:57:35.6722394Z Exception in thread Thread-1 (launch_router):
+L716: 2026-11-16T13:57:35.6722644Z Traceback (most recent call last):
+L717: 2026-11-16T13:57:35.6722985Z   File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+L718: 2026-11-16T13:57:35.6723319Z     self.run()
+L719: 2026-11-16T13:57:35.6723608Z   File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1012, in run
+L720: 2026-11-16T13:57:35.6749336Z     self._target(*self._args, **self._kwargs)
+L721: 2026-11-16T13:57:35.6749733Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 725, in launch_router
+L722: 2026-11-16T13:57:35.6776870Z     raise RuntimeError("Failed to wait for all nodes to be ready")
+L723: 2026-11-16T13:57:35.6777196Z RuntimeError: Failed to wait for all nodes to be ready
+L724: 2026-11-16T13:57:35.7312731Z E
+L725: 2026-11-16T13:57:35.7313031Z ======================================================================
+L726: 2026-11-16T13:57:35.7313426Z ERROR: setUpClass (__main__.TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHigh)
+L727: 2026-11-16T13:57:35.7313858Z ----------------------------------------------------------------------
+L728: 2026-11-16T13:57:35.7314156Z Traceback (most recent call last):
+L729: 2026-11-16T13:57:35.7314534Z   File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+L730: 2026-11-16T13:57:35.7314915Z     orig_func(klass)
+L731: 2026-11-16T13:57:35.7315362Z   File "/root/sglang/test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py", line 302, in setUpClass
+L732: 2026-11-16T13:57:35.7315901Z     super().setUpClass()
+L733: 2026-11-16T13:57:35.7316220Z   File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+L734: 2026-11-16T13:57:35.7316527Z     orig_func(klass)
+L735: 2026-11-16T13:57:35.7316868Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 706, in setUpClass
+L736: 2026-11-16T13:57:35.7317251Z     cls.start_router_server()
+L737: 2026-11-16T13:57:35.7317614Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 368, in wrapper
+L738: 2026-11-16T13:57:35.7317978Z     return func(self, *args, **kwargs)
+L739: 2026-11-16T13:57:35.7318187Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+L740: 2026-11-16T13:57:35.7318554Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 728, in start_router_server
+L741: 2026-11-16T13:57:35.7319337Z     start_router_thread(cls.model_config, cls.base_url)
+L742: 2026-11-16T13:57:35.7319748Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 768, in start_router_thread
+L743: 2026-11-16T13:57:35.7320154Z     wait_server_ready(health_check_url)
+L744: 2026-11-16T13:57:35.7320459Z 2026-11-16 13:57:35,731 - INFO - Detected complete test completion pattern!
+L745: 2026-11-16T13:57:35.7320904Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 802, in wait_server_ready
+L746: 2026-11-16T13:57:35.7321571Z     raise RuntimeError(
+L747: 2026-11-16T13:57:35.7321917Z RuntimeError: Server http://172.22.3.166:6677/readiness failed to start in 3600s (elapsed: 3600.50s)
+L748: 2026-11-16T13:57:35.7322200Z 
+L749: 2026-11-16T13:57:35.7322326Z ----------------------------------------------------------------------
+L750: 2026-11-16T13:57:35.7322585Z Ran 0 tests in 3624.774s
+L751: 2026-11-16T13:57:35.7322704Z 
+L752: 2026-11-16T13:57:35.7322773Z FAILED (errors=1)
+L753: 2026-11-16T13:57:35.7990667Z 2026-11-16 13:57:35,797 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+L754: 2026-11-16T13:57:35.7991366Z Traceback (most recent call last):
+L755: 2026-11-16T13:57:35.7991766Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 781, in run_npu_e2e_test_case
+L756: 2026-11-16T13:57:35.7992155Z     monitor_pod_logs(
+L757: 2026-11-16T13:57:35.7992789Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 496, in monitor_pod_logs
+L758: 2026-11-16T13:57:35.7993207Z     raise Exception("The test result was FAILED!")
+L759: 2026-11-16T13:57:35.7993459Z Exception: The test result was FAILED!
+L760: 2026-11-16T13:57:35.8046835Z 2026-11-16 13:57:35,803 - WARNING - Metrics log file not found: /root/.cache/tests/output/YZY00Raiser-pryzy1112-20261116-2040-43868646557-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa/test_output.log
+
+### 2223-b-bind :: github_logs/gh_43868646557/133347678142_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt (total 5573)
+L550: 2026-11-16T14:04:07.4130848Z 2026-11-16 22:04:07,410 - INFO - launch_router start ......
+L551: 2026-11-16T14:04:07.4131469Z 2026-11-16 22:04:07,410 - INFO - Waiting for router to be ready at http://172.22.3.158:6677/readiness
+L552: 2026-11-16T14:04:07.4132073Z 2026-11-16 22:04:07,410 - INFO - Waiting for the server to start at http://172.22.3.158:6677/readiness...
+L553: 2026-11-16T14:04:07.6700189Z 2026-11-16 22:04:07,660 - INFO - Discovered 7 worker nodes (prefill: 4, decode: 3)
+L554: 2026-11-16T14:04:07.6973763Z 2026-11-16 22:04:07,695 - INFO - Successfully queried ConfigMap sglang-configmap-d7eef75c8vts0ttm in namespace sgl-project
+L555: 2026-11-16T14:04:07.6975142Z 2026-11-16 22:04:07,695 - INFO - Retrieved ConfigMap data: {'ascend-43868646557-d7eef75c8vts0ttm-sgl-router-0': '172.22.3.158', 'ascend-43868646557-d7eef75c8vts0ttm-sglang-decode-0': '172.22.3.160', 'ascend-43868646557-d7eef75c8vts0ttm-sglang-prefill-0': '172.22.3.79', 'ascend-43868646557-d
+L556: 2026-11-16T14:04:07.6976589Z 2026-11-16 22:04:07,695 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.79:8000'], decode_url=['172.22.3.160:8000'], node_ip_list=['172.22.3.160', '172.22.3.79']
+L557: 2026-11-16T14:10:22.7220164Z 2026-11-16 22:10:22,720 - INFO - Node 172.22.3.160:8000 is ready
+L558: 2026-11-16T14:10:22.7248394Z 2026-11-16 22:10:22,720 - INFO - Waiting for 1 more nodes to be ready...
+L559: 2026-11-16T14:12:13.4311033Z 2026-11-16 14:12:13,430 - ERROR - Pod ascend-43868646557-d7eef75c8vts0ttm-sglang-prefill-1 is not running, status: Succeeded
+L560: 2026-11-16T14:12:13.4316718Z 2026-11-16 14:12:13,431 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L561: 2026-11-16T14:12:13.4423914Z 2026-11-16 14:12:13,441 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa.py
+L562: 2026-11-16T14:12:13.4424773Z Traceback (most recent call last):
+L563: 2026-11-16T14:12:13.4425291Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 781, in run_npu_e2e_test_case
+L564: 2026-11-16T14:12:13.4425844Z     monitor_pod_logs(
+L565: 2026-11-16T14:12:13.4426294Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 494, in monitor_pod_logs
+L566: 2026-11-16T14:12:13.4426861Z     raise Exception("Monitoring ended but target pattern was not detected")
+L567: 2026-11-16T14:12:13.4427313Z Exception: Monitoring ended but target pattern was not detected
+L568: 2026-11-16T14:12:13.4611212Z 2026-11-16 14:12:13,460 - INFO - Metrics JSON written to /root/.cache/tests/output/YZY00Raiser-pryzy1112-20261116-2040-43868646557-1/Nightly_Test_NPU--main-cann9.1.0-a3/accuracy/test_npu_deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa/metrics.json
+L569: 2026-11-16T14:12:13.4874692Z ===== pod log (full): ascend-43868646557-d7eef75c8vts0ttm-sglang-prefill-0 =====
+L570: 2026-11-16T14:12:13.5618666Z NPU info:
+L571: 2026-11-16T14:12:13.5619176Z +------------------------------------------------------------------------------------------------+
+L572: 2026-11-16T14:12:13.5619715Z | npu-smi 25.5.2                   Version: 25.5.2                                               |
+L573: 2026-11-16T14:12:13.5620217Z +---------------------------+---------------+----------------------------------------------------+
+L574: 2026-11-16T14:12:13.5620870Z | NPU   Name                | Health        | Power(W)    Temp(C)           Hugepages-Usage(page)|
+L575: 2026-11-16T14:12:13.5621527Z | Chip  Phy-ID              | Bus-Id        | AICore(%)   Memory-Usage(MB)  HBM-Usage(MB)        |
+
+### 2223-b-bind2 :: github_logs/gh_43868646557/133347678142_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt (total 5573)
+L2105: 2026-11-16T14:12:13.7033203Z [2026-11-16 22:07:48] CommonKVBootstrapServer started successfully on 172.22.3.154:8996
+L2106: 2026-11-16T14:12:13.7033713Z 2026-11-16 22:07:48.765387 TRACE [743-2063][AccLink acc_tcp_link_delay_cleanup.h:116 RunInThread] AccDelay cleanup thread thread started
+L2107: 2026-11-16T14:12:13.7034228Z 2026-11-16 22:07:48.765618 TRACE [743-2064][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2108: 2026-11-16T14:12:13.7034805Z 2026-11-16 22:07:48.765767 TRACE [743-2065][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2109: 2026-11-16T14:12:13.7035264Z 2026-11-16 22:07:48.765844 ERROR [743-743][AccLink acc_tcp_listener.cpp:79 Start] Failed to bind or listen on 172.22.3.79:24666 as errno Cannot assign requested address
+L2110: 2026-11-16T14:12:13.7035688Z 2026-11-16 22:07:49.766918 ERROR [743-743][AccLink acc_tcp_server_default.cpp:85 Start] Failed to start AccTcpServerDefault listener, result: -1
+L2111: 2026-11-16T14:12:13.7036055Z 2026-11-16 22:07:49.766946 ERROR [743-743][SMEM smem_tcp_config_store_server.cpp:168 Startup] startup acc tcp server on port: 24666 failed: -1
+L2112: 2026-11-16T14:12:13.7036411Z 2026-11-16 22:07:49.766954 TRACE [743-743][SMEM smem_tcp_config_store_server.cpp:198 Shutdown] start to shutdown Acc Store Server
+L2113: 2026-11-16T14:12:13.7036819Z 2026-11-16 22:07:49.768312 TRACE [743-743][SMEM smem_tcp_config_store_server.cpp:238 Shutdown] finished shutdown Acc Store Server
+L2114: 2026-11-16T14:12:13.7037129Z 2026-11-16 22:07:49.768339 ERROR [743-743][SMEM smem_tcp_config_store.cpp:291 Startup] Failed to start config store server ret:-1
+L2115: 2026-11-16T14:12:13.7037593Z 2026-11-16 22:07:49.768346 ERROR [743-743][SMEM smem_store_factory.cpp:248 CreateTcpStore] Startup for store(url=172.22.3.79:24666, model=2, rank=-1) failed:-1
+L2116: 2026-11-16T14:12:13.7038016Z 2026-11-16 22:07:49.769461 ERROR [743-743][SMEM smem.cpp:67 smem_create_config_store] create store server failed, storeUrl: tcp://172.22.3.79:24666 reason: -1
+L2117: 2026-11-16T14:12:13.7038455Z 2026-11-16 22:07:49.769472 ERROR [743-743][ADAPTER transfer_util.cpp:130 pytransfer_create_config_store] SMEM API smem_create_config_store happen error, ret=-1
+L2118: 2026-11-16T14:12:13.7039276Z [2026-11-16 22:08:06] Tokenizer for /root/.cache/modelscope/hub/models/Eco-Tech/DeepSeek-V4-Flash-0731-w8a8 is still TokenizersBackend after retries with --trust-remote-code. Model-specific tokenizer attributes may be missing.
+L2119: 2026-11-16T14:12:13.7039475Z [2026-11-16 22:08:06] Watchdog DetokenizerManager initialized.
+L2120: 2026-11-16T14:12:13.7039677Z [2026-11-16 22:08:09 DP2 PP0 TP2 EP2 PID903] get env SGLANG_SET_CPU_AFFINITY = 1
+
+### 2224-timeout :: github_logs/gh_43870381982/133309711840_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt (total 3051)
+L2930: 2026-11-16T16:23:40.8897115Z 2026-11-16 16:23:40,888 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2931: 2026-11-16T16:23:46.0645432Z 2026-11-16 16:23:46,063 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2932: 2026-11-16T16:23:51.1374349Z 2026-11-16 16:23:51,136 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2933: 2026-11-16T16:23:56.1716056Z 2026-11-16 16:23:56,170 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2934: 2026-11-16T16:24:01.2601013Z 2026-11-16 16:24:01,258 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2935: 2026-11-16T16:24:06.3622168Z 2026-11-16 16:24:06,361 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2936: 2026-11-16T16:24:11.4403299Z 2026-11-16 16:24:11,439 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2937: 2026-11-16T16:24:16.4731032Z 2026-11-16 16:24:16,471 - INFO - Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0, status: Succeeded
+L2938: 2026-11-16T16:24:21.4733072Z 2026-11-16 16:24:21,472 - INFO - timeout in 12600s
+L2939: 2026-11-16T16:24:21.4746185Z 2026-11-16 16:24:21,473 - INFO - Pod not ready, maybe not enough resource
+L2940: 2026-11-16T16:24:21.4755073Z 2026-11-16 16:24:21,474 - INFO - Starting to monitor logs for Pod: ascend-43870381982-5db54256xsg89rte-sglang-node-0
+L2941: 2026-11-16T16:24:21.5077593Z 2026-11-16 16:24:21,504 - ERROR - Pod ascend-43870381982-5db54256xsg89rte-sglang-node-0 is not running, status: Succeeded
+L2942: 2026-11-16T16:24:21.5079184Z 2026-11-16 16:24:21,504 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L2943: 2026-11-16T16:24:21.5825912Z 2026-11-16 16:24:21,578 - ERROR - Test case failed: test/registered/npu/performance/kimi_k3/test_npu_kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix.py
+L2944: 2026-11-16T16:24:21.5826658Z Traceback (most recent call last):
+L2945: 2026-11-16T16:24:21.5827562Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 742, in run_npu_e2e_test_case
+L2946: 2026-11-16T16:24:21.5828148Z     monitor_pod_logs(
+L2947: 2026-11-16T16:24:21.5828623Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L2948: 2026-11-16T16:24:21.5829258Z     raise Exception("Monitoring ended but target pattern was not detected")
+L2949: 2026-11-16T16:24:21.5829752Z Exception: Monitoring ended but target pattern was not detected
+L2950: 2026-11-16T16:24:21.5942430Z 2026-11-16 16:24:21,593 - INFO - Metrics JSON written to /root/.cache/tests/output/EdwardXuy-perf-kimik3decodeprefixtune-20261116-2051-43870381982-1/Nightly_Test_NPU--cann9.1.0-a3-20261110/perf/test_npu_kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix/metrics.json
+L2951: 2026-11-16T16:24:21.6166481Z ConfigMap sglang-configmap-5db54256xsg89rte is deleted.
+L2952: 2026-11-16T16:24:21.6476999Z 2026-11-16 16:24:21,646 - INFO - Deleted job ascend-43870381982-5db54256xsg89rte
+L2953: 2026-11-16T16:24:21.6480112Z 2026-11-16 16:24:21,646 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T12:54:16Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T12:54:17Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:22:56Z', 'status': 'Pending'}, {'lastTransitionTi
+L2954: 2026-11-16T16:24:21.6483331Z Traceback (most recent call last):
+L2955: 2026-11-16T16:24:21.6484138Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 948, in <module>
+L2956: 2026-11-16T16:24:21.6484646Z     run_npu_e2e_test_case(
+L2957: 2026-11-16T16:24:21.6485130Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 742, in run_npu_e2e_test_case
+L2958: 2026-11-16T16:24:21.6485649Z     monitor_pod_logs(
+L2959: 2026-11-16T16:24:21.6486093Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L2960: 2026-11-16T16:24:21.6486805Z     raise Exception("Monitoring ended but target pattern was not detected")
+L2961: 2026-11-16T16:24:21.6487291Z Exception: Monitoring ended but target pattern was not detected
+L2962: 2026-11-16T16:24:21.7712953Z ##[error]Error: failed to run script step:
+L2963:   ✗ exit code: 1
+L2964:   → your script exited with a non-zero code; please check your script for errors
+L2965: ------------------------------------------------------------
+L2966: Last output:
+L2967:   2026-11-16 16:24:21,504 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+L2968:   2026-11-16 16:24:21,578 - ERROR - Test case failed: test/registered/npu/performance/kimi_k3/test_npu_kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix.py
+L2969:   Traceback (most recent call last):
+L2970:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 742, in run_npu_e2e_test_case
+L2971:       monitor_pod_logs(
+L2972:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L2973:       raise Exception("Monitoring ended but target pattern was not detected")
+L2974:   Exception: Monitoring ended but target pattern was not detected
+L2975:   2026-11-16 16:24:21,593 - INFO - Metrics JSON written to /root/.cache/tests/output/EdwardXuy-perf-kimik3decodeprefixtune-20261116-2051-43870381982-1/Nightly_Test_NPU--cann9.1.0-a3-20261110/perf/test_npu_kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix/metrics.json
+L2976:   ConfigMap sglang-configmap-5db54256xsg89rte is deleted.
+L2977:   2026-11-16 16:24:21,646 - INFO - Deleted job ascend-43870381982-5db54256xsg89rte
+L2978:   2026-11-16 16:24:21,646 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T12:54:16Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T12:54:17Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:22:56Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T13:22:57Z'
+L2979:   Traceback (most recent call last):
+L2980:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 948, in <module>
+L2981:       run_npu_e2e_test_case(
+L2982:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 742, in run_npu_e2e_test_case
+L2983:       monitor_pod_logs(
+L2984:     File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 489, in monitor_pod_logs
+L2985:       raise Exception("Monitoring ended but target pattern was not detected")
+L2986:   Exception: Monitoring ended but target pattern was not detected
+L2987: 2026-11-16T16:24:21.7733798Z ##[error]Process completed with exit code 1.
+L2988: 2026-11-16T16:24:21.7894695Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L2989: 2026-11-16T16:24:21.8510091Z ##[group]Run cd ${ASCEND_E2E_TEST_CONFIG_PATH}
+L2990: 2026-11-16T16:24:21.8510661Z [36;1mcd ${ASCEND_E2E_TEST_CONFIG_PATH}[0m
+
+### 2215-kill :: github_logs/gh_43805718761/133095943416_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt (total 1518)
+L1355: 2026-11-16T04:47:52.0210950Z   File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 83, in wrapper
+L1356: 2026-11-16T04:47:52.0211710Z     return func(*args, **kwargs)
+L1357: 2026-11-16T04:47:52.0211984Z            ^^^^^^^^^^^^^^^^^^^^^
+L1358: 2026-11-16T04:47:52.0212531Z   File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py", line 3014, in all_reduce
+L1359: 2026-11-16T04:47:52.0213112Z     work.wait()
+L1360: 2026-11-16T04:47:52.0213687Z RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [172.22.3.138]:43400
+L1361: 2026-11-16T04:47:52.0214324Z 
+L1362: 2026-11-16T04:47:52.0214603Z [2026-11-16 12:47:52] Received sigquit from a child process. It usually means the child failed.
+L1363: 2026-11-16T04:47:52.0215280Z [2026-11-16 12:47:52] kill_process_tree called: parent_pid=418, include_parent=True, pid=418
+L1364: 2026-11-16T04:47:58.0548763Z 2026-11-16 12:47:58,052 - INFO - kill_process_tree called: parent_pid=418, include_parent=True, pid=272
+L1365: 2026-11-16T04:47:58.0549413Z Exception in thread Thread-1 (launch_pd_mix_node):
+L1366: 2026-11-16T04:47:58.0549779Z Traceback (most recent call last):
+L1367: 2026-11-16T04:47:58.0550337Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 508, in launch_pd_mix_node
+L1368: 2026-11-16T04:47:58.0573257Z     process = popen_launch_server(
+L1369: 2026-11-16T04:47:58.0573543Z               ^^^^^^^^^^^^^^^^^^^^
+L1370: 2026-11-16T04:47:58.0574071Z   File "/root/sglang/python/sglang/test/test_utils.py", line 896, in popen_launch_server
+L1371: 2026-11-16T04:47:58.0604331Z     raise Exception(error_msg + ". Check server logs for errors.")
+L1372: 2026-11-16T04:47:58.0604890Z Exception: Server process exited with code -9. Check server logs for errors.
+L1373: 2026-11-16T04:47:58.0605236Z 
+L1374: 2026-11-16T04:47:58.0605482Z During handling of the above exception, another exception occurred:
+L1375: 2026-11-16T04:47:58.0605887Z 
+L1376: 2026-11-16T04:47:58.0606014Z Traceback (most recent call last):
+L1377: 2026-11-16T04:47:58.0606486Z   File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+L1378: 2026-11-16T04:47:58.0606958Z     self.run()
+L1379: 2026-11-16T04:47:58.0607309Z   File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1012, in run
+L1380: 2026-11-16T04:47:58.0607753Z     self._target(*self._args, **self._kwargs)
+L1381: 2026-11-16T04:47:58.0608310Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 517, in launch_pd_mix_node
+L1382: 2026-11-16T04:47:58.0608951Z     raise RuntimeError(f"Failed to start node on {host_ip}: {e}")
+L1383: 2026-11-16T04:47:58.0609579Z RuntimeError: Failed to start node on 172.22.3.154: Server process exited with code -9. Check server logs for errors.
+L1384: 2026-11-16T04:48:27.8372599Z E
+L1385: 2026-11-16T04:48:27.8372947Z ======================================================================
+L1386: 2026-11-16T04:48:27.8373515Z ERROR: setUpClass (__main__.TestNPUKimiK3W4A832PMixIn128kOut1kDecodePrefix)
+L1387: 2026-11-16T04:48:27.8374045Z ----------------------------------------------------------------------
+L1388: 2026-11-16T04:48:27.8374477Z Traceback (most recent call last):
+L1389: 2026-11-16T04:48:27.8375362Z   File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+L1390: 2026-11-16T04:48:27.8375842Z     orig_func(klass)
+L1391: 2026-11-16T04:48:27.8376328Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_performance_utils.py", line 1460, in setUpClass
+L1392: 2026-11-16T04:48:27.8376870Z     cls.start_pd_mix_master_node()
+L1393: 2026-11-16T04:48:27.8377359Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 434, in wrapper
+L1394: 2026-11-16T04:48:27.8377888Z     return func(self, *args, **kwargs)
+L1395: 2026-11-16T04:48:27.8378178Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+L1396: 2026-11-16T04:48:27.8413627Z   File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_performance_utils.py", line 1484, in start_pd_mix_master_node
+L1397: 2026-11-16T04:48:27.8414237Z     raise RuntimeError(
+L1398: 2026-11-16T04:48:27.8414931Z RuntimeError: sglang launch thread exited before the server became ready; check the server logs for the first rank that died
+L1399: 2026-11-16T04:48:27.8415408Z 
+L1400: 2026-11-16T04:48:27.8415606Z ----------------------------------------------------------------------

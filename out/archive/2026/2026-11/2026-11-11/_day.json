@@ -2353,12 +2353,398 @@
    },
    "note": null,
    "pipelineId": "209837578"
+  },
+  {
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "pipelineId": "openlibing:UBS Core:b51d159e1b9d4c6798dcda723e1876db",
+   "key": "UBS Core|Nightly-CI-Version-pipeline_BeiMing",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 0,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 18,
+    "buildCount": 18
+   },
+   "vaRate": 0.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 10,
+   "runsToday": 0,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-16/UBS Core/Nightly-CI-Version-pipeline_BeiMing",
+   "manifest": "archive/2026/2026-11/2026-11-16/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-16/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 0,
+   "runNumbers": [],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": "当日仅启动、未结束：计入分母但不计可用（跨午夜运行）"
+  },
+  {
+   "component": "openEuler",
+   "pipeline": "EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "pipelineName": "openEuler 24.03 LTS SP5",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openEuler:EBS-OS-build/job/Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "key": "openEuler|EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 6,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "manifest": "archive/2026/2026-11/2026-11-11/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    39
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-centos-x86",
+   "pipelineName": "CentOS 7.6 x86",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-centos-x86",
+   "key": "openGauss|autobuild-opengauss-centos-x86",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 5,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-centos-x86",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-centos-x86/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-centos-x86/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    2018
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler-arm",
+   "pipelineName": "openEuler 20.03 arm",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler-arm",
+   "key": "openGauss|autobuild-opengauss-openeuler-arm",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 2,
+    "buildCount": 2
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 6,
+   "runsToday": 2,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-arm",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-arm/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-arm/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 2,
+   "runNumbers": [
+    2316,
+    2317
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler-x86",
+   "pipelineName": "openEuler 20.03 x86",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler-x86",
+   "key": "openGauss|autobuild-opengauss-openeuler-x86",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 4,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-x86",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-x86/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler-x86/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    1867
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler2203-arm",
+   "pipelineName": "openEuler 22.03 arm",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler2203-arm",
+   "key": "openGauss|autobuild-opengauss-openeuler2203-arm",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 5,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-arm",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-arm/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-arm/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    1618
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler2203-x86",
+   "pipelineName": "openEuler 22.03 x86",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler2203-x86",
+   "key": "openGauss|autobuild-opengauss-openeuler2203-x86",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 3,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-x86",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-x86/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler2203-x86/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    1565
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+   "pipelineName": "openEuler 24.03 arm",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm",
+   "key": "openGauss|autobuild-opengauss-openeuler24.03-arm",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 6,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-arm",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-arm/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-arm/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    759
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler24.03-x86",
+   "pipelineName": "openEuler 24.03 x86",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-x86",
+   "key": "openGauss|autobuild-opengauss-openeuler24.03-x86",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 5,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-x86",
+   "manifest": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-x86/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-11/openGauss/autobuild-opengauss-openeuler24.03-x86/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    740
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
   }
  ],
  "counts": {
-  "components": 12,
-  "pipelines": 47,
-  "records": 83,
+  "components": 15,
+  "pipelines": 56,
+  "records": 92,
   "tasks": 1,
   "cases": 2,
   "errorMessages": 4,

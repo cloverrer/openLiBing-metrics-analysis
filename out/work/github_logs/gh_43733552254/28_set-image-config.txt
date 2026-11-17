@@ -1,0 +1,100 @@
+﻿2026-11-15T16:06:07.6866239Z Current runner version: '2.338.2'
+2026-11-15T16:06:07.6896047Z ##[group]Runner Image Provisioner
+2026-11-15T16:06:07.6897094Z Hosted Compute Agent
+2026-11-15T16:06:07.6897793Z Version: 20261103.629
+2026-11-15T16:06:07.6898583Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T16:06:07.6899516Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T16:06:07.6900348Z Worker ID: {e462cee8-2098-4902-b4bf-ce9eec2679f6}
+2026-11-15T16:06:07.6901355Z Region: eastus2
+2026-11-15T16:06:07.6902166Z Cloud: Azure
+2026-11-15T16:06:07.6903059Z ##[endgroup]
+2026-11-15T16:06:07.6904737Z ##[group]Operating System
+2026-11-15T16:06:07.6905506Z Ubuntu
+2026-11-15T16:06:07.6906165Z 26.04.1
+2026-11-15T16:06:07.6906779Z LTS
+2026-11-15T16:06:07.6907386Z ##[endgroup]
+2026-11-15T16:06:07.6908142Z ##[group]Runner Image
+2026-11-15T16:06:07.6908869Z Image: ubuntu-26.04
+2026-11-15T16:06:07.6910183Z Version: 20261111.196.1
+2026-11-15T16:06:07.6911915Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-15T16:06:07.6914302Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-15T16:06:07.6915668Z ##[endgroup]
+2026-11-15T16:06:07.6917252Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T16:06:07.6919580Z Contents: read
+2026-11-15T16:06:07.6920373Z Metadata: read
+2026-11-15T16:06:07.6921062Z Packages: read
+2026-11-15T16:06:07.6921877Z ##[endgroup]
+2026-11-15T16:06:07.6924549Z Secret source: Actions
+2026-11-15T16:06:07.6925782Z Cache mode: write
+2026-11-15T16:06:07.6926935Z Prepare workflow directory
+2026-11-15T16:06:07.7312123Z Prepare all required actions
+2026-11-15T16:06:07.7428728Z Complete job name: set-image-config
+2026-11-15T16:06:07.8326111Z ##[group]Run if [ -z "" ]; then
+2026-11-15T16:06:07.8326806Z [36;1mif [ -z "" ]; then[0m
+2026-11-15T16:06:07.8327566Z [36;1m  echo "ref=" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8328286Z [36;1melse[0m
+2026-11-15T16:06:07.8328799Z [36;1m  echo "ref=" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8329390Z [36;1mfi[0m
+2026-11-15T16:06:07.8329962Z [36;1mJOB_FILTER="$(echo "${JOB_FILTER}" | tr -d '[:space:]')"[0m
+2026-11-15T16:06:07.8330778Z [36;1mecho "job_filter=${JOB_FILTER:-all}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8331617Z [36;1mif [ -z "" ]; then[0m
+2026-11-15T16:06:07.8332745Z [36;1m  echo "image_a3=swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:main-cann9.1.0-a3" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8333730Z [36;1melse[0m
+2026-11-15T16:06:07.8334211Z [36;1m  echo "image_a3=" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8334801Z [36;1mfi[0m
+2026-11-15T16:06:07.8335302Z [36;1mif [ -z "" ]; then[0m
+2026-11-15T16:06:07.8336364Z [36;1m  echo "image_a5=swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:main-cann9.1.0-950" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8337315Z [36;1melse[0m
+2026-11-15T16:06:07.8337785Z [36;1m  echo "image_a5=" >> $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8338381Z [36;1mfi[0m
+2026-11-15T16:06:07.8339146Z [36;1m# If the nightly pipeline is triggered by a PR, this variable takes the source branch label of the PR;[0m
+2026-11-15T16:06:07.8340145Z [36;1m# otherwise, it uses the branch or tag name of the current ref.[0m
+2026-11-15T16:06:07.8340821Z [36;1mBRANCH_LABEL="$HEAD_LABEL"[0m
+2026-11-15T16:06:07.8341359Z [36;1mif [ -z "${BRANCH_LABEL}" ]; then[0m
+2026-11-15T16:06:07.8341982Z [36;1m  BRANCH_LABEL="main"[0m
+2026-11-15T16:06:07.8342560Z [36;1mfi[0m
+2026-11-15T16:06:07.8343199Z [36;1mBRANCH_LABEL="$(echo "${BRANCH_LABEL}" | tr -cd 'a-zA-Z0-9._/:' | tr '/:' '--')"[0m
+2026-11-15T16:06:07.8344157Z [36;1m# Package run metadata (branch/workflow/create_time) as a single JSON for reuse by all[0m
+2026-11-15T16:06:07.8345128Z [36;1m# test jobs; create_time is UTC+8 date + time (minute precision) recorded once at run[0m
+2026-11-15T16:06:07.8345965Z [36;1m# start, shared even across midnight.[0m
+2026-11-15T16:06:07.8347303Z [36;1mRUN_START_METADATA="$(python3 -c "import json,sys; print(json.dumps({'branch_label':sys.argv[1],'workflow_name':sys.argv[2],'create_time':sys.argv[3]}))" "$BRANCH_LABEL" "Nightly Test (NPU)" "$(date -u -d '+8 hours' +%Y%m%d-%H%M)")"[0m
+2026-11-15T16:06:07.8348922Z [36;1m# Write to GITHUB_OUTPUT and print to the log in one command.[0m
+2026-11-15T16:06:07.8349747Z [36;1mecho "run_start_metadata=${RUN_START_METADATA}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.8350603Z [36;1m# Multi-node accuracy dataset: an explicit input wins; otherwise gsm8k[0m
+2026-11-15T16:06:07.8351525Z [36;1m# (200-sample cap) on weekdays and gpqa_diamond on weekends. The cron[0m
+2026-11-15T16:06:07.8352467Z [36;1m# fires at 16:00 UTC, i.e. 00:00 the next day in Beijing, so resolve[0m
+2026-11-15T16:06:07.8353159Z [36;1m# the weekday in Asia/Shanghai.[0m
+2026-11-15T16:06:07.8353780Z [36;1mACCURACY_DATASET_INPUT=""[0m
+2026-11-15T16:06:07.8354438Z [36;1mcase "${ACCURACY_DATASET_INPUT}" in[0m
+2026-11-15T16:06:07.8355072Z [36;1m  gsm8k|gpqa_diamond)[0m
+2026-11-15T16:06:07.8355650Z [36;1m    ACCURACY_DATASET="${ACCURACY_DATASET_INPUT}"[0m
+2026-11-15T16:06:07.8356284Z [36;1m    ;;[0m
+2026-11-15T16:06:07.8356728Z [36;1m  ""|auto)[0m
+2026-11-15T16:06:07.8357239Z [36;1m    ACCURACY_DOW="$(TZ=Asia/Shanghai date +%u)"[0m
+2026-11-15T16:06:07.8357913Z [36;1m    if [ "${ACCURACY_DOW}" -le 5 ]; then[0m
+2026-11-15T16:06:07.8358481Z [36;1m      ACCURACY_DATASET="gsm8k"[0m
+2026-11-15T16:06:07.8358983Z [36;1m    else[0m
+2026-11-15T16:06:07.8359511Z [36;1m      ACCURACY_DATASET="gpqa_diamond"[0m
+2026-11-15T16:06:07.8360050Z [36;1m    fi[0m
+2026-11-15T16:06:07.8428088Z [36;1m    ;;[0m
+2026-11-15T16:06:07.8428695Z [36;1m  *)[0m
+2026-11-15T16:06:07.8429814Z [36;1m    echo "Unsupported accuracy_dataset: ${ACCURACY_DATASET_INPUT}"[0m
+2026-11-15T16:06:07.8430702Z [36;1m    exit 1[0m
+2026-11-15T16:06:07.8431226Z [36;1m    ;;[0m
+2026-11-15T16:06:07.8431776Z [36;1mesac[0m
+2026-11-15T16:06:07.8432704Z [36;1mecho "accuracy_dataset=${ACCURACY_DATASET}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-15T16:06:07.9286709Z shell: /usr/bin/bash -e {0}
+2026-11-15T16:06:07.9288017Z env:
+2026-11-15T16:06:07.9288396Z   HEAD_LABEL: 
+2026-11-15T16:06:07.9288760Z   JOB_FILTER: 
+2026-11-15T16:06:07.9289117Z ##[endgroup]
+2026-11-15T16:06:07.9510527Z job_filter=all
+2026-11-15T16:06:07.9763694Z run_start_metadata={"branch_label": "main", "workflow_name": "Nightly Test (NPU)", "create_time": "20261116-0006"}
+2026-11-15T16:06:07.9825709Z accuracy_dataset=gsm8k
+2026-11-15T16:06:07.9977896Z Evaluate and set job outputs
+2026-11-15T16:06:07.9984937Z Set output 'job_filter'
+2026-11-15T16:06:07.9986737Z Set output 'image_a3'
+2026-11-15T16:06:07.9987881Z Set output 'image_a5'
+2026-11-15T16:06:07.9988634Z Set output 'run_start_metadata'
+2026-11-15T16:06:07.9989232Z Set output 'accuracy_dataset'
+2026-11-15T16:06:07.9990048Z Cleaning up orphan processes

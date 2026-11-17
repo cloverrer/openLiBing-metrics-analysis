@@ -1,0 +1,1232 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "buildEndtime",
+  "generatedAt": null,
+  "component": "openGauss",
+  "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+  "date": "2026-11-12",
+  "recordCount": 2
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-12",
+ "component": "openGauss",
+ "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+ "pipelineName": "openEuler 24.03 arm",
+ "platform": "jenkins",
+ "key": "openGauss|autobuild-opengauss-openeuler24.03-arm",
+ "dateBasis": {
+  "field": "buildEndtime",
+  "value": "2026-11-12",
+  "rule": "按构建结束时间归属北京自然日",
+  "runs": [
+   {
+    "rn": 760,
+    "status": "FAILED",
+    "endedAt": "2026-11-12T00:48:00"
+   },
+   {
+    "rn": 761,
+    "status": "FAILED",
+    "endedAt": "2026-11-12T10:10:48"
+   }
+  ]
+ },
+ "counts": {
+  "records": 2,
+  "tasks": 2,
+  "cases": 0,
+  "errorMessages": 120
+ },
+ "evidence": {
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files（键=相对本目录路径），行号 1 起",
+  "rule": "控制台日志逐行内嵌，bytes/sha1/eol 可无损还原"
+ },
+ "source": {
+  "step": "tools/collect_community_nightly.py",
+  "generatedAt": "2026-11-16 16:50:56",
+  "note": "数据来源: jenkins.opengauss.org/view/AUTO-BUILD 视图的 release 变体 AUTO-BUILD 版本级任务（buildHistory/ajax，每次取最新 25 条并做区间覆盖校验），参考 pr-ci-board 的 version_tasks.json 中 variant=release 的 7 条任务。"
+ },
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "社区 Nightly 流水线点灯依据（口径参考 pr-ci-board）",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-16 16:50:56",
+    "component": "openGauss",
+    "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+    "date": "2026-11-12"
+   },
+   "pipeline": {
+    "product": "openGauss",
+    "pipelineShortName": "autobuild-opengauss-openeuler24.03-arm",
+    "pipelineName": "openEuler 24.03 arm",
+    "platform": "jenkins",
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "pipelineId": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm",
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "days",
+    "reason": "社区 Nightly 采集：当日 2 次构建（成功 0、失败 2、aborted 0），版本可用度按「成功天数÷有执行天数」、编译成功率按「成功次数÷构建次数」统计"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "当日构建清单（按构建结束时间归属北京自然日）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 16:50:56",
+    "component": "openGauss",
+    "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+    "date": "2026-11-12"
+   },
+   "date": "2026-11-12",
+   "runHistory": [
+    {
+     "rn": 760,
+     "rid": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:760",
+     "status": "FAILED",
+     "start": "2026-11-12T00:04:00",
+     "end": "2026-11-12T00:48:00",
+     "iva": false,
+     "bc": 1,
+     "bpc": 0
+    },
+    {
+     "rn": 761,
+     "rid": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:761",
+     "status": "FAILED",
+     "start": "2026-11-12T09:35:48",
+     "end": "2026-11-12T10:10:48",
+     "iva": false,
+     "bc": 1,
+     "bpc": 0
+    }
+   ],
+   "runs": [
+    {
+     "rn": 760,
+     "status": "FAILED",
+     "start": "2026-11-12T00:04:00",
+     "end": "2026-11-12T00:48:00",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    },
+    {
+     "rn": 761,
+     "status": "FAILED",
+     "start": "2026-11-12T09:35:48",
+     "end": "2026-11-12T10:10:48",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    }
+   ],
+   "failedRuns": [
+    {
+     "rn": 760,
+     "rid": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:760",
+     "status": "FAILED",
+     "start": "2026-11-12T00:04:00",
+     "end": "2026-11-12T00:48:00",
+     "iva": false,
+     "bc": 1,
+     "bpc": 0
+    },
+    {
+     "rn": 761,
+     "rid": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:761",
+     "status": "FAILED",
+     "start": "2026-11-12T09:35:48",
+     "end": "2026-11-12T10:10:48",
+     "iva": false,
+     "bc": 1,
+     "bpc": 0
+    }
+   ],
+   "keptRuns": 2,
+   "keptFailedRuns": 2
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "失败构建控制台日志取证（consoleText 整份内嵌）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 16:50:56",
+    "component": "openGauss",
+    "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+    "date": "2026-11-12"
+   },
+   "results": [
+    {
+     "jobName": "autobuild-opengauss-openeuler24.03-arm",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "logBytes": 5585864,
+     "logLines": 40495,
+     "download": "consoleText",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [],
+     "jobErrMsg": "构建结束状态 FAILURE",
+     "errorLines": [
+      "L855: Makefile:239: ../../src/Makefile.global: No such file or directory",
+      "L856: make: *** No rule to make target '../../src/Makefile.global'.",
+      "L859: Makefile:239: Failed to remake makefile '../../src/Makefile.global'.",
+      "L930: checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no",
+      "L1544: /usr/local/bin/package_ci_master.sh: line 205: Release: command not found",
+      "L7569: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':",
+      "L10177: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':",
+      "L21787: ./separate_debug_information.sh: line 64: 34111 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\"",
+      "L21790: mv: cannot stat './bin/gaussdb.map': No such file or directory",
+      "L21802: cat: makemppdb_pkg.log: No such file or directory",
+      "L21803: 2026-11-12 00:33:11 [ERROR] funcname: compile line:323 compile openGauss package failed",
+      "L21839: cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory",
+      "L24036: mv: cannot stat '*Package*.tar.gz': No such file or directory",
+      "L24037: mv: cannot stat '*ymbols*.tar.gz': No such file or directory",
+      "L24038: sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory",
+      "L39216: gzip: stdout: No space left on device",
+      "L39217: tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Wrote only 4096 of 10240 bytes",
+      "L39220: cp: cannot create regular file '/usr1/build/workspace/openGauss/server_lite/build/script/symbols.tar.gz': No space left on device",
+      "L39224: mkdir: cannot create directory 'temp': No space left on device",
+      "L39225: mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device",
+      "L39226: cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory",
+      "L39227: tar: ./bin/gsql: Cannot open: No space left on device",
+      "L39228: tar: Exiting with failure status due to previous errors",
+      "L39248: tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory",
+      "L40011: tar: ./lib/libnuma.so*: Cannot stat: No such file or directory",
+      "L40281: cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory",
+      "L40284: cmake_package_mini.sh: line 674: openGauss-Lite-8.0.0-RC1-openEuler24.03-aarch64.sha256: No space left on device",
+      "L40285: [makegaussdb] 26-11-12 00:48:32: generate sha256 file failed.",
+      "L40286: generate sha256 file failed.",
+      "L40287: /usr/local/bin/build_lite.sh: line 38: die: command not found",
+      "L40289: mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory",
+      "L40313: tee: upload.log: No space left on device",
+      "L40325: Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory",
+      "L40337: Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [36], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]",
+      "L40489: 2026-11-12 00:48:38 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed",
+      "L40490: Build step 'Execute shell' marked build as failure",
+      "L40495: Finished: FAILURE"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "autobuild-opengauss-openeuler24.03-arm",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "logBytes": 5577963,
+     "logLines": 41149,
+     "download": "consoleText",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [],
+     "jobErrMsg": "构建结束状态 FAILURE",
+     "errorLines": [
+      "L851: Makefile:239: ../../src/Makefile.global: No such file or directory",
+      "L852: make: *** No rule to make target '../../src/Makefile.global'.",
+      "L855: Makefile:239: Failed to remake makefile '../../src/Makefile.global'.",
+      "L926: checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no",
+      "L1540: /usr/local/bin/package_ci_master.sh: line 205: Release: command not found",
+      "L7434: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':",
+      "L10201: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':",
+      "L21783: ./separate_debug_information.sh: line 64: 34109 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\"",
+      "L21786: mv: cannot stat './bin/gaussdb.map': No such file or directory",
+      "L21798: cat: makemppdb_pkg.log: No such file or directory",
+      "L21799: 2026-11-12 09:57:14 [ERROR] funcname: compile line:323 compile openGauss package failed",
+      "L21835: cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory",
+      "L24032: mv: cannot stat '*Package*.tar.gz': No such file or directory",
+      "L24033: mv: cannot stat '*ymbols*.tar.gz': No such file or directory",
+      "L24034: sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory",
+      "L39200: chmod: cannot access '/usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/./lib/libpq.a0.symbol': No such file or directory",
+      "L39207: objcopy: strccCLg[.rela.dyn]: No space left on device",
+      "L39208: objcopy: libxgboost.so_release[.dynstr]: No space left on device",
+      "L39210: objcopy: 'libxgboost.so': No such file",
+      "L39213: objcopy: stDKEYHM/zutil.o: No space left on device",
+      "L39218: objcopy: warning: could not create temporary file whilst copying 'libz.so.1.2.12', (error: No space left on device)",
+      "L39514: tar (child): /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot open: No space left on device",
+      "L39516: tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot write: Broken pipe",
+      "L39524: mkdir: cannot create directory 'temp': No space left on device",
+      "L39525: mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device",
+      "L39526: cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory",
+      "L39527: tar: ./bin/gsql: Cannot open: No space left on device",
+      "L39528: tar: Exiting with failure status due to previous errors",
+      "L39530: tar: ./bin/gaussdb: Wrote only 2560 of 10240 bytes",
+      "L39548: tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory",
+      "L40311: tar: ./lib/libnuma.so*: Cannot stat: No such file or directory",
+      "L40686: cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory",
+      "L40689: cp: cannot stat '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/libstdc++.so.6': No such file or directory",
+      "L40690: cp: cannot stat 'libstdc++.so.6': No such file or directory",
+      "L40693: cp: cannot create regular file './upgrade_sql/rollback_catalog_maindb/rollback-post_catalog_maindb_92_352.sql': No space left on device",
+      "L40935: cp: cannot create directory './upgrade_sql/rollback_catalog_otherdb': No space left on device",
+      "L40939: [makegaussdb] 26-11-12 10:11:31: Failed to cp upgrade_sql files",
+      "L40940: Failed to cp upgrade_sql files",
+      "L40941: /usr/local/bin/build_lite.sh: line 38: die: command not found",
+      "L40943: mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory",
+      "L40966: buildopengauss.sh: line 143: openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: No space left on device",
+      "L40967: tee: upload.log: No space left on device",
+      "L40979: Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory",
+      "L40991: Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [43], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]",
+      "L41143: 2026-11-12 10:11:39 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed",
+      "L41144: Build step 'Execute shell' marked build as failure",
+      "L41149: Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 2,
+    "logFiles": 2,
+    "errorLines": 81644
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次构建」为最小单位合并记录（社区 Nightly）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-16 16:50:56",
+    "component": "openGauss",
+    "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+    "date": "2026-11-12"
+   },
+   "date": "2026-11-12",
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+   "counts": {
+    "records": 2,
+    "tasks": 2,
+    "cases": 0,
+    "errorMessages": 120
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 1005,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "社区 Nightly 流水线点灯依据（口径参考 pr-ci-board）",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 1593,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "当日构建清单（按构建结束时间归属北京自然日）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 8635,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "失败构建控制台日志取证（consoleText 整份内嵌）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 817,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次构建」为最小单位合并记录（社区 Nightly）",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "openGauss|autobuild-opengauss-openeuler24.03-arm#760",
+   "date": "2026-11-12",
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+   "pipelineName": "openEuler 24.03 arm",
+   "platform": "jenkins",
+   "buildNumber": 760,
+   "pipelineRunId": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:760",
+   "status": "FAILED",
+   "failedTaskType": "版本构建任务",
+   "startedAt": "2026-11-12T00:04:00",
+   "endedAt": "2026-11-12T00:48:00",
+   "dateBasis": {
+    "field": "buildEndtime",
+    "value": "2026-11-12T00:48:00",
+    "rule": "按构建结束时间（开始时间+耗时）归属北京自然日"
+   },
+   "links": {
+    "jenkins": "https://jenkins.opengauss.org/job/autobuild-opengauss-openeuler24.03-arm/760/",
+    "detail": null,
+    "openlibing": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "autobuild-opengauss-openeuler24.03-arm",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "logBytes": 5585864,
+     "logLines": 40495,
+     "download": "consoleText",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [],
+     "jobErrMsg": "构建结束状态 FAILURE",
+     "errorLines": [
+      "L855: Makefile:239: ../../src/Makefile.global: No such file or directory",
+      "L856: make: *** No rule to make target '../../src/Makefile.global'.",
+      "L859: Makefile:239: Failed to remake makefile '../../src/Makefile.global'.",
+      "L930: checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no",
+      "L1544: /usr/local/bin/package_ci_master.sh: line 205: Release: command not found",
+      "L7569: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':",
+      "L10177: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':",
+      "L21787: ./separate_debug_information.sh: line 64: 34111 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\"",
+      "L21790: mv: cannot stat './bin/gaussdb.map': No such file or directory",
+      "L21802: cat: makemppdb_pkg.log: No such file or directory",
+      "L21803: 2026-11-12 00:33:11 [ERROR] funcname: compile line:323 compile openGauss package failed",
+      "L21839: cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory",
+      "L24036: mv: cannot stat '*Package*.tar.gz': No such file or directory",
+      "L24037: mv: cannot stat '*ymbols*.tar.gz': No such file or directory",
+      "L24038: sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory",
+      "L39216: gzip: stdout: No space left on device",
+      "L39217: tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Wrote only 4096 of 10240 bytes",
+      "L39220: cp: cannot create regular file '/usr1/build/workspace/openGauss/server_lite/build/script/symbols.tar.gz': No space left on device",
+      "L39224: mkdir: cannot create directory 'temp': No space left on device",
+      "L39225: mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device",
+      "L39226: cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory",
+      "L39227: tar: ./bin/gsql: Cannot open: No space left on device",
+      "L39228: tar: Exiting with failure status due to previous errors",
+      "L39248: tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory",
+      "L40011: tar: ./lib/libnuma.so*: Cannot stat: No such file or directory",
+      "L40281: cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory",
+      "L40284: cmake_package_mini.sh: line 674: openGauss-Lite-8.0.0-RC1-openEuler24.03-aarch64.sha256: No space left on device",
+      "L40285: [makegaussdb] 26-11-12 00:48:32: generate sha256 file failed.",
+      "L40286: generate sha256 file failed.",
+      "L40287: /usr/local/bin/build_lite.sh: line 38: die: command not found",
+      "L40289: mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory",
+      "L40313: tee: upload.log: No space left on device",
+      "L40325: Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory",
+      "L40337: Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [36], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]",
+      "L40489: 2026-11-12 00:48:38 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed",
+      "L40490: Build step 'Execute shell' marked build as failure",
+      "L40495: Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 855,
+     "level": "LOG",
+     "text": "Makefile:239: ../../src/Makefile.global: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 856,
+     "level": "LOG",
+     "text": "make: *** No rule to make target '../../src/Makefile.global'."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 859,
+     "level": "LOG",
+     "text": "Makefile:239: Failed to remake makefile '../../src/Makefile.global'."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 930,
+     "level": "LOG",
+     "text": "checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 1544,
+     "level": "LOG",
+     "text": "/usr/local/bin/package_ci_master.sh: line 205: Release: command not found"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 7569,
+     "level": "LOG",
+     "text": "\u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 10177,
+     "level": "LOG",
+     "text": "\u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 21787,
+     "level": "LOG",
+     "text": "./separate_debug_information.sh: line 64: 34111 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\""
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 21790,
+     "level": "LOG",
+     "text": "mv: cannot stat './bin/gaussdb.map': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 21802,
+     "level": "LOG",
+     "text": "cat: makemppdb_pkg.log: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 21803,
+     "level": "LOG",
+     "text": "2026-11-12 00:33:11 [ERROR] funcname: compile line:323 compile openGauss package failed"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 21839,
+     "level": "LOG",
+     "text": "cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 24036,
+     "level": "LOG",
+     "text": "mv: cannot stat '*Package*.tar.gz': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 24037,
+     "level": "LOG",
+     "text": "mv: cannot stat '*ymbols*.tar.gz': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 24038,
+     "level": "LOG",
+     "text": "sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39216,
+     "level": "LOG",
+     "text": "gzip: stdout: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39217,
+     "level": "LOG",
+     "text": "tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Wrote only 4096 of 10240 bytes"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39220,
+     "level": "LOG",
+     "text": "cp: cannot create regular file '/usr1/build/workspace/openGauss/server_lite/build/script/symbols.tar.gz': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39224,
+     "level": "LOG",
+     "text": "mkdir: cannot create directory 'temp': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39225,
+     "level": "LOG",
+     "text": "mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39226,
+     "level": "LOG",
+     "text": "cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39227,
+     "level": "LOG",
+     "text": "tar: ./bin/gsql: Cannot open: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39228,
+     "level": "LOG",
+     "text": "tar: Exiting with failure status due to previous errors"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 39248,
+     "level": "LOG",
+     "text": "tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40011,
+     "level": "LOG",
+     "text": "tar: ./lib/libnuma.so*: Cannot stat: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40281,
+     "level": "LOG",
+     "text": "cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40284,
+     "level": "LOG",
+     "text": "cmake_package_mini.sh: line 674: openGauss-Lite-8.0.0-RC1-openEuler24.03-aarch64.sha256: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40285,
+     "level": "LOG",
+     "text": "[makegaussdb] 26-11-12 00:48:32: generate sha256 file failed."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40286,
+     "level": "LOG",
+     "text": "generate sha256 file failed."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40287,
+     "level": "LOG",
+     "text": "/usr/local/bin/build_lite.sh: line 38: die: command not found"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40289,
+     "level": "LOG",
+     "text": "mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40313,
+     "level": "LOG",
+     "text": "tee: upload.log: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40325,
+     "level": "LOG",
+     "text": "Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40337,
+     "level": "LOG",
+     "text": "Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [36], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40489,
+     "level": "LOG",
+     "text": "2026-11-12 00:48:38 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40490,
+     "level": "LOG",
+     "text": "Build step 'Execute shell' marked build as failure"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log",
+     "line": 40495,
+     "level": "LOG",
+     "text": "Finished: FAILURE"
+    }
+   ],
+   "verdict": {
+    "category": "build_failed",
+    "text": "构建失败（含错误日志）",
+    "confidence": 0.5,
+    "basis": [
+     "构建结束状态 FAILURE",
+     "控制台日志命中错误行 37 行"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "gzip: stdout: No space left on device",
+    "issueType": "资源不足",
+    "issueDetail": "构建机磁盘写满，产物打包与上传 OBS 失败",
+    "rootCause": "构建机磁盘空间耗尽，产物打包与上传 OBS 全部失败。版本构建任务跑到产物打包环节时节点磁盘写满，gzip 打出的压缩包、二进制清单的 sha256 校验文件都写不进盘，obsutil 连上传断点文件都创建不了，Symbol/Tools/Server 等多个 tar 包上传 OBS 失败，脚本最终在 uplod_package 环节报错退出——问题在构建节点的磁盘资源，与被测代码无关。",
+    "advice": "清理并扩容该构建节点的磁盘：先清掉节点上历史构建残留的工作区与产物目录下的旧包，再确认挂载盘剩余空间能覆盖本次 openGauss 全量包（Server/Lite/Symbol/Tools 等）落盘与上传临时文件所需；若节点盘本身偏小，把工作区与产物目录迁到容量更大的数据盘。同流水线 #761 与本次为同一节点磁盘写满，一并清理后重跑即可。\n\n验证方式：重跑该流水线，要求版本构建任务退出码为 0、日志中不再出现磁盘写满相关报错，各产物 sha256 校验文件正常生成且成功上传 OBS。",
+    "cites": [
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L39216",
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L40324",
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L40489"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L39216",
+    "updatedAt": "2026-11-16 17:02:39",
+    "firstAnalyzedAt": "2026-11-16 17:02:39",
+    "revisions": 1,
+    "source": "agent"
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 37,
+    "evidenceFiles": 1
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": 0.0,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "va",
+    "affects": [
+     "va",
+     "bs"
+    ]
+   }
+  },
+  {
+   "recordId": "openGauss|autobuild-opengauss-openeuler24.03-arm#761",
+   "date": "2026-11-12",
+   "component": "openGauss",
+   "pipeline": "autobuild-opengauss-openeuler24.03-arm",
+   "pipelineName": "openEuler 24.03 arm",
+   "platform": "jenkins",
+   "buildNumber": 761,
+   "pipelineRunId": "jenkins:openGauss:autobuild-opengauss-openeuler24.03-arm:761",
+   "status": "FAILED",
+   "failedTaskType": "版本构建任务",
+   "startedAt": "2026-11-12T09:35:48",
+   "endedAt": "2026-11-12T10:10:48",
+   "dateBasis": {
+    "field": "buildEndtime",
+    "value": "2026-11-12T10:10:48",
+    "rule": "按构建结束时间（开始时间+耗时）归属北京自然日"
+   },
+   "links": {
+    "jenkins": "https://jenkins.opengauss.org/job/autobuild-opengauss-openeuler24.03-arm/761/",
+    "detail": null,
+    "openlibing": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "autobuild-opengauss-openeuler24.03-arm",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "logBytes": 5577963,
+     "logLines": 41149,
+     "download": "consoleText",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [],
+     "jobErrMsg": "构建结束状态 FAILURE",
+     "errorLines": [
+      "L851: Makefile:239: ../../src/Makefile.global: No such file or directory",
+      "L852: make: *** No rule to make target '../../src/Makefile.global'.",
+      "L855: Makefile:239: Failed to remake makefile '../../src/Makefile.global'.",
+      "L926: checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no",
+      "L1540: /usr/local/bin/package_ci_master.sh: line 205: Release: command not found",
+      "L7434: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':",
+      "L10201: \u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':",
+      "L21783: ./separate_debug_information.sh: line 64: 34109 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\"",
+      "L21786: mv: cannot stat './bin/gaussdb.map': No such file or directory",
+      "L21798: cat: makemppdb_pkg.log: No such file or directory",
+      "L21799: 2026-11-12 09:57:14 [ERROR] funcname: compile line:323 compile openGauss package failed",
+      "L21835: cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory",
+      "L24032: mv: cannot stat '*Package*.tar.gz': No such file or directory",
+      "L24033: mv: cannot stat '*ymbols*.tar.gz': No such file or directory",
+      "L24034: sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory",
+      "L39200: chmod: cannot access '/usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/./lib/libpq.a0.symbol': No such file or directory",
+      "L39207: objcopy: strccCLg[.rela.dyn]: No space left on device",
+      "L39208: objcopy: libxgboost.so_release[.dynstr]: No space left on device",
+      "L39210: objcopy: 'libxgboost.so': No such file",
+      "L39213: objcopy: stDKEYHM/zutil.o: No space left on device",
+      "L39218: objcopy: warning: could not create temporary file whilst copying 'libz.so.1.2.12', (error: No space left on device)",
+      "L39514: tar (child): /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot open: No space left on device",
+      "L39516: tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot write: Broken pipe",
+      "L39524: mkdir: cannot create directory 'temp': No space left on device",
+      "L39525: mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device",
+      "L39526: cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory",
+      "L39527: tar: ./bin/gsql: Cannot open: No space left on device",
+      "L39528: tar: Exiting with failure status due to previous errors",
+      "L39530: tar: ./bin/gaussdb: Wrote only 2560 of 10240 bytes",
+      "L39548: tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory",
+      "L40311: tar: ./lib/libnuma.so*: Cannot stat: No such file or directory",
+      "L40686: cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory",
+      "L40689: cp: cannot stat '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/libstdc++.so.6': No such file or directory",
+      "L40690: cp: cannot stat 'libstdc++.so.6': No such file or directory",
+      "L40693: cp: cannot create regular file './upgrade_sql/rollback_catalog_maindb/rollback-post_catalog_maindb_92_352.sql': No space left on device",
+      "L40935: cp: cannot create directory './upgrade_sql/rollback_catalog_otherdb': No space left on device",
+      "L40939: [makegaussdb] 26-11-12 10:11:31: Failed to cp upgrade_sql files",
+      "L40940: Failed to cp upgrade_sql files",
+      "L40941: /usr/local/bin/build_lite.sh: line 38: die: command not found",
+      "L40943: mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory",
+      "L40966: buildopengauss.sh: line 143: openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: No space left on device",
+      "L40967: tee: upload.log: No space left on device",
+      "L40979: Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory",
+      "L40991: Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [43], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]",
+      "L41143: 2026-11-12 10:11:39 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed",
+      "L41144: Build step 'Execute shell' marked build as failure",
+      "L41149: Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 851,
+     "level": "LOG",
+     "text": "Makefile:239: ../../src/Makefile.global: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 852,
+     "level": "LOG",
+     "text": "make: *** No rule to make target '../../src/Makefile.global'."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 855,
+     "level": "LOG",
+     "text": "Makefile:239: Failed to remake makefile '../../src/Makefile.global'."
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 926,
+     "level": "LOG",
+     "text": "checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 1540,
+     "level": "LOG",
+     "text": "/usr/local/bin/package_ci_master.sh: line 205: Release: command not found"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 7434,
+     "level": "LOG",
+     "text": "\u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid output(int, const char*, ...)\u001b[m\u001b[K':"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 10201,
+     "level": "LOG",
+     "text": "\u001b[01m\u001b[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:\u001b[m\u001b[K In function '\u001b[01m\u001b[Kvoid smb_recovery::MountFailedCallBack()\u001b[m\u001b[K':"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 21783,
+     "level": "LOG",
+     "text": "./separate_debug_information.sh: line 64: 34109 Segmentation fault      (core dumped) objcopy --add-gnu-debuglink=\"$INSTALL_DIR/${symbol_name}.symbol\" \"$x\""
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 21786,
+     "level": "LOG",
+     "text": "mv: cannot stat './bin/gaussdb.map': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 21798,
+     "level": "LOG",
+     "text": "cat: makemppdb_pkg.log: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 21799,
+     "level": "LOG",
+     "text": "2026-11-12 09:57:14 [ERROR] funcname: compile line:323 compile openGauss package failed"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 21835,
+     "level": "LOG",
+     "text": "cp: cannot stat '/usr1/build/workspace/openGauss-third_party_binarylibs/install_tools/_cffi_backend.py': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 24032,
+     "level": "LOG",
+     "text": "mv: cannot stat '*Package*.tar.gz': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 24033,
+     "level": "LOG",
+     "text": "mv: cannot stat '*ymbols*.tar.gz': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 24034,
+     "level": "LOG",
+     "text": "sha256sum: openGauss-CM-8.0.0-RC1-openEuler24.03-aarch64: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39200,
+     "level": "LOG",
+     "text": "chmod: cannot access '/usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/./lib/libpq.a0.symbol': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39207,
+     "level": "LOG",
+     "text": "objcopy: strccCLg[.rela.dyn]: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39208,
+     "level": "LOG",
+     "text": "objcopy: libxgboost.so_release[.dynstr]: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39210,
+     "level": "LOG",
+     "text": "objcopy: 'libxgboost.so': No such file"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39213,
+     "level": "LOG",
+     "text": "objcopy: stDKEYHM/zutil.o: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39218,
+     "level": "LOG",
+     "text": "objcopy: warning: could not create temporary file whilst copying 'libz.so.1.2.12', (error: No space left on device)"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39514,
+     "level": "LOG",
+     "text": "tar (child): /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot open: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39516,
+     "level": "LOG",
+     "text": "tar: /usr1/build/workspace/openGauss/server_lite/build/script/../../mppdb_temp_install/packages/symbols.tar.gz: Cannot write: Broken pipe"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39524,
+     "level": "LOG",
+     "text": "mkdir: cannot create directory 'temp': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39525,
+     "level": "LOG",
+     "text": "mkdir: cannot create directory '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39526,
+     "level": "LOG",
+     "text": "cmake_package_mini.sh: line 634: cd: /usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39527,
+     "level": "LOG",
+     "text": "tar: ./bin/gsql: Cannot open: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39528,
+     "level": "LOG",
+     "text": "tar: Exiting with failure status due to previous errors"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39530,
+     "level": "LOG",
+     "text": "tar: ./bin/gaussdb: Wrote only 2560 of 10240 bytes"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 39548,
+     "level": "LOG",
+     "text": "tar: ./bin/gs_plan_simulator.sh: Cannot stat: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40311,
+     "level": "LOG",
+     "text": "tar: ./lib/libnuma.so*: Cannot stat: No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40686,
+     "level": "LOG",
+     "text": "cp: target '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40689,
+     "level": "LOG",
+     "text": "cp: cannot stat '/usr1/build/workspace/openGauss/server_lite/mppdb_temp_install/temp/lib/libstdc++.so.6': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40690,
+     "level": "LOG",
+     "text": "cp: cannot stat 'libstdc++.so.6': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40693,
+     "level": "LOG",
+     "text": "cp: cannot create regular file './upgrade_sql/rollback_catalog_maindb/rollback-post_catalog_maindb_92_352.sql': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40935,
+     "level": "LOG",
+     "text": "cp: cannot create directory './upgrade_sql/rollback_catalog_otherdb': No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40939,
+     "level": "LOG",
+     "text": "[makegaussdb] 26-11-12 10:11:31: Failed to cp upgrade_sql files"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40940,
+     "level": "LOG",
+     "text": "Failed to cp upgrade_sql files"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40941,
+     "level": "LOG",
+     "text": "/usr/local/bin/build_lite.sh: line 38: die: command not found"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40943,
+     "level": "LOG",
+     "text": "mv: cannot stat '/usr1/build/workspace/openGauss/server_lite/output/*': No such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40966,
+     "level": "LOG",
+     "text": "buildopengauss.sh: line 143: openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40967,
+     "level": "LOG",
+     "text": "tee: upload.log: No space left on device"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40979,
+     "level": "LOG",
+     "text": "Error: lstat /data/opengauss/volume_master/openGauss-8.0.0-RC1-OPENEULER-64bit-Jdbc.tar.gz.sha256: no such file or directory"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 40991,
+     "level": "LOG",
+     "text": "Upload failed, /data/opengauss/volume_master/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz --> obs://opengauss/latest/arm_2403/openGauss-All-8.0.0-RC1-openEuler24.03-aarch64.tar.gz, cost [43], error [open /root/.obsutil_checkpoint/upload/a73fedf9679d5366c9579e9713d45986.txt: no space left on device]"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 41143,
+     "level": "LOG",
+     "text": "2026-11-12 10:11:39 [ERROR] funcname: uplod_package line:175 not generate upload.log upload package to obs failed"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 41144,
+     "level": "LOG",
+     "text": "Build step 'Execute shell' marked build as failure"
+    },
+    {
+     "task": "autobuild-opengauss-openeuler24.03-arm",
+     "source": "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log",
+     "line": 41149,
+     "level": "LOG",
+     "text": "Finished: FAILURE"
+    }
+   ],
+   "verdict": {
+    "category": "build_failed",
+    "text": "构建失败（含错误日志）",
+    "confidence": 0.5,
+    "basis": [
+     "构建结束状态 FAILURE",
+     "控制台日志命中错误行 47 行"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "mkdir: cannot create directory 'temp': No space left on device",
+    "issueType": "资源不足",
+    "issueDetail": "构建机磁盘写满，产物打包与上传 OBS 失败",
+    "rootCause": "构建机磁盘空间耗尽，产物打包与上传 OBS 全部失败。版本构建任务在打包阶段节点磁盘写满，objcopy 处理动态库时无法创建临时文件、mkdir 建目录与 upgrade_sql 的 cp 拷贝都因空间不足失败，sha256 校验文件与 obsutil 上传断点文件同样写不进盘，最终 uplod_package 环节报错退出——问题在构建节点的磁盘资源，与被测代码无关。",
+    "advice": "清理并扩容该构建节点的磁盘：先清掉节点上历史构建残留的工作区与产物目录下的旧包，再确认挂载盘剩余空间能覆盖本次 openGauss 全量包（Server/Lite/Symbol/Tools 等）落盘与上传临时文件所需；若节点盘本身偏小，把工作区与产物目录迁到容量更大的数据盘。同流水线 #760 与本次为同一节点磁盘写满，一并清理后重跑即可。\n\n验证方式：重跑该流水线，要求版本构建任务退出码为 0、日志中不再出现磁盘写满相关报错，各产物 sha256 校验文件正常生成且成功上传 OBS。",
+    "cites": [
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L39524",
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L40693",
+     "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L41143"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L39524",
+    "updatedAt": "2026-11-16 17:02:39",
+    "firstAnalyzedAt": "2026-11-16 17:02:39",
+    "revisions": 1,
+    "source": "agent"
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 47,
+    "evidenceFiles": 1
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": 0.0,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "va",
+    "affects": [
+     "va",
+     "bs"
+    ]
+   }
+  }
+ ],
+ "pathBase": "steps.* / records[] 相对本文件；证据正文见 pipeline.evidence.json 的 files（键=相对本目录的路径）",
+ "channel": "community"
+}

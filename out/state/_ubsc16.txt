@@ -1,0 +1,69 @@
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#261
+  -- ti=0 job=Deploy_Test_ubs_virt_container type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=1 job=Deploy_Test_ubs_virt_container type=log
+     errorLines=['L1: [2026/11/16 20:38:50.334 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: COCT.1140001.450,任务被终止执行']
+     stepErrMsgs=['{"errorMessage":"任务被终止执行","errorCode":"COCT.1140001.450"}']
+     L1 | [2026/11/16 20:38:50.334 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: COCT.1140001.450,任务被终止执行
+     L2 | [2026/11/16 20:38:50.408 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  -- ti=2 job=Deploy_Test_ubs_engine type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=3 job=Deploy_Test_ubs_engine type=log
+     errorLines=['L1: [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.', 'L2: [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!']
+     stepErrMsgs=['{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}']
+     L1 | [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+     L2 | [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+     L3 | [2026/11/13 13:04:41.404 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  -- ti=4 job=Deploy_Test_ubturbo_smap type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=5 job=Deploy_Test_ubturbo_smap type=log
+     errorLines=['L1: [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.', 'L2: [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!']
+     stepErrMsgs=['{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}']
+     L1 | [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+     L2 | [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+     L3 | [2026/11/16 16:07:13.120 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  -- ti=6 job=Deploy_Test_ubturbo_smap_memory_fragment type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=7 job=Deploy_Test_ubturbo_smap_memory_fragment type=log
+     errorLines=['L1: [2026/11/13 12:52:35.815 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.', 'L2: [2026/11/13 12:52:35.816 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!']
+     stepErrMsgs=['{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}']
+     L1 | [2026/11/13 12:52:35.815 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+     L2 | [2026/11/13 12:52:35.816 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+     L3 | [2026/11/13 12:52:35.905 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#262
+  -- ti=0 job=Deploy_Test_ubturbo_smap_memory_fragment type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=1 job=Deploy_Test_ubturbo_smap_memory_fragment type=log
+     errorLines=['L1: [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.', 'L2: [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!']
+     stepErrMsgs=['{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}']
+     L1 | [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+     L2 | [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+     L3 | [2026/11/16 20:38:27.846 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  -- ti=2 job=Deploy_Test_ubturbo_smap type=test
+     errorLines=None
+     stepErrMsgs=[]
+  -- ti=3 job=Deploy_Test_ubturbo_smap type=log
+     errorLines=['L1: [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.', 'L2: [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!']
+     stepErrMsgs=['{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}']
+     L1 | [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+     L2 | [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+     L3 | [2026/11/16 20:24:20.553 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+
+### Ascend-CANN 153 tasks[0] errorLines=['L97: [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transferring dockerfile: 1.34kB done#1 DONE 0.0s#2 [internal] load metadata for swr.cn-southwest-2.myhuaweicloud.com/atlas-ci/duo_os:latest#2 sha256:b51a412ab47bc721df', 'L98: [2026/11/16 15:11:11.577 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败', 'L99: [2026/11/16 15:11:11.654 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败', 'L100: [2026/11/16 15:11:11.656 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败']
+### Ascend-CANN 153 tasks[0] stepErrMsgs=['{"errorMessage":" 构建任务执行失败!","errorCode":"DEV-CODECI-35002"}']
+### Ascend-CANN 153 tasks[0] excerpt=
+  L90 | [2026/11/16 15:01:26.618 GMT+08:00] Digest: sha256:3962f980b5036cbb60764e44ada4ea2da29a393afcd68cb180d2e21945d5b864
+  L91 | [2026/11/16 15:01:26.618 GMT+08:00] Status: Image is up to date for************
+  L92 | [2026/11/16 15:01:26.633 GMT+08:00] starting check in ***/@tmp/durable-2c4c9e3b
+  L93 | [2026/11/16 15:01:26.897 GMT+08:00]************
+  L94 | [2026/11/16 15:01:28.179 GMT+08:00] [INFO] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤开始执行
+  L95 | [2026/11/16 15:01:28.784 GMT+08:00] Login Succeeded
+  L96 | [2026/11/16 15:01:28.901 GMT+08:00] [INFO] [制作镜像并推送到SWR仓库:external_docker_builder] : 未使用镜像缓存。
+  L97 | [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transferring dockerfile: 1.34kB done#1 DONE 0.0s#2 [internal] load metadata for swr.cn-southwest-2.myhuaweicloud.com/atlas-ci/duo_os:latest#2 sha256:b51a412ab47bc721df1dc7bab8cb31b21b6dda4e4281e11be4d88bd98adf0a67#2 DONE 0.9s#3 [internal] load .dockerignore#3 sha256:
+  L98 | [2026/11/16 15:11:11.577 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败

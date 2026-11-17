@@ -1,0 +1,56 @@
+======================================================================
+### SgLang|nightly-test-npu.yml#2215 task[0] lines=1518  pat=Killed|oom|OOM|out of memory|exit code -9|SIGKILL|signal 9
+(no match)
+======================================================================
+### SgLang|nightly-test-npu.yml#2223 task[0] lines=4086  pat=Timeout|timeout|not ready|not all nodes
+L714: 2026-11-16T13:57:35.6721957Z 2026-11-16 21:57:35,669 - INFO - Timeout: Not all nodes are ready after 3600 seconds
+L961: 2026-11-16T13:57:35.9593107Z 2026-11-16 20:58:02,049 - INFO - Starting prefill node on 172.22.3.160 with args: ['--page-size', 128, '--tp-size', 8, '--pp-size', 2, '--trust-remote-code', '--device', 'npu', '--attention-backend', 'dsv4', '--watchdog-timeout', 9
+L962: 2026-11-16T13:57:35.9599958Z command=sglang serve --model-path /root/.cache/modelscope/hub/models/Eco-Tech/DeepSeek-V4-Flash-0731-w8a8 --page-size 128 --tp-size 8 --pp-size 2 --trust-remote-code --device npu --attention-backend dsv4 --watchdog-timeout 9000 --d
+L980: 2026-11-16T13:57:35.9613904Z [2026-11-16 20:58:32] Set soft_watchdog_timeout since in CI
+L984: 2026-11-16T13:57:35.9664747Z [2026-11-16 20:58:34] server_args={'model_path': '/root/.cache/modelscope/hub/models/Eco-Tech/DeepSeek-V4-Flash-0731-w8a8', 'tokenizer_path': '/root/.cache/modelscope/hub/models/Eco-Tech/DeepSeek-V4-Flash-0731-w8a8', 'tokenizer_mod
+L1026: 2026-11-16T13:57:35.9740097Z 2026-11-16 20:58:34.807882 TRACE [958-2275][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L1027: 2026-11-16T13:57:35.9741257Z 2026-11-16 20:58:34.808030 TRACE [958-2276][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L1030: 2026-11-16T13:57:35.9743850Z 2026-11-16 20:58:34.808778 TRACE [958-2284][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L1031: 2026-11-16T13:57:35.9744863Z 2026-11-16 20:58:34.808911 TRACE [958-2285][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2402: 2026-11-16T13:57:36.0400666Z 2026-11-16 21:02:40.949401 TRACE [1112-11117][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2403: 2026-11-16T13:57:36.0401273Z 2026-11-16 21:02:40.949578 TRACE [1112-11118][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2522: 2026-11-16T13:57:36.0444977Z 2026-11-16 21:02:41.091510 TRACE [1115-11123][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2523: 2026-11-16T13:57:36.0445375Z 2026-11-16 21:02:41.091690 TRACE [1115-11124][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2559: 2026-11-16T13:57:36.0457856Z 2026-11-16 21:02:41.113596 TRACE [1113-11128][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2560: 2026-11-16T13:57:36.0458239Z 2026-11-16 21:02:41.113788 TRACE [1113-11129][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2668: 2026-11-16T13:57:36.0495377Z 2026-11-16 21:02:41.191805 TRACE [1121-11135][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2669: 2026-11-16T13:57:36.0495839Z 2026-11-16 21:02:41.191974 TRACE [1121-11136][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2708: 2026-11-16T13:57:36.0509397Z 2026-11-16 21:02:41.198682 TRACE [1119-11140][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2709: 2026-11-16T13:57:36.0509796Z 2026-11-16 21:02:41.198845 TRACE [1119-11141][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2787: 2026-11-16T13:57:36.0538417Z 2026-11-16 21:02:41.242121 TRACE [1123-11147][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2788: 2026-11-16T13:57:36.0538809Z 2026-11-16 21:02:41.242322 TRACE [1123-11148][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2821: 2026-11-16T13:57:36.0551455Z 2026-11-16 21:02:41.248218 TRACE [1127-11152][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2822: 2026-11-16T13:57:36.0551856Z 2026-11-16 21:02:41.248393 TRACE [1127-11153][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2855: 2026-11-16T13:57:36.0563697Z 2026-11-16 21:02:41.256082 TRACE [1114-11157][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 0, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+L2856: 2026-11-16T13:57:36.0564089Z 2026-11-16 21:02:41.256245 TRACE [1114-11158][AccLink acc_tcp_worker.cpp:154 RunInThread] Worker [name AccWrk, index 1, cpu -1, thread-priority 0, poll-timeout-ms 500] progress thread started
+======================================================================
+### SgLang|nightly-test-npu.yml#2224 task[0] lines=3051  pat=not enough resource|not ready|Timeout|timeout in
+L2938: 2026-11-16T16:24:21.4733072Z 2026-11-16 16:24:21,472 - INFO - timeout in 12600s
+L2939: 2026-11-16T16:24:21.4746185Z 2026-11-16 16:24:21,473 - INFO - Pod not ready, maybe not enough resource
+======================================================================
+### vllm-ascend|a3.yaml#16563 task[1] lines=3526  pat=ERROR|failed
+L2343: 2026-11-15T17:29:03.8996739Z [2026-11-15 17:29:03] [ERROR] [3/3] Benchmark failed: perf_128k_prefix90, reason: Performance verification failed. The current Output Token Throughput is 559.9923  token/s, which is not greater than or equal to 0.95 * baseline 608.
+L2344: 2026-11-15T17:29:03.9010189Z [2026-11-15 17:29:03] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_
+L2350: 2026-11-15T17:29:34.3779865Z Performance verification failed. The current Output Token Throughput is 559.9923  token/s, which is not greater than or equal to 0.95 * baseline 608.891.
+L2401: 2026-11-15T17:29:39.5196354Z                 logging.error("[%d/%d] Benchmark failed: %s, reason: %s", idx, total, benchmark_name, e)
+L2403: 2026-11-15T17:29:39.5197267Z         for failed_case, error_info in aisbench_errors:
+L2404: 2026-11-15T17:29:39.5197853Z             error_msg = f"The following aisbench case failed: {failed_case}, reason is {error_info}"
+L2408: 2026-11-15T17:29:39.5199711Z >       assert not aisbench_errors, "some aisbench cases failed, info were shown above."
+L2410: 2026-11-15T17:29:39.5200693Z E       AssertionError: some aisbench cases failed, info were shown above.
+L2433: 2026-11-15T17:29:39.5218762Z ================= 1 failed, 17 warnings in 5928.92s (1:38:48) ==================
+L2437: 2026-11-15T17:29:52.7045693Z [0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed[0m
+L2439: 2026-11-15T17:29:53.6193967Z ##[error]Error: failed to run script step:
+L2458:   ================= 1 failed, 17 warnings in 5928.92s (1:38:48) ==================
+L2462:   [0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed[0m
+L2465: 2026-11-15T17:29:53.6436867Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L2967: 2026-11-15T17:31:42.5890421Z [36;1m    echo "::error::Upload failed. See log:"[0m
+L3027: 2026-11-15T17:31:57.5520541Z ##[error]Upload failed. See log:
+L3054: 2026-11-15T17:31:57.5705790Z ##[error]Error: failed to run script step:
+L3060:   ::error::Upload failed. See log:
+L3073: 2026-11-15T17:31:57.5912287Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+L3345: 2026-11-15T17:32:27.6766298Z [36;1m    echo "::error::Upload failed. See log:"[0m

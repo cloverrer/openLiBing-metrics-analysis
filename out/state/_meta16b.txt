@@ -1,0 +1,104 @@
+######## MindCluster|Agentsdk~5992cb#2
+status=FAILED ftt=其他任务 start=2026-11-16T06:00:33 end=2026-11-16T06:01:55
+verdict={"category": "job_failure", "text": "任务失败", "confidence": 0.3, "level": "低", "basis": ["运行平台标记失败任务类型为「其他任务」，据此定性为「任务失败」", "接口未返回失败任务详情（无 job 日志 / 失败用例明细），证据止于任务类型这一层", "基线 0.30"]}
+tasks=0
+
+######## SgLang|nightly-test-npu.yml#2216
+status=FAILED ftt=None start=2026-11-16T20:13:15 end=2026-11-16T20:13:17
+verdict={"category": "evidence_missing", "text": "证据缺失", "confidence": 0.3, "level": "低", "basis": ["该运行无 FAILED 任务证据，且运行平台未给出失败任务类型", "基线 0.30"]}
+github.runId=43864578629 mode=none totalJobs=0 complete=True
+  displayTitle=[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[]
+tasks=0
+
+######## SgLang|nightly-test-npu.yml#2217
+status=FAILED ftt=None start=2026-11-16T20:15:29 end=2026-11-16T20:15:31
+verdict={"category": "evidence_missing", "text": "证据缺失", "confidence": 0.3, "level": "低", "basis": ["该运行无 FAILED 任务证据，且运行平台未给出失败任务类型", "基线 0.30"]}
+github.runId=43864921097 mode=none totalJobs=0 complete=True
+  displayTitle=[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[]
+tasks=0
+
+######## SgLang|nightly-test-npu.yml#2219
+status=FAILED ftt=None start=2026-11-16T20:36:49 end=2026-11-16T20:36:51
+verdict={"category": "evidence_missing", "text": "证据缺失", "confidence": 0.3, "level": "低", "basis": ["该运行无 FAILED 任务证据，且运行平台未给出失败任务类型", "基线 0.30"]}
+github.runId=43868161004 mode=none totalJobs=0 complete=True
+  displayTitle=[Test] [NPU] kimi_k3: retune the 128k decode prefix case to C6
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[]
+tasks=0
+
+######## SgLang|nightly-test-npu.yml#2220
+status=FAILED ftt=None start=2026-11-16T20:37:56 end=2026-11-16T20:40:12
+verdict={"category": "job_failure", "text": "任务失败", "confidence": 0.5, "level": "中", "basis": ["任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa 日志命中 4 条错误行（非编译特征），见 github_logs/gh_43868335184/133302785092_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt", "基线 0.30", "证据文件落盘 1 份 +0.25", "任务日志命中错误行 +0.15", "任务 check-all-jobs 无任何证据 −0.20"]}
+github.runId=43868335184 mode=perjob totalJobs=17 complete=True
+  displayTitle=Pr yzy 11 12 test hicache
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[{"job": "check-all-jobs", "id": 133303740504, "status": "404_not_retained"}]
+tasks=2
+   - type=log job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, te logFile=github_logs/gh_43868335184/133302785092_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt lines=374
+   - type=log job=check-all-jobs logFile=None lines=None
+
+######## SgLang|nightly-test-npu.yml#2221
+status=FAILED ftt=None start=2026-11-16T20:37:56 end=2026-11-16T20:37:58
+verdict={"category": "evidence_missing", "text": "证据缺失", "confidence": 0.1, "level": "低", "basis": ["全部失败任务均无日志落盘", "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）", "运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）", "基线 0.30", "任务 set-image-config 无任何证据 −0.20", "任务 check-all-jobs 无任何证据 −0.20"]}
+github.runId=43868335391 mode=perjob totalJobs=16 complete=True
+  displayTitle=Pr yzy 11 12 test hicache
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[{"job": "set-image-config", "id": 133302559811, "status": "404_not_retained"}, {"job": "check-all-jobs", "id": 133302569389, "status": "404_not_retained"}]
+tasks=2
+   - type=log job=set-image-config logFile=None lines=None
+   - type=log job=check-all-jobs logFile=None lines=None
+
+######## SgLang|nightly-test-npu.yml#2222
+status=FAILED ftt=None start=2026-11-16T20:39:58 end=2026-11-16T20:57:42
+verdict={"category": "job_failure", "text": "任务失败", "confidence": 0.7, "level": "中", "basis": ["任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap 日志命中 5 条错误行（非编译特征），见 github_logs/gh_43868640459/133303671681_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt", "基线 0.30", "证据文件落盘 2 份 +0.25", "任务日志命中错误行 +0.15"]}
+github.runId=43868640459 mode=perjob totalJobs=16 complete=True
+  displayTitle=[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping
+  failedJobs=[{"name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap", "id": 133303671681, "steps": [{"name": "Run test", "conclusion": "failure"}]}, {"name": "check-all-jobs", "id": 133312799730, "steps": [{"name": "Generate results table", "conclusion": "failure"}]}]
+  cancelledJobs=null
+  missing=[]
+tasks=2
+   - type=log job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1,  logFile=github_logs/gh_43868640459/133303671681_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=805
+   - type=log job=check-all-jobs logFile=github_logs/gh_43868640459/133312799730_check-all-jobs.txt lines=99
+
+######## SgLang|nightly-test-npu.yml#2227
+status=FAILED ftt=None start=2026-11-16T23:04:53 end=2026-11-16T23:49:07
+verdict={"category": "job_failure", "text": "任务失败", "confidence": 0.5, "level": "中", "basis": ["任务 multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap 日志命中 1 条错误行（非编译特征），见 github_logs/gh_43892530840/133388055851_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt", "基线 0.30", "证据文件落盘 1 份 +0.25", "任务日志命中错误行 +0.15", "任务 check-all-jobs 无任何证据 −0.20"]}
+github.runId=43892530840 mode=perjob totalJobs=18 complete=True
+  displayTitle=[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping
+  failedJobs=[]
+  cancelledJobs=null
+  missing=[{"job": "check-all-jobs", "id": 133415477175, "status": "404_not_retained"}]
+tasks=2
+   - type=log job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1,  logFile=github_logs/gh_43892530840/133388055851_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=707
+   - type=log job=check-all-jobs logFile=None lines=None
+
+######## UBS Core|Nightly-CI-Version-pipeline_BeiMing#261
+status=FAILED ftt=其他任务 start=2026-11-13T12:00:04 end=2026-11-16T20:40:52
+verdict={"category": "env_not_ready", "text": "用例未拉起（测试环境异常）", "confidence": 0.1, "level": "低", "basis": ["test 任务 Deploy_Test_ubs_virt_container 测试结果为空（用例未拉起），已回退整 job 日志", "基线 0.30", "证据文件落盘 4 份 +0.25", "任务日志命中错误行 +0.15", "任务 Deploy_Test_ubs_virt_container 无任何证据 −0.20", "任务 Deploy_Test_ubs_engine 无任何证据 −0.20", "任务 Deploy_Test_ubturbo_smap 无任何证据 −0.20", "任务 Deploy_Test_ubturbo_smap_memory_fragment 无任何证据 −0.20"]}
+tasks=8
+   - type=test job=Deploy_Test_ubs_virt_container logFile=None lines=None
+   - type=log job=Deploy_Test_ubs_virt_container logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_virt_container.log lines=2
+   - type=test job=Deploy_Test_ubs_engine logFile=None lines=None
+   - type=log job=Deploy_Test_ubs_engine logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_engine.log lines=3
+   - type=test job=Deploy_Test_ubturbo_smap logFile=None lines=None
+   - type=log job=Deploy_Test_ubturbo_smap logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap.log lines=3
+   - type=test job=Deploy_Test_ubturbo_smap_memory_fragment logFile=None lines=None
+   - type=log job=Deploy_Test_ubturbo_smap_memory_fragment logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap_memory_fragment.log lines=3
+
+######## UBS Core|Nightly-CI-Version-pipeline_BeiMing#262
+status=FAILED ftt=其他任务 start=2026-11-16T18:56:27 end=2026-11-16T21:07:57
+verdict={"category": "env_not_ready", "text": "用例未拉起（测试环境异常）", "confidence": 0.3, "level": "低", "basis": ["test 任务 Deploy_Test_ubturbo_smap_memory_fragment 测试结果为空（用例未拉起），已回退整 job 日志", "基线 0.30", "证据文件落盘 2 份 +0.25", "任务日志命中错误行 +0.15", "任务 Deploy_Test_ubturbo_smap_memory_fragment 无任何证据 −0.20", "任务 Deploy_Test_ubturbo_smap 无任何证据 −0.20"]}
+tasks=4
+   - type=test job=Deploy_Test_ubturbo_smap_memory_fragment logFile=None lines=None
+   - type=log job=Deploy_Test_ubturbo_smap_memory_fragment logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_262_Deploy_Test_ubturbo_smap_memory_fragment.log lines=3
+   - type=test job=Deploy_Test_ubturbo_smap logFile=None lines=None
+   - type=log job=Deploy_Test_ubturbo_smap logFile=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_262_Deploy_Test_ubturbo_smap.log lines=3

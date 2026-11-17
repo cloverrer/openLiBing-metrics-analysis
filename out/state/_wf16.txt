@@ -1,0 +1,250 @@
+### SgLang|nightly-test-npu.yml#2212 ti=1 L585-645
+  L585 | 2026-11-15T17:24:08.9146072Z Looking in links: /root/.cache/.cache/aisbench-packages
+  L586 | 2026-11-15T17:24:08.9174896Z Obtaining file:///root/.cache/.cache/benchmark
+  L587 | 2026-11-15T17:24:08.9198186Z Installing build dependencies: started
+  L588 | 2026-11-15T17:24:09.5872342Z Installing build dependencies: finished with status 'done'
+  L589 | 2026-11-15T17:24:09.5891572Z Checking if build backend supports build_editable: started
+  L590 | 2026-11-15T17:24:09.8900420Z Checking if build backend supports build_editable: finished with status 'done'
+  L591 | 2026-11-15T17:24:09.8924770Z Getting requirements to build editable: started
+  L592 | 2026-11-15T17:24:10.2848960Z Getting requirements to build editable: finished with status 'done'
+  L593 | 2026-11-15T17:24:10.2849425Z Installing backend dependencies: started
+  L594 | 2026-11-15T17:24:10.8021853Z Installing backend dependencies: finished with status 'error'
+  L595 | 2026-11-15T17:24:10.8022368Z error: subprocess-exited-with-error
+  L596 | 2026-11-15T17:24:10.8023060Z × installing backend dependencies did not run successfully.
+  L597 | 2026-11-15T17:24:10.8023488Z │ exit code: 1
+  L598 | 2026-11-15T17:24:10.8023801Z ╰─> [7 lines of output]
+  L599 | 2026-11-15T17:24:10.8024189Z Looking in links: /root/.cache/.cache/aisbench-packages
+  L600 | 2026-11-15T17:24:10.8024695Z Processing /root/.cache/.cache/aisbench-packages/nltk-3.8-py3-none-any.whl
+  L601 | 2026-11-15T17:24:10.8025421Z Processing /root/.cache/.cache/aisbench-packages/click-8.3.2-py3-none-any.whl (from nltk==3.8)
+  L602 | 2026-11-15T17:24:10.8026132Z Processing /root/.cache/.cache/aisbench-packages/joblib-1.5.3-py3-none-any.whl (from nltk==3.8)
+  L603 | 2026-11-15T17:24:10.8026983Z INFO: pip is looking at multiple versions of nltk to determine which version is compatible with other requirements. This could take a while.
+  L604 | 2026-11-15T17:24:10.8027911Z ERROR: Could not find a version that satisfies the requirement regex>=2021.8.3 (from nltk) (from versions: none)
+  L605 | 2026-11-15T17:24:10.8028525Z ERROR: No matching distribution found for regex>=2021.8.3
+  L606 | 2026-11-15T17:24:10.8028898Z [end of output]
+  L607 | 2026-11-15T17:24:10.8029306Z note: This error originates from a subprocess, and is likely not a problem with pip.
+  L608 | 2026-11-15T17:24:10.8029964Z ERROR: Failed to build 'file:///root/.cache/.cache/benchmark' when installing backend dependencies
+  L609 | 2026-11-15T17:24:11.2828878Z Looking in indexes: https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+  L610 | 2026-11-15T17:24:11.2829420Z Looking in links: /root/.cache/.cache/aisbench-packages
+  L611 | 2026-11-15T17:24:11.2829806Z Obtaining file:///root/.cache/.cache/benchmark
+  L612 | 2026-11-15T17:24:11.2830146Z Installing build dependencies: started
+  L613 | 2026-11-15T17:24:12.5964566Z Installing build dependencies: finished with status 'done'
+  L614 | 2026-11-15T17:24:12.5988660Z Checking if build backend supports build_editable: started
+  L615 | 2026-11-15T17:24:12.9011663Z Checking if build backend supports build_editable: finished with status 'done'
+  L616 | 2026-11-15T17:24:12.9038797Z Getting requirements to build editable: started
+  L617 | 2026-11-15T17:24:13.1064976Z Getting requirements to build editable: finished with status 'done'
+  L618 | 2026-11-15T17:24:13.1094393Z Installing backend dependencies: started
+  L619 | 2026-11-15T17:24:15.8995873Z Installing backend dependencies: finished with status 'done'
+  L620 | 2026-11-15T17:24:15.9017146Z Preparing editable metadata (pyproject.toml): started
+  L621 | 2026-11-15T17:24:18.4324488Z Preparing editable metadata (pyproject.toml): finished with status 'done'
+  L622 | 2026-11-15T17:24:18.6923756Z Collecting absl-py (from ais_bench_benchmark==3.1.20260330)
+  L623 | 2026-11-15T17:24:18.7604016Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/b3/7d/01e62f59e4166af1be6238d9f2b7f3453630c51b8044b412d05b5606532a/absl_py-2.5.1-py3-none-any.whl (137 kB)
+  L624 | 2026-11-15T17:24:18.8514605Z Collecting accelerate>=0.19.0 (from ais_bench_benchmark==3.1.20260330)
+  L625 | 2026-11-15T17:24:18.9168641Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/8a/4c/34f0450479d01195027260da68d8a3880683f1640c3ca5adf64acb3185f1/accelerate-1.15.0-py3-none-any.whl (394 kB)
+  L626 | 2026-11-15T17:24:19.0017618Z Collecting cpm_kernels (from ais_bench_benchmark==3.1.20260330)
+  L627 | 2026-11-15T17:24:19.0684314Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/af/84/1831ce6ffa87b8fd4d9673c3595d0fc4e6631c0691eb43f406d3bf89b951/cpm_kernels-1.0.11-py3-none-any.whl (416 kB)
+  L628 | 2026-11-15T17:24:19.1686792Z Collecting datasets<=3.6.0,>=2.12.0 (from ais_bench_benchmark==3.1.20260330)
+  L629 | 2026-11-15T17:24:19.2338492Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/20/34/a08b0ee99715eaba118cbe19a71f7b5e2425c2718ef96007c325944a1152/datasets-3.6.0-py3-none-any.whl (491 kB)
+  L630 | 2026-11-15T17:24:19.3281441Z Collecting einops>=0.5.0 (from ais_bench_benchmark==3.1.20260330)
+  L631 | 2026-11-15T17:24:19.3920544Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl (65 kB)
+  L632 | 2026-11-15T17:24:19.4713241Z Collecting evaluate>=0.3.0 (from ais_bench_benchmark==3.1.20260330)
+  L633 | 2026-11-15T17:24:19.5535072Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/3e/af/3e990d8d4002bbc9342adb4facd59506e653da93b2417de0fa6027cb86b1/evaluate-0.4.6-py3-none-any.whl (84 kB)
+  L634 | 2026-11-15T17:24:19.6542188Z Collecting func_timeout (from ais_bench_benchmark==3.1.20260330)
+  L635 | 2026-11-15T17:24:19.6542733Z Using cached func_timeout-4.3.5-py3-none-any.whl
+  L636 | 2026-11-15T17:24:19.6959692Z Collecting fuzzywuzzy (from ais_bench_benchmark==3.1.20260330)
+  L637 | 2026-11-15T17:24:19.7617653Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/43/ff/74f23998ad2f93b945c0309f825be92e04e0348e062026998b5eefef4c33/fuzzywuzzy-0.18.0-py2.py3-none-any.whl (18 kB)
+  L638 | 2026-11-15T17:24:19.8498711Z Collecting gradio-client (from ais_bench_benchmark==3.1.20260330)
+  L639 | 2026-11-15T17:24:19.9148729Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/b5/56/ce1104ac287709af37628c4bd3b24f0e78c925facda3dc8915d10b787846/gradio_client-2.7.2-py3-none-any.whl (64 kB)
+  L640 | 2026-11-15T17:24:20.0461508Z Collecting h5py (from ais_bench_benchmark==3.1.20260330)
+  L641 | 2026-11-15T17:24:20.1135585Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/89/84/06281c82d4d1686fde1ac6b0f307c50918f1c0151062445ab3b6fa5a921d/h5py-3.16.0-cp312-cp312-manylinux_2_28_aarch64.whl (5.2 MB)
+  L642 | 2026-11-15T17:24:20.2154107Z Collecting httpx (from ais_bench_benchmark==3.1.20260330)
+  L643 | 2026-11-15T17:24:20.2788247Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl (73 kB)
+  L644 | 2026-11-15T17:24:20.3521474Z Collecting immutabledict (from ais_bench_benchmark==3.1.20260330)
+  L645 | 2026-11-15T17:24:20.4164840Z Using cached https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/a3/ce/f9018bf69ae91b273b6391a095e7c93fa5e1617f25b6ba81ad4b20c9df10/immutabledict-4.3.1-py3-none-any.whl (5.0 kB)
+
+### SgLang|nightly-test-npu.yml#2212 ti=7 L14818-14860
+  L14818 | 2026-11-15T19:08:44.9432936Z [2026-11-16 03:08:44 DP0 TP8 EP8 PID584] Allocating draft hierarchical KV host pool: 369280 tokens, 0.47 GB host memory.
+  L14819 | 2026-11-15T19:08:45.0569898Z [2026-11-16 03:08:45 DP0 TP10 EP10 PID586] Mapped 472678400 bytes of host memory for device access: host=0x24f1a010000 -> device=0x3fc5c800000
+  L14820 | 2026-11-15T19:08:45.0861913Z [2026-11-16 03:08:45 DP0 TP11 EP11 PID587] Mapped 472678400 bytes of host memory for device access: host=0x5f476010000 -> device=0x3fc5c800000
+  L14821 | 2026-11-15T19:08:45.1777197Z [2026-11-16 03:08:45 DP0 TP8 EP8 PID584] Mapped 472678400 bytes of host memory for device access: host=0x2c56c010000 -> device=0x3fc5c800000
+  L14822 | 2026-11-15T19:08:45.1798814Z [2026-11-16 03:08:45 DP0 TP9 EP9 PID585] Mapped 472678400 bytes of host memory for device access: host=0x3b9de010000 -> device=0x3fc5c800000
+  L14823 | 2026-11-15T19:08:45.3643568Z [2026-11-16 03:08:45] Watchdog DataParallelController initialized.
+  L14824 | 2026-11-15T19:08:45.3664150Z [2026-11-16 03:08:45] Engine startup timings (s): load_weight=988.60, kv_cache_allocation=11.54, scheduler_e2e=1209.29, cuda_graph={prefill=0.00, decode=0.00, target_verify=115.51, draft_prefill=0.00, 
+  L14825 | 2026-11-15T19:08:45.3762875Z [2026-11-16 03:08:45] INFO: Started server process [419]
+  L14826 | 2026-11-15T19:08:45.3792705Z [2026-11-16 03:08:45] INFO: Waiting for application startup.
+  L14827 | 2026-11-15T19:08:45.9187315Z [2026-11-16 03:08:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/
+  L14828 | 2026-11-15T19:08:45.9363884Z [2026-11-16 03:08:45] INFO: Application startup complete.
+  L14829 | 2026-11-15T19:08:45.9385799Z [2026-11-16 03:08:45] INFO: Uvicorn running on http://172.22.3.181:6677 (Press CTRL+C to quit)
+  L14830 | 2026-11-15T19:08:46.9346803Z [2026-11-16 03:08:46] INFO: 172.22.3.181:57442 - "GET /model_info HTTP/1.1" 200 OK
+  L14831 | 2026-11-15T19:08:46.9368396Z [2026-11-16 03:08:46] Using a 448x448 image for Kimi K3 VLM startup warmup to exercise its native 32x32 vision patch grid.
+  L14832 | 2026-11-15T19:08:52.9943795Z ('Warning: torch.save with "_use_new_zipfile_serialization = False" is not recommended for npu tensor, which may bring unexpected errors and hopefully set "_use_new_zipfile_serialization = True"', 'if 
+  L14833 | 2026-11-15T19:08:52.9945127Z [2026-11-16 03:08:52] INFO: 172.22.3.181:42820 - "GET /health_generate HTTP/1.1" 503 Service Unavailable
+  L14834 | 2026-11-15T19:08:52.9954014Z [2026-11-16 03:08:52] INFO: 172.22.3.181:42806 - "GET /health HTTP/1.1" 503 Service Unavailable
+  L14835 | 2026-11-15T19:08:52.9954768Z 2026-11-16 03:08:52,990 - INFO - Server http://172.22.3.181:6677/health returned status code: 503
+  L14836 | 2026-11-15T19:08:56.0089320Z [2026-11-16 03:08:56 DP0 TP4 EP4 PID580] Scheduler hit an exception: Traceback (most recent call last):
+  L14837 | 2026-11-15T19:08:56.0090124Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 7084, in run_scheduler_process
+  L14838 | 2026-11-15T19:08:56.0090786Z scheduler.run_event_loop()
+  L14839 | 2026-11-15T19:08:56.0091361Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 2147, in run_event_loop
+  L14840 | 2026-11-15T19:08:56.0091895Z dispatch_event_loop(self)
+  L14841 | 2026-11-15T19:08:56.0092359Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 6930, in dispatch_event_loop
+  L14842 | 2026-11-15T19:08:56.0092881Z return _dispatch_event_loop_once(scheduler)
+  L14843 | 2026-11-15T19:08:56.0093215Z ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  L14844 | 2026-11-15T19:08:56.0093719Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 6944, in _dispatch_event_loop_once
+  L14845 | 2026-11-15T19:08:56.0094243Z scheduler.event_loop_overlap()
+  L14846 | 2026-11-15T19:08:56.0094829Z File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  L14847 | 2026-11-15T19:08:56.0095412Z return func(*args, **kwargs)
+  L14848 | 2026-11-15T19:08:56.0095677Z ^^^^^^^^^^^^^^^^^^^^^
+  L14849 | 2026-11-15T19:08:56.0096125Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 2248, in event_loop_overlap
+  L14850 | 2026-11-15T19:08:56.0097021Z batch_result = self.run_batch(batch)
+  L14851 | 2026-11-15T19:08:56.0097314Z ^^^^^^^^^^^^^^^^^^^^^
+  L14852 | 2026-11-15T19:08:56.0097805Z File "/root/sglang/python/sglang/srt/observability/scheduler_stage_metrics.py", line 189, in wrapper
+  L14853 | 2026-11-15T19:08:56.0098537Z return profiled_func(self, *args, **kwargs)
+  L14854 | 2026-11-15T19:08:56.0098870Z ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  L14855 | 2026-11-15T19:08:56.0099284Z File "/root/sglang/python/sglang/srt/utils/nvtx_utils.py", line 109, in wrapper
+  L14856 | 2026-11-15T19:08:56.0099704Z return func(*args, **kwargs)
+  L14857 | 2026-11-15T19:08:56.0099962Z ^^^^^^^^^^^^^^^^^^^^^
+  L14858 | 2026-11-15T19:08:56.0100359Z File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 5359, in run_batch
+  L14859 | 2026-11-15T19:08:56.0100943Z batch_result = self.model_worker.forward_batch_generation(
+  L14860 | 2026-11-15T19:08:56.0101477Z ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+### SgLang|nightly-test-npu.yml#2220 ti=0 L330-374
+  L330 | 2026-11-16T12:40:02.5108886Z [36;1mrm -rf /root/.cache/tests/sglang-43868335184 || true[0m
+  L331 | 2026-11-16T12:40:02.5109337Z shell: sh -e {0}
+  L332 | 2026-11-16T12:40:02.5109587Z ##[endgroup]
+  L333 | 2026-11-16T12:40:02.5202843Z ##[group]Run '/home/runner/k8s/index.js'
+  L334 | 2026-11-16T12:40:02.5203787Z shell: /home/runner/externals/node24/bin/node {0}
+  L335 | 2026-11-16T12:40:02.5204188Z ##[endgroup]
+  L336 | 2026-11-16T12:40:02.7225861Z (node:586) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+  L337 | 2026-11-16T12:40:02.7226917Z (Use `node --trace-deprecation ...` to show where the warning was created)
+  L338 | 2026-11-16T12:40:02.7414398Z (node:586) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.par
+  L339 | 2026-11-16T12:40:02.8103514Z (node:586) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+  L340 | 2026-11-16T12:40:03.4981957Z ##[error]Error: failed to run script step:
+  L341 | ✗ exit code: 1
+  L342 | → your script exited with a non-zero code; please check your script for errors
+  L343 | 2026-11-16T12:40:03.5022066Z ##[error]Process completed with exit code 1.
+  L344 | 2026-11-16T12:40:03.5131438Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  L345 | 2026-11-16T12:40:03.5857947Z Post job cleanup.
+  L346 | 2026-11-16T12:40:03.5888105Z ##[group]Run '/home/runner/k8s/index.js'
+  L347 | 2026-11-16T12:40:03.5889037Z shell: /home/runner/externals/node24/bin/node {0}
+  L348 | 2026-11-16T12:40:03.5889343Z ##[endgroup]
+  L349 | 2026-11-16T12:40:03.7687960Z (node:647) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+  L350 | 2026-11-16T12:40:03.7688858Z (Use `node --trace-deprecation ...` to show where the warning was created)
+  L351 | 2026-11-16T12:40:03.7868694Z (node:647) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.par
+  L352 | 2026-11-16T12:40:03.8316201Z (node:647) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+  L353 | 2026-11-16T12:40:04.4700657Z [command]/usr/bin/git version
+  L354 | 2026-11-16T12:40:04.4736593Z git version 2.34.1
+  L355 | 2026-11-16T12:40:04.4764564Z Copying '/root/.gitconfig' to '/__w/_temp/1963b09c-3497-4464-9262-410557d3280c/.gitconfig'
+  L356 | 2026-11-16T12:40:04.4771809Z Temporarily overriding HOME='/__w/_temp/1963b09c-3497-4464-9262-410557d3280c' before making global git config changes
+  L357 | 2026-11-16T12:40:04.4772553Z Adding repository directory to the temporary git global config as a safe directory
+  L358 | 2026-11-16T12:40:04.4777534Z [command]/usr/bin/git config --global --add safe.directory /__w/sglang/sglang
+  L359 | 2026-11-16T12:40:04.4811729Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+  L360 | 2026-11-16T12:40:04.4842643Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+  L361 | 2026-11-16T12:40:04.5143489Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+  L362 | 2026-11-16T12:40:04.5159778Z http.https://github.com/.extraheader
+  L363 | 2026-11-16T12:40:04.5167897Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+  L364 | 2026-11-16T12:40:04.5199308Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://gith
+  L365 | 2026-11-16T12:40:04.5480270Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+  L366 | 2026-11-16T12:40:04.5509924Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+  L367 | 2026-11-16T12:40:05.5936418Z ##[group]Run '/home/runner/k8s/index.js'
+  L368 | 2026-11-16T12:40:05.5937421Z shell: /home/runner/externals/node24/bin/node {0}
+  L369 | 2026-11-16T12:40:05.5937737Z ##[endgroup]
+  L370 | 2026-11-16T12:40:05.7787566Z (node:758) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+  L371 | 2026-11-16T12:40:05.7788548Z (Use `node --trace-deprecation ...` to show where the warning was created)
+  L372 | 2026-11-16T12:40:05.7959746Z (node:758) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.par
+  L373 | 2026-11-16T12:40:05.8985855Z Cleaning up orphan processes
+  L374 | 2026-11-16T12:40:05.9049388Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4. For more information see: http
+
+### SgLang|nightly-test-npu.yml#2222 ti=0 L660-720
+  L660 | 2026-11-16T12:56:11.9648544Z 2026-11-16 20:56:11,959 - WARNING - [accuracy-dataset] NPU_ACCURACY_DATASET=gsm8k ignored for TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHighOverlap: no dataset_baselines['gsm8k'], keeping datasets=['gpqa_
+  L661 | 2026-11-16T12:56:11.9649530Z 2026-11-16 20:56:11,959 - INFO - get env POD_IP = 172.22.3.181
+  L662 | 2026-11-16T12:56:11.9649995Z 2026-11-16 20:56:11,959 - INFO - get env HOSTNAME = ascend-43868640459-334c4041jqonot4o-sgl-router-0
+  L663 | 2026-11-16T12:56:11.9650490Z 2026-11-16 20:56:11,960 - INFO - Init 172.22.3.181 cls.role='router'!
+  L664 | 2026-11-16T12:56:11.9650948Z 2026-11-16 20:56:11,960 - INFO - The current node is router, skip this function start_pd_server.
+  L665 | 2026-11-16T12:56:11.9651484Z 2026-11-16 20:56:11,960 - INFO - Starting router in thread...
+  L666 | 2026-11-16T12:56:11.9653593Z 2026-11-16 20:56:11,960 - INFO - get env PATH = /usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/bin:/usr/local/Ascend/cann-9.1.0/bin:/usr/local/Ascend/cann-9.1.0/tools/ccec_compiler/bin:/usr/local/Asce
+  L667 | 2026-11-16T12:56:11.9680962Z E
+  L668 | 2026-11-16T12:56:11.9681319Z ======================================================================
+  L669 | 2026-11-16T12:56:11.9681816Z ERROR: setUpClass (__main__.TestNPUDeepSeekV4Flash0731W8A8PDSEPGPQAHighOverlap)
+  L670 | 2026-11-16T12:56:11.9682417Z ----------------------------------------------------------------------
+  L671 | 2026-11-16T12:56:11.9682777Z Traceback (most recent call last):
+  L672 | 2026-11-16T12:56:11.9683173Z File "/root/sglang/python/sglang/test/test_utils.py", line 2494, in safe_setUpClass
+  L673 | 2026-11-16T12:56:11.9683575Z orig_func(klass)
+  L674 | 2026-11-16T12:56:11.9683985Z File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 701, in setUpClass
+  L675 | 2026-11-16T12:56:11.9684551Z cls.start_router_server()
+  L676 | 2026-11-16T12:56:11.9684973Z File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 434, in wrapper
+  L677 | 2026-11-16T12:56:11.9685423Z return func(self, *args, **kwargs)
+  L678 | 2026-11-16T12:56:11.9685740Z ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  L679 | 2026-11-16T12:56:11.9686192Z File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_accuracy_utils.py", line 714, in start_router_server
+  L680 | 2026-11-16T12:56:11.9686678Z start_router_thread(cls.model_config, cls.base_url)
+  L681 | 2026-11-16T12:56:11.9687251Z File "/root/sglang/python/sglang/test/ascend/e2e/test_npu_multi_node_utils.py", line 808, in start_router_thread
+  L682 | 2026-11-16T12:56:11.9687728Z router_binary = find_sgl_router_binary()
+  L683 | 2026-11-16T12:56:11.9688020Z ^^^^^^^^^^^^^^^^^^^^^^^^
+  L684 | 2026-11-16T12:56:11.9688387Z 2026-11-16 12:56:11,967 - INFO - Detected complete test completion pattern!
+  L685 | 2026-11-16T12:56:11.9688973Z File "/root/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py", line 295, in find_sgl_router_binary
+  L686 | 2026-11-16T12:56:11.9689471Z raise FileNotFoundError(
+  L687 | 2026-11-16T12:56:11.9690148Z FileNotFoundError: sgl-router binary 'sgl-router' not found: build it with `cargo build --release --bin sgl-router` in sgl-router/, then put it on PATH or set SGLANG_TEST_PD_ROUTER_BINARY to its path.
+  L688 | 2026-11-16T12:56:11.9690717Z
+  L689 | 2026-11-16T12:56:11.9690868Z ----------------------------------------------------------------------
+  L690 | 2026-11-16T12:56:11.9691346Z Ran 0 tests in 13.672s
+  L691 | 2026-11-16T12:56:11.9691511Z
+  L692 | 2026-11-16T12:56:11.9691590Z FAILED (errors=1)
+  L693 | 2026-11-16T12:56:12.0123113Z 2026-11-16 12:56:12,010 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+  L694 | 2026-11-16T12:56:12.0123755Z Traceback (most recent call last):
+  L695 | 2026-11-16T12:56:12.0124674Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+  L696 | 2026-11-16T12:56:12.0125166Z monitor_pod_logs(
+  L697 | 2026-11-16T12:56:12.0125605Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+  L698 | 2026-11-16T12:56:12.0126119Z raise Exception("The test result was FAILED!")
+  L699 | 2026-11-16T12:56:12.0126469Z Exception: The test result was FAILED!
+  L700 | 2026-11-16T12:56:12.0182688Z 2026-11-16 12:56:12,016 - WARNING - Metrics log file not found: /root/.cache/tests/output/shun8686-overlapschedule-20261116-2040-43868640459-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deep
+  L701 | 2026-11-16T12:56:12.0233376Z 2026-11-16 12:56:12,022 - INFO - Metrics JSON written to /root/.cache/tests/output/shun8686-overlapschedule-20261116-2040-43868640459-1/Nightly_Test_NPU--cann9.1.0-a3-B010/accuracy/test_npu_deepseek_v4
+  L702 | 2026-11-16T12:56:12.0603473Z ConfigMap sglang-configmap-334c4041jqonot4o is deleted.
+  L703 | 2026-11-16T12:56:12.0908457Z 2026-11-16 12:56:12,089 - INFO - Deleted job ascend-43868640459-334c4041jqonot4o
+  L704 | 2026-11-16T12:56:12.0910338Z 2026-11-16 12:56:12,090 - INFO - Response status: {'conditions': [{'lastTransitionTime': '2026-11-16T12:42:51Z', 'status': 'Pending'}, {'lastTransitionTime': '2026-11-16T12:42:52Z', 'status': 'Pending'
+  L705 | 2026-11-16T12:56:12.0913587Z Traceback (most recent call last):
+  L706 | 2026-11-16T12:56:12.0914056Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 936, in <module>
+  L707 | 2026-11-16T12:56:12.0914710Z run_npu_e2e_test_case(
+  L708 | 2026-11-16T12:56:12.0915185Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+  L709 | 2026-11-16T12:56:12.0915668Z monitor_pod_logs(
+  L710 | 2026-11-16T12:56:12.0916119Z File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 491, in monitor_pod_logs
+  L711 | 2026-11-16T12:56:12.0916592Z raise Exception("The test result was FAILED!")
+  L712 | 2026-11-16T12:56:12.0916919Z Exception: The test result was FAILED!
+  L713 | 2026-11-16T12:56:12.2224112Z ##[error]Error: failed to run script step:
+  L714 | ✗ exit code: 1
+  L715 | → your script exited with a non-zero code; please check your script for errors
+  L716 | ------------------------------------------------------------
+  L717 | Last output:
+  L718 | 2026-11-16 12:56:12,010 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+  L719 | Traceback (most recent call last):
+  L720 | File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 737, in run_npu_e2e_test_case
+
+### SgLang|nightly-test-npu.yml#2223 ti=2 L2470-2500
+  L2470 | 2026-11-16T14:50:47.0775090Z 2026-11-16 22:50:47.075341 WARN [1308-1308][HYBM dl_hal_api.cpp:108 LoadDcmiLibrary] Unable to call dlsym to load dcmiv2_get_device_pcie_info, reason: /usr/local/Ascend/driver/lib64/driver/libdcmi.so: 
+  L2471 | 2026-11-16T14:50:47.0776040Z 2026-11-16 22:50:47.075344 WARN [1308-1308][HYBM dl_hal_api.cpp:111 LoadDcmiLibrary] DCMI v2 interface is unavailable in [libdcmi.so], DCMI dependent features are disabled
+  L2472 | 2026-11-16T14:50:47.0999877Z 2026-11-16 22:50:47.098394 INFO [1308-1308][HYBM dl_hccp_api.cpp:131 LoadLibrary] LoadLibrary for DlHccpApi success
+  L2473 | 2026-11-16T14:50:47.1000634Z 2026-11-16 22:50:47.098422 INFO [1308-1308][HYBM dl_hccl_api.cpp:52 LoadLibrary] LoadLibrary for DlHcclApi success
+  L2474 | 2026-11-16T14:50:47.1001348Z 2026-11-16 22:50:47.098430 WARN [1308-1308][HYBM dl_hybm_copy_extend.cpp:35 TryLoadLibrary] Environment MEMFABRIC_HYBRID_EXTEND_LIB_PATH is not set.
+  L2475 | 2026-11-16T14:50:47.1023504Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] Mapped 140980224 bytes of host memory for device access: host=0x4784c010000 -> device=0x3ff35400000
+  L2476 | 2026-11-16T14:50:47.1024270Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] Allocating 0.14 GB host memory for V4 paged pool 'deepseek_v4_c4_indexer' (layers=21, pages=1639, item_bytes=4096, layout=page_first).
+  L2477 | 2026-11-16T14:50:47.1025235Z 2026-11-16 22:50:47.099496 WARN [1308-1308][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.
+  L2478 | 2026-11-16T14:50:47.1026124Z 2026-11-16 22:50:47.100865 INFO [1308-1308][HYBM hybm_gva.cpp:100 hybm_init_hbm_gva] Success get deviceId: 11, logicDeviceId: 11 sco:2 ver:0
+  L2479 | 2026-11-16T14:50:47.1026925Z 2026-11-16 22:50:47.100883 TRACE [1308-1308][HYBM hybm_entry.cpp:116 hybm_init] hybm init successfully, library version: 1.3.0, build time: Oct 27 2026 15:41:14, commit: 9dc22e2a54fb8de28ba79ee77c714cd
+  L2480 | 2026-11-16T14:50:47.1027723Z 2026-11-16 22:50:47.100890 TRACE [1308-1308][SMEM smem_bm.cpp:116 smem_bm_init] smem_bm_init success. config_ip: tcp://172.22.3.71:6007
+  L2481 | 2026-11-16T14:50:47.1028461Z 2026-11-16 22:50:47.100992 INFO [1308-1308][SMEM smem_bm_entry.cpp:144 Initialize] BM rank role derived from local memory: role=provider (localDRAM=4294967296, localHBM=0); two proxy ranks never link
+  L2482 | 2026-11-16T14:50:47.1051334Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] HiCache memory headroom: host 1837.9 GiB, cgroup 8589934446.6 GiB
+  L2483 | 2026-11-16T14:50:47.1052073Z 2026-11-16 22:50:47.101940 INFO [1308-1308][SMEM smem_bm_entry.cpp:731 SetupGroupManagerCallbacks] SmemBmEntry callbacks setup, rank 0
+  L2484 | 2026-11-16T14:50:47.1052630Z 2026-11-16 22:50:47.101968 INFO [1308-1308][HYBM hybm_entity_tag_info.cpp:86 AddTagOpInfo] Add an empty tagOpInfo.
+  L2485 | 2026-11-16T14:50:47.1053303Z 2026-11-16 22:50:47.101988 WARN [1308-1308][HYBM hybm_entity_tag_info.cpp:142 GetTag2TagOpType] Not find opType from tag1:HYBM_DEFAULT_TAG_FOR_EMPTY to tag2:HYBM_DEFAULT_TAG_FOR_EMPTY
+  L2486 | 2026-11-16T14:50:47.1054018Z 2026-11-16 22:50:47.101997 TRACE [1308-1308][HYBM hybm_entity_default.cpp:105 InitTagManager] Success to init tag manager data op type:2
+  L2487 | 2026-11-16T14:50:47.1073738Z 2026-11-16 22:50:47.104143 INFO [1308-1308][HYBM hybm_entity_default.cpp:134 Initialize] Initialize success: deviceId: 11, rankId: 0, rankCount: 32, maxHBMSize: 0, maxDRAMSize: 1099511627776, deviceVAS
+  L2488 | 2026-11-16T14:50:47.1075101Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] Mapped 2203648 bytes of host memory for device access: host=0x47683a70000 -> device=0x3ffe0400000
+  L2489 | 2026-11-16T14:50:47.1075823Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] Allocating 0.00 GB host memory for V4 paged pool 'deepseek_v4_c4_indexer_scale' (layers=21, pages=1639, item_bytes=64, layout=page_first).
+  L2490 | 2026-11-16T14:50:47.1076511Z [2026-11-16 22:50:47 DP1 TP7 EP7 PID800] Mapped 140980224 bytes of host memory for device access: host=0x29482010000 -> device=0x3ff3d400000
+  L2491 | 2026-11-16T14:50:47.1077205Z [2026-11-16 22:50:47 DP1 TP7 EP7 PID800] Allocating 0.14 GB host memory for V4 paged pool 'deepseek_v4_c4_indexer' (layers=21, pages=1639, item_bytes=4096, layout=page_first).
+  L2492 | 2026-11-16T14:50:47.1077903Z [2026-11-16 22:50:47 DP3 TP14 EP14 PID1311] Mapped 140980224 bytes of host memory for device access: host=0x43cec010000 -> device=0x3ff2d400000
+  L2493 | 2026-11-16T14:50:47.1099520Z [2026-11-16 22:50:47 DP3 TP14 EP14 PID1311] Allocating 0.14 GB host memory for V4 paged pool 'deepseek_v4_c4_indexer' (layers=21, pages=1639, item_bytes=4096, layout=page_first).
+  L2494 | 2026-11-16T14:50:47.1100507Z [2026-11-16 22:50:47 DP1 TP6 EP6 PID799] HiCache memory headroom: host 1837.9 GiB, cgroup 8589934446.6 GiB
+  L2495 | 2026-11-16T14:50:47.1101292Z [2026-11-16 22:50:47 DP1 TP7 EP7 PID800] HiCache memory headroom: host 1837.9 GiB, cgroup 8589934446.6 GiB
+  L2496 | 2026-11-16T14:50:47.1101867Z 2026-11-16 22:50:47.108098 TRACE [1307-1307][MMC mmc_configuration.cpp:58 Setup] Try to setup config
+  L2497 | 2026-11-16T14:50:47.1102442Z 2026-11-16 22:50:47.108292 INFO [1307-1307][MMC mmc_configuration.cpp:783 ResolveAllUrlDomains] start resolving all URL domains.
+  L2498 | 2026-11-16T14:50:47.1102975Z [2026-11-16 22:50:47 DP3 TP14 EP14 PID1311] HiCache memory headroom: host 1837.9 GiB, cgroup 8589934446.6 GiB
+  L2499 | 2026-11-16T14:50:47.1103741Z 2026-11-16 22:50:47.108354 INFO [1307-1307][MMC mmc_configuration.h:609 ValidateLocalServiceConfig] After alignment 1GB, ock.mmc.local_service.dram.size is 4294967296, ock.mmc.local_service.max.dram.si
+  L2500 | 2026-11-16T14:50:47.1104717Z 2026-11-16 22:50:47.108360 INFO [1307-1307][MMC mmc_configuration.h:612 ValidateLocalServiceConfig] After alignment 1GB, ock.mmc.local_service.hbm.size is 0, ock.mmc.local_service.max.hbm.size is 0

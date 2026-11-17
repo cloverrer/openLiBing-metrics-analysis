@@ -1,14 +1,32 @@
 # 第 8 步【agent 执行】AI 根因分析任务书
 
-> 采集、归档、出页、按周期筛数据全部由脚本完成（`python run_pipeline.py`）。**AI 只做本文件描述的这一步**：
-> 读脚本给出的清单与证据 → 写根因结论 JSON → 交给 `tools/write_analysis.py` 写回。
-> 页面由第 9 步脚本生成，**AI 不写 HTML、不改数据、不抓接口**。
+> 采集、归档、出页、按周期筛数据、**日志抓取**全部由脚本完成（`python run_pipeline.py`；
+> 社区数据源由 `python tools/collect_community_nightly.py` 按 `community_sources.json` 通用采集）。
+> **AI 只做本文件描述的这一步**：读一份纯文本取证包 → 写纯文本根因结论 → 交给
+> `tools/write_analysis.py` 写回。页面由第 9 步脚本生成，**AI 不写 HTML、不改数据、不抓接口、
+> 不为单条流水线写一次性脚本**。
+
+## 〇、一次交互做完（AI 的标准动作，就三步）
+
+```powershell
+python tools/digest_pending.py            # 1) 唯一输入：清单 + 每条记录的失败任务、报错点、证据原文（带行号）
+# 2) 按下面的格式写 out/state/analysis_result.txt（纯文本块，见「四、输出格式」）
+python tools/write_analysis.py --file out/state/analysis_result.txt --dry-run   # 3) 校验
+python tools/write_analysis.py --file out/state/analysis_result.txt             #    写回
+python run_pipeline.py --only step9                                            #    重出页面
+```
+
+**不要**逐条 `--show`、逐条 `--grep` 往返：`digest_pending.py` 已经把每条记录的报错点与
+对应原文行打好包，读一遍就够。只有某条确实需要再往下挖时才用
+`python tools/digest_pending.py --record "组件|流水线#构建号" --ev-lines 60`
+或 `tools/read_evidence.py`（两者都按行窗口取，不会刷屏）。
 
 ## 一、输入（全部只读）
 
 | 来源 | 作用 | 怎么拿 |
 |---|---|---|
-| `out/archive/<年>/<年-月>/<日>/<组件>/<流水线>/pipeline.json` 的 `records[]` | 单条执行记录（分析的最小单位） | `python tools/list_pending.py --show <recordId>` 会打印记录位置（`…/pipeline.json records[N]`） |
+| `python tools/digest_pending.py` 的输出 | **唯一主输入**：每条待分析记录的失败任务、报错点、证据原文行（带原始行号）、失败用例、记录位置 | 直接跑，一次拿全；记录多时 `--max-records` / `--record` 分批 |
+| `out/archive/<年>/<年-月>/<日>/<组件>/<流水线>/pipeline.json` 的 `records[]` | 单条执行记录（分析的最小单位） | `python tools/list_pending.py --show <recordId>` 打印记录位置（`…/pipeline.json records[N]`） |
 | 同目录 `pipeline.evidence.json` 的 `files` 键 | 证据原文（`job_logs/*.log`、`case_logs/*.html`、`github_logs/gh_<runId>/` 三类已逐行内嵌，磁盘上没有散文件了） | 记录内 `tasks[].logFile` / `errorLines`、`subTasks[].logFile`、`tasks[].cases[].localLog` 给出的路径就是 `files` 的键；取正文用 `python tools/read_evidence.py`（见输出纪律） |
 | `agent/analysis_profile.json` | 可变量：定性分类、置信度、措辞规则、维度定义 | 直接读（小文件） |
 
@@ -22,63 +40,68 @@
 ## 三、执行流程
 
 ```powershell
-python tools/list_pending.py                      # 1) 清单：# / 组件 / 流水线 / 构建号 / 定性 / 置信度
-python tools/list_pending.py --show "Ascend-CANN|ops-math#136"   # 2) 单条摘要（组件/时间/指标/计数/失败用例/记录位置）
-# 3) 需要深挖时读记录内容与证据原文（用 tools/read_evidence.py 按行窗口取，见输出纪律）
-# 4) 写结论到 out/state/analysis_result.json
-python tools/write_analysis.py --file out/state/analysis_result.json --dry-run
-python tools/write_analysis.py --file out/state/analysis_result.json
-# 5) 重生成页面（不重采集）
+python tools/digest_pending.py                    # 1) 纯文本取证包：清单 + 报错点 + 证据原文（一次拿全）
+# 2) 写结论到 out/state/analysis_result.txt（纯文本块，格式见下一节）
+python tools/write_analysis.py --file out/state/analysis_result.txt --dry-run
+python tools/write_analysis.py --file out/state/analysis_result.txt
+# 3) 重生成页面（不重采集）
 python run_pipeline.py --only step9
 ```
 
 **批量模式（一次交互出全部结论）**：常规夜间流程本来就是「清单里几条就一次分析几条」。重分析已 `analysis.status=done` 的旧数据时，脚本会拦下这些条目，必须加 `--force` 才允许覆盖：
 
 ```powershell
-python tools/write_analysis.py --file out/state/rean_result.json --dry-run --force
-python tools/write_analysis.py --file out/state/rean_result.json --force
+python tools/write_analysis.py --file out/state/rean_result.txt --dry-run --force
+python tools/write_analysis.py --file out/state/rean_result.txt --force
 ```
 
-不要把一次批量任务拆成多轮对话（每轮只回几条）——证据都已落在归档里，读完全部记录后一次性输出 `items` 数组，字段与单条模式完全一致。
+不要把一次批量任务拆成多轮对话（每轮只回几条）——证据都已落在归档里，读完取证包后一次性写完所有块，字段与单条模式完全一致。
 
 ## 四、输出格式（唯一交付物）
 
-写一个 `out/state/analysis_result.json`。下面两条示例取自真实案例，分别对应「单一成因」与「有共性、分两类」两种写法（日志文件名与行号按归档规则示意）：
+写一个 `out/state/analysis_result.txt`：**每条记录一个文本块，纯文本、不用 JSON**（`根因` / `建议` 直接多行写，空行分段，不转义换行）。块头一行 `=== 组件|流水线#构建号`，其余按 `键: 值` 逐行写；键写到下一个 `键:` 或下一个 `===` 为止。下面两条示例取自真实案例，分别对应「单一成因」与「有共性、分两类」两种写法：
 
-```json
-{"items": [
-  {"recordId": "HPCKit|kuqcd#210",
-   "keyError": "fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'",
-   "issueType": "权限问题",
-   "issueDetail": "执行机上拉代码的凭据失效了",
-   "rootCause": "失败在用例代码拉取环节：构建第一步 clone 用例库 hpckit-autotest 时就鉴权失败，git 直接退出，用例一条都没执行，所以不是被测组件的问题——执行机上的 gitcode 凭据失效（token 过期或没有该私有仓读权限）就是本条的唯一原因。",
-   "advice": "换掉执行机上的 gitcode 凭据：换一个未过期、且有该私有仓读权限的 token 或部署公钥，然后在同一节点手工 clone 一次，确认能正常取到分支。同类问题成批出现时（同一处鉴权失败导致的多条流水线）一次改配置覆盖即可。\n\n验证方式：重跑该流水线，要求 clone 成功、测试任务能拉起用例且 total 大于 0、用例通过率 100%。",
-   "cites": ["job_logs/03_kuqcd_210_build.log:L138"]},
-  {"recordId": "Ascend-CANN|ops-transformer#165",
-   "keyError": "HCCL function error: hcclCommInitRootInfoConfig(...): invalid ranktable",
-   "issueType": "基础设施/平台",
-   "issueDetail": "多卡机器的通信域建不起来",
-   "rootCause": "冒烟 job 由 4 个 pytest 分片串行执行 98 个用例，其中 19 个失败让退出码变成 1，冒烟阶段判 FAILED，后面的「归档」阶段停在 INIT。\n\n第一类（15 个用例，MC2 多卡通信类算子）：从 03:25:16 的 aclnnMatmulAlltoAll 开始 HCCL 通信域初始化失败，之后被测试框架统一记成 accuracy not passed，同一现象持续到 04:13、覆盖 MatmulAlltoAll / AllGatherMatmul / MatmulAllReduce / MoeDistributeDispatch 等全部 MC2 用例，因此更像多卡环境的 HCCL 通信域（ranktable / IP / 端口 / 驱动）问题，而非单个算子逻辑缺陷。\n\n第二类（4 个用例，MoeTokenUnpermuteWithEpGrad）：tiling 里对 grad 输出形状做了断言，这 4 个用例的数据不满足该约束直接失败，与通信无关。",
-   "advice": "先查多卡环境的 HCCL 通信域：核对 ranktable、device IP 与端口、HCCL 版本与驱动是否一致，再在已知正常的同型号节点上单独复跑 aclnnMatmulAlltoAll、aclnnAllGatherMatmul 各一次——换节点后不再报 HCCL 错，问题就在环境而不在算子。\n\nMoeTokenUnpermuteWithEpGrad 这一类单独修：对齐 tiling 里 grad 输出形状的断言与该 4 个用例的实际 shape，用例数据变更过就更新用例，是算子回归就改 tiling 的约束逻辑。\n\n验证方式：重跑上述 19 个用例，要求全部通过、日志中不再出现 HCCL function error，冒烟阶段退出码为 0、「归档」阶段能正常执行。",
-   "cites": ["job_logs/02_ops-transformer_165_smoke.log:L902", "job_logs/02_ops-transformer_165_smoke.log:L1383"]}
-]}
+```
+=== HPCKit|kuqcd#210
+分类: 权限问题
+简述: 执行机上拉代码的凭据失效了
+错误: fatal: Authentication failed for 'https://gitcode.com/kunpengcompute/hpckit-autotest.git/'
+根因: 失败在用例代码拉取环节：构建第一步 clone 用例库 hpckit-autotest 时就鉴权失败，git 直接退出，用例一条都没执行，所以不是被测组件的问题——执行机上的 gitcode 凭据失效（token 过期或没有该私有仓读权限）就是本条的唯一原因。
+建议: 换掉执行机上的 gitcode 凭据：换一个未过期、且有该私有仓读权限的 token 或部署公钥，然后在同一节点手工 clone 一次，确认能正常取到分支。同类问题成批出现时（同一处鉴权失败导致的多条流水线）一次改配置覆盖即可。
+
+验证方式：重跑该流水线，要求 clone 成功、测试任务能拉起用例且 total 大于 0、用例通过率 100%。
+引用: job_logs/03_kuqcd_210_build.log:L138
+
+=== Ascend-CANN|ops-transformer#165
+分类: 基础设施/平台
+简述: 多卡机器的通信域建不起来
+错误: HCCL function error: hcclCommInitRootInfoConfig(...): invalid ranktable
+根因: 冒烟 job 由 4 个 pytest 分片串行执行 98 个用例，其中 19 个失败让退出码变成 1，冒烟阶段判 FAILED，后面的「归档」阶段停在 INIT。
+
+第一类（15 个用例，MC2 多卡通信类算子）：从 aclnnMatmulAlltoAll 开始 HCCL 通信域初始化失败，之后被测试框架统一记成 accuracy not passed，覆盖 MatmulAlltoAll / AllGatherMatmul / MatmulAllReduce / MoeDistributeDispatch 等全部 MC2 用例，因此更像多卡环境的 HCCL 通信域（ranktable / IP / 端口 / 驱动）问题，而非单个算子逻辑缺陷。
+
+第二类（4 个用例，MoeTokenUnpermuteWithEpGrad）：tiling 里对 grad 输出形状做了断言，这 4 个用例的数据不满足该约束直接失败，与通信无关。
+建议: 先查多卡环境的 HCCL 通信域：核对 ranktable、device IP 与端口、HCCL 版本与驱动是否一致，再在已知正常的同型号节点上单独复跑 aclnnMatmulAlltoAll、aclnnAllGatherMatmul 各一次——换节点后不再报 HCCL 错，问题就在环境而不在算子。
+
+MoeTokenUnpermuteWithEpGrad 这一类单独修：对齐 tiling 里 grad 输出形状的断言与该 4 个用例的实际 shape，用例数据变更过就更新用例，是算子回归就改 tiling 的约束逻辑。
+
+验证方式：重跑上述 19 个用例，要求全部通过、日志中不再出现 HCCL function error，冒烟阶段退出码为 0、「归档」阶段能正常执行。
+引用: job_logs/02_ops-transformer_165_smoke.log:L902, job_logs/02_ops-transformer_165_smoke.log:L1383
 ```
 
-字段要求：
+字段要求（中英文键名都认，写中文最省事）：
 
-| 字段 | 要求 |
-|---|---|
-| `recordId` | 直接用清单里打印的原值（`组件\|流水线#构建号`）；`/` 写法也兼容 |
-| `keyError` | **必填**，一句话报错原文：AI 从本次执行的日志与测试报告里筛出的「最有价值报错点」，即决定这次失败的那一行。页面的「错误信息」列直接展示它，所以要给真实报错原文（封装码还原成底层报错），不要带「首次出现 03:25:16 · 全日志 1590 处」这类统计修饰（规模只在根因里一句话概括）；兜底的汇总行（如 `19 failed, 63 passed`、`exit code 1`）不算关键报错，除非日志里确实没有更具体的失败点 |
-| `issueType` | **必填**，问题分类：沿用参考仓的 10 类根因，只能选一个 —— `代码编译错误` / `单元测试失败` / `依赖/环境缺失` / `网络/下载失败` / `资源不足` / `超时` / `权限问题` / `配置/参数错误` / `基础设施/平台` / `无法判定`。页面「问题分类」列把这一项染色展示（一列色标扫下来就能分堆），写错或漏写整条会被写回脚本拒绝。判据见下节「问题分类：十选一」 |
-| `issueDetail` | 选填，一句话说清「具体故障点」——页面上不进「问题分类」列，只作为「定性」列在根因正文抽不出词时的兜底。40 字以内，专业通俗，如「执行机 gitcode 凭据失效，clone 被鉴权拒绝」「集群 A3 NPU 资源不足，作业调度超时」 |
-| `rootCause` | **必填**，根因正文（写法见下节）：**先判断这条是单一成因还是有共性、分属多类** —— 单一成因就 1~2 句「在哪一步失败 → 为什么 → 所以问题在谁那边」，不分段、不分类；确有共性且成因不同才分段写「第 N 类（M 个用例，共性）：」。正文里**不写报错码**（`DEV-CODECI-35002`、`error code is 4`）、**不写 `文件名:行号`**、不写时间线流水账、不写「已排除的干扰项」（确有易混淆告警、一句话能说清时才补）。**每段（尤其分类段与结论段）开头先给一句专业、通俗的定性结论**——直接点明故障机理与责任方（「执行机 gitcode 凭据失效，用例库 clone 被鉴权拒绝」「集群 A3 NPU 资源不足，作业等待调度超时」「测试框架性能数据导出失败，导致用例被误判失败」），再展开因果。**措辞要专业通俗：既不堆砌术语，也不写成「XX坏了」这类口语**——用工程语言陈述现象与机理（「凭据失效」「资源不足导致调度超时」「接口返回 NotFound」「性能吞吐未达基线阈值」），让读者一眼看懂是什么问题、该谁处理 |
-| `advice` | 修复建议，**默认两段**：一段「动手做什么」（换哪个凭据 / 改哪个配置 / 修哪处代码，写到能直接动手），一段以 `验证方式：` 开头写通过标准。根因分了几类的，每类一段动作，验证方式仍收尾。禁止分点序号，禁止"建议排查""建议关注"这类空话 |
-| `cites` | `文件名:行号` 数组，来自全量日志/用例日志/github 日志；**只供页面「证据」弹窗定位原始行，正文里不再写**。`keyError` 那句话必须能在其中某一条引用的行里找到（写回脚本会逐行核对，对不上会整条拒绝） |
-| `possibilities` | 可选，**页面不读**；留着仅为归档可追溯。「定性」列只从 `rootCause` 正文抽句子，不再读这个字段 |
-| `source` | 可省略，默认 `agent` |
+| 键 | 必填 | 要求 |
+|---|---|---|
+| `=== <recordId>` | **必填** | 直接用清单里打印的原值（`组件\|流水线#构建号`，`/` 写法也兼容） |
+| `错误` | **必填** | 一句话报错原文：AI 从本次执行的日志与测试报告里筛出的「最有价值报错点」，即决定这次失败的那一行。页面的「错误信息」列直接展示它，所以要给真实报错原文（封装码还原成底层报错），不要带「首次出现 03:25:16 · 全日志 1590 处」这类统计修饰（规模只在根因里一句话概括）；兜底的汇总行（如 `19 failed, 63 passed`、`exit code 1`）不算关键报错，除非日志里确实没有更具体的失败点 |
+| `分类` | **必填** | 问题分类：沿用参考仓的 10 类根因，只能选一个 —— `代码编译错误` / `单元测试失败` / `依赖/环境缺失` / `网络/下载失败` / `资源不足` / `超时` / `权限问题` / `配置/参数错误` / `基础设施/平台` / `无法判定`。页面「问题分类」列把这一项染色展示（一列色标扫下来就能分堆），写错或漏写整条会被写回脚本拒绝。判据见下节「问题分类：十选一」 |
+| `简述` | 选填 | 一句话说清「具体故障点」——页面上不进「问题分类」列，只作为「定性」列在根因正文抽不出词时的兜底。40 字以内，专业通俗，如「执行机 gitcode 凭据失效，clone 被鉴权拒绝」「集群 A3 NPU 资源不足，作业调度超时」 |
+| `根因` | **必填** | 根因正文（写法见下节）：**先判断这条是单一成因还是有共性、分属多类** —— 单一成因就 1~2 句「在哪一步失败 → 为什么 → 所以问题在谁那边」，不分段、不分类；确有共性且成因不同才分段写「第 N 类（M 个用例，共性）：」。正文里**不写报错码**（`DEV-CODECI-35002`、`error code is 4`）、**不写 `文件名:行号`**、不写时间线流水账、不写「已排除的干扰项」（确有易混淆告警、一句话能说清时才补）。**每段（尤其分类段与结论段）开头先给一句专业、通俗的定性结论**——直接点明故障机理与责任方（「执行机 gitcode 凭据失效，用例库 clone 被鉴权拒绝」「集群 A3 NPU 资源不足，作业等待调度超时」「测试框架性能数据导出失败，导致用例被误判失败」），再展开因果。**措辞要专业通俗：既不堆砌术语，也不写成「XX坏了」这类口语**——用工程语言陈述现象与机理（「凭据失效」「资源不足导致调度超时」「接口返回 NotFound」「性能吞吐未达基线阈值」），让读者一眼看懂是什么问题、该谁处理 |
+| `建议` | **必填** | 修复建议，**默认两段**：一段「动手做什么」（换哪个凭据 / 改哪个配置 / 修哪处代码，写到能直接动手），一段以 `验证方式：` 开头写通过标准。根因分了几类的，每类一段动作，验证方式仍收尾。禁止分点序号，禁止"建议排查""建议关注"这类空话 |
+| `引用` | **必填** | `文件名:行号`，逗号/空格分隔，来自全量日志/用例日志/github 日志；**只供页面「证据」弹窗定位原始行，正文里不再写**。`错误` 那句话必须能在其中某一条引用的行里找到（写回脚本会逐行核对，对不上会整条拒绝） |
 
-脚本强制校验：`rootCause` 为空、`recordId` 找不到、记录不是 `pending`（且未加 `--force`）、`keyError` 与 `cites` 对不上（引用的文件都能读、却没有一行包含这句话）的条目会报错整条跳过，不会静默写入。重分析已 `done` 的旧数据时必须加 `--force`，否则每条都会被判为「只有 pending 才需要写回」而跳过。
+脚本强制校验：`根因` 为空、`分类` 缺失或不在十类白名单、`recordId` 找不到、记录不是 `pending`（且未加 `--force`）、`错误` 与 `引用` 对不上（引用的文件都能读、却没有一行包含这句话）的条目会报错整条跳过，不会静默写入。重分析已 `done` 的旧数据时必须加 `--force`，否则每条都会被判为「只有 pending 才需要写回」而跳过。老归档若已有 JSON 格式的结论文件（`analysis_result.json`），写回脚本同样能识别，两种格式可混用。
 
 ### rootCause 的写法：先判断要不要分类，再给「原因 + 谁的问题」
 
@@ -169,9 +192,9 @@ python tools/write_analysis.py --file out/state/rean_result.json --force
    python tools/read_evidence.py --record "HPCKit|kuqcd#210" --grep "ERROR|fatal" --ctx 2            # 直接搜报错，带上下文
    ```
 
-2. **先摘要后原文**：先 `list_pending.py --show` 看摘要，再按 `errorLines` / `errorMessages[].line` 回原文读错误行前后 10~30 行
+2. **一次拿全，别逐条往返**：主输入只有 `python tools/digest_pending.py`（清单 + 报错点 + 证据原文已打好包）；只有某条确实要再往下挖，才按行窗口补读，不做「每轮只看一条」的循环
 3. **单条命令回显 ≤100 行**：可能刷屏的命令加 `| Select-Object -Last 40` 或重定向到临时文件再读尾部
-4. **不粘贴大段日志**：对话只回结论，原始行只写进 `cites`（正文里不再出现 `文件名:行号`）
+4. **不粘贴大段日志**：对话只回结论，原始行只写进 `引用`（正文里不再出现 `文件名:行号`）
 5. **不向用户提问等待**：夜间无人值守，数据有缺口就按现有证据定性并在 `rootCause` 里注明"证据不完整"
 
 ## 六、取证与定性规则

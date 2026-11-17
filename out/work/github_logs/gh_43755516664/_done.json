@@ -1,0 +1,96 @@
+{
+ "route": "github",
+ "key": "vllm-ascend|a3.yaml",
+ "rn": 16564,
+ "rid": "43755516664",
+ "st": "11-16 04:00",
+ "runId": 43755516664,
+ "repo": "vllm-project/vllm-ascend",
+ "displayTitle": "Nightly-A3 (scheduled)",
+ "event": "workflow_dispatch",
+ "status": "FAILED",
+ "duration": 238.83,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-15T23:58:53Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 1 个（≤5，逐 job 精取）",
+ "totalJobs": 18,
+ "failedJobs": [
+  {
+   "name": "double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD.yaml, tests... / GLM-5.3-Flash-W8A8-130k-PD.yaml",
+   "id": 132974265350,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD.yaml, tests... / GLM-5.3-Flash-W8A8-130k-PD.yaml",
+   "id": 132974265350,
+   "conclusion": "failure",
+   "startedAt": "2026-11-15T22:02:57Z",
+   "completedAt": "2026-11-15T23:46:58Z",
+   "logFile": "github_logs/gh_43755516664/132974265350_double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-13~da5de9.txt",
+   "logBytes": 365890,
+   "logLines": 3760,
+   "errorLines": [
+    "L2942: \u001b[0;31mFAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2944: ##[error]Error: failed to run script step:",
+    "L2945: ✗ exit code: 1",
+    "L2967: \u001b[0;31mFAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2969: ##[error]Process completed with exit code 1.",
+    "L2970: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3361: ##[error]Upload failed. See log:",
+    "L3386: ##[error]Error: failed to run script step:",
+    "L3387: ✗ exit code: 1",
+    "L3404: ##[error]Process completed with exit code 1.",
+    "L3405: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [],
+    "benchmarkFailed": [],
+    "failedTagTests": [
+     {
+      "line": 2942,
+      "tag": "FAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 2937,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Time..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 2938,
+      "summary": "1 failed, 17 warnings in 6005.31s (1:40:05)"
+     }
+    ]
+   }
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

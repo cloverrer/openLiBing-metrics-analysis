@@ -1,0 +1,99 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2222,
+ "rid": "43868640459",
+ "st": "11-16 20:39",
+ "runId": 43868640459,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 17.73,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-16T12:57:42Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 16,
+ "failedJobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap",
+   "id": 133303671681,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 133312799730,
+   "steps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap",
+   "id": 133303671681,
+   "conclusion": "failure",
+   "startedAt": "2026-11-16T12:40:25Z",
+   "completedAt": "2026-11-16T12:57:35Z",
+   "logFile": "github_logs/gh_43868640459/133303671681_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt",
+   "logBytes": 89339,
+   "logLines": 805,
+   "errorLines": [
+    "L671: Traceback (most recent call last):",
+    "L694: Traceback (most recent call last):",
+    "L705: Traceback (most recent call last):",
+    "L713: ##[error]Error: failed to run script step:",
+    "L714: ✗ exit code: 1",
+    "L719: Traceback (most recent call last):",
+    "L730: Traceback (most recent call last):",
+    "L738: ##[error]Process completed with exit code 1.",
+    "L739: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 133312799730,
+   "conclusion": "failure",
+   "startedAt": "2026-11-16T12:57:38Z",
+   "completedAt": "2026-11-16T12:57:41Z",
+   "logFile": "github_logs/gh_43868640459/133312799730_check-all-jobs.txt",
+   "logBytes": 6326,
+   "logLines": 99,
+   "errorLines": [
+    "L98: ##[error]Process completed with exit code 1."
+   ],
+   "githubSteps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

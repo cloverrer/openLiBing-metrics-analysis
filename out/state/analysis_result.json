@@ -1,62 +1,30 @@
-{"items": [
-  {"recordId": "Ascend-CANN|ops-math#143",
-   "issueType": "依赖/环境缺失",
-   "issueDetail": "测试环境 ATK 精度比对工具 ct-tool 未安装",
-   "keyError": "ct-tool not installed, please install it first.",
-   "rootCause": "13 条失败用例（aclnnGlobalAveragePool、aclnnSort、aclnnStack、aclnnArgsort、InplaceCopy 等）全部倒在精度比对环节。用例执行时 ATK 测试框架在容器内找不到精度比对工具 ct-tool，注册用例脚本时又缺 common 模块，框架的消息工厂取不到算子原型接口（MessageFactory 上没有 GetPrototype），比对无法进行，断言只能报 accuracy not passed。根因是测试容器内的 ATK 精度比对工具链未完整部署（ct-tool 未安装、框架插件依赖缺失），不是被测算子代码的问题。",
-   "advice": "在测试执行环境/镜像是补齐 ATK 精度比对工具链：安装 ct-tool，并补齐 ATK 框架所需的 common 模块与插件注册，确保消息工厂能解析算子原型接口。\n\n验证方式：复跑 ops-math 的 Test_ops-math 任务，要求 13 条失败用例全部转为通过、用例通过率回到 100%，且用例日志里不再出现 ct-tool not installed 与 MessageFactory 相关报错。",
-   "cites": ["case_logs/case_0182.html:L971", "case_logs/case_0182.html:L974", "case_logs/case_0183.html:L1041", "case_logs/case_0184.html:L1160", "case_logs/case_0185.html:L1134", "case_logs/case_0186.html:L1084", "case_logs/case_0187.html:L1166", "case_logs/case_0188.html:L962"],
-   "source": "agent"},
-
-  {"recordId": "Ascend-CANN|ops-math#144",
-   "issueType": "基础设施/平台",
-   "issueDetail": "A2 设备测试环境申请被平台拒绝，未分配到节点",
-   "keyError": "Failed to allocate environment: Environment allocation rejected: Unknown",
-   "rootCause": "测试任务申请 A2 设备环境后一直排队：14:27 起状态在 provisioning 与 queued 之间反复，持续轮询 177 次仍未拿到节点，15:57 被平台侧直接拒绝，返回 Environment allocation rejected: Unknown，且未给出具体拒绝原因。环境始终未就绪，用例根本没有拉起，pytest executor 以退出码 1 结束、任务判失败。根因在平台的 A2 节点分配侧（资源占用或调度异常），与被测代码无关。",
-   "advice": "请平台侧核查该时段 A2 设备池的配额、占用与调度策略，定位环境申请被 Unknown 拒绝的真正原因（资源被占满、调度异常或配额未放开）。\n\n验证方式：重跑该批次，要求 A2 环境申请能在正常时长内分配成功、Test_ops-math 任务能拉起用例并产出结果。",
-   "cites": ["job_logs/37_ops-math_144_Test_ops-math.log:L5135", "job_logs/37_ops-math_144_Test_ops-math.log:L5183", "job_logs/37_ops-math_144_Test_ops-math.log:L5317"],
-   "source": "agent"},
-
-  {"recordId": "Ascend-CANN|ops-math#145",
-   "issueType": "依赖/环境缺失",
-   "issueDetail": "测试环境 ATK 精度比对工具 ct-tool 未安装",
-   "keyError": "ct-tool not installed, please install it first.",
-   "rootCause": "单条用例 test_cann_accu_aclnninplaceone_qwen3（aclnnInplaceOne 功能精度测试）失败，精度、端到端性能、设备性能、显存占用等子项全部 not passed。失败机制与同流水线 #143 一致：容器内缺精度比对工具 ct-tool，注册用例时又缺 common 模块，ATK 框架无法完成比对，断言直接判失败。根因是测试环境的 ATK 工具链未完整部署，不是算子代码缺陷。",
-   "advice": "与 #143 一并处理：在测试执行环境里安装 ct-tool 并补齐 ATK 框架的 common 模块与插件注册。\n\n验证方式：复跑 ops-math 的 Test_ops-math 任务，要求 test_cann_accu_aclnninplaceone_qwen3 转为通过、用例通过率回到 100%，用例日志中不再出现 ct-tool not installed 报错。",
-   "cites": ["case_logs/case_0198.html:L1841", "case_logs/case_0198.html:L1204", "case_logs/case_0198.html:L55992"],
-   "source": "agent"},
-
-  {"recordId": "MindStudio|msot#271",
-   "issueType": "基础设施/平台",
-   "issueDetail": "运行被 openlibing 服务账号取消，未留存任务日志",
-   "rootCause": "运行状态为 CANCELED，两个测试任务 Test_msot_nightly_smoke、Test_msot_nightly_smoke_A3 均由 openlibing 服务账号 api_user_openlibing 停止，平台侧没有留存任务日志与用例证据，无法从日志定位到具体失败点。结合同日多条流水线在 23:57 前后集中被取消，判断为平台侧统一的停止/清理动作（如夜间批次边界回收或排队超时取消），不是被测代码或用例缺陷。",
-   "advice": "请平台侧核查 api_user_openlibing 账号在 23:57 前后的停止触发来源（夜间批次边界清理、排队超时回收或并发抢占策略），确认是否为预期行为。\n\n验证方式：若属误取消，调整取消策略后重跑，要求 msot 的两个测试任务能正常执行并留存完整日志与用例结果。",
-   "cites": [],
-   "source": "agent"},
-
-  {"recordId": "MindStudio|msprobe#265",
-   "issueType": "依赖/环境缺失",
-   "issueDetail": "上游每日构建未产出 msprobe aarch64 包致镜像构建失败",
-   "keyError": "ERROR: msprobe/aarch64 is missing from the newest daily batch 20261112_2300: the daily build failed, investigate the build.",
-   "rootCause": "制作 msprobe 镜像的步骤失败：上游每日构建批次 20261112_2300 没有产出 msprobe/aarch64 安装包（该批次本身构建失败），install-msprobe.sh 取不到包，docker build 以非 0 退出码结束，a2、a3 两个镜像任务都判失败、镜像未能推送到 SWR 仓库。同一次运行里的测试任务 Test_msprobe_smoke_A2_1_995 也没能执行：申请到的 A2 环境 Pod 始终处于 Pending，轮询 119 次仍未 Ready，环境分配失败后没有任何用例结果。根因是上游每日构建的 msprobe aarch64 构件缺失，需从上游批次修复。",
-   "advice": "修复上游每日构建批次（20261112_2300 起的 aarch64 产出），确认 msprobe/aarch64 能正常进入当日 daily batch 并可被 install 脚本拉取；同时排查该时段 A2 环境 Pod 长期 Pending 的原因。\n\n验证方式：复跑 msprobe 流水线，要求 a2/a3 两个镜像任务构建成功并推送到 SWR，Test_msprobe_smoke_A2_1_995 任务能拉起用例、产出测试结果、用例通过率 100%。",
-   "cites": ["job_logs/34_msprobe_265_docker-mindstudio-msprobe-a2-aarch64-nightly.log:L109", "job_logs/34_msprobe_265_docker-mindstudio-msprobe-a2-aarch64-nightly.log:L111", "job_logs/35_msprobe_265_docker-mindstudio-msprobe-a3-aarch64-nightly.log:L111", "job_logs/36_msprobe_265_Test_msprobe_smoke_A2_1_995.log:L784"],
-   "source": "agent"},
-
-  {"recordId": "MindStudio|msprobe#266",
-   "issueType": "基础设施/平台",
-   "issueDetail": "A2 测试环境申请被平台拒绝，用例未拉起",
-   "keyError": "Failed to allocate environment: Environment allocation rejected: Unknown",
-   "rootCause": "测试任务申请 mindstudio A2 单卡环境（mindstudio_single_device_8_a2a3_env_type）后，环境状态从 provisioning 转为 queued，持续轮询 179 次仍未分配成功，23:17 被平台侧拒绝，返回 Environment allocation rejected: Unknown，未给出具体原因。用例因环境未就绪没能拉起，pytest executor 以退出码 1 结束，运行最终被取消。根因在平台的 A2 节点分配侧，与被测代码无关。",
-   "advice": "请平台侧核查该时段 A2 设备池的配额、占用与调度策略，定位环境申请被 Unknown 拒绝的原因。\n\n验证方式：重跑 msprobe 流水线，要求 A2 环境申请能在正常时长内分配成功、Test_msprobe_smoke_A2_1 任务能拉起用例并产出结果。",
-   "cites": ["job_logs/38_msprobe_266_Test_msprobe_smoke_A2_1.log:L845", "job_logs/38_msprobe_266_Test_msprobe_smoke_A2_1.log:L852"],
-   "source": "agent"},
-
-  {"recordId": "MindStudio|msserviceprofiler#249",
-   "issueType": "基础设施/平台",
-   "issueDetail": "运行被 openlibing 服务账号取消，未留存任务日志",
-   "rootCause": "运行状态为 CANCELED，测试任务 Test_msserviceprofiler_smoke_vllm_A2 由 openlibing 服务账号 api_user_openlibing 停止，平台侧没有留存任务日志与用例证据，无法定位具体执行失败点。与同日 msot 的情况一致，多个流水线在 23:57 前后集中被取消，判断为平台侧统一的停止/清理动作，不是被测代码或用例缺陷。",
-   "advice": "与 msot 一并核查：确认 api_user_openlibing 账号在夜间批次边界/超时回收时取消流水线是否为预期行为。\n\n验证方式：调整取消策略后重跑，要求 Test_msserviceprofiler_smoke_vllm_A2 任务正常执行并留存完整日志与用例结果。",
-   "cites": [],
-   "source": "agent"}
-]}
+{
+ "items": [
+  {
+   "recordId": "openGauss|autobuild-opengauss-openeuler24.03-arm#760",
+   "keyError": "gzip: stdout: No space left on device",
+   "issueType": "资源不足",
+   "issueDetail": "构建机磁盘写满，产物打包与上传 OBS 失败",
+   "rootCause": "构建机磁盘空间耗尽，产物打包与上传 OBS 全部失败。版本构建任务跑到产物打包环节时节点磁盘写满，gzip 打出的压缩包、二进制清单的 sha256 校验文件都写不进盘，obsutil 连上传断点文件都创建不了，Symbol/Tools/Server 等多个 tar 包上传 OBS 失败，脚本最终在 uplod_package 环节报错退出——问题在构建节点的磁盘资源，与被测代码无关。",
+   "advice": "清理并扩容该构建节点的磁盘：先清掉节点上历史构建残留的工作区与产物目录下的旧包，再确认挂载盘剩余空间能覆盖本次 openGauss 全量包（Server/Lite/Symbol/Tools 等）落盘与上传临时文件所需；若节点盘本身偏小，把工作区与产物目录迁到容量更大的数据盘。同流水线 #761 与本次为同一节点磁盘写满，一并清理后重跑即可。\n\n验证方式：重跑该流水线，要求版本构建任务退出码为 0、日志中不再出现磁盘写满相关报错，各产物 sha256 校验文件正常生成且成功上传 OBS。",
+   "cites": [
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L39216",
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L40324",
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_760.log:L40489"
+   ]
+  },
+  {
+   "recordId": "openGauss|autobuild-opengauss-openeuler24.03-arm#761",
+   "keyError": "mkdir: cannot create directory 'temp': No space left on device",
+   "issueType": "资源不足",
+   "issueDetail": "构建机磁盘写满，产物打包与上传 OBS 失败",
+   "rootCause": "构建机磁盘空间耗尽，产物打包与上传 OBS 全部失败。版本构建任务在打包阶段节点磁盘写满，objcopy 处理动态库时无法创建临时文件、mkdir 建目录与 upgrade_sql 的 cp 拷贝都因空间不足失败，sha256 校验文件与 obsutil 上传断点文件同样写不进盘，最终 uplod_package 环节报错退出——问题在构建节点的磁盘资源，与被测代码无关。",
+   "advice": "清理并扩容该构建节点的磁盘：先清掉节点上历史构建残留的工作区与产物目录下的旧包，再确认挂载盘剩余空间能覆盖本次 openGauss 全量包（Server/Lite/Symbol/Tools 等）落盘与上传临时文件所需；若节点盘本身偏小，把工作区与产物目录迁到容量更大的数据盘。同流水线 #760 与本次为同一节点磁盘写满，一并清理后重跑即可。\n\n验证方式：重跑该流水线，要求版本构建任务退出码为 0、日志中不再出现磁盘写满相关报错，各产物 sha256 校验文件正常生成且成功上传 OBS。",
+   "cites": [
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L39524",
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L40693",
+    "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_761.log:L41143"
+   ]
+  }
+ ]
+}

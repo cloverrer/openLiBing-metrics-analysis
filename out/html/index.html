@@ -252,7 +252,7 @@ footer#foot{flex:0 0 auto;font-size:11.5px;color:#9aa3af;line-height:1.7;margin-
   </div>
 </div>
 <script>
-const WD_CAL = ["2026-11-10", "2026-11-11", "2026-11-12", "2026-11-13", "2026-11-16"];
+const WD_CAL = ["2026-11-10", "2026-11-11", "2026-11-12", "2026-11-13", "2026-11-16", "2026-11-17"];
 
 /* ==== 公共日期筛选组件（唯一来源 lib/ui.py，口径 = 执行结束时间）==== */
 const RF_FIELD = "pipelineRunEndtime";
@@ -295,6 +295,49 @@ function ranInPeriod(pl){
   const v = pl ? pl.runsInPeriod : null;
   if (v === null || v === undefined || v === '') return true;
   return Number(v) > 0;
+}
+/* 版本可用度的**分母**有两套口径，必须在这一处判，否则社区组件会被算错：
+   openlibing 侧（rateRule='runs'，老归档缺字段也按此）：分母 = 区间法定工作日数 wdN；
+   社区侧（rateRule='days'，口径对齐 pr-ci-board）：分母 = 该流水线**有执行记录的天数**
+   （逐日归档 vaDetail.daysInPeriod 累加：aborted 构建当天不进分母，没执行的日子也不进）。
+   daysN 是社区口径的逐日累加值，wdN 是区间法定工作日数。 */
+function vaDenOf(rateRule, daysN, wdN){
+  return (rateRule === 'days') ? (Number(daysN) || 0) : wdN;
+}
+/* 流水线身份键：**不能只用流水线名**。同一个组件下可能有两平台完全重名的流水线
+   （openUBMC 的 Nightly-CI-Version-pipeline_openUBMC 同时存在于 codearts 与 gitcode），
+   只按名字聚合会把两条并成一条：组件级比率变成其中一条的值、执行记录被并组、
+   某条的数据看起来「并到另一条名下」。一律按「组件|pipelineId」认身份，
+   老归档没有 pipelineId 才退回短名（= 归档目录名）。 */
+function plKeyOf(pl){
+  pl = pl || {};
+  return String(pl.component || '') + '|' + String(pl.pipelineId || pl.pipeline || '');
+}
+/* 撞名兜底短名的展示：同组件下重名时兜底短名带「~6 位哈希」（openUBMC~c43117），
+   哈希对用户没有意义 —— 展示时把后缀换成平台名（openUBMC~c43117 → openUBMC-gitcode），
+   两条同名流水线一眼能区分。只改展示，短名本身（归档目录名 / key / recordId）一律不动。 */
+function plDisp(p){
+  const s = String((p || {}).pipeline || '');
+  const plat = String((p || {}).platform || '');
+  return (plat && /~[0-9a-f]{6}$/i.test(s)) ? (s.replace(/~[0-9a-f]{6}$/i, '') + '-' + plat) : s;
+}
+/* 二级页/弹窗手里只有逐日归档条目（ctx.dirs，每条带 pl.rateRule 与 pl.vaDetail）：
+   按**流水线身份**把「有执行记录的天数」加出来，作为版本可用度的分母。
+   键必须和调用方的身份键（plKeyOf）完全一致，否则同名流水线会互相覆盖累计值。 */
+function vaDaysDenByPipe(ctx){
+  const m = {};
+  ((ctx || {}).dirs || []).forEach(function(d){
+    const pl = (d || {}).pl || {};
+    if (pl.rateRule !== 'days') return;
+    const k = plKeyOf(pl);
+    if (!k || k === '|') return;
+    m[k] = (m[k] || 0) + (Number(((pl.vaDetail || {}).daysInPeriod)) || 0);
+  });
+  return m;
+}
+/* 这组流水线是否走社区「有执行天数」口径（同一组件的流水线口径一致，只用于区块头/提示文案） */
+function isDaysRule(list){
+  return !!(list && list.length) && list.every(function(p){ return (p.rateRule || 'runs') === 'days'; });
 }
 function rfClamp(v){return (v && rfState.min && v<rfState.min) ? rfState.min : ((v && rfState.max && v>rfState.max) ? rfState.max : v);}
 
@@ -542,8 +585,13 @@ function dotOf(l){ const m = {'绿': 'green', '黄': 'yellow', '红': 'red'}; re
 /* 组件级版本可用度的 title：把「哪几条流水线、各是多少、加起来除以几条」摊开写，
    口径变了要能一眼核对 —— 组件级 = Σ各流水线版本可用度 ÷ 流水线条数。 */
 function vaTitleOf(mineVA, vals, rate, wdN, from, to){
+  /* 社区组件（rateRule='days'，口径对齐 pr-ci-board）：分母是各流水线**有执行记录的天数**，
+     未执行的日子不进分母；openlibing 组件仍以区间法定工作日数为分母。 */
+  const isDays = isDaysRule(mineVA);
   const lines = ['版本可用度（组件级 = 各流水线版本可用度之和 ÷ 流水线条数）',
-                 '统计区间 ' + from + ' ~ ' + to + ' ｜ 法定工作日 ' + wdN + ' 天'];
+                 '统计区间 ' + from + ' ~ ' + to + (isDays
+                   ? ' ｜ 口径：成功天数 ÷ 有执行记录的天数'
+                   : ' ｜ 法定工作日 ' + wdN + ' 天')];
   if (!vals.length){
     lines.push(mineVA.length
       ? '该组件的流水线在本区间内都没有执行记录，可用度显示 --（不纳入统计）'
@@ -554,15 +602,19 @@ function vaTitleOf(mineVA, vals, rate, wdN, from, to){
   vals.forEach(function(v){ sum += Number(v); });
   mineVA.forEach(function(p){
     const skipped = (p.vaRate === null || p.vaRate === undefined || isNaN(p.vaRate));
-    lines.push('  ' + p.pipeline + (skipped
+    const den = (p.rateRule === 'days') ? (Number(p.vaN) || 0) : wdN;
+    lines.push('  ' + plDisp(p) + (skipped
       ? '  区间内无执行记录 → --（不纳入统计）'
-      : '  可用日 ' + p.vaA + ' / ' + wdN + ' → ' + fmtPct(p.vaRate)));
+      : '  可用日 ' + p.vaA + ' / ' + den + ((p.rateRule === 'days') ? ' 个执行日' : '')
+        + ' → ' + fmtPct(p.vaRate)));
   });
   lines.push('合计 ' + fmtPct(sum) + ' ÷ ' + vals.length + ' 条流水线 = ' + fmtPct(rate)
     + (mineVA.length > vals.length
       ? '（另有 ' + (mineVA.length - vals.length) + ' 条区间内无执行记录，已排除）' : ''));
   lines.push('流水线级口径：当日存在任一条成功运行即算「当天有可用版本」，'
-             + '分母是区间法定工作日数（不是有运行的天数）');
+             + (isDays
+                ? '分母是该流水线有执行记录的天数（社区口径：aborted 与未执行的日子都不计入）'
+                : '分母是区间法定工作日数（不是有运行的天数）'));
   return lines.join('\n');
 }
 
@@ -578,7 +630,7 @@ function bsTitleOf(mineBS, bsP, bsC, bsRate, from, to){
   }
   mineBS.forEach(function(p){
     const v = p.bsC > 0 ? p.bsP / p.bsC : null;
-    lines.push('  ' + p.pipeline + '  编译通过 ' + p.bsP + ' / ' + p.bsC
+    lines.push('  ' + plDisp(p) + '  编译通过 ' + p.bsP + ' / ' + p.bsC
       + ' = ' + (v === null ? '--' : fmtPct(v)));
   });
   lines.push('合计 ' + bsP + ' ÷ ' + bsC + ' = ' + fmtPct(bsRate));
@@ -719,9 +771,10 @@ function render(docs, from, to){
         r = {key: mk, component: pl.component, pipeline: pl.pipeline, name: pl.pipelineName || pl.pipeline,
              platform: pl.platform || '', dims: {}, dates: [], path: pl.path,
              vaA: 0, vaN: 0, bsP: 0, bsC: 0, vaVals: [], bsVals: [],
-             vaLightOld: null, bsLightOld: null};
+             vaLightOld: null, bsLightOld: null, rateRule: ''};
         pipes.set(mk, r);
       }
+      if (pl.rateRule) r.rateRule = pl.rateRule;
       (pl.dims || []).forEach(function(d){ r.dims[d] = 1; });
       /* 区间重算：逐日累加分子/分母，区间一变就按新的 Σ分子/Σ分母 重算，
          不是把逐日比率做算术平均。老归档无 vaDetail/bsDetail 才退回逐日比率平均。 */
@@ -761,7 +814,11 @@ function render(docs, from, to){
     const noVA = !(p.vaN > 0 || p.vaVals.length);
     const noBS = !(p.bsC > 0 || p.bsVals.length);
     p.noRun = noVA && noBS;                 /* 两个维度都没有任何运行 = 该流水线无执行记录 */
-    p.vaRate = noVA ? null : (wdN > 0 ? Math.min(1, p.vaA / wdN) : avgOf(p.vaVals));
+    /* 分母按口径分两套（见 lib/ui.py 的 vaDenOf）：社区组件走「有执行记录的天数」，
+       openlibing 走「区间法定工作日数」。社区口径下 wdN 会算错 —— 一条只在 2 天出过
+       构建的流水线不该拿 4 天当分母。 */
+    p.vaDen = vaDenOf(p.rateRule, p.vaN, wdN);
+    p.vaRate = noVA ? null : (p.vaDen > 0 ? Math.min(1, p.vaA / p.vaDen) : avgOf(p.vaVals));
     p.bsRate = noBS ? null : (p.bsC > 0 ? p.bsP / p.bsC : avgOf(p.bsVals));
     p.vaLight = lightByRate(p.vaRate, 'va') || (noVA ? null : p.vaLightOld);
     p.bsLight = lightByRate(p.bsRate, 'bs') || (noBS ? null : p.bsLightOld);
@@ -803,7 +860,7 @@ function render(docs, from, to){
       pipes: mine,
       pipeCount: mine.length,
       pipeNoRun: noRun.length,
-      noRunNames: noRun.map(function(p){ return p.pipeline; }),
+      noRunNames: noRun.map(function(p){ return plDisp(p); }),
       badVA: mine.filter(function(p){ return p.dims.va && p.vaLight && p.vaLight !== '绿'; }).length,
       badBS: mine.filter(function(p){ return p.dims.bs && p.bsLight && p.bsLight !== '绿'; }).length
     };
@@ -971,6 +1028,7 @@ function ctrRate(rate, light, title){
   return '<span class="rate-line"' + t + '><span class="pct">'
     + fmtPct(rate) + '</span>' + dotOf(l) + '</span>';
 }
+/* 撞名兜底短名的展示统一走 lib/ui.py 的 plDisp（首页与二级页同一份规则，见 plKeyOf/plDisp） */
 /* 一行 = 一条流水线：版本可用度（可用日/区间工作日）与构建成功率（编译通过/编译次数）。
    没有该维度（dims 里没有 va / bs）的显示 --：它们不参与该维度的比较，也不该被当成 0%。
    最后一列「执行记录」是入口：点「查看」在弹窗里再开一层，看这条流水线区间内的全部运行。 */
@@ -994,7 +1052,8 @@ function pipesModal(i){
     const vaT = !hasVA ? '该流水线在区间内没有版本可用度维度'
       : (p.noRun || p.vaRate === null || p.vaRate === undefined)
         ? '该流水线在区间内没有执行记录 → 显示 --，不纳入统计'
-        : ('可用日 ' + p.vaA + ' / 区间工作日 ' + wdN + ' = ' + va);
+        : ('可用日 ' + p.vaA + ' / ' + (p.rateRule === 'days' ? '执行日 ' : '区间工作日 ')
+           + ((p.vaDen === undefined || p.vaDen === null) ? wdN : p.vaDen) + ' = ' + va);
     const bsT = hasBS
       ? ('编译通过 ' + p.bsP + ' / 编译次数 ' + p.bsC + ' = ' + bs)
       : '该流水线在区间内没有构建成功率维度';
@@ -1002,7 +1061,7 @@ function pipesModal(i){
       ? '该流水线在区间内没有执行记录'
       : '查看该流水线在区间 ' + r.from + ' ~ ' + r.to + ' 内的全部执行记录';
     return '<tr>'
-      + '<td class="cw">' + rfEsc(p.pipeline)
+      + '<td class="cw">' + rfEsc(plDisp(p))
         + ((p.name && p.name !== p.pipeline)
             ? '<div class="dim" style="font-size:11px">' + rfEsc(p.name) + '</div>' : '')
         + (p.noRun ? '<div class="dim" style="font-size:11px">区间内无执行记录 · 不纳入统计</div>' : '')
@@ -1028,7 +1087,9 @@ function pipesModal(i){
     + '<th>执行记录</th></tr></thead>'
     + '<tbody>' + trs + '</tbody></table></div>'
     + '<div class="mrec-note">区间 ' + rfEsc(r.from) + ' ~ ' + rfEsc(r.to)
-    + ' · 法定工作日 ' + wdN + ' 天 ｜ 版本可用度 = 可用日 ÷ 区间工作日数'
+    + (isDaysRule(list)
+        ? ' · 版本可用度 = 可用日 ÷ 该流水线有执行记录的天数（社区口径，未执行的日子不计入）'
+        : ' · 法定工作日 ' + wdN + ' 天 ｜ 版本可用度 = 可用日 ÷ 区间工作日数')
     + '（本组件 ' + fmtPct(r.vaRate) + ' = 各流水线之和 ÷ ' + vaList.length + ' 条可统计流水线'
     + (list.length > vaList.length ? '，另有 ' + (list.length - vaList.length) + ' 条无执行记录已排除' : '')
     + '）'
@@ -1046,8 +1107,15 @@ function statusTag(s){
   if (v === 'SUCCESS' || v === 'SUCCEEDED' || v === 'COMPLETED') return '<span class="tag green">' + rfEsc(s) + '</span>';
   return '<span class="tag">' + rfEsc(s || '--') + '</span>';
 }
+/* 起止时间统一成 yyyy-MM-dd hh:mm:ss：openLiBing 归档本就是这个格式，
+   社区（openGauss / openEuler）的 Jenkins 归档给的是 ISO 8601（2026-11-13T03:05:02），
+   中间那个 T 只是「日期」与「时间」的分隔符、没有业务含义，展示时换成空格，与其它流水线对齐。 */
+function tm(s){
+  const v = String(s == null ? '' : s).replace('T', ' ');
+  return v ? v.slice(0, 19) : '--';
+}
 /* 执行记录表：8 列（编号/状态/失败类型/版本可用/编译/用例/起止时间），构建号可直接跳 openLiBing */
-function execTable(runs, r){
+function execTable(runs, r, p){
   const from = r.from, to = r.to;
   if (!runs.length){
     return '<div class="dim">该流水线在区间 ' + rfEsc(from) + ' ~ ' + rfEsc(to)
@@ -1082,11 +1150,13 @@ function execTable(runs, r){
       + '<td class="nowrap">' + va + '</td>'
       + '<td class="nowrap">' + bs + '</td>'
       + '<td class="nowrap dim">' + cpr + '</td>'
-      + '<td class="nowrap dim">' + rfEsc(String(x.start || '') || '--') + '</td>'
-      + '<td class="nowrap dim">' + rfEsc(String(x.end || '') || '--') + '</td>'
+      + '<td class="nowrap dim">' + rfEsc(tm(x.start)) + '</td>'
+      + '<td class="nowrap dim">' + rfEsc(tm(x.end)) + '</td>'
       + '</tr>';
   }).join('');
   const wdN = r.wdN || 0;
+  const isDays = !!(p && p.rateRule === 'days');
+  const vaDen = isDays ? (Number(p.vaDen) || 0) : wdN;
   return '<div class="mtbl"><table class="rca"><colgroup><col style="width:8%"><col style="width:9%">'
     + '<col style="width:12%"><col style="width:8%"><col style="width:11%">'
     + '<col style="width:9%"><col style="width:21.5%"><col style="width:21.5%"></colgroup>'
@@ -1095,7 +1165,7 @@ function execTable(runs, r){
     + '<tbody>' + rows + '</tbody></table></div>'
     + '<div class="mrec-note">区间 ' + rfEsc(from) + ' ~ ' + rfEsc(to)
     + ' · 区间内每一次运行逐条平铺（不按天汇总），按结束时间倒序 · 可用日 '
-    + Object.keys(okDay).length + '/' + wdN + ' 个工作日 · 编译全通过 '
+    + Object.keys(okDay).length + '/' + vaDen + (isDays ? ' 个执行日' : ' 个工作日') + ' · 编译全通过 '
     + Object.keys(bsDay).length + ' 天 · 运行来自归档 pipeline.json 的 runHistory'
     + '（按执行结束时间归属日期）· 执行成功也逐条列出 · 点构建号直接在 openLiBing 打开该次执行。</div>';
 }
@@ -1105,7 +1175,7 @@ function openExecOf(i, k){
   const r = ROWS[i];
   const p = (r && r.pipes) ? r.pipes[k] : null;
   if (!r || !p) return;
-  const label = p.pipeline || p.key || '流水线';
+  const label = plDisp(p) || p.key || '流水线';
   const from = r.from, to = r.to;
   const days = ((IDX && IDX.days) || []).filter(function(d){ return d.date >= from && d.date <= to; });
   if (!days.length){
@@ -1144,7 +1214,7 @@ function openExecOf(i, k){
   });
   chain.then(function(){
     if (seq !== MODAL_SEQ) return;   /* 已经返回上一级或关掉弹窗：丢弃过期结果 */
-    paintModal('执行记录（' + runs.length + ' 次运行）｜' + rfEsc(label), execTable(runs, r));
+    paintModal('执行记录（' + runs.length + ' 次运行）｜' + rfEsc(label), execTable(runs, r, p));
   });
 }
 

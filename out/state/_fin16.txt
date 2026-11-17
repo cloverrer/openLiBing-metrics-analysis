@@ -1,0 +1,43 @@
+### Ascend-CANN/os :: job_logs/41_os_153_Build_A3_image.log
+   L97: [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transferring dockerfile: 1.34kB done#1 DONE 0.0s#2 [internal] load metadata for swr.cn-southwest-2.myhuaweicloud.com/atlas-ci/duo_os:latest#2 sha256:b51a412ab47bc721df
+   (命中 1 行，总 101 行)
+### SgLang/nightly-test-npu.yml :: github_logs/gh_43733552254/12_nightly-4-npu-a3 _ run (0).txt
+   L235: core.setFailed('Fast-fail: lint check failed');
+   L239: // Skip the jobs-failed check when the PR carries the bypass-fastfail label.
+   L256: core.notice('[health-check] SKIP jobs-failed check: bypass-fastfail label present');
+   L267: const failedJobs = jobs.filter(j => j.status === 'completed' && j.conclusion === 'failure');
+   L268: core.info(`[health-check] Failed jobs (before filtering): ${failedJobs.map(j => `${j.name}(${j.conclusion})`).join(', ') || 'none'}`);
+   L270: // Find jobs that failed from a real error, not from fast-fail cascade
+   (命中 17 行，总 496 行)
+### SgLang/nightly-test-npu.yml :: sh_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt
+   L311: 2026-11-16T12:40:02.4368685Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+   L340: 2026-11-16T12:40:03.4981957Z ##[error]Error: failed to run script step:
+   L343: 2026-11-16T12:40:03.5022066Z ##[error]Process completed with exit code 1.
+   L344: 2026-11-16T12:40:03.5131438Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+   (命中 4 行，总 374 行)
+### SgLang/nightly-test-npu.yml :: sh_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt
+   L336: 2026-11-16T15:08:52.8103010Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+   L638: 2026-11-16T15:46:39.4359793Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+   L674: 2026-11-16T15:47:11.3834571Z error: resource(s) were provided, but no name was specified
+   L676: 2026-11-16T15:47:41.8758699Z error: resource(s) were provided, but no name was specified
+   (命中 4 行，总 707 行)
+### vllm-ascend/a3.yaml :: a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yam~0635a2.txt
+   L2311: 2026-11-15T15:47:51.6649049Z [2026-11-15 15:47:51] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix99_in131072_bs500_MiniMax_w8a8_0626', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 1096.57448, 
+   L2371: 2026-11-15T15:47:58.5059272Z             error_msg = f"The following aisbench case failed: {failed_case}, reason is {error_info}"
+   (命中 2 行，总 3416 行)
+### vllm-ascend/a3.yaml :: A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt
+   L291: 2026-11-15T14:37:48.7311588Z [36;1mfail_tag="FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml"[0m
+   L299: 2026-11-15T14:37:48.7315039Z [36;1mecho "FAIL_TAG=${fail_tag}" >> $GITHUB_ENV[0m
+   L430: 2026-11-15T14:37:51.1527991Z   FAIL_TAG: FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml
+   L1087: 2026-11-15T15:49:57.3953112Z [36;1m      if [[ "$line" == *"$FAIL_TAG"* ]]; then[0m
+   L1180: 2026-11-15T15:49:57.4020438Z [36;1m    if echo "$line" | grep -q "$FAIL_TAG"; then[0m
+   L1208: 2026-11-15T15:49:57.4047065Z   FAIL_TAG: FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml
+   (命中 25 行，总 3526 行)
+### vllm-ascend/a3.yaml :: GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-13~da5de9.txt
+   L275: 2026-11-15T22:03:29.0657340Z [36;1mfail_tag="FAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml"[0m
+   L280: 2026-11-15T22:03:29.0659790Z [36;1mecho "FAIL_TAG=${fail_tag}" >> $GITHUB_ENV[0m
+   L404: 2026-11-15T22:03:31.7160886Z   FAIL_TAG: FAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml
+   L499: 2026-11-15T22:03:45.2849827Z [36;1m      if [[ "$line" == *"$FAIL_TAG"* ]]; then[0m
+   L592: 2026-11-15T22:03:45.2880942Z [36;1m    if echo "$line" | grep -q "$FAIL_TAG"; then[0m
+   L614: 2026-11-15T22:03:45.2889013Z   FAIL_TAG: FAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml
+   (命中 29 行，总 3760 行)

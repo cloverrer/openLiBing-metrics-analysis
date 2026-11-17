@@ -1,0 +1,132 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2211,
+ "rid": "43731798211",
+ "st": "11-15 23:47",
+ "runId": 43731798211,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "Pr yzy 11 12 test hicache",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 26.63,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "cancelled",
+  "updatedAt": "2026-11-15T16:13:44Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 18,
+ "failedJobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+   "id": 132866286657,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa",
+   "id": 132867879797,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [
+  {
+   "name": "multi-node-mix-poc (deepseek_v4_flash_0731_w8a8_16p_gpqa, 2, test/registered/npu/accuracy/deepsee... / deepseek_v4_flash_0731_w8a8_16p_gpqa",
+   "id": 132869560694
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 132873330204
+  }
+ ],
+ "jobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+   "id": 132866286657,
+   "conclusion": "failure",
+   "startedAt": "2026-11-15T15:49:40Z",
+   "completedAt": "2026-11-15T15:54:58Z",
+   "logFile": "github_logs/gh_43731798211/132866286657_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt",
+   "logBytes": 194238,
+   "logLines": 1617,
+   "errorLines": [
+    "L566: Traceback (most recent call last):",
+    "L774: Traceback (most recent call last):",
+    "L785: Traceback (most recent call last):",
+    "L811: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'",
+    "L818: Traceback (most recent call last):",
+    "L828: Traceback (most recent call last):",
+    "L1087: Traceback (most recent call last):",
+    "L1098: Traceback (most recent call last):",
+    "L1124: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'",
+    "L1355: Traceback (most recent call last):",
+    "L1366: Traceback (most recent call last):",
+    "L1392: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'",
+    "L1399: Traceback (most recent call last):",
+    "L1409: Traceback (most recent call last):",
+    "L1517: Traceback (most recent call last):",
+    "L1525: ##[error]Error: failed to run script step:",
+    "L1526: ✗ exit code: 1",
+    "L1542: Traceback (most recent call last):",
+    "L1550: ##[error]Process completed with exit code 1.",
+    "L1551: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa",
+   "id": 132867879797,
+   "conclusion": "failure",
+   "startedAt": "2026-11-15T15:55:25Z",
+   "completedAt": "2026-11-15T16:00:58Z",
+   "logFile": "github_logs/gh_43731798211/132867879797_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt",
+   "logBytes": 178469,
+   "logLines": 1463,
+   "errorLines": [
+    "L566: Traceback (most recent call last):",
+    "L774: Traceback (most recent call last):",
+    "L785: Traceback (most recent call last):",
+    "L811: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'",
+    "L818: Traceback (most recent call last):",
+    "L828: Traceback (most recent call last):",
+    "L1363: Traceback (most recent call last):",
+    "L1371: ##[error]Error: failed to run script step:",
+    "L1372: ✗ exit code: 1",
+    "L1388: Traceback (most recent call last):",
+    "L1396: ##[error]Process completed with exit code 1.",
+    "L1397: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

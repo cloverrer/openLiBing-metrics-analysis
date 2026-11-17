@@ -1,0 +1,209 @@
+{
+ "route": "github",
+ "key": "vllm-ascend|a3.yaml",
+ "rn": 16563,
+ "rid": "43724674356",
+ "st": "11-15 22:30",
+ "runId": 43724674356,
+ "repo": "vllm-project/vllm-ascend",
+ "displayTitle": "Nightly-A3 (scheduled)",
+ "event": "workflow_dispatch",
+ "status": "FAILED",
+ "duration": 344.35,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-15T20:14:24Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 25,
+ "failedJobs": [
+  {
+   "name": "multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yaml, tests/SIT/case... / MiniMax-M3-w8a8-PP-prefix-PD.yaml",
+   "id": 132845808301,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 132845808398,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yaml, tests/SIT/case... / MiniMax-M3-w8a8-PP-prefix-PD.yaml",
+   "id": 132845808301,
+   "conclusion": "failure",
+   "startedAt": "2026-11-15T14:37:13Z",
+   "completedAt": "2026-11-15T15:50:42Z",
+   "logFile": "github_logs/gh_43724674356/132845808301_multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yam~0635a2.txt",
+   "logBytes": 354657,
+   "logLines": 3416,
+   "errorLines": [
+    "L2311: [2026-11-15 15:47:51] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix99_in131072_bs500_MiniMax_w8a8_0626', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 1096.57448, 'threshold': 0.97, 'tpot_thre",
+    "L2371: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L2404: \u001b[0;31mFAIL_TAG_MiniMax-M3-w8a8-PP-prefix-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2406: ##[error]Error: failed to run script step:",
+    "L2407: ✗ exit code: 1",
+    "L2429: \u001b[0;31mFAIL_TAG_MiniMax-M3-w8a8-PP-prefix-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2431: ##[error]Process completed with exit code 1.",
+    "L2432: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L2932: ##[error]Upload failed. See log:",
+    "L2950: ##[error]Error: failed to run script step:",
+    "L2951: ✗ exit code: 1",
+    "L2968: ##[error]Process completed with exit code 1.",
+    "L2969: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 2311,
+      "case": "{'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix99_in131072_bs500_MiniMax_w8a8_0626', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 1096.57",
+      "reason": "Performance verification failed. The current Output Token Throughput is 1041.954  token/s, which is not greater than or equal to 0.97 * baseline 1096.57448."
+     },
+     {
+      "line": 2371,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 2310,
+      "name": "pure_decode_99",
+      "reason": "Performance verification failed. The current Output Token Throughput is 1041.954  token/s, which is not greater than or equal to 0.97 * baseline 1096.57448."
+     },
+     {
+      "line": 2368,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 2404,
+      "tag": "FAIL_TAG_MiniMax-M3-w8a8-PP-prefix-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 2399,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 2400,
+      "summary": "1 failed, 17 warnings in 1647.48s (0:27:27)"
+     }
+    ]
+   }
+  },
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 132845808398,
+   "conclusion": "failure",
+   "startedAt": "2026-11-15T14:37:14Z",
+   "completedAt": "2026-11-15T17:32:59Z",
+   "logFile": "github_logs/gh_43724674356/132845808398_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt",
+   "logBytes": 362810,
+   "logLines": 3526,
+   "errorLines": [
+    "L2344: [2026-11-15 17:29:03] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 608.891, 'threshold': 0.95, 'benchmark_name': 'perf_1",
+    "L2404: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L2437: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2439: ##[error]Error: failed to run script step:",
+    "L2440: ✗ exit code: 1",
+    "L2462: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2464: ##[error]Process completed with exit code 1.",
+    "L2465: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3027: ##[error]Upload failed. See log:",
+    "L3054: ##[error]Error: failed to run script step:",
+    "L3055: ✗ exit code: 1",
+    "L3072: ##[error]Process completed with exit code 1.",
+    "L3073: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 2344,
+      "case": "{'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 608.891, 'threshold",
+      "reason": "Performance verification failed. The current Output Token Throughput is 559.9923  token/s, which is not greater than or equal to 0.95 * baseline 608.891."
+     },
+     {
+      "line": 2404,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 2343,
+      "name": "perf_128k_prefix90",
+      "reason": "Performance verification failed. The current Output Token Throughput is 559.9923  token/s, which is not greater than or equal to 0.95 * baseline 608.891."
+     },
+     {
+      "line": 2401,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 2437,
+      "tag": "FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 2432,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 2433,
+      "summary": "1 failed, 17 warnings in 5928.92s (1:38:48)"
+     }
+    ]
+   }
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

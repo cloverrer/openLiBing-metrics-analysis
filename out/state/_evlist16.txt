@@ -1,0 +1,332 @@
+### Ascend-CANN|os#153  ftt=构建任务 status=FAILED runs=9320d843b2274cb1939144522820e156
+  [log] job=Build_A3_image file=job_logs/41_os_153_Build_A3_image.log lines=101 dl=export trunc=False
+    E L97: [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transferring dockerfile: 1.34kB done#1 DONE 0.0s#2 [internal] load metadata for swr.cn-southwest-2.myhuaweicloud.com/atlas-ci/duo_os:latest#2 sha256:b51a412ab47bc
+    E L98: [2026/11/16 15:11:11.577 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败
+    E L99: [2026/11/16 15:11:11.654 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败
+    E L100: [2026/11/16 15:11:11.656 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败
+    S {"errorMessage":" 构建任务执行失败!","errorCode":"DEV-CODECI-35002"}
+
+### MindCluster|Agentsdk~5992cb#2  ftt=其他任务 status=FAILED runs=b36202c9af5a46a59090ec03c23e2a2c
+
+### SgLang|nightly-test-npu.yml#2211  ftt=None status=FAILED runs=43731798211
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43731798211/132866286657_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt lines=1617 dl=github-perjob trunc=False
+    E L566: Traceback (most recent call last):
+    E L811: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'
+    E L1525: ##[error]Error: failed to run script step:
+    E L1526: ✗ exit code: 1
+    E L1550: ##[error]Process completed with exit code 1.
+    E L1551: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa file=github_logs/gh_43731798211/132867879797_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt lines=1463 dl=github-perjob trunc=False
+    E L566: Traceback (most recent call last):
+    E L811: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'
+    E L1371: ##[error]Error: failed to run script step:
+    E L1372: ✗ exit code: 1
+    E L1396: ##[error]Process completed with exit code 1.
+    E L1397: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2212  ftt=None status=FAILED runs=43733552254
+  [log] job=nightly-4-npu-a3 / run (0) file=github_logs/gh_43733552254/12_nightly-4-npu-a3 _ run (0).txt lines=496 dl=github-zip trunc=False
+    E L441: ##[error]Error: failed to run script step:
+    E L442: ✗ exit code: 1
+    E L465: ##[error]Process completed with exit code 1.
+    E L466: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms file=github_logs/gh_43733552254/10_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt lines=1382 dl=github-zip trunc=False
+    E L510: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L511: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L597: │ exit code: 1
+    E L1235: Traceback (most recent call last):
+    E L1283: ##[error]Error: failed to run script step:
+    E L1284: ✗ exit code: 1
+    E L1308: ##[error]Process completed with exit code 1.
+    E L1309: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43733552254/9_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt lines=2341 dl=github-zip trunc=False
+    E L510: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L511: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L636: output.error='Traceback (most recent call last):\n  File "/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py", line 145, in connection_lost\n    uncompleted = self._parser.feed_eof()\n                  ^^^^^^^^^^^^^^^^^^^^^^^\n  File "aiohttp/_http_parser.pyx", line 620, in aiohttp._http_parser.HttpParser.feed_eof\naiohttp.http_exceptions.TransferEncodingError: 400
+    E L659: ValueError: Warmup failed - Please make sure benchmark arguments are correctly specified. Error: Traceback (most recent call last):
+    E L667: Traceback (most recent call last):
+    E L2242: ##[error]Error: failed to run script step:
+    E L2243: ✗ exit code: 1
+    E L2267: ##[error]Process completed with exit code 1.
+  [log] job=multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa file=github_logs/gh_43733552254/8_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt lines=713 dl=github-zip trunc=False
+    E L513: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L514: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L594: Traceback (most recent call last):
+    E L612: ##[error]Error: failed to run script step:
+    E L613: ✗ exit code: 1
+    E L637: ##[error]Process completed with exit code 1.
+    E L638: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (glm_5_3_w8a8_1p1d_32p_pcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_3/test... / glm_5_3_w8a8_1p1d_32p_pcp_gpqa file=github_logs/gh_43733552254/7_multi-node-poc (glm_5_3_w8a8_1p1d_32p_pcp_gpqa, 2, 2, 1, test_registered_npu_acc~c2648d.txt lines=653 dl=github-zip trunc=False
+    E L505: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L506: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L540: Traceback (most recent call last):
+    E L558: ##[error]Error: failed to run script step:
+    E L559: ✗ exit code: 1
+    E L583: ##[error]Process completed with exit code 1.
+    E L584: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (glm_5_3_w8a8_1p1d_32p_dcp_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5_3/test... / glm_5_3_w8a8_1p1d_32p_dcp_gpqa file=github_logs/gh_43733552254/6_multi-node-poc (glm_5_3_w8a8_1p1d_32p_dcp_gpqa, 2, 2, 1, test_registered_npu_acc~1b1178.txt lines=652 dl=github-zip trunc=False
+    E L505: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L506: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L540: Traceback (most recent call last):
+    E L558: ##[error]Error: failed to run script step:
+    E L559: ✗ exit code: 1
+    E L583: ##[error]Process completed with exit code 1.
+    E L584: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test/registered/npu/pe... / glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms file=github_logs/gh_43733552254/5_multi-node-poc (glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~cae9bb.txt lines=655 dl=github-zip trunc=False
+    E L505: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L506: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L541: Traceback (most recent call last):
+    E L559: ##[error]Error: failed to run script step:
+    E L560: ✗ exit code: 1
+    E L584: ##[error]Process completed with exit code 1.
+    E L585: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa file=github_logs/gh_43733552254/4_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt lines=15959 dl=github-zip trunc=False
+    E L549: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L550: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L14827: [2026-11-16 03:08:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+    E L14836: [2026-11-16 03:08:56 DP0 TP4 EP4 PID580] Scheduler hit an exception: Traceback (most recent call last):
+    E L14889: [2026-11-16 03:08:56 DP0 TP1 EP1 PID577] Scheduler hit an exception: Traceback (most recent call last):
+    E L14940: [2026-11-16 03:08:56 DP0 TP13 EP13 PID589] Scheduler hit an exception: Traceback (most recent call last):
+    E L14991: [2026-11-16 03:08:56 DP0 TP12 EP12 PID588] Scheduler hit an exception: Traceback (most recent call last):
+    E L15042: [2026-11-16 03:08:56 DP0 TP0 EP0 PID576] Scheduler hit an exception: Traceback (most recent call last):
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill file=github_logs/gh_43733552254/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt lines=7550 dl=github-zip trunc=False
+    E L549: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L550: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L5339: [2026-11-16 04:35:37] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))
+    E L5348: [2026-11-16 04:35:49 DP0 PP0 TP7 EP7 PID582] Scheduler hit an exception: Traceback (most recent call last):
+    E L5396: [2026-11-16 04:35:49 DP0 PP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):
+    E L5446: [2026-11-16 04:35:49 DP0 PP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):
+    E L5494: [2026-11-16 04:35:49 DP0 PP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):
+    E L5542: [2026-11-16 04:35:49 DP0 PP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix file=github_logs/gh_43733552254/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt lines=1501 dl=github-zip trunc=False
+    E L549: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L550: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L1307: [2026-11-16 05:33:05 DP0 TP15 EP15 PID588] Scheduler hit an exception: Traceback (most recent call last):
+    E L1347: Traceback (most recent call last):
+    E L1408: ##[error]Error: failed to run script step:
+    E L1409: ✗ exit code: 1
+    E L1433: ##[error]Process completed with exit code 1.
+    E L1434: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=check-all-jobs file=github_logs/gh_43733552254/0_check-all-jobs.txt lines=99 dl=github-zip trunc=False
+    E L98: ##[error]Process completed with exit code 1.
+
+### SgLang|nightly-test-npu.yml#2213  ftt=None status=FAILED runs=43734093288
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43734093288/132873418319_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt lines=1028 dl=github-perjob trunc=False
+    E L524: Traceback (most recent call last):
+    E L531: ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+    E L936: ##[error]Error: failed to run script step:
+    E L937: ✗ exit code: 1
+    E L961: ##[error]Process completed with exit code 1.
+    E L962: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa file=github_logs/gh_43734093288/132874880639_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt lines=1028 dl=github-perjob trunc=False
+    E L524: Traceback (most recent call last):
+    E L531: ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+    E L936: ##[error]Error: failed to run script step:
+    E L937: ✗ exit code: 1
+    E L961: ##[error]Process completed with exit code 1.
+    E L962: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-mix-poc (deepseek_v4_flash_0731_w8a8_16p_gpqa, 2, test/registered/npu/accuracy/deepsee... / deepseek_v4_flash_0731_w8a8_16p_gpqa file=github_logs/gh_43734093288/132876309178_multi-node-mix-poc (deepseek_v4_flash_0731_w8a8_16p_gpqa, 2, test_registered_npu~f54530.txt lines=923 dl=github-perjob trunc=False
+    E L566: Traceback (most recent call last):
+    E L571: ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+    E L834: ##[error]Error: failed to run script step:
+    E L835: ✗ exit code: 1
+    E L859: ##[error]Process completed with exit code 1.
+    E L860: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2214  ftt=None status=FAILED runs=43804251765
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix file=github_logs/gh_43804251765/133091277942_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt lines=874 dl=github-perjob trunc=False
+    E L681: Traceback (most recent call last):
+    E L718: ModuleNotFoundError: No module named 'sgl_kernel_npu.operators.mem_cache'
+    E L781: ##[error]Error: failed to run script step:
+    E L782: ✗ exit code: 1
+    E L806: ##[error]Process completed with exit code 1.
+    E L807: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2215  ftt=None status=FAILED runs=43805718761
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix file=github_logs/gh_43805718761/133095943416_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt lines=1518 dl=github-perjob trunc=False
+    E L566: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L567: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L1326: [2026-11-16 12:47:52 DP0 TP15 EP15 PID587] Scheduler hit an exception: Traceback (most recent call last):
+    E L1366: Traceback (most recent call last):
+    E L1425: ##[error]Error: failed to run script step:
+    E L1426: ✗ exit code: 1
+    E L1450: ##[error]Process completed with exit code 1.
+    E L1451: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2218  ftt=None status=FAILED runs=43867439699
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43867439699/133327323785_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt lines=826 dl=github-perjob trunc=False
+    E L647: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L648: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L709: Traceback (most recent call last):
+    E L727: ##[error]Error: failed to run script step:
+    E L728: ✗ exit code: 1
+    E L752: ##[error]Process completed with exit code 1.
+    E L753: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark, 1, 1, 1, test/registered/npu... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark file=github_logs/gh_43867439699/133340755431_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark, 1, 1, 1, te~b169c2.txt lines=756 dl=github-perjob trunc=False
+    E L560: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L561: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L615: Traceback (most recent call last):
+    E L656: ##[error]Error: failed to run script step:
+    E L657: ✗ exit code: 1
+    E L681: ##[error]Process completed with exit code 1.
+    E L682: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa file=github_logs/gh_43867439699/133381668819_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt lines=745 dl=github-perjob trunc=False
+    E L589: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L590: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L626: Traceback (most recent call last):
+    E L644: ##[error]Error: failed to run script step:
+    E L645: ✗ exit code: 1
+    E L669: ##[error]Process completed with exit code 1.
+    E L670: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_no_dspark, 2, 2, 1, test/registered/npu/a... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_no_dspark file=github_logs/gh_43867439699/133394969649_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_no_dspark, 2, 2, 1, test~d7c755.txt lines=1038 dl=github-perjob trunc=False
+    E L845: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L846: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L896: Traceback (most recent call last):
+    E L936: ##[error]Error: failed to run script step:
+    E L937: ✗ exit code: 1
+    E L961: ##[error]Process completed with exit code 1.
+    E L962: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2220  ftt=None status=FAILED runs=43868335184
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43868335184/133302785092_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt lines=374 dl=github-perjob trunc=False
+    E L311: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    E L340: ##[error]Error: failed to run script step:
+    E L341: ✗ exit code: 1
+    E L343: ##[error]Process completed with exit code 1.
+  [log] job=check-all-jobs file=None lines=None dl=github-404 trunc=False
+    note: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+
+### SgLang|nightly-test-npu.yml#2222  ftt=None status=FAILED runs=43868640459
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap file=github_logs/gh_43868640459/133303671681_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=805 dl=github-perjob trunc=False
+    E L671: Traceback (most recent call last):
+    E L713: ##[error]Error: failed to run script step:
+    E L714: ✗ exit code: 1
+    E L738: ##[error]Process completed with exit code 1.
+    E L739: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=check-all-jobs file=github_logs/gh_43868640459/133312799730_check-all-jobs.txt lines=99 dl=github-perjob trunc=False
+    E L98: ##[error]Process completed with exit code 1.
+
+### SgLang|nightly-test-npu.yml#2223  ftt=None status=FAILED runs=43868646557
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa file=github_logs/gh_43868646557/133303913207_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt lines=4086 dl=github-perjob trunc=False
+    E L679: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L680: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L716: Traceback (most recent call last):
+    E L2444: 2026-11-16 21:02:40.983658 WARN [1112-1112][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2578: 2026-11-16 21:02:41.115969 WARN [1115-1115][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2606: 2026-11-16 21:02:41.139433 WARN [1113-1113][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2745: 2026-11-16 21:02:41.216036 WARN [1121-1121][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2760: 2026-11-16 21:02:41.224287 WARN [1119-1119][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa file=github_logs/gh_43868646557/133347678142_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa, 2, 1, 1, test_registe~4c3763.txt lines=5573 dl=github-perjob trunc=False
+    E L524: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L525: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L562: Traceback (most recent call last):
+    E L2109: 2026-11-16 22:07:48.765844 ERROR [743-743][AccLink acc_tcp_listener.cpp:79 Start] Failed to bind or listen on 172.22.3.79:24666 as errno Cannot assign requested address
+    E L2110: 2026-11-16 22:07:49.766918 ERROR [743-743][AccLink acc_tcp_server_default.cpp:85 Start] Failed to start AccTcpServerDefault listener, result: -1
+    E L2111: 2026-11-16 22:07:49.766946 ERROR [743-743][SMEM smem_tcp_config_store_server.cpp:168 Startup] startup acc tcp server on port: 24666 failed: -1
+    E L2114: 2026-11-16 22:07:49.768339 ERROR [743-743][SMEM smem_tcp_config_store.cpp:291 Startup] Failed to start config store server ret:-1
+    E L2115: 2026-11-16 22:07:49.768346 ERROR [743-743][SMEM smem_store_factory.cpp:248 CreateTcpStore] Startup for store(url=172.22.3.79:24666, model=2, rank=-1) failed:-1
+  [log] job=multi-node-mix-poc (deepseek_v4_flash_0731_w8a8_16p_gpqa, 2, test/registered/npu/accuracy/deepsee... / deepseek_v4_flash_0731_w8a8_16p_gpqa file=github_logs/gh_43868646557/133356667767_multi-node-mix-poc (deepseek_v4_flash_0731_w8a8_16p_gpqa, 2, test_registered_npu~f54530.txt lines=11942 dl=github-perjob trunc=False
+    E L870: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+    E L871: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+    E L2477: 2026-11-16 22:50:47.099496 WARN [1308-1308][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2538: 2026-11-16 22:50:47.130152 WARN [1307-1307][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2619: 2026-11-16 22:50:47.304931 WARN [1312-1312][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2681: 2026-11-16 22:50:47.373455 WARN [1306-1306][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2743: 2026-11-16 22:50:47.410385 WARN [1001-1001][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+    E L2877: 2026-11-16 22:50:47.487194 WARN [799-799][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory
+
+### SgLang|nightly-test-npu.yml#2224  ftt=None status=FAILED runs=43870381982
+  [log] job=multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix file=github_logs/gh_43870381982/133309711840_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~77367e.txt lines=3051 dl=github-perjob trunc=False
+    E L2944: Traceback (most recent call last):
+    E L2962: ##[error]Error: failed to run script step:
+    E L2963: ✗ exit code: 1
+    E L2987: ##[error]Process completed with exit code 1.
+    E L2988: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+
+### SgLang|nightly-test-npu.yml#2225  ftt=None status=FAILED runs=43874714626
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap file=github_logs/gh_43874714626/133324841013_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=665 dl=github-perjob trunc=False
+    E L556: Traceback (most recent call last):
+    E L574: ##[error]Error: failed to run script step:
+    E L575: ✗ exit code: 1
+    E L599: ##[error]Process completed with exit code 1.
+    E L600: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=check-all-jobs file=github_logs/gh_43874714626/133328260395_check-all-jobs.txt lines=99 dl=github-perjob trunc=False
+    E L98: ##[error]Process completed with exit code 1.
+
+### SgLang|nightly-test-npu.yml#2226  ftt=None status=FAILED runs=43888687387
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap file=github_logs/gh_43888687387/133373908398_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=784 dl=github-perjob trunc=False
+    E L675: Traceback (most recent call last):
+    E L693: ##[error]Error: failed to run script step:
+    E L694: ✗ exit code: 1
+    E L718: ##[error]Process completed with exit code 1.
+    E L719: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=check-all-jobs file=github_logs/gh_43888687387/133382225996_check-all-jobs.txt lines=99 dl=github-perjob trunc=False
+    E L98: ##[error]Process completed with exit code 1.
+
+### SgLang|nightly-test-npu.yml#2227  ftt=None status=FAILED runs=43892530840
+  [log] job=multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap file=github_logs/gh_43892530840/133388055851_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt lines=707 dl=github-perjob trunc=False
+    E L638: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  [log] job=check-all-jobs file=None lines=None dl=github-404 trunc=False
+    note: 运行平台侧日志未留存（404），证据不完整；定性依据 jobs 元数据（conclusion/时长/失败步骤）
+
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#261  ftt=其他任务 status=FAILED runs=8afd6c81382a451aad1649f31cd8d47b
+  [test] job=Deploy_Test_ubs_virt_container file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubs_virt_container file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_virt_container.log lines=2 dl=paging trunc=False
+    E L1: [2026/11/16 20:38:50.334 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: COCT.1140001.450,任务被终止执行
+    S {"errorMessage":"任务被终止执行","errorCode":"COCT.1140001.450"}
+  [test] job=Deploy_Test_ubs_engine file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubs_engine file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubs_engine.log lines=3 dl=paging trunc=False
+    E L1: [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    E L2: [2026/11/13 13:04:41.324 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    S {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+  [test] job=Deploy_Test_ubturbo_smap file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubturbo_smap file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap.log lines=3 dl=paging trunc=False
+    E L1: [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    E L2: [2026/11/16 16:07:13.041 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    S {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+  [test] job=Deploy_Test_ubturbo_smap_memory_fragment file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubturbo_smap_memory_fragment file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_261_Deploy_Test_ubturbo_smap_memory_fragment.log lines=3 dl=paging trunc=False
+    E L1: [2026/11/13 12:52:35.815 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    E L2: [2026/11/13 12:52:35.816 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    S {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+
+### UBS Core|Nightly-CI-Version-pipeline_BeiMing#262  ftt=其他任务 status=FAILED runs=5b1d217f43b8449fabf4c06f321c282a
+  [test] job=Deploy_Test_ubturbo_smap_memory_fragment file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubturbo_smap_memory_fragment file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_262_Deploy_Test_ubturbo_smap_memory_fragment.log lines=3 dl=paging trunc=False
+    E L1: [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    E L2: [2026/11/16 20:38:27.777 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    S {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+  [test] job=Deploy_Test_ubturbo_smap file=None lines=None dl=None trunc=None
+  [log] job=Deploy_Test_ubturbo_smap file=job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_262_Deploy_Test_ubturbo_smap.log lines=3 dl=paging trunc=False
+    E L1: [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    E L2: [2026/11/16 20:24:20.484 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    S {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+
+### vllm-ascend|a3.yaml#16563  ftt=None status=FAILED runs=43724674356
+  [log] job=multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yaml, tests/SIT/case... / MiniMax-M3-w8a8-PP-prefix-PD.yaml file=github_logs/gh_43724674356/132845808301_multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yam~0635a2.txt lines=3416 dl=github-perjob trunc=False
+    E L2311: [2026-11-15 15:47:51] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix99_in131072_bs500_MiniMax_w8a8_0626', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 1096.57448, 'threshold': 0.97, 'tp
+    E L2371: error_msg = f"The following aisbench case failed: {failed_case}, reason is {error_info}"
+    E L2404: [0;31mFAIL_TAG_MiniMax-M3-w8a8-PP-prefix-PD.yaml ✗ ERROR: Some tests failed[0m
+    E L2406: ##[error]Error: failed to run script step:
+    E L2407: ✗ exit code: 1
+    E L2431: ##[error]Process completed with exit code 1.
+    E L2432: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    E L2932: ##[error]Upload failed. See log:
+  [log] job=multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml file=github_logs/gh_43724674356/132845808398_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt lines=3526 dl=github-perjob trunc=False
+    E L2344: [2026-11-15 17:29:03] [ERROR] The following aisbench case failed: {'case_type': 'performance', 'dataset_path': 'vllm-ascend/GSM8K_prefix90_in131072_bs1000_kimi', 'request_conf': 'vllm_api_stream_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_str_perf', 'num_prompts': 128, 'max_out_len': 1024, 'batch_size': 32, 'request_rate': 0, 'baseline': 608.891, 'threshold': 0.95, 'benchmark_name': 
+    E L2404: error_msg = f"The following aisbench case failed: {failed_case}, reason is {error_info}"
+    E L2437: [0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed[0m
+    E L2439: ##[error]Error: failed to run script step:
+    E L2440: ✗ exit code: 1
+    E L2464: ##[error]Process completed with exit code 1.
+    E L2465: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    E L3027: ##[error]Upload failed. See log:
+
+### vllm-ascend|a3.yaml#16564  ftt=None status=FAILED runs=43755516664
+  [log] job=double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD.yaml, tests... / GLM-5.3-Flash-W8A8-130k-PD.yaml file=github_logs/gh_43755516664/132974265350_double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-13~da5de9.txt lines=3760 dl=github-perjob trunc=False
+    E L2942: [0;31mFAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD.yaml ✗ ERROR: Some tests failed[0m
+    E L2944: ##[error]Error: failed to run script step:
+    E L2945: ✗ exit code: 1
+    E L2969: ##[error]Process completed with exit code 1.
+    E L2970: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    E L3361: ##[error]Upload failed. See log:

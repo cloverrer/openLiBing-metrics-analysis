@@ -8,8 +8,24 @@ AI 只产出一份很小的结论 JSON，本脚本负责把它写回归档：
 写回只改这一条记录的 analysis 字段，同目录其它步骤正文 / 其它记录一律不动。
 写回后不需要重采集，重生成页面即可：python run_pipeline.py --only step9
 
-结论文件格式（两种都接受）::
+结论文件格式（两种都接受，按内容自动识别：以 `{`/`[` 起头当 JSON，否则当纯文本块）::
 
+  # 首选：纯文本块（不用转义换行，比 JSON 省 token；一个块一条记录）
+  === HPCKit|kuqcd#210
+  分类: 权限问题
+  简述: 执行机上拉代码的凭据失效了
+  错误: fatal: Authentication failed for 'https://gitcode.com/...'
+  根因: 失败在用例代码拉取环节：第一步 clone 用例库就鉴权失败，git 直接退出，
+        用例一条都没执行，所以不是被测组件的问题——执行机上的 gitcode 凭据失效
+        就是本条的唯一原因。
+  建议: 换掉执行机上的 gitcode 凭据（未过期、且有该私有仓读权限的 token 或部署公钥），
+        在同一节点手工 clone 一次确认能取到分支。
+
+        验证方式：重跑该流水线，要求 clone 成功、测试任务能拉起用例且 total > 0、
+        用例通过率 100%。
+  引用: job_logs/03_kuqcd_210_build.log:L138
+
+  # 也可用 JSON（与旧流程完全兼容）
   {"items": [{"recordId": "Ascend-CANN/ops-math#136",
               "issueType": "权限问题",
               "issueDetail": "执行机 gitcode 凭据失效",
@@ -44,8 +60,9 @@ possibilities（可选，仅归档保留，页面已不再读）：
   · 该字段留着仅为归档可追溯。
 
 用法:
-  python tools/write_analysis.py --file out/state/analysis_result.json
-  python tools/write_analysis.py --file ... --dry-run     # 只校验不落盘
+  python tools/write_analysis.py --file out/state/analysis_result.txt --dry-run
+  python tools/write_analysis.py --file out/state/analysis_result.txt
+  python tools/write_analysis.py --file out/state/analysis_result.json   # JSON 同样接受
   python tools/write_analysis.py --file ... --date 2026-11-06   # 只在指定归档日内找
   python tools/write_analysis.py --file ... --force       # 允许覆盖已 done 的旧结论（重分析）
 
@@ -111,6 +128,76 @@ def normalize(payload):
             if isinstance(payload.get(k), list):
                 return payload[k]
     raise ValueError("结论文件格式不对：需要 {\"items\": [...]} 或裸数组")
+
+
+# ---- 纯文本结论格式（首选：不用转义换行，比 JSON 省 token）--------------------------
+#   === 组件|流水线#构建号
+#   分类: 权限问题
+#   简述: 执行机上拉代码的凭据失效了
+#   错误: fatal: Authentication failed for '...'      ← 必须能在「引用」指向的那一行里找到
+#   根因: 自由多行文本（缩进随意，直到下一个「键:」为止）
+#   建议: 自由多行文本（空行分段，末尾写「验证方式：…」）
+#   引用: job_logs/x.log:L138, job_logs/x.log:L140
+TEXT_ITEM_RE = re.compile(r"^\s*={3,}\s*(?P<id>\S.*?)\s*$")
+TEXT_KV_RE = re.compile(r"^\s*(?P<k>[A-Za-z\u4e00-\u9fa5/]{1,10})\s*[:：]\s*(?P<v>.*)$")
+CITE_SPLIT_RE = re.compile(r"[,，、;\s]+")
+TEXT_KEYS = {}
+
+
+def _tkey(s):
+    return re.sub(r"[\s:：]", "", str(s or "")).lower()
+
+
+for _alias, _field in (
+        ("记录", "recordId"), ("记录ID", "recordId"), ("recordId", "recordId"), ("id", "recordId"),
+        ("分类", "issueType"), ("问题分类", "issueType"), ("类型", "issueType"), ("issueType", "issueType"),
+        ("简述", "issueDetail"), ("定性", "issueDetail"), ("issueDetail", "issueDetail"),
+        ("错误", "keyError"), ("报错", "keyError"), ("报错原文", "keyError"), ("keyError", "keyError"),
+        ("根因", "rootCause"), ("原因", "rootCause"), ("rootCause", "rootCause"),
+        ("建议", "advice"), ("修复建议", "advice"), ("advice", "advice"),
+        ("引用", "cites"), ("证据", "cites"), ("出处", "cites"), ("cites", "cites")):
+    TEXT_KEYS[_tkey(_alias)] = _field
+
+
+def parse_text(text):
+    """纯文本块 → items 数组。块以 `=== <recordId>` 起头，字段为 `键: 值`，值为自由多行。"""
+    items, cur, field = [], None, None
+
+    def end_item():
+        if cur is None:
+            return
+        item = {}
+        for k, lines in cur["fields"].items():
+            val = "\n".join(lines).strip("\n").strip()
+            if not val:
+                continue
+            if k == "cites":
+                item[k] = [c for c in CITE_SPLIT_RE.split(val) if c]
+            else:
+                item[k] = val
+        if cur.get("recordId") and not item.get("recordId"):
+            item["recordId"] = cur["recordId"]
+        if item.get("rootCause") or item.get("recordId"):
+            items.append(item)
+
+    for raw in (text or "").splitlines():
+        m = TEXT_ITEM_RE.match(raw)
+        if m:
+            end_item()
+            cur = {"recordId": m.group("id").strip(), "fields": {}}
+            field = None
+            continue
+        if cur is None:
+            continue                       # 块外的说明/注释行一律忽略
+        m = TEXT_KV_RE.match(raw)
+        key = TEXT_KEYS.get(_tkey(m.group("k"))) if m else None
+        if key:
+            field = key
+            cur["fields"].setdefault(field, []).append(m.group("v").strip())
+        elif field:
+            cur["fields"][field].append(raw.rstrip() if raw.strip() else "")
+    end_item()
+    return items
 
 
 def norm_possibilities(raw):
@@ -389,7 +476,9 @@ def apply_one(item, idx, dry_run, now, force=False):
 
 def main():
     ap = argparse.ArgumentParser(description="把 AI 根因结论写回归档记录")
-    ap.add_argument("--file", required=True, help="AI 产出的结论 JSON")
+    ap.add_argument("--file", required=True, help="AI 产出的结论文件（JSON 或纯文本块）")
+    ap.add_argument("--format", choices=("auto", "json", "text"), default="auto",
+                    help="结论文件格式（默认 auto：以 { 或 [ 起头按 JSON，否则按纯文本块）")
     ap.add_argument("--date", help="只在指定归档日 yyyy-mm-dd 内查找 recordId")
     ap.add_argument("--dry-run", action="store_true", help="只校验，不落盘")
     ap.add_argument("--force", action="store_true",
@@ -402,13 +491,18 @@ def main():
     if not p.exists():
         print("!! 结论文件不存在: %s" % p)
         return 1
+    raw = p.read_text(encoding="utf-8")
+    fmt = args.format
+    if fmt == "auto":
+        fmt = "json" if raw.lstrip()[:1] in ("{", "[") else "text"
     try:
-        items = normalize(load_json(p))
+        items = normalize(load_json(p)) if fmt == "json" else parse_text(raw)
     except ValueError as exc:
         print("!! %s" % exc)
         return 1
     if not items:
-        print("!! 结论文件里没有条目")
+        print("!! 结论文件里没有条目（纯文本格式：每块以 `=== 组件|流水线#构建号` 起头，"
+              "字段写 `分类: / 根因: / 引用:`）")
         return 1
 
     days = [args.date] if args.date else [d for d, _ in iter_archive_days()]

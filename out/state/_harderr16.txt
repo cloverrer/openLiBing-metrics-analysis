@@ -1,0 +1,160 @@
+### SgLang|nightly-test-npu.yml#2215
+  == 133095943416_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_dec (1518)
+    L309: 2026-11-16T04:45:25.2672077Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L1326: 2026-11-16T04:47:52.0167931Z [2026-11-16 12:47:52 DP0 TP15 EP15 PID587] Scheduler hit an exception: Traceback (most recent call last):
+    L1360: 2026-11-16T04:47:52.0213687Z RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [172.22.3.138]:43400
+    L1366: 2026-11-16T04:47:58.0549779Z Traceback (most recent call last):
+    L1372: 2026-11-16T04:47:58.0604890Z Exception: Server process exited with code -9. Check server logs for errors.
+    L1376: 2026-11-16T04:47:58.0606014Z Traceback (most recent call last):
+    L1382: 2026-11-16T04:47:58.0608951Z     raise RuntimeError(f"Failed to start node on {host_ip}: {e}")
+    L1383: 2026-11-16T04:47:58.0609579Z RuntimeError: Failed to start node on 172.22.3.154: Server process exited with code -9. Check server logs for errors.
+    L1388: 2026-11-16T04:48:27.8374477Z Traceback (most recent call last):
+    L1397: 2026-11-16T04:48:27.8414237Z     raise RuntimeError(
+    L1398: 2026-11-16T04:48:27.8414931Z RuntimeError: sglang launch thread exited before the server became ready; check the server logs for the first rank that died
+    L1405: 2026-11-16T04:48:27.8676143Z 2026-11-16 04:48:27,865 - ERROR - Test case failed: test/registered/npu/performance/kimi_k3/test_npu_kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix.py
+    L1406: 2026-11-16T04:48:27.8677247Z Traceback (most recent call last):
+    L1411: 2026-11-16T04:48:27.8679777Z Exception: The test result was FAILED!
+    ...
+
+### SgLang|nightly-test-npu.yml#2218
+  == 133327323785_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (826)
+    L336: 2026-11-16T13:27:22.2890222Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L703: 2026-11-16T13:44:59.9224984Z [2m2026-11-16T13:44:59.920132Z[0m [33m WARN[0m [2msgl_router::state::kv_events::index[0m[2m:[0m kv-events: /server_info introspection failed; skipping subscriber [3mworker_url[0m[2
+    L706: 2026-11-16T13:45:04.9618242Z 2026-11-16 13:45:04,957 - ERROR - Pod ascend-43867439699-5abb10e8uj37trgf-sglang-prefill-0 is not running, status: Succeeded
+    L707: 2026-11-16T13:45:04.9619068Z 2026-11-16 13:45:04,958 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L708: 2026-11-16T13:45:05.0600452Z 2026-11-16 13:45:05,053 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+    L709: 2026-11-16T13:45:05.0601477Z Traceback (most recent call last):
+    L714: 2026-11-16T13:45:05.0604040Z Exception: Monitoring ended but target pattern was not detected
+    L719: 2026-11-16T13:45:05.1397778Z Traceback (most recent call last):
+    L726: 2026-11-16T13:45:05.1401331Z Exception: Monitoring ended but target pattern was not detected
+    L727: 2026-11-16T13:45:05.2437249Z ##[error]Error: failed to run script step:
+    L732:   2026-11-16 13:45:04,958 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L733:   2026-11-16 13:45:05,053 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+    L734:   Traceback (most recent call last):
+    L739:   Exception: Monitoring ended but target pattern was not detected
+    ...
+  == 133340755431_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (756)
+    L336: 2026-11-16T13:51:19.3378983Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L615: 2026-11-16T14:52:10.8913690Z Traceback (most recent call last):
+    L629: 2026-11-16T14:52:10.8920353Z     raise RuntimeError(
+    L630: 2026-11-16T14:52:10.8920832Z RuntimeError: Server http://172.22.3.181:6677/readiness failed to start in 3600s (elapsed: 3600.80s)
+    L636: 2026-11-16T14:52:10.9721896Z 2026-11-16 14:52:10,970 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark.py
+    L637: 2026-11-16T14:52:10.9722585Z Traceback (most recent call last):
+    L642: 2026-11-16T14:52:10.9725172Z Exception: The test result was FAILED!
+    L648: 2026-11-16T14:52:11.0410726Z Traceback (most recent call last):
+    L655: 2026-11-16T14:52:11.0413924Z Exception: The test result was FAILED!
+    L656: 2026-11-16T14:52:11.1513439Z ##[error]Error: failed to run script step:
+    L661:   2026-11-16 14:52:10,970 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_no_dspark.py
+    L662:   Traceback (most recent call last):
+    L667:   Exception: The test result was FAILED!
+    L673:   Traceback (most recent call last):
+    ...
+  == 133381668819_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa,  (745)
+    L336: 2026-11-16T14:58:28.4843094Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L623: 2026-11-16T15:13:44.7843035Z 2026-11-16 15:13:44,783 - ERROR - Pod ascend-43867439699-f988d1cavw2h8omi-sglang-prefill-1 is not running, status: Succeeded
+    L624: 2026-11-16T15:13:44.7846795Z 2026-11-16 15:13:44,783 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L625: 2026-11-16T15:13:44.8386427Z 2026-11-16 15:13:44,833 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
+    L626: 2026-11-16T15:13:44.8387133Z Traceback (most recent call last):
+    L631: 2026-11-16T15:13:44.8389647Z Exception: Monitoring ended but target pattern was not detected
+    L636: 2026-11-16T15:13:44.9215876Z Traceback (most recent call last):
+    L643: 2026-11-16T15:13:44.9219266Z Exception: Monitoring ended but target pattern was not detected
+    L644: 2026-11-16T15:13:45.0431933Z ##[error]Error: failed to run script step:
+    L649:   2026-11-16 15:13:44,783 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L650:   2026-11-16 15:13:44,833 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
+    L651:   Traceback (most recent call last):
+    L656:   Exception: Monitoring ended but target pattern was not detected
+    L661:   Traceback (most recent call last):
+    ...
+  == 133394969649_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_n (1038)
+    L336: 2026-11-16T15:20:07.5534999Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L896: 2026-11-16T16:48:05.3214924Z Traceback (most recent call last):
+    L909: 2026-11-16T16:48:05.3219858Z     raise RuntimeError(
+    L910: 2026-11-16T16:48:05.3220233Z RuntimeError: Server http://172.22.3.181:6677/readiness failed to start in 3600s (elapsed: 3600.55s)
+    L916: 2026-11-16T16:48:05.4011146Z 2026-11-16 16:48:05,399 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_no_dspark.py
+    L917: 2026-11-16T16:48:05.4012066Z Traceback (most recent call last):
+    L922: 2026-11-16T16:48:05.4013914Z Exception: The test result was FAILED!
+    L928: 2026-11-16T16:48:05.4691423Z Traceback (most recent call last):
+    L935: 2026-11-16T16:48:05.4694297Z Exception: The test result was FAILED!
+    L936: 2026-11-16T16:48:05.5873914Z ##[error]Error: failed to run script step:
+    L941:   2026-11-16 16:48:05,399 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_no_dspark.py
+    L942:   Traceback (most recent call last):
+    L947:   Exception: The test result was FAILED!
+    L953:   Traceback (most recent call last):
+    ...
+
+### SgLang|nightly-test-npu.yml#2223
+  == 133303913207_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (4086)
+    L336: 2026-11-16T12:43:18.9513692Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L716: 2026-11-16T13:57:35.6722644Z Traceback (most recent call last):
+    L722: 2026-11-16T13:57:35.6776870Z     raise RuntimeError("Failed to wait for all nodes to be ready")
+    L723: 2026-11-16T13:57:35.6777196Z RuntimeError: Failed to wait for all nodes to be ready
+    L728: 2026-11-16T13:57:35.7314156Z Traceback (most recent call last):
+    L746: 2026-11-16T13:57:35.7321571Z     raise RuntimeError(
+    L747: 2026-11-16T13:57:35.7321917Z RuntimeError: Server http://172.22.3.166:6677/readiness failed to start in 3600s (elapsed: 3600.50s)
+    L753: 2026-11-16T13:57:35.7990667Z 2026-11-16 13:57:35,797 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa.py
+    L754: 2026-11-16T13:57:35.7991366Z Traceback (most recent call last):
+    L759: 2026-11-16T13:57:35.7993459Z Exception: The test result was FAILED!
+    L3680: 2026-11-16T13:57:36.0870481Z Traceback (most recent call last):
+    L3704: 2026-11-16T13:57:36.0875462Z AttributeError: 'NoneType' object has no attribute 'data_ptr'
+    L3710: 2026-11-16T13:57:36.0880218Z [2026-11-16 21:02:58 DP0 PP0 TP0 EP0 PID1112] Scheduler hit an exception: Traceback (most recent call last):
+    L3753: 2026-11-16T13:57:36.0887390Z AttributeError: 'NoneType' object has no attribute 'data_ptr'
+    ...
+  == 133347678142_multi-node-poc (deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa (5573)
+    L336: 2026-11-16T14:03:16.5939461Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L559: 2026-11-16T14:12:13.4311033Z 2026-11-16 14:12:13,430 - ERROR - Pod ascend-43868646557-d7eef75c8vts0ttm-sglang-prefill-1 is not running, status: Succeeded
+    L560: 2026-11-16T14:12:13.4316718Z 2026-11-16 14:12:13,431 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L561: 2026-11-16T14:12:13.4423914Z 2026-11-16 14:12:13,441 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_2p1d_24p_gpqa.py
+    L562: 2026-11-16T14:12:13.4424773Z Traceback (most recent call last):
+    L567: 2026-11-16T14:12:13.4427313Z Exception: Monitoring ended but target pattern was not detected
+    L2109: 2026-11-16T14:12:13.7035264Z 2026-11-16 22:07:48.765844 ERROR [743-743][AccLink acc_tcp_listener.cpp:79 Start] Failed to bind or listen on 172.22.3.79:24666 as errno Cannot assign requested address
+    L5241: 2026-11-16T14:12:13.8365581Z Traceback (most recent call last):
+    L5265: 2026-11-16T14:12:13.8369931Z AttributeError: 'NoneType' object has no attribute 'data_ptr'
+    L5267: 2026-11-16T14:12:13.8370201Z Traceback (most recent call last):
+    L5291: 2026-11-16T14:12:13.8374599Z AttributeError: 'NoneType' object has no attribute 'data_ptr'
+    L5292: 2026-11-16T14:12:13.8374826Z [2026-11-16 22:11:58 DP0 PP0 TP0 EP0 PID901] Scheduler hit an exception: Traceback (most recent call last):
+    L5335: 2026-11-16T14:12:13.8381840Z AttributeError: 'NoneType' object has no attribute 'data_ptr'
+    L5337: 2026-11-16T14:12:13.8382081Z [2026-11-16 22:11:58 DP5 PP0 TP5 EP5 PID906] Scheduler hit an exception: Traceback (most recent call last):
+    ...
+
+### SgLang|nightly-test-npu.yml#2225
+  == 133324841013_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (665)
+    L336: 2026-11-16T13:23:07.0108335Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L553: 2026-11-16T13:25:04.2261950Z 2026-11-16 13:25:04,225 - ERROR - Pod ascend-43874714626-8e45754982vgkrzv-sglang-prefill-0 is not running, status: Succeeded
+    L554: 2026-11-16T13:25:04.2266470Z 2026-11-16 13:25:04,225 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L555: 2026-11-16T13:25:04.3146766Z 2026-11-16 13:25:04,313 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+    L556: 2026-11-16T13:25:04.3147579Z Traceback (most recent call last):
+    L561: 2026-11-16T13:25:04.3150348Z Exception: Monitoring ended but target pattern was not detected
+    L566: 2026-11-16T13:25:04.4066274Z Traceback (most recent call last):
+    L573: 2026-11-16T13:25:04.4070024Z Exception: Monitoring ended but target pattern was not detected
+    L574: 2026-11-16T13:25:04.5397944Z ##[error]Error: failed to run script step:
+    L579:   2026-11-16 13:25:04,225 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L580:   2026-11-16 13:25:04,313 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+    L581:   Traceback (most recent call last):
+    L586:   Exception: Monitoring ended but target pattern was not detected
+    L591:   Traceback (most recent call last):
+    ...
+
+### SgLang|nightly-test-npu.yml#2226
+  == 133373908398_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (784)
+    L336: 2026-11-16T14:46:42.6066410Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L672: 2026-11-16T14:54:57.4256928Z 2026-11-16 14:54:57,424 - ERROR - Pod ascend-43888687387-474da6e2pwuzqa1g-sglang-prefill-0 is not running, status: Succeeded
+    L673: 2026-11-16T14:54:57.4262443Z 2026-11-16 14:54:57,425 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L674: 2026-11-16T14:54:57.5040801Z 2026-11-16 14:54:57,502 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+    L675: 2026-11-16T14:54:57.5041587Z Traceback (most recent call last):
+    L680: 2026-11-16T14:54:57.5044034Z Exception: Monitoring ended but target pattern was not detected
+    L685: 2026-11-16T14:54:57.5979113Z Traceback (most recent call last):
+    L692: 2026-11-16T14:54:57.5982455Z Exception: Monitoring ended but target pattern was not detected
+    L693: 2026-11-16T14:54:57.6994839Z ##[error]Error: failed to run script step:
+    L698:   2026-11-16 14:54:57,425 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
+    L699:   2026-11-16 14:54:57,502 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap.py
+    L700:   Traceback (most recent call last):
+    L705:   Exception: Monitoring ended but target pattern was not detected
+    L710:   Traceback (most recent call last):
+    ...
+
+### SgLang|nightly-test-npu.yml#2227
+  == 133388055851_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa (707)
+    L336: 2026-11-16T15:08:52.8103010Z error: the path "./k8s_multi_pd_*.yaml" does not exist
+    L638: 2026-11-16T15:46:39.4359793Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+    L674: 2026-11-16T15:47:11.3834571Z error: resource(s) were provided, but no name was specified
+    L676: 2026-11-16T15:47:41.8758699Z error: resource(s) were provided, but no name was specified

@@ -1,0 +1,26 @@
+  L38: 2026-11-15T22:03:09.2090675Z   testcase_timeout: 120
+  L43: 2026-11-15T22:03:09.2092341Z   bisect_trial_timeout:
+  L44: 2026-11-15T22:03:09.2092681Z   bisect_barrier_timeout:
+  L238: 2026-11-15T22:03:27.0457574Z [36;1m    echo "Timeout reached ($TIMEOUT seconds), some pods still exist:"[0m
+  L324: 2026-11-15T22:03:29.0678478Z [36;1m  -D bisect_trial_timeout="$BISECT_TRIAL_TIMEOUT" \[0m
+  L325: 2026-11-15T22:03:29.0678958Z [36;1m  -D bisect_barrier_timeout="$BISECT_BARRIER_TIMEOUT" \[0m
+  L363: 2026-11-15T22:03:31.7143289Z [36;1mecho "Waiting for all pods to become Running and Ready (timeout ${TIMEOUT}s)..."[0m
+  L368: 2026-11-15T22:03:31.7145350Z [36;1m    echo "Timeout reached after ${ELAPSED}s, dumping pod status:"[0m
+  L413: 2026-11-15T22:03:32.5021099Z Waiting for all pods to become Running and Ready (timeout 1200s)...
+  L459: 2026-11-15T22:03:45.2834529Z [36;1m      if state=$(kubectl --request-timeout=30s get pod "$LEADER_POD" -n "$NAMESPACE" \[0m
+  L529: 2026-11-15T22:03:45.2859492Z [36;1m      if ! kubectl --request-timeout=30s logs "$LEADER_POD" -c vllm-leader -n "$NAMESPACE" \[0m
+  L760: 2026-11-15T22:03:56.2179008Z ====> Run pytest entry: tests/e2e/common/multi_node/test_multi_node.py
+  L780: 2026-11-15T22:04:26.1764578Z tests/e2e/common/multi_node/test_multi_node.py::test_multi_node [2026-11-15 22:04:26] [INFO] Loading external DP config yaml: tests/e2e/cases/models/configs/GLM/GLM-5.3-Flash-W8A8-130k-PD.yaml
+  L2837: 2026-11-15T23:44:33.6294811Z _______________________________ test_multi_node ________________________________
+  L2840: 2026-11-15T23:44:33.6329337Z     async def test_multi_node() -> None:
+  L2852: 2026-11-15T23:44:33.6458883Z tests/e2e/common/multi_node/test_multi_node.py:19:
+  L2855: 2026-11-15T23:44:33.6491222Z     wait_ranks_ready(ranks, timeout=max_wait_seconds)
+  L2859: 2026-11-15T23:44:33.6531353Z timeout = 5400, rank_processes = None
+  L2863: 2026-11-15T23:44:33.6571762Z         timeout: int,
+  L2873: 2026-11-15T23:44:33.6716672Z         deadline = time.monotonic() + timeout
+  L2883: 2026-11-15T23:44:33.6772470Z                 is_ready = is_http_ready(rank_health_url(rank), timeout=1.0)
+  L2914: 2026-11-15T23:44:33.7080031Z >               raise TimeoutError(f"Timed out waiting for external DP ranks ready: {pending_labels}")
+  L2915: 2026-11-15T23:44:33.7093251Z E               TimeoutError: Timed out waiting for external DP ranks ready: node=1 rank=0 role=decoder url=http://10.0.0.76:7100/health; node=1 rank=1 role=decoder url=http://10.0.0.76:7101/health; node=1 rank=2 role=decoder url=http://10.0.0.76:7102/health; node=1 rank=3 role=decoder url=http://10.0.0.76:7103/health; node=1 rank=4 role=decoder url=http://10.0.0.76:7104/health; node=1 rank=5 role=decoder url=http://10.0.0.76:7105/health; node=1 rank=6 role=decoder url=http://10.0.0.76:7106/health; node=1 rank=7 role=decoder url=http://10.0.0.76:7107/health
+  L2917: 2026-11-15T23:44:33.7111613Z tests/e2e/common/multi_node/external_dp/runtime.py:705: TimeoutError
+  L2937: 2026-11-15T23:44:33.7365327Z FAILED tests/e2e/common/multi_node/test_multi_node.py::test_multi_node - Time...
+命中 27 / 3760

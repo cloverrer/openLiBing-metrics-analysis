@@ -245,6 +245,49 @@ function ranInPeriod(pl){
   if (v === null || v === undefined || v === '') return true;
   return Number(v) > 0;
 }
+/* 版本可用度的**分母**有两套口径，必须在这一处判，否则社区组件会被算错：
+   openlibing 侧（rateRule='runs'，老归档缺字段也按此）：分母 = 区间法定工作日数 wdN；
+   社区侧（rateRule='days'，口径对齐 pr-ci-board）：分母 = 该流水线**有执行记录的天数**
+   （逐日归档 vaDetail.daysInPeriod 累加：aborted 构建当天不进分母，没执行的日子也不进）。
+   daysN 是社区口径的逐日累加值，wdN 是区间法定工作日数。 */
+function vaDenOf(rateRule, daysN, wdN){
+  return (rateRule === 'days') ? (Number(daysN) || 0) : wdN;
+}
+/* 流水线身份键：**不能只用流水线名**。同一个组件下可能有两平台完全重名的流水线
+   （openUBMC 的 Nightly-CI-Version-pipeline_openUBMC 同时存在于 codearts 与 gitcode），
+   只按名字聚合会把两条并成一条：组件级比率变成其中一条的值、执行记录被并组、
+   某条的数据看起来「并到另一条名下」。一律按「组件|pipelineId」认身份，
+   老归档没有 pipelineId 才退回短名（= 归档目录名）。 */
+function plKeyOf(pl){
+  pl = pl || {};
+  return String(pl.component || '') + '|' + String(pl.pipelineId || pl.pipeline || '');
+}
+/* 撞名兜底短名的展示：同组件下重名时兜底短名带「~6 位哈希」（openUBMC~c43117），
+   哈希对用户没有意义 —— 展示时把后缀换成平台名（openUBMC~c43117 → openUBMC-gitcode），
+   两条同名流水线一眼能区分。只改展示，短名本身（归档目录名 / key / recordId）一律不动。 */
+function plDisp(p){
+  const s = String((p || {}).pipeline || '');
+  const plat = String((p || {}).platform || '');
+  return (plat && /~[0-9a-f]{6}$/i.test(s)) ? (s.replace(/~[0-9a-f]{6}$/i, '') + '-' + plat) : s;
+}
+/* 二级页/弹窗手里只有逐日归档条目（ctx.dirs，每条带 pl.rateRule 与 pl.vaDetail）：
+   按**流水线身份**把「有执行记录的天数」加出来，作为版本可用度的分母。
+   键必须和调用方的身份键（plKeyOf）完全一致，否则同名流水线会互相覆盖累计值。 */
+function vaDaysDenByPipe(ctx){
+  const m = {};
+  ((ctx || {}).dirs || []).forEach(function(d){
+    const pl = (d || {}).pl || {};
+    if (pl.rateRule !== 'days') return;
+    const k = plKeyOf(pl);
+    if (!k || k === '|') return;
+    m[k] = (m[k] || 0) + (Number(((pl.vaDetail || {}).daysInPeriod)) || 0);
+  });
+  return m;
+}
+/* 这组流水线是否走社区「有执行天数」口径（同一组件的流水线口径一致，只用于区块头/提示文案） */
+function isDaysRule(list){
+  return !!(list && list.length) && list.every(function(p){ return (p.rateRule || 'runs') === 'days'; });
+}
 function rfClamp(v){return (v && rfState.min && v<rfState.min) ? rfState.min : ((v && rfState.max && v>rfState.max) ? rfState.max : v);}
 
 /* 快捷段 → 实际区间：7/30/90 以归档最大日为右端，左端不早于归档最小日（数据不足时自动收缩）；

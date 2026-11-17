@@ -1,0 +1,32 @@
+### p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt @[811]
+  L811: 2026-11-15T15:53:34.8327709Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators'
+### 6p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt @[510, 511]
+  L510: 2026-11-15T17:13:49.7885936Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 119: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory
+  L511: 2026-11-15T17:13:49.7887295Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 120: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory
+### p1d_16p_gpqa, 2, 1, 1, test_registe~90810f.txt @[531]
+  L531: 2026-11-15T16:17:30.0461427Z ImportError: cannot import name 'SGL_ROUTER_REQUEST_TIMEOUT_SECS' from 'sglang.test.server_fixtures.disaggregation_fixture' (/sgl-workspace/sglang/python/sglang/test/server_fixtures/disaggregation_fixture.py)
+### 8k_out1k_decode_prefix, 4, test_reg~77367e.txt @[633, 718]
+  L633: 2026-11-16T04:36:17.7231531Z CI_OFFLINE: Engine import failed, skip the offline hook: No module named 'sgl_kernel_npu.operators.mem_cache'
+  L718: 2026-11-16T04:36:39.2407249Z ModuleNotFoundError: No module named 'sgl_kernel_npu.operators.mem_cache'
+### 8k_out1k_decode_prefix, 4, test_reg~77367e.txt @[1360, 1372]
+  L1360: 2026-11-16T04:47:52.0213687Z RuntimeError: [/pytorch/third_party/gloo/gloo/transport/tcp/pair.cc:547] Connection closed by peer [172.22.3.138]:43400
+  L1372: 2026-11-16T04:47:58.0604890Z Exception: Server process exited with code -9. Check server logs for errors.
+### p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt @[706]
+  L706: 2026-11-16T13:45:04.9618242Z 2026-11-16 13:45:04,957 - ERROR - Pod ascend-43867439699-5abb10e8uj37trgf-sglang-prefill-0 is not running, status: Succeeded
+### p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt @[311, 340]
+  L311: 2026-11-16T12:40:02.4368685Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
+  L340: 2026-11-16T12:40:03.4981957Z ##[error]Error: failed to run script step:
+### p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt @[687, 713]
+  L687: 2026-11-16T12:56:11.9690148Z FileNotFoundError: sgl-router binary 'sgl-router' not found: build it with `cargo build --release --bin sgl-router` in sgl-router/, then put it on PATH or set SGLANG_TEST_PD_ROUTER_BINARY to its path.
+  L713: 2026-11-16T12:56:12.2224112Z ##[error]Error: failed to run script step:
+### p1d_16p_gpqa, 1, 1, 1, test_registe~6b37f9.txt @[723]
+  L723: 2026-11-16T13:57:35.6777196Z RuntimeError: Failed to wait for all nodes to be ready
+### 8k_out1k_decode_prefix, 4, test_reg~77367e.txt @[2938]
+  L2938: 2026-11-16T16:24:21.4733072Z 2026-11-16 16:24:21,472 - INFO - timeout in 12600s
+### p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt @[553]
+  L553: 2026-11-16T13:25:04.2261950Z 2026-11-16 13:25:04,225 - ERROR - Pod ascend-43874714626-8e45754982vgkrzv-sglang-prefill-0 is not running, status: Succeeded
+### p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt @[643, 672]
+  L643: 2026-11-16T14:53:25.2486492Z CI_OFFLINE: Engine import failed, skip the offline hook: No module named 'sgl_kernel_npu.operators.mem_cache'
+  L672: 2026-11-16T14:54:57.4256928Z 2026-11-16 14:54:57,424 - ERROR - Pod ascend-43888687387-474da6e2pwuzqa1g-sglang-prefill-0 is not running, status: Succeeded
+### p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt @[638]
+  L638: 2026-11-16T15:46:39.4359793Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
