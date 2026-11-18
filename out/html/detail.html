@@ -1196,7 +1196,7 @@ function richPoints(s){
    （「宿主 pinned 内存被占满」）；有「第 N 类」标记时只看这些段
    （第一段总述跳过，否则会把「这批都卡在环境准备」当成一条原因）；单一成因的正文不分段，
    取最后一段（结论段）。同一原因只留一条，最多 4 条。
-   每条都压到一句话的短语（rcFit 收到 26 字），不做概率推测。 */
+   每条都原样展示完整（不收口、不加「…」），不做概率推测。 */
 const RC_LEAD = /^(?:因此|所以|这说明|说明|可见|由此|从而|综上|其实|主要原因|真实原因|这批|这次|这一|这种|这类|本条|本次|本批|这|本|也|就|都|且|并|是|而|但|却|属|属于|于|条|第\s*[0-9一二三四五六七八九十]+\s*类)+/;
 /* 「第一类（2 个 OmniOperator 子任务」/「第 1 类（5 条」两种写法都要认：类号后面允许空格，
    计数单位可能是「条」也可能是「个」；两个捕获组 = 类号、条数 */
@@ -1217,41 +1217,17 @@ const RC_PATS = [
   [/([^，,。；：]{2,50}?)\s*[，,]?\s*(?:导致|致使|使得|造成|从而使|所以|因此)/, 1],
   [/(?:失败点|真实原因|根因|原因)(?:只有)?(?:一个)?(?:(?:是|就是)[：:，,]?|[：:，,])\s*([^，,。；]{3,60})/, 1],
 ];
-const RC_TAIL = '的在与和上时并或而是把将从对向给被让其该那个条类中里内下后前及以为有没不也都就还又再';
-
 function rcNorm(s){ return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
 
-/* 原因压成一句话短语：定性列只有 14% 宽，一句长话塞进去会断在半句（「…运行时在这批」），
-   所以超长时优先退到最近的顿号/逗号/冒号处收口（保留完整分句），退不到再硬截断并补「…」
-   明示是缩略；收口后悬空的连接词与没闭合的括号/引号一并去掉 */
-const RC_LABEL_MAX = 26;
-const RC_OPEN = '「『“（(';
-function rcFit(s, n, noCut){
-  let t = String(s || '').trim();
-  n = n || RC_LABEL_MAX;
-  if (!noCut && t.length > n){
-    const head = t.slice(0, n);
-    const k = Math.max(head.lastIndexOf('，'), head.lastIndexOf('、'),
-                       head.lastIndexOf('；'), head.lastIndexOf('：'));
-    if (k >= 8) t = head.slice(0, k);
-    else if (/[0-9A-Za-z\-+]$/.test(head)){
-      const sp = head.lastIndexOf(' ');
-      t = sp >= 10 ? head.slice(0, sp) : head;
-    } else t = head;
-    t = t.trim();
-    while (t.length > 6 && (RC_TAIL.indexOf(t.slice(-1)) >= 0
-           || ' ，,、：:；'.indexOf(t.slice(-1)) >= 0
-           || RC_OPEN.indexOf(t.slice(-1)) >= 0)){
-      t = t.slice(0, -1).trim();
-    }
-    if (t.length >= 10) t += '…';
-  }
-  return t.replace(/^[\s，,、：:]+/, '').replace(/[\s，,、：:]+$/, '');
+/* 收尾修饰：只去首尾空白与悬空标点。原因整句原样进单元格，不再按列宽收口、不补「…」——
+   用户口径：定性要展示完全，缩略是误导；超长时由 CSS 在固定列宽内换行，行高随内容增长 */
+function rcFit(s){
+  return String(s == null ? '' : s).trim()
+    .replace(/^[\s，,、：:]+/, '').replace(/[\s，,、：:]+$/, '');
 }
 
-/* 去掉句子开头的连接词（「这类」「因此」「第 2 类」…）与不成对的括号/引号；
-   noCut=true 时不做 26 字收口，保留完整原因（用于单元格 title：hover 看全） */
-function rcClean(s, noCut){
+/* 去掉句子开头的连接词（「这类」「因此」「第 2 类」…）与不成对的括号/引号 */
+function rcClean(s){
   let t = rcNorm(s).replace(/^[\s「」『』“”'"（）()]+/, '').replace(/[\s「」『』“”'"（）()]+$/, '');
   t = t.replace(RC_LEAD, '').replace(/^[\s，,、]+/, '');
   t = t.replace(RC_LEAD, '').replace(/^[\s，,、]+/, '').replace(/[\s，,、]+$/, '');
@@ -1260,18 +1236,18 @@ function rcClean(s, noCut){
       t = t.slice(0, t.lastIndexOf(p[0])).replace(/[\s，,、]+$/, '');
     }
   });
-  return rcFit(t, null, noCut);
+  return rcFit(t);
 }
 
 /* 一段正文 → 一条可能原因（按 RC_PATS 的优先级找第一个命中） */
-function rcCauseOf(para, noCut){
+function rcCauseOf(para){
   const clauses = rcNorm(para).split(/[；。]/);
   for (let pi = 0; pi < RC_PATS.length; pi++){
     const pat = RC_PATS[pi][0], gi = RC_PATS[pi][1];
     for (let ci = 0; ci < clauses.length; ci++){
       const m = pat.exec(rcNorm(clauses[ci]));
       if (!m) continue;
-      const g = rcClean(m[gi] || '', noCut);
+      const g = rcClean(m[gi] || '');
       if (g && g.length >= 3) return g;
     }
   }
@@ -1284,10 +1260,10 @@ function rcCauseOf(para, noCut){
    标签只是分组名（「量化变体」「MoE 分发合并」）时不当原因，跳过。 */
 const RC_HEAD = /^第\s*[0-9一二三四五六七八九十]+\s*类\s*[（(][^）)]*?[，,]\s*([^）)]*?)\s*[）)]/;
 const RC_CAUSEY = /(失效|过期|无效|不足|缺失|被拒|超时|占满|占用|耗尽|冲突|不匹配|不一致|偏移|不达标|异常|中断|退出|报错|失败|被占|拉取|鉴权|权限)/;
-function rcHeadOf(para, noCut){
+function rcHeadOf(para){
   const m = String(para || '').match(RC_HEAD);
   if (!m) return '';
-  const t = rcClean(String(m[1]).replace(/^(?:共性|共性原因|共性特征|特点|特征|表现|现象)[：:]\s*/, ''), noCut);
+  const t = rcClean(String(m[1]).replace(/^(?:共性|共性原因|共性特征|特点|特征|表现|现象)[：:]\s*/, ''));
   return (t && RC_CAUSEY.test(t)) ? t : '';
 }
 
@@ -1296,8 +1272,8 @@ function rcHeadOf(para, noCut){
    分类段一条都抽不到（正文只写证据、原因写在结论段）才回头扫非分类段。
    没有分类标记（单一成因的短根因）就只看结论段——第一段往往是总述，抽出来是
    「这批都卡在环境准备」这种覆盖全批的话，不该当原因。最后还用结论段首句兜底，保证不空。
-   noCut=true 时返回未收口的完整原因（单元格 title 用），页面显示仍由 rcFit 收口，两者同源同序。 */
-function causesFromRootCause(rc, noCut){
+   返回的是完整原因原句，页面原样展示（不做收口）。 */
+function causesFromRootCause(rc){
   const paras = String(rc || '').split(/\n\s*\n/).map(rcNorm)
     .filter(function(p){ return !!p && !/^已排除的干扰项/.test(p); });
   if (!paras.length) return [];
@@ -1307,15 +1283,15 @@ function causesFromRootCause(rc, noCut){
     if (c && !seen[c]){ seen[c] = 1; out.push(c); }
   };
   if (cls.length){
-    cls.forEach(function(p){ push(rcCauseOf(p, noCut) || rcHeadOf(p, noCut)); });
+    cls.forEach(function(p){ push(rcCauseOf(p) || rcHeadOf(p)); });
     if (!out.length){
       paras.filter(function(p){ return !RC_CLS.test(p); })
-        .forEach(function(p){ push(rcCauseOf(p, noCut)); });
+        .forEach(function(p){ push(rcCauseOf(p)); });
     }
   } else {
-    push(rcCauseOf(paras[paras.length - 1], noCut));
+    push(rcCauseOf(paras[paras.length - 1]));
   }
-  if (!out.length) push(rcClean(String(paras[paras.length - 1]).split(/[；。]/)[0], noCut));
+  if (!out.length) push(rcClean(String(paras[paras.length - 1]).split(/[；。]/)[0]));
   return out.slice(0, 4);
 }
 function cut(s, n){
@@ -1375,25 +1351,25 @@ function classTag(type){
 /* ===== 定性列：把根因里的「可能是哪几种情况」逐条列出来 =====
    取的是根因正文里「是什么坏了」的那句话（凭据失效 / 资源没申请到 / 镜像拉不下来…），
    一条就能说清时不带编号，多条才按 1. 2. 3. 排。AI 没写根因正文时退回 issueDetail 那一句。 */
-function causeList(r, noCut){
+function causeList(r){
   const an = (r || {}).analysis || {};
-  const cs = causesFromRootCause(rcBody(an.rootCause || ''), noCut)
+  const cs = causesFromRootCause(rcBody(an.rootCause || ''))
     .filter(function(c){ return !!c; });
   if (cs.length) return cs;
   const d = String(an.issueDetail || '').trim();
   return d ? [d] : [];
 }
-/* 定性列：单元格里是收口后的短短语（列窄），title 挂完整原因 —— 列内出现「…」时
-   hover 就能看全原话，不用去翻根因正文 */
+/* 定性列：原因整句原样进单元格，不做 26 字收口、不补「…」——超长时在列宽内换行，行高自然增长。
+   title 仍挂同一句完整原因（列内容与 title 一致，便于悬停复制） */
 function causeCell(r){
-  const cs = causeList(r, true);
+  const cs = causeList(r);
   if (!cs.length) return '';
   if (cs.length === 1){
-    return '<div class="ct-item" title="' + rfEsc(cs[0]) + '">' + rfEsc(rcFit(cs[0])) + '</div>';
+    return '<div class="ct-item" title="' + rfEsc(cs[0]) + '">' + rfEsc(cs[0]) + '</div>';
   }
   return cs.map(function(c, k){
     return '<div class="ct-item ct-num" title="' + rfEsc(c) + '"><span class="ct-k">' + (k + 1) + '.</span>'
-      + rfEsc(rcFit(c)) + '</div>';
+      + rfEsc(c) + '</div>';
   }).join('');
 }
 /* 2026-10-28T21:10:17 → 2026-10-28 21:10:17 */
