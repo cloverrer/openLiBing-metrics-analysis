@@ -1,33 +1,4 @@
 {
- "results": [
-  {
-   "route": "log",
-   "key": "Ascend-CANN|os",
-   "pipeline": "os",
-   "rn": 153,
-   "st": "11-16 14:05",
-   "rid": "9320d843b2274cb1939144522820e156",
-   "jobId": "c5290d4310ef42e79faf62594e9a594e",
-   "jobName": "Build_A3_image",
-   "fallback": false,
-   "stepErrMsgs": [
-    "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
-   ],
-   "jobErrMsg": "步骤Build_A3_image执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "logFile": "job_logs/41_os_153_Build_A3_image.log",
-   "logBytes": 547466,
-   "logLines": 101,
-   "download": "export",
-   "truncated": false,
-   "excerpt": null,
-   "errorLines": [
-    "L97: [2026/11/16 15:11:11.549 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:#1 [internal] load build definition from Dockerfile#1 sha256:22e0a3b9fb33569a9d4c905edeaed51084b5c44e6417e75fa87b587d58c077bc#1 transferring dockerfile: 1.34kB done#1 DONE 0.0s#2 [internal] load metadata for swr.cn-southwest-2.myhuaweicloud.com/atlas-ci/duo_os:latest#2 sha256:b51a412ab47bc721df",
-    "L98: [2026/11/16 15:11:11.577 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败",
-    "L99: [2026/11/16 15:11:11.654 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败",
-    "L100: [2026/11/16 15:11:11.656 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败"
-   ],
-   "subTasks": []
-  }
- ],
+ "results": [],
  "errors": []
 }

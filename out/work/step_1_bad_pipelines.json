@@ -1,24 +1,6 @@
 {
  "pipelines": [
   {
-   "key": "openUBMC|openUBMC",
-   "product": "openUBMC",
-   "projectId": 2,
-   "pipelineName": "Nightly-CI-Version-pipeline_openUBMC",
-   "pipelineShortName": "openUBMC",
-   "pipelineId": "440c21006cf141e9806d6029c5185b53",
-   "platform": "codearts",
-   "versionAvailabilityRate": 0,
-   "buildSuccessRate": 1,
-   "dims": [
-    "va",
-    "bs"
-   ],
-   "rateRule": "runs",
-   "recompute": true,
-   "scheduledOnly": false
-  },
-  {
    "key": "openUBMC|openUBMC~c43117",
    "product": "openUBMC",
    "projectId": 2,
@@ -217,8 +199,8 @@
    "pipelineShortName": "Agentsdk~5992cb",
    "pipelineId": "3920b07ff31c48d8aaddbae6f4db072d",
    "platform": "gitcode",
-   "versionAvailabilityRate": 0,
-   "buildSuccessRate": 0.5,
+   "versionAvailabilityRate": 1,
+   "buildSuccessRate": 1,
    "dims": [
     "va",
     "bs"
@@ -326,7 +308,7 @@
    "pipelineId": "03da2691669a4f2bbfcfd89356bc3576",
    "platform": "codearts",
    "versionAvailabilityRate": 1,
-   "buildSuccessRate": 0.75,
+   "buildSuccessRate": 1,
    "dims": [
     "va",
     "bs"
@@ -505,7 +487,7 @@
    "pipelineShortName": "kupl",
    "pipelineId": "ddb211b1e4a74f55a0e604fa95ef469e",
    "platform": "codearts",
-   "versionAvailabilityRate": 0,
+   "versionAvailabilityRate": 1,
    "buildSuccessRate": 1,
    "dims": [
     "va",

@@ -1,44 +1,16 @@
 {
  "test": [],
- "log": [
+ "log": [],
+ "skipped": [],
+ "bsCleanRuns": [
   {
-   "key": "Ascend-CANN|os",
-   "pipeline": "os",
-   "pipelineName": "Nightly-CI-Version-pipeline_CANN_duo_os",
-   "projectId": 300057,
-   "pipelineId": "03da2691669a4f2bbfcfd89356bc3576",
-   "rid": "9320d843b2274cb1939144522820e156",
-   "rn": 153,
-   "st": "11-16 14:05",
-   "jobId": "c5290d4310ef42e79faf62594e9a594e",
-   "jobName": "Build_A3_image",
-   "stepIds": [
-    "6be85623c3ee4f2eb1537abe5f1bb23b"
-   ],
-   "steps": [
-    {
-     "id": "6be85623c3ee4f2eb1537abe5f1bb23b",
-     "name": "Build_A3_image",
-     "status": "FAILED",
-     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "7f0ad0259fa145a184a7d3d56de7cd05",
-     "jobIdParam": "db4b6f22507a4b56b4e21076aaa7037c"
-    }
-   ],
-   "jobErrMsg": "步骤Build_A3_image执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "491251c5e8e4429189512411c9f5124c",
-   "route": "log",
-   "isBuild": true,
-   "buildJobId": "db4b6f22507a4b56b4e21076aaa7037c"
+   "key": "MindCluster|ascend-deployer",
+   "rn": 270,
+   "rid": "6af78b0208a64d7bb33b60f5a6cab5a8",
+   "st": "11-01 02:35",
+   "status": null,
+   "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
   }
  ],
- "skipped": [],
- "bsCleanRuns": [],
- "errors": [
-  {
-   "key": "MindCluster|Agentsdk~5992cb",
-   "rn": 2,
-   "err": "T4 重试 2 次后仍失败"
-  }
- ]
+ "errors": []
 }

@@ -1,0 +1,112 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2251,
+ "rid": "44084054389",
+ "st": "11-17 20:32",
+ "runId": 44084054389,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "test hicache run ci",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 22.3,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-17T14:32:37Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 18,
+ "failedJobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_off_dspark, 2, 2, 1, test/registered/npu/... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_off_dspark",
+   "id": 134053579863,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 134112121496,
+   "steps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_off_dspark, 2, 2, 1, test/registered/npu/... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_off_dspark",
+   "id": 134053579863,
+   "conclusion": "failure",
+   "startedAt": "2026-11-17T12:54:30Z",
+   "completedAt": "2026-11-17T14:32:30Z",
+   "logFile": "github_logs/gh_44084054389/134053579863_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa_off_dspark, 2, 2, 1, tes~5cb457.txt",
+   "logBytes": 322990,
+   "logLines": 1969,
+   "errorLines": [
+    "L1432: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L1433: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L1687: 70%|██████▉   | 67/96 [03:03<00:08,  3.36it/s]output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.ht",
+    "L1688: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1689: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1690: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1691: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1692: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1709: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1710: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1711: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1712: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L1767: Traceback (most recent call last):",
+    "L1791: Traceback (most recent call last):",
+    "L1802: Traceback (most recent call last):",
+    "L1815: Traceback (most recent call last):",
+    "L1827: Traceback (most recent call last):",
+    "L1836: ##[error]Error: failed to run script step:",
+    "L1837: ✗ exit code: 1",
+    "L1852: Traceback (most recent call last):",
+    "L1861: ##[error]Process completed with exit code 1.",
+    "L1862: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 134112121496,
+   "conclusion": "failure",
+   "startedAt": "2026-11-17T14:32:33Z",
+   "completedAt": "2026-11-17T14:32:36Z",
+   "logFile": "github_logs/gh_44084054389/134112121496_check-all-jobs.txt",
+   "logBytes": 6492,
+   "logLines": 99,
+   "errorLines": [
+    "L98: ##[error]Process completed with exit code 1."
+   ],
+   "githubSteps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

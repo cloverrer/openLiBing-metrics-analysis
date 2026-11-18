@@ -1,0 +1,100 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2248,
+ "rid": "44076531689",
+ "st": "11-17 19:43",
+ "runId": 44076531689,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "[Test][NPU] overlap-schedule validation: GLM5/Kimi/DSV4 case reconfig + TEMP nightly scoping",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 0.97,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-17T12:06:40Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 18,
+ "failedJobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap",
+   "id": 134016160854,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 134027980619,
+   "steps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test/registered/npu/a... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap",
+   "id": 134016160854,
+   "conclusion": "failure",
+   "startedAt": "2026-11-17T11:44:09Z",
+   "completedAt": "2026-11-17T12:06:34Z",
+   "logFile": "github_logs/gh_44076531689/134016160854_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_overlap, 1, 1, 1, test~51bfbb.txt",
+   "logBytes": 95954,
+   "logLines": 890,
+   "errorLines": [
+    "L670: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 188: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L671: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 189: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L717: Traceback (most recent call last):",
+    "L739: Traceback (most recent call last):",
+    "L751: Traceback (most recent call last):",
+    "L760: ##[error]Error: failed to run script step:",
+    "L761: ✗ exit code: 1",
+    "L776: Traceback (most recent call last):",
+    "L785: ##[error]Process completed with exit code 1.",
+    "L786: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 134027980619,
+   "conclusion": "failure",
+   "startedAt": "2026-11-17T12:06:36Z",
+   "completedAt": "2026-11-17T12:06:39Z",
+   "logFile": "github_logs/gh_44076531689/134027980619_check-all-jobs.txt",
+   "logBytes": 6331,
+   "logLines": 99,
+   "errorLines": [
+    "L98: ##[error]Process completed with exit code 1."
+   ],
+   "githubSteps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

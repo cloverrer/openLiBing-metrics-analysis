@@ -1,5 +1,5 @@
 (async () => {
-const PARAMS = {"runs": [{"key": "MindCluster|Agentsdk~5992cb", "rn": 2, "st": "11-16 06:00", "status": "FAILED", "cached": false, "track": "va", "dims": ["va", "bs"], "projectId": 300038, "pipelineId": "3920b07ff31c48d8aaddbae6f4db072d", "pipelineRunId": "b36202c9af5a46a59090ec03c23e2a2c"}, {"key": "Ascend-CANN|os", "rn": 153, "st": "11-16 14:05", "status": "FAILED", "cached": false, "track": "bs", "dims": ["bs"], "projectId": 300057, "pipelineId": "03da2691669a4f2bbfcfd89356bc3576", "pipelineRunId": "9320d843b2274cb1939144522820e156"}], "delay": 250, "conc": 4, "retry": 2, "backoffMs": 2000};
+const PARAMS = {"runs": [{"key": "MindCluster|ascend-deployer", "rn": 270, "st": "11-01 02:35", "status": "CANCELED", "cached": false, "track": "bs", "dims": ["bs"], "projectId": 300038, "pipelineId": "3bf413db452e4b2d8e26dd521bc9b78b", "pipelineRunId": "6af78b0208a64d7bb33b60f5a6cab5a8"}], "delay": 250, "conc": 4, "retry": 2, "backoffMs": 2000};
 return (async () => {
   const csrf = (document.cookie.split('; ').find(c => c.startsWith('csrf-token-open-li-bing=')) || '').split('=').slice(1).join('=');
   if (!csrf) return JSON.stringify({ ok: false, error: 'NOT_LOGGED_IN' });

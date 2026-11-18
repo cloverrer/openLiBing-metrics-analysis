@@ -1,0 +1,29 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2250,
+ "rid": "44077656117",
+ "st": "11-17 19:50",
+ "runId": 44077656117,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "[Test] [NPU] kimi_k3: retune the 128k decode prefix case to C6",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 0.48,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "success",
+  "updatedAt": "2026-11-17T14:10:39Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "none",
+ "why": "全部 job 成功/跳过",
+ "totalJobs": 16,
+ "failedJobs": [],
+ "cancelledJobs": [],
+ "jobs": [],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

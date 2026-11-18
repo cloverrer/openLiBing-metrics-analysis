@@ -1,0 +1,56 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2249,
+ "rid": "44076981323",
+ "st": "11-17 19:46",
+ "runId": 44076981323,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "[Test] [Ascend] npu: Rotate GLM-5.3 DCP/PCP accuracy case and move DeepSeek-V4-Pro perf case to full test",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 0.52,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "cancelled",
+  "updatedAt": "2026-11-17T12:40:41Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "取消 job 1 个（≤5，逐 job 精取）",
+ "totalJobs": 17,
+ "failedJobs": [],
+ "cancelledJobs": [
+  {
+   "name": "tmp-glm53-rotate-accuracy (glm_5_3_w8a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5... / glm_5_3_w8a8_1p1d_32p_gpqa",
+   "id": 134017474131
+  }
+ ],
+ "jobs": [
+  {
+   "name": "tmp-glm53-rotate-accuracy (glm_5_3_w8a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/glm5... / glm_5_3_w8a8_1p1d_32p_gpqa",
+   "id": 134017474131,
+   "conclusion": "cancelled",
+   "startedAt": "2026-11-17T11:46:42Z",
+   "completedAt": "2026-11-17T12:40:40Z",
+   "logFile": "github_logs/gh_44076981323/134017474131_tmp-glm53-rotate-accuracy (glm_5_3_w8a8_1p1d_32p_gpqa, 2, 2, 1, test_registered_~ac0ee6.txt",
+   "logBytes": 147480,
+   "logLines": 1091,
+   "errorLines": [
+    "L837: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L838: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L981: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

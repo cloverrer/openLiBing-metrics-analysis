@@ -3,10 +3,10 @@
     "step": "step_1_nightly",
     "title": "流水线身份注册表",
     "criteria": "每个开源组件下 pipelineId -> 唯一短名的持久映射（跨次运行累积、只增不删）：短名同时是归档目录名与页面聚合键的一半，已登记的一律沿用，保证同一条流水线跨日不会换目录 / 换 key",
-    "generatedAt": "2026-11-17 09:05:19",
+    "generatedAt": "2026-11-18 05:03:41",
     "pathBase": "products.<开源组件名>.<pipelineId> = {pipelineName, platform, short, firstSeen, lastSeen}"
   },
-  "generatedAt": "2026-11-17 09:05:19",
+  "generatedAt": "2026-11-18 05:03:41",
   "productCount": 12,
   "pipelineCount": 51,
   "products": {
@@ -16,7 +16,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_CANN_duo_os",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "309180d5c2904adf942f5678d9356d99": {
         "short": "ops-transformer",
@@ -81,7 +81,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_pytorch_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "HPCKit": {
@@ -90,35 +90,35 @@
         "pipelineName": "Nightly-CI-Component-pipeline_kudnn",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "ddb211b1e4a74f55a0e604fa95ef469e": {
         "short": "kupl",
         "pipelineName": "Nightly-CI-Component-pipeline_kupl",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "eeedf3e4794449969ad6d7f67691d0be": {
         "short": "kuqcd",
         "pipelineName": "Nightly-CI-Component-pipeline_kuqcd",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "fec036d3c59f4d27bb506138f273f113": {
         "short": "kpex",
         "pipelineName": "Nightly-CI-Component-pipeline_kpex",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "ffe131425ad84d4b8b6c17c4c09476d9": {
         "short": "hmpi",
         "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "MindCluster": {
@@ -127,42 +127,42 @@
         "pipelineName": "Nightly-CI-Component-pipeline_IndexSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "3920b07ff31c48d8aaddbae6f4db072d": {
         "short": "Agentsdk~5992cb",
         "pipelineName": "Nightly-CI-Component-pipeline_Agentsdk",
         "platform": "gitcode",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "3bf413db452e4b2d8e26dd521bc9b78b": {
         "short": "ascend-deployer",
         "pipelineName": "Nightly-CI-Component-pipeline_ascend-deployer",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "576d7d060dc24749951e0b3abd6a5dcc": {
         "short": "MindCluster",
         "pipelineName": "Nightly-CI-Component-pipeline_MindCluster",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "610d7853be5a4efa9096ddead93a2d4f": {
         "short": "RecSDK",
         "pipelineName": "Nightly-CI-Component-pipeline_RecSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "9f864a61fe8b4268b592e5e2b38f859a": {
         "short": "AgentSDK",
         "pipelineName": "Nightly-CI-Component-pipeline_AgentSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "ac8a7ce54ea347c08a697987c21653fc": {
         "short": "VisionSDK",
@@ -176,7 +176,7 @@
         "pipelineName": "Nightly-CI-Component-pipeline_MultimodalSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "fd920c7904cb47ad9ce80d4eaede5cb5": {
         "short": "RAGSDK",
@@ -192,14 +192,14 @@
         "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "d05b26dfc2e5450e8fff23ddf4cd0eb6": {
         "short": "MindIE-Motor",
         "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "MindSpeed": {
@@ -208,35 +208,35 @@
         "pipelineName": "Nightly-CI-Component-pipeline_DrivingSDK_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "094eb44f70df495783f375641b7143e6": {
         "short": "MindSpeed-MM_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-MM_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "b30f40b85cce4153b175379589793abc": {
         "short": "MindSpeed-LLM_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-LLM_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "e12bb930ffe84e3b9258f23c41644b58": {
         "short": "MindSpeed_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "e593e0b8911044b69ce9d1be3c19032a": {
         "short": "MindSpeed-A3_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-A3_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "MindStudio": {
@@ -245,42 +245,42 @@
         "pipelineName": "Nightly-CI-Component-pipeline_msprof",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "9de3361a26304f96a7ac8ebf571d0b57": {
         "short": "msprobe",
         "pipelineName": "Nightly-CI-Component-pipeline_msprobe",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "af61355154f54c85adac46449f506edc": {
         "short": "msserviceprofiler",
         "pipelineName": "Nightly-CI-Component-pipeline_msserviceprofiler",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "b4bf5a6de15549c59ce223fe03922413": {
         "short": "msmemscope",
         "pipelineName": "Nightly-CI-Component-pipeline_msmemscope",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "b67d335347fa4646acd3b96d1c55573e": {
         "short": "msot",
         "pipelineName": "Nightly-CI-Component-pipeline_msot",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "b9948b4f145e4063a094356af192513c": {
         "short": "msmodelslim",
         "pipelineName": "Nightly-CI-Component-pipeline_msmodelslim",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "SgLang": {
@@ -289,7 +289,7 @@
         "pipelineName": "nightly-test-npu.yml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "Triton_Ascend": {
@@ -298,7 +298,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_Triton_Ascend",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "boostkit": {
@@ -307,56 +307,56 @@
         "pipelineName": "Nightly-CI-Component-pipeline_avx2ki",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "452bb706ced24726aa7686b92a966734": {
         "short": "kqmalloc",
         "pipelineName": "Nightly-CI-Component-pipeline_core_kqmalloc",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "636f9465b49d4a6591d5572ad6f9456f": {
         "short": "OmniStream",
         "pipelineName": "Nightly-CI-Component-pipeline_OmniStream",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "9485ce9d987d4717a944aa3932474391": {
         "short": "Megascan",
         "pipelineName": "Nightly-CI-Component-pipeline_Megascan",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "a74a64d931f34c98bc726e5ea599f8a3": {
         "short": "Bigdata",
         "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "a8c3dbdd3feb4c4ab4a4a336e1323ce3": {
         "short": "KTAG",
         "pipelineName": "Nightly-CI-Component-pipeline_KTAG",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "b0040d6ccaae48b5b623931d34db5d24": {
         "short": "Ultrascan",
         "pipelineName": "Nightly-CI-Component-pipeline_Ultrascan",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "eaf0862dd3f84fc2b51862830d7fe19e": {
         "short": "KAE",
         "pipelineName": "Nightly-CI-Component-pipeline_KAE",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "openUBMC": {
@@ -372,7 +372,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_openUBMC",
         "platform": "gitcode",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     },
     "vllm-ascend": {
@@ -381,14 +381,14 @@
         "pipelineName": "schedule_nightly_test_a2.yaml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       },
       "228664976": {
         "short": "a3.yaml",
         "pipelineName": "schedule_nightly_test_a3.yaml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-16 2026-11-16"
+        "lastSeen": "2026-11-17 2026-11-17"
       }
     }
   }
