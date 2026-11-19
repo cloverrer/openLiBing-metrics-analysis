@@ -32,3 +32,11 @@
 - `python tools/list_pending.py --strict`：退出码 **0**，待分析 0 条，分析完整性校验通过（682 条记录无漏分析/多分析）。
 - `python tools/verify_archive.py`：**通过**（8 个归档日、428 个流水线目录、682 条执行记录、231 个证据引用缺失 0；漏分析/多分析/待分析未完成均为 0）。
 - 三段流程均已完成：取数归档（退出码 0）→ AI 根因（15/15 写回成功）→ 重出页面（首页 72.0 KB、二级页 132.9 KB）。
+
+## 六、提交与推送
+- 本地提交已完成：`bde836d up to 11.19`（工作区已干净）。
+- **推送失败（未完成）**：连续两次 `git push origin master` 均因网络不通失败，未能推到远端，GitHub Pages 在线看板本次不会更新。
+  - 第 1 次：`fatal: unable to access 'https://github.com/cloverrer/openLiBing-metrics-analysis.git/': Recv failure: Connection was reset`（退出码 128）。
+  - 第 2 次：`fatal: unable to access 'https://github.com/cloverrer/openLiBing-metrics-analysis.git/': Failed to connect to github.com port 443 after 21058 ms: Could not connect to server`（退出码 128）。
+  - 处置：非远端拒绝（无新提交），本地提交已就绪；待网络恢复后执行 `git push origin master` 即可完成发布，未使用任何强推、未改动 git 配置。
+
