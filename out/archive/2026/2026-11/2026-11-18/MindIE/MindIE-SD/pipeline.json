@@ -1,0 +1,1391 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-19 05:02:01",
+  "component": "MindIE",
+  "pipeline": "MindIE-SD",
+  "date": "2026-11-18",
+  "recordCount": 3
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-18",
+ "component": "MindIE",
+ "pipeline": "MindIE-SD",
+ "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+ "platform": "codearts",
+ "key": "MindIE|MindIE-SD",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-18",
+  "runs": [
+   {
+    "rn": 118,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-18 16:54:30"
+   },
+   {
+    "rn": 117,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-18 10:50:41"
+   },
+   {
+    "rn": 116,
+    "status": "FAILED",
+    "endedAt": "2026-11-18 01:16:55"
+   }
+  ]
+ },
+ "counts": {
+  "records": 3,
+  "tasks": 1,
+  "cases": 0,
+  "errorMessages": 14
+ },
+ "evidence": {
+  "files": 3,
+  "bytes": 5345588,
+  "lines": 38493,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-19 05:02:01",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "dateRange": {
+    "start": "2026-11-18",
+    "end": "2026-11-18"
+   },
+   "product": {
+    "product": "MindIE",
+    "projectId": 300036,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 0.6666666666666666,
+    "pipelineCount": 2,
+    "badPipelineCount": 2,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 2,
+    "analyze": true,
+    "collectedPipelineCount": 2,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 2,
+     "sumRate": 2.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 4,
+     "buildCount": 6,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "MindIE|MindIE-SD",
+    "product": "MindIE",
+    "projectId": 300036,
+    "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+    "pipelineShortName": "MindIE-SD",
+    "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 0.6667,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 3 次运行（当日 3 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "dateRange": {
+    "start": "2026-11-18",
+    "end": "2026-11-18"
+   },
+   "date": "2026-11-18",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 116,
+     "rid": "5a5a6716983b4f84b5488031000653d7",
+     "status": "FAILED",
+     "start": "11-18 01:01",
+     "startISO": "2026-11-18T01:01:43",
+     "endISO": "2026-11-18T01:16:55",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=5a5a6716983b4f84b5488031000653d7",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "构建任务",
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-18": [
+     "COMPLETED",
+     "COMPLETED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 118,
+     "pipelineRunId": "557e1753e2aa4c64b541927a907b6581",
+     "start": "2026-11-18 16:24:24",
+     "end": "2026-11-18 16:54:30",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-18",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 117,
+     "pipelineRunId": "8b34705adb4f490db8ee8bf50154b264",
+     "start": "2026-11-18 09:23:41",
+     "end": "2026-11-18 10:50:41",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-18",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 116,
+     "pipelineRunId": "5a5a6716983b4f84b5488031000653d7",
+     "start": "2026-11-18 01:01:43",
+     "end": "2026-11-18 01:16:55",
+     "status": "FAILED",
+     "endedDate": "2026-11-18",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 118,
+     "start": "2026-11-18 16:24:24",
+     "end": "2026-11-18 16:54:30",
+     "status": "COMPLETED",
+     "rid": "557e1753e2aa4c64b541927a907b6581",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=557e1753e2aa4c64b541927a907b6581",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 117,
+     "start": "2026-11-18 09:23:41",
+     "end": "2026-11-18 10:50:41",
+     "status": "COMPLETED",
+     "rid": "8b34705adb4f490db8ee8bf50154b264",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=8b34705adb4f490db8ee8bf50154b264",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 116,
+     "start": "2026-11-18 01:01:43",
+     "end": "2026-11-18 01:16:55",
+     "status": "FAILED",
+     "rid": "5a5a6716983b4f84b5488031000653d7",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=5a5a6716983b4f84b5488031000653d7",
+     "bc": 1,
+     "bpc": 0,
+     "cpr": null,
+     "iva": false,
+     "ftt": "构建任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-18"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 3,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "test": [],
+   "log": [
+    {
+     "key": "MindIE|MindIE-SD",
+     "pipeline": "MindIE-SD",
+     "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+     "projectId": 300036,
+     "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+     "rid": "5a5a6716983b4f84b5488031000653d7",
+     "rn": 116,
+     "st": "11-18 01:01",
+     "jobId": "43aca12a05ca47a787692cf5c15d169c",
+     "jobName": "Build_MindIE-SD",
+     "stepIds": [
+      "8271aa6d296a467cadbd9b1dd135313f"
+     ],
+     "steps": [
+      {
+       "id": "8271aa6d296a467cadbd9b1dd135313f",
+       "name": "Build_MindIE-SD",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "6ca41dfa6b7d4c64b40bc47b5c904bd3",
+       "jobIdParam": "3e2e6a4a47294a80b35e8118eb10423d"
+      }
+     ],
+     "jobErrMsg": "步骤Build_MindIE-SD执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "71b9ce23d7de48a3ba31a563ecb8258f",
+     "route": "log",
+     "isBuild": true,
+     "buildJobId": "3e2e6a4a47294a80b35e8118eb10423d"
+    }
+   ],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 1,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "MindIE|MindIE-SD",
+     "pipeline": "MindIE-SD",
+     "rn": 116,
+     "st": "11-18 01:01",
+     "rid": "5a5a6716983b4f84b5488031000653d7",
+     "jobId": "43aca12a05ca47a787692cf5c15d169c",
+     "jobName": "Build_MindIE-SD",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_MindIE-SD执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "logBytes": 6487,
+     "logLines": 61,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L45: [2026/11/18 01:14:52.629 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_x86_py311_abi0 failed",
+      "L48: [2026/11/18 01:15:52.738 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_arm_py311_abi0 failed",
+      "L55: [2026/11/18 01:16:52.834 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 4, dispatched jobs num: 4, succeed jobs num: 2, failed jobs num: 2",
+      "L56: [2026/11/18 01:16:52.834 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]",
+      "L57: [2026/11/18 01:16:52.836 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败",
+      "L58: [2026/11/18 01:16:52.916 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L59: [2026/11/18 01:16:52.918 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败",
+      "L61: [2026/11/18 01:16:55.808 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "MindIE-SD_arm_py311_abi0",
+       "buildNo": "1541",
+       "buildJobId": "52112032-a94f-4710-a9d6-cc919216ff0d",
+       "status": "FAILURE",
+       "durationMs": 836164,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:15:48.000+00:00",
+       "logFile": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669594,
+       "logLines": 19215,
+       "errorLines": [
+        "L2564: [2026/11/18 01:06:40.599 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2580: [2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2596: [2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3717: [2026/11/18 01:06:43.914 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3733: [2026/11/18 01:06:43.915 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3748: [2026/11/18 01:06:43.915 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3922: [2026/11/18 01:06:43.921 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3988: [2026/11/18 01:06:43.923 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L4009: [2026/11/18 01:06:43.924 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8564: [2026/11/18 01:06:45.583 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16648: [2026/11/18 01:06:51.549 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16650: [2026/11/18 01:06:51.549 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16666: [2026/11/18 01:06:51.550 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:51.550 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16686: [2026/11/18 01:06:51.550 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:51.551 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:51.551 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16722: [2026/11/18 01:06:51.551 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16740: [2026/11/18 01:06:51.552 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:51.552 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16758: [2026/11/18 01:06:51.552 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16776: [2026/11/18 01:06:51.553 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:51.554 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16794: [2026/11/18 01:06:51.554 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16812: [2026/11/18 01:06:51.554 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:51.555 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16830: [2026/11/18 01:06:51.555 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16848: [2026/11/18 01:06:51.555 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:51.557 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:51.557 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16925: [2026/11/18 01:06:51.558 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:51.558 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:51.559 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16995: [2026/11/18 01:06:51.560 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:51.561 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:51.561 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17048: [2026/11/18 01:06:51.561 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:51.562 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:51.562 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17084: [2026/11/18 01:06:51.562 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L19142: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19143: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19146: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19149: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19150: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19153: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19156: [2026/11/18 01:15:23.434 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19158: [2026/11/18 01:15:23.695 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19159: [2026/11/18 01:15:23.695 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19160: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19161: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19162: [2026/11/18 01:15:23.695 GMT+08:00] Traceback (most recent call last):",
+        "L19166: [2026/11/18 01:15:23.695 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19167: [2026/11/18 01:15:23.695 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19171: [2026/11/18 01:15:23.695 GMT+08:00] Traceback (most recent call last):",
+        "L19207: [2026/11/18 01:15:23.696 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19208: [2026/11/18 01:15:23.696 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19211: [2026/11/18 01:15:47.111 GMT+08:00] ERROR: Job ascend-mindie-sd-9478p 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19212: [2026/11/18 01:15:47.131 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19215: [2026/11/18 01:15:53.323 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi1",
+       "buildNo": "1542",
+       "buildJobId": "3cb2a499-8de9-4eca-b254-f0f86bb07768",
+       "status": "SUCCESS",
+       "durationMs": 881325,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:16:34.000+00:00"
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi0",
+       "buildNo": "1543",
+       "buildJobId": "670f4fdd-560d-49fc-8b7c-f6761d0d1108",
+       "status": "FAILURE",
+       "durationMs": 753900,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:14:31.000+00:00",
+       "logFile": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669507,
+       "logLines": 19217,
+       "errorLines": [
+        "L2602: [2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2618: [2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2634: [2026/11/18 01:06:21.487 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3718: [2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3734: [2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3749: [2026/11/18 01:06:23.859 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3956: [2026/11/18 01:06:24.814 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8477: [2026/11/18 01:06:24.962 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8498: [2026/11/18 01:06:24.962 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8567: [2026/11/18 01:06:25.541 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16666: [2026/11/18 01:06:29.643 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:29.643 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16686: [2026/11/18 01:06:29.643 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:29.644 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:29.644 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16722: [2026/11/18 01:06:29.644 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16740: [2026/11/18 01:06:29.645 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:29.645 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16758: [2026/11/18 01:06:29.645 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16776: [2026/11/18 01:06:29.646 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:29.646 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16794: [2026/11/18 01:06:29.646 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16812: [2026/11/18 01:06:29.647 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:29.647 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16830: [2026/11/18 01:06:29.647 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16848: [2026/11/18 01:06:29.648 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:29.650 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:29.650 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16925: [2026/11/18 01:06:29.650 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:29.651 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:29.652 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16995: [2026/11/18 01:06:29.652 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:29.653 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:29.654 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17048: [2026/11/18 01:06:29.654 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:29.655 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:29.655 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17084: [2026/11/18 01:06:29.655 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L18988: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting C compiler ABI info - failed",
+        "L18994: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting CXX compiler ABI info - failed",
+        "L19144: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19145: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19148: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19151: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19152: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19155: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19158: [2026/11/18 01:14:10.253 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19160: [2026/11/18 01:14:11.638 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19161: [2026/11/18 01:14:11.638 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19162: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19163: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19164: [2026/11/18 01:14:11.638 GMT+08:00] Traceback (most recent call last):",
+        "L19168: [2026/11/18 01:14:11.638 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19169: [2026/11/18 01:14:11.638 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19173: [2026/11/18 01:14:11.638 GMT+08:00] Traceback (most recent call last):",
+        "L19209: [2026/11/18 01:14:11.639 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19210: [2026/11/18 01:14:11.639 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19213: [2026/11/18 01:14:29.761 GMT+08:00] ERROR: Job ascend-mindie-sd-65cdv 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19214: [2026/11/18 01:14:29.778 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19217: [2026/11/18 01:14:35.895 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_arm_py311_abi1",
+       "buildNo": "1544",
+       "buildJobId": "9c069d10-d223-4255-addb-5e289c8cd601",
+       "status": "SUCCESS",
+       "durationMs": 876100,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:16:33.000+00:00"
+      }
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 8
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "items": [
+    {
+     "rn": 116,
+     "jobName": "Build_MindIE-SD",
+     "subTasks": [
+      {
+       "name": "MindIE-SD_arm_py311_abi0",
+       "buildNo": "1541",
+       "buildJobId": "52112032-a94f-4710-a9d6-cc919216ff0d",
+       "status": "FAILURE",
+       "durationMs": 836164,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:15:48.000+00:00",
+       "logFile": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669594,
+       "logLines": 19215,
+       "errorLines": [
+        "L2564: [2026/11/18 01:06:40.599 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2580: [2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2596: [2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3717: [2026/11/18 01:06:43.914 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3733: [2026/11/18 01:06:43.915 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3748: [2026/11/18 01:06:43.915 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3922: [2026/11/18 01:06:43.921 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3988: [2026/11/18 01:06:43.923 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L4009: [2026/11/18 01:06:43.924 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8564: [2026/11/18 01:06:45.583 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16648: [2026/11/18 01:06:51.549 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16650: [2026/11/18 01:06:51.549 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16666: [2026/11/18 01:06:51.550 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:51.550 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16686: [2026/11/18 01:06:51.550 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:51.551 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:51.551 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16722: [2026/11/18 01:06:51.551 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16740: [2026/11/18 01:06:51.552 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:51.552 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16758: [2026/11/18 01:06:51.552 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16776: [2026/11/18 01:06:51.553 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:51.554 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16794: [2026/11/18 01:06:51.554 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16812: [2026/11/18 01:06:51.554 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:51.555 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16830: [2026/11/18 01:06:51.555 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16848: [2026/11/18 01:06:51.555 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:51.557 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:51.557 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16925: [2026/11/18 01:06:51.558 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:51.558 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:51.559 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16995: [2026/11/18 01:06:51.560 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:51.561 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:51.561 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17048: [2026/11/18 01:06:51.561 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:51.562 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:51.562 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17084: [2026/11/18 01:06:51.562 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L19142: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19143: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19146: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19149: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19150: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19153: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19156: [2026/11/18 01:15:23.434 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19158: [2026/11/18 01:15:23.695 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19159: [2026/11/18 01:15:23.695 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19160: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19161: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19162: [2026/11/18 01:15:23.695 GMT+08:00] Traceback (most recent call last):",
+        "L19166: [2026/11/18 01:15:23.695 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19167: [2026/11/18 01:15:23.695 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19171: [2026/11/18 01:15:23.695 GMT+08:00] Traceback (most recent call last):",
+        "L19207: [2026/11/18 01:15:23.696 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19208: [2026/11/18 01:15:23.696 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19211: [2026/11/18 01:15:47.111 GMT+08:00] ERROR: Job ascend-mindie-sd-9478p 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19212: [2026/11/18 01:15:47.131 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19215: [2026/11/18 01:15:53.323 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi1",
+       "buildNo": "1542",
+       "buildJobId": "3cb2a499-8de9-4eca-b254-f0f86bb07768",
+       "status": "SUCCESS",
+       "durationMs": 881325,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:16:34.000+00:00"
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi0",
+       "buildNo": "1543",
+       "buildJobId": "670f4fdd-560d-49fc-8b7c-f6761d0d1108",
+       "status": "FAILURE",
+       "durationMs": 753900,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:14:31.000+00:00",
+       "logFile": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669507,
+       "logLines": 19217,
+       "errorLines": [
+        "L2602: [2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2618: [2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2634: [2026/11/18 01:06:21.487 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3718: [2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3734: [2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3749: [2026/11/18 01:06:23.859 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3956: [2026/11/18 01:06:24.814 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8477: [2026/11/18 01:06:24.962 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8498: [2026/11/18 01:06:24.962 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8567: [2026/11/18 01:06:25.541 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16666: [2026/11/18 01:06:29.643 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:29.643 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16686: [2026/11/18 01:06:29.643 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:29.644 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:29.644 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16722: [2026/11/18 01:06:29.644 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16740: [2026/11/18 01:06:29.645 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:29.645 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16758: [2026/11/18 01:06:29.645 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16776: [2026/11/18 01:06:29.646 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:29.646 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16794: [2026/11/18 01:06:29.646 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16812: [2026/11/18 01:06:29.647 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:29.647 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16830: [2026/11/18 01:06:29.647 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16848: [2026/11/18 01:06:29.648 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:29.650 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:29.650 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16925: [2026/11/18 01:06:29.650 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:29.651 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:29.652 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16995: [2026/11/18 01:06:29.652 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:29.653 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:29.654 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17048: [2026/11/18 01:06:29.654 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:29.655 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:29.655 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17084: [2026/11/18 01:06:29.655 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L18988: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting C compiler ABI info - failed",
+        "L18994: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting CXX compiler ABI info - failed",
+        "L19144: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19145: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19148: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19151: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19152: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19155: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19158: [2026/11/18 01:14:10.253 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19160: [2026/11/18 01:14:11.638 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19161: [2026/11/18 01:14:11.638 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19162: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19163: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19164: [2026/11/18 01:14:11.638 GMT+08:00] Traceback (most recent call last):",
+        "L19168: [2026/11/18 01:14:11.638 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19169: [2026/11/18 01:14:11.638 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19173: [2026/11/18 01:14:11.638 GMT+08:00] Traceback (most recent call last):",
+        "L19209: [2026/11/18 01:14:11.639 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19210: [2026/11/18 01:14:11.639 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19213: [2026/11/18 01:14:29.761 GMT+08:00] ERROR: Job ascend-mindie-sd-65cdv 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19214: [2026/11/18 01:14:29.778 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19217: [2026/11/18 01:14:35.895 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_arm_py311_abi1",
+       "buildNo": "1544",
+       "buildJobId": "9c069d10-d223-4255-addb-5e289c8cd601",
+       "status": "SUCCESS",
+       "durationMs": 876100,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:16:33.000+00:00"
+      }
+     ]
+    }
+   ],
+   "counts": {
+    "tasks": 1,
+    "subTasks": 4,
+    "failed": 2,
+    "logs": 2
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-19 05:02:01",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-18",
+    "recordCount": 3
+   },
+   "date": "2026-11-18",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "counts": {
+    "records": 3,
+    "tasks": 1,
+    "cases": 0,
+    "errorMessages": 14
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2521,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 5001,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1588,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 531,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 22368,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 20592,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 507,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 846,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "MindIE|MindIE-SD#116",
+   "date": "2026-11-18",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+   "platform": "codearts",
+   "buildNumber": 116,
+   "pipelineRunId": "5a5a6716983b4f84b5488031000653d7",
+   "status": "FAILED",
+   "failedTaskType": "构建任务",
+   "startedAt": "2026-11-18T01:01:43",
+   "endedAt": "2026-11-18T01:16:55",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-18T01:16:55",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.6667,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs",
+    "affects": [
+     "bs"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=5a5a6716983b4f84b5488031000653d7",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Build_MindIE-SD",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "logBytes": 6487,
+     "logLines": 61,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_MindIE-SD执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L45: [2026/11/18 01:14:52.629 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_x86_py311_abi0 failed",
+      "L48: [2026/11/18 01:15:52.738 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_arm_py311_abi0 failed",
+      "L55: [2026/11/18 01:16:52.834 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 4, dispatched jobs num: 4, succeed jobs num: 2, failed jobs num: 2",
+      "L56: [2026/11/18 01:16:52.834 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]",
+      "L57: [2026/11/18 01:16:52.836 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败",
+      "L58: [2026/11/18 01:16:52.916 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L59: [2026/11/18 01:16:52.918 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败",
+      "L61: [2026/11/18 01:16:55.808 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "MindIE-SD_arm_py311_abi0",
+       "buildNo": "1541",
+       "buildJobId": "52112032-a94f-4710-a9d6-cc919216ff0d",
+       "status": "FAILURE",
+       "durationMs": 836164,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:15:48.000+00:00",
+       "logFile": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669594,
+       "logLines": 19215,
+       "errorLines": [
+        "L2564: [2026/11/18 01:06:40.599 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2580: [2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3717: [2026/11/18 01:06:43.914 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3733: [2026/11/18 01:06:43.915 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3922: [2026/11/18 01:06:43.921 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3988: [2026/11/18 01:06:43.923 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L4009: [2026/11/18 01:06:43.924 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8564: [2026/11/18 01:06:45.583 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16648: [2026/11/18 01:06:51.549 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16650: [2026/11/18 01:06:51.549 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16666: [2026/11/18 01:06:51.550 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:51.550 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:51.551 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:51.551 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16740: [2026/11/18 01:06:51.552 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:51.552 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16776: [2026/11/18 01:06:51.553 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:51.554 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16794: [2026/11/18 01:06:51.554 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:51.555 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16830: [2026/11/18 01:06:51.555 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:51.557 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:51.557 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16925: [2026/11/18 01:06:51.558 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:51.558 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:51.559 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16995: [2026/11/18 01:06:51.560 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:51.561 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:51.561 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:51.562 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:51.562 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L19142: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19143: [2026/11/18 01:15:11.200 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19149: [2026/11/18 01:15:11.200 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19156: [2026/11/18 01:15:23.434 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19158: [2026/11/18 01:15:23.695 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19159: [2026/11/18 01:15:23.695 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19160: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19161: [2026/11/18 01:15:23.695 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19162: [2026/11/18 01:15:23.695 GMT+08:00] Traceback (most recent call last):",
+        "L19166: [2026/11/18 01:15:23.695 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19167: [2026/11/18 01:15:23.695 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19207: [2026/11/18 01:15:23.696 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19208: [2026/11/18 01:15:23.696 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19211: [2026/11/18 01:15:47.111 GMT+08:00] ERROR: Job ascend-mindie-sd-9478p 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19212: [2026/11/18 01:15:47.131 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19215: [2026/11/18 01:15:53.323 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi1",
+       "buildNo": "1542",
+       "buildJobId": "3cb2a499-8de9-4eca-b254-f0f86bb07768",
+       "status": "SUCCESS",
+       "durationMs": 881325,
+       "startTime": "2026-11-17T17:01:52.000+00:00",
+       "finishTime": "2026-11-17T17:16:34.000+00:00"
+      },
+      {
+       "name": "MindIE-SD_x86_py311_abi0",
+       "buildNo": "1543",
+       "buildJobId": "670f4fdd-560d-49fc-8b7c-f6761d0d1108",
+       "status": "FAILURE",
+       "durationMs": 753900,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:14:31.000+00:00",
+       "logFile": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 2669507,
+       "logLines": 19217,
+       "errorLines": [
+        "L2602: [2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L2634: [2026/11/18 01:06:21.487 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3718: [2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3749: [2026/11/18 01:06:23.859 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L3956: [2026/11/18 01:06:24.814 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8477: [2026/11/18 01:06:24.962 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L8567: [2026/11/18 01:06:25.541 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16666: [2026/11/18 01:06:29.643 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16668: [2026/11/18 01:06:29.643 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16704: [2026/11/18 01:06:29.644 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16720: [2026/11/18 01:06:29.644 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16740: [2026/11/18 01:06:29.645 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16756: [2026/11/18 01:06:29.645 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16776: [2026/11/18 01:06:29.646 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16792: [2026/11/18 01:06:29.646 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16812: [2026/11/18 01:06:29.647 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16828: [2026/11/18 01:06:29.647 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16848: [2026/11/18 01:06:29.648 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16905: [2026/11/18 01:06:29.650 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L16907: [2026/11/18 01:06:29.650 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L16953: [2026/11/18 01:06:29.651 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L16974: [2026/11/18 01:06:29.652 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)",
+        "L17028: [2026/11/18 01:06:29.653 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17030: [2026/11/18 01:06:29.654 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L17064: [2026/11/18 01:06:29.655 GMT+08:00]          OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__); \\",
+        "L17066: [2026/11/18 01:06:29.655 GMT+08:00] /workspace/MindIE-SD/csrc/ops/eagle_block_sparse_attention/op_host/../../utils/inc/error/ops_error.h:26:52: note: in expansion of macro ‘OPS_INNER_ERR_STUB’",
+        "L18988: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting C compiler ABI info - failed",
+        "L18994: [2026/11/18 01:13:54.630 GMT+08:00] -- Detecting CXX compiler ABI info - failed",
+        "L19144: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:54: error: ‘aclOpExecutor’ was not declared in this scope",
+        "L19145: [2026/11/18 01:14:02.109 GMT+08:00]  ACL_FUNC_VISIBILITY aclError AclDestroyAclOpExecutor(aclOpExecutor *executor);",
+        "L19151: [2026/11/18 01:14:02.109 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/torch_npu/include/torch_npu/csrc/framework/interface/AclOpCompileInterface.h:146:69: error: ‘executor’ was not declared in this scope",
+        "L19158: [2026/11/18 01:14:10.253 GMT+08:00] gmake[2]: *** [CMakeFiles/PTAExtensionOPS.dir/build.make:370: CMakeFiles/PTAExtensionOPS.dir/plugin/eagle_split_norm_rope_concat.cpp.o] Error 1",
+        "L19160: [2026/11/18 01:14:11.638 GMT+08:00] gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/PTAExtensionOPS.dir/all] Error 2",
+        "L19161: [2026/11/18 01:14:11.638 GMT+08:00] gmake: *** [Makefile:91: all] Error 2",
+        "L19162: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Script failed with return code 2",
+        "L19163: [2026/11/18 01:14:11.638 GMT+08:00] ERROR: Build failed: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19164: [2026/11/18 01:14:11.638 GMT+08:00] Traceback (most recent call last):",
+        "L19168: [2026/11/18 01:14:11.638 GMT+08:00]     raise CalledProcessError(retcode, cmd)",
+        "L19169: [2026/11/18 01:14:11.638 GMT+08:00] subprocess.CalledProcessError: Command '['bash', '/workspace/MindIE-SD/build/build_plugin.sh', '/workspace/MindIE-SD/build']' returned non-zero exit status 2.",
+        "L19209: [2026/11/18 01:14:11.639 GMT+08:00]     raise RuntimeError(\"Script execution failed: %s\" % script_path) from e",
+        "L19210: [2026/11/18 01:14:11.639 GMT+08:00] RuntimeError: Script execution failed: /workspace/MindIE-SD/build/build_plugin.sh",
+        "L19213: [2026/11/18 01:14:29.761 GMT+08:00] ERROR: Job ascend-mindie-sd-65cdv 容器 ascend 失败 (exit code: 1, reason: Error)",
+        "L19214: [2026/11/18 01:14:29.778 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L19217: [2026/11/18 01:14:35.895 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "MindIE-SD_arm_py311_abi1",
+       "buildNo": "1544",
+       "buildJobId": "9c069d10-d223-4255-addb-5e289c8cd601",
+       "status": "SUCCESS",
+       "durationMs": 876100,
+       "startTime": "2026-11-17T17:01:57.000+00:00",
+       "finishTime": "2026-11-17T17:16:33.000+00:00"
+      }
+     ]
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 45,
+     "level": "LOG",
+     "text": "[2026/11/18 01:14:52.629 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_x86_py311_abi0 failed"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 48,
+     "level": "LOG",
+     "text": "[2026/11/18 01:15:52.738 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-SD_arm_py311_abi0 failed"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 55,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:52.834 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 4, dispatched jobs num: 4, succeed jobs num: 2, failed jobs num: 2"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 56,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:52.834 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 57,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:52.836 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 58,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:52.916 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 59,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:52.918 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[MindIE-SD_arm_py311_abi0, MindIE-SD_x86_py311_abi0]】等构建失败"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "source": "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "line": 61,
+     "level": "LOG",
+     "text": "[2026/11/18 01:16:55.808 GMT+08:00] Finished: FAILURE"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_arm_py311_abi0",
+     "source": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 2564,
+     "text": "[2026/11/18 01:06:40.599 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_arm_py311_abi0",
+     "source": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 2580,
+     "text": "[2026/11/18 01:06:40.600 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_arm_py311_abi0",
+     "source": "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 3717,
+     "text": "[2026/11/18 01:06:43.914 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_x86_py311_abi0",
+     "source": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 2602,
+     "text": "[2026/11/18 01:06:21.486 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_x86_py311_abi0",
+     "source": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 2634,
+     "text": "[2026/11/18 01:06:21.487 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    },
+    {
+     "task": "Build_MindIE-SD",
+     "subTask": "MindIE-SD_x86_py311_abi0",
+     "source": "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+     "level": "SUBTASK",
+     "line": 3718,
+     "text": "[2026/11/18 01:06:23.858 GMT+08:00]  #define OPS_LOG_STUB_E(OPS_DESC, FMT, ...) OPS_LOG_STUB(OP, DLOG_ERROR, OPS_DESC, FMT, ##__VA_ARGS__)"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/42_MindIE-SD_116_Build_MindIE-SD.log",
+     "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+     "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 1,
+    "cases": 0,
+    "errorMessages": 14,
+    "evidenceFiles": 3
+   },
+   "verdict": {
+    "category": "compile_failure",
+    "text": "编译失败",
+    "confidence": 0.8,
+    "level": "高",
+    "basis": [
+     "Build 任务 Build_MindIE-SD 下钻到 2 个失败子任务（MindIE-SD_arm_py311_abi0、MindIE-SD_x86_py311_abi0）",
+     "子任务日志/错误行命中编译报错特征（如 error: / fatal error / collect2）",
+     "基线 0.30",
+     "证据文件落盘 3 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "失败子任务日志落盘 +0.10"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "error: ‘aclOpExecutor’ was not declared in this scope",
+    "issueType": "代码编译错误",
+    "issueDetail": "插件源码编译报 aclOpExecutor 类型未声明，构建中止",
+    "rootCause": "失败在插件编译环节：x86 与 arm 两个构建子任务都在编译插件源码时，所依赖的 torch_npu 头文件里对销毁算子执行器的函数声明报「类型未声明」，gmake 随即以 Error 1/2 退出，插件构建脚本非零返回，wheel 构建失败。该类型由 CANN 的 ACL 接口提供，报错说明当前 torch_npu 与 CANN/ACL 头文件的版本组合不匹配（或头文件包含顺序影响），属于构建环境依赖不一致导致的问题，不是 MindIE-SD 插件源码本身的语法缺陷。",
+    "advice": "对齐构建环境的 torch_npu 与 CANN 版本：确认 torch_npu 头文件所依赖的 ACL 接口（算子执行器类型）在所用 CANN 版本中可见，必要时升级或回退 torch_npu 与 CANN 到相互兼容的版本；若仍不可见，则在插件源码中显式包含 ACL 算子编译相关头文件以消除可见性差异，改好后在构建镜像内手工跑一次插件构建脚本复现。\n\n验证方式：重跑该流水线，要求两个架构子任务的插件编译均通过（不再出现该类型未声明的编译错误）、整体运行结果为 SUCCESS。",
+    "cites": [
+     "job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log:L19144",
+     "job_logs/44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log:L19142"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log:L19144",
+    "updatedAt": "2026-11-19 05:03:43",
+    "firstAnalyzedAt": "2026-11-19 05:03:43",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "MindIE|MindIE-SD#117",
+   "date": "2026-11-18",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+   "platform": "codearts",
+   "buildNumber": 117,
+   "pipelineRunId": "8b34705adb4f490db8ee8bf50154b264",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-18T09:23:41",
+   "endedAt": "2026-11-18T10:50:41",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-18T10:50:41",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.6667,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=8b34705adb4f490db8ee8bf50154b264",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "MindIE|MindIE-SD#118",
+   "date": "2026-11-18",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+   "platform": "codearts",
+   "buildNumber": 118,
+   "pipelineRunId": "557e1753e2aa4c64b541927a907b6581",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-18T16:24:24",
+   "endedAt": "2026-11-18T16:54:30",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-18T16:54:30",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.6667,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=557e1753e2aa4c64b541927a907b6581",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

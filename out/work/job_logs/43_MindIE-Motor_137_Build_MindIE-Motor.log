@@ -1,0 +1,31 @@
+[2026/11/18 14:43:51.525 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_nvwIQ6Vt #1
+[2026/11/18 14:43:51.532 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.
+[2026/11/18 14:43:51.654 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行
+[2026/11/18 14:43:51.655 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix
+[2026/11/18 14:43:51.656 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create
+[2026/11/18 14:43:51.656 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No
+[2026/11/18 14:43:52.694 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...
+[2026/11/18 14:43:52.823 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-82e9479249 ok, waiting for connection...
+[2026/11/18 14:43:56.831 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-82e9479249
+[2026/11/18 14:43:56.879 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成
+[2026/11/18 14:43:57.109 GMT+08:00] [INFO] [build_flow:build_flow] : 该步骤开始执行
+[2026/11/18 14:43:57.110 GMT+08:00] [INFO] [build_flow:build_flow] : plugin version is :1.0.19
+[2026/11/18 14:43:57.116 GMT+08:00] [INFO] [build_flow:build_flow] : Build flow strategy is: EAGER mode
+[2026/11/18 14:43:57.116 GMT+08:00] [INFO] [build_flow:build_flow] : Details of BuildFlow Configuration: {jobs_size=2, strategy='Eager', parallelism=100, fast_fail=false, mode=null, flow_metadata=}
+[2026/11/18 14:43:57.386 GMT+08:00] [INFO] [build_flow:build_flow] : Job MindIE-Motor_arm has dispatched
+[2026/11/18 14:43:57.528 GMT+08:00] [INFO] [build_flow:build_flow] : Job MindIE-Motor_x86 has dispatched
+[2026/11/18 14:44:27.528 GMT+08:00] [INFO] [build_flow:build_flow] : begin sync record status
+[2026/11/18 14:44:57.568 GMT+08:00] [INFO] [build_flow:build_flow] : begin sync record status
+[2026/11/18 14:45:27.643 GMT+08:00] [INFO] [build_flow:build_flow] : begin sync record status
+[2026/11/18 14:45:57.687 GMT+08:00] [INFO] [build_flow:build_flow] : begin sync record status
+[2026/11/18 14:45:57.731 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-Motor_arm failed
+[2026/11/18 14:45:57.731 GMT+08:00] [ERROR] [build_flow:build_flow] : Job MindIE-Motor_x86 failed
+[2026/11/18 14:45:57.731 GMT+08:00] [INFO] [build_flow:build_flow] : Dispatch finished! Waiting for all jobs finished
+[2026/11/18 14:45:57.731 GMT+08:00] [INFO] [build_flow:build_flow] : All dispatched jobs have finished!
+[2026/11/18 14:45:57.731 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 2, dispatched jobs num: 2, succeed jobs num: 0, failed jobs num: 2
+[2026/11/18 14:45:57.731 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [MindIE-Motor_arm, MindIE-Motor_x86]
+[2026/11/18 14:45:57.741 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[MindIE-Motor_arm, MindIE-Motor_x86]】等构建失败
+[2026/11/18 14:45:57.842 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败
+[2026/11/18 14:45:57.845 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[MindIE-Motor_arm, MindIE-Motor_x86]】等构建失败
+[2026/11/18 14:45:57.903 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_nvwIQ6Vt #1
+[2026/11/18 14:46:00.721 GMT+08:00] Finished: FAILURE

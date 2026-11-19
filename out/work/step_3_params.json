@@ -1,13 +1,105 @@
 {
- "test": [],
- "log": [],
+ "test": [
+  {
+   "key": "MindIE|MindIE-Motor",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "projectId": 300036,
+   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+   "rid": "81a9f8b8d971445d97556c5c528dd79b",
+   "rn": 138,
+   "st": "11-18 16:22",
+   "jobId": "70320e53f8db474a8746b7f6b1e285aa",
+   "jobName": "Test_MindIE-Motor_1",
+   "stepIds": [
+    "76e816d8aea8408bbd57089295900754"
+   ],
+   "steps": [
+    {
+     "id": "76e816d8aea8408bbd57089295900754",
+     "name": "Test_MindIE-Motor_1",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "685048758f93478c9da20a7591514e8f",
+     "jobIdParam": "35af558b239a4803948c2651933bc2bd"
+    }
+   ],
+   "jobErrMsg": "步骤Test_MindIE-Motor_1执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "ec31cce98a2948ae9638f8d45d516b75",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "35af558b239a4803948c2651933bc2bd"
+  }
+ ],
+ "log": [
+  {
+   "key": "MindIE|MindIE-SD",
+   "pipeline": "MindIE-SD",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+   "projectId": 300036,
+   "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+   "rid": "5a5a6716983b4f84b5488031000653d7",
+   "rn": 116,
+   "st": "11-18 01:01",
+   "jobId": "43aca12a05ca47a787692cf5c15d169c",
+   "jobName": "Build_MindIE-SD",
+   "stepIds": [
+    "8271aa6d296a467cadbd9b1dd135313f"
+   ],
+   "steps": [
+    {
+     "id": "8271aa6d296a467cadbd9b1dd135313f",
+     "name": "Build_MindIE-SD",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "6ca41dfa6b7d4c64b40bc47b5c904bd3",
+     "jobIdParam": "3e2e6a4a47294a80b35e8118eb10423d"
+    }
+   ],
+   "jobErrMsg": "步骤Build_MindIE-SD执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "71b9ce23d7de48a3ba31a563ecb8258f",
+   "route": "log",
+   "isBuild": true,
+   "buildJobId": "3e2e6a4a47294a80b35e8118eb10423d"
+  },
+  {
+   "key": "MindIE|MindIE-Motor",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "projectId": 300036,
+   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+   "rid": "9f3772fb2963417d9b1c5b1e36e4d1c0",
+   "rn": 137,
+   "st": "11-18 14:43",
+   "jobId": "0eb5b598b63a42b7859bb8c7b94c149e",
+   "jobName": "Build_MindIE-Motor",
+   "stepIds": [
+    "1bb0e9e8dcd14004a61bc7318e9c31e6"
+   ],
+   "steps": [
+    {
+     "id": "1bb0e9e8dcd14004a61bc7318e9c31e6",
+     "name": "Build_MindIE-Motor",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "98155b4d6c7f49a09150d0f519c67a2e",
+     "jobIdParam": "9aaead01b1e94a998e5f0edd788ea1a7"
+    }
+   ],
+   "jobErrMsg": "步骤Build_MindIE-Motor执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "0fe0c284a52549c1bb71530b5d4ec654",
+   "route": "log",
+   "isBuild": true,
+   "buildJobId": "9aaead01b1e94a998e5f0edd788ea1a7"
+  }
+ ],
  "skipped": [],
  "bsCleanRuns": [
   {
-   "key": "MindCluster|ascend-deployer",
-   "rn": 270,
-   "rid": "6af78b0208a64d7bb33b60f5a6cab5a8",
-   "st": "11-01 02:35",
+   "key": "MindIE|MindIE-Motor",
+   "rn": 138,
+   "rid": "81a9f8b8d971445d97556c5c528dd79b",
+   "st": "11-18 16:22",
    "status": null,
    "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
   }

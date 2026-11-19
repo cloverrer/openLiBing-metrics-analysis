@@ -343,5 +343,69 @@
   "excerpt": null,
   "rn": 153,
   "jobName": "Build_A3_image"
+ },
+ "5a5a6716983b4f84b5488031000653d7|43aca12a05ca47a787692cf5c15d169c": {
+  "file": "42_MindIE-SD_116_Build_MindIE-SD.log",
+  "bytes": 6487,
+  "lines": 61,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 116,
+  "jobName": "Build_MindIE-SD"
+ },
+ "9f3772fb2963417d9b1c5b1e36e4d1c0|0eb5b598b63a42b7859bb8c7b94c149e": {
+  "file": "43_MindIE-Motor_137_Build_MindIE-Motor.log",
+  "bytes": 3525,
+  "lines": 31,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 137,
+  "jobName": "Build_MindIE-Motor"
+ },
+ "5a5a6716983b4f84b5488031000653d7|43aca12a05ca47a787692cf5c15d169c|MindIE-SD_arm_py311_abi0": {
+  "file": "44_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_arm_py311_abi0.log",
+  "bytes": 2669594,
+  "lines": 19215,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 116,
+  "jobName": "Build_MindIE-SD",
+  "subTask": "MindIE-SD_arm_py311_abi0"
+ },
+ "5a5a6716983b4f84b5488031000653d7|43aca12a05ca47a787692cf5c15d169c|MindIE-SD_x86_py311_abi0": {
+  "file": "46_MindIE-SD_116_Build_MindIE-SD_MindIE-SD_x86_py311_abi0.log",
+  "bytes": 2669507,
+  "lines": 19217,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 116,
+  "jobName": "Build_MindIE-SD",
+  "subTask": "MindIE-SD_x86_py311_abi0"
+ },
+ "9f3772fb2963417d9b1c5b1e36e4d1c0|0eb5b598b63a42b7859bb8c7b94c149e|MindIE-Motor_x86": {
+  "file": "45_MindIE-Motor_137_Build_MindIE-Motor_MindIE-Motor_x86.log",
+  "bytes": 18913,
+  "lines": 224,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 137,
+  "jobName": "Build_MindIE-Motor",
+  "subTask": "MindIE-Motor_x86"
+ },
+ "9f3772fb2963417d9b1c5b1e36e4d1c0|0eb5b598b63a42b7859bb8c7b94c149e|MindIE-Motor_arm": {
+  "file": "47_MindIE-Motor_137_Build_MindIE-Motor_MindIE-Motor_arm.log",
+  "bytes": 18919,
+  "lines": 224,
+  "download": "export",
+  "truncated": false,
+  "excerpt": null,
+  "rn": 137,
+  "jobName": "Build_MindIE-Motor",
+  "subTask": "MindIE-Motor_arm"
  }
 }

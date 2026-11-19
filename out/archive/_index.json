@@ -5,11 +5,11 @@
   "source": "第 1~6 步中间产物（out/work/）",
   "criteria": "按执行结束时间分层归档的日期清单，逐层可查",
   "dateField": "pipelineRunEndtime",
-  "generatedAt": "2026-11-18 05:05:03",
+  "generatedAt": "2026-11-19 05:02:01",
   "indexType": "day"
  },
- "generatedAt": "2026-11-18 05:05:02",
- "dayCount": 6,
+ "generatedAt": "2026-11-19 05:02:01",
+ "dayCount": 7,
  "productCount": 16,
  "productsFile": "_products.json",
  "days": [
@@ -72,6 +72,16 @@
    "tasks": 35,
    "cases": 0,
    "errorMessages": 149
+  },
+  {
+   "date": "2026-11-18",
+   "path": "archive/2026/2026-11/2026-11-18",
+   "components": 15,
+   "pipelines": 53,
+   "records": 77,
+   "tasks": 3,
+   "cases": 1,
+   "errorMessages": 29
   }
  ]
 }

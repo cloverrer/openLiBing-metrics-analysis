@@ -1,4 +1,53 @@
 {
- "results": [],
+ "results": [
+  {
+   "route": "test",
+   "key": "MindIE|MindIE-Motor",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "rn": 138,
+   "st": "11-18 16:22",
+   "projectId": 300036,
+   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+   "rid": "81a9f8b8d971445d97556c5c528dd79b",
+   "jobId": "70320e53f8db474a8746b7f6b1e285aa",
+   "jobName": "Test_MindIE-Motor_1",
+   "stepIds": [
+    "76e816d8aea8408bbd57089295900754"
+   ],
+   "steps": [
+    {
+     "id": "76e816d8aea8408bbd57089295900754",
+     "name": "Test_MindIE-Motor_1",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "685048758f93478c9da20a7591514e8f",
+     "jobIdParam": "35af558b239a4803948c2651933bc2bd"
+    }
+   ],
+   "jobErrMsg": "步骤Test_MindIE-Motor_1执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "ec31cce98a2948ae9638f8d45d516b75",
+   "code": 200,
+   "summary": {
+    "total": 3,
+    "passed": 2,
+    "failed": 1,
+    "passRate": "66.67%"
+   },
+   "failedCases": [
+    {
+     "name": "test_pymotor_ras_up_down_scale",
+     "number": "test_pymotor_ras_up_down_scale",
+     "state": "failed",
+     "description": "TimeoutError: 服务启动超时，未找到成功日志!",
+     "beginTime": "2026-11-18 20:34:40",
+     "endTime": "2026-11-18 20:50:50",
+     "resultDownloadUrl": "https://mindie.obs.cn-north-4.myhuaweicloud.com/artifact/gitcode/smokeresult/MindIE-Motor/6a4fa7d010294da695be52110517c08b2026111826196/test_pymotor_ras_up_down_scale.html",
+     "envDownloadUrl": null
+    }
+   ],
+   "empty": false
+  }
+ ],
  "errors": []
 }
