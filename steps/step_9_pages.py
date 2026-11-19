@@ -2337,14 +2337,17 @@ function renderRecs(recs, ctx){
     box.innerHTML = '<div class="subview">' + h3 + noFailNotice(st) + '</div>';
     return;
   }
-  /* 10 列：流水线 → 流水线编号 → 开始时间 → 结束时间 → 任务 → 用例 → 错误信息 → 问题分类 → 定性 → 展开
+  /* 10 列：流水线 → 流水线编号 → 开始时间 → 结束时间 → 失败任务 → 问题分类 → 定性分析
+     → 错误信息 → 失败用例 → 展开
      一条执行记录一行（不再把同日同报错聚合成一行），开始/结束时间给出 yyyy-MM-dd hh:mm:ss，
      行序由 recs 自己带过来（加载时已按结束时间降序排好，见 cmpByEndDesc），
      所以是「最近结束的在最上面」，方便从最新往回看。
      最前面的「流水线」列是组件级才有的：同一张表里混着多条流水线的记录，必须能一眼看出是哪条。
-     最后一列「展开」放稍大的三角按钮，整行 hover: pointer（用户口径）。 */
-  const cols = ['12%', '7%', '10.5%', '10.5%', '10%', '12%', '16%', '9%', '10%', '3%'];
-  const ths = ['流水线', '流水线编号', '开始时间', '结束时间', '任务', '用例', '错误信息', '问题分类', '定性', ''];
+     最后一列「展开」放稍大的三角按钮，整行 hover: pointer（用户口径）。
+     列宽：错误信息列的内容只有「证据」一个链接，一路从 16% 收窄到 6%，让出的 10% 全部加给
+     定性分析列（10% → 20%）——定性要完整展示、行高由它主导，宽度必须给够。 */
+  const cols = ['12%', '7%', '10.5%', '10.5%', '10%', '9%', '20%', '6%', '12%', '3%'];
+  const ths = ['流水线', '流水线编号', '开始时间', '结束时间', '失败任务', '问题分类', '定性分析', '错误信息', '失败用例', ''];
   const table = '<table class="rca rca-rec"><colgroup>'
     + cols.map(function(w){ return '<col style="width:' + w + '">'; }).join('')
     + '</colgroup><thead><tr>' + ths.map(function(t){ return '<th>' + t + '</th>'; }).join('') + '</tr></thead>'
@@ -2639,10 +2642,10 @@ function recRow(r, i){
     + '<td class="nowrap mono dt-c">' + rfEsc(ymd(r.startedAt)) + '</td>'
     + '<td class="nowrap mono dt-c">' + rfEsc(ymd(r.endedAt)) + '</td>'
     + '<td>' + taskCell + '</td>'
-    + '<td>' + caseCell + '</td>'
-    + '<td class="err-cell">' + errCell + '</td>'
     + '<td class="cls-cell">' + clsCell + '</td>'
     + '<td class="cat-cell">' + catCell + '</td>'
+    + '<td class="err-cell">' + errCell + '</td>'
+    + '<td>' + caseCell + '</td>'
     + '<td class="exp-cell">'
     + (flat ? '' : '<span class="exp-ic" title="展开 / 收起根因分析与修复建议">▸</span>')
     + '</td>'
