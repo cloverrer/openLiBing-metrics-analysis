@@ -1,0 +1,115 @@
+﻿2026-11-18T16:06:25.1678547Z Current runner version: '2.338.2'
+2026-11-18T16:06:25.1715500Z ##[group]Runner Image Provisioner
+2026-11-18T16:06:25.1717391Z Hosted Compute Agent
+2026-11-18T16:06:25.1718444Z Version: 20261103.629
+2026-11-18T16:06:25.1719546Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-18T16:06:25.1720922Z Build Date: 2026-11-03T17:26:59Z
+2026-11-18T16:06:25.1722451Z Worker ID: {d5329a9a-e151-4eae-b27d-4dd609cfbc35}
+2026-11-18T16:06:25.1723882Z Region: eastus
+2026-11-18T16:06:25.1724955Z Cloud: Azure
+2026-11-18T16:06:25.1725964Z ##[endgroup]
+2026-11-18T16:06:25.1728497Z ##[group]Operating System
+2026-11-18T16:06:25.1729584Z Ubuntu
+2026-11-18T16:06:25.1730707Z 26.04.1
+2026-11-18T16:06:25.1731815Z LTS
+2026-11-18T16:06:25.1732656Z ##[endgroup]
+2026-11-18T16:06:25.1734091Z ##[group]Runner Image
+2026-11-18T16:06:25.1735640Z Image: ubuntu-26.04
+2026-11-18T16:06:25.1736861Z Version: 20261111.196.1
+2026-11-18T16:06:25.1739181Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-18T16:06:25.1742563Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-18T16:06:25.1744294Z ##[endgroup]
+2026-11-18T16:06:25.1746251Z ##[group]GITHUB_TOKEN Permissions
+2026-11-18T16:06:25.1749321Z Contents: read
+2026-11-18T16:06:25.1750385Z Metadata: read
+2026-11-18T16:06:25.1751556Z Packages: read
+2026-11-18T16:06:25.1753080Z ##[endgroup]
+2026-11-18T16:06:25.1756562Z Secret source: Actions
+2026-11-18T16:06:25.1758225Z Cache mode: write
+2026-11-18T16:06:25.1760018Z Prepare workflow directory
+2026-11-18T16:06:25.2271603Z Prepare all required actions
+2026-11-18T16:06:25.2436407Z Complete job name: set-image-config
+2026-11-18T16:06:25.3700779Z ##[group]Run if [ -z "" ]; then
+2026-11-18T16:06:25.3702679Z [36;1mif [ -z "" ]; then[0m
+2026-11-18T16:06:25.3703959Z [36;1m  echo "ref=" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3705125Z [36;1melse[0m
+2026-11-18T16:06:25.3706301Z [36;1m  echo "ref=" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3707631Z [36;1mfi[0m
+2026-11-18T16:06:25.3708925Z [36;1mJOB_FILTER="$(echo "${JOB_FILTER}" | tr -d '[:space:]')"[0m
+2026-11-18T16:06:25.3710622Z [36;1mecho "job_filter=${JOB_FILTER:-all}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3712286Z [36;1mif [ -z "" ]; then[0m
+2026-11-18T16:06:25.3714538Z [36;1m  echo "image_a3=swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:main-cann9.1.0-a3" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3716736Z [36;1melse[0m
+2026-11-18T16:06:25.3717822Z [36;1m  echo "image_a3=" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3719104Z [36;1mfi[0m
+2026-11-18T16:06:25.3720130Z [36;1mif [ -z "" ]; then[0m
+2026-11-18T16:06:25.3722166Z [36;1m  echo "image_a5=swr.cn-southwest-2.myhuaweicloud.com/base_image/dockerhub/lmsysorg/sglang:main-cann9.1.0-950" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3723553Z [36;1melse[0m
+2026-11-18T16:06:25.3724246Z [36;1m  echo "image_a5=" >> $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3724973Z [36;1mfi[0m
+2026-11-18T16:06:25.3725917Z [36;1m# If the nightly pipeline is triggered by a PR, this variable takes the source branch label of the PR;[0m
+2026-11-18T16:06:25.3727139Z [36;1m# otherwise, it uses the branch or tag name of the current ref.[0m
+2026-11-18T16:06:25.3728097Z [36;1mBRANCH_LABEL="$HEAD_LABEL"[0m
+2026-11-18T16:06:25.3728780Z [36;1mif [ -z "${BRANCH_LABEL}" ]; then[0m
+2026-11-18T16:06:25.3729542Z [36;1m  BRANCH_LABEL="main"[0m
+2026-11-18T16:06:25.3730175Z [36;1mfi[0m
+2026-11-18T16:06:25.3731026Z [36;1mBRANCH_LABEL="$(echo "${BRANCH_LABEL}" | tr -cd 'a-zA-Z0-9._/:' | tr '/:' '--')"[0m
+2026-11-18T16:06:25.3732560Z [36;1m# Package run metadata (branch/workflow/create_time) as a single JSON for reuse by all[0m
+2026-11-18T16:06:25.3733781Z [36;1m# test jobs; create_time is UTC+8 date + time (minute precision) recorded once at run[0m
+2026-11-18T16:06:25.3734729Z [36;1m# start, shared even across midnight.[0m
+2026-11-18T16:06:25.3735632Z [36;1mBEIJING_CREATE_TIME="$(TZ=Asia/Shanghai date +%Y%m%d-%H%M)"[0m
+2026-11-18T16:06:25.3737760Z [36;1mRUN_START_METADATA="$(python3 -c "import json,sys; print(json.dumps({'branch_label':sys.argv[1],'workflow_name':sys.argv[2],'create_time':sys.argv[3]}))" "$BRANCH_LABEL" "Nightly Test (NPU)" "${BEIJING_CREATE_TIME}")"[0m
+2026-11-18T16:06:25.3739535Z [36;1m# Write to GITHUB_OUTPUT and print to the log in one command.[0m
+2026-11-18T16:06:25.3740557Z [36;1mecho "run_start_metadata=${RUN_START_METADATA}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3741894Z [36;1m# Multi-node accuracy dataset: an explicit input wins; otherwise gsm8k[0m
+2026-11-18T16:06:25.3743213Z [36;1m# (200-sample cap) on weekdays and gpqa_diamond on weekends. The cron[0m
+2026-11-18T16:06:25.3744245Z [36;1m# fires at 16:00 UTC, i.e. 00:00 the next day in Beijing, so resolve[0m
+2026-11-18T16:06:25.3745131Z [36;1m# the weekday in Asia/Shanghai.[0m
+2026-11-18T16:06:25.3745816Z [36;1mACCURACY_DATASET_INPUT=""[0m
+2026-11-18T16:06:25.3746826Z [36;1mcase "${ACCURACY_DATASET_INPUT}" in[0m
+2026-11-18T16:06:25.3834601Z [36;1m  gsm8k|gpqa_diamond)[0m
+2026-11-18T16:06:25.3835712Z [36;1m    ACCURACY_DATASET="${ACCURACY_DATASET_INPUT}"[0m
+2026-11-18T16:06:25.3836837Z [36;1m    ;;[0m
+2026-11-18T16:06:25.3837626Z [36;1m  ""|auto)[0m
+2026-11-18T16:06:25.3838558Z [36;1m    ACCURACY_DOW="$(TZ=Asia/Shanghai date +%u)"[0m
+2026-11-18T16:06:25.3839551Z [36;1m    if [ "${ACCURACY_DOW}" -le 5 ]; then[0m
+2026-11-18T16:06:25.3840199Z [36;1m      ACCURACY_DATASET="gsm8k"[0m
+2026-11-18T16:06:25.3840759Z [36;1m    else[0m
+2026-11-18T16:06:25.3841486Z [36;1m      ACCURACY_DATASET="gpqa_diamond"[0m
+2026-11-18T16:06:25.3842182Z [36;1m    fi[0m
+2026-11-18T16:06:25.3842992Z [36;1m    ;;[0m
+2026-11-18T16:06:25.3843455Z [36;1m  *)[0m
+2026-11-18T16:06:25.3844090Z [36;1m    echo "Unsupported accuracy_dataset: ${ACCURACY_DATASET_INPUT}"[0m
+2026-11-18T16:06:25.3844824Z [36;1m    exit 1[0m
+2026-11-18T16:06:25.3845279Z [36;1m    ;;[0m
+2026-11-18T16:06:25.3845715Z [36;1mesac[0m
+2026-11-18T16:06:25.3846377Z [36;1mecho "accuracy_dataset=${ACCURACY_DATASET}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.3847344Z [36;1m# Multi-node accuracy suites rotate by Beijing date parity so that the[0m
+2026-11-18T16:06:25.3848294Z [36;1m# shared 4-node pool runs exactly one of them per night. Resolve the[0m
+2026-11-18T16:06:25.3849218Z [36;1m# parity once per run so the job gates below stay consistent even[0m
+2026-11-18T16:06:25.3850141Z [36;1m# across midnight. 10# forces decimal parsing, otherwise days 08/09[0m
+2026-11-18T16:06:25.3850908Z [36;1m# are read as octal.[0m
+2026-11-18T16:06:25.3851623Z [36;1mACCURACY_DAY="$(TZ=Asia/Shanghai date +%d)"[0m
+2026-11-18T16:06:25.3852335Z [36;1mif [ $((10#${ACCURACY_DAY} % 2)) -eq 1 ]; then[0m
+2026-11-18T16:06:25.3852969Z [36;1m  ACCURACY_DATE_PARITY="odd"[0m
+2026-11-18T16:06:25.3853514Z [36;1melse[0m
+2026-11-18T16:06:25.3853988Z [36;1m  ACCURACY_DATE_PARITY="even"[0m
+2026-11-18T16:06:25.3854540Z [36;1mfi[0m
+2026-11-18T16:06:25.3855215Z [36;1mecho "accuracy_date_parity=${ACCURACY_DATE_PARITY}" | tee -a $GITHUB_OUTPUT[0m
+2026-11-18T16:06:25.4874472Z shell: /usr/bin/bash -e {0}
+2026-11-18T16:06:25.4875493Z env:
+2026-11-18T16:06:25.4875956Z   HEAD_LABEL: 
+2026-11-18T16:06:25.4876419Z   JOB_FILTER: 
+2026-11-18T16:06:25.4876862Z ##[endgroup]
+2026-11-18T16:06:25.5157204Z job_filter=all
+2026-11-18T16:06:25.5629215Z run_start_metadata={"branch_label": "main", "workflow_name": "Nightly Test (NPU)", "create_time": "20261119-0006"}
+2026-11-18T16:06:25.5701774Z accuracy_dataset=gsm8k
+2026-11-18T16:06:25.5773448Z accuracy_date_parity=odd
+2026-11-18T16:06:25.5967297Z Evaluate and set job outputs
+2026-11-18T16:06:25.5976786Z Set output 'job_filter'
+2026-11-18T16:06:25.5979171Z Set output 'image_a3'
+2026-11-18T16:06:25.5980615Z Set output 'image_a5'
+2026-11-18T16:06:25.5981796Z Set output 'run_start_metadata'
+2026-11-18T16:06:25.5982538Z Set output 'accuracy_dataset'
+2026-11-18T16:06:25.5983261Z Set output 'accuracy_date_parity'
+2026-11-18T16:06:25.5984426Z Cleaning up orphan processes

@@ -5,9 +5,9 @@
   "source": "第 1~6 步中间产物（out/work/）",
   "criteria": "看板产品发现接口返回的全部开源组件（含当日无待分析流水线的产品），跨次运行累加、只增不删",
   "dateField": "pipelineRunEndtime",
-  "generatedAt": "2026-11-19 05:02:01"
+  "generatedAt": "2026-11-20 05:03:49"
  },
- "generatedAt": "2026-11-19 05:02:01",
+ "generatedAt": "2026-11-20 05:03:49",
  "count": 16,
  "source": {
   "step": "step_1_nightly",
@@ -26,7 +26,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "AscendForPyTorch",
@@ -39,7 +39,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "boostkit",
@@ -52,7 +52,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "CANN",
@@ -65,7 +65,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "HPCKit",
@@ -78,59 +78,59 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "MindCluster",
    "projectId": 300038,
    "versionAvailabilityRate": 1.0,
    "buildSuccessRate": 1.0,
-   "pipelineCount": 7,
-   "badPipelineCount": 0,
-   "analyze": true,
-   "rateRule": "runs",
-   "recompute": true,
-   "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
-  },
-  {
-   "name": "MindIE",
-   "projectId": 300036,
-   "versionAvailabilityRate": 1.0,
-   "buildSuccessRate": 0.6666666666666666,
-   "pipelineCount": 2,
-   "badPipelineCount": 2,
-   "analyze": true,
-   "rateRule": "runs",
-   "recompute": true,
-   "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
-  },
-  {
-   "name": "MindSpeed",
-   "projectId": 300091,
-   "versionAvailabilityRate": 1.0,
-   "buildSuccessRate": null,
    "pipelineCount": 9,
    "badPipelineCount": 0,
    "analyze": true,
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
-   "name": "MindStudio",
-   "projectId": 300037,
+   "name": "MindIE",
+   "projectId": 300036,
    "versionAvailabilityRate": 1.0,
-   "buildSuccessRate": null,
-   "pipelineCount": 6,
+   "buildSuccessRate": 1.0,
+   "pipelineCount": 2,
    "badPipelineCount": 0,
    "analyze": true,
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
+  },
+  {
+   "name": "MindSpeed",
+   "projectId": 300091,
+   "versionAvailabilityRate": 0.8888888888888888,
+   "buildSuccessRate": 1.0,
+   "pipelineCount": 9,
+   "badPipelineCount": 1,
+   "analyze": true,
+   "rateRule": "runs",
+   "recompute": true,
+   "firstSeen": "2026-11-12 19:18:39",
+   "lastSeen": "2026-11-20 05:03:49"
+  },
+  {
+   "name": "MindStudio",
+   "projectId": 300037,
+   "versionAvailabilityRate": 0.8333333333333334,
+   "buildSuccessRate": null,
+   "pipelineCount": 6,
+   "badPipelineCount": 1,
+   "analyze": true,
+   "rateRule": "runs",
+   "recompute": true,
+   "firstSeen": "2026-11-12 19:18:39",
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "openEuler",
@@ -144,23 +144,23 @@
    "rateRule": "days",
    "bsAgg": "mean",
    "recompute": true,
-   "firstSeen": "2026-11-19 05:02:07",
-   "lastSeen": "2026-11-19 05:02:07"
+   "firstSeen": "2026-11-20 05:03:59",
+   "lastSeen": "2026-11-20 05:03:59"
   },
   {
    "name": "openGauss",
    "projectId": null,
    "channel": "community",
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.8571428571428571,
    "buildSuccessRate": null,
    "pipelineCount": 7,
-   "badPipelineCount": 0,
+   "badPipelineCount": 1,
    "analyze": true,
    "rateRule": "days",
    "bsAgg": "mean",
    "recompute": true,
-   "firstSeen": "2026-11-19 05:02:07",
-   "lastSeen": "2026-11-19 05:02:07"
+   "firstSeen": "2026-11-20 05:03:59",
+   "lastSeen": "2026-11-20 05:03:59"
   },
   {
    "name": "openUBMC",
@@ -173,20 +173,20 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "SgLang",
    "projectId": 300134,
-   "versionAvailabilityRate": 1.0,
+   "versionAvailabilityRate": 0.0,
    "buildSuccessRate": null,
    "pipelineCount": 1,
-   "badPipelineCount": 0,
+   "badPipelineCount": 1,
    "analyze": true,
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "Triton_Ascend",
@@ -199,7 +199,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   },
   {
    "name": "UBS Core",
@@ -213,8 +213,8 @@
    "rateRule": "days",
    "bsAgg": "mean",
    "recompute": true,
-   "firstSeen": "2026-11-19 05:02:07",
-   "lastSeen": "2026-11-19 05:02:07"
+   "firstSeen": "2026-11-20 05:03:59",
+   "lastSeen": "2026-11-20 05:03:59"
   },
   {
    "name": "vllm-ascend",
@@ -227,7 +227,7 @@
    "rateRule": "runs",
    "recompute": true,
    "firstSeen": "2026-11-12 19:18:39",
-   "lastSeen": "2026-11-19 05:02:01"
+   "lastSeen": "2026-11-20 05:03:49"
   }
  ]
 }

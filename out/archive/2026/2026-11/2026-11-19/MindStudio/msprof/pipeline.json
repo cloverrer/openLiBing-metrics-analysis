@@ -1,0 +1,2279 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-20 05:03:49",
+  "component": "MindStudio",
+  "pipeline": "msprof",
+  "date": "2026-11-19",
+  "recordCount": 3
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-19",
+ "component": "MindStudio",
+ "pipeline": "msprof",
+ "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+ "platform": "codearts",
+ "key": "MindStudio|msprof",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-19",
+  "runs": [
+   {
+    "rn": 281,
+    "status": "CANCELED",
+    "endedAt": "2026-11-19 19:50:35"
+   },
+   {
+    "rn": 280,
+    "status": "FAILED",
+    "endedAt": "2026-11-19 13:37:11"
+   },
+   {
+    "rn": 279,
+    "status": "FAILED",
+    "endedAt": "2026-11-19 11:09:57"
+   }
+  ]
+ },
+ "counts": {
+  "records": 3,
+  "tasks": 8,
+  "cases": 6,
+  "errorMessages": 38
+ },
+ "evidence": {
+  "files": 10,
+  "bytes": 4226653,
+  "lines": 43319,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-20 05:03:49",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "dateRange": {
+    "start": "2026-11-19",
+    "end": "2026-11-19"
+   },
+   "product": {
+    "product": "MindStudio",
+    "projectId": 300037,
+    "versionAvailabilityRate": 0.8333333333333334,
+    "buildSuccessRate": null,
+    "pipelineCount": 6,
+    "badPipelineCount": 1,
+    "badPipelineCountVA": 1,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 6,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 6,
+     "sumRate": 5.0,
+     "avgRate": 0.8333333333333334,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    }
+   },
+   "pipeline": {
+    "key": "MindStudio|msprof",
+    "product": "MindStudio",
+    "projectId": 300037,
+    "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+    "pipelineShortName": "msprof",
+    "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+    "platform": "codearts",
+    "versionAvailabilityRate": 0,
+    "buildSuccessRate": null,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 3 次运行（当日 3 次），其中 3 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "dateRange": {
+    "start": "2026-11-19",
+    "end": "2026-11-19"
+   },
+   "date": "2026-11-19",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 279,
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "status": "FAILED",
+     "start": "11-19 04:00",
+     "startISO": "2026-11-19T04:00:57",
+     "endISO": "2026-11-19T11:09:57",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=6099f67d2d1f42548c33f8734618c711",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": "测试任务",
+     "cached": false
+    },
+    {
+     "rn": 280,
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "status": "FAILED",
+     "start": "11-19 11:50",
+     "startISO": "2026-11-19T11:50:37",
+     "endISO": "2026-11-19T13:37:11",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=10d7c5c6736348949a656389dcbc8adf",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": "测试任务",
+     "cached": false
+    },
+    {
+     "rn": 281,
+     "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "status": "CANCELED",
+     "start": "11-19 14:11",
+     "startISO": "2026-11-19T14:11:14",
+     "endISO": "2026-11-19T19:50:35",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": "测试任务",
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-19": [
+     "CANCELED",
+     "FAILED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 281,
+     "pipelineRunId": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "start": "2026-11-19 14:11:14",
+     "end": "2026-11-19 19:50:35",
+     "status": "CANCELED",
+     "endedDate": "2026-11-19",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 280,
+     "pipelineRunId": "10d7c5c6736348949a656389dcbc8adf",
+     "start": "2026-11-19 11:50:37",
+     "end": "2026-11-19 13:37:11",
+     "status": "FAILED",
+     "endedDate": "2026-11-19",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 279,
+     "pipelineRunId": "6099f67d2d1f42548c33f8734618c711",
+     "start": "2026-11-19 04:00:57",
+     "end": "2026-11-19 11:09:57",
+     "status": "FAILED",
+     "endedDate": "2026-11-19",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 281,
+     "start": "2026-11-19 14:11:14",
+     "end": "2026-11-19 19:50:35",
+     "status": "CANCELED",
+     "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "bc": 0,
+     "bpc": 0,
+     "cpr": 97.77,
+     "iva": false,
+     "ftt": "测试任务"
+    },
+    {
+     "rn": 280,
+     "start": "2026-11-19 11:50:37",
+     "end": "2026-11-19 13:37:11",
+     "status": "FAILED",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=10d7c5c6736348949a656389dcbc8adf",
+     "bc": 0,
+     "bpc": 0,
+     "cpr": 100,
+     "iva": false,
+     "ftt": "测试任务"
+    },
+    {
+     "rn": 279,
+     "start": "2026-11-19 04:00:57",
+     "end": "2026-11-19 11:09:57",
+     "status": "FAILED",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=6099f67d2d1f42548c33f8734618c711",
+     "bc": 0,
+     "bpc": 0,
+     "cpr": 98.56,
+     "iva": false,
+     "ftt": "测试任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-19"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 3,
+   "keptFailedRuns": 3,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "test": [
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "rn": 279,
+     "st": "11-19 04:00",
+     "jobId": "ca957e1bfa664f76abd059d99ca2c3ab",
+     "jobName": "Test_msprof_smoke",
+     "stepIds": [
+      "4cbba7a328af486a919e762944a688cc"
+     ],
+     "steps": [
+      {
+       "id": "4cbba7a328af486a919e762944a688cc",
+       "name": "Test_msprof_smoke",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "1c0c2c905c48473abe8fe0d8e6f1c158",
+       "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "91230b9ae31442059b4e1c80dc63523f",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "d1808247dd8844799de2e3c74beb7455"
+    },
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "rn": 279,
+     "st": "11-19 04:00",
+     "jobId": "1edebbb82ddc4698b0b13ce38aee1ae1",
+     "jobName": "Test_msprof_smoke_A3",
+     "stepIds": [
+      "3d4eb644e9234e5a86ea8698da8fec68"
+     ],
+     "steps": [
+      {
+       "id": "3d4eb644e9234e5a86ea8698da8fec68",
+       "name": "Test_msprof_smoke_A3",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "ad5c4f052dd44ed6b535fa1a0fc4f673",
+       "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_A3执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f47f4c9061d04c78ad5045832d689a32",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
+    },
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "jobId": "8ea73094f20a4ccab7c2b1ea04101c41",
+     "jobName": "Test_msprof_smoke_large_model",
+     "stepIds": [
+      "49589afac3804d0a89a4c7492ed4e82d"
+     ],
+     "steps": [
+      {
+       "id": "49589afac3804d0a89a4c7492ed4e82d",
+       "name": "Test_msprof_smoke_large_model",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "ec768cf94625464baa6ef342e6d572ed",
+       "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "5f3d08acf98b496f906aebcc74406710",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "d1808247dd8844799de2e3c74beb7455"
+    },
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "rn": 281,
+     "st": "11-19 14:11",
+     "jobId": "53b5cbb170844e238ecfc33f38c095d5",
+     "jobName": "Test_msprof_smoke_A3_large_model",
+     "stepIds": [
+      "7598cc92ae884b14a988bdb6af0e61a4"
+     ],
+     "steps": [
+      {
+       "id": "7598cc92ae884b14a988bdb6af0e61a4",
+       "name": "Test_msprof_smoke_A3_large_model",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "162ed6c0c9ce4a0eb2d257d5f26fb513",
+       "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_A3_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f43ae7ddf377440b868a8a51e06429e1",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
+    }
+   ],
+   "log": [
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "jobId": "e31f29a24e1b4b5a8de3587796c0b464",
+     "jobName": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "stepIds": [
+      "3f0a84cb397248d0b0612a27696093c3"
+     ],
+     "steps": [
+      {
+       "id": "3f0a84cb397248d0b0612a27696093c3",
+       "name": " docker-mindstudio-msprof-a2-aarch64-nightly",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "4d000c76d280453788f135ec7abeb52f",
+       "jobIdParam": "1c5e0d3ec0d94b288d12ef08fa68b089"
+      }
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "fc373f8a80684a96b191803e41adcadb",
+     "route": "log",
+     "isBuild": false,
+     "buildJobId": "1c5e0d3ec0d94b288d12ef08fa68b089"
+    },
+    {
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "jobId": "ecb84d2ba4464a2b9ee4af8e8dc5c5af",
+     "jobName": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "stepIds": [
+      "8717355b913148b9a369882989e01737"
+     ],
+     "steps": [
+      {
+       "id": "8717355b913148b9a369882989e01737",
+       "name": " docker-mindstudio-msprof-a3-aarch64-nightly",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "96438a6e1dc74c5e8ce13299c29236bf",
+       "jobIdParam": "95b3d17e0d17423f87a6c66f825e0217"
+      }
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "fe02a367969847d599f34544584883fc",
+     "route": "log",
+     "isBuild": false,
+     "buildJobId": "95b3d17e0d17423f87a6c66f825e0217"
+    }
+   ],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 4,
+    "log": 2,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "results": [
+    {
+     "route": "test",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "rn": 279,
+     "st": "11-19 04:00",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "jobId": "ca957e1bfa664f76abd059d99ca2c3ab",
+     "jobName": "Test_msprof_smoke",
+     "stepIds": [
+      "4cbba7a328af486a919e762944a688cc"
+     ],
+     "steps": [
+      {
+       "id": "4cbba7a328af486a919e762944a688cc",
+       "name": "Test_msprof_smoke",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "1c0c2c905c48473abe8fe0d8e6f1c158",
+       "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "91230b9ae31442059b4e1c80dc63523f",
+     "code": 200,
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "failedCases": [],
+     "empty": true
+    },
+    {
+     "route": "test",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "rn": 279,
+     "st": "11-19 04:00",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "jobId": "1edebbb82ddc4698b0b13ce38aee1ae1",
+     "jobName": "Test_msprof_smoke_A3",
+     "stepIds": [
+      "3d4eb644e9234e5a86ea8698da8fec68"
+     ],
+     "steps": [
+      {
+       "id": "3d4eb644e9234e5a86ea8698da8fec68",
+       "name": "Test_msprof_smoke_A3",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "ad5c4f052dd44ed6b535fa1a0fc4f673",
+       "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_A3执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f47f4c9061d04c78ad5045832d689a32",
+     "code": 200,
+     "summary": {
+      "total": 73,
+      "passed": 71,
+      "failed": 2,
+      "passRate": "97.26%"
+     },
+     "failedCases": [
+      {
+       "name": "test_msprof_task_time_off_0001",
+       "number": "test_msprof_task_time_off_0001",
+       "state": "failed",
+       "description": "AssertionError: 发现10条ERROR日志",
+       "beginTime": "2026-11-19 09:41:53",
+       "endTime": "2026-11-19 09:42:18",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001_log.zip"
+      },
+      {
+       "name": "test_mspti_pytorch_for_communication_0001",
+       "number": "test_mspti_pytorch_for_communication_0001",
+       "state": "failed",
+       "description": "AssertionError: 训练失败，日志包含 Traceback",
+       "beginTime": "2026-11-19 09:41:53",
+       "endTime": "2026-11-19 09:55:19",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001_log.zip"
+      }
+     ],
+     "empty": false
+    },
+    {
+     "route": "test",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "jobId": "8ea73094f20a4ccab7c2b1ea04101c41",
+     "jobName": "Test_msprof_smoke_large_model",
+     "stepIds": [
+      "49589afac3804d0a89a4c7492ed4e82d"
+     ],
+     "steps": [
+      {
+       "id": "49589afac3804d0a89a4c7492ed4e82d",
+       "name": "Test_msprof_smoke_large_model",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "ec768cf94625464baa6ef342e6d572ed",
+       "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "5f3d08acf98b496f906aebcc74406710",
+     "code": 200,
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "failedCases": [],
+     "empty": true
+    },
+    {
+     "route": "test",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+     "rn": 281,
+     "st": "11-19 14:11",
+     "projectId": 300037,
+     "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+     "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+     "jobId": "53b5cbb170844e238ecfc33f38c095d5",
+     "jobName": "Test_msprof_smoke_A3_large_model",
+     "stepIds": [
+      "7598cc92ae884b14a988bdb6af0e61a4"
+     ],
+     "steps": [
+      {
+       "id": "7598cc92ae884b14a988bdb6af0e61a4",
+       "name": "Test_msprof_smoke_A3_large_model",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "162ed6c0c9ce4a0eb2d257d5f26fb513",
+       "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+      }
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_A3_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "f43ae7ddf377440b868a8a51e06429e1",
+     "code": 200,
+     "summary": {
+      "total": 33,
+      "passed": 29,
+      "failed": 4,
+      "passRate": "87.88%"
+     },
+     "failedCases": [
+      {
+       "name": "test_profiling_level1_arithmetic_utilization_0001",
+       "number": "test_profiling_level1_arithmetic_utilization_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:47",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001_log.zip"
+      },
+      {
+       "name": "test_profiling_level1_pipe_utilization_0001",
+       "number": "test_profiling_level1_pipe_utilization_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:56",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001_log.zip"
+      },
+      {
+       "name": "test_pytorch_for_async_mode_0001",
+       "number": "test_pytorch_for_async_mode_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:54",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001_log.zip"
+      },
+      {
+       "name": "test_pytorch_collect_text_and_db_0001",
+       "number": "test_pytorch_collect_text_and_db_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:49",
+       "resultDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001.html",
+       "envDownloadUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001_log.zip"
+      }
+     ],
+     "empty": false
+    }
+   ],
+   "caseErrors": [
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001.html",
+     "file": "case_0200.html",
+     "localLog": "case_logs/case_0200.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001",
+     "status": "Failed",
+     "duration": "24.16s",
+     "fileBytes": 69445,
+     "fileLines": 944,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001\nException: AssertionError\nMessage: 发现10条ERROR日志",
+      "Traceback:\ntestcase/mindstudio/profiling/test_msprof_ai3.py:938: in test_msprof_task_time_off_0001\n    helper.check_logs_no_error(real_output_path)\nlib/mindstudio/profiling/msprof.py:818: in check_logs_no_error\n    assert error_count == 0, f\"发现{error_count}条ERROR日志\"\n           ^^^^^^^^^^^^^^^^\nE   AssertionError: 发现10条ERROR日志"
+     ]
+    },
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001.html",
+     "file": "case_0201.html",
+     "localLog": "case_logs/case_0201.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001",
+     "status": "Failed",
+     "duration": "805.09s",
+     "fileBytes": 647814,
+     "fileLines": 10434,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001\nException: AssertionError\nMessage: 训练失败，日志包含 Traceback",
+      "Traceback:\ntestcase/mindstudio/profiling/test_mspti.py:519: in test_mspti_pytorch_for_communication_0001\n    runner.wait_training()\nlib/mindstudio/profiling/pta.py:621: in wait_training\n    assert marker not in log_content, f\"训练失败，日志包含 {marker}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: 训练失败，日志包含 Traceback"
+     ]
+    },
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001.html",
+     "file": "case_0202.html",
+     "localLog": "case_logs/case_0202.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001",
+     "status": "Failed",
+     "duration": "73.37s",
+     "fileBytes": 351471,
+     "fileLines": 4425,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_mode",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:106: in test_profiling_level1_arithmetic_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_"
+     ]
+    },
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001.html",
+     "file": "case_0203.html",
+     "localLog": "case_logs/case_0203.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001",
+     "status": "Failed",
+     "duration": "81.83s",
+     "fileBytes": 349981,
+     "fileLines": 4427,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWE",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:141: in test_profiling_level1_pipe_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND"
+     ]
+    },
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001.html",
+     "file": "case_0204.html",
+     "localLog": "case_logs/case_0204.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001",
+     "status": "Failed",
+     "duration": "79.93s",
+     "fileBytes": 346726,
+     "fileLines": 4413,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyn",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:627: in test_pytorch_for_async_mode_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录kernel_detail"
+     ]
+    },
+    {
+     "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001.html",
+     "file": "case_0205.html",
+     "localLog": "case_logs/case_0205.html",
+     "downloadStatus": "ok",
+     "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001",
+     "status": "Failed",
+     "duration": "74.97s",
+     "fileBytes": 372818,
+     "fileLines": 4828,
+     "errors": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/Pytorc",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:300: in test_pytorch_collect_text_and_db_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录ke"
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 4,
+    "failedCases": 6,
+    "caseLogs": 6,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "rn": 279,
+     "st": "11-19 04:00",
+     "rid": "6099f67d2d1f42548c33f8734618c711",
+     "jobId": "ca957e1bfa664f76abd059d99ca2c3ab",
+     "jobName": "Test_msprof_smoke",
+     "fallback": true,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "logBytes": 431654,
+     "logLines": 867,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L290: [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f",
+      "L293: [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L296: [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L299: [2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L302: [2026/11/19 09:41:30.449 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L305: [2026/11/19 09:42:05.015 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L308: [2026/11/19 09:42:33.912 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L311: [2026/11/19 09:43:02.809 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L314: [2026/11/19 09:43:31.714 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L317: [2026/11/19 09:44:06.286 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L726: [2026/11/19 10:52:45.213 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L729: [2026/11/19 10:53:15.470 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L732: [2026/11/19 10:53:50.064 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L735: [2026/11/19 10:54:18.960 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L738: [2026/11/19 10:54:47.859 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L741: [2026/11/19 10:55:16.764 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L744: [2026/11/19 10:55:51.347 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L747: [2026/11/19 10:56:20.249 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L750: [2026/11/19 10:56:49.668 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L753: [2026/11/19 10:57:18.661 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L756: [2026/11/19 10:57:47.574 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L759: [2026/11/19 10:58:22.172 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L762: [2026/11/19 10:58:51.115 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L765: [2026/11/19 10:59:20.042 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L768: [2026/11/19 10:59:49.006 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L771: [2026/11/19 11:00:17.923 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L774: [2026/11/19 11:00:52.515 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L777: [2026/11/19 11:01:21.434 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L780: [2026/11/19 11:01:50.353 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L783: [2026/11/19 11:02:19.261 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L786: [2026/11/19 11:02:53.836 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L789: [2026/11/19 11:03:22.746 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L792: [2026/11/19 11:03:51.914 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L795: [2026/11/19 11:04:20.832 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L798: [2026/11/19 11:04:49.747 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L801: [2026/11/19 11:05:24.335 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L804: [2026/11/19 11:05:51.331 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L807: [2026/11/19 11:06:20.238 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L810: [2026/11/19 11:06:49.494 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L813: [2026/11/19 11:07:24.131 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L816: [2026/11/19 11:07:53.037 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L819: [2026/11/19 11:08:21.946 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L822: [2026/11/19 11:08:50.858 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L825: [2026/11/19 11:09:25.437 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L828: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f4254",
+      "L829: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2",
+      "L830: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L831: [2026/11/19 11:09:54.415 GMT+08:00] Traceback (most recent call last):",
+      "L835: [2026/11/19 11:09:54.415 GMT+08:00]     raise RuntimeError(",
+      "L836: [2026/11/19 11:09:54.415 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L837: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Failed to allocate environment for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2, error: Environment allocation rejected: Unknown",
+      "L838: [2026/11/19 11:09:54.415 GMT+08:00] Traceback (most recent call last):",
+      "L844: [2026/11/19 11:09:54.415 GMT+08:00]     raise RuntimeError(",
+      "L845: [2026/11/19 11:09:54.415 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L847: [2026/11/19 11:09:54.415 GMT+08:00] [281473805922336] [ERROR] Failed to execute cases for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2",
+      "L855: [2026/11/19 11:09:54.415 GMT+08:00] [281473805922336] [ERROR] No test case result found. Exiting.",
+      "L857: [2026/11/19 11:09:54.415 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L858: [2026/11/19 11:09:54.415 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L865: [2026/11/19 11:09:54.543 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L867: [2026/11/19 11:09:56.059 GMT+08:00] Finished: FAILURE"
+     ]
+    },
+    {
+     "route": "log",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "jobId": "e31f29a24e1b4b5a8de3587796c0b464",
+     "jobName": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "logBytes": 621350,
+     "logLines": 6070,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L595: [2026/11/19 11:52:07.567 GMT+08:00] checking whether C compiler accepts option -Werror... yes",
+      "L596: [2026/11/19 11:52:07.707 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes",
+      "L624: [2026/11/19 11:52:08.714 GMT+08:00] checking for strerror... yes",
+      "L625: [2026/11/19 11:52:08.740 GMT+08:00] checking whether strerror needs a declaration... no",
+      "L660: [2026/11/19 11:52:10.530 GMT+08:00] configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local/mpich-4.1.3' --enable-embedded --disable-werror '--disable-fortran' '--disable-cxx' --cache-file=/dev/null --srcdir=.",
+      "L741: [2026/11/19 11:52:13.033 GMT+08:00] checking for strerror... yes",
+      "L803: [2026/11/19 11:52:15.004 GMT+08:00] checking whether C compiler accepts option -Wno-error=deprecated-declarations... yes",
+      "L804: [2026/11/19 11:52:15.136 GMT+08:00] checking whether routines compiled with -Wno-error=deprecated-declarations can be linked with ones compiled without -Wno-error=deprecated-declarations... yes",
+      "L1245: [2026/11/19 11:52:29.540 GMT+08:00] program failed to produce an object file",
+      "L1338: [2026/11/19 11:52:32.910 GMT+08:00] checking for strerror... yes",
+      "L1622: [2026/11/19 11:52:48.689 GMT+08:00] checking whether C compiler accepts option -Werror=type-safety... no",
+      "L1663: [2026/11/19 11:52:49.947 GMT+08:00] checking for strerror... yes",
+      "L2355: [2026/11/19 11:53:22.202 GMT+08:00] checking for library containing hstrerror... none required",
+      "L2372: [2026/11/19 11:53:23.187 GMT+08:00] checking for hstrerror... yes",
+      "L2373: [2026/11/19 11:53:23.221 GMT+08:00] checking whether hstrerror needs a declaration... no",
+      "L2394: [2026/11/19 11:53:23.733 GMT+08:00] checking error checking... yes",
+      "L3079: [2026/11/19 12:01:55.907 GMT+08:00]   CC       util/strerror.o",
+      "L3294: [2026/11/19 12:02:17.322 GMT+08:00]   CCLD     util/fi_strerror",
+      "L3449: [2026/11/19 12:02:23.901 GMT+08:00]   CC       adio/common/error.lo",
+      "L4319: [2026/11/19 12:05:08.497 GMT+08:00]   CC       src/util/lib_libmpi_la-mpir_strerror.lo",
+      "L4830: [2026/11/19 12:05:57.807 GMT+08:00] /usr/bin/install -c -m 644 MPI_ERROR.3 /usr/local/mpich-4.1.3/share/man/man3/MPI_ERROR.3",
+      "L6063: [2026/11/19 12:06:23.800 GMT+08:00] [91mERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
+      "L6064: [2026/11/19 12:06:24.887 GMT+08:00] [0m[ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:The command '/bin/sh -c chmod +x /tmp/msprof-scripts/*.sh /usr/local/bin/mindstudio-fetch-daily &&     /tmp/msprof-scripts/install-system-packages.sh &&     /tmp/msprof-scripts/install-mpich.sh &&     /tmp/msprof-scripts/install-component.sh &&     uv cache clean &&     rm -rf /tmp/msprof-sc",
+      "L6065: [2026/11/19 12:06:24.888 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败",
+      "L6066: [2026/11/19 12:06:24.974 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败",
+      "L6067: [2026/11/19 12:06:24.976 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败",
+      "L6070: [2026/11/19 12:06:30.714 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    },
+    {
+     "route": "log",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "jobId": "ecb84d2ba4464a2b9ee4af8e8dc5c5af",
+     "jobName": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "logBytes": 621489,
+     "logLines": 6072,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L597: [2026/11/19 11:52:09.817 GMT+08:00] checking whether C compiler accepts option -Werror... yes",
+      "L598: [2026/11/19 11:52:09.953 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes",
+      "L626: [2026/11/19 11:52:10.956 GMT+08:00] checking for strerror... yes",
+      "L627: [2026/11/19 11:52:10.981 GMT+08:00] checking whether strerror needs a declaration... no",
+      "L662: [2026/11/19 11:52:12.755 GMT+08:00] configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local/mpich-4.1.3' --enable-embedded --disable-werror '--disable-fortran' '--disable-cxx' --cache-file=/dev/null --srcdir=.",
+      "L743: [2026/11/19 11:52:15.272 GMT+08:00] checking for strerror... yes",
+      "L805: [2026/11/19 11:52:17.217 GMT+08:00] checking whether C compiler accepts option -Wno-error=deprecated-declarations... yes",
+      "L806: [2026/11/19 11:52:17.351 GMT+08:00] checking whether routines compiled with -Wno-error=deprecated-declarations can be linked with ones compiled without -Wno-error=deprecated-declarations... yes",
+      "L1247: [2026/11/19 11:52:31.831 GMT+08:00] program failed to produce an object file",
+      "L1340: [2026/11/19 11:52:35.227 GMT+08:00] checking for strerror... yes",
+      "L1624: [2026/11/19 11:52:50.852 GMT+08:00] checking whether C compiler accepts option -Werror=type-safety... no",
+      "L1665: [2026/11/19 11:52:52.116 GMT+08:00] checking for strerror... yes",
+      "L2357: [2026/11/19 11:53:24.063 GMT+08:00] checking for library containing hstrerror... none required",
+      "L2374: [2026/11/19 11:53:25.050 GMT+08:00] checking for hstrerror... yes",
+      "L2375: [2026/11/19 11:53:25.085 GMT+08:00] checking whether hstrerror needs a declaration... no",
+      "L2396: [2026/11/19 11:53:25.599 GMT+08:00] checking error checking... yes",
+      "L3081: [2026/11/19 12:02:04.218 GMT+08:00]   CC       util/strerror.o",
+      "L3296: [2026/11/19 12:02:25.739 GMT+08:00]   CCLD     util/fi_strerror",
+      "L3451: [2026/11/19 12:02:32.506 GMT+08:00]   CC       adio/common/error.lo",
+      "L4321: [2026/11/19 12:05:18.956 GMT+08:00]   CC       src/util/lib_libmpi_la-mpir_strerror.lo",
+      "L4832: [2026/11/19 12:06:08.991 GMT+08:00] /usr/bin/install -c -m 644 MPI_ERROR.3 /usr/local/mpich-4.1.3/share/man/man3/MPI_ERROR.3",
+      "L6065: [2026/11/19 12:06:38.110 GMT+08:00] [91mERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
+      "L6066: [2026/11/19 12:06:38.514 GMT+08:00] [0m[ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:The command '/bin/sh -c chmod +x /tmp/msprof-scripts/*.sh /usr/local/bin/mindstudio-fetch-daily &&     /tmp/msprof-scripts/install-system-packages.sh &&     /tmp/msprof-scripts/install-mpich.sh &&     /tmp/msprof-scripts/install-component.sh &&     uv cache clean &&     rm -rf /tmp/msprof-sc",
+      "L6067: [2026/11/19 12:06:38.515 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败",
+      "L6068: [2026/11/19 12:06:38.578 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败",
+      "L6069: [2026/11/19 12:06:38.580 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败",
+      "L6072: [2026/11/19 12:06:44.284 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    },
+    {
+     "route": "log",
+     "key": "MindStudio|msprof",
+     "pipeline": "msprof",
+     "rn": 280,
+     "st": "11-19 11:50",
+     "rid": "10d7c5c6736348949a656389dcbc8adf",
+     "jobId": "8ea73094f20a4ccab7c2b1ea04101c41",
+     "jobName": "Test_msprof_smoke_large_model",
+     "fallback": true,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "logBytes": 413905,
+     "logLines": 839,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L286: [2026/11/19 12:06:40.726 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c67363",
+      "L289: [2026/11/19 12:07:15.739 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L292: [2026/11/19 12:07:45.446 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L295: [2026/11/19 12:08:14.767 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L298: [2026/11/19 12:08:44.083 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L301: [2026/11/19 12:09:13.402 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L304: [2026/11/19 12:09:42.722 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L307: [2026/11/19 12:10:12.106 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L310: [2026/11/19 12:10:47.124 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L313: [2026/11/19 12:11:12.088 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L698: [2026/11/19 13:19:42.093 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L701: [2026/11/19 13:20:11.854 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L704: [2026/11/19 13:20:46.873 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L707: [2026/11/19 13:21:16.465 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L710: [2026/11/19 13:21:45.797 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L713: [2026/11/19 13:22:15.131 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L716: [2026/11/19 13:22:50.148 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L719: [2026/11/19 13:23:19.527 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L722: [2026/11/19 13:23:48.850 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L725: [2026/11/19 13:24:18.171 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L728: [2026/11/19 13:24:47.489 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L731: [2026/11/19 13:25:17.286 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L734: [2026/11/19 13:25:46.601 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L737: [2026/11/19 13:26:21.673 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L740: [2026/11/19 13:26:48.284 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L743: [2026/11/19 13:27:23.327 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L746: [2026/11/19 13:27:52.829 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L749: [2026/11/19 13:28:22.153 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L752: [2026/11/19 13:28:51.474 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L755: [2026/11/19 13:29:20.794 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L758: [2026/11/19 13:29:50.111 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L761: [2026/11/19 13:30:19.889 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L764: [2026/11/19 13:30:54.906 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L767: [2026/11/19 13:31:24.227 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L770: [2026/11/19 13:31:53.543 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L773: [2026/11/19 13:32:22.861 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L776: [2026/11/19 13:32:54.896 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L779: [2026/11/19 13:33:29.931 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L782: [2026/11/19 13:33:59.249 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L785: [2026/11/19 13:34:28.568 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L788: [2026/11/19 13:34:57.885 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L791: [2026/11/19 13:35:27.661 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L794: [2026/11/19 13:35:56.980 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L797: [2026/11/19 13:36:29.653 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L800: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c673634894",
+      "L801: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2",
+      "L802: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L803: [2026/11/19 13:37:04.840 GMT+08:00] Traceback (most recent call last):",
+      "L807: [2026/11/19 13:37:04.840 GMT+08:00]     raise RuntimeError(",
+      "L808: [2026/11/19 13:37:04.840 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L809: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Failed to allocate environment for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2, error: Environment allocation rejected: Unknown",
+      "L810: [2026/11/19 13:37:04.840 GMT+08:00] Traceback (most recent call last):",
+      "L816: [2026/11/19 13:37:04.840 GMT+08:00]     raise RuntimeError(",
+      "L817: [2026/11/19 13:37:04.840 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L819: [2026/11/19 13:37:04.840 GMT+08:00] [281473319850016] [ERROR] Failed to execute cases for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2",
+      "L827: [2026/11/19 13:37:04.840 GMT+08:00] [281473319850016] [ERROR] No test case result found. Exiting.",
+      "L829: [2026/11/19 13:37:04.840 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L830: [2026/11/19 13:37:04.840 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L837: [2026/11/19 13:37:04.997 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L839: [2026/11/19 13:37:06.539 GMT+08:00] Finished: FAILURE"
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 4,
+    "logFiles": 4,
+    "errorLines": 174
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-20 05:03:49",
+    "component": "MindStudio",
+    "pipeline": "msprof",
+    "date": "2026-11-19",
+    "recordCount": 3
+   },
+   "date": "2026-11-19",
+   "component": "MindStudio",
+   "pipeline": "msprof",
+   "counts": {
+    "records": 3,
+    "tasks": 8,
+    "cases": 6,
+    "errorMessages": 38
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2321,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 5853,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 6750,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 20857,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 51254,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 461,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 508,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 848,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "MindStudio|msprof#279",
+   "date": "2026-11-19",
+   "component": "MindStudio",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "platform": "codearts",
+   "buildNumber": 279,
+   "pipelineRunId": "6099f67d2d1f42548c33f8734618c711",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-19T04:00:57",
+   "endedAt": "2026-11-19T11:09:57",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-19T11:09:57",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=6099f67d2d1f42548c33f8734618c711",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_msprof_smoke",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Test_msprof_smoke_A3",
+     "type": "test",
+     "summary": {
+      "total": 73,
+      "passed": 71,
+      "failed": 2,
+      "passRate": "97.26%"
+     },
+     "cases": [
+      {
+       "name": "test_msprof_task_time_off_0001",
+       "state": "failed",
+       "description": "AssertionError: 发现10条ERROR日志",
+       "beginTime": "2026-11-19 09:41:53",
+       "endTime": "2026-11-19 09:42:18",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001.html",
+       "localLog": "case_logs/case_0200.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001\nException: AssertionError\nMessage: 发现10条ERROR日志",
+        "Traceback:\ntestcase/mindstudio/profiling/test_msprof_ai3.py:938: in test_msprof_task_time_off_0001\n    helper.check_logs_no_error(real_output_path)\nlib/mindstudio/profiling/msprof.py:818: in check_logs_no_error\n    assert error_count == 0, f\"发现{error_count}条ERROR日志\"\n           ^^^^^^^^^^^^^^^^\nE   AssertionError: 发现10条ERROR日志"
+       ]
+      },
+      {
+       "name": "test_mspti_pytorch_for_communication_0001",
+       "state": "failed",
+       "description": "AssertionError: 训练失败，日志包含 Traceback",
+       "beginTime": "2026-11-19 09:41:53",
+       "endTime": "2026-11-19 09:55:19",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001.html",
+       "localLog": "case_logs/case_0201.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001\nException: AssertionError\nMessage: 训练失败，日志包含 Traceback",
+        "Traceback:\ntestcase/mindstudio/profiling/test_mspti.py:519: in test_mspti_pytorch_for_communication_0001\n    runner.wait_training()\nlib/mindstudio/profiling/pta.py:621: in wait_training\n    assert marker not in log_content, f\"训练失败，日志包含 {marker}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: 训练失败，日志包含 Traceback"
+       ]
+      }
+     ],
+     "emptyTestResult": false,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Test_msprof_smoke",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "logBytes": 431654,
+     "logLines": 867,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L290: [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f",
+      "L293: [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L296: [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L299: [2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L302: [2026/11/19 09:41:30.449 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L305: [2026/11/19 09:42:05.015 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L308: [2026/11/19 09:42:33.912 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L311: [2026/11/19 09:43:02.809 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L314: [2026/11/19 09:43:31.714 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L317: [2026/11/19 09:44:06.286 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L726: [2026/11/19 10:52:45.213 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L729: [2026/11/19 10:53:15.470 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L732: [2026/11/19 10:53:50.064 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L735: [2026/11/19 10:54:18.960 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L738: [2026/11/19 10:54:47.859 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L741: [2026/11/19 10:55:16.764 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L744: [2026/11/19 10:55:51.347 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L747: [2026/11/19 10:56:20.249 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L750: [2026/11/19 10:56:49.668 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L753: [2026/11/19 10:57:18.661 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L756: [2026/11/19 10:57:47.574 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L759: [2026/11/19 10:58:22.172 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L762: [2026/11/19 10:58:51.115 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L765: [2026/11/19 10:59:20.042 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L768: [2026/11/19 10:59:49.006 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L771: [2026/11/19 11:00:17.923 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L774: [2026/11/19 11:00:52.515 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L777: [2026/11/19 11:01:21.434 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L780: [2026/11/19 11:01:50.353 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L783: [2026/11/19 11:02:19.261 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L786: [2026/11/19 11:02:53.836 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L789: [2026/11/19 11:03:22.746 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L792: [2026/11/19 11:03:51.914 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L795: [2026/11/19 11:04:20.832 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L798: [2026/11/19 11:04:49.747 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L801: [2026/11/19 11:05:24.335 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L804: [2026/11/19 11:05:51.331 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L807: [2026/11/19 11:06:20.238 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L810: [2026/11/19 11:06:49.494 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L813: [2026/11/19 11:07:24.131 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L816: [2026/11/19 11:07:53.037 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L819: [2026/11/19 11:08:21.946 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L822: [2026/11/19 11:08:50.858 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L825: [2026/11/19 11:09:25.437 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c",
+      "L828: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f4254",
+      "L829: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2",
+      "L830: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L831: [2026/11/19 11:09:54.415 GMT+08:00] Traceback (most recent call last):",
+      "L835: [2026/11/19 11:09:54.415 GMT+08:00]     raise RuntimeError(",
+      "L836: [2026/11/19 11:09:54.415 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L837: [2026/11/19 11:09:54.415 GMT+08:00] [281473767895328] [ERROR] Failed to allocate environment for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2, error: Environment allocation rejected: Unknown",
+      "L847: [2026/11/19 11:09:54.415 GMT+08:00] [281473805922336] [ERROR] Failed to execute cases for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2",
+      "L855: [2026/11/19 11:09:54.415 GMT+08:00] [281473805922336] [ERROR] No test case result found. Exiting.",
+      "L857: [2026/11/19 11:09:54.415 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L858: [2026/11/19 11:09:54.415 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L865: [2026/11/19 11:09:54.543 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L867: [2026/11/19 11:09:56.059 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [
+    {
+     "task": "Test_msprof_smoke_A3",
+     "name": "test_msprof_task_time_off_0001",
+     "state": "failed",
+     "description": "AssertionError: 发现10条ERROR日志",
+     "beginTime": "2026-11-19 09:41:53",
+     "endTime": "2026-11-19 09:42:18",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001.html",
+     "localLog": "case_logs/case_0200.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001\nException: AssertionError\nMessage: 发现10条ERROR日志",
+      "Traceback:\ntestcase/mindstudio/profiling/test_msprof_ai3.py:938: in test_msprof_task_time_off_0001\n    helper.check_logs_no_error(real_output_path)\nlib/mindstudio/profiling/msprof.py:818: in check_logs_no_error\n    assert error_count == 0, f\"发现{error_count}条ERROR日志\"\n           ^^^^^^^^^^^^^^^^\nE   AssertionError: 发现10条ERROR日志"
+     ]
+    },
+    {
+     "task": "Test_msprof_smoke_A3",
+     "name": "test_mspti_pytorch_for_communication_0001",
+     "state": "failed",
+     "description": "AssertionError: 训练失败，日志包含 Traceback",
+     "beginTime": "2026-11-19 09:41:53",
+     "endTime": "2026-11-19 09:55:19",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001.html",
+     "localLog": "case_logs/case_0201.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001\nException: AssertionError\nMessage: 训练失败，日志包含 Traceback",
+      "Traceback:\ntestcase/mindstudio/profiling/test_mspti.py:519: in test_mspti_pytorch_for_communication_0001\n    runner.wait_training()\nlib/mindstudio/profiling/pta.py:621: in wait_training\n    assert marker not in log_content, f\"训练失败，日志包含 {marker}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: 训练失败，日志包含 Traceback"
+     ]
+    }
+   ],
+   "errorMessages": [
+    {
+     "task": "Test_msprof_smoke_A3",
+     "case": "test_msprof_task_time_off_0001",
+     "source": "case_logs/case_0200.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001\nException: AssertionError\nMessage: 发现10条ERROR日志",
+     "assertion": true
+    },
+    {
+     "task": "Test_msprof_smoke_A3",
+     "case": "test_mspti_pytorch_for_communication_0001",
+     "source": "case_logs/case_0201.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001\nException: AssertionError\nMessage: 训练失败，日志包含 Traceback",
+     "assertion": true
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 290,
+     "level": "LOG",
+     "text": "[2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 293,
+     "level": "LOG",
+     "text": "[2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 296,
+     "level": "LOG",
+     "text": "[2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 299,
+     "level": "LOG",
+     "text": "[2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T01:39:28Z', 'expires_at': '2026-11-19T07:39:28Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-6099f67d2d1f42548c"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 857,
+     "level": "LOG",
+     "text": "[2026/11/19 11:09:54.415 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 858,
+     "level": "LOG",
+     "text": "[2026/11/19 11:09:54.415 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 865,
+     "level": "LOG",
+     "text": "[2026/11/19 11:09:54.543 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed"
+    },
+    {
+     "task": "Test_msprof_smoke",
+     "source": "job_logs/51_msprof_279_Test_msprof_smoke.log",
+     "line": 867,
+     "level": "LOG",
+     "text": "[2026/11/19 11:09:56.059 GMT+08:00] Finished: FAILURE"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "case_logs/case_0200.html",
+     "case_logs/case_0201.html",
+     "job_logs/51_msprof_279_Test_msprof_smoke.log"
+    ],
+    "missing": [
+     "Test_msprof_smoke"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 3,
+    "testTasks": 2,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 2,
+    "errorMessages": 10,
+    "evidenceFiles": 3
+   },
+   "verdict": {
+    "category": "test_failure",
+    "text": "用例失败",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_msprof_smoke_A3 取到 2 条失败用例（无 ERROR/FAIL 行，见 deepHits）",
+     "基线 0.30",
+     "证据文件落盘 3 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Test_msprof_smoke 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "RuntimeError: Environment allocation rejected: Unknown",
+    "issueType": "资源不足",
+    "issueDetail": "测试用 A2/A3 环境申请被拒，用例未执行",
+    "rootCause": "失败在用例执行前的环境申请环节：冒烟测试需要一台 mindstudio_single_device_8_a2a3 设备环境，从 09:39:29 起反复查询任务状态，状态长时间停在 provisioning/queued，一直排到 11:09:54 仍拿不到分配结果，最终由调度框架抛出环境申请被拒的异常，用例一条都没跑起来（No test case result found），任务以非零退出码结束。根因是所需 A2/A3 测试设备资源紧张或调度侧异常，导致环境申请被拒绝，属资源/平台侧问题，不是 msprof 自身缺陷。该记录取证不完整（仅取到冒烟 job 的日志）。",
+    "advice": "联系环境调度侧核查 2026-11-19 09:39～11:09 时段 A2/A3 设备池的容量与调度日志，确认该环境申请被拒的具体原因（资源不足还是调度异常）；若为资源紧张，评估扩容或在夜间低峰段调整排队策略。\n\n验证方式：重跑该流水线，要求环境申请能在合理时间内分配成功、测试任务能拉起用例且用例通过率 100%。",
+    "cites": [
+     "job_logs/51_msprof_279_Test_msprof_smoke.log:L845"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/51_msprof_279_Test_msprof_smoke.log:L845",
+    "updatedAt": "2026-11-20 05:25:54",
+    "firstAnalyzedAt": "2026-11-20 05:25:54",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "MindStudio|msprof#280",
+   "date": "2026-11-19",
+   "component": "MindStudio",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "platform": "codearts",
+   "buildNumber": 280,
+   "pipelineRunId": "10d7c5c6736348949a656389dcbc8adf",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-19T11:50:37",
+   "endedAt": "2026-11-19T13:37:11",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-19T13:37:11",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=10d7c5c6736348949a656389dcbc8adf",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_msprof_smoke_large_model",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "logBytes": 621350,
+     "logLines": 6070,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L595: [2026/11/19 11:52:07.567 GMT+08:00] checking whether C compiler accepts option -Werror... yes",
+      "L596: [2026/11/19 11:52:07.707 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes",
+      "L624: [2026/11/19 11:52:08.714 GMT+08:00] checking for strerror... yes",
+      "L625: [2026/11/19 11:52:08.740 GMT+08:00] checking whether strerror needs a declaration... no",
+      "L660: [2026/11/19 11:52:10.530 GMT+08:00] configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local/mpich-4.1.3' --enable-embedded --disable-werror '--disable-fortran' '--disable-cxx' --cache-file=/dev/null --srcdir=.",
+      "L741: [2026/11/19 11:52:13.033 GMT+08:00] checking for strerror... yes",
+      "L803: [2026/11/19 11:52:15.004 GMT+08:00] checking whether C compiler accepts option -Wno-error=deprecated-declarations... yes",
+      "L804: [2026/11/19 11:52:15.136 GMT+08:00] checking whether routines compiled with -Wno-error=deprecated-declarations can be linked with ones compiled without -Wno-error=deprecated-declarations... yes",
+      "L1245: [2026/11/19 11:52:29.540 GMT+08:00] program failed to produce an object file",
+      "L1338: [2026/11/19 11:52:32.910 GMT+08:00] checking for strerror... yes",
+      "L1622: [2026/11/19 11:52:48.689 GMT+08:00] checking whether C compiler accepts option -Werror=type-safety... no",
+      "L1663: [2026/11/19 11:52:49.947 GMT+08:00] checking for strerror... yes",
+      "L2355: [2026/11/19 11:53:22.202 GMT+08:00] checking for library containing hstrerror... none required",
+      "L2372: [2026/11/19 11:53:23.187 GMT+08:00] checking for hstrerror... yes",
+      "L2373: [2026/11/19 11:53:23.221 GMT+08:00] checking whether hstrerror needs a declaration... no",
+      "L2394: [2026/11/19 11:53:23.733 GMT+08:00] checking error checking... yes",
+      "L3079: [2026/11/19 12:01:55.907 GMT+08:00]   CC       util/strerror.o",
+      "L3294: [2026/11/19 12:02:17.322 GMT+08:00]   CCLD     util/fi_strerror",
+      "L3449: [2026/11/19 12:02:23.901 GMT+08:00]   CC       adio/common/error.lo",
+      "L4319: [2026/11/19 12:05:08.497 GMT+08:00]   CC       src/util/lib_libmpi_la-mpir_strerror.lo",
+      "L4830: [2026/11/19 12:05:57.807 GMT+08:00] /usr/bin/install -c -m 644 MPI_ERROR.3 /usr/local/mpich-4.1.3/share/man/man3/MPI_ERROR.3",
+      "L6063: [2026/11/19 12:06:23.800 GMT+08:00] [91mERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
+      "L6064: [2026/11/19 12:06:24.887 GMT+08:00] [0m[ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:The command '/bin/sh -c chmod +x /tmp/msprof-scripts/*.sh /usr/local/bin/mindstudio-fetch-daily &&     /tmp/msprof-scripts/install-system-packages.sh &&     /tmp/msprof-scripts/install-mpich.sh &&     /tmp/msprof-scripts/install-component.sh &&     uv cache clean &&     rm -rf /tmp/msprof-sc",
+      "L6065: [2026/11/19 12:06:24.888 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败",
+      "L6066: [2026/11/19 12:06:24.974 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败",
+      "L6067: [2026/11/19 12:06:24.976 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败",
+      "L6070: [2026/11/19 12:06:30.714 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "logBytes": 621489,
+     "logLines": 6072,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤 docker-mindstudio-msprof-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L597: [2026/11/19 11:52:09.817 GMT+08:00] checking whether C compiler accepts option -Werror... yes",
+      "L598: [2026/11/19 11:52:09.953 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes",
+      "L626: [2026/11/19 11:52:10.956 GMT+08:00] checking for strerror... yes",
+      "L627: [2026/11/19 11:52:10.981 GMT+08:00] checking whether strerror needs a declaration... no",
+      "L662: [2026/11/19 11:52:12.755 GMT+08:00] configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local/mpich-4.1.3' --enable-embedded --disable-werror '--disable-fortran' '--disable-cxx' --cache-file=/dev/null --srcdir=.",
+      "L743: [2026/11/19 11:52:15.272 GMT+08:00] checking for strerror... yes",
+      "L805: [2026/11/19 11:52:17.217 GMT+08:00] checking whether C compiler accepts option -Wno-error=deprecated-declarations... yes",
+      "L806: [2026/11/19 11:52:17.351 GMT+08:00] checking whether routines compiled with -Wno-error=deprecated-declarations can be linked with ones compiled without -Wno-error=deprecated-declarations... yes",
+      "L1247: [2026/11/19 11:52:31.831 GMT+08:00] program failed to produce an object file",
+      "L1340: [2026/11/19 11:52:35.227 GMT+08:00] checking for strerror... yes",
+      "L1624: [2026/11/19 11:52:50.852 GMT+08:00] checking whether C compiler accepts option -Werror=type-safety... no",
+      "L1665: [2026/11/19 11:52:52.116 GMT+08:00] checking for strerror... yes",
+      "L2357: [2026/11/19 11:53:24.063 GMT+08:00] checking for library containing hstrerror... none required",
+      "L2374: [2026/11/19 11:53:25.050 GMT+08:00] checking for hstrerror... yes",
+      "L2375: [2026/11/19 11:53:25.085 GMT+08:00] checking whether hstrerror needs a declaration... no",
+      "L2396: [2026/11/19 11:53:25.599 GMT+08:00] checking error checking... yes",
+      "L3081: [2026/11/19 12:02:04.218 GMT+08:00]   CC       util/strerror.o",
+      "L3296: [2026/11/19 12:02:25.739 GMT+08:00]   CCLD     util/fi_strerror",
+      "L3451: [2026/11/19 12:02:32.506 GMT+08:00]   CC       adio/common/error.lo",
+      "L4321: [2026/11/19 12:05:18.956 GMT+08:00]   CC       src/util/lib_libmpi_la-mpir_strerror.lo",
+      "L4832: [2026/11/19 12:06:08.991 GMT+08:00] /usr/bin/install -c -m 644 MPI_ERROR.3 /usr/local/mpich-4.1.3/share/man/man3/MPI_ERROR.3",
+      "L6065: [2026/11/19 12:06:38.110 GMT+08:00] [91mERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
+      "L6066: [2026/11/19 12:06:38.514 GMT+08:00] [0m[ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 执行docker命令失败,错误信息为:The command '/bin/sh -c chmod +x /tmp/msprof-scripts/*.sh /usr/local/bin/mindstudio-fetch-daily &&     /tmp/msprof-scripts/install-system-packages.sh &&     /tmp/msprof-scripts/install-mpich.sh &&     /tmp/msprof-scripts/install-component.sh &&     uv cache clean &&     rm -rf /tmp/msprof-sc",
+      "L6067: [2026/11/19 12:06:38.515 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败",
+      "L6068: [2026/11/19 12:06:38.578 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败",
+      "L6069: [2026/11/19 12:06:38.580 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败",
+      "L6072: [2026/11/19 12:06:44.284 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Test_msprof_smoke_large_model",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "logBytes": 413905,
+     "logLines": 839,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L286: [2026/11/19 12:06:40.726 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c67363",
+      "L289: [2026/11/19 12:07:15.739 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L292: [2026/11/19 12:07:45.446 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L295: [2026/11/19 12:08:14.767 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L298: [2026/11/19 12:08:44.083 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L301: [2026/11/19 12:09:13.402 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L304: [2026/11/19 12:09:42.722 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L307: [2026/11/19 12:10:12.106 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L310: [2026/11/19 12:10:47.124 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L313: [2026/11/19 12:11:12.088 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L698: [2026/11/19 13:19:42.093 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L701: [2026/11/19 13:20:11.854 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L704: [2026/11/19 13:20:46.873 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L707: [2026/11/19 13:21:16.465 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L710: [2026/11/19 13:21:45.797 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L713: [2026/11/19 13:22:15.131 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L716: [2026/11/19 13:22:50.148 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L719: [2026/11/19 13:23:19.527 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L722: [2026/11/19 13:23:48.850 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L725: [2026/11/19 13:24:18.171 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L728: [2026/11/19 13:24:47.489 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L731: [2026/11/19 13:25:17.286 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L734: [2026/11/19 13:25:46.601 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L737: [2026/11/19 13:26:21.673 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L740: [2026/11/19 13:26:48.284 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L743: [2026/11/19 13:27:23.327 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L746: [2026/11/19 13:27:52.829 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L749: [2026/11/19 13:28:22.153 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L752: [2026/11/19 13:28:51.474 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L755: [2026/11/19 13:29:20.794 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L758: [2026/11/19 13:29:50.111 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L761: [2026/11/19 13:30:19.889 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L764: [2026/11/19 13:30:54.906 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L767: [2026/11/19 13:31:24.227 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L770: [2026/11/19 13:31:53.543 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L773: [2026/11/19 13:32:22.861 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L776: [2026/11/19 13:32:54.896 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L779: [2026/11/19 13:33:29.931 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L782: [2026/11/19 13:33:59.249 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L785: [2026/11/19 13:34:28.568 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L788: [2026/11/19 13:34:57.885 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L791: [2026/11/19 13:35:27.661 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L794: [2026/11/19 13:35:56.980 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L797: [2026/11/19 13:36:29.653 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a",
+      "L800: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c673634894",
+      "L801: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Environment allocation rejected, apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'rejected', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2",
+      "L802: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Failed to allocate environment: Environment allocation rejected: Unknown",
+      "L803: [2026/11/19 13:37:04.840 GMT+08:00] Traceback (most recent call last):",
+      "L807: [2026/11/19 13:37:04.840 GMT+08:00]     raise RuntimeError(",
+      "L808: [2026/11/19 13:37:04.840 GMT+08:00] RuntimeError: Environment allocation rejected: Unknown",
+      "L809: [2026/11/19 13:37:04.840 GMT+08:00] [281473281814816] [ERROR] Failed to allocate environment for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2, error: Environment allocation rejected: Unknown",
+      "L819: [2026/11/19 13:37:04.840 GMT+08:00] [281473319850016] [ERROR] Failed to execute cases for env_id: mindstudio_single_device_8_a2a3_env_type-nodes_A2-A2",
+      "L827: [2026/11/19 13:37:04.840 GMT+08:00] [281473319850016] [ERROR] No test case result found. Exiting.",
+      "L829: [2026/11/19 13:37:04.840 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L830: [2026/11/19 13:37:04.840 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L837: [2026/11/19 13:37:04.997 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L839: [2026/11/19 13:37:06.539 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 595,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:07.567 GMT+08:00] checking whether C compiler accepts option -Werror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 596,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:07.707 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 624,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:08.714 GMT+08:00] checking for strerror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 625,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:08.740 GMT+08:00] checking whether strerror needs a declaration... no"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 6065,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:24.888 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 6066,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:24.974 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 6067,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:24.976 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "source": "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "line": 6070,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:30.714 GMT+08:00] Finished: FAILURE"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 597,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:09.817 GMT+08:00] checking whether C compiler accepts option -Werror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 598,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:09.953 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 626,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:10.956 GMT+08:00] checking for strerror... yes"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 627,
+     "level": "LOG",
+     "text": "[2026/11/19 11:52:10.981 GMT+08:00] checking whether strerror needs a declaration... no"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 6067,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:38.515 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 6068,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:38.578 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 6069,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:38.580 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败"
+    },
+    {
+     "task": " docker-mindstudio-msprof-a3-aarch64-nightly",
+     "source": "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "line": 6072,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:44.284 GMT+08:00] Finished: FAILURE"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 286,
+     "level": "LOG",
+     "text": "[2026/11/19 12:06:40.726 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c67363"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 289,
+     "level": "LOG",
+     "text": "[2026/11/19 12:07:15.739 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 292,
+     "level": "LOG",
+     "text": "[2026/11/19 12:07:45.446 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 295,
+     "level": "LOG",
+     "text": "[2026/11/19 12:08:14.767 GMT+08:00] [281473281814816] [INFO] apply_env_res: {'env_id': 'lease-env-40ca448bee7deae22746f9b848b0d2eb', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-19T04:06:40Z', 'expires_at': '2026-11-19T10:06:40Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-6cf1bab4d4444a2b836c7b106901af49-10d7c5c6736348949a"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 829,
+     "level": "LOG",
+     "text": "[2026/11/19 13:37:04.840 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 830,
+     "level": "LOG",
+     "text": "[2026/11/19 13:37:04.840 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 837,
+     "level": "LOG",
+     "text": "[2026/11/19 13:37:04.997 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed"
+    },
+    {
+     "task": "Test_msprof_smoke_large_model",
+     "source": "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log",
+     "line": 839,
+     "level": "LOG",
+     "text": "[2026/11/19 13:37:06.539 GMT+08:00] Finished: FAILURE"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log",
+     "job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log",
+     "job_logs/50_msprof_280_Test_msprof_smoke_large_model.log"
+    ],
+    "missing": [
+     "Test_msprof_smoke_large_model"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 4,
+    "testTasks": 1,
+    "logTasks": 3,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 24,
+    "evidenceFiles": 3
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_msprof_smoke_large_model 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 3 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Test_msprof_smoke_large_model 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "ERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
+    "issueType": "依赖/环境缺失",
+    "issueDetail": "制作镜像时依赖包 mspti 缺失导致构建失败",
+    "rootCause": "失败在制作并推送 Docker 镜像的环节：a2 与 a3 两个 aarch64 镜像任务在执行组件安装脚本时，需要从每日构建批次 20261119_1200 拉取依赖包 mspti，但该批次里 aarch64 的 mspti 缺失（对应的每日构建失败），安装脚本随即以非零码退出，docker 构建中断，最终报镜像制作失败。根因是上游每日构建批次未产出 mspti/aarch64 依赖包，镜像里装不上该组件，属依赖/上游产包缺失，不是 msprof 源码问题。",
+    "advice": "排查 20261119_1200 这一每日构建批次中 mspti/aarch64 的构建失败原因并修复，使该依赖重新产出；修复后在构建机内手工执行一次镜像构建脚本，确认能取到 mspti/aarch64 并成功打镜像。\n\n验证方式：重跑该流水线，要求两个架构的镜像构建都能成功取到 mspti 依赖、镜像制作成功、整体运行结果为 SUCCESS。",
+    "cites": [
+     "job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log:L6063"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log:L6063",
+    "updatedAt": "2026-11-20 05:25:54",
+    "firstAnalyzedAt": "2026-11-20 05:25:54",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "MindStudio|msprof#281",
+   "date": "2026-11-19",
+   "component": "MindStudio",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "platform": "codearts",
+   "buildNumber": 281,
+   "pipelineRunId": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+   "status": "CANCELED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-19T14:11:14",
+   "endedAt": "2026-11-19T19:50:35",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-19T19:50:35",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=f6a8025929fc49b9ab6afb2fc55e7ca7",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_msprof_smoke_A3_large_model",
+     "type": "test",
+     "summary": {
+      "total": 33,
+      "passed": 29,
+      "failed": 4,
+      "passRate": "87.88%"
+     },
+     "cases": [
+      {
+       "name": "test_profiling_level1_arithmetic_utilization_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:47",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001.html",
+       "localLog": "case_logs/case_0202.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_mode",
+        "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:106: in test_profiling_level1_arithmetic_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_"
+       ]
+      },
+      {
+       "name": "test_profiling_level1_pipe_utilization_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:56",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001.html",
+       "localLog": "case_logs/case_0203.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWE",
+        "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:141: in test_profiling_level1_pipe_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND"
+       ]
+      },
+      {
+       "name": "test_pytorch_for_async_mode_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:54",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001.html",
+       "localLog": "case_logs/case_0204.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyn",
+        "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:627: in test_pytorch_for_async_mode_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录kernel_detail"
+       ]
+      },
+      {
+       "name": "test_pytorch_collect_text_and_db_0001",
+       "state": "failed",
+       "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+       "beginTime": "2026-11-19 16:46:34",
+       "endTime": "2026-11-19 16:47:49",
+       "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001.html",
+       "localLog": "case_logs/case_0205.html",
+       "errorMessages": [],
+       "deepHits": [
+        "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/Pytorc",
+        "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:300: in test_pytorch_collect_text_and_db_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录ke"
+       ]
+      }
+     ],
+     "emptyTestResult": false,
+     "stepErrMsgs": []
+    }
+   ],
+   "cases": [
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "name": "test_profiling_level1_arithmetic_utilization_0001",
+     "state": "failed",
+     "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+     "beginTime": "2026-11-19 16:46:34",
+     "endTime": "2026-11-19 16:47:47",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001.html",
+     "localLog": "case_logs/case_0202.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_mode",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:106: in test_profiling_level1_arithmetic_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_"
+     ]
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "name": "test_profiling_level1_pipe_utilization_0001",
+     "state": "failed",
+     "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+     "beginTime": "2026-11-19 16:46:34",
+     "endTime": "2026-11-19 16:47:56",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001.html",
+     "localLog": "case_logs/case_0203.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWE",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:141: in test_profiling_level1_pipe_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND"
+     ]
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "name": "test_pytorch_for_async_mode_0001",
+     "state": "failed",
+     "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+     "beginTime": "2026-11-19 16:46:34",
+     "endTime": "2026-11-19 16:47:54",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001.html",
+     "localLog": "case_logs/case_0204.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyn",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:627: in test_pytorch_for_async_mode_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录kernel_detail"
+     ]
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "name": "test_pytorch_collect_text_and_db_0001",
+     "state": "failed",
+     "description": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[+96 more lines; full report in element text]",
+     "beginTime": "2026-11-19 16:46:34",
+     "endTime": "2026-11-19 16:47:49",
+     "logUrl": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001.html",
+     "localLog": "case_logs/case_0205.html",
+     "errorCount": 0,
+     "errorMessages": [],
+     "deepHits": [
+      "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/Pytorc",
+      "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:300: in test_pytorch_collect_text_and_db_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录ke"
+     ]
+    }
+   ],
+   "errorMessages": [
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "case": "test_profiling_level1_arithmetic_utilization_0001",
+     "source": "case_logs/case_0202.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_mode",
+     "assertion": true
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "case": "test_profiling_level1_pipe_utilization_0001",
+     "source": "case_logs/case_0203.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWE",
+     "assertion": true
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "case": "test_pytorch_for_async_mode_0001",
+     "source": "case_logs/case_0204.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyn",
+     "assertion": true
+    },
+    {
+     "task": "Test_msprof_smoke_A3_large_model",
+     "case": "test_pytorch_collect_text_and_db_0001",
+     "source": "case_logs/case_0205.html",
+     "line": null,
+     "level": "CASE",
+     "text": "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/Pytorc",
+     "assertion": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "case_logs/case_0202.html",
+     "case_logs/case_0203.html",
+     "case_logs/case_0204.html",
+     "case_logs/case_0205.html"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 1,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 4,
+    "errorMessages": 4,
+    "evidenceFiles": 4
+   },
+   "verdict": {
+    "category": "test_failure",
+    "text": "用例失败",
+    "confidence": 0.55,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_msprof_smoke_A3_large_model 取到 4 条失败用例（无 job 日志，证据来自测试报告/用例日志）",
+     "基线 0.30",
+     "证据文件落盘 4 份 +0.25"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:",
+    "issueType": "单元测试失败",
+    "issueDetail": "4 条 PTA profiling 用例校验产物未通过",
+    "rootCause": "失败在 Test_msprof_smoke_A3_large_model 冒烟任务：4 条 profiling 用例（arithmetic_utilization / pipe_utilization / async_mode / collect_text_and_db）全部在结果校验环节抛 AssertionError。用例执行 profiling 命令后调用 pta.py 的 check_result 校验产物，ascend_pt 校验脚本以退出码 1 返回，判定产物不符合预期，用例判 FAILED；该任务随后被取消。根因是 msprof 采集到的 profiling 产物未通过基线校验，属被测组件在 A3 大模型场景下的用例失败。",
+    "advice": "复现单条用例（如 test_profiling_level1_arithmetic_utilization_0001），查看 check_result 里 ascend_pt 校验脚本的详细输出，定位是产物缺失、字段不符还是精度偏差；据此修正 msprof profiling 产物或更新校验基线。\n\n验证方式：重跑该流水线，要求 4 条 profiling 用例的 ascend_pt 校验全部通过、用例通过率 100%。",
+    "cites": [
+     "case_logs/case_0202.html:L4251"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 case_logs/case_0202.html:L4251",
+    "updatedAt": "2026-11-20 05:25:54",
+    "firstAnalyzedAt": "2026-11-20 05:25:54",
+    "revisions": 1,
+    "source": "agent"
+   }
+  }
+ ]
+}

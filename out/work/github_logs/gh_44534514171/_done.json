@@ -1,0 +1,100 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2272,
+ "rid": "44534514171",
+ "st": "11-19 21:32",
+ "runId": 44534514171,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "Test ci run",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 14.02,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-19T13:46:47Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 2 个（≤5，逐 job 精取）",
+ "totalJobs": 17,
+ "failedJobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test/registered/npu/ac... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp",
+   "id": 135596509002,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 135604349090,
+   "steps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test/registered/npu/ac... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp",
+   "id": 135596509002,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T13:33:36Z",
+   "completedAt": "2026-11-19T13:46:40Z",
+   "logFile": "github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt",
+   "logBytes": 77746,
+   "logLines": 740,
+   "errorLines": [
+    "L557: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L558: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L592: Traceback (most recent call last):",
+    "L602: Traceback (most recent call last):",
+    "L610: ##[error]Error: failed to run script step:",
+    "L611: ✗ exit code: 1",
+    "L617: Traceback (most recent call last):",
+    "L627: Traceback (most recent call last):",
+    "L635: ##[error]Process completed with exit code 1.",
+    "L636: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 135604349090,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T13:46:43Z",
+   "completedAt": "2026-11-19T13:46:46Z",
+   "logFile": "github_logs/gh_44534514171/135604349090_check-all-jobs.txt",
+   "logBytes": 6497,
+   "logLines": 99,
+   "errorLines": [
+    "L98: ##[error]Process completed with exit code 1."
+   ],
+   "githubSteps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

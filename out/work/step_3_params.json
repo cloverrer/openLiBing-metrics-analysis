@@ -1,108 +1,210 @@
 {
  "test": [
   {
-   "key": "MindIE|MindIE-Motor",
-   "pipeline": "MindIE-Motor",
-   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
-   "projectId": 300036,
-   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
-   "rid": "81a9f8b8d971445d97556c5c528dd79b",
-   "rn": 138,
-   "st": "11-18 16:22",
-   "jobId": "70320e53f8db474a8746b7f6b1e285aa",
-   "jobName": "Test_MindIE-Motor_1",
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
+   "rn": 281,
+   "st": "11-19 14:11",
+   "jobId": "53b5cbb170844e238ecfc33f38c095d5",
+   "jobName": "Test_msprof_smoke_A3_large_model",
    "stepIds": [
-    "76e816d8aea8408bbd57089295900754"
+    "7598cc92ae884b14a988bdb6af0e61a4"
    ],
    "steps": [
     {
-     "id": "76e816d8aea8408bbd57089295900754",
-     "name": "Test_MindIE-Motor_1",
+     "id": "7598cc92ae884b14a988bdb6af0e61a4",
+     "name": "Test_msprof_smoke_A3_large_model",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "685048758f93478c9da20a7591514e8f",
-     "jobIdParam": "35af558b239a4803948c2651933bc2bd"
+     "lastDispatchId": "162ed6c0c9ce4a0eb2d257d5f26fb513",
+     "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
     }
    ],
-   "jobErrMsg": "步骤Test_MindIE-Motor_1执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "ec31cce98a2948ae9638f8d45d516b75",
+   "jobErrMsg": "步骤Test_msprof_smoke_A3_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "f43ae7ddf377440b868a8a51e06429e1",
    "route": "test",
    "isBuild": false,
-   "buildJobId": "35af558b239a4803948c2651933bc2bd"
+   "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
+  },
+  {
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "10d7c5c6736348949a656389dcbc8adf",
+   "rn": 280,
+   "st": "11-19 11:50",
+   "jobId": "8ea73094f20a4ccab7c2b1ea04101c41",
+   "jobName": "Test_msprof_smoke_large_model",
+   "stepIds": [
+    "49589afac3804d0a89a4c7492ed4e82d"
+   ],
+   "steps": [
+    {
+     "id": "49589afac3804d0a89a4c7492ed4e82d",
+     "name": "Test_msprof_smoke_large_model",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "ec768cf94625464baa6ef342e6d572ed",
+     "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+    }
+   ],
+   "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "5f3d08acf98b496f906aebcc74406710",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "d1808247dd8844799de2e3c74beb7455"
+  },
+  {
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "6099f67d2d1f42548c33f8734618c711",
+   "rn": 279,
+   "st": "11-19 04:00",
+   "jobId": "ca957e1bfa664f76abd059d99ca2c3ab",
+   "jobName": "Test_msprof_smoke",
+   "stepIds": [
+    "4cbba7a328af486a919e762944a688cc"
+   ],
+   "steps": [
+    {
+     "id": "4cbba7a328af486a919e762944a688cc",
+     "name": "Test_msprof_smoke",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "1c0c2c905c48473abe8fe0d8e6f1c158",
+     "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+    }
+   ],
+   "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "91230b9ae31442059b4e1c80dc63523f",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "d1808247dd8844799de2e3c74beb7455"
+  },
+  {
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "6099f67d2d1f42548c33f8734618c711",
+   "rn": 279,
+   "st": "11-19 04:00",
+   "jobId": "1edebbb82ddc4698b0b13ce38aee1ae1",
+   "jobName": "Test_msprof_smoke_A3",
+   "stepIds": [
+    "3d4eb644e9234e5a86ea8698da8fec68"
+   ],
+   "steps": [
+    {
+     "id": "3d4eb644e9234e5a86ea8698da8fec68",
+     "name": "Test_msprof_smoke_A3",
+     "status": "FAILED",
+     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "lastDispatchId": "ad5c4f052dd44ed6b535fa1a0fc4f673",
+     "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+    }
+   ],
+   "jobErrMsg": "步骤Test_msprof_smoke_A3执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "f47f4c9061d04c78ad5045832d689a32",
+   "route": "test",
+   "isBuild": false,
+   "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
   }
  ],
  "log": [
   {
-   "key": "MindIE|MindIE-SD",
-   "pipeline": "MindIE-SD",
-   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
-   "projectId": 300036,
-   "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
-   "rid": "5a5a6716983b4f84b5488031000653d7",
-   "rn": 116,
-   "st": "11-18 01:01",
-   "jobId": "43aca12a05ca47a787692cf5c15d169c",
-   "jobName": "Build_MindIE-SD",
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "10d7c5c6736348949a656389dcbc8adf",
+   "rn": 280,
+   "st": "11-19 11:50",
+   "jobId": "e31f29a24e1b4b5a8de3587796c0b464",
+   "jobName": " docker-mindstudio-msprof-a2-aarch64-nightly",
    "stepIds": [
-    "8271aa6d296a467cadbd9b1dd135313f"
+    "3f0a84cb397248d0b0612a27696093c3"
    ],
    "steps": [
     {
-     "id": "8271aa6d296a467cadbd9b1dd135313f",
-     "name": "Build_MindIE-SD",
+     "id": "3f0a84cb397248d0b0612a27696093c3",
+     "name": " docker-mindstudio-msprof-a2-aarch64-nightly",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "6ca41dfa6b7d4c64b40bc47b5c904bd3",
-     "jobIdParam": "3e2e6a4a47294a80b35e8118eb10423d"
+     "lastDispatchId": "4d000c76d280453788f135ec7abeb52f",
+     "jobIdParam": "1c5e0d3ec0d94b288d12ef08fa68b089"
     }
    ],
-   "jobErrMsg": "步骤Build_MindIE-SD执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "71b9ce23d7de48a3ba31a563ecb8258f",
+   "jobErrMsg": "步骤 docker-mindstudio-msprof-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "fc373f8a80684a96b191803e41adcadb",
    "route": "log",
-   "isBuild": true,
-   "buildJobId": "3e2e6a4a47294a80b35e8118eb10423d"
+   "isBuild": false,
+   "buildJobId": "1c5e0d3ec0d94b288d12ef08fa68b089"
   },
   {
-   "key": "MindIE|MindIE-Motor",
-   "pipeline": "MindIE-Motor",
-   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
-   "projectId": 300036,
-   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
-   "rid": "9f3772fb2963417d9b1c5b1e36e4d1c0",
-   "rn": 137,
-   "st": "11-18 14:43",
-   "jobId": "0eb5b598b63a42b7859bb8c7b94c149e",
-   "jobName": "Build_MindIE-Motor",
+   "key": "MindStudio|msprof",
+   "pipeline": "msprof",
+   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
+   "projectId": 300037,
+   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
+   "rid": "10d7c5c6736348949a656389dcbc8adf",
+   "rn": 280,
+   "st": "11-19 11:50",
+   "jobId": "ecb84d2ba4464a2b9ee4af8e8dc5c5af",
+   "jobName": " docker-mindstudio-msprof-a3-aarch64-nightly",
    "stepIds": [
-    "1bb0e9e8dcd14004a61bc7318e9c31e6"
+    "8717355b913148b9a369882989e01737"
    ],
    "steps": [
     {
-     "id": "1bb0e9e8dcd14004a61bc7318e9c31e6",
-     "name": "Build_MindIE-Motor",
+     "id": "8717355b913148b9a369882989e01737",
+     "name": " docker-mindstudio-msprof-a3-aarch64-nightly",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "98155b4d6c7f49a09150d0f519c67a2e",
-     "jobIdParam": "9aaead01b1e94a998e5f0edd788ea1a7"
+     "lastDispatchId": "96438a6e1dc74c5e8ce13299c29236bf",
+     "jobIdParam": "95b3d17e0d17423f87a6c66f825e0217"
     }
    ],
-   "jobErrMsg": "步骤Build_MindIE-Motor执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "0fe0c284a52549c1bb71530b5d4ec654",
+   "jobErrMsg": "步骤 docker-mindstudio-msprof-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "fe02a367969847d599f34544584883fc",
    "route": "log",
-   "isBuild": true,
-   "buildJobId": "9aaead01b1e94a998e5f0edd788ea1a7"
+   "isBuild": false,
+   "buildJobId": "95b3d17e0d17423f87a6c66f825e0217"
   }
  ],
  "skipped": [],
- "bsCleanRuns": [
+ "bsCleanRuns": [],
+ "errors": [
   {
-   "key": "MindIE|MindIE-Motor",
-   "rn": 138,
-   "rid": "81a9f8b8d971445d97556c5c528dd79b",
-   "st": "11-18 16:22",
-   "status": null,
-   "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
+   "key": "MindSpeed|DrivingSDK_master~089fff",
+   "rn": 2,
+   "err": "T4 重试 2 次后仍失败"
+  },
+  {
+   "key": "MindSpeed|DrivingSDK_master~089fff",
+   "rn": 4,
+   "err": "T4 重试 2 次后仍失败"
+  },
+  {
+   "key": "MindSpeed|DrivingSDK_master~089fff",
+   "rn": 3,
+   "err": "T4 重试 2 次后仍失败"
+  },
+  {
+   "key": "MindSpeed|MindSpeed-A3_master~49873f",
+   "rn": 3,
+   "err": "T4 重试 2 次后仍失败"
   }
- ],
- "errors": []
+ ]
 }

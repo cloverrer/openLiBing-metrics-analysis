@@ -1,0 +1,563 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2268,
+ "rid": "44343306130",
+ "st": "11-19 00:06",
+ "runId": 44343306130,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "Nightly Test (NPU)",
+ "event": "schedule",
+ "status": "FAILED",
+ "duration": 402.73,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-18T22:49:05Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "zip",
+ "why": "失败 job 9 个（>5，整包一次下载更省时）",
+ "totalJobs": 28,
+ "failedJobs": [
+  {
+   "name": "nightly-test-1-npu-a3 / run (0)",
+   "id": 134938911965,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "nightly-perf-test-4-npu-a3 / nightly-perf-test-4-npu-a3",
+   "id": 134938912739,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "nightly-test-4-npu-a3 / run (1)",
+   "id": 134939057296,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+   "id": 134992048653,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+   "id": 135026706508,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+   "id": 135108625099,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+   "id": 135150114931,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+   "id": 135163818661,
+   "steps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 135193275283,
+   "steps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "nightly-test-1-npu-a3 / run (0)",
+   "id": 134938911965,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T16:06:56Z",
+   "completedAt": "2026-11-18T17:14:18Z",
+   "logFile": "github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt",
+   "logBytes": 3518141,
+   "logLines": 21633,
+   "errorLines": [
+    "L1010: [2026-11-18 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1165: [2026-11-18 16:14:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1412: [2026-11-18 16:17:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1447: Traceback (most recent call last):",
+    "L1569: [2026-11-18 16:19:46] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L4383: [2026-11-18 16:27:39] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L4417: Traceback (most recent call last):",
+    "L4455: Traceback (most recent call last):",
+    "L4494: Traceback (most recent call last):",
+    "L4532: Traceback (most recent call last):",
+    "L4650: [2026-11-18 16:29:53] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L7469: [2026-11-18 16:41:22] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L10663: [2026-11-18 16:50:25] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L13490: [2026-11-18 16:55:01] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L16274: [2026-11-18 16:58:33] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L18683: [2026-11-18 17:05:51] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L18826: [2026-11-18 17:07:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L19003: [2026-11-18 17:09:40] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L21579: ##[error]Error: failed to run script step:",
+    "L21580: ✗ exit code: 255",
+    "L21604: ##[error]Process completed with exit code 1.",
+    "L21605: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "nightly-perf-test-4-npu-a3 / nightly-perf-test-4-npu-a3",
+   "id": 134938912739,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T16:07:12Z",
+   "completedAt": "2026-11-18T16:24:49Z",
+   "logFile": "github_logs/gh_44343306130/18_nightly-perf-test-4-npu-a3 _ nightly-perf-test-4-npu-a3.txt",
+   "logBytes": 439485,
+   "logLines": 2898,
+   "errorLines": [
+    "L565: /__w/_temp/16054073-2445-4536-a245-bc8c388ac5b3.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L566: /__w/_temp/16054073-2445-4536-a245-bc8c388ac5b3.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L1052: [2026-11-18 16:11:22] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1947: [2026-11-18 16:20:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L2056: [2026-11-18 16:23:24 TP0 PID12993] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2128: [2026-11-18 16:23:29 TP2 PID12995] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2174: [2026-11-18 16:23:30 TP1 PID12994] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2736: 32%|███▏      | 12/37 [03:06<09:21, 22.47s/it]output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.ht",
+    "L2737: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2738: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2739: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2740: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2741: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2742: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2743: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2744: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2745: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2746: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2747: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2748: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2749: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2750: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2751: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2752: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2753: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2754: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2755: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2756: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2757: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2758: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2759: output.error='Traceback (most recent call last):\\n  File \"/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/client_proto.py\", line 145, in connection_lost\\n    uncompleted = self._parser.feed_eof()\\n                  ^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"aiohttp/_http_parser.pyx\", line 620, in aiohttp._http_parser.HttpParser.feed_eof\\naiohttp.http_exceptions.TransferEncodingError: 400, mess",
+    "L2761: Traceback (most recent call last):",
+    "L2771: Traceback (most recent call last):",
+    "L2792: Traceback (most recent call last):",
+    "L2804: Traceback (most recent call last):",
+    "L2842: ##[error]Error: failed to run script step:",
+    "L2843: ✗ exit code: 255",
+    "L2867: ##[error]Process completed with exit code 1.",
+    "L2868: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "nightly-test-4-npu-a3 / run (1)",
+   "id": 134939057296,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T16:07:07Z",
+   "completedAt": "2026-11-18T17:14:24Z",
+   "logFile": "github_logs/gh_44343306130/11_nightly-test-4-npu-a3 _ run (1).txt",
+   "logBytes": 1125937,
+   "logLines": 6097,
+   "errorLines": [
+    "L1270: 2026-11-18 16:12:20.392250 WARN [5017-5017][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L1275: Traceback (most recent call last):",
+    "L1317: [2026-11-18 16:12:20 DP1 TP1 PID5013] Scheduler hit an exception: Traceback (most recent call last):",
+    "L1400: 2026-11-18 16:12:21.170122 WARN [5015-5015][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L1410: [2026-11-18 16:12:21] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1745: 2026-11-18 16:24:34.866604 WARN [9822-9822][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L1760: 2026-11-18 16:24:35.007343 WARN [9821-9821][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L1770: [2026-11-18 16:24:35] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L1797: Traceback (most recent call last):",
+    "L1839: [2026-11-18 16:24:37 DP0 TP0 PID9816] Scheduler hit an exception: Traceback (most recent call last):",
+    "L1903: [2026-11-18 16:24:37] DataParallelController hit an exception: Traceback (most recent call last):",
+    "L2222: 2026-11-18 16:36:13.141299 WARN [13201-13201][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L2245: 2026-11-18 16:36:14.378675 WARN [13200-13200][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L2272: Traceback (most recent call last):",
+    "L2314: [2026-11-18 16:36:15 DP1 TP1 PID13206] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2381: [2026-11-18 16:36:15] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L2408: Traceback (most recent call last):",
+    "L2420: Traceback (most recent call last):",
+    "L2432: Traceback (most recent call last):",
+    "L2744: Traceback (most recent call last):",
+    "L2777: [2026-11-18 16:48:07 TP1 PID16752] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2889: 2026-11-18 16:48:21.140167 WARN [16945-16945][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L2909: 2026-11-18 16:48:21.252096 WARN [16944-16944][HYBM dl_hcom_api.cpp:113 LoadLibrary] Unable to open library [libhcom.so], libhcom.so: cannot open shared object file: No such file or directory; libhcom.so.0: cannot open shared object file: No such file or directory",
+    "L2934: [2026-11-18 16:48:23 TP0 PID16944] Scheduler hit an exception: Traceback (most recent call last):",
+    "L2978: Traceback (most recent call last):",
+    "L3249: [2026-11-18 16:59:01] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L5973: [2026-11-18 17:13:13] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L6043: ##[error]Error: failed to run script step:",
+    "L6044: ✗ exit code: 255",
+    "L6068: ##[error]Process completed with exit code 1.",
+    "L6069: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+   "id": 134992048653,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T17:24:21Z",
+   "completedAt": "2026-11-18T17:57:48Z",
+   "logFile": "github_logs/gh_44343306130/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+   "logBytes": 381482,
+   "logLines": 2210,
+   "errorLines": [
+    "L539: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L540: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L1049: Traceback (most recent call last):",
+    "L1318: Traceback (most recent call last):",
+    "L1621: Traceback (most recent call last):",
+    "L1896: Traceback (most recent call last):",
+    "L1987: Traceback (most recent call last):",
+    "L2019: Traceback (most recent call last):",
+    "L2048: Traceback (most recent call last):",
+    "L2060: Traceback (most recent call last):",
+    "L2071: Traceback (most recent call last):",
+    "L2079: ##[error]Error: failed to run script step:",
+    "L2080: ✗ exit code: 1",
+    "L2085: Traceback (most recent call last):",
+    "L2096: Traceback (most recent call last):",
+    "L2104: ##[error]Process completed with exit code 1.",
+    "L2105: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+   "id": 135026706508,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T18:17:19Z",
+   "completedAt": "2026-11-18T19:24:28Z",
+   "logFile": "github_logs/gh_44343306130/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+   "logBytes": 300313,
+   "logLines": 1389,
+   "errorLines": [
+    "L543: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L544: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L1215: Traceback (most recent call last):",
+    "L1237: Traceback (most recent call last):",
+    "L1248: Traceback (most recent call last):",
+    "L1256: ##[error]Error: failed to run script step:",
+    "L1257: ✗ exit code: 1",
+    "L1262: Traceback (most recent call last):",
+    "L1273: Traceback (most recent call last):",
+    "L1281: ##[error]Process completed with exit code 1.",
+    "L1282: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+   "id": 135108625099,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T20:27:10Z",
+   "completedAt": "2026-11-18T21:34:13Z",
+   "logFile": "github_logs/gh_44343306130/3_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+   "logBytes": 1535225,
+   "logLines": 16608,
+   "errorLines": [
+    "L583: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L584: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L15407: [2026-11-19 04:53:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L15502: [2026-11-19 04:54:28 DP0 TP11 EP11 PID586] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15547: [2026-11-19 04:54:28 DP0 TP10 EP10 PID585] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15592: [2026-11-19 04:54:28 DP0 TP13 EP13 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15637: [2026-11-19 04:54:28 DP0 TP12 EP12 PID587] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15682: [2026-11-19 04:54:28 DP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15727: [2026-11-19 04:54:28 DP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+    "L15772: [2026-11-19 04:54:28 DP0 TP8 EP8 PID583] Scheduler hit an exception: Traceback (most recent call last):",
+    "L16280: 1: No such file or directory (os error 2)",
+    "L16288: 0: No such file or directory (os error 2)",
+    "L16289: 1: No such file or directory (os error 2)",
+    "L16295: 0: No such file or directory (os error 2)",
+    "L16296: 1: No such file or directory (os error 2)",
+    "L16301: 0: No such file or directory (os error 2)",
+    "L16302: 1: No such file or directory (os error 2)",
+    "L16308: 0: No such file or directory (os error 2)",
+    "L16309: 1: No such file or directory (os error 2)",
+    "L16314: 0: No such file or directory (os error 2)",
+    "L16315: 1: No such file or directory (os error 2)",
+    "L16321: 0: No such file or directory (os error 2)",
+    "L16322: 1: No such file or directory (os error 2)",
+    "L16327: 0: No such file or directory (os error 2)",
+    "L16328: 1: No such file or directory (os error 2)",
+    "L16334: 0: No such file or directory (os error 2)",
+    "L16335: 1: No such file or directory (os error 2)",
+    "L16340: 0: No such file or directory (os error 2)",
+    "L16341: 1: No such file or directory (os error 2)",
+    "L16347: 0: No such file or directory (os error 2)",
+    "L16348: 1: No such file or directory (os error 2)",
+    "L16353: 0: No such file or directory (os error 2)",
+    "L16354: 1: No such file or directory (os error 2)",
+    "L16360: 0: No such file or directory (os error 2)",
+    "L16361: 1: No such file or directory (os error 2)",
+    "L16366: 0: No such file or directory (os error 2)",
+    "L16367: 1: No such file or directory (os error 2)",
+    "L16373: 0: No such file or directory (os error 2)",
+    "L16374: 1: No such file or directory (os error 2)",
+    "L16379: 0: No such file or directory (os error 2)",
+    "L16380: 1: No such file or directory (os error 2)",
+    "L16386: 0: No such file or directory (os error 2)",
+    "L16387: 1: No such file or directory (os error 2)",
+    "L16392: 0: No such file or directory (os error 2)",
+    "L16393: 1: No such file or directory (os error 2)",
+    "L16399: 0: No such file or directory (os error 2)",
+    "L16400: 1: No such file or directory (os error 2)",
+    "L16405: 0: No such file or directory (os error 2)",
+    "L16406: 1: No such file or directory (os error 2)",
+    "L16415: Traceback (most recent call last):",
+    "L16425: Traceback (most recent call last):",
+    "L16438: Traceback (most recent call last):",
+    "L16457: Traceback (most recent call last):",
+    "L16468: Traceback (most recent call last):",
+    "L16476: ##[error]Error: failed to run script step:",
+    "L16477: ✗ exit code: 1",
+    "L16482: Traceback (most recent call last):",
+    "L16493: Traceback (most recent call last):",
+    "L16501: ##[error]Process completed with exit code 1.",
+    "L16502: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+   "id": 135150114931,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T21:34:40Z",
+   "completedAt": "2026-11-18T21:57:14Z",
+   "logFile": "github_logs/gh_44343306130/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+   "logBytes": 927567,
+   "logLines": 8155,
+   "errorLines": [
+    "L583: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L584: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L5465: [2026-11-19 05:48:03] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L5585: [2026-11-19 05:51:31 DP0 PP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):",
+    "L5739: [2026-11-19 05:51:31 DP0 PP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):",
+    "L5893: [2026-11-19 05:51:31 DP0 PP0 TP7 EP7 PID582] Scheduler hit an exception: Traceback (most recent call last):",
+    "L6047: [2026-11-19 05:51:31 DP0 PP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+    "L6201: [2026-11-19 05:51:31 DP0 PP0 TP3 EP3 PID578] Scheduler hit an exception: Traceback (most recent call last):",
+    "L6355: [2026-11-19 05:51:31 DP0 PP0 TP2 EP2 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+    "L6509: [2026-11-19 05:51:31 DP0 PP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):",
+    "L6663: [2026-11-19 05:51:31 DP0 PP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+    "L7798: 0: No such file or directory (os error 2)",
+    "L7799: 1: No such file or directory (os error 2)",
+    "L7805: 0: No such file or directory (os error 2)",
+    "L7806: 1: No such file or directory (os error 2)",
+    "L7811: 0: No such file or directory (os error 2)",
+    "L7812: 1: No such file or directory (os error 2)",
+    "L7818: 0: No such file or directory (os error 2)",
+    "L7819: 1: No such file or directory (os error 2)",
+    "L7824: 0: No such file or directory (os error 2)",
+    "L7825: 1: No such file or directory (os error 2)",
+    "L7831: 0: No such file or directory (os error 2)",
+    "L7832: 1: No such file or directory (os error 2)",
+    "L7837: 0: No such file or directory (os error 2)",
+    "L7838: 1: No such file or directory (os error 2)",
+    "L7844: 0: No such file or directory (os error 2)",
+    "L7845: 1: No such file or directory (os error 2)",
+    "L7850: 0: No such file or directory (os error 2)",
+    "L7851: 1: No such file or directory (os error 2)",
+    "L7857: 0: No such file or directory (os error 2)",
+    "L7858: 1: No such file or directory (os error 2)",
+    "L7863: 0: No such file or directory (os error 2)",
+    "L7864: 1: No such file or directory (os error 2)",
+    "L7870: 0: No such file or directory (os error 2)",
+    "L7871: 1: No such file or directory (os error 2)",
+    "L7876: 0: No such file or directory (os error 2)",
+    "L7877: 1: No such file or directory (os error 2)",
+    "L7883: 0: No such file or directory (os error 2)",
+    "L7884: 1: No such file or directory (os error 2)",
+    "L7889: 0: No such file or directory (os error 2)",
+    "L7890: 1: No such file or directory (os error 2)",
+    "L7964: Traceback (most recent call last):",
+    "L7974: Traceback (most recent call last):",
+    "L7987: Traceback (most recent call last):",
+    "L8004: Traceback (most recent call last):",
+    "L8015: Traceback (most recent call last):",
+    "L8023: ##[error]Error: failed to run script step:",
+    "L8024: ✗ exit code: 1",
+    "L8029: Traceback (most recent call last):",
+    "L8040: Traceback (most recent call last):",
+    "L8048: ##[error]Process completed with exit code 1.",
+    "L8049: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+   "id": 135163818661,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T21:57:40Z",
+   "completedAt": "2026-11-18T22:48:57Z",
+   "logFile": "github_logs/gh_44343306130/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+   "logBytes": 1631798,
+   "logLines": 16890,
+   "errorLines": [
+    "L583: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+    "L584: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+    "L15044: [2026-11-19 06:22:33] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' from 'openai.types.responses' (/usr/local/python3.12.13/lib/python3.12/site-packages/openai/types/responses/__init__.py))",
+    "L16681: Traceback (most recent call last):",
+    "L16715: Traceback (most recent call last):",
+    "L16727: Traceback (most recent call last):",
+    "L16739: Traceback (most recent call last):",
+    "L16750: Traceback (most recent call last):",
+    "L16758: ##[error]Error: failed to run script step:",
+    "L16759: ✗ exit code: 1",
+    "L16764: Traceback (most recent call last):",
+    "L16775: Traceback (most recent call last):",
+    "L16783: ##[error]Process completed with exit code 1.",
+    "L16784: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Run test",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": null
+  },
+  {
+   "name": "check-all-jobs",
+   "id": 135193275283,
+   "conclusion": "failure",
+   "startedAt": "2026-11-18T22:49:00Z",
+   "completedAt": "2026-11-18T22:49:04Z",
+   "logFile": "github_logs/gh_44343306130/0_check-all-jobs.txt",
+   "logBytes": 7329,
+   "logLines": 109,
+   "errorLines": [
+    "L108: ##[error]Process completed with exit code 1."
+   ],
+   "githubSteps": [
+    {
+     "name": "Generate results table",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "missing": [],
+ "systemLogs": [
+  "github_logs/gh_44343306130/sys_check-all-jobs.txt",
+  "github_logs/gh_44343306130/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+  "github_logs/gh_44343306130/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+  "github_logs/gh_44343306130/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+  "github_logs/gh_44343306130/sys_multi-node-poc-accuracy-odd-day (multi_node_accuracy_odd_day, 2, 2, 1, test_regi~c72490.txt",
+  "github_logs/gh_44343306130/sys_multi-node-poc (glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~cae9bb.txt",
+  "github_logs/gh_44343306130/sys_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+  "github_logs/gh_44343306130/sys_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+  "github_logs/gh_44343306130/sys_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+  "github_logs/gh_44343306130/sys_nightly-test-4-npu-a3 _ run (0).txt",
+  "github_logs/gh_44343306130/sys_nightly-test-4-npu-a3 _ run (1).txt",
+  "github_logs/gh_44343306130/sys_nightly-perf-test-16-npu-a3 _ nightly-perf-test-16-npu-a3.txt",
+  "github_logs/gh_44343306130/sys_nightly-perf-test-2-npu-a3 _ nightly-perf-test-2-npu-a3.txt",
+  "github_logs/gh_44343306130/sys_nightly-perf-test-4-npu-a3 _ nightly-perf-test-4-npu-a3.txt",
+  "github_logs/gh_44343306130/sys_nightly-acc-test-16-npu-a3 _ nightly-acc-test-16-npu-a3.txt",
+  "github_logs/gh_44343306130/sys_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+  "github_logs/gh_44343306130/sys_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+  "github_logs/gh_44343306130/sys_nightly-test-2-npu-a3 _ run (0).txt",
+  "github_logs/gh_44343306130/sys_nightly-test-16-npu-a3 _ run (0).txt",
+  "github_logs/gh_44343306130/sys_nightly-test-1-npu-a3 _ run (0).txt",
+  "github_logs/gh_44343306130/sys_nightly-test-8-npu-a3 _ run (0).txt",
+  "github_logs/gh_44343306130/sys_set-image-config.txt"
+ ],
+ "ghComplete": true
+}
