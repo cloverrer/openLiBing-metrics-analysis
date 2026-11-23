@@ -61,7 +61,7 @@
    "pipelineShortName": "MindIE-Motor",
    "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": 1,
    "dims": [
     "va",
@@ -79,7 +79,7 @@
    "pipelineShortName": "msprof",
    "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
    "platform": "codearts",
-   "versionAvailabilityRate": 0,
+   "versionAvailabilityRate": 1,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -199,10 +199,11 @@
    "pipelineShortName": "AgentSDK~3828fc",
    "pipelineId": "27e3ba2f365748c295e597509fb63c4d",
    "platform": "gitcode",
-   "versionAvailabilityRate": null,
-   "buildSuccessRate": null,
+   "versionAvailabilityRate": 1,
+   "buildSuccessRate": 1,
    "dims": [
-    "va"
+    "va",
+    "bs"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -216,10 +217,11 @@
    "pipelineShortName": "MultimodalSDK~0c7fa3",
    "pipelineId": "2d856ef98bae436b92728b96b37ca10f",
    "platform": "gitcode",
-   "versionAvailabilityRate": null,
-   "buildSuccessRate": null,
+   "versionAvailabilityRate": 0,
+   "buildSuccessRate": 1,
    "dims": [
-    "va"
+    "va",
+    "bs"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -321,11 +323,10 @@
    "pipelineShortName": "MultimodalSDK",
    "pipelineId": "c39c0146a8b2492db59ec77bedb7170c",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
-   "buildSuccessRate": 1,
+   "versionAvailabilityRate": null,
+   "buildSuccessRate": null,
    "dims": [
-    "va",
-    "bs"
+    "va"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -466,7 +467,7 @@
    "pipelineId": "b0040d6ccaae48b5b623931d34db5d24",
    "platform": "codearts",
    "versionAvailabilityRate": 1,
-   "buildSuccessRate": 1,
+   "buildSuccessRate": 0.5,
    "dims": [
     "va",
     "bs"
@@ -591,7 +592,7 @@
    "pipelineShortName": "DrivingSDK_master",
    "pipelineId": "0260b812efd04b0ebf649f3a4c533996",
    "platform": "codearts",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -643,11 +644,10 @@
    "pipelineShortName": "DrivingSDK_master~089fff",
    "pipelineId": "6ae97566bb274346a7786b07268595ce",
    "platform": "gitcode",
-   "versionAvailabilityRate": 0,
-   "buildSuccessRate": 1,
+   "versionAvailabilityRate": null,
+   "buildSuccessRate": null,
    "dims": [
-    "va",
-    "bs"
+    "va"
    ],
    "rateRule": "runs",
    "recompute": true,
@@ -661,7 +661,7 @@
    "pipelineShortName": "MindSpeed-MM_master~54c470",
    "pipelineId": "7b989e3e031749c1a77b15f1d195aedd",
    "platform": "gitcode",
-   "versionAvailabilityRate": 1,
+   "versionAvailabilityRate": 0,
    "buildSuccessRate": 1,
    "dims": [
     "va",
@@ -800,7 +800,7 @@
    "pipelineShortName": "nightly-test-npu.yml",
    "pipelineId": "209837578",
    "platform": "github",
-   "versionAvailabilityRate": 0,
+   "versionAvailabilityRate": 1,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -853,7 +853,7 @@
    "pipelineShortName": "nightly-test-npu.yml",
    "pipelineId": "209837578",
    "platform": "github",
-   "versionAvailabilityRate": 0,
+   "versionAvailabilityRate": 1,
    "buildSuccessRate": null,
    "dims": [
     "va"
@@ -871,10 +871,11 @@
   "产品 CANN ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 MindStudio ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 MindStudio 有 6 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
-  "产品 MindCluster 有 4 条流水线 versionAvail 无数据，未纳入可用度统计",
-  "产品 MindCluster 有 4 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
+  "产品 MindCluster 有 3 条流水线 versionAvail 无数据，未纳入可用度统计",
+  "产品 MindCluster 有 3 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
   "产品 MindCluster 有 3 条流水线末段同名（如 AgentSDK~3828fc），已改用去前缀全名作唯一短名，避免执行记录互相覆盖: Nightly-CI-Component-pipeline_AgentSDK -> AgentSDK~3828fc；Nightly-CI-Component-pipeline_Agentsdk -> Agentsdk~5992cb；Nightly-CI-Component-pipeline_MultimodalSDK -> MultimodalSDK~0c7fa3",
-  "产品 MindSpeed 有 5 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
+  "产品 MindSpeed 有 1 条流水线 versionAvail 无数据，未纳入可用度统计",
+  "产品 MindSpeed 有 6 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",
   "产品 MindSpeed 有 8 条流水线末段同名（如 DrivingSDK_master），已改用去前缀全名作唯一短名，避免执行记录互相覆盖: Nightly-CI-Component-pipeline_DrivingSDK_master -> DrivingSDK_master；Nightly-CI-Component-pipeline_DrivingSDK_master -> DrivingSDK_master~089fff；Nightly-CI-Component-pipeline_MindSpeed-A3_master -> MindSpeed-A3_master；Nightly-CI-Component-pipeline_MindSpeed-A3_master -> MindSpeed-A3_master~49873f；Nightly-CI-Component-pipeline_MindSpeed-LLM_master -> MindSpeed-LLM_master；Nightly-CI-Component-pipeline_MindSpeed-MM_master -> MindSpeed-MM_master；Nightly-CI-Component-pipeline_MindSpeed-MM_master -> MindSpeed-MM_master~54c470；Nightly-CI-Component-pipeline_MindSpeed_master -> MindSpeed_master",
   "产品 vllm-ascend ops-overview 未返回 nightlyBuildSuccessRate，产品级编译成功率无数据",
   "产品 vllm-ascend 有 2 条流水线 buildSuccess 无数据，未纳入编译成功率统计（该流水线可能无 Build* 任务）",

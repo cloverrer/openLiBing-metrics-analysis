@@ -1,0 +1,50 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log": {
+   "bytes": 1992,
+   "lineCount": 21,
+   "eol": true,
+   "sha1": "5526a87a622df0b011aa4ff025dbe2ae2620dbcd",
+   "lines": [
+    "[2026/11/20 09:33:07.441 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : 该步骤开始执行",
+    "[2026/11/20 09:33:07.441 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] start to send status data to service.",
+    "[2026/11/20 09:33:07.442 GMT+08:00] [INFO]  : Start to execute task.",
+    "[2026/11/20 09:33:07.470 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] finish to save status data to service.",
+    "[2026/11/20 09:33:07.921 GMT+08:00] [INFO]  : Task execution completed.",
+    "[2026/11/20 09:33:07.938 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] start to send status data to service.",
+    "[2026/11/20 09:33:07.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:07.969 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/20 09:33:07.970 GMT+08:00] [INFO] [real_stage:official_devcloud_cloudBuild] : [frame] finish to save status data to service.",
+    "[2026/11/20 09:33:17.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:17.970 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/20 09:33:27.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:27.976 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/20 09:33:37.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:38.022 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/20 09:33:47.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:48.020 GMT+08:00] [INFO]  : Finish getting this task status.",
+    "[2026/11/20 09:33:57.938 GMT+08:00] [INFO]  : Start to get the task status.",
+    "[2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.",
+    "[2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!",
+    "[2026/11/20 09:33:58.053 GMT+08:00] [INFO]  : 开始: Get output to CloudBuild Task!"
+   ]
+  },
+  "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log": {
+   "bytes": 367,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "4e06078ae0ccbe9bff962c0f250d95983fd5c676",
+   "lines": [
+    "[2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+    "[2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "[2026/11/20 09:33:06.641 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成"
+   ]
+  }
+ },
+ "counts": {
+  "files": 2,
+  "bytes": 2359,
+  "lines": 24
+ }
+}

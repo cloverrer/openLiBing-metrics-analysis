@@ -1,148 +1,63 @@
 {
   "items": [
     {
-      "recordId": "MindSpeed|DrivingSDK_master~089fff#2",
-      "issueType": "基础设施/平台",
-      "issueDetail": "运行在非构建类阶段失败，无任务日志可查",
-      "rootCause": "该次运行 2026-11-19 02:00:17 启动、02:04:03 结束，全程约 4 分钟即被记为 FAILED，失败任务类型为「其他任务」，而编译成功率仍为 100%。归档里既没有编译/测试任务清单，也没有任何任务日志与用例明细，无法定位到具体失败环节；结合构建未失败这一事实，问题落在构建与测试之外的调度编排类环节，属平台侧异常。本条证据不完整，结论基于记录元数据（结束判定、失败任务类型、构建成功）与同类先例给出。",
-      "advice": "到 openLiBing 上按本次运行的跳转链接查看该流水线的阶段明细，确认「其他任务」阶段具体是哪一步非零退出，并补齐该阶段的任务日志采集；若确认是平台侧编排异常，联系工程运营平台侧核查 2026-11-19 02:00 前后的调度状态。\n\n验证方式：重跑该流水线，要求各阶段任务均能正常拉起并采集到日志、整体运行结果为 SUCCESS。",
-      "cites": [],
+      "recordId": "MindIE|MindIE-Motor#140",
+      "issueType": "超时",
+      "issueDetail": "PyMotor 服务启动超时，用例失败",
+      "keyError": "服务启动超时，未找到成功日志!",
+      "rootCause": "失败在用例 test_pymotor_ras_p_redundant 的环境准备阶段：部署 PyMotor 服务后等待服务就绪，一直等不到成功日志，框架在 08:54:44 报「服务启动超时，未找到成功日志!」，随即停服收尾，并在结束时把该用例判定为 Test FAILED due to ERROR/FAIL logs。也就是说这次不是用例逻辑本身报错，而是被测 PyMotor 服务没能正常起来，后续 RAS 冗余流程无从执行。该记录只取到这一份用例日志（无服务侧日志），服务启动未成功的原因需结合部署日志进一步确认。",
+      "advice": "结合该用例的 PyMotor 服务部署脚本与服务侧日志，确认服务没有就绪的具体原因（端口占用、依赖未装齐、设备被占、启动即崩溃等），先把服务能稳定拉起，再回归该用例。\n\n验证方式：重跑该用例，要求出现服务启动成功日志、不再报启动超时，用例通过。",
+      "cites": ["case_logs/case_0207.html:L27667", "case_logs/case_0207.html:L27911"],
       "source": "agent"
     },
     {
-      "recordId": "MindSpeed|DrivingSDK_master~089fff#3",
-      "issueType": "基础设施/平台",
-      "issueDetail": "运行在非构建类阶段失败，无任务日志可查",
-      "rootCause": "该次运行 2026-11-19 09:26:14 启动、09:28:14 结束，全程仅约 2 分钟即被记为 FAILED，失败任务类型为「其他任务」，编译成功率仍为 100%。归档里没有编译/测试任务清单，也没有任何任务日志与用例明细，无法定位到具体失败环节；结合构建未失败这一事实，问题落在构建与测试之外的调度编排类环节，属平台侧异常。本条证据不完整，结论基于记录元数据与同类先例给出。",
-      "advice": "到 openLiBing 上按本次运行的跳转链接查看该流水线的阶段明细，确认「其他任务」阶段具体是哪一步非零退出，并补齐该阶段的任务日志采集；若确认是平台侧编排异常，联系工程运营平台侧核查 2026-11-19 09:26 前后的调度状态。\n\n验证方式：重跑该流水线，要求各阶段任务均能正常拉起并采集到日志、整体运行结果为 SUCCESS。",
-      "cites": [],
-      "source": "agent"
-    },
-    {
-      "recordId": "MindSpeed|DrivingSDK_master~089fff#4",
-      "issueType": "基础设施/平台",
-      "issueDetail": "运行在非构建类阶段失败，无任务日志可查",
-      "rootCause": "该次运行 2026-11-19 15:02:53 启动、16:39:00 结束，历时约 1 小时 36 分钟，最终被记为 FAILED，失败任务类型为「其他任务」，编译成功率仍为 100%。归档里没有编译/测试任务清单，也没有任何任务日志与用例明细，无法定位到具体失败环节；结合构建未失败这一事实，问题落在构建与测试之外的调度编排类环节，属平台侧异常。本条证据不完整，结论基于记录元数据与同类先例给出。",
-      "advice": "到 openLiBing 上按本次运行的跳转链接查看该流水线的阶段明细，确认「其他任务」阶段具体是哪一步非零退出，并补齐该阶段的任务日志采集；若确认是平台侧编排异常，联系工程运营平台侧核查 2026-11-19 15:02～16:39 的调度状态。\n\n验证方式：重跑该流水线，要求各阶段任务均能正常拉起并采集到日志、整体运行结果为 SUCCESS。",
-      "cites": [],
-      "source": "agent"
-    },
-    {
-      "recordId": "MindStudio|msprof#279",
-      "issueType": "资源不足",
-      "issueDetail": "测试用 A2/A3 环境申请被拒，用例未执行",
-      "keyError": "RuntimeError: Environment allocation rejected: Unknown",
-      "rootCause": "失败在用例执行前的环境申请环节：冒烟测试需要一台 mindstudio_single_device_8_a2a3 设备环境，从 09:39:29 起反复查询任务状态，状态长时间停在 provisioning/queued，一直排到 11:09:54 仍拿不到分配结果，最终由调度框架抛出环境申请被拒的异常，用例一条都没跑起来（No test case result found），任务以非零退出码结束。根因是所需 A2/A3 测试设备资源紧张或调度侧异常，导致环境申请被拒绝，属资源/平台侧问题，不是 msprof 自身缺陷。该记录取证不完整（仅取到冒烟 job 的日志）。",
-      "advice": "联系环境调度侧核查 2026-11-19 09:39～11:09 时段 A2/A3 设备池的容量与调度日志，确认该环境申请被拒的具体原因（资源不足还是调度异常）；若为资源紧张，评估扩容或在夜间低峰段调整排队策略。\n\n验证方式：重跑该流水线，要求环境申请能在合理时间内分配成功、测试任务能拉起用例且用例通过率 100%。",
-      "cites": ["job_logs/51_msprof_279_Test_msprof_smoke.log:L845"],
-      "source": "agent"
-    },
-    {
-      "recordId": "MindStudio|msprof#280",
-      "issueType": "依赖/环境缺失",
-      "issueDetail": "制作镜像时依赖包 mspti 缺失导致构建失败",
-      "keyError": "ERROR: mspti/aarch64 is missing from the newest daily batch 20261119_1200: the daily build failed, investigate the build.",
-      "rootCause": "失败在制作并推送 Docker 镜像的环节：a2 与 a3 两个 aarch64 镜像任务在执行组件安装脚本时，需要从每日构建批次 20261119_1200 拉取依赖包 mspti，但该批次里 aarch64 的 mspti 缺失（对应的每日构建失败），安装脚本随即以非零码退出，docker 构建中断，最终报镜像制作失败。根因是上游每日构建批次未产出 mspti/aarch64 依赖包，镜像里装不上该组件，属依赖/上游产包缺失，不是 msprof 源码问题。",
-      "advice": "排查 20261119_1200 这一每日构建批次中 mspti/aarch64 的构建失败原因并修复，使该依赖重新产出；修复后在构建机内手工执行一次镜像构建脚本，确认能取到 mspti/aarch64 并成功打镜像。\n\n验证方式：重跑该流水线，要求两个架构的镜像构建都能成功取到 mspti 依赖、镜像制作成功、整体运行结果为 SUCCESS。",
-      "cites": ["job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log:L6063"],
-      "source": "agent"
-    },
-    {
-      "recordId": "MindStudio|msprof#281",
-      "issueType": "单元测试失败",
-      "issueDetail": "4 条 PTA profiling 用例校验产物未通过",
-      "keyError": "AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:",
-      "rootCause": "失败在 Test_msprof_smoke_A3_large_model 冒烟任务：4 条 profiling 用例（arithmetic_utilization / pipe_utilization / async_mode / collect_text_and_db）全部在结果校验环节抛 AssertionError。用例执行 profiling 命令后调用 pta.py 的 check_result 校验产物，ascend_pt 校验脚本以退出码 1 返回，判定产物不符合预期，用例判 FAILED；该任务随后被取消。根因是 msprof 采集到的 profiling 产物未通过基线校验，属被测组件在 A3 大模型场景下的用例失败。",
-      "advice": "复现单条用例（如 test_profiling_level1_arithmetic_utilization_0001），查看 check_result 里 ascend_pt 校验脚本的详细输出，定位是产物缺失、字段不符还是精度偏差；据此修正 msprof profiling 产物或更新校验基线。\n\n验证方式：重跑该流水线，要求 4 条 profiling 用例的 ascend_pt 校验全部通过、用例通过率 100%。",
-      "cites": ["case_logs/case_0202.html:L4251"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2268",
-      "issueType": "单元测试失败",
-      "issueDetail": "多条 NPU 用例断言失败，HiCache 缓存未命中",
-      "keyError": "AssertionError: 0 not greater than 0 : Expected an L1 device hit; got meta_info=",
-      "rootCause": "失败在 nightly-test 的用例执行阶段：nightly-test-1-npu-a3、nightly-test-4-npu-a3 以及多组 multi-node-poc 任务里，多条 NPU 用例断言不通过——HiCache 的 mamba 用例期望命中 L1 设备缓存却得到 0（0 not greater than 0），sampling backend 用例也以非零码返回，最终 nightly-test-1-npu-a3 以退出码 255 结束、check-all-jobs 汇总判失败。日志里另有 libhcom.so 打开失败的 WARN，但紧随其后即为 hybm init successfully，属无害告警，不是失败原因。根因是被测 sglang NPU 侧用例在缓存命中等功能上不达预期，属用例/产品功能问题。",
-      "advice": "从失败的 HiCache mamba 与 sampling backend 用例入手复现，检查 L1 设备缓存与采样后端在 NPU 上的行为，修正实现或核对断言期望值。\n\n验证方式：重跑该流水线，要求这些用例全部通过、用例通过率 100%。",
-      "cites": ["github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt:L1450"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2269",
-      "issueType": "单元测试失败",
-      "issueDetail": "多条 PD 分离用例报 prefill/解码失败",
-      "keyError": "AssertionError: 502 != 200 : Request failed: 502 - {\"error\":{\"type\":\"server_error\",\"code\":\"prefill_failed\",\"message\":\"prefill failed before KV transfer completed\"}}",
-      "rootCause": "失败在 nightly-test 用例执行阶段：nightly-test-1-npu-a3 与 nightly-test-4-npu-a3 的多条 PD 分离相关用例断言失败——请求返回 502（prefill failed before KV transfer completed）、解码传输失败（500 Decode transfer failed），另有模型服务进程以 -9 退出（Server process exited with code -9），用例判 FAILED，check-all-jobs 汇总失败。根因是被测 sglang 在 PD 分离/多卡 NPU 场景下 prefill 与解码传输链路不稳定、推理服务异常退出，属用例/产品功能问题。",
-      "advice": "复现 PD 分离相关失败用例，重点抓 prefill 到 decode 的 KV 传输链路与推理服务日志，定位 prefill 失败与进程被 -9 杀掉的直接原因，修正实现或调整资源/参数后回归。\n\n验证方式：重跑该流水线，要求这些用例全部通过、用例通过率 100%。",
-      "cites": ["github_logs/gh_44453642955/135323445227_nightly-test-4-npu-a3 _ run (1).txt:L3615"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2271",
-      "issueType": "基础设施/平台",
-      "issueDetail": "运行零时长即失败，未产生任务与日志",
-      "rootCause": "该次运行 2026-11-19 20:35:34 开始、同一秒结束，全过程时长 0 秒，没有任何任务清单、日志与用例明细，失败任务类型也为空，属 GitHub 侧运行被立即终止或未真正调度起来的情形，无法定位到具体业务环节。本条证据不完整，结论基于记录的零时长与零任务事实给出，需结合平台侧运行记录进一步确认。",
-      "advice": "到 GitHub Actions 上按本次运行的跳转链接查看该 run 的触发与结束记录，确认是工作流配置、并发限制还是 self-hosted runner 侧问题（如 runner 不可用导致作业未启动）；确认原因并修复后重跑。\n\n验证方式：重跑该流水线，要求任务能正常调度起来、用例可执行、整体运行结果为 SUCCESS。",
-      "cites": [],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2272",
-      "issueType": "依赖/环境缺失",
-      "issueDetail": "测试脚本引用的 Ascend 自定义算子环境缺失",
-      "keyError": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
-      "rootCause": "失败在 multi-node-poc 用例启动阶段：run_npu_testcase.sh 在运行用例前要 source 自定义算子环境，但第 170、171 行引用的 customize 与 custom_transformer 两个 set_env.bash 在镜像里都不存在，脚本随即报「No such file or directory」，用例无法拉起，随后报 Some pods are not running properly 并抛 Monitoring ended but target pattern was not detected，任务以退出码 1 结束。根因是运行镜像里的 Ascend 自定义算子包（vendors/customize、custom_transformer）未安装或路径与脚本约定不一致，属运行环境依赖缺失。",
-      "advice": "核对该运行镜像中 /usr/local/Ascend/ascend-toolkit/latest/opp/vendors 下是否存在 customize 与 custom_transformer 目录及其 bin/set_env.bash，补齐缺失的自定义算子包或修正脚本引用的路径，使 source 成功。\n\n验证方式：重跑该流水线，要求用例能正常 source 算子环境并拉起、用例通过率 100%。",
-      "cites": ["github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt:L557"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2273",
-      "issueType": "依赖/环境缺失",
-      "issueDetail": "测试脚本引用的 Ascend 自定义算子环境缺失",
-      "keyError": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
-      "rootCause": "失败在 multi-node-poc 用例启动阶段：run_npu_testcase.sh 在运行用例前要 source 自定义算子环境，但第 170、171 行引用的 customize 与 custom_transformer 两个 set_env.bash 在镜像里都不存在，脚本随即报「No such file or directory」，用例无法拉起，随后报 Some pods are not running properly 并抛 Monitoring ended but target pattern was not detected，任务以退出码 1 结束。根因是运行镜像里的 Ascend 自定义算子包（vendors/customize、custom_transformer）未安装或路径与脚本约定不一致，属运行环境依赖缺失，与同批次 #2272、#2274 同源。",
-      "advice": "核对该运行镜像中 /usr/local/Ascend/ascend-toolkit/latest/opp/vendors 下是否存在 customize 与 custom_transformer 目录及其 bin/set_env.bash，补齐缺失的自定义算子包或修正脚本引用的路径，使 source 成功。\n\n验证方式：重跑该流水线，要求用例能正常 source 算子环境并拉起、用例通过率 100%。",
-      "cites": ["github_logs/gh_44542522217/135624626671_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L559"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2274",
-      "issueType": "依赖/环境缺失",
-      "issueDetail": "测试脚本引用的 Ascend 自定义算子环境缺失",
-      "keyError": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
-      "rootCause": "失败在 multi-node-poc 用例启动阶段：run_npu_testcase.sh 在第 170、171 行 source customize 与 custom_transformer 的自定义算子环境时，对应的 set_env.bash 在镜像里不存在，脚本报「No such file or directory」，用例无法拉起；随后容器实现执行失败（Executing the custom container implementation failed），任务以非零码结束。根因是运行镜像里的 Ascend 自定义算子包未安装或路径与脚本约定不一致，属运行环境依赖缺失，与同批次 #2272、#2273 同源。该记录取证不完整（check-all-jobs 未取到日志）。",
-      "advice": "核对该运行镜像中 /usr/local/Ascend/ascend-toolkit/latest/opp/vendors 下是否存在 customize 与 custom_transformer 目录及其 bin/set_env.bash，补齐缺失的自定义算子包或修正脚本引用的路径，使 source 成功。\n\n验证方式：重跑该流水线，要求用例能正常 source 算子环境并拉起、用例通过率 100%。",
-      "cites": ["github_logs/gh_44552728555/135660751160_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L559"],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2275",
-      "issueType": "基础设施/平台",
-      "issueDetail": "运行约半分钟即失败，无任务与日志",
-      "rootCause": "该次运行 2026-11-19 23:28:39 开始、23:29:08 结束，全程仅约 29 秒，没有任何任务清单、日志与用例明细，失败任务类型为空，属 GitHub 侧运行尚未进入用例执行就被终止的情形，无法定位到具体业务环节。本条证据不完整，结论基于记录的极短时长与零任务事实给出，需结合平台侧运行记录进一步确认。",
-      "advice": "到 GitHub Actions 上按本次运行的跳转链接查看该 run 的触发与结束记录，确认是工作流配置、并发限制还是 self-hosted runner 侧问题（如 runner 不可用或并发受限导致作业被取消）；确认原因并修复后重跑。\n\n验证方式：重跑该流水线，要求任务能正常调度起来、用例可执行、整体运行结果为 SUCCESS。",
-      "cites": [],
-      "source": "agent"
-    },
-    {
-      "recordId": "SgLang|nightly-test-npu.yml#2276",
+      "recordId": "MindSpeed|DrivingSDK_master#81",
       "issueType": "配置/参数错误",
-      "issueDetail": "采样算子不识 softcap 参数导致调度器崩溃",
-      "keyError": "TypeError: markov_sample_step_triton() got an unexpected keyword argument 'softcap'",
-      "rootCause": "失败在 multi-node-poc 用例的推理服务启动阶段：deepseek_v4_pro 模型拉起时，调度器调用采样算子 markov_sample_step_triton() 并传入 softcap 关键字参数，但该函数实现并不接受这一参数，直接抛 TypeError；随后收到子进程的 sigquit（It usually means the child failed），多个 DP/TP/EP 分片的调度器相继异常退出，服务起不来、用例失败。根因是调用方传入的采样参数 softcap 与算子实现对不上（参数名/版本不匹配），属配置/参数错误。日志前段另有 set_env.bash 缺失的告警，但用例仍进入执行，非本次失败的直接原因。",
-      "advice": "核对 sglang 侧采样算子 markov_sample_step_triton 的签名与调用处传入的参数集，确认 softcap 是否为新参数而运行镜像里的算子实现偏旧：要么在镜像中升级到支持 softcap 的实现，要么把调用处的 softcap 参数去掉或改名，使二者一致。\n\n验证方式：重跑该流水线，要求推理服务能正常拉起、不再出现该 TypeError、用例通过率 100%。",
-      "cites": ["github_logs/gh_44555667805/135672389452_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L14169"],
+      "issueDetail": "用例配置缺少 expert_model_parallel_size 参数",
+      "keyError": "未找到参数: expert_model_parallel_size",
+      "rootCause": "失败在用例 test_003_sparse4d 的结果提取环节：结果提取脚本在本次的模型/用例配置里找不到 expert_model_parallel_size 参数，性能值只能提取为 0，框架随即报「无法获取性能结果」，用例判失败。也就是说这次跑用的配置里缺了稀疏专家并行度这一项，性能指标产不出来——不是被测代码算错，而是配置与结果提取脚本对不上。",
+      "advice": "在 sparse4d 对应的用例/模型配置中补上 expert_model_parallel_size（或让结果提取脚本按实际存在的字段名取值），保证性能结果能正常提取。\n\n验证方式：重跑该用例，要求不再报「未找到参数」，提取到的性能值大于 0，用例通过。",
+      "cites": ["case_logs/case_0206.html:L776", "case_logs/case_0206.html:L783"],
       "source": "agent"
     },
     {
-      "recordId": "openGauss|autobuild-opengauss-openeuler24.03-arm#767",
-      "issueType": "资源不足",
-      "issueDetail": "编译后期构建机磁盘写满导致编译中断",
-      "keyError": "{standard input}: Fatal error: can't write 3919 bytes to section .debug_str of CMakeFiles/gausskernel_cbb_bbox.dir/bbox_threads.cpp.o: 'No space left on device'",
-      "rootCause": "失败在编译后期：构建机磁盘写满，汇编阶段无法再写入目标文件与调试段（can't write ... bytes to section .debug_str ...: No space left on device），gausskernel_cbb_bbox、storage_access_datavec、storage_tcap 等多个目标的 .o 生成失败，make 大量报 Error 1 并中止；同一时间点的打包上传步骤也因磁盘满写不出 sha256 而失败，进一步印证是整机磁盘空间耗尽。根因是构建机磁盘空间不足（编译中间产物占满磁盘），属资源不足，不是 openGauss 源码或编译配置问题。",
-      "advice": "清理该构建机磁盘上的历史中间产物与临时文件、扩容构建分区或加入磁盘水位监控在编译前预警；同时评估编译开启 debug 段（.debug_*）带来的空间占用，必要时裁剪调试信息。修复后在同一构建机手工复跑一次编译，观察磁盘水位不再打满。\n\n验证方式：重跑该流水线，要求编译全程不再出现 No space left on device、构建成功、整体运行结果为 SUCCESS。",
-      "cites": ["job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_767.log:L31382"],
+      "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#270",
+      "issueType": "基础设施/平台",
+      "issueDetail": "构建子任务执行失败，未带出底层原因",
+      "keyError": "错误信息: DEV-JENKINS-10002, 任务执行失败!",
+      "rootCause": "失败在构建任务的子步骤 Build_ubs-io-dfc：该子任务返回失败，外层框架只拿到「任务执行失败」这一结论，没有带出底层具体原因；测试任务随后轮询到构建任务失败，整条流水线判失败。本次归档在构建、测试两侧各只取到一份很短的框架日志（3 行 / 21 行），子任务的真实日志缺失，所以目前只能确认失败发生在构建子任务侧，具体原因需到该子任务日志里查。",
+      "advice": "打开 Build_ubs-io-dfc 子任务的完整日志定位真正失败原因（框架日志只有结果、没有过程）；若该子任务由平台侧调度，联系平台侧调取这一次的调度记录。\n\n验证方式：修复后重跑该流水线，要求构建子任务与测试任务均恢复正常。",
+      "cites": ["job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log:L2", "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log:L20"],
+      "source": "agent"
+    },
+    {
+      "recordId": "boostkit|Ultrascan#321",
+      "issueType": "网络/下载失败",
+      "issueDetail": "yum 拉取 openEuler 源元数据超时失败",
+      "keyError": "Error: Failed to download metadata for repo 'update': Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried",
+      "rootCause": "失败在构建的依赖安装环节：脚本执行 yum install sqlite sqlite-devel 时，update 源（openEuler 22.03-LTS-SP4）的元数据拉不下来——mirrors.openeuler.org 与 de-repo.openeuler.org 两个镜像都报 Curl error 28（30 秒连接超时），其中一个镜像虽下载成功但校验和不匹配，最终所有镜像都试过仍取不到 repomd.xml，脚本以退出码 1 结束，构建判失败。根因是构建机到 openEuler 镜像站的网络或镜像不可用，属外部源下载失败，不是 Ultrascan 源码问题。",
+      "advice": "检查构建机的对外网络与该 openEuler 源的可达性，改用可用的内网或就近镜像站；换源后先 yum clean all 清掉旧缓存，确认 repomd.xml 能正常下载且校验和一致。\n\n验证方式：重跑该构建，要求 yum 元数据下载成功、sqlite 安装完成、构建通过。",
+      "cites": ["job_logs/52_Ultrascan_321_Build_Ultrascan.log:L92", "job_logs/52_Ultrascan_321_Build_Ultrascan.log:L93", "job_logs/52_Ultrascan_321_Build_Ultrascan.log:L94"],
+      "source": "agent"
+    },
+    {
+      "recordId": "vllm-ascend|a3.yaml#16615",
+      "issueType": "单元测试失败",
+      "issueDetail": "精度用例因响应异常校验失败被判不通过",
+      "keyError": "AttributeError: TikTokenTokenizer has no attribute backend_tokenizer",
+      "rootCause": "失败在本轮 nightly 的 AISBench 精度用例：四个并发作业的精度用例全部在「响应异常校验（response anomaly）」环节被判失败。其中 Kimi-K3、Kimi-K2.6 两个作业里，响应异常检测工具在解析被测模型 tokenizer 时崩溃——这两个模型用的是 TikTokenTokenizer，工具却按 HuggingFace 接口去取 backend_tokenizer 属性，直接抛 AttributeError，异常检测中断，对应精度用例（gpqa、aime2025）判失败；QWEN3、GLM-5.3 两个作业则是异常检测正常跑完、但检出异常响应占比超阈值（gsm8k 62.93%、aime2025 10.00%）被判失败。两类表现都出在响应异常校验这一环节，结果一致：四个精度作业失败、作业退出码 1，流水线判失败。",
+      "advice": "修响应异常检测工具对 tiktoken 类 tokenizer 的兼容性（TikTokenTokenizer 没有 backend_tokenizer 属性，需按 tiktoken 的方式取解码器），并复核各模型的异常响应占比阈值是否过严（尤其 gsm8k 这类阈值取 2 的场景）。\n\n验证方式：重跑该流水线，要求响应异常检测不再抛 AttributeError、精度用例不再因异常校验被判失败、用例通过率 100%。",
+      "cites": ["github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L1428", "github_logs/gh_44544400820/135631943479_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt:L3229", "github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L1432"],
+      "source": "agent"
+    },
+    {
+      "recordId": "vllm-ascend|a3.yaml#16616",
+      "issueType": "单元测试失败",
+      "issueDetail": "精度用例因响应异常校验失败被判不通过",
+      "keyError": "AttributeError: TikTokenTokenizer has no attribute backend_tokenizer",
+      "rootCause": "失败在本轮 nightly 的 AISBench 精度用例：四个并发作业的精度用例全部在「响应异常校验（response anomaly）」环节被判失败。其中 Kimi-K3、Kimi-K2.6 两个作业里，响应异常检测工具在解析被测模型 tokenizer 时崩溃——这两个模型用的是 TikTokenTokenizer，工具却按 HuggingFace 接口去取 backend_tokenizer 属性，直接抛 AttributeError，异常检测中断，对应精度用例（gpqa、aime2025）判失败；QWEN3、GLM-5.3 两个作业则是异常检测正常跑完、但检出异常响应占比超阈值（gsm8k 63.53%、aime2025 10.00%）被判失败。两类表现都出在响应异常校验这一环节，结果一致：四个精度作业失败、作业退出码 1，流水线判失败。",
+      "advice": "修响应异常检测工具对 tiktoken 类 tokenizer 的兼容性（TikTokenTokenizer 没有 backend_tokenizer 属性，需按 tiktoken 的方式取解码器），并复核各模型的异常响应占比阈值是否过严（尤其 gsm8k 这类阈值取 2 的场景）。\n\n验证方式：重跑该流水线，要求响应异常检测不再抛 AttributeError、精度用例不再因异常校验被判失败、用例通过率 100%。",
+      "cites": ["github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L2280", "github_logs/gh_44604083788/135844071638_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt:L3986", "github_logs/gh_44604083788/135844076491_double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightl~64de8f.txt:L3131"],
       "source": "agent"
     }
   ]

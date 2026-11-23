@@ -1,98 +1,45 @@
 [
  {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_msprof_task_time_off_0001.html",
-  "file": "case_0200.html",
-  "localLog": "case_logs/case_0200.html",
+  "url": "https://pytorch-package.obs.cn-north-4.myhuaweicloud.com/pytest-nightly-ut-log/a9b188a62f334fc0963bcfb523426d17202611205330/test_003_sparse4d.html",
+  "file": "case_0206.html",
+  "localLog": "case_logs/case_0206.html",
   "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001",
+  "caseId": "testcase/mindspeed/mindspeed_driver/test_driver.py::TestDriverSDK::test_003_sparse4d",
   "status": "Failed",
-  "duration": "24.16s",
-  "fileBytes": 69445,
-  "fileLines": 944,
-  "errors": [],
-  "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_msprof_ai3.py::TestMsprofAiTask3::test_msprof_task_time_off_0001\nException: AssertionError\nMessage: 发现10条ERROR日志",
-   "Traceback:\ntestcase/mindstudio/profiling/test_msprof_ai3.py:938: in test_msprof_task_time_off_0001\n    helper.check_logs_no_error(real_output_path)\nlib/mindstudio/profiling/msprof.py:818: in check_logs_no_error\n    assert error_count == 0, f\"发现{error_count}条ERROR日志\"\n           ^^^^^^^^^^^^^^^^\nE   AssertionError: 发现10条ERROR日志"
-  ]
+  "duration": "156.41s",
+  "fileBytes": 79237,
+  "fileLines": 909,
+  "errors": [
+   {
+    "time": "2026-11-20 14:11:05.715",
+    "level": "ERROR",
+    "line": 778,
+    "loc": "__init__.py:71",
+    "msg": "无法获取性能结果"
+   },
+   {
+    "time": "2026-11-20 14:11:05.880",
+    "level": "FAIL",
+    "line": 827,
+    "loc": "plugin.py:999",
+    "msg": "Test FAILED due to ERROR/FAIL logs: testcase/mindspeed/mindspeed_driver/test_driver.py::TestDriverSDK::test_003_sparse4d"
+   }
+  ],
+  "deepHits": []
  },
  {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db621120261119133/test_mspti_pytorch_for_communication_0001.html",
-  "file": "case_0201.html",
-  "localLog": "case_logs/case_0201.html",
+  "url": "https://mindie.obs.cn-north-4.myhuaweicloud.com/artifact/gitcode/smokeresult/MindIE-Motor/6a4fa7d010294da695be52110517c08b2026112021674/test_pymotor_ras_p_redundant.html",
+  "file": "case_0207.html",
+  "localLog": "case_logs/case_0207.html",
   "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001",
+  "caseId": "testcase/mindie/motor/pymotor/ras/redundancy_hardware_bug/test_motor_redundancy_hardware_bug.py::TestPyMotorRasPRedundant::test_pymotor_ras_p_redundant",
   "status": "Failed",
-  "duration": "805.09s",
-  "fileBytes": 647814,
-  "fileLines": 10434,
+  "duration": "1196.20s",
+  "fileBytes": 2281742,
+  "fileLines": 27925,
   "errors": [],
   "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_mspti.py::TestMsptiTestCaseSet::test_mspti_pytorch_for_communication_0001\nException: AssertionError\nMessage: 训练失败，日志包含 Traceback",
-   "Traceback:\ntestcase/mindstudio/profiling/test_mspti.py:519: in test_mspti_pytorch_for_communication_0001\n    runner.wait_training()\nlib/mindstudio/profiling/pta.py:621: in wait_training\n    assert marker not in log_content, f\"训练失败，日志包含 {marker}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: 训练失败，日志包含 Traceback"
-  ]
- },
- {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_arithmetic_utilization_0001.html",
-  "file": "case_0202.html",
-  "localLog": "case_logs/case_0202.html",
-  "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001",
-  "status": "Failed",
-  "duration": "73.37s",
-  "fileBytes": 351471,
-  "fileLines": 4425,
-  "errors": [],
-  "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_mode",
-   "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:106: in test_profiling_level1_arithmetic_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:26:59,190][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:26:59,349][281473176703008][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1ArithmeticUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_55330_20261119092639656_"
-  ]
- },
- {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_profiling_level1_pipe_utilization_0001.html",
-  "file": "case_0203.html",
-  "localLog": "case_logs/case_0203.html",
-  "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001",
-  "status": "Failed",
-  "duration": "81.83s",
-  "fileBytes": 349981,
-  "fileLines": 4427,
-  "errors": [],
-  "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWE",
-   "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:141: in test_profiling_level1_pipe_utilization_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:28:12,511][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:28:12,700][281472908574752][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/ProfilingLevel1PipeUtilization0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_59555_20261119092754250_ascend_pt/下的ASCEND"
-  ]
- },
- {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_for_async_mode_0001.html",
-  "file": "case_0204.html",
-  "localLog": "case_logs/case_0204.html",
-  "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001",
-  "status": "Failed",
-  "duration": "79.93s",
-  "fileBytes": 346726,
-  "fileLines": 4413,
-  "errors": [],
-  "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyn",
-   "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:627: in test_pytorch_for_async_mode_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:47:49,343][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:47:49,527][281472914341920][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchForAsyncMode0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_116656_20261119094733811_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录kernel_detail"
-  ]
- },
- {
-  "url": "https://ascend-package.obs.cn-north-4.myhuaweicloud.com/msprof/nightly/log/6b5df9811c84434296883cb706db6211202611192252/test_pytorch_collect_text_and_db_0001.html",
-  "file": "case_0205.html",
-  "localLog": "case_logs/case_0205.html",
-  "downloadStatus": "ok",
-  "caseId": "testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001",
-  "status": "Failed",
-  "duration": "74.97s",
-  "fileBytes": 372818,
-  "fileLines": 4828,
-  "errors": [],
-  "deepHits": [
-   "Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001\nException: AssertionError\nMessage: 校验 ascend_pt 失败，退出码 1，详细输出:\n[2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\n\n[2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/Pytorc",
-   "Traceback:\ntestcase/mindstudio/profiling/test_pta_profiling.py:300: in test_pytorch_collect_text_and_db_0001\n    runner.check_result(\"ascend_pt\", result_dir)\nlib/mindstudio/profiling/pta.py:666: in check_result\n    raise AssertionError(f\"校验 {task} 失败，退出码 {exit_code}，详细输出:\\n{output}\")\nE   AssertionError: 校验 ascend_pt 失败，退出码 1，详细输出:\nE   [2026-11-19 09:33:09,382][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录api_statistic.csv文件校验完成，successfully!\nE   \nE   [2026-11-19 09:33:09,570][281473371619360][profiling][INFO] > /home/profiling_train/large_model_result/QWEN3_14B/PytorchCollectTextAndDb0001/lease-env-4d237-0491bfba25a62c3c610c703adf61adfa-main-0_74197_20261119093249035_ascend_pt/下的ASCEND_PROFILER_OUTPUT目录ke"
+   "FAILED due to ERROR/FAIL logs: testcase/mindie/motor/pymotor/ras/redundancy_hardware_bug/test_motor_redundancy_hardware_bug.py::TestPyMotorRasPRedundant::test_pymotor_ras_p_redundant"
   ]
  }
 ]

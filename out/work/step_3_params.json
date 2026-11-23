@@ -1,210 +1,138 @@
 {
  "test": [
   {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "f6a8025929fc49b9ab6afb2fc55e7ca7",
-   "rn": 281,
-   "st": "11-19 14:11",
-   "jobId": "53b5cbb170844e238ecfc33f38c095d5",
-   "jobName": "Test_msprof_smoke_A3_large_model",
+   "key": "MindIE|MindIE-Motor",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "projectId": 300036,
+   "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+   "rid": "1bb96b73e8214e53ae7b1420a47ec8d3",
+   "rn": 140,
+   "st": "11-20 07:04",
+   "jobId": "33d75f88994f4d078b73c33a086fd503",
+   "jobName": "Test_MindIE-Motor_4",
    "stepIds": [
-    "7598cc92ae884b14a988bdb6af0e61a4"
+    "8ca5679a156747749b5a661302733707"
    ],
    "steps": [
     {
-     "id": "7598cc92ae884b14a988bdb6af0e61a4",
-     "name": "Test_msprof_smoke_A3_large_model",
+     "id": "8ca5679a156747749b5a661302733707",
+     "name": "Test_MindIE-Motor_4",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "162ed6c0c9ce4a0eb2d257d5f26fb513",
-     "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
+     "lastDispatchId": "1c31c41b0f994cbfb98a9db6141d54a9",
+     "jobIdParam": "625b66a91012495893e65632a1c01f6b"
     }
    ],
-   "jobErrMsg": "步骤Test_msprof_smoke_A3_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "f43ae7ddf377440b868a8a51e06429e1",
+   "jobErrMsg": "步骤Test_MindIE-Motor_4执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "99c36f2e0ce24c75a9677beddabf7939",
    "route": "test",
    "isBuild": false,
-   "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
+   "buildJobId": "625b66a91012495893e65632a1c01f6b"
   },
   {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "10d7c5c6736348949a656389dcbc8adf",
-   "rn": 280,
-   "st": "11-19 11:50",
-   "jobId": "8ea73094f20a4ccab7c2b1ea04101c41",
-   "jobName": "Test_msprof_smoke_large_model",
+   "key": "MindSpeed|DrivingSDK_master",
+   "pipeline": "DrivingSDK_master",
+   "pipelineName": "Nightly-CI-Component-pipeline_DrivingSDK_master",
+   "projectId": 300091,
+   "pipelineId": "0260b812efd04b0ebf649f3a4c533996",
+   "rid": "d0a3c7422b1349209aaee5d64f70aa53",
+   "rn": 81,
+   "st": "11-20 11:46",
+   "jobId": "6d4e881a58af4c6c952d86619d8027be",
+   "jobName": "Test_Pytest-smoke-DrivingSDK",
    "stepIds": [
-    "49589afac3804d0a89a4c7492ed4e82d"
+    "ac447b884bef44b787126c08c606a68a"
    ],
    "steps": [
     {
-     "id": "49589afac3804d0a89a4c7492ed4e82d",
-     "name": "Test_msprof_smoke_large_model",
+     "id": "ac447b884bef44b787126c08c606a68a",
+     "name": "Test_Pytest-smoke-DrivingSDK",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "ec768cf94625464baa6ef342e6d572ed",
-     "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+     "lastDispatchId": "f90cd8c5d2694076912d313d691aec24",
+     "jobIdParam": "fcc3e0c77752426d808df2c1925c1d07"
     }
    ],
-   "jobErrMsg": "步骤Test_msprof_smoke_large_model执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "5f3d08acf98b496f906aebcc74406710",
+   "jobErrMsg": "步骤Test_Pytest-smoke-DrivingSDK执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "4a08ec84d4874d3ba836349e547cc5af",
    "route": "test",
    "isBuild": false,
-   "buildJobId": "d1808247dd8844799de2e3c74beb7455"
+   "buildJobId": "fcc3e0c77752426d808df2c1925c1d07"
   },
   {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "6099f67d2d1f42548c33f8734618c711",
-   "rn": 279,
-   "st": "11-19 04:00",
-   "jobId": "ca957e1bfa664f76abd059d99ca2c3ab",
-   "jobName": "Test_msprof_smoke",
+   "key": "Triton_Ascend|Ascend",
+   "pipeline": "Ascend",
+   "pipelineName": "Nightly-CI-Version-pipeline_Triton_Ascend",
+   "projectId": 300130,
+   "pipelineId": "9a4886d40e544cecb7da63c9597490a6",
+   "rid": "ef5f434b29ea4a949069d5c68c51e281",
+   "rn": 138,
+   "st": "11-20 17:00",
+   "jobId": "abe88b93e3584c999d1965495b208dc0",
+   "jobName": "Test_Triton_Ascend",
    "stepIds": [
-    "4cbba7a328af486a919e762944a688cc"
+    "2213a861848e4d9ca0610f9ffb6b8746"
    ],
    "steps": [
     {
-     "id": "4cbba7a328af486a919e762944a688cc",
-     "name": "Test_msprof_smoke",
+     "id": "2213a861848e4d9ca0610f9ffb6b8746",
+     "name": "Test_Triton_Ascend",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "1c0c2c905c48473abe8fe0d8e6f1c158",
-     "jobIdParam": "d1808247dd8844799de2e3c74beb7455"
+     "lastDispatchId": "79d12bf2920b4343be2a173f708af7be",
+     "jobIdParam": "48c3b7763886441dafd7fdcb5550116f"
     }
    ],
-   "jobErrMsg": "步骤Test_msprof_smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "91230b9ae31442059b4e1c80dc63523f",
+   "jobErrMsg": "步骤Test_Triton_Ascend执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "ba41c584440f4a3ba4c5524f130a5f0d",
    "route": "test",
    "isBuild": false,
-   "buildJobId": "d1808247dd8844799de2e3c74beb7455"
-  },
-  {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "6099f67d2d1f42548c33f8734618c711",
-   "rn": 279,
-   "st": "11-19 04:00",
-   "jobId": "1edebbb82ddc4698b0b13ce38aee1ae1",
-   "jobName": "Test_msprof_smoke_A3",
-   "stepIds": [
-    "3d4eb644e9234e5a86ea8698da8fec68"
-   ],
-   "steps": [
-    {
-     "id": "3d4eb644e9234e5a86ea8698da8fec68",
-     "name": "Test_msprof_smoke_A3",
-     "status": "FAILED",
-     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "ad5c4f052dd44ed6b535fa1a0fc4f673",
-     "jobIdParam": "ab62b54077964cfbbf5fb83cfcfaaefd"
-    }
-   ],
-   "jobErrMsg": "步骤Test_msprof_smoke_A3执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "f47f4c9061d04c78ad5045832d689a32",
-   "route": "test",
-   "isBuild": false,
-   "buildJobId": "ab62b54077964cfbbf5fb83cfcfaaefd"
+   "buildJobId": "48c3b7763886441dafd7fdcb5550116f"
   }
  ],
  "log": [
   {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "10d7c5c6736348949a656389dcbc8adf",
-   "rn": 280,
-   "st": "11-19 11:50",
-   "jobId": "e31f29a24e1b4b5a8de3587796c0b464",
-   "jobName": " docker-mindstudio-msprof-a2-aarch64-nightly",
+   "key": "boostkit|Ultrascan",
+   "pipeline": "Ultrascan",
+   "pipelineName": "Nightly-CI-Component-pipeline_Ultrascan",
+   "projectId": 300059,
+   "pipelineId": "b0040d6ccaae48b5b623931d34db5d24",
+   "rid": "f85457a771e8466f930bfaf2bcba21a9",
+   "rn": 321,
+   "st": "11-20 01:00",
+   "jobId": "217bbbf0e6e841989fb894df9f08ecab",
+   "jobName": "Build_Ultrascan",
    "stepIds": [
-    "3f0a84cb397248d0b0612a27696093c3"
+    "869fdb878d204ae1aac021a0551c550e"
    ],
    "steps": [
     {
-     "id": "3f0a84cb397248d0b0612a27696093c3",
-     "name": " docker-mindstudio-msprof-a2-aarch64-nightly",
+     "id": "869fdb878d204ae1aac021a0551c550e",
+     "name": "Build_Ultrascan",
      "status": "FAILED",
      "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "4d000c76d280453788f135ec7abeb52f",
-     "jobIdParam": "1c5e0d3ec0d94b288d12ef08fa68b089"
+     "lastDispatchId": "78a10bb26ac440feb5fac3864a12a6bd",
+     "jobIdParam": "f4c85d4bc9384626bc69bbe19d0dfa05"
     }
    ],
-   "jobErrMsg": "步骤 docker-mindstudio-msprof-a2-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "fc373f8a80684a96b191803e41adcadb",
+   "jobErrMsg": "步骤Build_Ultrascan执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+   "jobLastDispatchId": "924b2bc344c44cf29b687821055c12fa",
    "route": "log",
-   "isBuild": false,
-   "buildJobId": "1c5e0d3ec0d94b288d12ef08fa68b089"
-  },
-  {
-   "key": "MindStudio|msprof",
-   "pipeline": "msprof",
-   "pipelineName": "Nightly-CI-Component-pipeline_msprof",
-   "projectId": 300037,
-   "pipelineId": "6cf1bab4d4444a2b836c7b106901af49",
-   "rid": "10d7c5c6736348949a656389dcbc8adf",
-   "rn": 280,
-   "st": "11-19 11:50",
-   "jobId": "ecb84d2ba4464a2b9ee4af8e8dc5c5af",
-   "jobName": " docker-mindstudio-msprof-a3-aarch64-nightly",
-   "stepIds": [
-    "8717355b913148b9a369882989e01737"
-   ],
-   "steps": [
-    {
-     "id": "8717355b913148b9a369882989e01737",
-     "name": " docker-mindstudio-msprof-a3-aarch64-nightly",
-     "status": "FAILED",
-     "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-     "lastDispatchId": "96438a6e1dc74c5e8ce13299c29236bf",
-     "jobIdParam": "95b3d17e0d17423f87a6c66f825e0217"
-    }
-   ],
-   "jobErrMsg": "步骤 docker-mindstudio-msprof-a3-aarch64-nightly执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
-   "jobLastDispatchId": "fe02a367969847d599f34544584883fc",
-   "route": "log",
-   "isBuild": false,
-   "buildJobId": "95b3d17e0d17423f87a6c66f825e0217"
+   "isBuild": true,
+   "buildJobId": "f4c85d4bc9384626bc69bbe19d0dfa05"
   }
  ],
  "skipped": [],
- "bsCleanRuns": [],
- "errors": [
+ "bsCleanRuns": [
   {
-   "key": "MindSpeed|DrivingSDK_master~089fff",
-   "rn": 2,
-   "err": "T4 重试 2 次后仍失败"
-  },
-  {
-   "key": "MindSpeed|DrivingSDK_master~089fff",
-   "rn": 4,
-   "err": "T4 重试 2 次后仍失败"
-  },
-  {
-   "key": "MindSpeed|DrivingSDK_master~089fff",
-   "rn": 3,
-   "err": "T4 重试 2 次后仍失败"
-  },
-  {
-   "key": "MindSpeed|MindSpeed-A3_master~49873f",
-   "rn": 3,
-   "err": "T4 重试 2 次后仍失败"
+   "key": "Triton_Ascend|Ascend",
+   "rn": 138,
+   "rid": "ef5f434b29ea4a949069d5c68c51e281",
+   "st": "11-20 17:00",
+   "status": null,
+   "note": "无 Build* 失败任务（服务端 buildSuccess 计数疑似有误），失败任务（含 Test）已全部取证"
   }
- ]
+ ],
+ "errors": []
 }

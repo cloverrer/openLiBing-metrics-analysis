@@ -1,0 +1,675 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": null,
+  "component": "UBS Core",
+  "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+  "date": "2026-11-20",
+  "recordCount": 3
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-20",
+ "component": "UBS Core",
+ "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+ "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+ "platform": "codearts",
+ "key": "UBS Core|Nightly-CI-Version-pipeline_BeiMing",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "value": "2026-11-20",
+  "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）",
+  "runs": [
+   {
+    "rn": 262,
+    "status": "FAILED",
+    "endedAt": "2026-11-20T15:52:07"
+   },
+   {
+    "rn": 270,
+    "status": "FAILED",
+    "endedAt": "2026-11-20T09:33:58"
+   },
+   {
+    "rn": 271,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-20T18:01:47"
+   }
+  ]
+ },
+ "counts": {
+  "records": 3,
+  "tasks": 3,
+  "cases": 0,
+  "errorMessages": 6
+ },
+ "evidence": {
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files（键=相对本目录路径），行号 1 起",
+  "rule": "任务日志逐行内嵌，bytes/sha1/eol 可无损还原"
+ },
+ "source": {
+  "step": "tools/collect_community_nightly.py",
+  "generatedAt": "2026-11-23 09:09:44",
+  "note": "openLiBing 侧社区流水线（N2 执行记录 + T4/T6/T5 任务取证）"
+ },
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "openLiBing 侧社区 Nightly 流水线点灯依据",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-23 09:09:44",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-20"
+   },
+   "pipeline": {
+    "product": "UBS Core",
+    "pipelineShortName": "Nightly-CI-Version-pipeline_BeiMing",
+    "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+    "platform": "codearts",
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "pipelineId": "openlibing:UBS Core:b51d159e1b9d4c6798dcda723e1876db",
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "days",
+    "reason": "openLiBing 侧社区采集：当日 3 次运行，版本可用度按「成功天数÷有执行天数」、编译成功率按「Σ编译成功次数÷Σ编译次数」统计"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "N2 nightly-dashboard-detail 逐运行明细（按结束时间归属）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-23 09:09:44",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-20"
+   },
+   "date": "2026-11-20",
+   "runHistory": [
+    {
+     "rn": 262,
+     "rid": "5b1d217f43b8449fabf4c06f321c282a",
+     "status": "FAILED",
+     "start": "2026-11-16T18:56:27",
+     "end": "2026-11-20T15:52:07",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=5b1d217f43b8449fabf4c06f321c282a"
+    },
+    {
+     "rn": 270,
+     "rid": "d0dd1ada45d643488a9e0af2d613fc02",
+     "status": "FAILED",
+     "start": "2026-11-20T00:00:19",
+     "end": "2026-11-20T09:33:58",
+     "iva": false,
+     "bc": 9,
+     "bpc": 8,
+     "ftt": "构建任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=d0dd1ada45d643488a9e0af2d613fc02"
+    },
+    {
+     "rn": 271,
+     "rid": "c448da06fbb9418f8d93afa54226435b",
+     "status": "COMPLETED",
+     "start": "2026-11-20T12:00:48",
+     "end": "2026-11-20T18:01:47",
+     "iva": true,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": null,
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=c448da06fbb9418f8d93afa54226435b"
+    }
+   ],
+   "runs": [
+    {
+     "rn": 262,
+     "status": "FAILED",
+     "start": "2026-11-16T18:56:27",
+     "end": "2026-11-20T15:52:07",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    },
+    {
+     "rn": 270,
+     "status": "FAILED",
+     "start": "2026-11-20T00:00:19",
+     "end": "2026-11-20T09:33:58",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    },
+    {
+     "rn": 271,
+     "status": "COMPLETED",
+     "start": "2026-11-20T12:00:48",
+     "end": "2026-11-20T18:01:47",
+     "included": true,
+     "reason": "结束时间在归档日内"
+    }
+   ],
+   "failedRuns": [
+    {
+     "rn": 262,
+     "rid": "5b1d217f43b8449fabf4c06f321c282a",
+     "status": "FAILED",
+     "start": "2026-11-16T18:56:27",
+     "end": "2026-11-20T15:52:07",
+     "iva": false,
+     "bc": 9,
+     "bpc": 9,
+     "ftt": "其他任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=5b1d217f43b8449fabf4c06f321c282a"
+    },
+    {
+     "rn": 270,
+     "rid": "d0dd1ada45d643488a9e0af2d613fc02",
+     "status": "FAILED",
+     "start": "2026-11-20T00:00:19",
+     "end": "2026-11-20T09:33:58",
+     "iva": false,
+     "bc": 9,
+     "bpc": 8,
+     "ftt": "构建任务",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=d0dd1ada45d643488a9e0af2d613fc02"
+    }
+   ],
+   "keptRuns": 3,
+   "keptFailedRuns": 2
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "T4 任务图谱分流：任务名 test 开头 → T6，其余 → T5",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-23 09:09:44",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-20"
+   },
+   "results": [],
+   "counts": {
+    "tasks": 3
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "T5 任务日志取证（导出失败自动回退分页接口）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-23 09:09:44",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-20"
+   },
+   "results": [
+    {
+     "jobName": "Test_BeiMing",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log",
+     "logBytes": 1992,
+     "logLines": 21,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_BeiMing执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L19: [2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.",
+      "L20: [2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Build_ubs-io-dfc",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Build_ubs-io-dfc执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 2,
+    "logFiles": 2,
+    "errorLines": 4
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次运行」为最小单位合并记录（openLiBing 社区）",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-23 09:09:44",
+    "component": "UBS Core",
+    "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+    "date": "2026-11-20"
+   },
+   "date": "2026-11-20",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "counts": {
+    "records": 3,
+    "tasks": 3,
+    "cases": 0,
+    "errorMessages": 6
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 972,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "openLiBing 侧社区 Nightly 流水线点灯依据",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 2741,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "N2 nightly-dashboard-detail 逐运行明细（按结束时间归属）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 441,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "T4 任务图谱分流：任务名 test 开头 → T6，其余 → T5",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 2095,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "T5 任务日志取证（导出失败自动回退分页接口）",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 810,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次运行」为最小单位合并记录（openLiBing 社区）",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#262",
+   "date": "2026-11-20",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "buildNumber": 262,
+   "pipelineRunId": "5b1d217f43b8449fabf4c06f321c282a",
+   "status": "FAILED",
+   "failedTaskType": "其他任务",
+   "startedAt": "2026-11-16T18:56:27",
+   "endedAt": "2026-11-20T15:52:07",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-20T15:52:07",
+    "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）"
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": null,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=5b1d217f43b8449fabf4c06f321c282a",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "waived",
+    "text": "失败但不影响当日指标",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 FAILED，当日版本可用且本次运行没有编译失败，既不影响版本可用度也不影响编译成功率，不做根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#270",
+   "date": "2026-11-20",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "buildNumber": 270,
+   "pipelineRunId": "d0dd1ada45d643488a9e0af2d613fc02",
+   "status": "FAILED",
+   "failedTaskType": "构建任务",
+   "startedAt": "2026-11-20T00:00:19",
+   "endedAt": "2026-11-20T09:33:58",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-20T09:33:58",
+    "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）"
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": null,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs",
+    "affects": [
+     "bs"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=d0dd1ada45d643488a9e0af2d613fc02",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_BeiMing",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Test_BeiMing",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log",
+     "logBytes": 1992,
+     "logLines": 21,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_BeiMing执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L19: [2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.",
+      "L20: [2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!"
+     ],
+     "subTasks": []
+    },
+    {
+     "jobName": "Build_ubs-io-dfc",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "logBytes": 367,
+     "logLines": 3,
+     "download": "paging",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}"
+     ],
+     "jobErrMsg": "步骤Build_ubs-io-dfc执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "errorLines": [
+      "L1: [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.",
+      "L2: [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Test_BeiMing",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log",
+     "line": 19,
+     "level": "LOG",
+     "text": "[2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error."
+    },
+    {
+     "task": "Test_BeiMing",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log",
+     "line": 20,
+     "level": "LOG",
+     "text": "[2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!"
+    },
+    {
+     "task": "Build_ubs-io-dfc",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "line": 1,
+     "level": "LOG",
+     "text": "[2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error."
+    },
+    {
+     "task": "Build_ubs-io-dfc",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "line": 2,
+     "level": "LOG",
+     "text": "[2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!"
+    },
+    {
+     "task": "Build_ubs-io-dfc",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "line": null,
+     "level": "JOB",
+     "text": "步骤Build_ubs-io-dfc执行失败，错误信息：{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    },
+    {
+     "task": "Build_ubs-io-dfc",
+     "source": "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "line": null,
+     "level": "STEP",
+     "text": "{\"errorMessage\":\" 任务执行失败!\",\"errorCode\":\"DEV-JENKINS-10002\"}",
+     "isWrapper": true
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log"
+    ],
+    "missing": [
+     "Test_BeiMing"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 3,
+    "testTasks": 1,
+    "logTasks": 2,
+    "buildTasks": 1,
+    "cases": 0,
+    "errorMessages": 6,
+    "evidenceFiles": 2
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_BeiMing 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 2 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Test_BeiMing 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "错误信息: DEV-JENKINS-10002, 任务执行失败!",
+    "issueType": "基础设施/平台",
+    "issueDetail": "构建子任务执行失败，未带出底层原因",
+    "rootCause": "失败在构建任务的子步骤 Build_ubs-io-dfc：该子任务返回失败，外层框架只拿到「任务执行失败」这一结论，没有带出底层具体原因；测试任务随后轮询到构建任务失败，整条流水线判失败。本次归档在构建、测试两侧各只取到一份很短的框架日志（3 行 / 21 行），子任务的真实日志缺失，所以目前只能确认失败发生在构建子任务侧，具体原因需到该子任务日志里查。",
+    "advice": "打开 Build_ubs-io-dfc 子任务的完整日志定位真正失败原因（框架日志只有结果、没有过程）；若该子任务由平台侧调度，联系平台侧调取这一次的调度记录。\n\n验证方式：修复后重跑该流水线，要求构建子任务与测试任务均恢复正常。",
+    "cites": [
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log:L2",
+     "job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log:L20"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log:L2",
+    "updatedAt": "2026-11-23 09:19:55",
+    "firstAnalyzedAt": "2026-11-23 09:19:55",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "UBS Core|Nightly-CI-Version-pipeline_BeiMing#271",
+   "date": "2026-11-20",
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "buildNumber": 271,
+   "pipelineRunId": "c448da06fbb9418f8d93afa54226435b",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-20T12:00:48",
+   "endedAt": "2026-11-20T18:01:47",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-20T18:01:47",
+    "rule": "按执行结束时间归属自然日（同运行多条评估记录保留最新一条）"
+   },
+   "light": {
+    "vaRate": null,
+    "bsRate": null,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b51d159e1b9d4c6798dcda723e1876db&projectId=300122&pipelineRunId=c448da06fbb9418f8d93afa54226435b",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ],
+ "pathBase": "steps.* / records[] 相对本文件；证据正文见 pipeline.evidence.json 的 files（键=相对本目录的路径）",
+ "channel": "community"
+}

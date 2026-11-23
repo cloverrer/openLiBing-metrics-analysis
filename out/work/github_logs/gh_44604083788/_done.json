@@ -1,0 +1,393 @@
+{
+ "route": "github",
+ "key": "vllm-ascend|a3.yaml",
+ "rn": 16616,
+ "rid": "44604083788",
+ "st": "11-20 04:00",
+ "runId": 44604083788,
+ "repo": "vllm-project/vllm-ascend",
+ "displayTitle": "Nightly-A3 (scheduled)",
+ "event": "workflow_dispatch",
+ "status": "FAILED",
+ "duration": 327.62,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "failure",
+  "updatedAt": "2026-11-20T01:27:41Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "perjob",
+ "why": "失败 job 4 个（≤5，逐 job 精取）",
+ "totalJobs": 24,
+ "failedJobs": [
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 135844070911,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+   "id": 135844071638,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml, tests/S... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+   "id": 135844071894,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  },
+  {
+   "name": "double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml, tests/SIT... / GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml",
+   "id": 135844076491,
+   "steps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ]
+  }
+ ],
+ "cancelledJobs": [],
+ "jobs": [
+  {
+   "name": "multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml",
+   "id": 135844070911,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T20:02:21Z",
+   "completedAt": "2026-11-19T23:23:16Z",
+   "logFile": "github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt",
+   "logBytes": 388315,
+   "logLines": 3842,
+   "errorLines": [
+    "L2272: Traceback (most recent call last):",
+    "L2284: [2026-11-19 23:13:35] [ERROR] [1/3] Benchmark failed: acc_gpqa, reason: Some errors happened to Aisbench runtime",
+    "L2293: Some errors happened to Aisbench runtime",
+    "L2656: [2026-11-19 23:19:30] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gpqa', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'gpqa/gpqa_gen_0_shot_cot_chat_prompt', 'max_out_len': 81920, 'batch_size': 64, 'thinking': True, 'temperature': 1.0, 'top_p': 0.95, 'baseline': 93.5, 'threshold': 3, 'benchmark_name': 'acc_gpqa', 'benchmark_artifac",
+    "L2715: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L2748: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2750: ##[error]Error: failed to run script step:",
+    "L2751: ✗ exit code: 1",
+    "L2773: \u001b[0;31mFAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L2775: ##[error]Process completed with exit code 1.",
+    "L2776: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3330: ##[error]Upload failed. See log:",
+    "L3348: ##[error]Error: failed to run script step:",
+    "L3349: ✗ exit code: 1",
+    "L3366: ##[error]Process completed with exit code 1.",
+    "L3367: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 2656,
+      "case": "{'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gpqa', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'gpqa/gpqa_gen_0_shot_cot_chat_prompt', 'max_out_len': 81920, 'batch_size': 64, 'thinking': True, 'temperature': 1.0, 'top_p': 0.95, 'baseline': 93.5, 'threshold': 3, 'benchmark_nam",
+      "reason": "Some errors happened to Aisbench runtime"
+     },
+     {
+      "line": 2715,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 2284,
+      "name": "acc_gpqa",
+      "reason": "Some errors happened to Aisbench runtime"
+     },
+     {
+      "line": 2712,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 2748,
+      "tag": "FAIL_TAG_Kimi-K3-W4A8-A3-1M-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 2743,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 2744,
+      "summary": "1 failed, 17 warnings in 4878.15s (1:21:18)"
+     }
+    ]
+   }
+  },
+  {
+   "name": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+   "id": 135844071638,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T20:02:26Z",
+   "completedAt": "2026-11-20T00:21:11Z",
+   "logFile": "github_logs/gh_44604083788/135844071638_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+   "logBytes": 585165,
+   "logLines": 5074,
+   "errorLines": [
+    "L3986: [2026-11-20 00:18:00] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gsm8k', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_chat_prompt', 'max_out_len': 32768, 'batch_size': 64, 'baseline': 96.74, 'threshold': 2, 'temperature': 0.6, 'top_p': 0.95, 'ignore_eos': False, 'thinking': True, 'benchmark_name': 'acc'",
+    "L4051: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L4084: \u001b[0;31mFAIL_TAG_QWEN3_235B_PD_3_5K_1_5k.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L4086: ##[error]Error: failed to run script step:",
+    "L4087: ✗ exit code: 1",
+    "L4109: \u001b[0;31mFAIL_TAG_QWEN3_235B_PD_3_5K_1_5k.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L4111: ##[error]Process completed with exit code 1.",
+    "L4112: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L4587: ##[error]Upload failed. See log:",
+    "L4605: ##[error]Error: failed to run script step:",
+    "L4606: ✗ exit code: 1",
+    "L4623: ##[error]Process completed with exit code 1.",
+    "L4624: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 3986,
+      "case": "{'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gsm8k', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'gsm8k/gsm8k_gen_0_shot_cot_chat_prompt', 'max_out_len': 32768, 'batch_size': 64, 'baseline': 96.74, 'threshold': 2, 'temperature': 0.6, 'top_p': 0.95, 'ignore_eos': False, 'thinki",
+      "reason": "Response anomaly verification failed in /vllm-workspace/vllm-ascend/outputs/default/20261119_234337/summary/summary_20261119_234337.csv"
+     },
+     {
+      "line": 4051,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 3749,
+      "name": "acc",
+      "reason": "Response anomaly verification failed in /vllm-workspace/vllm-ascend/outputs/default/20261119_234337/summary/summary_20261119_234337.csv"
+     },
+     {
+      "line": 4048,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 4084,
+      "tag": "FAIL_TAG_QWEN3_235B_PD_3_5K_1_5k.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 4079,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 4080,
+      "summary": "1 failed, 17 warnings in 3372.25s (0:56:12)"
+     }
+    ]
+   }
+  },
+  {
+   "name": "double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml, tests/S... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+   "id": 135844071894,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T20:02:29Z",
+   "completedAt": "2026-11-20T00:58:18Z",
+   "logFile": "github_logs/gh_44604083788/135844071894_double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50~2daf11.txt",
+   "logBytes": 437516,
+   "logLines": 4409,
+   "errorLines": [
+    "L3328: Traceback (most recent call last):",
+    "L3340: [2026-11-20 00:55:17] [ERROR] [2/2] Benchmark failed: acc_aime2025, reason: Some errors happened to Aisbench runtime",
+    "L3341: [2026-11-20 00:55:17] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/aime2025', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'aime2025/aime2025_gen_0_shot_chat_prompt', 'max_out_len': 65536, 'batch_size': 32, 'baseline': 93.33, 'threshold': 10, 'temperature': 1.0, 'top_p': 1, 'benchmark_name': 'acc_aime2025', 'benchmark_artifact_name'",
+    "L3347: Some errors happened to Aisbench runtime",
+    "L3401: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L3434: \u001b[0;31mFAIL_TAG_Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L3436: ##[error]Error: failed to run script step:",
+    "L3437: ✗ exit code: 1",
+    "L3459: \u001b[0;31mFAIL_TAG_Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L3461: ##[error]Process completed with exit code 1.",
+    "L3462: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3918: ##[error]Upload failed. See log:",
+    "L3942: ##[error]Error: failed to run script step:",
+    "L3943: ✗ exit code: 1",
+    "L3960: ##[error]Process completed with exit code 1.",
+    "L3961: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 3341,
+      "case": "{'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/aime2025', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'aime2025/aime2025_gen_0_shot_chat_prompt', 'max_out_len': 65536, 'batch_size': 32, 'baseline': 93.33, 'threshold': 10, 'temperature': 1.0, 'top_p': 1, 'benchmark_name': 'acc_ai",
+      "reason": "Some errors happened to Aisbench runtime"
+     },
+     {
+      "line": 3401,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 3340,
+      "name": "acc_aime2025",
+      "reason": "Some errors happened to Aisbench runtime"
+     },
+     {
+      "line": 3398,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 3434,
+      "tag": "FAIL_TAG_Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 3429,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 3430,
+      "summary": "1 failed, 17 warnings in 2716.35s (0:45:16)"
+     }
+    ]
+   }
+  },
+  {
+   "name": "double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml, tests/SIT... / GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml",
+   "id": 135844076491,
+   "conclusion": "failure",
+   "startedAt": "2026-11-19T20:02:39Z",
+   "completedAt": "2026-11-20T00:18:32Z",
+   "logFile": "github_logs/gh_44604083788/135844076491_double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightl~64de8f.txt",
+   "logBytes": 441534,
+   "logLines": 4226,
+   "errorLines": [
+    "L3131: [2026-11-20 00:15:05] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/aime2025', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'aime2025/aime2025_gen_0_shot_chat_prompt', 'max_out_len': 131072, 'batch_size': 32, 'baseline': 95, 'threshold': 10, 'temperature': 1.0, 'top_p': 0.95, 'benchmark_name': 'acc_aime2025', 'benchmark_artifact_name",
+    "L3215: error_msg = f\"The following aisbench case failed: {failed_case}, reason is {error_info}\"",
+    "L3248: \u001b[0;31mFAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L3250: ##[error]Error: failed to run script step:",
+    "L3251: ✗ exit code: 1",
+    "L3273: \u001b[0;31mFAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml ✗ ERROR: Some tests failed\u001b[0m",
+    "L3275: ##[error]Process completed with exit code 1.",
+    "L3276: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+    "L3740: ##[error]Upload failed. See log:",
+    "L3763: ##[error]Error: failed to run script step:",
+    "L3764: ✗ exit code: 1",
+    "L3781: ##[error]Process completed with exit code 1.",
+    "L3782: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+   ],
+   "githubSteps": [
+    {
+     "name": "Stream logs",
+     "conclusion": "failure"
+    }
+   ],
+   "isTestJob": true,
+   "testResults": {
+    "failedModels": [],
+    "aisbenchFailed": [
+     {
+      "line": 3131,
+      "case": "{'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/aime2025', 'request_conf': 'vllm_api_general_chat', 'dataset_conf': 'aime2025/aime2025_gen_0_shot_chat_prompt', 'max_out_len': 131072, 'batch_size': 32, 'baseline': 95, 'threshold': 10, 'temperature': 1.0, 'top_p': 0.95, 'benchmark_name': 'acc_a",
+      "reason": "Response anomaly verification failed in /vllm-workspace/vllm-ascend/outputs/default/20261119_233943/summary/summary_20261119_233943.csv"
+     },
+     {
+      "line": 3215,
+      "case": "{failed_case}",
+      "reason": "{error_info}\""
+     }
+    ],
+    "benchmarkFailed": [
+     {
+      "line": 3125,
+      "name": "acc_aime2025",
+      "reason": "Response anomaly verification failed in /vllm-workspace/vllm-ascend/outputs/default/20261119_233943/summary/summary_20261119_233943.csv"
+     },
+     {
+      "line": 3212,
+      "name": "%s",
+      "reason": "%s\", idx, total, benchmark_name, e)"
+     }
+    ],
+    "failedTagTests": [
+     {
+      "line": 3248,
+      "tag": "FAIL_TAG_GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml",
+      "msg": "ERROR: Some tests failed"
+     }
+    ],
+    "pytestFailed": [
+     {
+      "line": 3243,
+      "test": "tests/e2e/common/multi_node/test_multi_node.py::test_multi_node",
+      "error": "Asse..."
+     }
+    ],
+    "pytestSummaries": [
+     {
+      "line": 3244,
+      "summary": "1 failed, 17 warnings in 3189.41s (0:53:09)"
+     }
+    ]
+   }
+  }
+ ],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

@@ -16,415 +16,186 @@
 #               超时 / 权限问题 / 配置/参数错误 / 基础设施/平台 / 无法判定
 # ===========================================
 
-# 归档范围: 最近归档日 2026-11-19   analysis.status=pending 的记录: 15 条（本次打印 15 条）
+# 归档范围: 最近归档日 2026-11-20   analysis.status=pending 的记录: 6 条（本次打印 6 条）
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-[1/15] MindSpeed|DrivingSDK_master~089fff#2
-  组件/流水线: MindSpeed / DrivingSDK_master~089fff（Nightly-CI-Component-pipeline_DrivingSDK_master）
-  构建/状态  : #2 FAILED · 失败任务类型=其他任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T02:00:17 → 2026-11-19T02:04:03
+[1/6] MindIE|MindIE-Motor#140
+  组件/流水线: MindIE / MindIE-Motor（Nightly-CI-Component-pipeline_MindIE-Motor）
+  构建/状态  : #140 FAILED · 失败任务类型=测试任务 · 归属日 2026-11-20
+  起止时间   : 2026-11-20T07:04:03 → 2026-11-20T16:54:22
   影响维度   : va（当日指标 版本可用度 0% / 构建成功率 100%，track=va）
-  计数       : {"tasks": 0, "testTasks": 0, "logTasks": 0, "buildTasks": 0, "cases": 0, "errorMessages": 0, "evidenceFiles": 0}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  记录位置   : archive/2026/2026-11/2026-11-19/MindSpeed/DrivingSDK_master~089fff/pipeline.json records[0]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[2/15] MindSpeed|DrivingSDK_master~089fff#3
-  组件/流水线: MindSpeed / DrivingSDK_master~089fff（Nightly-CI-Component-pipeline_DrivingSDK_master）
-  构建/状态  : #3 FAILED · 失败任务类型=其他任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T09:26:14 → 2026-11-19T09:28:14
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 100%，track=va）
-  计数       : {"tasks": 0, "testTasks": 0, "logTasks": 0, "buildTasks": 0, "cases": 0, "errorMessages": 0, "evidenceFiles": 0}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  记录位置   : archive/2026/2026-11/2026-11-19/MindSpeed/DrivingSDK_master~089fff/pipeline.json records[1]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[3/15] MindSpeed|DrivingSDK_master~089fff#4
-  组件/流水线: MindSpeed / DrivingSDK_master~089fff（Nightly-CI-Component-pipeline_DrivingSDK_master）
-  构建/状态  : #4 FAILED · 失败任务类型=其他任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T15:02:53 → 2026-11-19T16:39:00
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 100%，track=va）
-  计数       : {"tasks": 0, "testTasks": 0, "logTasks": 0, "buildTasks": 0, "cases": 0, "errorMessages": 0, "evidenceFiles": 0}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  记录位置   : archive/2026/2026-11/2026-11-19/MindSpeed/DrivingSDK_master~089fff/pipeline.json records[2]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[4/15] MindStudio|msprof#279
-  组件/流水线: MindStudio / msprof（Nightly-CI-Component-pipeline_msprof）
-  构建/状态  : #279 FAILED · 失败任务类型=测试任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T04:00:57 → 2026-11-19T11:09:57
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 3, "testTasks": 2, "logTasks": 1, "buildTasks": 0, "cases": 2, "errorMessages": 10, "evidenceFiles": 3}
+  计数       : {"tasks": 1, "testTasks": 1, "logTasks": 0, "buildTasks": 0, "cases": 1, "errorMessages": 1, "evidenceFiles": 1}
   规则分类   : test_failure（仅供参考，页面分类列读你写的 issueType）
   失败任务   :
-    [test] Test_msprof_smoke → --
-    [test] Test_msprof_smoke_A3 → --
-    [log] Test_msprof_smoke → job_logs/51_msprof_279_Test_msprof_smoke.log（抽取报错行 57 条）
+    [test] Test_MindIE-Motor_4 → --
   报错点（原文见下，可直接写进 cites）:
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L290  [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L293  [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L296  [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L299  [2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L857  [2026/11/19 11:09:54.415 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-works…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L858  [2026/11/19 11:09:54.415 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/exe…
-    · LOG                job_logs/51_msprof_279_Test_msprof_smoke.log:L865  [2026/11/19 11:09:54.543 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · job_logs/51_msprof_279_Test_msprof_smoke.log:L288~L299（该文件共 867 行）
-    L288   | [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] Starting to query task status for task_id[lease-env-e9d373e2ec01aac50495c9281740508f]
-    L289   | [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] ***start 0 times query***
-    L290   | [2026/11/19 09:39:29.161 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env',…
-    L291   | [2026/11/19 09:39:29.162 GMT+08:00] [281473767895328] [INFO] allocation_result is empty, wait 30s to query again
-    L292   | [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] ***start 1 times query***
-    L293   | [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'crea…
-    L294   | [2026/11/19 09:40:03.740 GMT+08:00] [281473767895328] [INFO] allocation_result is empty, wait 30s to query again
-    L295   | [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] ***start 2 times query***
-    L296   | [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'crea…
-    L297   | [2026/11/19 09:40:32.648 GMT+08:00] [281473767895328] [INFO] allocation_result is empty, wait 30s to query again
-    L298   | [2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] ***start 3 times query***
-    L299   | [2026/11/19 09:41:01.550 GMT+08:00] [281473767895328] [INFO] apply_env_res: {'env_id': 'lease-env-e9d373e2ec01aac50495c9281740508f', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'crea…
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  失败用例（2 条，列前 5）:
-    - test_msprof_task_time_off_0001 [failed] 
-    - test_mspti_pytorch_for_communication_0001 [failed] 
-  证据缺口   : Test_msprof_smoke（取证不全，定性时说明证据不完整）
-  记录位置   : archive/2026/2026-11/2026-11-19/MindStudio/msprof/pipeline.json records[0]
+    · CASE·test_pymotor_ras_p_redundant case_logs/case_0207.html:-  FAILED due to ERROR/FAIL logs: testcase/mindie/motor/pymotor/ras/redundancy_hardware_bug/test_motor_redundancy_hardware_bug.py::TestPyMotorRasPRedunda…
+  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
+  失败用例（1 条，列前 5）:
+    - test_pymotor_ras_p_redundant [failed] 
+  记录位置   : archive/2026/2026-11/2026-11-20/MindIE/MindIE-Motor/pipeline.json records[0]
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-[5/15] MindStudio|msprof#280
-  组件/流水线: MindStudio / msprof（Nightly-CI-Component-pipeline_msprof）
-  构建/状态  : #280 FAILED · 失败任务类型=测试任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T11:50:37 → 2026-11-19T13:37:11
+[2/6] MindSpeed|DrivingSDK_master#81
+  组件/流水线: MindSpeed / DrivingSDK_master（Nightly-CI-Component-pipeline_DrivingSDK_master）
+  构建/状态  : #81 FAILED · 失败任务类型=测试任务 · 归属日 2026-11-20
+  起止时间   : 2026-11-20T11:46:55 → 2026-11-20T14:11:18
   影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 4, "testTasks": 1, "logTasks": 3, "buildTasks": 0, "cases": 0, "errorMessages": 24, "evidenceFiles": 3}
+  计数       : {"tasks": 1, "testTasks": 1, "logTasks": 0, "buildTasks": 0, "cases": 1, "errorMessages": 1, "evidenceFiles": 1}
+  规则分类   : test_failure（仅供参考，页面分类列读你写的 issueType）
+  失败任务   :
+    [test] Test_Pytest-smoke-DrivingSDK → --
+  报错点（原文见下，可直接写进 cites）:
+    · ERROR·test_003_sparse4d case_logs/case_0206.html:L778  无法获取性能结果
+  证据原文（行号即原文行号，可直接写进 cites）:
+    · case_logs/case_0206.html:L776~L780（该文件共 909 行）
+    L776   |             <td><div class="msg-scroll">未找到参数: expert_model_parallel_size</div></td>
+    L777   |         </tr>
+    L778   |         <tr>
+    L779   |             <td>2026-11-20 14:11:05.715</td>
+    L780   |             <td class='ERROR'>ERROR</td>
+  失败用例（1 条，列前 5）:
+    - test_003_sparse4d [failed] 无法获取性能结果
+  记录位置   : archive/2026/2026-11/2026-11-20/MindSpeed/DrivingSDK_master/pipeline.json records[0]
+────────────────────────────────────────────────────────────────────────────────────────────────────
+[3/6] UBS Core|Nightly-CI-Version-pipeline_BeiMing#270
+  组件/流水线: UBS Core / Nightly-CI-Version-pipeline_BeiMing（Nightly-CI-Version-pipeline_BeiMing）
+  构建/状态  : #270 FAILED · 失败任务类型=构建任务 · 归属日 2026-11-20
+  起止时间   : 2026-11-20T00:00:19 → 2026-11-20T09:33:58
+  影响维度   : bs（当日指标 版本可用度 -- / 构建成功率 --，track=bs）
+  计数       : {"tasks": 3, "testTasks": 1, "logTasks": 2, "buildTasks": 1, "cases": 0, "errorMessages": 6, "evidenceFiles": 2}
   规则分类   : env_not_ready（仅供参考，页面分类列读你写的 issueType）
   失败任务   :
-    [test] Test_msprof_smoke_large_model → --
-    [log]  docker-mindstudio-msprof-a2-aarch64-nightly → job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log（抽取报错行 27 条）
-    [log]  docker-mindstudio-msprof-a3-aarch64-nightly → job_logs/49_msprof_280_docker-mindstudio-msprof-a3-aarch64-nightly.log（抽取报错行 27 条）
-    [log] Test_msprof_smoke_large_model → job_logs/50_msprof_280_Test_msprof_smoke_large_model.log（抽取报错行 57 条）
+    [test] Test_BeiMing → --
+    [log] Test_BeiMing → job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log（抽取报错行 2 条）
+    [log] Build_ubs-io-dfc → job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log（抽取报错行 2 条）
   报错点（原文见下，可直接写进 cites）:
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 11:52:07.567 GMT+08:00] checking whether C compiler accepts option -Werror... yes
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 11:52:07.707 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 11:52:08.714 GMT+08:00] checking for strerror... yes
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 11:52:08.740 GMT+08:00] checking whether strerror needs a declaration... no
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 12:06:24.888 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 错误信息: DEV.CB.0210043, 制作Docker镜像失败
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 12:06:24.974 GMT+08:00] [ERROR] [制作镜像并推送到SWR仓库:external_docker_builder] : 该步骤执行失败
-    · LOG                job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-n…  [2026/11/19 12:06:24.976 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:DEV.CB.0210043, 制作Docker镜像失败
+    · LOG                job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Te…  [2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.
+    · LOG                job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Te…  [2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!
+    · LOG                job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Bu…  [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    · LOG                job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Bu…  [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    · STEP               job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Bu…  {"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
+    · JOB                job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Bu…  步骤Build_ubs-io-dfc执行失败，错误信息：{"errorMessage":" 任务执行失败!","errorCode":"DEV-JENKINS-10002"}
   证据原文（行号即原文行号，可直接写进 cites）:
-    · job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log:L593~L598（该文件共 6070 行）
-    L593   | [2026/11/19 11:52:07.380 GMT+08:00] configure: POSIX will be used for interprocess mutex package.
-    L594   | [2026/11/19 11:52:07.450 GMT+08:00] checking size of void *... 8
-    L595   | [2026/11/19 11:52:07.567 GMT+08:00] checking whether C compiler accepts option -Werror... yes
-    L596   | [2026/11/19 11:52:07.707 GMT+08:00] checking whether routines compiled with -Werror can be linked with ones compiled without -Werror... yes
-    L597   | [2026/11/19 11:52:07.762 GMT+08:00] checking for support for gcc __sync intrinsics... yes
-    L598   | [2026/11/19 11:52:07.820 GMT+08:00] checking for support for gcc __atomic intrinsics... yes
-    · job_logs/48_msprof_280_docker-mindstudio-msprof-a2-aarch64-nightly.log:L622~L627（该文件共 6070 行）
-    L622   | [2026/11/19 11:52:08.635 GMT+08:00] checking for putenv... yes
-    L623   | [2026/11/19 11:52:08.664 GMT+08:00] checking whether putenv needs a declaration... no
-    L624   | [2026/11/19 11:52:08.714 GMT+08:00] checking for strerror... yes
-    L625   | [2026/11/19 11:52:08.740 GMT+08:00] checking whether strerror needs a declaration... no
-    L626   | [2026/11/19 11:52:08.740 GMT+08:00] checking for usleep... (cached) yes
-    L627   | [2026/11/19 11:52:08.741 GMT+08:00] checking whether usleep needs a declaration... (cached) no
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  证据缺口   : Test_msprof_smoke_large_model（取证不全，定性时说明证据不完整）
-  记录位置   : archive/2026/2026-11/2026-11-19/MindStudio/msprof/pipeline.json records[1]
+    · job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Test_BeiMing.log:L17~L21（该文件共 21 行）
+    L17    | [2026/11/20 09:33:48.020 GMT+08:00] [INFO]  : Finish getting this task status.
+    L18    | [2026/11/20 09:33:57.938 GMT+08:00] [INFO]  : Start to get the task status.
+    L19    | [2026/11/20 09:33:57.971 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : [frame] query step status with error.
+    L20    | [2026/11/20 09:33:57.972 GMT+08:00] [ERROR] [real_stage:official_devcloud_cloudBuild] : 错误信息: DEV-CODECI-35002, 构建任务执行失败!
+    L21    | [2026/11/20 09:33:58.053 GMT+08:00] [INFO]  : 开始: Get output to CloudBuild Task!
+    · job_logs/UBS Core_Nightly-CI-Version-pipeline_BeiMing_270_Build_ubs-io-dfc.log:L1~L3（该文件共 3 行）
+    L1     | [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.
+    L2     | [2026/11/20 09:33:06.557 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!
+    L3     | [2026/11/20 09:33:06.641 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成
+  证据缺口   : Test_BeiMing（取证不全，定性时说明证据不完整）
+  记录位置   : archive/2026/2026-11/2026-11-20/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json records[1]
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-[6/15] MindStudio|msprof#281
-  组件/流水线: MindStudio / msprof（Nightly-CI-Component-pipeline_msprof）
-  构建/状态  : #281 CANCELED · 失败任务类型=测试任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T14:11:14 → 2026-11-19T19:50:35
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 1, "testTasks": 1, "logTasks": 0, "buildTasks": 0, "cases": 4, "errorMessages": 4, "evidenceFiles": 4}
-  规则分类   : test_failure（仅供参考，页面分类列读你写的 issueType）
+[4/6] boostkit|Ultrascan#321
+  组件/流水线: boostkit / Ultrascan（Nightly-CI-Component-pipeline_Ultrascan）
+  构建/状态  : #321 FAILED · 失败任务类型=构建任务 · 归属日 2026-11-20
+  起止时间   : 2026-11-20T01:00:31 → 2026-11-20T01:02:15
+  影响维度   : bs（当日指标 版本可用度 100% / 构建成功率 50%，track=bs）
+  计数       : {"tasks": 1, "testTasks": 0, "logTasks": 1, "buildTasks": 1, "cases": 0, "errorMessages": 6, "evidenceFiles": 1}
+  规则分类   : compile_failure（仅供参考，页面分类列读你写的 issueType）
   失败任务   :
-    [test] Test_msprof_smoke_A3_large_model → --
+    [log] Build_Ultrascan → job_logs/52_Ultrascan_321_Build_Ultrascan.log（抽取报错行 6 条）
   报错点（原文见下，可直接写进 cites）:
-    · CASE·test_profiling_level1_arithmetic_utilization_0001 case_logs/case_0202.html:-  Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_arithmetic_utilization_0001 Exception: Asser…
-    · CASE·test_profiling_level1_pipe_utilization_0001 case_logs/case_0203.html:-  Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_profiling_level1_pipe_utilization_0001 Exception: AssertionEr…
-    · CASE·test_pytorch_for_async_mode_0001 case_logs/case_0204.html:-  Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_for_async_mode_0001 Exception: AssertionError Message…
-    · CASE·test_pytorch_collect_text_and_db_0001 case_logs/case_0205.html:-  Test FAILED: testcase/mindstudio/profiling/test_pta_profiling.py::TestPtaProfiling::test_pytorch_collect_text_and_db_0001 Exception: AssertionError Me…
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  失败用例（4 条，列前 5）:
-    - test_profiling_level1_arithmetic_utilization_0001 [failed] 
-    - test_profiling_level1_pipe_utilization_0001 [failed] 
-    - test_pytorch_for_async_mode_0001 [failed] 
-    - test_pytorch_collect_text_and_db_0001 [failed] 
-  记录位置   : archive/2026/2026-11/2026-11-19/MindStudio/msprof/pipeline.json records[2]
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L81  [2026/11/20 01:00:42.814 GMT+08:00] Failed to set locale, defaulting to C.UTF-8
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L92  [2026/11/20 01:02:04.557 GMT+08:00]   - Curl error (28): Timeout was reached for https://mirrors.openeuler.org/metalink?repo=22.03LTS_SP4/update&arch=…
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L93  [2026/11/20 01:02:04.557 GMT+08:00]   - Curl error (28): Timeout was reached for https://de-repo.openeuler.org/openEuler-22.03-LTS-SP4/update/aarch64/…
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L94  [2026/11/20 01:02:04.558 GMT+08:00] Error: Failed to download metadata for repo 'update': Cannot download repomd.xml: Cannot download repodata/repomd.…
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L95  [2026/11/20 01:02:04.574 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    · LOG                job_logs/52_Ultrascan_321_Build_Ultrascan.log:L97  [2026/11/20 01:02:12.767 GMT+08:00] Finished: FAILURE
+  证据原文（行号即原文行号，可直接写进 cites）:
+    · job_logs/52_Ultrascan_321_Build_Ultrascan.log:L79~L83（该文件共 97 行）
+    L79    | [2026/11/20 01:00:42.814 GMT+08:00] util
+    L80    | [2026/11/20 01:00:42.814 GMT+08:00] + yum install sqlite sqlite-devel -y
+    L81    | [2026/11/20 01:00:42.814 GMT+08:00] Failed to set locale, defaulting to C.UTF-8
+    L82    | [2026/11/20 01:00:42.823 GMT+08:00] starting check in ***/@tmp/durable-9beee22a
+    L83    | [2026/11/20 01:00:43.399 GMT+08:00] OS                                              7.4 kB/s | 2.3 kB     00:00    
+    · job_logs/52_Ultrascan_321_Build_Ultrascan.log:L90~L96（该文件共 97 行）
+    L90    | [2026/11/20 01:02:04.557 GMT+08:00] Errors during downloading metadata for repository 'update':
+    L91    | [2026/11/20 01:02:04.557 GMT+08:00]   - Downloading successful, but checksum doesn't match. Calculated: 362b4f4f4e6a91201f218ae490270e1c6df8685c47b780617de76323eec0a88b7010f9eab43a012ce142d65905fe3446…
+    L92    | [2026/11/20 01:02:04.557 GMT+08:00]   - Curl error (28): Timeout was reached for https://mirrors.openeuler.org/metalink?repo=22.03LTS_SP4/update&arch=aarch64 [Connection timeout after 30000 ms]
+    L93    | [2026/11/20 01:02:04.557 GMT+08:00]   - Curl error (28): Timeout was reached for https://de-repo.openeuler.org/openEuler-22.03-LTS-SP4/update/aarch64/repodata/repomd.xml [Connection timeout after 3000…
+    L94    | [2026/11/20 01:02:04.558 GMT+08:00] Error: Failed to download metadata for repo 'update': Cannot download repomd.xml: Cannot download repodata/repomd.xml: All mirrors were tried
+    L95    | [2026/11/20 01:02:04.574 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+    L96    | [2026/11/20 01:02:06.147 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_Mi8WWNVk #1
+  记录位置   : archive/2026/2026-11/2026-11-20/boostkit/Ultrascan/pipeline.json records[0]
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-[7/15] SgLang|nightly-test-npu.yml#2268
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2268 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T00:06:21 → 2026-11-19T06:49:05
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 9, "testTasks": 0, "logTasks": 9, "buildTasks": 0, "cases": 0, "errorMessages": 30, "evidenceFiles": 9}
+[5/6] vllm-ascend|a3.yaml#16615
+  组件/流水线: vllm-ascend / a3.yaml（schedule_nightly_test_a3.yaml）
+  构建/状态  : #16615 FAILED · 失败任务类型=-- · 归属日 2026-11-20
+  起止时间   : 2026-11-19T22:30:03 → 2026-11-20T03:43:53
+  影响维度   : va（当日指标 版本可用度 100% / 构建成功率 --，track=va）
+  计数       : {"tasks": 4, "testTasks": 0, "logTasks": 4, "buildTasks": 0, "cases": 0, "errorMessages": 30, "evidenceFiles": 4}
   规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
   失败任务   :
-    [log] nightly-test-1-npu-a3 / run (0) → github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt（抽取报错行 18 条）
-    [log] nightly-perf-test-4-npu-a3 / nightly-perf-test-4-npu-a3 → github_logs/gh_44343306130/18_nightly-perf-test-4-npu-a3 _ nightly-perf-test-4-npu-a3.txt（抽取报错行 14 条）
-    [log] nightly-test-4-npu-a3 / run (1) → github_logs/gh_44343306130/11_nightly-test-4-npu-a3 _ run (1).txt（抽取报错行 24 条）
-    [log] multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms → github_logs/gh_44343306130/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt（抽取报错行 7 条）
-    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa → github_logs/gh_44343306130/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt（抽取报错行 7 条）
-    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa → github_logs/gh_44343306130/3_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt（抽取报错行 17 条）
-    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill → github_logs/gh_44343306130/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt（抽取报错行 18 条）
-    [log] multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix → github_logs/gh_44343306130/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt（抽取报错行 8 条）
-    [log] check-all-jobs → github_logs/gh_44343306130/0_check-all-jobs.txt（抽取报错行 1 条）
+    [log] multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml → github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt（抽取报错行 11 条）
+    [log] multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml → github_logs/gh_44544400820/135631943479_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt（抽取报错行 8 条）
+    [log] multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yaml, tests/SIT/case... / MiniMax-M3-w8a8-PP-prefix-PD.yaml → github_logs/gh_44544400820/135631943567_multi-node (main, MiniMax-M3-w8a8-PP-prefix-PD, MiniMax-M3-w8a8-PP-prefix-PD.yam~0635a2.txt（抽取报错行 6 条）
+    [log] double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml, tests/S... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml → github_logs/gh_44544400820/135631943698_double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50~2daf11.txt（抽取报错行 11 条）
   报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  [2026-11-18 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  [2026-11-18 16:14:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  [2026-11-18 16:17:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  Traceback (most recent call last):
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  ##[error]Error: failed to run script step:
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  ✗ exit code: 255
-    · LOG                github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0…  ##[error]Process completed with exit code 1.
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  Traceback (most recent call last):
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  [2026-11-19 16:05:55] [ERROR] [1/3] Benchmark failed: acc_gpqa, reason: Some errors happened to Aisbench runtime
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  Some errors happened to Aisbench runtime
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  [2026-11-19 16:11:31] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gpqa', 'request_conf': 'vllm_…
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  ✗ exit code: 1
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  ##[error]Process completed with exit code 1.
+    · LOG                github_logs/gh_44544400820/135631942401_multi-node (main, Ki…  ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
   证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt:L1008~L1012（该文件共 21633 行）
-    L1008  | 2026-11-18T16:11:45.5954647Z [2026-11-18 16:11:45] INFO:     Waiting for application startup.
-    L1009  | 2026-11-18T16:11:45.5959889Z [2026-11-18 16:11:45] Using default chat sampling params from model generation config: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
-    L1010  | 2026-11-18T16:11:45.6967054Z [2026-11-18 16:11:45] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr…
-    L1011  | 2026-11-18T16:11:45.7014082Z [2026-11-18 16:11:45] INFO:     Application startup complete.
-    L1012  | 2026-11-18T16:11:46.7032853Z [2026-11-18 16:11:46] get env no_proxy = 0.0.0.0,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.buildkitd,.svc.cluster.local,.cluster.local,.actions.githubus…
-    · github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt:L1163~L1167（该文件共 21633 行）
-    L1163  | 2026-11-18T16:14:11.3019677Z [2026-11-18 16:14:11] INFO:     Waiting for application startup.
-    L1164  | 2026-11-18T16:14:11.3027017Z [2026-11-18 16:14:11] Using default chat sampling params from model generation config: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
-    L1165  | 2026-11-18T16:14:11.3698511Z [2026-11-18 16:14:11] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr…
-    L1166  | 2026-11-18T16:14:11.3747620Z [2026-11-18 16:14:11] INFO:     Application startup complete.
-    L1167  | 2026-11-18T16:14:12.3767763Z [2026-11-18 16:14:12] get env no_proxy = 0.0.0.0,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.buildkitd,.svc.cluster.local,.cluster.local,.actions.githubus…
-    · github_logs/gh_44343306130/25_nightly-test-1-npu-a3 _ run (0).txt:L1410~L1411（该文件共 21633 行）
-    L1410  | 2026-11-18T16:17:26.4586838Z [2026-11-18 16:17:26] INFO:     Started server process [6132]
-    L1411  | 2026-11-18T16:17:26.4587573Z [2026-11-18 16:17:26] INFO:     Waiting for application startup.
+    · github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L1418~L1422（该文件共 3006 行）
+    L1418  | 2026-11-19T16:05:55.8854518Z /usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is d…
+    L1419  | 2026-11-19T16:05:55.8864268Z   @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+    L1420  | 2026-11-19T16:05:55.8874371Z Traceback (most recent call last):
+    L1421  | 2026-11-19T16:05:55.8883021Z   File "/usr/local/python3.12.13/lib/python3.12/site-packages/msprobe/response_anomaly/tools/gen_model_config.py", line 269, in <module>
+    L1422  | 2026-11-19T16:05:55.8891957Z     main()
+    · github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L1430~L1434（该文件共 3006 行）
+    L1430  | 2026-11-19T16:05:55.8979090Z [2026-11-19 16:05:52,275] [ais_bench] [[32mINFO[0m] Response anomaly detecting vllm-api-general-chat/GPQA_diamond from outputs/default/20261119_150427/response_anomaly/v…
+    L1431  | 2026-11-19T16:05:55.8988623Z [2026-11-19 16:05:52,275] [ais_bench] [[32mINFO[0m] Start detecting 198 response anomaly payloads
+    L1432  | 2026-11-19T16:05:55.8998254Z [2026-11-19 16:05:55] [ERROR] [1/3] Benchmark failed: acc_gpqa, reason: Some errors happened to Aisbench runtime
+    L1433  | 2026-11-19T16:05:55.9008452Z [2026-11-19 16:05:55] [INFO] ============================================================
+    L1434  | 2026-11-19T16:05:55.9017949Z [2026-11-19 16:05:55] [INFO] [2/3] Starting benchmark: perf_128k_warmup (type=performance)
+    · github_logs/gh_44544400820/135631942401_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L1439~L1440（该文件共 3006 行）
+    L1439  | 2026-11-19T16:06:27.3111845Z [2026-11-19 16:06:27] [INFO] Running AISBench still running: elapsed=3720s proxy=ready url=http://10.0.0.234:1999/healthcheck
+    L1440  | 2026-11-19T16:06:50.8805453Z 
     … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[0]
+  记录位置   : archive/2026/2026-11/2026-11-20/vllm-ascend/a3.yaml/pipeline.json records[0]
 ────────────────────────────────────────────────────────────────────────────────────────────────────
-[8/15] SgLang|nightly-test-npu.yml#2269
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2269 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T11:45:25 → 2026-11-19T12:50:42
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 3, "testTasks": 0, "logTasks": 3, "buildTasks": 0, "cases": 0, "errorMessages": 17, "evidenceFiles": 3}
+[6/6] vllm-ascend|a3.yaml#16616
+  组件/流水线: vllm-ascend / a3.yaml（schedule_nightly_test_a3.yaml）
+  构建/状态  : #16616 FAILED · 失败任务类型=-- · 归属日 2026-11-20
+  起止时间   : 2026-11-20T04:00:04 → 2026-11-20T09:27:41
+  影响维度   : va（当日指标 版本可用度 100% / 构建成功率 --，track=va）
+  计数       : {"tasks": 4, "testTasks": 0, "logTasks": 4, "buildTasks": 0, "cases": 0, "errorMessages": 30, "evidenceFiles": 4}
   规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
   失败任务   :
-    [log] nightly-test-1-npu-a3 / run (0) → github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a3 _ run (0).txt（抽取报错行 18 条）
-    [log] nightly-test-4-npu-a3 / run (1) → github_logs/gh_44453642955/135323445227_nightly-test-4-npu-a3 _ run (1).txt（抽取报错行 53 条）
-    [log] check-all-jobs → github_logs/gh_44453642955/135347666282_check-all-jobs.txt（抽取报错行 1 条）
+    [log] multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests/SIT/cases/models/confi... / Kimi-K3-W4A8-A3-1M-PD.yaml → github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt（抽取报错行 11 条）
+    [log] multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml → github_logs/gh_44604083788/135844071638_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt（抽取报错行 8 条）
+    [log] double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml, tests/S... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml → github_logs/gh_44604083788/135844071894_double-node (main, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50~2daf11.txt（抽取报错行 11 条）
+    [log] double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml, tests/SIT... / GLM-5.3-Flash-W8A8-130k-PD-nightly.yaml → github_logs/gh_44604083788/135844076491_double-node (main, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-130k-PD-nightl~64de8f.txt（抽取报错行 8 条）
   报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  [2026-11-19 03:49:00] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  [2026-11-19 03:51:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  [2026-11-19 03:55:30] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunc…
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  Traceback (most recent call last):
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  ##[error]Error: failed to run script step:
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  ✗ exit code: 255
-    · LOG                github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a…  ##[error]Process completed with exit code 1.
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  Traceback (most recent call last):
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  [2026-11-19 23:13:35] [ERROR] [1/3] Benchmark failed: acc_gpqa, reason: Some errors happened to Aisbench runtime
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  Some errors happened to Aisbench runtime
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  [2026-11-19 23:19:30] [ERROR] The following aisbench case failed: {'case_type': 'accuracy', 'dataset_path': 'vllm-ascend/gpqa', 'request_conf': 'vllm_…
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  ✗ exit code: 1
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  ##[error]Process completed with exit code 1.
+    · LOG                github_logs/gh_44604083788/135844070911_multi-node (main, Ki…  ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
   证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a3 _ run (0).txt:L980~L984（该文件共 21560 行）
-    L980   | 2026-11-19T03:49:00.7556229Z [2026-11-19 03:49:00] INFO:     Waiting for application startup.
-    L981   | 2026-11-19T03:49:00.7563919Z [2026-11-19 03:49:00] Using default chat sampling params from model generation config: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
-    L982   | 2026-11-19T03:49:00.8685475Z [2026-11-19 03:49:00] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr…
-    L983   | 2026-11-19T03:49:00.8738132Z [2026-11-19 03:49:00] INFO:     Application startup complete.
-    L984   | 2026-11-19T03:49:01.8759079Z [2026-11-19 03:49:01] get env no_proxy = 0.0.0.0,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.buildkitd,.svc.cluster.local,.cluster.local,.actions.githubus…
-    · github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a3 _ run (0).txt:L1135~L1139（该文件共 21560 行）
-    L1135  | 2026-11-19T03:51:26.7623686Z [2026-11-19 03:51:26] INFO:     Waiting for application startup.
-    L1136  | 2026-11-19T03:51:26.7629967Z [2026-11-19 03:51:26] Using default chat sampling params from model generation config: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
-    L1137  | 2026-11-19T03:51:26.8300332Z [2026-11-19 03:51:26] OpenAI Responses API (/v1/responses) disabled: OpenAIServingResponses init failed (ImportError: cannot import name 'ResponseFunctionShellToolCall' fr…
-    L1138  | 2026-11-19T03:51:26.8350897Z [2026-11-19 03:51:26] INFO:     Application startup complete.
-    L1139  | 2026-11-19T03:51:27.8376955Z [2026-11-19 03:51:27] get env no_proxy = 0.0.0.0,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.buildkitd,.svc.cluster.local,.cluster.local,.actions.githubus…
-    · github_logs/gh_44453642955/135323360175_nightly-test-1-npu-a3 _ run (0).txt:L1382~L1383（该文件共 21560 行）
-    L1382  | 2026-11-19T03:55:30.3101760Z [2026-11-19 03:55:30] INFO:     Started server process [6132]
-    L1383  | 2026-11-19T03:55:30.3102748Z [2026-11-19 03:55:30] INFO:     Waiting for application startup.
+    · github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L2270~L2274（该文件共 3842 行）
+    L2270  | 2026-11-19T23:13:35.5030903Z /usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is d…
+    L2271  | 2026-11-19T23:13:35.5040886Z   @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+    L2272  | 2026-11-19T23:13:35.5050889Z Traceback (most recent call last):
+    L2273  | 2026-11-19T23:13:35.5061105Z   File "/usr/local/python3.12.13/lib/python3.12/site-packages/msprobe/response_anomaly/tools/gen_model_config.py", line 269, in <module>
+    L2274  | 2026-11-19T23:13:35.5070541Z     main()
+    · github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L2282~L2286（该文件共 3842 行）
+    L2282  | 2026-11-19T23:13:35.5152346Z [2026-11-19 23:13:32,076] [ais_bench] [[32mINFO[0m] Response anomaly detecting vllm-api-general-chat/GPQA_diamond from outputs/default/20261119_222718/response_anomaly/v…
+    L2283  | 2026-11-19T23:13:35.5164238Z [2026-11-19 23:13:32,076] [ais_bench] [[32mINFO[0m] Start detecting 198 response anomaly payloads
+    L2284  | 2026-11-19T23:13:35.5172667Z [2026-11-19 23:13:35] [ERROR] [1/3] Benchmark failed: acc_gpqa, reason: Some errors happened to Aisbench runtime
+    L2285  | 2026-11-19T23:13:35.5183434Z [2026-11-19 23:13:35] [INFO] ============================================================
+    L2286  | 2026-11-19T23:13:35.5193969Z [2026-11-19 23:13:35] [INFO] [2/3] Starting benchmark: perf_128k_warmup (type=performance)
+    · github_logs/gh_44604083788/135844070911_multi-node (main, Kimi-K3-W4A8-A3-1M-PD, Kimi-K3-W4A8-A3-1M-PD.yaml, tests_SIT_c~68088f.txt:L2291~L2292（该文件共 3842 行）
+    L2291  | 2026-11-19T23:14:17.9202074Z [2026-11-19 23:14:17] [INFO] Running AISBench still running: elapsed=2820s proxy=ready url=http://10.0.0.203:1999/healthcheck
+    L2292  | 2026-11-19T23:14:30.4646433Z 
     … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[1]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[9/15] SgLang|nightly-test-npu.yml#2271
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2271 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T20:35:34 → 2026-11-19T20:35:34
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 0, "testTasks": 0, "logTasks": 0, "buildTasks": 0, "cases": 0, "errorMessages": 0, "evidenceFiles": 0}
-  规则分类   : evidence_missing（仅供参考，页面分类列读你写的 issueType）
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[2]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[10/15] SgLang|nightly-test-npu.yml#2272
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2272 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T21:32:46 → 2026-11-19T21:46:47
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 2, "testTasks": 0, "logTasks": 2, "buildTasks": 0, "cases": 0, "errorMessages": 8, "evidenceFiles": 2}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  失败任务   :
-    [log] multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test/registered/npu/ac... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp → github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt（抽取报错行 7 条）
-    [log] check-all-jobs → github_logs/gh_44534514171/135604349090_check-all-jobs.txt（抽取报错行 1 条）
-  报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.ba…
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/s…
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  Traceback (most recent call last):
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  ##[error]Error: failed to run script step:
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  ✗ exit code: 1
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  ##[error]Process completed with exit code 1.
-    · LOG                github_logs/gh_44534514171/135596509002_multi-node-poc (deep…  ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt:L555~L560（该文件共 740 行）
-    L555   | 2026-11-19T13:36:41.3649815Z ASCEND_VISIBLE_DEVICES=
-    L556   | 2026-11-19T13:36:43.1850809Z can not use command: npu-smi info
-    L557   | 2026-11-19T13:36:46.2614955Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or d…
-    L558   | 2026-11-19T13:36:46.2615993Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such …
-    L559   | 2026-11-19T13:36:46.2617159Z Running test case test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp.py
-    L560   | 2026-11-19T13:36:46.2830418Z Log path: /root/.cache/tests/logs/log/YZY00Raiser-pryzy1119-20261119-2132-44534514171-1/Nightly_Test_NPU--main-cann9.1.0-a3/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_g…
-    · github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt:L590~L594（该文件共 740 行）
-    L590   | 2026-11-19T13:43:04.4191730Z 2026-11-19 13:43:04,418 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
-    L591   | 2026-11-19T13:43:04.5023877Z 2026-11-19 13:43:04,500 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_flash/test_npu_deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp.py
-    L592   | 2026-11-19T13:43:04.5024542Z Traceback (most recent call last):
-    L593   | 2026-11-19T13:43:04.5025147Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 832, in run_npu_e2e_test_case
-    L594   | 2026-11-19T13:43:04.5025624Z     monitor_pod_logs(
-    · github_logs/gh_44534514171/135596509002_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa_off_cp, 1, 1, 1, test_~87be58.txt:L608~L608（该文件共 740 行）
-    L608   | 2026-11-19T13:43:04.5778345Z     raise Exception("Monitoring ended but target pattern was not detected")
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[3]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[11/15] SgLang|nightly-test-npu.yml#2273
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2273 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T22:19:41 → 2026-11-19T22:37:24
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 2, "testTasks": 0, "logTasks": 2, "buildTasks": 0, "cases": 0, "errorMessages": 8, "evidenceFiles": 2}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  失败任务   :
-    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa → github_logs/gh_44542522217/135624626671_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt（抽取报错行 7 条）
-    [log] check-all-jobs → github_logs/gh_44542522217/135635650472_check-all-jobs.txt（抽取报错行 1 条）
-  报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.ba…
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/s…
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  Traceback (most recent call last):
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  ##[error]Error: failed to run script step:
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  ✗ exit code: 1
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  ##[error]Process completed with exit code 1.
-    · LOG                github_logs/gh_44542522217/135624626671_multi-node-poc (deep…  ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44542522217/135624626671_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L557~L562（该文件共 746 行）
-    L557   | 2026-11-19T14:23:28.2763859Z ASCEND_VISIBLE_DEVICES=
-    L558   | 2026-11-19T14:23:28.7671371Z can not use command: npu-smi info
-    L559   | 2026-11-19T14:23:31.9988194Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or d…
-    L560   | 2026-11-19T14:23:31.9989698Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such …
-    L561   | 2026-11-19T14:23:31.9990581Z Running test case test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
-    L562   | 2026-11-19T14:23:32.0193469Z Log path: /root/.cache/tests/logs/log/YZY00Raiser-pryzy1119-20261119-2219-44542522217-1/Nightly_Test_NPU--main-cann9.1.0-a3/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpq…
-    · github_logs/gh_44542522217/135624626671_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L594~L598（该文件共 746 行）
-    L594   | 2026-11-19T14:33:31.7322900Z 2026-11-19 14:33:31,731 - ERROR - Some pods are not running properly. Please check the sglang logs on these pods. Exiting...
-    L595   | 2026-11-19T14:33:31.7819205Z 2026-11-19 14:33:31,780 - ERROR - Test case failed: test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
-    L596   | 2026-11-19T14:33:31.7819890Z Traceback (most recent call last):
-    L597   | 2026-11-19T14:33:31.7821827Z   File "/__w/sglang/sglang/python/sglang/test/ascend/e2e/run_npu_e2e_test.py", line 832, in run_npu_e2e_test_case
-    L598   | 2026-11-19T14:33:31.7822445Z     monitor_pod_logs(
-    · github_logs/gh_44542522217/135624626671_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L612~L612（该文件共 746 行）
-    L612   | 2026-11-19T14:33:31.8907857Z     raise Exception("Monitoring ended but target pattern was not detected")
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[4]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[12/15] SgLang|nightly-test-npu.yml#2274
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2274 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T23:15:26 → 2026-11-19T23:32:53
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 2, "testTasks": 0, "logTasks": 2, "buildTasks": 0, "cases": 0, "errorMessages": 3, "evidenceFiles": 1}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  失败任务   :
-    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa → github_logs/gh_44552728555/135660751160_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt（抽取报错行 3 条）
-    [log] check-all-jobs → --
-  报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44552728555/135660751160_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.ba…
-    · LOG                github_logs/gh_44552728555/135660751160_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/s…
-    · LOG                github_logs/gh_44552728555/135660751160_multi-node-poc (deep…  ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44552728555/135660751160_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L557~L562（该文件共 701 行）
-    L557   | 2026-11-19T15:19:14.6353067Z ASCEND_VISIBLE_DEVICES=
-    L558   | 2026-11-19T15:19:14.9470492Z can not use command: npu-smi info
-    L559   | 2026-11-19T15:19:18.0110303Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or d…
-    L560   | 2026-11-19T15:19:18.0111778Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such …
-    L561   | 2026-11-19T15:19:18.0112649Z Running test case test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
-    L562   | 2026-11-19T15:19:18.0304125Z Log path: /root/.cache/tests/logs/log/YZY00Raiser-pryzy1119-20261119-2315-44552728555-1/Nightly_Test_NPU--main-cann9.1.0-a3/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpq…
-    · github_logs/gh_44552728555/135660751160_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L589~L593（该文件共 701 行）
-    L589   | 2026-11-19T15:19:48.5359978Z 2026-11-19 23:19:48,533 - INFO - Retrieved ConfigMap data: {'ascend-44552728555-219e70bed8pwevcb-sgl-router-0': '172.22.3.71', 'ascend-44552728555-219e70bed8pwevcb-sglang-…
-    L590   | 2026-11-19T15:19:48.5361805Z 2026-11-19 23:19:48,533 - INFO - ConfigMap monitoring complete: prefill_url=['172.22.3.158:8000'], decode_url=['172.22.3.181:8000'], node_ip_list=['172.22.3.181', '172.22.…
-    L591   | 2026-11-19T15:28:32.9329837Z ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.
-    L592   | 2026-11-19T15:28:33.0036698Z ##[group]Run actions/upload-artifact@v4
-    L593   | 2026-11-19T15:28:33.0037061Z with:
-  证据缺口   : check-all-jobs（取证不全，定性时说明证据不完整）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[5]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[13/15] SgLang|nightly-test-npu.yml#2275
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2275 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T23:28:39 → 2026-11-19T23:29:08
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 0, "testTasks": 0, "logTasks": 0, "buildTasks": 0, "cases": 0, "errorMessages": 0, "evidenceFiles": 0}
-  规则分类   : evidence_missing（仅供参考，页面分类列读你写的 issueType）
-  证据原文   : 本记录没有可读的证据文件（按记录里的任务清单与错误信息定性）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[6]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[14/15] SgLang|nightly-test-npu.yml#2276
-  组件/流水线: SgLang / nightly-test-npu.yml（nightly-test-npu.yml）
-  构建/状态  : #2276 FAILED · 失败任务类型=-- · 归属日 2026-11-19
-  起止时间   : 2026-11-19T23:31:03 → 2026-11-19T23:50:44
-  影响维度   : va（当日指标 版本可用度 0% / 构建成功率 --，track=va）
-  计数       : {"tasks": 2, "testTasks": 0, "logTasks": 2, "buildTasks": 0, "cases": 0, "errorMessages": 9, "evidenceFiles": 2}
-  规则分类   : job_failure（仅供参考，页面分类列读你写的 issueType）
-  失败任务   :
-    [log] multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa → github_logs/gh_44555667805/135672389452_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt（抽取报错行 40 条）
-    [log] check-all-jobs → github_logs/gh_44555667805/135684034902_check-all-jobs.txt（抽取报错行 1 条）
-  报错点（原文见下，可直接写进 cites）:
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.ba…
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/s…
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  [2026-11-19 23:46:45 DP1 TP11 EP11 PID902] Scheduler hit an exception: Traceback (most recent call last):
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  [2026-11-19 23:46:45 DP1 TP8 EP8 PID899] Scheduler hit an exception: Traceback (most recent call last):
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  ##[error]Error: failed to run script step:
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  ✗ exit code: 1
-    · LOG                github_logs/gh_44555667805/135672389452_multi-node-poc (deep…  ##[error]Process completed with exit code 1.
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · github_logs/gh_44555667805/135672389452_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L557~L562（该文件共 30108 行）
-    L557   | 2026-11-19T15:36:33.3347294Z ASCEND_VISIBLE_DEVICES=
-    L558   | 2026-11-19T15:36:34.3857885Z can not use command: npu-smi info
-    L559   | 2026-11-19T15:36:37.6224979Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or d…
-    L560   | 2026-11-19T15:36:37.6226439Z /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such …
-    L561   | 2026-11-19T15:36:37.6227294Z Running test case test/registered/npu/accuracy/deepseek_v4_pro/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa.py
-    L562   | 2026-11-19T15:36:37.6378443Z Log path: /root/.cache/tests/logs/log/YZY00Raiser-pryzy1119-20261119-2332-44555667805-1/Nightly_Test_NPU--main-cann9.1.0-a3/test_npu_deepseek_v4_pro_0813_w4a8_1p1d_32p_gpq…
-    · github_logs/gh_44555667805/135672389452_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L14105~L14109（该文件共 30108 行）
-    L14105 | 2026-11-19T15:46:53.3191283Z Capturing batches (bs=8 avail_mem=5.93 GB):   0%|          | 0/1 [00:00<?, ?it/s]
-    L14106 | 2026-11-19T15:46:53.3191451Z Capturing batches (bs=8 avail_mem=5.93 GB):   0%|          | 0/1 [00:00<?, ?it/s]
-    L14107 | 2026-11-19T15:46:53.3191683Z [2026-11-19 23:46:45 DP1 TP11 EP11 PID902] Scheduler hit an exception: Traceback (most recent call last):
-    L14108 | 2026-11-19T15:46:53.3191916Z   File "/root/sglang/python/sglang/srt/managers/scheduler.py", line 7163, in run_scheduler_process
-    L14109 | 2026-11-19T15:46:53.3192040Z     scheduler = Scheduler(server_args, port_args)
-    · github_logs/gh_44555667805/135672389452_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~e37fe4.txt:L14171~L14171（该文件共 30108 行）
-    L14171 | 2026-11-19T15:46:53.3202621Z [2026-11-19 23:46:45] Received sigquit from a child process. It usually means the child failed.
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/SgLang/nightly-test-npu.yml/pipeline.json records[7]
-────────────────────────────────────────────────────────────────────────────────────────────────────
-[15/15] openGauss|autobuild-opengauss-openeuler24.03-arm#767
-  组件/流水线: openGauss / autobuild-opengauss-openeuler24.03-arm（openEuler 24.03 arm）
-  构建/状态  : #767 FAILED · 失败任务类型=版本构建任务 · 归属日 2026-11-19
-  起止时间   : 2026-11-19T00:04:00 → 2026-11-19T00:35:00
-  影响维度   : va/bs（当日指标 版本可用度 -- / 构建成功率 0%，track=va）
-  计数       : {"tasks": 1, "testTasks": 0, "logTasks": 1, "buildTasks": 0, "cases": 0, "errorMessages": 41, "evidenceFiles": 1}
-  规则分类   : build_failed（仅供参考，页面分类列读你写的 issueType）
-  失败任务   :
-    [log] autobuild-opengauss-openeuler24.03-arm → job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_767.log（抽取报错行 41 条）
-  报错点（原文见下，可直接写进 cites）:
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  Makefile:239: ../../src/Makefile.global: No such file or directory
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  make: *** No rule to make target '../../src/Makefile.global'.
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  Makefile:239: Failed to remake makefile '../../src/Makefile.global'.
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  /usr/local/bin/package_ci_master.sh: line 205: Release: command not found
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  [01m[K/usr1/build/workspace/openGauss/server/src/gausskernel/storage/access/transam/smb_recovery/smb_writer.cpp:[m[K In function '[01m[Kvoid smb…
-    · LOG                job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_76…  [01m[K/usr1/build/workspace/openGauss/server/src/common/backend/utils/error/fatal_err.cpp:[m[K In function '[01m[Kvoid output(int, const char*, …
-  证据原文（行号即原文行号，可直接写进 cites）:
-    · job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_767.log:L851~L859（该文件共 33097 行）
-    L851   | Resolving deltas: 100% (39/39), done.
-    L852   | prepare plugins
-    L853   | Makefile:239: ../../src/Makefile.global: No such file or directory
-    L854   | make: *** No rule to make target '../../src/Makefile.global'.
-    L855   | Makefile:240: /contrib/contrib-global.mk: No such file or directory
-    L856   | make: *** No rule to make target '/contrib/contrib-global.mk'.
-    L857   | Makefile:239: Failed to remake makefile '../../src/Makefile.global'.
-    L858   | Makefile:240: Failed to remake makefile '/contrib/contrib-global.mk'.
-    L859   | Makefile:239: ../../src/Makefile.global: No such file or directory
-    · job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_767.log:L926~L928（该文件共 33097 行）
-    L926   | checking for dlfcn.h... yes
-    L927   | checking for objdir... .libs
-    L928   | checking if /usr1/build/workspace/openGauss-third_party_binarylibs/buildtools/gcc10.3//gcc/bin/gcc supports -fno-rtti -fno-exceptions... no
-    … 本记录证据行已达上限 12 行（深挖用 --record + tools/read_evidence.py）
-  记录位置   : archive/2026/2026-11/2026-11-19/openGauss/autobuild-opengauss-openeuler24.03-arm/pipeline.json records[0]
+  记录位置   : archive/2026/2026-11/2026-11-20/vllm-ascend/a3.yaml/pipeline.json records[1]
 ────────────────────────────────────────────────────────────────────────────────────────────────────
