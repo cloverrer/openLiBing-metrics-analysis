@@ -23,3 +23,11 @@ _sim_modal.py
 _sim_out.txt
 _scan_abbr.py
 _page_va.py
+
+# 运行时中间产物区：每次运行重建，不入库（磁盘保留，供 --from stepN 断点续跑）
+out/work/
+
+# 运行时状态/临时文件：每次运行重建，不入库
+out/state/_digest.txt
+out/state/pending_digest.txt
+out/state/analysis_result.txt
