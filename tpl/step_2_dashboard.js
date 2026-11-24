@@ -30,7 +30,12 @@
               projectId: p.projectId, startDate: PARAMS.startDate })
           });
           const text = (await res.text()) || '';
-          if (!text.trim()) { lastErr = 'EMPTY_BODY：响应体为空（http ' + res.status + '）'; break; }
+          if (!text.trim()) {
+            lastErr = (res.status === 401 || res.status === 403)
+              ? 'NOT_LOGGED_IN：登录态已失效（HTTP ' + res.status + '，空响应体），请在调试 Chrome 重新登录 openLiBing'
+              : 'EMPTY_BODY：响应体为空（http ' + res.status + '）';
+            break;
+          }
           try { last = JSON.parse(text); } catch (e) {
             lastErr = 'JSON_PARSE_FAIL: ' + String(e && e.message || e); break;
           }

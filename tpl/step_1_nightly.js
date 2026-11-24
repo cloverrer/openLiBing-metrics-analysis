@@ -22,6 +22,10 @@
           try { json = JSON.parse(text); } catch (e) {
             last = { code: -1, error: 'JSON_PARSE_FAIL: ' + String(e && e.message || e), http: res.status, bodySize: text.length, attempt: i };
           }
+        } else if (res.status === 401 || res.status === 403) {
+          // csrf-token cookie 在会话过期后仍可能存在，所以到不了上面的 !csrf 分支；
+          // 真正的登录失效表现为 401/403 + 空响应体，这里显式区分，避免误报为 EMPTY_BODY。
+          last = { code: -1, error: 'NOT_LOGGED_IN：登录态已失效（HTTP ' + res.status + '，空响应体），请在调试 Chrome 重新登录 openLiBing', http: res.status, attempt: i };
         } else {
           last = { code: -1, error: 'EMPTY_BODY：响应体为空', http: res.status, attempt: i };
         }

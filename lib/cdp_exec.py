@@ -107,6 +107,9 @@ def run_page_js(tpl_name, params, out_name, cfg, label=""):
     """渲染页面模板（注入 const PARAMS）→ node cdp_run.js 执行 → 返回解析后的 JSON。
 
     模板内部业务失败（未登录等）通过 {"ok": false, "error": ...} 上抛。
+
+    标签页定位：cfg.chrome.target_id 给了就按标签页 id 精确定位（页面跳转、改 URL 都
+    不影响，登录引导用）；否则退回 cfg.chrome.tab_url_substring 的 URL 子串匹配。
     """
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     GEN_DIR.mkdir(parents=True, exist_ok=True)
@@ -124,8 +127,11 @@ def run_page_js(tpl_name, params, out_name, cfg, label=""):
     port = str(ch.get("debug_port", 9222))
     timeout = int(ch.get("request_timeout_ms", 300000))
     tab = str(ch.get("tab_url_substring", "openlibing"))
+    target = str(ch.get("target_id") or "")
     cmd = ["node", str(LIB_DIR / "cdp_run.js"), str(gen_js),
            "--out", str(out_file), "--tab", tab, "--port", port, "--timeout", str(timeout)]
+    if target:
+        cmd += ["--target", target]
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8",
                               errors="replace", cwd=str(SKILL_ROOT),

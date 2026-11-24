@@ -18,9 +18,13 @@
   python run_pipeline.py --retries 2                         # 每步失败自动重试次数（默认 1，无人值守一把过）
   python run_pipeline.py --serve                             # 起本地 http 服务预览展示页（默认 8765 端口）
   python run_pipeline.py --no-launch-browser                 # 采集前不自动拉起 Chrome（已手工开好调试端口时）
+  python run_pipeline.py --no-auto-login                     # 采集前不做登录自检/自动登录（自己保证登录态时）
 
 浏览器自举: 采集步骤需要 CDP 调试端口（默认 9222）。端口不通时按 config.chrome 自动拉起
   Chrome 并导航到看板页，无需人工「先打开浏览器再跑」；端口已就绪则直接复用（含手工开的）。
+登录自检（自动，纯兜底）: 拉起/复用浏览器后跑 auto_login.py 自检登录态，过期则点「登录」走 GitCode
+  单点登录自动补登录。这一步只是兜底，绝不影响采集：已登录直接跳过；补登录失败或自检本身报错都只
+  告警并继续采集（真正的取数步骤会各自暴露登录态问题）。用 --no-auto-login 可关闭。
 
 产物（数据与 HTML 完全隔离）:
   out/archive/<年>/<年-月>/<日>/<开源组件名>/<流水线名>/   ← 第 7 步逐层归档（最终交付物，只增不删）
@@ -203,6 +207,8 @@ def main():
     ap.add_argument("--no-browser", action="store_true", help="--serve 时不自动打开浏览器")
     ap.add_argument("--no-launch-browser", action="store_true",
                     help="采集前不自动拉起 Chrome（自己已开好调试端口时用）")
+    ap.add_argument("--no-auto-login", action="store_true",
+                    help="采集前不做登录态自检与自动 GitCode 登录（自己保证登录态时用）")
     args = ap.parse_args()
 
     if args.serve:
@@ -254,6 +260,24 @@ def main():
         if not ensure_browser(cfg_now):
             print("!! 浏览器未就绪：采集步骤大概率失败，可先 --only step9 预览已有数据", flush=True)
             log_f.write("浏览器未就绪，继续尝试执行（步骤内会再次报错并给出修复提示）\n")
+            log_f.flush()
+        elif not args.no_auto_login:
+            # 登录态自检 + 自动 GitCode 登录：纯兜底，绝不影响采集流程。
+            # 已登录 → auto_login 自检后直接返回，不额外开页、不点按钮；
+            # 未登录 → 尝试点「登录」走 GitCode 单点登录补上；
+            # 补登录未成功、或自动登录本身报错（缺依赖、端口异常等）→ 只告警，继续采集，
+            # 由真正的取数步骤各自暴露自己的登录态问题。这里永不中止主流程。
+            print("== 登录态自检（必要时自动 GitCode 登录；失败不影响后续采集）...", flush=True)
+            try:
+                from auto_login import main as auto_login_main
+                rc_login = auto_login_main([])
+                log_f.write("登录自检退出码 %d（0=已登录，1=需人工登录；仅告警，不影响采集）\n" % rc_login)
+                if rc_login != 0:
+                    print("!! 登录态不可用且自动补登录未成功：多半 GitCode 会话也过期，"
+                          "请在调试 Chrome 里人工登录一次；本次仍继续采集。", flush=True)
+            except Exception as exc:
+                print("!! 登录自检异常（忽略，继续采集）：%s" % exc, flush=True)
+                log_f.write("登录自检异常（忽略，继续采集）：%s\n" % exc)
             log_f.flush()
 
     t_all = time.time()

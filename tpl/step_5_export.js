@@ -18,7 +18,10 @@
       try {
         const res = await fetch(url, opts);
         const text = (await res.text()) || '';
-        if (!text.trim()) throw new Error('EMPTY_BODY（http ' + res.status + '）');
+        if (!text.trim()) {
+          if (res.status === 401 || res.status === 403) throw new Error('NOT_LOGGED_IN：登录态已失效（HTTP ' + res.status + '，空响应体），请在调试 Chrome 重新登录 openLiBing');
+          throw new Error('EMPTY_BODY（http ' + res.status + '）');
+        }
         let j;
         try { j = JSON.parse(text); } catch (e) {
           throw new Error('JSON_PARSE_FAIL: ' + String(e && e.message || e));
