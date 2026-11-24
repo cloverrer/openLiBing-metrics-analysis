@@ -1,0 +1,29 @@
+{
+ "route": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "rn": 2290,
+ "rid": "45125927969",
+ "st": "11-23 14:42",
+ "runId": 45125927969,
+ "repo": "sgl-project/sglang",
+ "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+ "event": "pull_request",
+ "status": "FAILED",
+ "duration": 0,
+ "runStatus": {
+  "status": "completed",
+  "conclusion": "action_required",
+  "updatedAt": "2026-11-23T06:42:31Z",
+  "attempt": 1
+ },
+ "_v": 2,
+ "mode": "none",
+ "why": "全部 job 成功/跳过",
+ "totalJobs": 0,
+ "failedJobs": [],
+ "cancelledJobs": [],
+ "jobs": [],
+ "missing": [],
+ "systemLogs": [],
+ "ghComplete": true
+}

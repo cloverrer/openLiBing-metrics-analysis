@@ -1,0 +1,14 @@
+2026-11-22T19:20:20.5380000Z Evaluating nightly-poc-multi-node-accuracy-odd-day.if
+2026-11-22T19:20:20.5380000Z Evaluating: (!cancelled() && (needs.set-image-config.outputs.accuracy_date_parity == 'odd') && (((needs.set-image-config.outputs.job_filter == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-accuracy-odd-day,'))))
+2026-11-22T19:20:20.5380000Z Expanded: (!false && ('odd' == 'odd') && (('all' == 'all') || contains(format(',{0},', needs.set-image-config.outputs.job_filter), ',nightly-poc-multi-node-accuracy-odd-day,')))
+2026-11-22T19:20:20.5380000Z Result: true
+2026-11-22T19:20:20.5380000Z Evaluating nightly-poc-multi-node-accuracy-odd-day.multi_node_accuracy_odd_d.e2e.if
+2026-11-22T19:20:20.5380000Z Evaluating: success()
+2026-11-22T19:20:20.5380000Z Result: true
+2026-11-22T19:20:20.5400000Z Requested labels: linux-amd64-cpu-4
+2026-11-22T19:20:20.5400000Z Job defined at: sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main
+2026-11-22T19:20:20.5400000Z Reusable workflow chain:
+2026-11-22T19:20:20.5400000Z sgl-project/sglang/.github/workflows/nightly-test-npu.yml@refs/heads/main (cb337923d576f48a4accba439af9cfbc9b720a2c)
+2026-11-22T19:20:20.5400000Z -> sgl-project/sglang/.github/workflows/nightly-test-npu-e2e-multi-node.yml@refs/heads/main (cb337923d576f48a4accba439af9cfbc9b720a2c)
+2026-11-22T19:20:20.5400000Z Waiting for a runner to pick up this job...
+2026-11-22T19:20:21.3490000Z Job is about to start running on the runner: linux-amd64-cpu-4

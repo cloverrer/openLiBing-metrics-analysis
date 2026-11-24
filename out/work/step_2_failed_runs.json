@@ -2,7 +2,7 @@
  "openUBMC|openUBMC~c43117": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED",
     "COMPLETED",
     "COMPLETED",
@@ -11,12 +11,25 @@
   },
   "runHistory": [
    {
-    "rn": 22,
-    "start": "2026-11-20 20:45:43",
-    "end": "2026-11-20 21:55:16",
+    "rn": 32,
+    "start": "2026-11-23 17:20:49",
+    "end": "2026-11-23 18:47:04",
     "status": "COMPLETED",
-    "rid": "aa83bac4022b4834b03c94d0497ad5ff",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=aa83bac4022b4834b03c94d0497ad5ff",
+    "rid": "7952e05a3e47443a8dcc1f062613773f",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=7952e05a3e47443a8dcc1f062613773f",
+    "bc": 1,
+    "bpc": 1,
+    "cpr": 98.46,
+    "iva": false,
+    "ftt": null
+   },
+   {
+    "rn": 31,
+    "start": "2026-11-23 15:13:24",
+    "end": "2026-11-23 16:22:51",
+    "status": "COMPLETED",
+    "rid": "5733d6dea7d04237a3facbaca14fb9df",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=5733d6dea7d04237a3facbaca14fb9df",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -24,41 +37,28 @@
     "ftt": null
    },
    {
-    "rn": 21,
-    "start": "2026-11-20 17:20:09",
-    "end": "2026-11-20 18:29:37",
+    "rn": 30,
+    "start": "2026-11-23 13:20:45",
+    "end": "2026-11-23 14:30:12",
     "status": "COMPLETED",
-    "rid": "92ecc7e8771446389fe991cc6308557e",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=92ecc7e8771446389fe991cc6308557e",
+    "rid": "7250338118ce4c4b907a060e1a44251f",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=7250338118ce4c4b907a060e1a44251f",
     "bc": 1,
     "bpc": 1,
-    "cpr": 93.85,
+    "cpr": 98.46,
     "iva": false,
     "ftt": null
    },
    {
-    "rn": 20,
-    "start": "2026-11-20 13:20:31",
-    "end": "2026-11-20 14:29:56",
+    "rn": 29,
+    "start": "2026-11-23 00:50:31",
+    "end": "2026-11-23 02:15:07",
     "status": "COMPLETED",
-    "rid": "60b4aeda50e8440eb380db48f23dffc2",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=60b4aeda50e8440eb380db48f23dffc2",
+    "rid": "ebeeb2ad3c4b4a11b8384720dd93f59b",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=ebeeb2ad3c4b4a11b8384720dd93f59b",
     "bc": 1,
     "bpc": 1,
-    "cpr": 95.38,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 19,
-    "start": "2026-11-20 00:50:27",
-    "end": "2026-11-20 02:04:24",
-    "status": "COMPLETED",
-    "rid": "8501661f6e5e4a998f536de7809e98ae",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=da4f9f2c5686451594d2dd1a0b843824&projectId=2&pipelineRunId=8501661f6e5e4a998f536de7809e98ae",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": 93.85,
+    "cpr": 98.46,
     "iva": false,
     "ftt": null
    }
@@ -70,10 +70,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -83,18 +83,18 @@
  "AscendForPyTorch|master": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 86,
-    "start": "2026-11-20 03:30:47",
-    "end": "2026-11-20 04:23:49",
+    "rn": 89,
+    "start": "2026-11-23 03:30:47",
+    "end": "2026-11-23 04:26:24",
     "status": "COMPLETED",
-    "rid": "cfcd64ad79a44634922b51f7e6db0876",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=c5fb1178a82e4121bd7033824630a47f&projectId=4&pipelineRunId=cfcd64ad79a44634922b51f7e6db0876",
+    "rid": "408fa8ee1a684d3e97ccac2a4d3cf2e8",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=c5fb1178a82e4121bd7033824630a47f&projectId=4&pipelineRunId=408fa8ee1a684d3e97ccac2a4d3cf2e8",
     "bc": 0,
     "bpc": 0,
     "cpr": 100,
@@ -109,10 +109,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -120,97 +120,16 @@
   "vaRateRecomputed": 1.0
  },
  "MindIE|MindIE-SD": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED",
-    "COMPLETED",
-    "COMPLETED",
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 123,
-    "start": "2026-11-20 15:07:42",
-    "end": "2026-11-20 15:27:24",
-    "status": "COMPLETED",
-    "rid": "1188b5872f054b16b99436c560c3add9",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=1188b5872f054b16b99436c560c3add9",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": null,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 122,
-    "start": "2026-11-20 11:52:33",
-    "end": "2026-11-20 12:09:15",
-    "status": "COMPLETED",
-    "rid": "f38af89619fb495f8eabb5bd2522899a",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=f38af89619fb495f8eabb5bd2522899a",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": null,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 121,
-    "start": "2026-11-20 11:25:16",
-    "end": "2026-11-20 11:40:08",
-    "status": "COMPLETED",
-    "rid": "1b6a2932a6a440f2b90efb78dc82f87a",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=1b6a2932a6a440f2b90efb78dc82f87a",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": null,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 120,
-    "start": "2026-11-20 01:01:52",
-    "end": "2026-11-20 03:35:25",
-    "status": "COMPLETED",
-    "rid": "c6f0f4c70b7a4e33adac843e08db45e7",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=c6f0f4c70b7a4e33adac843e08db45e7",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 4,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindIE|MindIE-Motor": {
   "failedRuns": [
    {
-    "rn": 140,
-    "rid": "1bb96b73e8214e53ae7b1420a47ec8d3",
+    "rn": 126,
+    "rid": "2c00dab76ae74116b79b7fa2353042b1",
     "status": "FAILED",
-    "start": "11-20 07:04",
-    "startISO": "2026-11-20T07:04:03",
-    "endISO": "2026-11-20T16:54:22",
+    "start": "11-23 01:01",
+    "startISO": "2026-11-23T01:01:52",
+    "endISO": "2026-11-23T16:20:51",
     "detailUrl": null,
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=1bb96b73e8214e53ae7b1420a47ec8d3",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=2c00dab76ae74116b79b7fa2353042b1",
     "dims": [
      "va",
      "bs"
@@ -221,21 +140,21 @@
    }
   ],
   "days": {
-   "11-20": [
+   "11-23": [
     "FAILED"
    ]
   },
   "runHistory": [
    {
-    "rn": 140,
-    "start": "2026-11-20 07:04:03",
-    "end": "2026-11-20 16:54:22",
+    "rn": 126,
+    "start": "2026-11-23 01:01:52",
+    "end": "2026-11-23 16:20:51",
     "status": "FAILED",
-    "rid": "1bb96b73e8214e53ae7b1420a47ec8d3",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=1bb96b73e8214e53ae7b1420a47ec8d3",
+    "rid": "2c00dab76ae74116b79b7fa2353042b1",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=2c00dab76ae74116b79b7fa2353042b1",
     "bc": 1,
     "bpc": 1,
-    "cpr": 92.31,
+    "cpr": null,
     "iva": false,
     "ftt": "测试任务"
    }
@@ -247,307 +166,31 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 0
+   "11-23": 0
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 0,
     "daysInPeriod": 1
    }
   },
   "vaRateRecomputed": 0.0
  },
- "MindStudio|msprof": {
+ "MindIE|MindIE-Motor": {
   "failedRuns": [],
   "days": {
-   "11-20": [
-    "COMPLETED",
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 283,
-    "start": "2026-11-20 04:00:57",
-    "end": "2026-11-20 06:19:43",
+    "rn": 143,
+    "start": "2026-11-23 07:04:03",
+    "end": "2026-11-23 09:29:45",
     "status": "COMPLETED",
-    "rid": "622726259f614bd9a02ea59e333dad4b",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=622726259f614bd9a02ea59e333dad4b",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 282,
-    "start": "2026-11-19 19:50:40",
-    "end": "2026-11-20 01:04:25",
-    "status": "COMPLETED",
-    "rid": "04019e96f88b4f0194560ceb35c75345",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=04019e96f88b4f0194560ceb35c75345",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 2,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindStudio|msprobe": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED",
-    "FAILED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 274,
-    "start": "2026-11-20 09:21:12",
-    "end": "2026-11-20 11:40:38",
-    "status": "COMPLETED",
-    "rid": "db7f0a3d36b04f96a41513f5c49429ed",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9de3361a26304f96a7ac8ebf571d0b57&projectId=300037&pipelineRunId=db7f0a3d36b04f96a41513f5c49429ed",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 273,
-    "start": "2026-11-20 00:00:18",
-    "end": "2026-11-20 01:38:32",
-    "status": "FAILED",
-    "rid": "a4e27dbdb1ff4b6e8f14d21c9b66fd3c",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9de3361a26304f96a7ac8ebf571d0b57&projectId=300037&pipelineRunId=a4e27dbdb1ff4b6e8f14d21c9b66fd3c",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": false,
-    "ftt": "其他任务"
-   }
-  ],
-  "runsInPeriod": 2,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindStudio|msserviceprofiler": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 256,
-    "start": "2026-11-20 04:00:57",
-    "end": "2026-11-20 18:19:49",
-    "status": "COMPLETED",
-    "rid": "d759144019f74857b69ea9f08d118f7a",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=af61355154f54c85adac46449f506edc&projectId=300037&pipelineRunId=d759144019f74857b69ea9f08d118f7a",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindStudio|msmemscope": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED",
-    "FAILED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 272,
-    "start": "2026-11-20 09:17:01",
-    "end": "2026-11-20 09:31:05",
-    "status": "COMPLETED",
-    "rid": "5170f4763f9e411ea6c3a64be68b7781",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b4bf5a6de15549c59ce223fe03922413&projectId=300037&pipelineRunId=5170f4763f9e411ea6c3a64be68b7781",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 271,
-    "start": "2026-11-20 00:00:24",
-    "end": "2026-11-20 00:08:06",
-    "status": "FAILED",
-    "rid": "5cc4fed322d643bf8c8fdc63c217f1d0",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b4bf5a6de15549c59ce223fe03922413&projectId=300037&pipelineRunId=5cc4fed322d643bf8c8fdc63c217f1d0",
-    "bc": null,
-    "bpc": null,
-    "cpr": null,
-    "iva": false,
-    "ftt": "其他任务"
-   }
-  ],
-  "runsInPeriod": 2,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindStudio|msot": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 278,
-    "start": "2026-11-20 06:00:03",
-    "end": "2026-11-20 16:11:36",
-    "status": "COMPLETED",
-    "rid": "eec301e01821490c8e8fb4770f05008e",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b67d335347fa4646acd3b96d1c55573e&projectId=300037&pipelineRunId=eec301e01821490c8e8fb4770f05008e",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindStudio|msmodelslim": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 277,
-    "start": "2026-11-20 06:00:51",
-    "end": "2026-11-20 08:37:07",
-    "status": "COMPLETED",
-    "rid": "13596aff302f491db45a8ab0e3b322d2",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b9948b4f145e4063a094356af192513c&projectId=300037&pipelineRunId=13596aff302f491db45a8ab0e3b322d2",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindCluster|IndexSDK": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 103,
-    "start": "2026-11-20 00:30:37",
-    "end": "2026-11-20 10:42:05",
-    "status": "COMPLETED",
-    "rid": "96b6106c8732457681a5637bbb4c792d",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=12313bdcc9bb435bb8755eb51548157a&projectId=300038&pipelineRunId=96b6106c8732457681a5637bbb4c792d",
+    "rid": "8a148c6cde7443a394e9a4132d781648",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=8a148c6cde7443a394e9a4132d781648",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -562,10 +205,361 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 1.0
+ },
+ "MindStudio|msprof": {
+  "failedRuns": [
+   {
+    "rn": 286,
+    "rid": "4b840e62ed5b4c1cb4d077ff4a3aabda",
+    "status": "FAILED",
+    "start": "11-23 04:00",
+    "startISO": "2026-11-23T04:00:57",
+    "endISO": "2026-11-23T06:27:23",
+    "detailUrl": null,
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=4b840e62ed5b4c1cb4d077ff4a3aabda",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": "测试任务",
+    "cached": false
+   }
+  ],
+  "days": {
+   "11-23": [
+    "FAILED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 286,
+    "start": "2026-11-23 04:00:57",
+    "end": "2026-11-23 06:27:23",
+    "status": "FAILED",
+    "rid": "4b840e62ed5b4c1cb4d077ff4a3aabda",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6cf1bab4d4444a2b836c7b106901af49&projectId=300037&pipelineRunId=4b840e62ed5b4c1cb4d077ff4a3aabda",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 99.06,
+    "iva": false,
+    "ftt": "测试任务"
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 0,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 0
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 0,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 0.0
+ },
+ "MindStudio|msprobe": {
+  "failedRuns": [
+   {
+    "rn": 277,
+    "rid": "a6fe285ce1fb43fa8262ef1ba3e9fb6c",
+    "status": "FAILED",
+    "start": "11-23 00:00",
+    "startISO": "2026-11-23T00:00:17",
+    "endISO": "2026-11-23T03:27:24",
+    "detailUrl": null,
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9de3361a26304f96a7ac8ebf571d0b57&projectId=300037&pipelineRunId=a6fe285ce1fb43fa8262ef1ba3e9fb6c",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": "测试任务",
+    "cached": false
+   }
+  ],
+  "days": {
+   "11-23": [
+    "FAILED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 277,
+    "start": "2026-11-23 00:00:17",
+    "end": "2026-11-23 03:27:24",
+    "status": "FAILED",
+    "rid": "a6fe285ce1fb43fa8262ef1ba3e9fb6c",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9de3361a26304f96a7ac8ebf571d0b57&projectId=300037&pipelineRunId=a6fe285ce1fb43fa8262ef1ba3e9fb6c",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 100,
+    "iva": false,
+    "ftt": "测试任务"
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 0,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 0
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 0,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 0.0
+ },
+ "MindStudio|msserviceprofiler": {
+  "failedRuns": [
+   {
+    "rn": 259,
+    "rid": "b8f860bfc0354751b8bcbf2d2a6bfeb0",
+    "status": "CANCELED",
+    "start": "11-23 04:00",
+    "startISO": "2026-11-23T04:00:57",
+    "endISO": "2026-11-23T09:36:37",
+    "detailUrl": null,
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=af61355154f54c85adac46449f506edc&projectId=300037&pipelineRunId=b8f860bfc0354751b8bcbf2d2a6bfeb0",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": "测试任务",
+    "cached": false
+   }
+  ],
+  "days": {
+   "11-23": [
+    "CANCELED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 259,
+    "start": "2026-11-23 04:00:57",
+    "end": "2026-11-23 09:36:37",
+    "status": "CANCELED",
+    "rid": "b8f860bfc0354751b8bcbf2d2a6bfeb0",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=af61355154f54c85adac46449f506edc&projectId=300037&pipelineRunId=b8f860bfc0354751b8bcbf2d2a6bfeb0",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 64.71,
+    "iva": false,
+    "ftt": "测试任务"
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 0,
+  "daysInPeriod": 0,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {},
+  "vaDetailByDay": {},
+  "vaRateRecomputed": null
+ },
+ "MindStudio|msmemscope": {
+  "failedRuns": [
+   {
+    "rn": 275,
+    "rid": "5b7498855f8046bd9798a7a6f1181261",
+    "status": "FAILED",
+    "start": "11-23 00:00",
+    "startISO": "2026-11-23T00:00:24",
+    "endISO": "2026-11-23T01:52:57",
+    "detailUrl": null,
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b4bf5a6de15549c59ce223fe03922413&projectId=300037&pipelineRunId=5b7498855f8046bd9798a7a6f1181261",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": "测试任务",
+    "cached": false
+   }
+  ],
+  "days": {
+   "11-23": [
+    "FAILED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 275,
+    "start": "2026-11-23 00:00:24",
+    "end": "2026-11-23 01:52:57",
+    "status": "FAILED",
+    "rid": "5b7498855f8046bd9798a7a6f1181261",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b4bf5a6de15549c59ce223fe03922413&projectId=300037&pipelineRunId=5b7498855f8046bd9798a7a6f1181261",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 100,
+    "iva": false,
+    "ftt": "测试任务"
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 0,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 0
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 0,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 0.0
+ },
+ "MindStudio|msot": {
+  "failedRuns": [],
+  "days": {
+   "11-23": [
+    "COMPLETED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 281,
+    "start": "2026-11-23 06:00:04",
+    "end": "2026-11-23 09:05:50",
+    "status": "COMPLETED",
+    "rid": "dd67ec9ff5ed456c99bbca101b12b24a",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b67d335347fa4646acd3b96d1c55573e&projectId=300037&pipelineRunId=dd67ec9ff5ed456c99bbca101b12b24a",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 1,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 1
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 1.0
+ },
+ "MindStudio|msmodelslim": {
+  "failedRuns": [
+   {
+    "rn": 280,
+    "rid": "73dc7784a1fc4fa7bf9d0a7d94e74a37",
+    "status": "FAILED",
+    "start": "11-23 06:00",
+    "startISO": "2026-11-23T06:00:51",
+    "endISO": "2026-11-23T14:32:36",
+    "detailUrl": null,
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b9948b4f145e4063a094356af192513c&projectId=300037&pipelineRunId=73dc7784a1fc4fa7bf9d0a7d94e74a37",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": "测试任务",
+    "cached": false
+   }
+  ],
+  "days": {
+   "11-23": [
+    "FAILED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 280,
+    "start": "2026-11-23 06:00:51",
+    "end": "2026-11-23 14:32:36",
+    "status": "FAILED",
+    "rid": "73dc7784a1fc4fa7bf9d0a7d94e74a37",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b9948b4f145e4063a094356af192513c&projectId=300037&pipelineRunId=73dc7784a1fc4fa7bf9d0a7d94e74a37",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 90.48,
+    "iva": false,
+    "ftt": "测试任务"
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 0,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 0
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 0,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 0.0
+ },
+ "MindCluster|IndexSDK": {
+  "failedRuns": [],
+  "days": {
+   "11-23": [
+    "COMPLETED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 106,
+    "start": "2026-11-23 00:30:38",
+    "end": "2026-11-23 03:10:56",
+    "status": "COMPLETED",
+    "rid": "45aab17e899640ee8c080132cb3d7835",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=12313bdcc9bb435bb8755eb51548157a&projectId=300038&pipelineRunId=45aab17e899640ee8c080132cb3d7835",
+    "bc": 1,
+    "bpc": 1,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 1,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 1
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -575,18 +569,18 @@
  "MindCluster|AgentSDK~3828fc": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 2,
-    "start": "2026-11-20 07:30:31",
-    "end": "2026-11-20 07:38:23",
+    "rn": 5,
+    "start": "2026-11-23 07:31:01",
+    "end": "2026-11-23 07:37:14",
     "status": "COMPLETED",
-    "rid": "1ed17f9550cd46a0b25ff781b1439639",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=27e3ba2f365748c295e597509fb63c4d&projectId=300038&pipelineRunId=1ed17f9550cd46a0b25ff781b1439639",
+    "rid": "37bd0ae51df543dc946ff9d85db84186",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=27e3ba2f365748c295e597509fb63c4d&projectId=300038&pipelineRunId=37bd0ae51df543dc946ff9d85db84186",
     "bc": 2,
     "bpc": 2,
     "cpr": 100,
@@ -601,10 +595,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -614,71 +608,57 @@
  "MindCluster|MultimodalSDK~0c7fa3": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 2,
-    "start": "2026-11-19 23:30:53",
-    "end": "2026-11-20 11:03:14",
+    "rn": 5,
+    "start": "2026-11-22 23:31:18",
+    "end": "2026-11-23 00:41:00",
     "status": "COMPLETED",
-    "rid": "8aafe1c8a8a24bbb95fbf4d00a9775a6",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=2d856ef98bae436b92728b96b37ca10f&projectId=300038&pipelineRunId=8aafe1c8a8a24bbb95fbf4d00a9775a6",
-    "bc": 4,
-    "bpc": 4,
-    "cpr": 98.33,
-    "iva": false,
+    "rid": "000daa37c974469d9fa5af07f60552be",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=2d856ef98bae436b92728b96b37ca10f&projectId=300038&pipelineRunId=000daa37c974469d9fa5af07f60552be",
+    "bc": 2,
+    "bpc": 2,
+    "cpr": 100,
+    "iva": true,
     "ftt": null
    }
   ],
   "runsInPeriod": 1,
-  "availDays": 0,
+  "availDays": 1,
   "daysInPeriod": 1,
   "recompute": true,
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 0
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 0,
+   "2026-11-23": {
+    "availDays": 1,
     "daysInPeriod": 1
    }
   },
-  "vaRateRecomputed": 0.0
- },
- "MindCluster|Agentsdk~5992cb": {
-  "failedRuns": [],
-  "days": {},
-  "runHistory": [],
-  "runsInPeriod": 0,
-  "availDays": 0,
-  "daysInPeriod": 0,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {},
-  "vaDetailByDay": {},
-  "vaRateRecomputed": null
+  "vaRateRecomputed": 1.0
  },
  "MindCluster|ascend-deployer": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 293,
-    "start": "2026-11-20 02:35:58",
-    "end": "2026-11-20 06:44:27",
+    "rn": 296,
+    "start": "2026-11-23 02:35:46",
+    "end": "2026-11-23 13:29:27",
     "status": "COMPLETED",
-    "rid": "50ca9db90d394d29b885c0521d055fa7",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=3bf413db452e4b2d8e26dd521bc9b78b&projectId=300038&pipelineRunId=50ca9db90d394d29b885c0521d055fa7",
+    "rid": "bffe3c69ac5347859c152388a7df8294",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=3bf413db452e4b2d8e26dd521bc9b78b&projectId=300038&pipelineRunId=bffe3c69ac5347859c152388a7df8294",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -693,10 +673,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -706,18 +686,18 @@
  "MindCluster|MindCluster": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 574,
-    "start": "2026-11-20 00:35:18",
-    "end": "2026-11-20 11:09:12",
+    "rn": 577,
+    "start": "2026-11-23 00:35:18",
+    "end": "2026-11-23 03:47:56",
     "status": "COMPLETED",
-    "rid": "a99d49ee6589421bb2e12cf05674db94",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=576d7d060dc24749951e0b3abd6a5dcc&projectId=300038&pipelineRunId=a99d49ee6589421bb2e12cf05674db94",
+    "rid": "09bc524010f34457b9c87581c4bd40d7",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=576d7d060dc24749951e0b3abd6a5dcc&projectId=300038&pipelineRunId=09bc524010f34457b9c87581c4bd40d7",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -732,10 +712,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -745,18 +725,18 @@
  "MindCluster|RecSDK": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 84,
-    "start": "2026-11-20 03:15:07",
-    "end": "2026-11-20 07:12:13",
+    "rn": 87,
+    "start": "2026-11-23 03:15:07",
+    "end": "2026-11-23 07:13:23",
     "status": "COMPLETED",
-    "rid": "19902c4e1efd44a280633e3f5adbbd39",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=610d7853be5a4efa9096ddead93a2d4f&projectId=300038&pipelineRunId=19902c4e1efd44a280633e3f5adbbd39",
+    "rid": "514484fd2c394fc19b3f4f6feded3752",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=610d7853be5a4efa9096ddead93a2d4f&projectId=300038&pipelineRunId=514484fd2c394fc19b3f4f6feded3752",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -771,10 +751,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -812,18 +792,18 @@
  "Ascend-CANN|os": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 157,
-    "start": "2026-11-20 02:05:52",
-    "end": "2026-11-20 03:03:14",
+    "rn": 160,
+    "start": "2026-11-23 02:05:52",
+    "end": "2026-11-23 10:39:58",
     "status": "COMPLETED",
-    "rid": "391157a08c93433783ab71eab1b375bb",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=03da2691669a4f2bbfcfd89356bc3576&projectId=300057&pipelineRunId=391157a08c93433783ab71eab1b375bb",
+    "rid": "9fe1b6dc391b4861a55b6c56f48bd618",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=03da2691669a4f2bbfcfd89356bc3576&projectId=300057&pipelineRunId=9fe1b6dc391b4861a55b6c56f48bd618",
     "bc": 2,
     "bpc": 2,
     "cpr": 100,
@@ -838,10 +818,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -851,18 +831,18 @@
  "boostkit|avx2ki": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 49,
-    "start": "2026-11-20 05:00:12",
-    "end": "2026-11-20 05:01:56",
+    "rn": 52,
+    "start": "2026-11-23 05:00:12",
+    "end": "2026-11-23 05:01:46",
     "status": "COMPLETED",
-    "rid": "554f608019db4acbb8831d543d9f1812",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=2944ce957b494b72a41150b5467b61b4&projectId=300059&pipelineRunId=554f608019db4acbb8831d543d9f1812",
+    "rid": "eebfa174510244c2a92da8f1101cc930",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=2944ce957b494b72a41150b5467b61b4&projectId=300059&pipelineRunId=eebfa174510244c2a92da8f1101cc930",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -877,10 +857,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -890,18 +870,18 @@
  "boostkit|kqmalloc": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 199,
-    "start": "2026-11-20 01:39:18",
-    "end": "2026-11-20 02:14:12",
+    "rn": 202,
+    "start": "2026-11-23 01:39:18",
+    "end": "2026-11-23 02:14:03",
     "status": "COMPLETED",
-    "rid": "9e8ff4ee77ea463fb2c8c08b2271f96e",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=452bb706ced24726aa7686b92a966734&projectId=300059&pipelineRunId=9e8ff4ee77ea463fb2c8c08b2271f96e",
+    "rid": "89156fc0912f4c0caae635b39fd43afd",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=452bb706ced24726aa7686b92a966734&projectId=300059&pipelineRunId=89156fc0912f4c0caae635b39fd43afd",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -916,10 +896,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -929,19 +909,19 @@
  "boostkit|OmniStream": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED",
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 184,
-    "start": "2026-11-20 22:41:22",
-    "end": "2026-11-20 23:19:27",
+    "rn": 190,
+    "start": "2026-11-23 22:41:22",
+    "end": "2026-11-23 23:20:27",
     "status": "COMPLETED",
-    "rid": "d9906e781edd4d72b38de56a5aad0edc",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=636f9465b49d4a6591d5572ad6f9456f&projectId=300059&pipelineRunId=d9906e781edd4d72b38de56a5aad0edc",
+    "rid": "863f52f529a641b4a770131ef7902299",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=636f9465b49d4a6591d5572ad6f9456f&projectId=300059&pipelineRunId=863f52f529a641b4a770131ef7902299",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -949,12 +929,12 @@
     "ftt": null
    },
    {
-    "rn": 183,
-    "start": "2026-11-20 06:41:22",
-    "end": "2026-11-20 07:20:17",
+    "rn": 189,
+    "start": "2026-11-23 06:41:22",
+    "end": "2026-11-23 07:20:17",
     "status": "COMPLETED",
-    "rid": "dec2be4a65a542d8af63d250d03c04fe",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=636f9465b49d4a6591d5572ad6f9456f&projectId=300059&pipelineRunId=dec2be4a65a542d8af63d250d03c04fe",
+    "rid": "f823f56099244f1cb7d2e96047aa90c5",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=636f9465b49d4a6591d5572ad6f9456f&projectId=300059&pipelineRunId=f823f56099244f1cb7d2e96047aa90c5",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -969,10 +949,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -982,18 +962,18 @@
  "boostkit|Megascan": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 86,
-    "start": "2026-11-20 00:20:21",
-    "end": "2026-11-20 00:26:14",
+    "rn": 89,
+    "start": "2026-11-23 00:20:21",
+    "end": "2026-11-23 00:25:24",
     "status": "COMPLETED",
-    "rid": "19236d59d88f4b70bdbba0d9d11a93a9",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9485ce9d987d4717a944aa3932474391&projectId=300059&pipelineRunId=19236d59d88f4b70bdbba0d9d11a93a9",
+    "rid": "8e3b138c2aea47b884fdd76cb4839a4f",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9485ce9d987d4717a944aa3932474391&projectId=300059&pipelineRunId=8e3b138c2aea47b884fdd76cb4839a4f",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1008,10 +988,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1021,18 +1001,18 @@
  "boostkit|Bigdata": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 55,
-    "start": "2026-11-20 00:01:44",
-    "end": "2026-11-20 00:50:59",
+    "rn": 58,
+    "start": "2026-11-23 00:01:44",
+    "end": "2026-11-23 00:49:08",
     "status": "COMPLETED",
-    "rid": "1fe6e41d50db4327a3397afa0ab63832",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=1fe6e41d50db4327a3397afa0ab63832",
+    "rid": "f63a59e83fd54035bc794254a500ca74",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a74a64d931f34c98bc726e5ea599f8a3&projectId=300059&pipelineRunId=f63a59e83fd54035bc794254a500ca74",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1047,10 +1027,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1060,18 +1040,18 @@
  "boostkit|KTAG": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 161,
-    "start": "2026-11-20 03:17:41",
-    "end": "2026-11-20 03:22:35",
+    "rn": 164,
+    "start": "2026-11-23 03:17:40",
+    "end": "2026-11-23 03:22:24",
     "status": "COMPLETED",
-    "rid": "57190507c33147f5affce097e8594cf9",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a8c3dbdd3feb4c4ab4a4a336e1323ce3&projectId=300059&pipelineRunId=57190507c33147f5affce097e8594cf9",
+    "rid": "37c7c662131c4f848a08dc5d5b606820",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a8c3dbdd3feb4c4ab4a4a336e1323ce3&projectId=300059&pipelineRunId=37c7c662131c4f848a08dc5d5b606820",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1086,10 +1066,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1097,38 +1077,21 @@
   "vaRateRecomputed": 1.0
  },
  "boostkit|Ultrascan": {
-  "failedRuns": [
-   {
-    "rn": 321,
-    "rid": "f85457a771e8466f930bfaf2bcba21a9",
-    "status": "FAILED",
-    "start": "11-20 01:00",
-    "startISO": "2026-11-20T01:00:31",
-    "endISO": "2026-11-20T01:02:15",
-    "detailUrl": null,
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b0040d6ccaae48b5b623931d34db5d24&projectId=300059&pipelineRunId=f85457a771e8466f930bfaf2bcba21a9",
-    "dims": [
-     "bs"
-    ],
-    "track": "bs",
-    "ftt": "构建任务",
-    "cached": false
-   }
-  ],
+  "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED",
-    "FAILED"
+    "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 322,
-    "start": "2026-11-20 04:30:31",
-    "end": "2026-11-20 04:37:05",
+    "rn": 328,
+    "start": "2026-11-23 04:30:31",
+    "end": "2026-11-23 04:36:06",
     "status": "COMPLETED",
-    "rid": "a91c3cf30d4d47f8866fb2a8f5e9d124",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b0040d6ccaae48b5b623931d34db5d24&projectId=300059&pipelineRunId=a91c3cf30d4d47f8866fb2a8f5e9d124",
+    "rid": "4a56b9bdb3bd40aa8f4b4969d96e0298",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b0040d6ccaae48b5b623931d34db5d24&projectId=300059&pipelineRunId=4a56b9bdb3bd40aa8f4b4969d96e0298",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1136,17 +1099,17 @@
     "ftt": null
    },
    {
-    "rn": 321,
-    "start": "2026-11-20 01:00:31",
-    "end": "2026-11-20 01:02:15",
-    "status": "FAILED",
-    "rid": "f85457a771e8466f930bfaf2bcba21a9",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b0040d6ccaae48b5b623931d34db5d24&projectId=300059&pipelineRunId=f85457a771e8466f930bfaf2bcba21a9",
+    "rn": 327,
+    "start": "2026-11-23 01:00:31",
+    "end": "2026-11-23 01:06:35",
+    "status": "COMPLETED",
+    "rid": "880c8b347be844b4b33af9866c8ccf03",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b0040d6ccaae48b5b623931d34db5d24&projectId=300059&pipelineRunId=880c8b347be844b4b33af9866c8ccf03",
     "bc": 1,
-    "bpc": 0,
-    "cpr": null,
-    "iva": false,
-    "ftt": "构建任务"
+    "bpc": 1,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
    }
   ],
   "runsInPeriod": 2,
@@ -1156,10 +1119,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1169,18 +1132,18 @@
  "boostkit|KAE": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 371,
-    "start": "2026-11-20 05:00:50",
-    "end": "2026-11-20 05:08:04",
+    "rn": 374,
+    "start": "2026-11-23 05:00:50",
+    "end": "2026-11-23 05:08:44",
     "status": "COMPLETED",
-    "rid": "ef2bd58eace54d218bdb2e277a3f71d3",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=eaf0862dd3f84fc2b51862830d7fe19e&projectId=300059&pipelineRunId=ef2bd58eace54d218bdb2e277a3f71d3",
+    "rid": "024a147cebc244f49ee73457a81020a3",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=eaf0862dd3f84fc2b51862830d7fe19e&projectId=300059&pipelineRunId=024a147cebc244f49ee73457a81020a3",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1195,10 +1158,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1208,18 +1171,18 @@
  "HPCKit|kudnn": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 238,
-    "start": "2026-11-20 03:31:17",
-    "end": "2026-11-20 08:19:12",
+    "rn": 241,
+    "start": "2026-11-23 03:31:18",
+    "end": "2026-11-23 08:08:02",
     "status": "COMPLETED",
-    "rid": "d166ca6c6ec644b1b56901280c1226a7",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ca83efb8c37648db8084e31b1e88b62c&projectId=300073&pipelineRunId=d166ca6c6ec644b1b56901280c1226a7",
+    "rid": "1da2ade50ba54c8e90b7507cb177b5f7",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ca83efb8c37648db8084e31b1e88b62c&projectId=300073&pipelineRunId=1da2ade50ba54c8e90b7507cb177b5f7",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1234,10 +1197,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1247,7 +1210,7 @@
  "HPCKit|kupl": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED",
     "COMPLETED",
     "COMPLETED"
@@ -1255,12 +1218,12 @@
   },
   "runHistory": [
    {
-    "rn": 347,
-    "start": "2026-11-20 13:30:50",
-    "end": "2026-11-20 13:41:34",
+    "rn": 356,
+    "start": "2026-11-23 13:30:50",
+    "end": "2026-11-23 13:41:25",
     "status": "COMPLETED",
-    "rid": "c11c4c877e4d4da7907da0b0ce88d11d",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=c11c4c877e4d4da7907da0b0ce88d11d",
+    "rid": "316bc7bc46f441c8802afe6b372ccd71",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=316bc7bc46f441c8802afe6b372ccd71",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1268,12 +1231,12 @@
     "ftt": null
    },
    {
-    "rn": 346,
-    "start": "2026-11-20 12:00:50",
-    "end": "2026-11-20 12:11:04",
+    "rn": 355,
+    "start": "2026-11-23 12:00:50",
+    "end": "2026-11-23 12:11:35",
     "status": "COMPLETED",
-    "rid": "b9eb37deb87d499fa2993b73bb273102",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=b9eb37deb87d499fa2993b73bb273102",
+    "rid": "dfac0fa40e854108af3cab6f3f842f5b",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=dfac0fa40e854108af3cab6f3f842f5b",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1281,12 +1244,12 @@
     "ftt": null
    },
    {
-    "rn": 345,
-    "start": "2026-11-20 00:01:09",
-    "end": "2026-11-20 00:12:14",
+    "rn": 354,
+    "start": "2026-11-23 00:01:10",
+    "end": "2026-11-23 00:11:55",
     "status": "COMPLETED",
-    "rid": "de5d4cea2d5b471fb0dab8bf6203333e",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=de5d4cea2d5b471fb0dab8bf6203333e",
+    "rid": "3fcae1a25add4712b134ff6dce5f85e4",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ddb211b1e4a74f55a0e604fa95ef469e&projectId=300073&pipelineRunId=3fcae1a25add4712b134ff6dce5f85e4",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1301,10 +1264,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1314,18 +1277,18 @@
  "HPCKit|kuqcd": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 213,
-    "start": "2026-11-20 00:31:54",
-    "end": "2026-11-20 00:35:48",
+    "rn": 216,
+    "start": "2026-11-23 00:31:53",
+    "end": "2026-11-23 00:35:08",
     "status": "COMPLETED",
-    "rid": "ae3347646763401db43568b2258932db",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=eeedf3e4794449969ad6d7f67691d0be&projectId=300073&pipelineRunId=ae3347646763401db43568b2258932db",
+    "rid": "06b38aae57fc4caf93d87c4bd7d0f74a",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=eeedf3e4794449969ad6d7f67691d0be&projectId=300073&pipelineRunId=06b38aae57fc4caf93d87c4bd7d0f74a",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1340,10 +1303,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1353,18 +1316,18 @@
  "HPCKit|kpex": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 153,
-    "start": "2026-11-20 00:41:16",
-    "end": "2026-11-20 00:49:02",
+    "rn": 156,
+    "start": "2026-11-23 00:41:16",
+    "end": "2026-11-23 00:48:31",
     "status": "COMPLETED",
-    "rid": "3c2fe5435d6a474ba211c463d4021771",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=fec036d3c59f4d27bb506138f273f113&projectId=300073&pipelineRunId=3c2fe5435d6a474ba211c463d4021771",
+    "rid": "bacaad7bd21242e18d07d4f49cdec662",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=fec036d3c59f4d27bb506138f273f113&projectId=300073&pipelineRunId=bacaad7bd21242e18d07d4f49cdec662",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1379,10 +1342,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1392,18 +1355,18 @@
  "HPCKit|hmpi": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 224,
-    "start": "2026-11-20 01:01:55",
-    "end": "2026-11-20 01:28:10",
+    "rn": 227,
+    "start": "2026-11-23 01:01:55",
+    "end": "2026-11-23 01:26:40",
     "status": "COMPLETED",
-    "rid": "11b8319a35cd4ed89587f396dbedabdb",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=11b8319a35cd4ed89587f396dbedabdb",
+    "rid": "24cdc78dc8f445edb5fc45f290b53ae1",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=24cdc78dc8f445edb5fc45f290b53ae1",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1418,10 +1381,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1429,140 +1392,6 @@
   "vaRateRecomputed": 1.0
  },
  "MindSpeed|DrivingSDK_master": {
-  "failedRuns": [
-   {
-    "rn": 81,
-    "rid": "d0a3c7422b1349209aaee5d64f70aa53",
-    "status": "FAILED",
-    "start": "11-20 11:46",
-    "startISO": "2026-11-20T11:46:55",
-    "endISO": "2026-11-20T14:11:18",
-    "detailUrl": null,
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=0260b812efd04b0ebf649f3a4c533996&projectId=300091&pipelineRunId=d0a3c7422b1349209aaee5d64f70aa53",
-    "dims": [
-     "va"
-    ],
-    "track": "va",
-    "ftt": "测试任务",
-    "cached": false
-   }
-  ],
-  "days": {
-   "11-20": [
-    "FAILED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 81,
-    "start": "2026-11-20 11:46:55",
-    "end": "2026-11-20 14:11:18",
-    "status": "FAILED",
-    "rid": "d0a3c7422b1349209aaee5d64f70aa53",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=0260b812efd04b0ebf649f3a4c533996&projectId=300091&pipelineRunId=d0a3c7422b1349209aaee5d64f70aa53",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 75,
-    "iva": false,
-    "ftt": "测试任务"
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 0,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 0
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 0,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 0.0
- },
- "MindSpeed|MindSpeed-MM_master": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 110,
-    "start": "2026-11-20 11:46:46",
-    "end": "2026-11-20 13:01:00",
-    "status": "COMPLETED",
-    "rid": "e482fe64ce394ea1aa6bee5333e1d0bb",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=094eb44f70df495783f375641b7143e6&projectId=300091&pipelineRunId=e482fe64ce394ea1aa6bee5333e1d0bb",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindSpeed|master": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 3,
-    "start": "2026-11-20 01:00:17",
-    "end": "2026-11-20 16:57:27",
-    "status": "COMPLETED",
-    "rid": "e154b983ae3b458c969e739d8e1725fa",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=13bb4bd3efa8404e95603f4df277f2f9&projectId=300091&pipelineRunId=e154b983ae3b458c969e739d8e1725fa",
-    "bc": 1,
-    "bpc": 1,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindSpeed|DrivingSDK_master~089fff": {
   "failedRuns": [],
   "days": {},
   "runHistory": [],
@@ -1576,24 +1405,77 @@
   "vaDetailByDay": {},
   "vaRateRecomputed": null
  },
- "MindSpeed|MindSpeed-MM_master~54c470": {
+ "MindSpeed|MindSpeed-MM_master": {
+  "failedRuns": [],
+  "days": {},
+  "runHistory": [],
+  "runsInPeriod": 0,
+  "availDays": 0,
+  "daysInPeriod": 0,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {},
+  "vaDetailByDay": {},
+  "vaRateRecomputed": null
+ },
+ "MindSpeed|master": {
   "failedRuns": [],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 3,
-    "start": "2026-11-20 00:01:56",
-    "end": "2026-11-20 15:04:38",
+    "rn": 6,
+    "start": "2026-11-23 01:01:39",
+    "end": "2026-11-23 03:51:36",
     "status": "COMPLETED",
-    "rid": "e80efb4d03984594a80583efaf450691",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=7b989e3e031749c1a77b15f1d195aedd&projectId=300091&pipelineRunId=e80efb4d03984594a80583efaf450691",
+    "rid": "4e1b0e167ec9491fb7dd13651e1323d6",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=13bb4bd3efa8404e95603f4df277f2f9&projectId=300091&pipelineRunId=4e1b0e167ec9491fb7dd13651e1323d6",
     "bc": 1,
     "bpc": 1,
-    "cpr": 33.33,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 1,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 1
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 1.0
+ },
+ "MindSpeed|DrivingSDK_master~089fff": {
+  "failedRuns": [],
+  "days": {
+   "11-23": [
+    "COMPLETED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 8,
+    "start": "2026-11-23 18:48:07",
+    "end": "2026-11-23 20:39:48",
+    "status": "COMPLETED",
+    "rid": "99247fe86b02492bbe7307daaed9ab3f",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=6ae97566bb274346a7786b07268595ce&projectId=300091&pipelineRunId=99247fe86b02492bbe7307daaed9ab3f",
+    "bc": 4,
+    "bpc": 4,
+    "cpr": 75,
     "iva": false,
     "ftt": null
    }
@@ -1605,162 +1487,31 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 0
+   "11-23": 0
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 0,
     "daysInPeriod": 1
    }
   },
   "vaRateRecomputed": 0.0
  },
- "MindSpeed|MindSpeed-LLM_master": {
+ "MindSpeed|MindSpeed-MM_master~54c470": {
   "failedRuns": [],
   "days": {
-   "11-20": [
-    "COMPLETED",
+   "11-23": [
     "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 90,
-    "start": "2026-11-20 11:46:39",
-    "end": "2026-11-20 12:36:52",
+    "rn": 6,
+    "start": "2026-11-23 00:00:49",
+    "end": "2026-11-23 01:06:00",
     "status": "COMPLETED",
-    "rid": "13c2a69dff674202a2742b62a9922f6a",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b30f40b85cce4153b175379589793abc&projectId=300091&pipelineRunId=13c2a69dff674202a2742b62a9922f6a",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 89,
-    "start": "2026-11-20 00:00:52",
-    "end": "2026-11-20 10:55:52",
-    "status": "COMPLETED",
-    "rid": "a98fe25f4ac04fa8a56688cbc83d86d1",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b30f40b85cce4153b175379589793abc&projectId=300091&pipelineRunId=a98fe25f4ac04fa8a56688cbc83d86d1",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 2,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindSpeed|MindSpeed_master": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 104,
-    "start": "2026-11-20 11:47:02",
-    "end": "2026-11-20 15:23:46",
-    "status": "COMPLETED",
-    "rid": "43fd29e6613941b3acd6a124d5e4299c",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=e12bb930ffe84e3b9258f23c41644b58&projectId=300091&pipelineRunId=43fd29e6613941b3acd6a124d5e4299c",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindSpeed|MindSpeed-A3_master": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 109,
-    "start": "2026-11-20 11:47:13",
-    "end": "2026-11-20 12:36:27",
-    "status": "COMPLETED",
-    "rid": "18c9546335c34f54b2651bee53081005",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=e593e0b8911044b69ce9d1be3c19032a&projectId=300091&pipelineRunId=18c9546335c34f54b2651bee53081005",
-    "bc": 0,
-    "bpc": 0,
-    "cpr": 100,
-    "iva": true,
-    "ftt": null
-   }
-  ],
-  "runsInPeriod": 1,
-  "availDays": 1,
-  "daysInPeriod": 1,
-  "recompute": true,
-  "scheduledOnly": false,
-  "droppedPrRuns": 0,
-  "dayAvail": {
-   "11-20": 1
-  },
-  "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   }
-  },
-  "vaRateRecomputed": 1.0
- },
- "MindSpeed|MindSpeed-A3_master~49873f": {
-  "failedRuns": [],
-  "days": {
-   "11-20": [
-    "COMPLETED"
-   ]
-  },
-  "runHistory": [
-   {
-    "rn": 5,
-    "start": "2026-11-20 00:01:33",
-    "end": "2026-11-20 01:02:28",
-    "status": "COMPLETED",
-    "rid": "da63b55509fb41009cfaf4e9326f56c3",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=f9b23dc845054e8b913875f5dbc76427&projectId=300091&pipelineRunId=da63b55509fb41009cfaf4e9326f56c3",
+    "rid": "280077e63b264e14aa1384feb8452391",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=7b989e3e031749c1a77b15f1d195aedd&projectId=300091&pipelineRunId=280077e63b264e14aa1384feb8452391",
     "bc": 1,
     "bpc": 1,
     "cpr": 100,
@@ -1775,10 +1526,116 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 1.0
+ },
+ "MindSpeed|MindSpeed-LLM_master": {
+  "failedRuns": [],
+  "days": {
+   "11-23": [
+    "COMPLETED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 93,
+    "start": "2026-11-23 00:00:52",
+    "end": "2026-11-23 00:55:06",
+    "status": "COMPLETED",
+    "rid": "1cacb9530aeb4a4e9a1e8c1379d1e19a",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=b30f40b85cce4153b175379589793abc&projectId=300091&pipelineRunId=1cacb9530aeb4a4e9a1e8c1379d1e19a",
+    "bc": 0,
+    "bpc": 0,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 1,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 1
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   }
+  },
+  "vaRateRecomputed": 1.0
+ },
+ "MindSpeed|MindSpeed_master": {
+  "failedRuns": [],
+  "days": {},
+  "runHistory": [],
+  "runsInPeriod": 0,
+  "availDays": 0,
+  "daysInPeriod": 0,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {},
+  "vaDetailByDay": {},
+  "vaRateRecomputed": null
+ },
+ "MindSpeed|MindSpeed-A3_master": {
+  "failedRuns": [],
+  "days": {},
+  "runHistory": [],
+  "runsInPeriod": 0,
+  "availDays": 0,
+  "daysInPeriod": 0,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {},
+  "vaDetailByDay": {},
+  "vaRateRecomputed": null
+ },
+ "MindSpeed|MindSpeed-A3_master~49873f": {
+  "failedRuns": [],
+  "days": {
+   "11-23": [
+    "COMPLETED"
+   ]
+  },
+  "runHistory": [
+   {
+    "rn": 7,
+    "start": "2026-11-23 10:53:23",
+    "end": "2026-11-23 11:41:23",
+    "status": "COMPLETED",
+    "rid": "d07666668301438ea0ddd5f51a0879c8",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=f9b23dc845054e8b913875f5dbc76427&projectId=300091&pipelineRunId=d07666668301438ea0ddd5f51a0879c8",
+    "bc": 1,
+    "bpc": 1,
+    "cpr": 100,
+    "iva": true,
+    "ftt": null
+   }
+  ],
+  "runsInPeriod": 1,
+  "availDays": 1,
+  "daysInPeriod": 1,
+  "recompute": true,
+  "scheduledOnly": false,
+  "droppedPrRuns": 0,
+  "dayAvail": {
+   "11-23": 1
+  },
+  "vaDetailByDay": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1788,32 +1645,18 @@
  "vllm-ascend|a2.yaml": {
   "failedRuns": [],
   "days": {
-   "11-20": [
-    "COMPLETED",
-    "FAILED"
+   "11-23": [
+    "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 15582,
-    "start": "2026-11-20 05:58:53",
-    "end": "2026-11-20 07:15:59",
-    "status": "FAILED",
-    "rid": "44604077021",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664975&projectId=300127&pipelineRunId=44604077021",
-    "bc": null,
-    "bpc": null,
-    "cpr": null,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 15581,
-    "start": "2026-11-19 22:30:01",
-    "end": "2026-11-20 00:39:04",
+    "rn": 15603,
+    "start": "2026-11-22 22:30:01",
+    "end": "2026-11-23 01:36:23",
     "status": "COMPLETED",
-    "rid": "44544394567",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664975&projectId=300127&pipelineRunId=44544394567",
+    "rid": "45033132084",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664975&projectId=300127&pipelineRunId=45033132084",
     "bc": null,
     "bpc": null,
     "cpr": null,
@@ -1821,17 +1664,17 @@
     "ftt": null
    }
   ],
-  "runsInPeriod": 2,
+  "runsInPeriod": 1,
   "availDays": 1,
   "daysInPeriod": 1,
   "recompute": true,
   "scheduledOnly": true,
-  "droppedPrRuns": 9,
+  "droppedPrRuns": 3,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -1839,112 +1682,55 @@
   "vaRateRecomputed": 1.0
  },
  "vllm-ascend|a3.yaml": {
-  "failedRuns": [
-   {
-    "rn": 16615,
-    "rid": "44544400820",
-    "status": "FAILED",
-    "start": "11-19 22:30",
-    "startISO": "2026-11-19T22:30:03",
-    "endISO": "2026-11-20T03:43:53",
-    "detailUrl": "https://github.com/vllm-project/vllm-ascend/actions/runs/44544400820",
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=44544400820",
-    "dims": [
-     "va"
-    ],
-    "track": "va",
-    "ftt": null,
-    "platform": "github",
-    "ghTitle": "Nightly-A3 (scheduled)",
-    "ghEvent": "workflow_dispatch",
-    "ghRepo": "https://github.com/vllm-project/vllm-ascend.git",
-    "ghDuration": 313.83,
-    "cached": false
-   },
-   {
-    "rn": 16616,
-    "rid": "44604083788",
-    "status": "FAILED",
-    "start": "11-20 04:00",
-    "startISO": "2026-11-20T04:00:04",
-    "endISO": "2026-11-20T09:27:41",
-    "detailUrl": "https://github.com/vllm-project/vllm-ascend/actions/runs/44604083788",
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=44604083788",
-    "dims": [
-     "va"
-    ],
-    "track": "va",
-    "ftt": null,
-    "platform": "github",
-    "ghTitle": "Nightly-A3 (scheduled)",
-    "ghEvent": "workflow_dispatch",
-    "ghRepo": "https://github.com/vllm-project/vllm-ascend.git",
-    "ghDuration": 327.62,
-    "cached": false
-   }
-  ],
+  "failedRuns": [],
   "days": {
-   "11-20": [
-    "FAILED",
-    "FAILED"
+   "11-23": [
+    "COMPLETED"
    ]
   },
   "runHistory": [
    {
-    "rn": 16616,
-    "start": "2026-11-20 04:00:04",
-    "end": "2026-11-20 09:27:41",
-    "status": "FAILED",
-    "rid": "44604083788",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=44604083788",
+    "rn": 16650,
+    "start": "2026-11-23 08:58:14",
+    "end": "2026-11-23 10:41:24",
+    "status": "COMPLETED",
+    "rid": "45033134808",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45033134808",
     "bc": null,
     "bpc": null,
     "cpr": null,
-    "iva": false,
-    "ftt": null
-   },
-   {
-    "rn": 16615,
-    "start": "2026-11-19 22:30:03",
-    "end": "2026-11-20 03:43:53",
-    "status": "FAILED",
-    "rid": "44544400820",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=44544400820",
-    "bc": null,
-    "bpc": null,
-    "cpr": null,
-    "iva": false,
+    "iva": true,
     "ftt": null
    }
   ],
-  "runsInPeriod": 2,
-  "availDays": 0,
+  "runsInPeriod": 1,
+  "availDays": 1,
   "daysInPeriod": 1,
   "recompute": true,
   "scheduledOnly": true,
-  "droppedPrRuns": 7,
+  "droppedPrRuns": 12,
   "dayAvail": {
-   "11-20": 0
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 0,
+   "2026-11-23": {
+    "availDays": 1,
     "daysInPeriod": 1
    }
   },
-  "vaRateRecomputed": 0.0
+  "vaRateRecomputed": 1.0
  },
  "Triton_Ascend|Ascend": {
   "failedRuns": [
    {
-    "rn": 138,
-    "rid": "ef5f434b29ea4a949069d5c68c51e281",
+    "rn": 144,
+    "rid": "fed7e370aa9e4b2ebf577049505b3aef",
     "status": "FAILED",
-    "start": "11-20 17:00",
-    "startISO": "2026-11-20T17:00:26",
-    "endISO": "2026-11-20T18:32:16",
+    "start": "11-23 17:00",
+    "startISO": "2026-11-23T17:00:26",
+    "endISO": "2026-11-23T18:17:36",
     "detailUrl": null,
-    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=ef5f434b29ea4a949069d5c68c51e281",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=fed7e370aa9e4b2ebf577049505b3aef",
     "dims": [
      "bs"
     ],
@@ -1954,32 +1740,32 @@
    }
   ],
   "days": {
-   "11-20": [
+   "11-23": [
     "COMPLETED",
     "FAILED"
    ]
   },
   "runHistory": [
    {
-    "rn": 138,
-    "start": "2026-11-20 17:00:26",
-    "end": "2026-11-20 18:32:16",
+    "rn": 144,
+    "start": "2026-11-23 17:00:26",
+    "end": "2026-11-23 18:17:36",
     "status": "FAILED",
-    "rid": "ef5f434b29ea4a949069d5c68c51e281",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=ef5f434b29ea4a949069d5c68c51e281",
+    "rid": "fed7e370aa9e4b2ebf577049505b3aef",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=fed7e370aa9e4b2ebf577049505b3aef",
     "bc": 12,
     "bpc": 12,
-    "cpr": 100,
+    "cpr": null,
     "iva": false,
     "ftt": "测试任务"
    },
    {
-    "rn": 137,
-    "start": "2026-11-20 08:00:40",
-    "end": "2026-11-20 09:22:29",
+    "rn": 143,
+    "start": "2026-11-23 08:00:41",
+    "end": "2026-11-23 09:15:38",
     "status": "COMPLETED",
-    "rid": "dc30d87dd5f74aae9efd5b913362a89a",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=dc30d87dd5f74aae9efd5b913362a89a",
+    "rid": "cb80081970f647d0b956fa7f87692a93",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=9a4886d40e544cecb7da63c9597490a6&projectId=300130&pipelineRunId=cb80081970f647d0b956fa7f87692a93",
     "bc": 12,
     "bpc": 12,
     "cpr": 100,
@@ -1994,10 +1780,10 @@
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 1
   },
   "vaDetailByDay": {
-   "2026-11-20": {
+   "2026-11-23": {
     "availDays": 1,
     "daysInPeriod": 1
    }
@@ -2005,49 +1791,152 @@
   "vaRateRecomputed": 1.0
  },
  "SgLang|nightly-test-npu.yml": {
-  "failedRuns": [],
+  "failedRuns": [
+   {
+    "rn": 2285,
+    "rid": "45041940599",
+    "status": "FAILED",
+    "start": "11-23 00:06",
+    "startISO": "2026-11-23T00:06:13",
+    "endISO": "2026-11-23T05:48:18",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45041940599",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45041940599",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "Nightly Test (NPU)",
+    "ghEvent": "schedule",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 342.08,
+    "cached": false
+   },
+   {
+    "rn": 2289,
+    "rid": "45106760399",
+    "status": "FAILED",
+    "start": "11-23 11:54",
+    "startISO": "2026-11-23T11:54:11",
+    "endISO": "2026-11-23T13:20:51",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45106760399",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45106760399",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+    "ghEvent": "pull_request",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 86.67,
+    "cached": false
+   },
+   {
+    "rn": 2290,
+    "rid": "45125927969",
+    "status": "FAILED",
+    "start": "11-23 14:42",
+    "startISO": "2026-11-23T14:42:31",
+    "endISO": "2026-11-23T14:42:31",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45125927969",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45125927969",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+    "ghEvent": "pull_request",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 0,
+    "cached": false
+   },
+   {
+    "rn": 2291,
+    "rid": "45127118972",
+    "status": "FAILED",
+    "start": "11-23 14:52",
+    "startISO": "2026-11-23T14:52:43",
+    "endISO": "2026-11-23T14:52:43",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45127118972",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45127118972",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+    "ghEvent": "pull_request",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 0,
+    "cached": false
+   },
+   {
+    "rn": 2292,
+    "rid": "45131706165",
+    "status": "FAILED",
+    "start": "11-23 16:11",
+    "startISO": "2026-11-23T16:11:35",
+    "endISO": "2026-11-23T17:52:00",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45131706165",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45131706165",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+    "ghEvent": "pull_request",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 100.42,
+    "cached": false
+   },
+   {
+    "rn": 2295,
+    "rid": "45166773023",
+    "status": "FAILED",
+    "start": "11-23 19:36",
+    "startISO": "2026-11-23T19:36:50",
+    "endISO": "2026-11-23T19:36:50",
+    "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45166773023",
+    "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45166773023",
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "ftt": null,
+    "platform": "github",
+    "ghTitle": "[CI] [NPU] test: deepssekV4 flash testcase",
+    "ghEvent": "pull_request",
+    "ghRepo": "https://github.com/sgl-project/sglang.git",
+    "ghDuration": 0,
+    "cached": false
+   }
+  ],
   "days": {
-   "11-20": [
-    "COMPLETED",
-    "COMPLETED",
+   "11-23": [
+    "FAILED",
+    "FAILED",
+    "FAILED",
+    "FAILED",
     "FAILED",
     "FAILED"
    ]
   },
   "runHistory": [
    {
-    "rn": 2280,
-    "start": "2026-11-20 17:18:32",
-    "end": "2026-11-20 18:17:49",
-    "status": "COMPLETED",
-    "rid": "44709606913",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=44709606913",
-    "bc": null,
-    "bpc": null,
-    "cpr": null,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 2279,
-    "start": "2026-11-20 16:08:57",
-    "end": "2026-11-20 17:02:38",
-    "status": "COMPLETED",
-    "rid": "44700244447",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=44700244447",
-    "bc": null,
-    "bpc": null,
-    "cpr": null,
-    "iva": true,
-    "ftt": null
-   },
-   {
-    "rn": 2278,
-    "start": "2026-11-20 15:43:32",
-    "end": "2026-11-20 15:50:16",
+    "rn": 2295,
+    "start": "2026-11-23 19:36:50",
+    "end": "2026-11-23 19:36:50",
     "status": "FAILED",
-    "rid": "44697071563",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=44697071563",
+    "rid": "45166773023",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45166773023",
     "bc": null,
     "bpc": null,
     "cpr": null,
@@ -2055,12 +1944,64 @@
     "ftt": null
    },
    {
-    "rn": 2277,
-    "start": "2026-11-20 00:06:48",
-    "end": "2026-11-20 06:13:28",
+    "rn": 2292,
+    "start": "2026-11-23 16:11:35",
+    "end": "2026-11-23 17:52:00",
     "status": "FAILED",
-    "rid": "44562390109",
-    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=44562390109",
+    "rid": "45131706165",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45131706165",
+    "bc": null,
+    "bpc": null,
+    "cpr": null,
+    "iva": false,
+    "ftt": null
+   },
+   {
+    "rn": 2291,
+    "start": "2026-11-23 14:52:43",
+    "end": "2026-11-23 14:52:43",
+    "status": "FAILED",
+    "rid": "45127118972",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45127118972",
+    "bc": null,
+    "bpc": null,
+    "cpr": null,
+    "iva": false,
+    "ftt": null
+   },
+   {
+    "rn": 2290,
+    "start": "2026-11-23 14:42:31",
+    "end": "2026-11-23 14:42:31",
+    "status": "FAILED",
+    "rid": "45125927969",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45125927969",
+    "bc": null,
+    "bpc": null,
+    "cpr": null,
+    "iva": false,
+    "ftt": null
+   },
+   {
+    "rn": 2289,
+    "start": "2026-11-23 11:54:11",
+    "end": "2026-11-23 13:20:51",
+    "status": "FAILED",
+    "rid": "45106760399",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45106760399",
+    "bc": null,
+    "bpc": null,
+    "cpr": null,
+    "iva": false,
+    "ftt": null
+   },
+   {
+    "rn": 2285,
+    "start": "2026-11-23 00:06:13",
+    "end": "2026-11-23 05:48:18",
+    "status": "FAILED",
+    "rid": "45041940599",
+    "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45041940599",
     "bc": null,
     "bpc": null,
     "cpr": null,
@@ -2068,26 +2009,26 @@
     "ftt": null
    }
   ],
-  "runsInPeriod": 4,
-  "availDays": 1,
+  "runsInPeriod": 6,
+  "availDays": 0,
   "daysInPeriod": 1,
   "recompute": true,
   "scheduledOnly": false,
   "droppedPrRuns": 0,
   "dayAvail": {
-   "11-20": 1
+   "11-23": 0
   },
   "vaDetailByDay": {
-   "2026-11-20": {
-    "availDays": 1,
+   "2026-11-23": {
+    "availDays": 0,
     "daysInPeriod": 1
    }
   },
-  "vaRateRecomputed": 1.0
+  "vaRateRecomputed": 0.0
  },
  "_meta": {
   "workdays": [
-   "2026-11-20"
+   "2026-11-23"
   ],
   "workdayCount": 1,
   "skippedNonWorkdayRuns": 0,

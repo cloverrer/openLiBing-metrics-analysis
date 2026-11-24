@@ -1,0 +1,472 @@
+﻿2026-11-22T16:06:21.9215153Z Current runner version: '2.338.2'
+2026-11-22T16:06:21.9242794Z ##[group]Runner Image Provisioner
+2026-11-22T16:06:21.9243792Z Hosted Compute Agent
+2026-11-22T16:06:21.9244418Z Version: 20261111.635
+2026-11-22T16:06:21.9245081Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-22T16:06:21.9245961Z Build Date: 2026-11-11T01:49:01Z
+2026-11-22T16:06:21.9246684Z Worker ID: {79b6360c-174c-49c7-96cb-147464cc3daa}
+2026-11-22T16:06:21.9247912Z Region: northcentralus
+2026-11-22T16:06:21.9248863Z Cloud: Azure
+2026-11-22T16:06:21.9249609Z ##[endgroup]
+2026-11-22T16:06:21.9252176Z ##[group]Operating System
+2026-11-22T16:06:21.9252894Z Ubuntu
+2026-11-22T16:06:21.9253542Z 26.04.1
+2026-11-22T16:06:21.9254275Z LTS
+2026-11-22T16:06:21.9254993Z ##[endgroup]
+2026-11-22T16:06:21.9255907Z ##[group]Runner Image
+2026-11-22T16:06:21.9256778Z Image: ubuntu-26.04
+2026-11-22T16:06:21.9257828Z Version: 20261116.202.1
+2026-11-22T16:06:21.9259960Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-22T16:06:21.9262966Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-22T16:06:21.9264579Z ##[endgroup]
+2026-11-22T16:06:21.9266530Z ##[group]GITHUB_TOKEN Permissions
+2026-11-22T16:06:21.9270022Z Contents: read
+2026-11-22T16:06:21.9271065Z Metadata: read
+2026-11-22T16:06:21.9271967Z Packages: read
+2026-11-22T16:06:21.9272725Z ##[endgroup]
+2026-11-22T16:06:21.9277493Z Secret source: Actions
+2026-11-22T16:06:21.9278919Z Cache mode: write
+2026-11-22T16:06:21.9280341Z Prepare workflow directory
+2026-11-22T16:06:21.9989485Z Prepare all required actions
+2026-11-22T16:06:22.0061912Z Getting action download info
+2026-11-22T16:06:22.2161553Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-22T16:06:22.4386783Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-22T16:06:22.5242371Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-22T16:06:22.7118460Z Uses: sgl-project/sglang/.github/workflows/_pr-test-sgl-router-build.yml@refs/heads/main (cb337923d576f48a4accba439af9cfbc9b720a2c)
+2026-11-22T16:06:22.7124221Z ##[group] Inputs
+2026-11-22T16:06:22.7124775Z   runs_on: ubuntu-22.04-arm
+2026-11-22T16:06:22.7125371Z   artifact_name: sgl-router-aarch64-nightly-npu
+2026-11-22T16:06:22.7125995Z   git_ref: 
+2026-11-22T16:06:22.7126422Z ##[endgroup]
+2026-11-22T16:06:22.7127002Z Complete job name: sgl-router-build-aarch64 / Restore sgl-router
+2026-11-22T16:06:22.7922114Z ##[group]Run actions/checkout@v4
+2026-11-22T16:06:22.7922953Z with:
+2026-11-22T16:06:22.7923449Z   ref: cb337923d576f48a4accba439af9cfbc9b720a2c
+2026-11-22T16:06:22.7924183Z   sparse-checkout: sgl-router
+rust
+.github
+scripts/ci/utils
+
+2026-11-22T16:06:22.7924877Z   sparse-checkout-cone-mode: false
+2026-11-22T16:06:22.7925442Z   repository: sgl-project/sglang
+2026-11-22T16:06:22.7929443Z   token: ***
+2026-11-22T16:06:22.7929923Z   ssh-strict: true
+2026-11-22T16:06:22.7930382Z   ssh-user: git
+2026-11-22T16:06:22.7930848Z   persist-credentials: true
+2026-11-22T16:06:22.7931346Z   clean: true
+2026-11-22T16:06:22.7931775Z   fetch-depth: 1
+2026-11-22T16:06:22.7932217Z   fetch-tags: false
+2026-11-22T16:06:22.7932668Z   show-progress: true
+2026-11-22T16:06:22.7933117Z   lfs: false
+2026-11-22T16:06:22.7933542Z   submodules: false
+2026-11-22T16:06:22.7934009Z   set-safe-directory: true
+2026-11-22T16:06:22.7934517Z   allow-unsafe-pr-checkout: false
+2026-11-22T16:06:22.7935239Z env:
+2026-11-22T16:06:22.7935721Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:22.7936283Z ##[endgroup]
+2026-11-22T16:06:23.2483093Z Syncing repository: sgl-project/sglang
+2026-11-22T16:06:23.2485273Z ##[group]Getting Git version info
+2026-11-22T16:06:23.2486049Z Working directory is '/home/runner/work/sglang/sglang'
+2026-11-22T16:06:23.2487387Z [command]/usr/bin/git version
+2026-11-22T16:06:23.2497793Z git version 2.56.1
+2026-11-22T16:06:23.2515328Z ##[endgroup]
+2026-11-22T16:06:23.2534306Z Temporarily overriding HOME='/home/runner/work/_temp/f2b840b3-96d1-4c13-91ac-89c956703a25' before making global git config changes
+2026-11-22T16:06:23.2536340Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-22T16:06:23.2538834Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sglang/sglang
+2026-11-22T16:06:23.2603421Z Deleting the contents of '/home/runner/work/sglang/sglang'
+2026-11-22T16:06:23.2607745Z ##[group]Initializing the repository
+2026-11-22T16:06:23.2611557Z [command]/usr/bin/git init /home/runner/work/sglang/sglang
+2026-11-22T16:06:23.2815106Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-22T16:06:23.2816858Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-22T16:06:23.2818093Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-22T16:06:23.2818850Z hint: call:
+2026-11-22T16:06:23.2819317Z hint:
+2026-11-22T16:06:23.2819834Z hint: 	git config --global init.defaultBranch <name>
+2026-11-22T16:06:23.2820473Z hint:
+2026-11-22T16:06:23.2821075Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-22T16:06:23.2822025Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-22T16:06:23.2822783Z hint:
+2026-11-22T16:06:23.2823211Z hint: 	git branch -m <name>
+2026-11-22T16:06:23.2823698Z hint:
+2026-11-22T16:06:23.2824353Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-22T16:06:23.2827655Z Initialized empty Git repository in /home/runner/work/sglang/sglang/.git/
+2026-11-22T16:06:23.2839310Z [command]/usr/bin/git remote add origin https://github.com/sgl-project/sglang
+2026-11-22T16:06:23.2920643Z ##[endgroup]
+2026-11-22T16:06:23.2921502Z ##[group]Disabling automatic garbage collection
+2026-11-22T16:06:23.2923765Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-22T16:06:23.2955185Z ##[endgroup]
+2026-11-22T16:06:23.2955918Z ##[group]Setting up auth
+2026-11-22T16:06:23.2961595Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-22T16:06:23.2995644Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-22T16:06:23.3577901Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-22T16:06:23.3612140Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-22T16:06:23.3899645Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-22T16:06:23.3934280Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-22T16:06:23.4218958Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-22T16:06:23.4258001Z ##[endgroup]
+2026-11-22T16:06:23.4259222Z ##[group]Fetching the repository
+2026-11-22T16:06:23.4269704Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin cb337923d576f48a4accba439af9cfbc9b720a2c
+2026-11-22T16:06:23.7715055Z From https://github.com/sgl-project/sglang
+2026-11-22T16:06:23.7716491Z  * branch            cb337923d576f48a4accba439af9cfbc9b720a2c -> FETCH_HEAD
+2026-11-22T16:06:23.7720759Z ##[endgroup]
+2026-11-22T16:06:23.7722192Z ##[group]Determining the checkout info
+2026-11-22T16:06:23.7723719Z ##[endgroup]
+2026-11-22T16:06:23.7725024Z ##[group]Setting up sparse checkout
+2026-11-22T16:06:23.7728404Z [command]/usr/bin/git config core.sparseCheckout true
+2026-11-22T16:06:23.7765816Z [command]/usr/bin/git rev-parse --git-path info/sparse-checkout
+2026-11-22T16:06:23.7789239Z .git/info/sparse-checkout
+2026-11-22T16:06:23.7798353Z ##[endgroup]
+2026-11-22T16:06:23.7800378Z ##[group]Checking out the ref
+2026-11-22T16:06:23.7812208Z [command]/usr/bin/git checkout --progress --force cb337923d576f48a4accba439af9cfbc9b720a2c
+2026-11-22T16:06:25.3049023Z Updating files:   0% (1/828)
+2026-11-22T16:06:25.3054479Z Updating files:   1% (9/828)
+2026-11-22T16:06:25.3060367Z Updating files:   2% (17/828)
+2026-11-22T16:06:25.3068121Z Updating files:   3% (25/828)
+2026-11-22T16:06:25.3073157Z Updating files:   4% (34/828)
+2026-11-22T16:06:25.3078269Z Updating files:   5% (42/828)
+2026-11-22T16:06:25.3082427Z Updating files:   6% (50/828)
+2026-11-22T16:06:25.3089145Z Updating files:   7% (58/828)
+2026-11-22T16:06:25.3097788Z Updating files:   8% (67/828)
+2026-11-22T16:06:25.3103595Z Updating files:   9% (75/828)
+2026-11-22T16:06:25.3112566Z Updating files:  10% (83/828)
+2026-11-22T16:06:25.3120380Z Updating files:  11% (92/828)
+2026-11-22T16:06:25.3125842Z Updating files:  12% (100/828)
+2026-11-22T16:06:25.3130657Z Updating files:  13% (108/828)
+2026-11-22T16:06:25.3135811Z Updating files:  14% (116/828)
+2026-11-22T16:06:25.3141315Z Updating files:  15% (125/828)
+2026-11-22T16:06:25.3147003Z Updating files:  16% (133/828)
+2026-11-22T16:06:25.3152851Z Updating files:  17% (141/828)
+2026-11-22T16:06:25.3166507Z Updating files:  18% (150/828)
+2026-11-22T16:06:25.3203695Z Updating files:  19% (158/828)
+2026-11-22T16:06:25.3217493Z Updating files:  20% (166/828)
+2026-11-22T16:06:25.3226583Z Updating files:  21% (174/828)
+2026-11-22T16:06:25.3233993Z Updating files:  22% (183/828)
+2026-11-22T16:06:25.3241650Z Updating files:  23% (191/828)
+2026-11-22T16:06:25.3246858Z Updating files:  24% (199/828)
+2026-11-22T16:06:25.3253173Z Updating files:  25% (207/828)
+2026-11-22T16:06:25.3259698Z Updating files:  26% (216/828)
+2026-11-22T16:06:25.3268613Z Updating files:  27% (224/828)
+2026-11-22T16:06:25.3278737Z Updating files:  28% (232/828)
+2026-11-22T16:06:25.3286548Z Updating files:  29% (241/828)
+2026-11-22T16:06:25.3292414Z Updating files:  30% (249/828)
+2026-11-22T16:06:25.3298193Z Updating files:  31% (257/828)
+2026-11-22T16:06:25.3305296Z Updating files:  32% (265/828)
+2026-11-22T16:06:25.3311658Z Updating files:  33% (274/828)
+2026-11-22T16:06:25.3328086Z Updating files:  34% (282/828)
+2026-11-22T16:06:25.3359281Z Updating files:  35% (290/828)
+2026-11-22T16:06:25.3370031Z Updating files:  36% (299/828)
+2026-11-22T16:06:25.3381529Z Updating files:  37% (307/828)
+2026-11-22T16:06:25.3386927Z Updating files:  38% (315/828)
+2026-11-22T16:06:25.3397749Z Updating files:  39% (323/828)
+2026-11-22T16:06:25.3422906Z Updating files:  40% (332/828)
+2026-11-22T16:06:25.3445853Z Updating files:  41% (340/828)
+2026-11-22T16:06:25.3454509Z Updating files:  42% (348/828)
+2026-11-22T16:06:25.3468077Z Updating files:  43% (357/828)
+2026-11-22T16:06:25.3475473Z Updating files:  44% (365/828)
+2026-11-22T16:06:25.3489923Z Updating files:  45% (373/828)
+2026-11-22T16:06:25.3497833Z Updating files:  46% (381/828)
+2026-11-22T16:06:25.3508287Z Updating files:  47% (390/828)
+2026-11-22T16:06:25.3524104Z Updating files:  48% (398/828)
+2026-11-22T16:06:25.3533056Z Updating files:  49% (406/828)
+2026-11-22T16:06:25.3542414Z Updating files:  50% (414/828)
+2026-11-22T16:06:25.3551939Z Updating files:  51% (423/828)
+2026-11-22T16:06:25.3565512Z Updating files:  52% (431/828)
+2026-11-22T16:06:25.3578946Z Updating files:  53% (439/828)
+2026-11-22T16:06:25.3584305Z Updating files:  54% (448/828)
+2026-11-22T16:06:25.3596106Z Updating files:  55% (456/828)
+2026-11-22T16:06:25.3601214Z Updating files:  56% (464/828)
+2026-11-22T16:06:25.3613005Z Updating files:  57% (472/828)
+2026-11-22T16:06:25.3622110Z Updating files:  58% (481/828)
+2026-11-22T16:06:25.3626161Z Updating files:  59% (489/828)
+2026-11-22T16:06:25.3639503Z Updating files:  60% (497/828)
+2026-11-22T16:06:25.3654064Z Updating files:  61% (506/828)
+2026-11-22T16:06:25.3747749Z Updating files:  62% (514/828)
+2026-11-22T16:06:25.3753664Z Updating files:  63% (522/828)
+2026-11-22T16:06:25.3762299Z Updating files:  64% (530/828)
+2026-11-22T16:06:25.3770576Z Updating files:  65% (539/828)
+2026-11-22T16:06:25.3786939Z Updating files:  66% (547/828)
+2026-11-22T16:06:25.3795993Z Updating files:  67% (555/828)
+2026-11-22T16:06:25.3803983Z Updating files:  68% (564/828)
+2026-11-22T16:06:25.3812996Z Updating files:  69% (572/828)
+2026-11-22T16:06:25.3819150Z Updating files:  70% (580/828)
+2026-11-22T16:06:25.3829919Z Updating files:  71% (588/828)
+2026-11-22T16:06:25.3840814Z Updating files:  72% (597/828)
+2026-11-22T16:06:25.3853113Z Updating files:  73% (605/828)
+2026-11-22T16:06:25.3863053Z Updating files:  74% (613/828)
+2026-11-22T16:06:25.3870572Z Updating files:  75% (621/828)
+2026-11-22T16:06:25.3882436Z Updating files:  76% (630/828)
+2026-11-22T16:06:25.3895895Z Updating files:  77% (638/828)
+2026-11-22T16:06:25.3914014Z Updating files:  78% (646/828)
+2026-11-22T16:06:25.3925281Z Updating files:  79% (655/828)
+2026-11-22T16:06:25.3936313Z Updating files:  80% (663/828)
+2026-11-22T16:06:25.3942170Z Updating files:  81% (671/828)
+2026-11-22T16:06:25.3948006Z Updating files:  82% (679/828)
+2026-11-22T16:06:25.3955048Z Updating files:  83% (688/828)
+2026-11-22T16:06:25.3963136Z Updating files:  84% (696/828)
+2026-11-22T16:06:25.3969728Z Updating files:  85% (704/828)
+2026-11-22T16:06:25.3974419Z Updating files:  86% (713/828)
+2026-11-22T16:06:25.3978276Z Updating files:  87% (721/828)
+2026-11-22T16:06:25.3983928Z Updating files:  88% (729/828)
+2026-11-22T16:06:25.3988808Z Updating files:  89% (737/828)
+2026-11-22T16:06:25.3992198Z Updating files:  90% (746/828)
+2026-11-22T16:06:25.3996751Z Updating files:  91% (754/828)
+2026-11-22T16:06:25.4005205Z Updating files:  92% (762/828)
+2026-11-22T16:06:25.4012305Z Updating files:  93% (771/828)
+2026-11-22T16:06:25.4019749Z Updating files:  94% (779/828)
+2026-11-22T16:06:25.4028363Z Updating files:  95% (787/828)
+2026-11-22T16:06:25.4035309Z Updating files:  96% (795/828)
+2026-11-22T16:06:25.4041547Z Updating files:  97% (804/828)
+2026-11-22T16:06:25.4051331Z Updating files:  98% (812/828)
+2026-11-22T16:06:25.4058323Z Updating files:  99% (820/828)
+2026-11-22T16:06:25.4059112Z Updating files: 100% (828/828)
+2026-11-22T16:06:25.4059750Z Updating files: 100% (828/828), done.
+2026-11-22T16:06:25.4183191Z Note: switching to 'cb337923d576f48a4accba439af9cfbc9b720a2c'.
+2026-11-22T16:06:25.4183655Z 
+2026-11-22T16:06:25.4184038Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-22T16:06:25.4184835Z changes and commit them, and you can discard any commits you make in this
+2026-11-22T16:06:25.4185890Z state without impacting any branches by switching back to a branch.
+2026-11-22T16:06:25.4186342Z 
+2026-11-22T16:06:25.4186745Z If you want to create a new branch to retain commits you create, you may
+2026-11-22T16:06:25.4187775Z do so (now or later) by using -c with the switch command. Example:
+2026-11-22T16:06:25.4270848Z 
+2026-11-22T16:06:25.4271300Z   git switch -c <new-branch-name>
+2026-11-22T16:06:25.4271824Z 
+2026-11-22T16:06:25.4272237Z Or undo this operation with:
+2026-11-22T16:06:25.4272576Z 
+2026-11-22T16:06:25.4272907Z   git switch -
+2026-11-22T16:06:25.4273262Z 
+2026-11-22T16:06:25.4273757Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-22T16:06:25.4274279Z 
+2026-11-22T16:06:25.4274788Z HEAD is now at cb33792 [Feat] glm5_next: Support LayerNorm sequence parallelism (#50906)
+2026-11-22T16:06:25.4276566Z ##[endgroup]
+2026-11-22T16:06:25.4277877Z [command]/usr/bin/git log -1 --format=%H
+2026-11-22T16:06:25.4287386Z cb337923d576f48a4accba439af9cfbc9b720a2c
+2026-11-22T16:06:25.4716831Z Prepare all required actions
+2026-11-22T16:06:25.4717859Z Getting action download info
+2026-11-22T16:06:25.5533873Z Download action repository 'actions/github-script@v8' (SHA:ed597411d8f924073f98dfc5c65a23a2325f34cd)
+2026-11-22T16:06:25.7696281Z ##[group]Run ./.github/actions/check-maintenance
+2026-11-22T16:06:25.7696848Z with:
+2026-11-22T16:06:25.7699742Z   github-token: ***
+2026-11-22T16:06:25.7700415Z env:
+2026-11-22T16:06:25.7700854Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:25.7701358Z ##[endgroup]
+2026-11-22T16:06:25.7762868Z ##[start-action display=Check maintenance mode;id=__self.__actions_github-script]
+2026-11-22T16:06:25.7836563Z ##[group]Run actions/github-script@v8
+2026-11-22T16:06:25.7837315Z with:
+2026-11-22T16:06:25.7840127Z   github-token: ***
+2026-11-22T16:06:25.7840574Z   retries: 2
+2026-11-22T16:06:25.7858427Z   script: const MAINTENANCE_ISSUE = 21065;
+const { owner, repo } = context.repo;
+const issueUrl = `https://github.com/${owner}/${repo}/issues/${MAINTENANCE_ISSUE}`;
+
+// Bound each attempt, including retries and pagination, to 30 seconds.
+// Keep the runner's proxy-aware fetch and create a fresh signal per attempt.
+const fetch = github.request.endpoint.DEFAULTS.request.fetch;
+const request = {
+  fetch: (url, options) => fetch(url, {
+    ...options,
+    signal: AbortSignal.timeout(30_000),
+  }),
+};
+
+async function block(lines) {
+  const msg = lines.join('\n');
+  await core.summary.addRaw(msg + '\n').write();
+  core.setFailed(msg);
+}
+
+// PR Test workflow only: scheduled runs and runs on main (dispatch / workflow_call) set this env
+if (process.env.PR_TEST_BYPASS_MAINTENANCE_ON_MAIN === 'true') {
+  core.info('✅ PR Test on main branch; bypassing maintenance gate.');
+  return;
+}
+
+// Fail-open only when the API call itself fails after retries;
+// CI proceeds with a warning (outage, missing token scope).
+let issue;
+try {
+  ({ data: issue } = await github.rest.issues.get({ owner, repo, issue_number: MAINTENANCE_ISSUE, request }));
+} catch (e) {
+  core.warning(`Could not fetch issue #${MAINTENANCE_ISSUE} (${e.status ?? e.message}); fail-open, proceeding with CI.`);
+  return;
+}
+const issueOpen = issue.state === 'open';
+const body = (issue.body || '').replace(/\r/g, '');
+core.info(`DEBUG: ISSUE_STATE=${issue.state}  body_length=${body.length}`);
+
+// First matching `MIN_BASE_SHA: <sha>` line wins; it is enforced
+// whether the issue is open or closed.
+let minBaseSha = '';
+const directive = body.split('\n')
+  .map(line => line.match(/^\s*`?MIN_BASE_SHA`?\s*[:=]\s*(.*)$/i))
+  .find(Boolean);
+if (directive) {
+  const value = directive[1].replace(/`/g, '').trim().split(/\s+/)[0] || '';
+  if (/^[0-9a-f]{7,40}$/i.test(value)) {
+    minBaseSha = value;
+  } else {
+    const warn = `⚠️  Ignoring malformed MIN_BASE_SHA directive in issue #${MAINTENANCE_ISSUE}: '${value}' (must be 7-40 hex chars)`;
+    core.warning(warn);
+    await core.summary.addRaw(warn + '\n').write();
+  }
+}
+core.info(`DEBUG: MIN_BASE_SHA=${minBaseSha || '(none)'}`);
+
+// If neither gate is active (no MIN_BASE_SHA, issue not open), nothing to do.
+if (!minBaseSha && !issueOpen) {
+  core.info('✅ Maintenance mode is OFF and no MIN_BASE_SHA directive. Proceeding with CI.');
+  return;
+}
+
+const pr = context.payload.pull_request;
+
+// Read labels live; the event payload is frozen at the first attempt,
+// so a rerun would miss a bypass-maintenance label added since.
+if (pr) {
+  let labels = [];
+  try {
+    labels = await github.paginate(github.rest.issues.listLabelsOnIssue.defaults({ request }),
+      { owner, repo, issue_number: pr.number, per_page: 100 });
+  } catch (e) {
+    core.warning(`Could not read labels of PR #${pr.number} (${e.status ?? e.message}); assuming no bypass label.`);
+  }
+  if (labels.some(l => l.name === 'bypass-maintenance')) {
+    core.info(`✅ PR #${pr.number} has 'bypass-maintenance' label. Bypassing maintenance + rebase checks.`);
+    return;
+  }
+}
+
+// Rebase-required gate (independent of issue open/closed state).
+if (minBaseSha) {
+  if (!pr?.number || !pr?.head?.sha) {
+    core.info('✅ Not a PR context; skipping rebase check.');
+  } else {
+    // Compare status is "ahead"/"identical" when MIN_BASE_SHA is reachable from PR head.
+    let status = 'UNKNOWN';
+    try {
+      ({ data: { status } } = await github.rest.repos.compareCommitsWithBasehead(
+        { owner, repo, basehead: `${minBaseSha}...${pr.head.sha}`, per_page: 1, request }));
+    } catch (e) {
+      core.warning(`Compare API failed (${e.status ?? e.message}).`);
+    }
+    if (status === 'ahead' || status === 'identical') {
+      core.info(`✅ PR #${pr.number} contains required base ${minBaseSha.slice(0, 12)} (${status}).`);
+    } else if (status === 'UNKNOWN') {
+      core.warning('Could not determine rebase status via GitHub API; fail-open, allowing rebase check to pass.');
+    } else {
+      await block([
+        '## ⚠️ Rebase Required Before CI Can Run',
+        'A major update has landed on `main`. All PRs must rebase onto the latest `main` before CI will run.',
+        `Required base commit: \`${minBaseSha.slice(0, 12)}\` (your PR is \`${status}\` relative to this commit).`,
+        '',
+        'What should you do?',
+        '- Rebase your branch onto the latest `main` and push again',
+        `- Follow CI Maintenance Mode issue: ${issueUrl} for context`,
+        '- CI-fix PRs may request the `bypass-maintenance` label to skip this check',
+      ]);
+      return;
+    }
+  }
+}
+
+// Full-pause maintenance gate (only when issue is open).
+if (issueOpen) {
+  await block([
+    '## ⚠️ CI Maintenance Mode is Active',
+    'The CI infrastructure is currently under maintenance.',
+    'All PR CI runs are paused until maintenance is complete.',
+    '**Merging non-CI-fix PRs is prohibited during maintenance mode.** In severe cases, merge permissions may be revoked.',
+    'You might also experience unexpected failures during this period.',
+    'The team is working on the issue and will update the status as soon as possible.',
+    '',
+    'What should you do?',
+    '- **Do NOT merge non-CI-fix PRs** until maintenance mode is lifted',
+    '- Check back later (~12 hours)',
+    `- Follow CI Maintenance Mode issue: ${issueUrl} for status updates`,
+  ]);
+  return;
+}
+
+core.info('✅ Rebase check passed; full-pause not active. Proceeding with CI.');
+
+2026-11-22T16:06:25.7885661Z   debug: false
+2026-11-22T16:06:25.7886114Z   user-agent: actions/github-script
+2026-11-22T16:06:25.7886606Z   result-encoding: json
+2026-11-22T16:06:25.7887481Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-22T16:06:25.7888048Z env:
+2026-11-22T16:06:25.7888486Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:25.7888977Z ##[endgroup]
+2026-11-22T16:06:25.8707013Z ✅ PR Test on main branch; bypassing maintenance gate.
+2026-11-22T16:06:25.8791681Z ##[end-action id=__self.__actions_github-script;outcome=success;conclusion=success;duration_ms=102]
+2026-11-22T16:06:26.1948663Z ##[group]Run actions/cache/restore@v4
+2026-11-22T16:06:26.1949203Z with:
+2026-11-22T16:06:26.1949617Z   path: sgl-router-bin/sgl-router
+2026-11-22T16:06:26.1950292Z   key: sgl-router-aarch64-f83898828bf6ee0512b7c33a7bed4702db02cfd34dc9ef701fe0c5f6cfe58850
+2026-11-22T16:06:26.1950981Z   enableCrossOsArchive: false
+2026-11-22T16:06:26.1951432Z   fail-on-cache-miss: false
+2026-11-22T16:06:26.1951860Z   lookup-only: false
+2026-11-22T16:06:26.1952261Z env:
+2026-11-22T16:06:26.1952666Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:26.1953128Z ##[endgroup]
+2026-11-22T16:06:26.3040352Z (node:2427) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-22T16:06:26.3041988Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-22T16:06:26.4297044Z Cache hit for: sgl-router-aarch64-f83898828bf6ee0512b7c33a7bed4702db02cfd34dc9ef701fe0c5f6cfe58850
+2026-11-22T16:06:26.4405309Z (node:2427) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-22T16:06:26.9540117Z Received 14580809 of 14580809 (100.0%), 33.8 MBs/sec
+2026-11-22T16:06:26.9541484Z Cache Size: ~14 MB (14580809 B)
+2026-11-22T16:06:26.9578561Z [command]/usr/bin/tar -xf /home/runner/work/_temp/4d77d959-32f0-4c5b-82cb-9357352e37ee/cache.tzst -P -C /home/runner/work/sglang/sglang --use-compress-program unzstd
+2026-11-22T16:06:27.0569042Z Cache restored successfully
+2026-11-22T16:06:27.0752251Z Cache restored from key: sgl-router-aarch64-f83898828bf6ee0512b7c33a7bed4702db02cfd34dc9ef701fe0c5f6cfe58850
+2026-11-22T16:06:27.0982494Z ##[group]Run actions/upload-artifact@v4
+2026-11-22T16:06:27.0982810Z with:
+2026-11-22T16:06:27.0983059Z   name: sgl-router-aarch64-nightly-npu
+2026-11-22T16:06:27.0983367Z   path: sgl-router-bin/sgl-router
+2026-11-22T16:06:27.0983643Z   if-no-files-found: error
+2026-11-22T16:06:27.0983891Z   retention-days: 1
+2026-11-22T16:06:27.0984135Z   compression-level: 6
+2026-11-22T16:06:27.0984394Z   overwrite: false
+2026-11-22T16:06:27.0984641Z   include-hidden-files: false
+2026-11-22T16:06:27.0984891Z env:
+2026-11-22T16:06:27.0985120Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:27.0985414Z ##[endgroup]
+2026-11-22T16:06:27.2772744Z (node:2444) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-22T16:06:27.2774051Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-22T16:06:27.2820794Z With the provided path, there will be 1 file uploaded
+2026-11-22T16:06:27.2825968Z Artifact name is valid!
+2026-11-22T16:06:27.2826777Z Root directory input is valid!
+2026-11-22T16:06:27.5332953Z Beginning upload of artifact content to blob storage
+2026-11-22T16:06:28.1254840Z (node:2444) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-22T16:06:28.4972511Z Uploaded bytes 8388608
+2026-11-22T16:06:28.9671403Z Uploaded bytes 16590151
+2026-11-22T16:06:28.9990881Z Finished uploading artifact content to blob storage!
+2026-11-22T16:06:28.9992148Z SHA256 digest of uploaded artifact zip is 0ba2d3fa8e803b931896e4c95b3ad25168f723ab6d9dd3df558afb55559024f2
+2026-11-22T16:06:28.9993436Z Finalizing artifact upload
+2026-11-22T16:06:29.3468222Z Artifact sgl-router-aarch64-nightly-npu.zip successfully finalized. Artifact ID 14762191104
+2026-11-22T16:06:29.3469690Z Artifact sgl-router-aarch64-nightly-npu has been successfully uploaded! Final size is 16590151 bytes. Artifact ID is 14762191104
+2026-11-22T16:06:29.3475395Z Artifact download URL: https://github.com/sgl-project/sglang/actions/runs/45041940599/artifacts/14762191104
+2026-11-22T16:06:29.3697769Z ##[group]Run echo "name=sgl-router-aarch64-nightly-npu" >> "$GITHUB_OUTPUT"
+2026-11-22T16:06:29.3698397Z [36;1mecho "name=sgl-router-aarch64-nightly-npu" >> "$GITHUB_OUTPUT"[0m
+2026-11-22T16:06:29.3738903Z shell: /usr/bin/bash -e {0}
+2026-11-22T16:06:29.3739188Z env:
+2026-11-22T16:06:29.3739432Z   PR_TEST_BYPASS_MAINTENANCE_ON_MAIN: true
+2026-11-22T16:06:29.3739737Z ##[endgroup]
+2026-11-22T16:06:29.3911680Z Post job cleanup.
+2026-11-22T16:06:29.4753198Z [command]/usr/bin/git version
+2026-11-22T16:06:29.4792253Z git version 2.56.1
+2026-11-22T16:06:29.4827929Z Temporarily overriding HOME='/home/runner/work/_temp/0ae5ce08-f105-4c36-a638-a7edb5e67f1c' before making global git config changes
+2026-11-22T16:06:29.4829207Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-22T16:06:29.4833794Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/sglang/sglang
+2026-11-22T16:06:29.4871893Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-22T16:06:29.4906750Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-22T16:06:29.5225480Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-22T16:06:29.5251589Z http.https://github.com/.extraheader
+2026-11-22T16:06:29.5262726Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-22T16:06:29.5296096Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-22T16:06:29.5641030Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-22T16:06:29.5675694Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-22T16:06:29.6144024Z Evaluate and set job outputs
+2026-11-22T16:06:29.6149936Z Set output 'hit'
+2026-11-22T16:06:29.6151709Z Set output 'key'
+2026-11-22T16:06:29.6152504Z Set output 'artifact_name'
+2026-11-22T16:06:29.6153151Z Cleaning up orphan processes
+2026-11-22T16:06:29.6542095Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache/restore@v4, actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

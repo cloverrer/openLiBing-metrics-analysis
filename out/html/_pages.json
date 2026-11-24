@@ -5,17 +5,17 @@
   "source": "out/archive/（_index.json / _day.json / pipeline.json）",
   "criteria": "只产出静态壳（样式 + 公共日期筛选组件 + 取数脚本）到 out/html/，HTML 内不内嵌任何业务数据；页面运行时按【执行结束时间】区间读取归档 JSON，首页与二级页共用 lib/ui.py 的同一份筛选组件，口径不会分叉",
   "dateField": "pipelineRunEndtime",
-  "generatedAt": "2026-11-23 09:19:59",
+  "generatedAt": "2026-11-24 09:19:29",
   "files": [
    "index.html",
    "detail.html"
   ],
-  "dayCount": 9
+  "dayCount": 10
  },
- "generatedAt": "2026-11-23 09:19:59",
- "dayCount": 9,
+ "generatedAt": "2026-11-24 09:19:29",
+ "dayCount": 10,
  "firstDay": "2026-11-10",
- "lastDay": "2026-11-20",
+ "lastDay": "2026-11-23",
  "shell": {
   "title": "流水线失败原因智能定位定界",
   "subtitle": "夜间流水线失败根因 · 口径：执行结束时间",
@@ -98,11 +98,11 @@
  "filesWritten": [
   {
    "file": "index.html",
-   "bytes": 73711
+   "bytes": 73725
   },
   {
    "file": "detail.html",
-   "bytes": 136073
+   "bytes": 136087
   }
  ]
 }

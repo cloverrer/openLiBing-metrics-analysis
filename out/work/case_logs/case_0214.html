@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py::TestMsserviceprofilerVllmTrochprofilerCollect01::test_msserviceprofiler_vllm_trochprofiler_collect_01</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py::TestMsserviceprofilerVllmTrochprofilerCollect01::test_msserviceprofiler_vllm_trochprofiler_collect_01</h2>
+        <p><strong>Case ID:</strong> testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py::TestMsserviceprofilerVllmTrochprofilerCollect01::test_msserviceprofiler_vllm_trochprofiler_collect_01</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 130.85s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 187</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-23 01:08:35.151</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;mindstudio_single_device_8_a2a3_env_type-nodes_A2-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 64, &#39;npu_gen&#39;: &#39;A2&#39;, &#39;npu_model&#39;: &#39;Ascend 910B3&#39;, &#39;npu_num&#39;: 8, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;mount_source_data&#39;: [&#39;mindstudio_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/autotest&#39;], &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;48&#39;, &#39;limit&#39;: &#39;128&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;256Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;memory_size&#39;: 1024, &#39;pool&#39;: &#39;ascend-general-a2&#39;, &#39;env&#39;: {&#39;LD_LIBRARY_PATH&#39;: &#39;/usr/lib64/:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/driver/lib64/common:/usr/lib/aarch64-linux-gnu/:&#39;}}, {&#39;name&#39;: &#39;mindstudio_single_device_8_a2a3_env_type-nodes_A3-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 64, &#39;npu_gen&#39;: &#39;A3&#39;, &#39;npu_model&#39;: &#39;Ascend 910C&#39;, &#39;npu_num&#39;: 16, &#39;shm_size&#39;: &#39;720Gi&#39;, &#39;mount_source_data&#39;: [&#39;mindstudio_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/autotest&#39;], &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;48&#39;, &#39;limit&#39;: &#39;128&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;256Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;memory_size&#39;: 1024, &#39;pool&#39;: &#39;ascend-general-a3&#39;, &#39;env&#39;: {&#39;LD_LIBRARY_PATH&#39;: &#39;/usr/lib64/:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/driver/lib64/common:/usr/lib/aarch64-linux-gnu/:&#39;}}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:35.152</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>plugin.py:391</td>
+            <td><div class="msg-scroll">pre_action_registry has no actions registered</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.230</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.231</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip  Phy-ID              | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     Ascend910           | OK            | 165.8                44                      0    / 0                |
+| 0     0                   | 0000:9D:00.0  | 0                    0    / 0                3154 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 0     Ascend910           | OK            | -                    42                      0    / 0                |
+| 1     1                   | 0000:9F:00.0  | 0                    0    / 0                2901 / 65536            |
++===========================+===============+======================================================================+
+| 1     Ascend910           | OK            | 166.7                43                      0    / 0                |
+| 0     2                   | 0000:99:00.0  | 0                    0    / 0                3147 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 1     Ascend910           | OK            | -                    43                      0    / 0                |
+| 1     3                   | 0000:9B:00.0  | 0                    0    / 0                2902 / 65536            |
++===========================+===============+======================================================================+
+| 2     Ascend910           | OK            | 174.3                51                      0    / 0                |
+| 0     4                   | 0000:95:00.0  | 0                    0    / 0                3160 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 2     Ascend910           | OK            | -                    50                      0    / 0                |
+| 1     5                   | 0000:97:00.0  | 0                    0    / 0                2891 / 65536            |
++===========================+===============+======================================================================+
+| 3     Ascend910           | OK            | 164.4                51                      0    / 0                |
+| 0     6                   | 0000:91:00.0  | 0                    0    / 0                3148 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 3     Ascend910           | OK            | -                    50                      0    / 0                |
+| 1     7                   | 0000:93:00.0  | 0                    0    / 0                2904 / 65536            |
++===========================+===============+======================================================================+
+| 4     Ascend910           | OK            | 163.6                44                      0    / 0                |
+| 0     8                   | 0000:8D:00.0  | 0                    0    / 0                3163 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 4     Ascend910           | OK            | -                    44                      0    / 0                |
+| 1     9                   | 0000:8F:00.0  | 0                    0    / 0                2902 / 65536            |
++===========================+===============+======================================================================+
+| 5     Ascend910           | OK            | 163.2                43                      0    / 0                |
+| 0     10                  | 0000:89:00.0  | 0                    0    / 0                3175 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 5     Ascend910           | OK            | -                    43                      0    / 0                |
+| 1     11                  | 0000:8B:00.0  | 0                    0    / 0                2887 / 65536            |
++===========================+===============+======================================================================+
+| 6     Ascend910           | OK            | 167.9                49                      0    / 0                |
+| 0     12                  | 0000:85:00.0  | 0                    0    / 0                3168 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 6     Ascend910           | OK            | -                    50                      0    / 0                |
+| 1     13                  | 0000:87:00.0  | 0                    0    / 0                2897 / 65536            |
++===========================+===============+======================================================================+
+| 7     Ascend910           | OK            | 178.8                51                      0    / 0                |
+| 0     14                  | 0000:81:00.0  | 0                    0    / 0                3167 / 65536            |
++------------------------------------------------------------------------------------------------------------------+
+| 7     Ascend910           | OK            | -                    51                      0    / 0                |
+| 1     15                  | 0000:83:00.0  | 0                    0    / 0                2901 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 0                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 2                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 3                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 5                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.234</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.234</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.234</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;165.8&#39;, &#39;temp_c&#39;: &#39;44&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;1&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;166.7&#39;, &#39;temp_c&#39;: &#39;43&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;174.3&#39;, &#39;temp_c&#39;: &#39;51&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;3&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;164.4&#39;, &#39;temp_c&#39;: &#39;51&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;4&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;163.6&#39;, &#39;temp_c&#39;: &#39;44&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;5&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;163.2&#39;, &#39;temp_c&#39;: &#39;43&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;6&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;167.9&#39;, &#39;temp_c&#39;: &#39;49&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;Ascend910&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;178.8&#39;, &#39;temp_c&#39;: &#39;51&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.235</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.235</td>
+            <td class='INFO'>INFO</td>
+            <td>281473393537056</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-23 01:08:36.236</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473393537056</td>
+            <td>_execution.py:45</td>
+            <td><div class="msg-scroll">testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py::TestMsserviceprofilerVllmTrochprofilerCollect01::test_msserviceprofiler_vllm_trochprofiler_collect_01</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-23 01:08:36.236</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473393537056</td>
+            <td>python.py:167</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- VAR DEFINE --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-1">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:70</td>
+                <td class="step-indent"><div class="msg-scroll">用例参数: container=tangtao_vllm_smoke profiler_step_num=100</div></td>
+            </tr>
+        <tr class="step-success">
+            <td>2026-11-23 01:08:36.236</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473393537056</td>
+            <td>python.py:167</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- ENV INIT --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:27</td>
+                <td class="step-indent"><div class="msg-scroll">初始化Process管理类</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:102</td>
+                <td class="step-indent"><div class="msg-scroll">停止残留vLLM进程</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:91</td>
+                <td class="step-indent"><div class="msg-scroll">按rank停止进程: [4, 5, 6, 7]</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.236</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 4 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.274</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.354</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.354</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.355</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.355</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 5 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.355</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.355</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 6 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.437</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 7 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:96</td>
+                <td class="step-indent"><div class="msg-scroll">进程停止完成</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:104</td>
+                <td class="step-indent"><div class="msg-scroll">初始化vLLM测试环境</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:109</td>
+                <td class="step-indent"><div class="msg-scroll">设置vLLM环境</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.514</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:112</td>
+                <td class="step-indent"><div class="msg-scroll">清理残留vLLM进程释放NPU显存</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.612</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pkill -f &#39;vllm.entrypoints.openai.api_server&#39; 2&gt;/dev/null; sleep 10; true</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.613</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.613</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:118</td>
+                <td class="step-indent"><div class="msg-scroll">设置环境变量</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.739</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.740</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.821</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export SERVICE_PROF_CONFIG_PATH=/data/ms_service_profiler_config.json</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.821</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.902</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export ASCEND_RT_VISIBLE_DEVICES=4,5,6,7</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.902</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:36.902</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:123</td>
+                <td class="step-indent"><div class="msg-scroll">清理落盘文件</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.003</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">find /home/autotest/msit_test/service -mindepth 1 -maxdepth 1 -type d -name &#39;env-*&#39; -mtime +7 -exec rm -rf {} + 2&gt;/dev/null; true</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.003</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.099</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">mkdir -p &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.100</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.100</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:419</td>
+                <td class="step-indent"><div class="msg-scroll">检查路径是否存在: /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/, 搜索关键字: None, 递归: False</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.197</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -e &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/&#39; &amp;&amp; echo &#39;exists&#39; || echo &#39;not_exists&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.197</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">not_exists</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.197</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:427</td>
+                <td class="step-indent"><div class="msg-scroll">路径不存在: /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.198</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:419</td>
+                <td class="step-indent"><div class="msg-scroll">检查路径是否存在: /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result, 搜索关键字: None, 递归: False</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.278</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -e &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39; &amp;&amp; echo &#39;exists&#39; || echo &#39;not_exists&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.278</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">exists</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.278</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:425</td>
+                <td class="step-indent"><div class="msg-scroll">路径存在: /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.369</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -e &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39; &amp;&amp; echo &#39;exists&#39; || echo &#39;not_exists&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.369</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">exists</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.461</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">rm -rf &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.461</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">mkdir -p &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:133</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM环境设置完成</div></td>
+            </tr>
+        <tr class="step-success">
+            <td>2026-11-23 01:08:37.548</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473393537056</td>
+            <td>python.py:167</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TC EXECUTE --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:109</td>
+                <td class="step-indent"><div class="msg-scroll">启动vLLM服务</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:174</td>
+                <td class="step-indent"><div class="msg-scroll">启动vLLM服务, 最大重试次数=3</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:37.548</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:181</td>
+                <td class="step-indent"><div class="msg-scroll">第1/3次尝试启动vLLM服务</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:37.674</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh;export SERVICE_PROF_CONFIG_PATH=/data/ms_service_profiler_config.json;export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7;cd /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/ &amp;&amp; ( PYTHONUNBUFFERED=1 nohup python -m vllm.entrypoints.openai.api_server --model /home/autotest/model_data/Qwen3_14B --tensor-parallel-size=8 --host=127.0.0.1 --port=8080 --trust-remote-code --trust-request-chat-template --gpu-memory-utilization 0.85 --max-num-batched-tokens 2048 --max-model-len 8192 --enforce-eager &gt; log.log 2&gt;&amp;1 &amp; echo $! )</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:37.674</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">12404</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.675</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:198</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM进程ID: 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.714</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">kill -0 12404 2&gt;/dev/null &amp;&amp; echo alive || echo dead</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.714</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">alive</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.714</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:222</td>
+                <td class="step-indent"><div class="msg-scroll">检查服务日志关键字: &#39;Started server process&#39;, 超时=600s, 间隔=100s</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.795</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/log.log</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.795</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
+  warnings.warn(&#39;resource_tracker: There appear to be %d &#39;
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 9 leaked shared_memory objects to clean up at shutdown
+  warnings.warn(&#39;resource_tracker: There appear to be %d &#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:08:38.854</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:237</td>
+                <td class="step-indent"><div class="msg-scroll">第1次检查未找到关键字，等待100秒后重试</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:18.987</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/log.log</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:18.988</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">INFO 11-23 01:11:39 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:11:39 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:11:39 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:11:39 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:11:39 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+2026-11-23 01:11:44,594 - 12404 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:11:44,594 - 12404 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:11:44,598 12404 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:11:44,598 - 12404 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:11:44,608 - 12404 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:11:44,676 - 12404 - ServiceProfiler - INFO - Applying 3 prepared hooks...
+2026-11-23 01:11:44,676 - 12404 - ServiceProfiler - INFO - Successfully applied 3 hooks
+2026-11-23 01:11:44,676 - 12404 - ServiceProfiler - INFO - Successfully enabled 3 hooks
+[msservice_profiler] [PID:12404] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:12404] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:11:44,679 - 12404 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:11:44,679 - 12404 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[2026-11-23 01:11:46,560 12404 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:11:46,561 12404 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:11:46,561 12404 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:11:46,561 12404 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:11:46,561 12404 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:11:46,561 12404 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:11:46,562 12404 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:11:46,562 12404 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:11:46,562 12404 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:11:46,562 12404 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:11:46,563 12404 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:11:46,578 12404 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:11:46,578 12404 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:11:46,578 12404 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:11:46,599 12404 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:11:46,599 12404 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:11:46,599 12404 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:11:46,599 12404 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:11:46,599 12404 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:11:46,599 12404 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:11:46 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:11:46 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339] 
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339]        █     █     █▄   ▄█
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.23.0
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339]   █▄█▀ █     █     █     █  model   /home/autotest/model_data/Qwen3_14B
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:339] 
+(APIServer pid=12404) INFO 11-23 01:11:46 [api_utils.py:273] non-default args: {&#39;trust_request_chat_template&#39;: True, &#39;host&#39;: &#39;127.0.0.1&#39;, &#39;port&#39;: 8080, &#39;model&#39;: &#39;/home/autotest/model_data/Qwen3_14B&#39;, &#39;trust_remote_code&#39;: True, &#39;max_model_len&#39;: 8192, &#39;enforce_eager&#39;: True, &#39;tensor_parallel_size&#39;: 8, &#39;gpu_memory_utilization&#39;: 0.85, &#39;max_num_batched_tokens&#39;: 2048}
+(APIServer pid=12404) INFO 11-23 01:11:46 [model.py:611] Resolved architecture: Qwen3ForCausalLM
+(APIServer pid=12404) INFO 11-23 01:11:46 [model.py:1745] Using max model len 8192
+(APIServer pid=12404) INFO 11-23 01:11:46 [vllm.py:999] Asynchronous scheduling is enabled.
+(APIServer pid=12404) WARNING 11-23 01:11:46 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(APIServer pid=12404) WARNING 11-23 01:11:46 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(APIServer pid=12404) INFO 11-23 01:11:46 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
+(APIServer pid=12404) INFO 11-23 01:11:46 [vllm.py:1273] Cudagraph is disabled under eager mode
+(APIServer pid=12404) INFO 11-23 01:11:46 [utils.py:174] No quantization signature detected from model files for &quot;/home/autotest/model_data/Qwen3_14B&quot;. The model will be loaded as float. To force a quantization method, pass &quot;--quantization &lt;method&gt;&quot; explicitly.
+(APIServer pid=12404) WARNING 11-23 01:11:46 [platform.py:1067] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+(APIServer pid=12404) INFO 11-23 01:11:46 [platform.py:1277] The <span style="color:#F44336;font-weight:bold">timeout</span> interval of the HCCL operator is 1836s. <span style="color:#F44336;font-weight:bold">Timeout</span> in seconds for execute_model RPC calls in multiprocessing must be greater than 1836s, Set VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=3000
+(APIServer pid=12404) INFO 11-23 01:11:46 [ascend_config.py:893] Dynamic EPLB is False
+(APIServer pid=12404) INFO 11-23 01:11:46 [ascend_config.py:894] The number of redundant experts is 0
+(APIServer pid=12404) INFO 11-23 01:11:46 [platform.py:528] Compilation disabled, using eager mode by default
+(APIServer pid=12404) INFO 11-23 01:11:46 [utils.py:1404] Block size is set to 128 if prefix cache or chunked prefill is enabled.
+(APIServer pid=12404) INFO 11-23 01:11:46 [platform.py:790] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(APIServer pid=12404) INFO 11-23 01:11:46 [compilation.py:321] Enabled custom fusions: norm_quant, act_quant
+INFO 11-23 01:11:55 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:11:55 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:11:55 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:11:55 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:11:55 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+(EngineCore pid=12796) 2026-11-23 01:12:01,056 - 12796 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+(EngineCore pid=12796) 2026-11-23 01:12:01,056 - 12796 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+(EngineCore pid=12796) [2026-11-23 01:12:01,059 12796 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+(EngineCore pid=12796) 2026-11-23 01:12:01,059 - 12796 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+(EngineCore pid=12796) 2026-11-23 01:12:01,070 - 12796 - ServiceProfiler - INFO - Enabling profiler hooks...
+(EngineCore pid=12796) 2026-11-23 01:12:01,146 - 12796 - ServiceProfiler - INFO - Applying 11 prepared hooks...
+(EngineCore pid=12796) 2026-11-23 01:12:01,147 - 12796 - ServiceProfiler - INFO - Successfully applied 11 hooks
+(EngineCore pid=12796) 2026-11-23 01:12:01,147 - 12796 - ServiceProfiler - INFO - Successfully enabled 11 hooks
+[msservice_profiler] [PID:12796] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:12796] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+(EngineCore pid=12796) 2026-11-23 01:12:01,150 - 12796 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+(EngineCore pid=12796) 2026-11-23 01:12:01,150 - 12796 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+(EngineCore pid=12796) `Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(EngineCore pid=12796) [2026-11-23 01:12:02,306 12796 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+(EngineCore pid=12796) [2026-11-23 01:12:02,307 12796 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+(EngineCore pid=12796) [2026-11-23 01:12:02,307 12796 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+(EngineCore pid=12796) [2026-11-23 01:12:02,307 12796 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+(EngineCore pid=12796) [2026-11-23 01:12:02,307 12796 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+(EngineCore pid=12796) [2026-11-23 01:12:02,308 12796 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+(EngineCore pid=12796) [2026-11-23 01:12:02,308 12796 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+(EngineCore pid=12796) [2026-11-23 01:12:02,308 12796 ms_service_metric.symbol_config] INFO Loading configuration...
+(EngineCore pid=12796) [2026-11-23 01:12:02,308 12796 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+(EngineCore pid=12796) [2026-11-23 01:12:02,308 12796 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+(EngineCore pid=12796) [2026-11-23 01:12:02,309 12796 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+(EngineCore pid=12796) [2026-11-23 01:12:02,324 12796 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+(EngineCore pid=12796) [2026-11-23 01:12:02,324 12796 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+(EngineCore pid=12796) [2026-11-23 01:12:02,324 12796 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+(EngineCore pid=12796) [2026-11-23 01:12:02,344 12796 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+(EngineCore pid=12796) [2026-11-23 01:12:02,345 12796 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+(EngineCore pid=12796) [2026-11-23 01:12:02,345 12796 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+(EngineCore pid=12796) [2026-11-23 01:12:02,345 12796 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+(EngineCore pid=12796) [2026-11-23 01:12:02,345 12796 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+(EngineCore pid=12796) [2026-11-23 01:12:02,345 12796 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+(EngineCore pid=12796) INFO 11-23 01:12:02 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+(EngineCore pid=12796) INFO 11-23 01:12:02 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+(EngineCore pid=12796) INFO 11-23 01:12:02 [core.py:113] Initializing a V1 LLM engine (v0.23.0) with config: model=&#39;/home/autotest/model_data/Qwen3_14B&#39;, speculative_config=None, tokenizer=&#39;/home/autotest/model_data/Qwen3_14B&#39;, skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=8, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=True, quantization=None, quantization_config=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=npu, structured_outputs_config=StructuredOutputsConfig(backend=&#39;auto&#39;, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=&#39;&#39;, reasoning_parser_plugin=&#39;&#39;, enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=/home/autotest/model_data/Qwen3_14B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={&#39;mode&#39;: &lt;CompilationMode.NONE: 0&gt;, &#39;debug_dump_path&#39;: None, &#39;cache_dir&#39;: &#39;&#39;, &#39;compile_cache_save_format&#39;: &#39;binary&#39;, &#39;backend&#39;: &#39;vllm_ascend.compilation.compiler_interface.AscendCompiler&#39;, &#39;custom_ops&#39;: [&#39;all&#39;], &#39;ir_enable_torch_wrap&#39;: False, &#39;splitting_ops&#39;: [], &#39;compile_mm_encoder&#39;: False, &#39;cudagraph_mm_encoder&#39;: False, &#39;encoder_cudagraph_token_budgets&#39;: [], &#39;encoder_cudagraph_max_vision_items_per_batch&#39;: 0, &#39;encoder_cudagraph_max_frames_per_batch&#39;: None, &#39;compile_sizes&#39;: [], &#39;compile_ranges_endpoints&#39;: [2048], &#39;inductor_compile_config&#39;: {&#39;enable_auto_functionalized_v2&#39;: False, &#39;size_asserts&#39;: False, &#39;alignment_asserts&#39;: False, &#39;scalar_asserts&#39;: False, &#39;combo_kernels&#39;: True, &#39;benchmark_combo_kernel&#39;: True}, &#39;inductor_passes&#39;: {}, &#39;cudagraph_mode&#39;: &lt;CUDAGraphMode.NONE: 0&gt;, &#39;cudagraph_num_of_warmups&#39;: 1, &#39;cudagraph_capture_sizes&#39;: [], &#39;cudagraph_copy_inputs&#39;: False, &#39;cudagraph_specialize_lora&#39;: True, &#39;use_inductor_graph_partition&#39;: False, &#39;pass_config&#39;: {&#39;fuse_norm_quant&#39;: True, &#39;fuse_act_quant&#39;: True, &#39;fuse_attn_quant&#39;: False, &#39;enable_sp&#39;: False, &#39;fuse_gemm_comms&#39;: False, &#39;fuse_allreduce_rms&#39;: False, &#39;fuse_rope_kvcache_cat_mla&#39;: False, &#39;fuse_act_padding&#39;: False}, &#39;max_cudagraph_capture_size&#39;: 0, &#39;dynamic_shapes_config&#39;: {&#39;type&#39;: &lt;DynamicShapesType.BACKED: &#39;backed&#39;&gt;, &#39;evaluate_guards&#39;: False, &#39;assume_32_bit_indexing&#39;: False}, &#39;local_cache_dir&#39;: None, &#39;fast_moe_cold_start&#39;: True, &#39;static_all_moe_layers&#39;: []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;]), enable_flashinfer_autotune=True, moe_backend=&#39;auto&#39;, linear_backend=&#39;auto&#39;)
+(EngineCore pid=12796) WARNING 11-23 01:12:02 [multiproc_executor.py:1054] Reducing Torch parallelism from 640 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+(EngineCore pid=12796) INFO 11-23 01:12:02 [multiproc_executor.py:140] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.244.22.96 (local), world_size=8, local_world_size=8
+INFO 11-23 01:12:08 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:08 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:08 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:08 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:08 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:08 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:08 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:08 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:08 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:08 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:08 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:08 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:08 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:08 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:08 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:08 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:08 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:08 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:08 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:08 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:09 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:09 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:09 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:09 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:09 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:09 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:09 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:09 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:09 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:09 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:09 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:09 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:09 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:09 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:09 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+INFO 11-23 01:12:09 [__init__.py:44] Available plugins for group vllm.platform_plugins:
+INFO 11-23 01:12:09 [__init__.py:46] - ascend -&gt; vllm_ascend:register
+INFO 11-23 01:12:09 [__init__.py:49] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-23 01:12:09 [__init__.py:238] Platform plugin ascend is activated
+INFO 11-23 01:12:09 [platform.py:62] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+2026-11-23 01:12:13,757 - 13089 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:13,757 - 13089 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:13,761 13089 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:13,761 - 13089 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:13,771 - 13089 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:13,839 - 13089 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:13,840 - 13089 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:13,840 - 13089 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13089] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13089] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:13,842 - 13089 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:13,842 - 13089 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:14,042 - 13084 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:14,042 - 13084 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:14,045 13084 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:14,045 - 13084 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:14,055 - 13084 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:14,124 - 13084 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:14,124 - 13084 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:14,124 - 13084 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13084] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13084] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:14,127 - 13084 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:14,127 - 13084 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:14,723 - 13090 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:14,723 - 13090 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:14,727 13090 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:14,727 - 13090 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:14,737 - 13090 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:14,785 - 13088 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:14,785 - 13088 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:14,788 13088 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:14,788 - 13088 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:14,791 - 13087 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:14,791 - 13087 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:14,794 13087 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:14,795 - 13087 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:14,798 - 13088 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:14,805 - 13087 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:14,805 - 13090 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:14,805 - 13090 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:14,805 - 13090 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13090] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13090] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:14,808 - 13090 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:14,808 - 13090 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:14,866 - 13088 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:14,866 - 13088 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:14,867 - 13088 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13088] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13088] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:14,870 - 13088 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:14,870 - 13088 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:14,874 - 13087 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:14,875 - 13087 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:14,875 - 13087 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13087] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13087] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:14,878 - 13087 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:14,878 - 13087 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:14,902 - 13085 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:14,902 - 13085 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:14,906 13085 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:14,906 - 13085 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:14,916 - 13085 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:14,983 - 13085 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:14,984 - 13085 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:14,984 - 13085 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13085] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13085] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:14,987 - 13085 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:14,987 - 13085 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:15,370 - 13086 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:15,371 - 13086 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+[2026-11-23 01:12:15,374 13086 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:15,374 - 13086 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+2026-11-23 01:12:15,382 - 13091 - ServiceProfiler - WARNING - Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+2026-11-23 01:12:15,382 - 13091 - ServiceProfiler - INFO - Prometheus multiproc dir: None
+2026-11-23 01:12:15,384 - 13086 - ServiceProfiler - INFO - Enabling profiler hooks...
+[2026-11-23 01:12:15,386 13091 ms_service_metric.symbol_watcher] INFO SymbolWatcher started
+2026-11-23 01:12:15,386 - 13091 - ServiceProfiler - INFO - Loading vLLM profiling symbols from: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_profiler/patcher/vllm/config/service_profiling_symbols.yaml
+2026-11-23 01:12:15,396 - 13091 - ServiceProfiler - INFO - Enabling profiler hooks...
+2026-11-23 01:12:15,452 - 13086 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:15,453 - 13086 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:15,453 - 13086 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13086] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13086] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:15,456 - 13086 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:15,456 - 13086 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+2026-11-23 01:12:15,464 - 13091 - ServiceProfiler - INFO - Applying 6 prepared hooks...
+2026-11-23 01:12:15,464 - 13091 - ServiceProfiler - INFO - Successfully applied 6 hooks
+2026-11-23 01:12:15,464 - 13091 - ServiceProfiler - INFO - Successfully enabled 6 hooks
+[msservice_profiler] [PID:13091] [INFO] [ParseEnable:367] profile enable_: false
+[msservice_profiler] [PID:13091] [INFO] [ParseMetricEnable:388] profile metric_enable_: false
+2026-11-23 01:12:15,467 - 13091 - ServiceProfiler - INFO - Successfully registered VLLM profiler callbacks (dynamic mode)
+2026-11-23 01:12:15,467 - 13091 - ServiceProfiler - INFO - Hooks will be enabled/disabled automatically by profiler start/stop signals
+[2026-11-23 01:12:15,518 13089 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:15,519 13089 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:15,520 13089 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:15,520 13089 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:15,520 13089 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:15,520 13089 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:15,520 13089 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:15,521 13089 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:15,521 13089 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:15,521 13089 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:15,522 13089 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:15,537 13089 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:15,537 13089 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:15,537 13089 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:15,558 13089 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:15,558 13089 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:15,558 13089 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:15,558 13089 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:15,558 13089 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:15,558 13089 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:15 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:15 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+INFO 11-23 01:12:15 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:15 [ascend_config.py:894] The number of redundant experts is 0
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[2026-11-23 01:12:16,279 13084 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:16,280 13084 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:16,280 13084 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:16,280 13084 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:16,280 13084 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:16,281 13084 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:16,281 13084 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:16,281 13084 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:16,281 13084 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:16,281 13084 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:16,283 13084 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,297 13084 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,297 13084 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:16,297 13084 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,318 13084 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:16,319 13084 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:16,319 13084 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:16,319 13084 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:16,319 13084 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:16,319 13084 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+INFO 11-23 01:12:16 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:16 [ascend_config.py:894] The number of redundant experts is 0
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[2026-11-23 01:12:16,575 13090 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:16,576 13090 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:16,577 13090 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:16,577 13090 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:16,577 13090 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:16,577 13090 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:16,577 13090 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:16,577 13090 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:16,578 13090 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:16,578 13090 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:16,579 13090 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+[2026-11-23 01:12:16,593 13090 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,594 13090 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:16,594 13090 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,606 13088 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:16,607 13088 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:16,608 13088 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:16,608 13088 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:16,608 13088 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:16,608 13088 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:16,609 13088 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:16,609 13088 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:16,609 13088 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:16,609 13088 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:16,610 13088 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,614 13090 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:16,615 13090 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:16,615 13090 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:16,615 13090 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:16,615 13090 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:16,615 13090 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+[2026-11-23 01:12:16,626 13088 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,626 13088 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:16,626 13088 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,637 13087 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:16,638 13087 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:16,638 13087 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:16,638 13087 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:16,639 13087 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:16,639 13087 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:16,639 13087 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:16,639 13087 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:16,639 13087 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:16,639 13087 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:16,641 13087 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,649 13088 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:16,649 13088 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:16,649 13088 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:16,649 13088 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:16,649 13088 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:16,649 13088 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+[2026-11-23 01:12:16,655 13087 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,655 13087 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:16,655 13087 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,676 13087 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:16,676 13087 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:16,676 13087 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:16,676 13087 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:16,676 13087 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:16,676 13087 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:16 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:16 [ascend_config.py:894] The number of redundant experts is 0
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+[2026-11-23 01:12:16,722 13085 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:16,723 13085 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:16,723 13085 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:16,723 13085 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:16,723 13085 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:16,724 13085 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+INFO 11-23 01:12:16 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:16 [ascend_config.py:894] The number of redundant experts is 0
+[2026-11-23 01:12:16,724 13085 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:16,724 13085 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:16,724 13085 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:16,724 13085 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:16,726 13085 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,740 13085 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:16,740 13085 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:16,740 13085 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+INFO 11-23 01:12:16 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:16 [ascend_config.py:894] The number of redundant experts is 0
+[2026-11-23 01:12:16,761 13085 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:16,761 13085 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:16,761 13085 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:16,761 13085 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:16,761 13085 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:16,761 13085 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:16 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+INFO 11-23 01:12:16 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:16 [ascend_config.py:894] The number of redundant experts is 0
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+`Qwen2VLImageProcessorFast` is deprecated. The `Fast` suffix for image processors has been removed; use `Qwen2VLImageProcessor` instead.
+(Worker pid=13089) INFO 11-23 01:12:17 [parallel_state.py:1568] world_size=8 rank=5 local_rank=5 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+[2026-11-23 01:12:17,187 13091 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:17,188 13091 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:17,188 13091 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:17,188 13091 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:17,188 13091 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:17,189 13091 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:17,189 13091 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:17,189 13091 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:17,189 13091 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:17,189 13091 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:17,191 13091 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,205 13091 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,205 13091 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:17,205 13091 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,208 13086 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Initializing VLLMMetricAdapter
+[2026-11-23 01:12:17,209 13086 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO Detected vLLM version: 0.23.0+empty
+[2026-11-23 01:12:17,210 13086 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Setting up vLLM metrics...
+[2026-11-23 01:12:17,210 13086 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] WARNING Missing environment variable &#39;PROMETHEUS_MULTIPROC_DIR&#39; will result in partial metrics loss. You are advised to run &#39;export PROMETHEUS_MULTIPROC_DIR=/path/to/your/existing/empty/directory&#39;
+[2026-11-23 01:12:17,210 13086 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO Prometheus multiproc dir: None
+[2026-11-23 01:12:17,210 13086 ms_service_metric.ms_service_metric.adapters.vllm.metrics_init] INFO vLLM metrics setup completed
+[2026-11-23 01:12:17,210 13086 ms_service_metric.symbol_handler_manager] INFO Initializing SymbolHandlerManager components
+[2026-11-23 01:12:17,210 13086 ms_service_metric.symbol_config] INFO Loading configuration...
+[2026-11-23 01:12:17,211 13086 ms_service_metric.symbol_config] INFO Default config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/default.yaml
+[2026-11-23 01:12:17,211 13086 ms_service_metric.symbol_config] INFO Framework config path: /usr/local/python3.12.13/lib/python3.12/site-packages/ms_service_metric/adapters/vllm/config/v1_metrics.yaml
+[2026-11-23 01:12:17,212 13086 ms_service_metric.symbol_config] INFO Filtering default configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,226 13086 ms_service_metric.symbol_config] INFO Filtering framework configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,226 13086 ms_service_metric.symbol_config] INFO Handler for vllm_ascend.utils:ProfileExecuteDuration.capture_async filtered out: current=0.23.0+empty, min=None, max=0.13.0rc1
+[2026-11-23 01:12:17,227 13086 ms_service_metric.symbol_config] INFO Filtering environment configs by version: 0.23.0+empty
+[2026-11-23 01:12:17,227 13091 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:17,227 13091 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:17,227 13091 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:17,227 13091 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:17,227 13091 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:17,227 13091 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:17 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:17 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+[2026-11-23 01:12:17,248 13086 ms_service_metric.symbol_config] INFO Configuration loaded successfully: 40 symbols
+[2026-11-23 01:12:17,249 13086 ms_service_metric.metric_control_watch] INFO MetricControlWatch started
+[2026-11-23 01:12:17,249 13086 ms_service_metric.symbol_handler_manager] INFO Started MetricControlWatch
+[2026-11-23 01:12:17,249 13086 ms_service_metric.symbol_handler_manager] INFO Started SymbolWatcher
+[2026-11-23 01:12:17,249 13086 ms_service_metric.symbol_handler_manager] INFO SymbolHandlerManager initialized successfully
+[2026-11-23 01:12:17,249 13086 ms_service_metric.ms_service_metric.adapters.vllm.adapter] INFO VLLMMetricAdapter initialized successfully
+INFO 11-23 01:12:17 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic&#39;&gt;` with load format `netloader`
+INFO 11-23 01:12:17 [__init__.py:115] Registered model loader `&lt;class &#39;vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader&#39;&gt;` with load format `rfork`
+INFO 11-23 01:12:17 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:17 [ascend_config.py:894] The number of redundant experts is 0
+INFO 11-23 01:12:17 [ascend_config.py:893] Dynamic EPLB is False
+INFO 11-23 01:12:17 [ascend_config.py:894] The number of redundant experts is 0
+(Worker pid=13084) INFO 11-23 01:12:17 [parallel_state.py:1568] world_size=8 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13087) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13090) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=6 local_rank=6 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13088) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=4 local_rank=4 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13085) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13091) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=7 local_rank=7 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+(Worker pid=13086) INFO 11-23 01:12:18 [parallel_state.py:1568] world_size=8 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:49529 backend=hccl
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank [Gloo] Rank 67 is connected to  is connected to 77 peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 77
+
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank [Gloo] Rank 0[Gloo] Rank 0 is connected to [Gloo] Rank [Gloo] Rank  is connected to 00000 is connected to  peer ranks. [Gloo] Rank  is connected to  is connected to  peer ranks. 0Expected number of connected peer ranks is : 000Expected number of connected peer ranks is :  peer ranks. 0 is connected to  peer ranks.  peer ranks. 0Expected number of connected peer ranks is : 
+0Expected number of connected peer ranks is : Expected number of connected peer ranks is : 
+0 peer ranks. 0[Gloo] Rank 0
+Expected number of connected peer ranks is : 
+[Gloo] Rank 0
+0 is connected to 0
+0 is connected to  peer ranks. 0Expected number of connected peer ranks is :  peer ranks. 0Expected number of connected peer ranks is : 
+0
+[Gloo] Rank 0 is connected to [Gloo] Rank [Gloo] Rank 00[Gloo] Rank 0 peer ranks.  is connected to [Gloo] Rank 0 is connected to Expected number of connected peer ranks is : 00 is connected to 00 peer ranks.  is connected to 0 peer ranks. 
+[Gloo] Rank Expected number of connected peer ranks is : 0 peer ranks. Expected number of connected peer ranks is : 00 peer ranks. Expected number of connected peer ranks is : [Gloo] Rank [Gloo] Rank 0 is connected to 
+Expected number of connected peer ranks is : 000
+00
+ is connected to  is connected to  peer ranks. 
+00Expected number of connected peer ranks is :  peer ranks.  peer ranks. 0Expected number of connected peer ranks is : Expected number of connected peer ranks is : 
+00
+
+[Gloo] Rank 0[Gloo] Rank  is connected to 00 is connected to  peer ranks. 0Expected number of connected peer ranks is :  peer ranks. 0Expected number of connected peer ranks is : 
+0
+[Gloo] Rank 0 is connected to 0[Gloo] Rank  peer ranks. Expected number of connected peer ranks is : 00 is connected to 
+[Gloo] Rank 00[Gloo] Rank  peer ranks.  is connected to 0Expected number of connected peer ranks is : 0 is connected to 0 peer ranks. 0
+Expected number of connected peer ranks is : [Gloo] Rank  peer ranks. [Gloo] Rank 00Expected number of connected peer ranks is : 0
+ is connected to 0
+ is connected to 00 peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 00
+
+[Gloo] Rank 0[Gloo] Rank  is connected to 0[Gloo] Rank 0 is connected to 0 peer ranks. 0 is connected to Expected number of connected peer ranks is :  peer ranks. 00Expected number of connected peer ranks is :  peer ranks. 
+0Expected number of connected peer ranks is : 
+0
+[Gloo] Rank 0[Gloo] Rank  is connected to [Gloo] Rank 000 is connected to  peer ranks.  is connected to 0Expected number of connected peer ranks is : [Gloo] Rank 0 peer ranks. 00[Gloo] Rank  peer ranks. Expected number of connected peer ranks is : 
+ is connected to 0Expected number of connected peer ranks is : 00 is connected to 0
+ peer ranks. 0
+Expected number of connected peer ranks is :  peer ranks. 0Expected number of connected peer ranks is : 
+0
+(Worker pid=13084) INFO 11-23 01:12:19 [parallel_state.py:1903] rank 0 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7[Gloo] Rank  peer ranks. 4Expected number of connected peer ranks is :  is connected to 77
+ peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[rank7]:[W1123 01:12:19.216706680 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank2]:[W1123 01:12:19.216706660 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank4]:[W1123 01:12:19.216902070 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank6]:[W1123 01:12:19.217445100 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank3]:[W1123 01:12:19.217443800 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank1]:[W1123 01:12:19.217599610 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank5]:[W1123 01:12:19.217923200 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[rank0]:[W1123 01:12:19.219083350 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+(Worker_TP3 pid=13087) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP6 pid=13090) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP1 pid=13085) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP4 pid=13088) (Worker_TP7 pid=13091) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP2 pid=13086) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP5 pid=13089) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP0 pid=13084) INFO 11-23 01:12:19 [model_runner_v1.py:3718] Starting to load model /home/autotest/model_data/Qwen3_14B...
+(Worker_TP1 pid=13085) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP4 pid=13088) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP3 pid=13087) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP6 pid=13090) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP7 pid=13091) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP2 pid=13086) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP0 pid=13084) INFO 11-23 01:12:20 [weight_utils.py:922] Filesystem type for checkpoints: NFS. Checkpoint size: 27.51 GiB. Available RAM: 1938.50 GiB.
+(Worker_TP0 pid=13084) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:   0% Completed | 0/8 [00:00&lt;?, ?it/s]
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  12% Completed | 1/8 [00:00&lt;00:01,  5.89it/s]
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  25% Completed | 2/8 [00:00&lt;00:01,  4.42it/s]
+(Worker_TP7 pid=13091) INFO 11-23 01:12:20 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP7 pid=13091) INFO 11-23 01:12:20 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 0.63s
+(Worker_TP5 pid=13089) INFO 11-23 01:12:20 [weight_utils.py:884] Prefetching checkpoint files into page cache started (in background, num_threads=8, block_size=16777216 bytes)
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  38% Completed | 3/8 [00:00&lt;00:01,  3.77it/s]
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  50% Completed | 4/8 [00:01&lt;00:01,  3.78it/s]
+(Worker_TP4 pid=13088) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP4 pid=13088) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.25s
+(Worker_TP5 pid=13089) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP5 pid=13089) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 0.60s
+(Worker_TP6 pid=13090) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP6 pid=13090) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.33s
+(Worker_TP0 pid=13084) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP0 pid=13084) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.19s
+(Worker_TP1 pid=13085) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP1 pid=13085) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.51s
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  62% Completed | 5/8 [00:01&lt;00:00,  3.79it/s]
+(Worker_TP2 pid=13086) INFO 11-23 01:12:21 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP2 pid=13086) INFO 11-23 01:12:21 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.42s
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  75% Completed | 6/8 [00:01&lt;00:00,  3.97it/s]
+(Worker_TP3 pid=13087) INFO 11-23 01:12:22 [weight_utils.py:856] Prefetching checkpoint files: 10% (1/1)
+(Worker_TP3 pid=13087) INFO 11-23 01:12:22 [weight_utils.py:879] Prefetching checkpoint files into page cache finished in 1.80s
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards:  88% Completed | 7/8 [00:01&lt;00:00,  4.05it/s]
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:01&lt;00:00,  4.87it/s]
+(Worker_TP0 pid=13084) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:01&lt;00:00,  4.31it/s]
+(Worker_TP0 pid=13084) 
+(Worker_TP0 pid=13084) INFO 11-23 01:12:22 [default_loader.py:397] Loading weights took 1.87 seconds
+(Worker_TP0 pid=13084) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP0 pid=13084) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 3.74 seconds
+(Worker_TP1 pid=13085) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP1 pid=13085) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 4.21 seconds
+(Worker_TP6 pid=13090) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP6 pid=13090) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 4.31 seconds
+(Worker_TP4 pid=13088) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP4 pid=13088) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 4.31 seconds
+(Worker_TP7 pid=13091) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP7 pid=13091) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 4.37 seconds
+(Worker_TP2 pid=13086) INFO 11-23 01:12:23 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP2 pid=13086) INFO 11-23 01:12:23 [model_runner_v1.py:3821] Model runner load_model total time: 4.38 seconds
+(Worker_TP5 pid=13089) INFO 11-23 01:12:24 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP5 pid=13089) INFO 11-23 01:12:24 [model_runner_v1.py:3821] Model runner load_model total time: 4.92 seconds
+(Worker_TP3 pid=13087) INFO 11-23 01:12:24 [model_runner_v1.py:3794] Loading model weights took 3.4687 GB
+(Worker_TP3 pid=13087) INFO 11-23 01:12:24 [model_runner_v1.py:3821] Model runner load_model total time: 4.98 seconds
+(Worker_TP0 pid=13084) INFO 11-23 01:12:27 [worker.py:593] Available KV cache memory: 47.93 GiB
+(EngineCore pid=12796) INFO 11-23 01:12:27 [kv_cache_utils.py:1744] GPU KV cache size: 2,512,896 tokens
+(EngineCore pid=12796) INFO 11-23 01:12:27 [kv_cache_utils.py:1745] Maximum concurrency for 8,192 tokens per request: 306.75x
+(Worker_TP6 pid=13090) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (60.86/61.27 GiB) on startup. Desired GPU memory utilization is (0.85, 52.08 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51309259776` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=60740025344` (56.57 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.93 GiB.
+(Worker_TP4 pid=13088) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (60.85/61.27 GiB) on startup. Desired GPU memory utilization is (0.85, 52.08 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51310205952` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=60727643136` (56.56 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.93 GiB.
+(Worker_TP1 pid=13085) (Worker_TP2 pid=13086) (Worker_TP7 pid=13091) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (61.11/61.28 GiB) on startup. Desired GPU memory utilization is (0.85, 52.09 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51317889228` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=61005061120` (56.82 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.94 GiB.
+INFO 11-23 01:12:32 [worker.py:771] Free memory on device (60.86/61.27 GiB) on startup. Desired GPU memory utilization is (0.85, 52.08 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51310906368` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=60742261760` (56.57 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.93 GiB.
+INFO 11-23 01:12:32 [worker.py:771] Free memory on device (61.11/61.28 GiB) on startup. Desired GPU memory utilization is (0.85, 52.09 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51319462092` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=61004721152` (56.82 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.94 GiB.
+(Worker_TP5 pid=13089) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (61.12/61.28 GiB) on startup. Desired GPU memory utilization is (0.85, 52.09 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51318937804` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=61016878080` (56.83 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.94 GiB.
+(Worker_TP3 pid=13087) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (61.11/61.28 GiB) on startup. Desired GPU memory utilization is (0.85, 52.09 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51317627084` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=61003725824` (56.81 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.94 GiB.
+(Worker_TP0 pid=13084) INFO 11-23 01:12:32 [worker.py:771] Free memory on device (60.86/61.27 GiB) on startup. Desired GPU memory utilization is (0.85, 52.08 GiB). Actual usage: 3.47 GiB for weights, 0.18 GiB for peak activation, 0.5 GiB for non-torch memory, 0.0 GiB for NPU graph memory. Replace gpu_memory_utilization with `--kv-cache-memory=51309829120` (47.79 GiB) to fit into requested memory, or `--kv-cache-memory=60734090240` (56.56 GiB) to fully utilize NPU free memory. Current KV cache memory: 47.93 GiB.
+(Worker_TP0 pid=13084) INFO 11-23 01:12:35 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=0 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP0 pid=13084) INFO 11-23 01:12:35 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP0 pid=13084) INFO 11-23 01:12:35 [cpu_binding.py:641] NPU0: main=[2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37]  acl=[38]  release=[[39]]
+(Worker_TP5 pid=13089) INFO 11-23 01:12:35 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=5 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP5 pid=13089) INFO 11-23 01:12:35 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP5 pid=13089) INFO 11-23 01:12:35 [cpu_binding.py:641] NPU5: main=[202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237]  acl=[238]  release=[[239]]
+(Worker_TP0 pid=13084) INFO 11-23 01:12:35 [cpu_binding.py:667] [migrate] NPU:0 -&gt; NUMA [0]
+(Worker_TP5 pid=13089) INFO 11-23 01:12:35 [cpu_binding.py:667] [migrate] NPU:5 -&gt; NUMA [2]
+(Worker_TP1 pid=13085) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=1 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP1 pid=13085) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP1 pid=13085) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU1: main=[42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77]  acl=[78]  release=[[79]]
+(Worker_TP1 pid=13085) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:1 -&gt; NUMA [0]
+(Worker_TP7 pid=13091) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=7 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP7 pid=13091) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP7 pid=13091) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU7: main=[282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317]  acl=[318]  release=[[319]]
+(Worker_TP2 pid=13086) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=2 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP2 pid=13086) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP2 pid=13086) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU2: main=[82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117]  acl=[118]  release=[[119]]
+(Worker_TP7 pid=13091) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:7 -&gt; NUMA [3]
+(Worker_TP4 pid=13088) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=4 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP4 pid=13088) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP4 pid=13088) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU4: main=[162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197]  acl=[198]  release=[[199]]
+(Worker_TP2 pid=13086) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:2 -&gt; NUMA [1]
+(Worker_TP4 pid=13088) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:4 -&gt; NUMA [2]
+(Worker_TP3 pid=13087) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=3 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP3 pid=13087) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP3 pid=13087) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU3: main=[122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157]  acl=[158]  release=[[159]]
+(Worker_TP6 pid=13090) INFO 11-23 01:12:36 [cpu_binding.py:542] [cpu_bind_mode] mode=global_slice rank=6 visible_npus=[0, 1, 2, 3, 4, 5, 6, 7]
+(Worker_TP6 pid=13090) INFO 11-23 01:12:36 [cpu_binding.py:626] The CPU allocation plan is as follows:
+(Worker_TP6 pid=13090) INFO 11-23 01:12:36 [cpu_binding.py:641] NPU6: main=[242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277]  acl=[278]  release=[[279]]
+(Worker_TP6 pid=13090) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:6 -&gt; NUMA [3]
+(Worker_TP3 pid=13087) INFO 11-23 01:12:36 [cpu_binding.py:667] [migrate] NPU:3 -&gt; NUMA [1]
+(EngineCore pid=12796) INFO 11-23 01:12:41 [core.py:313] init engine (profile, create kv cache, warmup model) took 17.31 s
+(EngineCore pid=12796) INFO 11-23 01:12:42 [vllm.py:999] Asynchronous scheduling is enabled.
+(EngineCore pid=12796) WARNING 11-23 01:12:42 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=12796) WARNING 11-23 01:12:42 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=12796) INFO 11-23 01:12:42 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[&#39;native&#39;], fused_add_rms_norm=[&#39;native&#39;])
+(EngineCore pid=12796) INFO 11-23 01:12:42 [vllm.py:1273] Cudagraph is disabled under eager mode
+(EngineCore pid=12796) INFO 11-23 01:12:42 [utils.py:174] No quantization signature detected from model files for &quot;/home/autotest/model_data/Qwen3_14B&quot;. The model will be loaded as float. To force a quantization method, pass &quot;--quantization &lt;method&gt;&quot; explicitly.
+(EngineCore pid=12796) INFO 11-23 01:12:42 [platform.py:1277] The <span style="color:#F44336;font-weight:bold">timeout</span> interval of the HCCL operator is 1836s. <span style="color:#F44336;font-weight:bold">Timeout</span> in seconds for execute_model RPC calls in multiprocessing must be greater than 1836s, Set VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=3000
+(EngineCore pid=12796) INFO 11-23 01:12:42 [ascend_config.py:893] Dynamic EPLB is False
+(EngineCore pid=12796) INFO 11-23 01:12:42 [ascend_config.py:894] The number of redundant experts is 0
+(EngineCore pid=12796) INFO 11-23 01:12:42 [platform.py:528] Compilation disabled, using eager mode by default
+(EngineCore pid=12796) INFO 11-23 01:12:42 [platform.py:790] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(EngineCore pid=12796) INFO 11-23 01:12:42 [compilation.py:321] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=12404) INFO 11-23 01:12:42 [api_server.py:579] Supported tasks: [&#39;generate&#39;]
+(APIServer pid=12404) WARNING 11-23 01:12:43 [model.py:1502] Default vLLM sampling parameters have been overridden by the model&#39;s `generation_config.json`: `{&#39;temperature&#39;: 0.6, &#39;top_k&#39;: 20, &#39;top_p&#39;: 0.95}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=12404) INFO 11-23 01:12:43 [hf.py:548] Detected the chat template content format to be &#39;string&#39;. You can set `--chat-template-content-format` to override this.
+(APIServer pid=12404) INFO 11-23 01:12:43 [api_server.py:583] Starting vLLM server on http://127.0.0.1:8080
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:37] Available routes are:
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /docs, Methods: HEAD, GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /load, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /version, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /health, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /metrics, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /tokenize, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /detokenize, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/models, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /ping, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /ping, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /invocations, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/responses, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/completions, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/messages, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /generative_scoring, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+(APIServer pid=12404) INFO 11-23 01:12:43 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+(APIServer pid=12404) INFO:     Started server process [12404]
+(APIServer pid=12404) INFO:     Waiting for application startup.
+(APIServer pid=12404) INFO:     Application startup complete.
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
+  warnings.warn(&#39;resource_tracker: There appear to be %d &#39;
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 9 leaked shared_memory objects to clean up at shutdown
+  warnings.warn(&#39;resource_tracker: There appear to be %d &#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.147</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:231</td>
+                <td class="step-indent"><div class="msg-scroll">第2次检查找到关键字: &#39;Started server process&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.147</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:212</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM服务启动成功</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.147</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:113</td>
+                <td class="step-indent"><div class="msg-scroll">修改profiler配置: enable=1, prof_dir=/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/, acl_task_time=1, profiler_step_num=100</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.229</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python3 /data/update.py /data/ms_service_profiler_config.json enable=1 prof_dir=/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/ acl_task_time=1 profiler_step_num=100 2&gt;&amp;1</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.229</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✓ 已备份原文件: /data/ms_service_profiler_config.json.bak
+
+✓ 成功更新 4 个字段</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cat /data/ms_service_profiler_config.json</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">{
+    &quot;enable&quot;: 1,
+    &quot;prof_dir&quot;: &quot;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/&quot;,
+    &quot;profiler_level&quot;: &quot;INFO&quot;,
+    &quot;acl_task_time&quot;: 1,
+    &quot;acl_prof_task_time_level&quot;: &quot;&quot;,
+    &quot;timelimit&quot;: 0,
+    &quot;domain&quot;: &quot;&quot;,
+    &quot;aclDataTypeConfig&quot;: &quot;&quot;,
+    &quot;api_filter&quot;: &quot;&quot;,
+    &quot;kernel_filter&quot;: &quot;&quot;,
+    &quot;profiler_step_num&quot;: 100
+}</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:127</td>
+                <td class="step-indent"><div class="msg-scroll">profiler配置修改完成</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:138</td>
+                <td class="step-indent"><div class="msg-scroll">发送4次推理请求</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:19.313</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:279</td>
+                <td class="step-indent"><div class="msg-scroll">发送vLLM推理请求</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:21.503</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">curl http://localhost:8080/v1/chat/completions -H &#39;Content-Type:application/json&#39; -d &#39;{&quot;model&quot;: &quot;/home/autotest/model_data/Qwen3_14B&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is vLLM?&quot;}], &quot;max_tokens&quot;: 32}&#39; 2&gt;&amp;1</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:21.503</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   126    0     0  100   126      0    104  0:00:01  0:00:01 --:--:--   104100   916  100   790  100   126    375     59  0:00:02  0:00:02 --:--:--   436100   916  100   790  100   126    375     59  0:00:02  0:00:02 --:--:--   435
+{&quot;id&quot;:&quot;chatcmpl-8a500d9bd7232812&quot;,&quot;object&quot;:&quot;chat.completion&quot;,&quot;created&quot;:1795396395,&quot;model&quot;:&quot;/home/autotest/model_data/Qwen3_14B&quot;,&quot;choices&quot;:[{&quot;index&quot;:0,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;&lt;think&gt;\nOkay, the user is asking about vLLM. I need to explain what it is. Let me start by recalling what I know. vLL&quot;,&quot;refusal&quot;:null,&quot;annotations&quot;:null,&quot;audio&quot;:null,&quot;function_call&quot;:null,&quot;reasoning&quot;:null},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:&quot;length&quot;,&quot;stop_reason&quot;:null,&quot;token_ids&quot;:null,&quot;routed_experts&quot;:null}],&quot;service_tier&quot;:null,&quot;system_fingerprint&quot;:&quot;vllm-0.23.0-tp8-b3122347&quot;,&quot;usage&quot;:{&quot;prompt_tokens&quot;:14,&quot;total_tokens&quot;:46,&quot;completion_tokens&quot;:32,&quot;prompt_tokens_details&quot;:null,&quot;completion_tokens_details&quot;:null},&quot;prompt_logprobs&quot;:null,&quot;prompt_token_ids&quot;:null,&quot;prompt_text&quot;:null,&quot;kv_transfer_params&quot;:null}</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:21.504</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:284</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM请求成功</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:22.505</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:279</td>
+                <td class="step-indent"><div class="msg-scroll">发送vLLM推理请求</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:24.332</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">curl http://localhost:8080/v1/chat/completions -H &#39;Content-Type:application/json&#39; -d &#39;{&quot;model&quot;: &quot;/home/autotest/model_data/Qwen3_14B&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is vLLM?&quot;}], &quot;max_tokens&quot;: 32}&#39; 2&gt;&amp;1</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:24.332</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   126    0     0  100   126      0    104  0:00:01  0:00:01 --:--:--   104100   925  100   799  100   126    448     70  0:00:01  0:00:01 --:--:--   519100   925  100   799  100   126    448     70  0:00:01  0:00:01 --:--:--   519
+{&quot;id&quot;:&quot;chatcmpl-99ee505323921f6b&quot;,&quot;object&quot;:&quot;chat.completion&quot;,&quot;created&quot;:1795396398,&quot;model&quot;:&quot;/home/autotest/model_data/Qwen3_14B&quot;,&quot;choices&quot;:[{&quot;index&quot;:0,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;&lt;think&gt;\nOkay, the user is asking about vLLM. I remember that vLLM is a project related to large language models, but I need to&quot;,&quot;refusal&quot;:null,&quot;annotations&quot;:null,&quot;audio&quot;:null,&quot;function_call&quot;:null,&quot;reasoning&quot;:null},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:&quot;length&quot;,&quot;stop_reason&quot;:null,&quot;token_ids&quot;:null,&quot;routed_experts&quot;:null}],&quot;service_tier&quot;:null,&quot;system_fingerprint&quot;:&quot;vllm-0.23.0-tp8-b3122347&quot;,&quot;usage&quot;:{&quot;prompt_tokens&quot;:14,&quot;total_tokens&quot;:46,&quot;completion_tokens&quot;:32,&quot;prompt_tokens_details&quot;:null,&quot;completion_tokens_details&quot;:null},&quot;prompt_logprobs&quot;:null,&quot;prompt_token_ids&quot;:null,&quot;prompt_text&quot;:null,&quot;kv_transfer_params&quot;:null}</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:24.333</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:284</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM请求成功</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:25.334</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:279</td>
+                <td class="step-indent"><div class="msg-scroll">发送vLLM推理请求</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:27.108</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">curl http://localhost:8080/v1/chat/completions -H &#39;Content-Type:application/json&#39; -d &#39;{&quot;model&quot;: &quot;/home/autotest/model_data/Qwen3_14B&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is vLLM?&quot;}], &quot;max_tokens&quot;: 32}&#39; 2&gt;&amp;1</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:27.109</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   126    0     0  100   126      0    104  0:00:01  0:00:01 --:--:--   104100   921  100   795  100   126    460     72  0:00:01  0:00:01 --:--:--   533100   921  100   795  100   126    460     72  0:00:01  0:00:01 --:--:--   533
+{&quot;id&quot;:&quot;chatcmpl-b0ea0bfa79cf02d6&quot;,&quot;object&quot;:&quot;chat.completion&quot;,&quot;created&quot;:1795396401,&quot;model&quot;:&quot;/home/autotest/model_data/Qwen3_14B&quot;,&quot;choices&quot;:[{&quot;index&quot;:0,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;&lt;think&gt;\nOkay, the user is asking about vLLM. I need to explain what it is. Let me start by recalling what I know about vLL&quot;,&quot;refusal&quot;:null,&quot;annotations&quot;:null,&quot;audio&quot;:null,&quot;function_call&quot;:null,&quot;reasoning&quot;:null},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:&quot;length&quot;,&quot;stop_reason&quot;:null,&quot;token_ids&quot;:null,&quot;routed_experts&quot;:null}],&quot;service_tier&quot;:null,&quot;system_fingerprint&quot;:&quot;vllm-0.23.0-tp8-b3122347&quot;,&quot;usage&quot;:{&quot;prompt_tokens&quot;:14,&quot;total_tokens&quot;:46,&quot;completion_tokens&quot;:32,&quot;prompt_tokens_details&quot;:null,&quot;completion_tokens_details&quot;:null},&quot;prompt_logprobs&quot;:null,&quot;prompt_token_ids&quot;:null,&quot;prompt_text&quot;:null,&quot;kv_transfer_params&quot;:null}</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:27.110</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:284</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM请求成功</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:28.111</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:279</td>
+                <td class="step-indent"><div class="msg-scroll">发送vLLM推理请求</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:29.840</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">curl http://localhost:8080/v1/chat/completions -H &#39;Content-Type:application/json&#39; -d &#39;{&quot;model&quot;: &quot;/home/autotest/model_data/Qwen3_14B&quot;, &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is vLLM?&quot;}], &quot;max_tokens&quot;: 32}&#39; 2&gt;&amp;1</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:29.840</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   126    0     0  100   126      0    104  0:00:01  0:00:01 --:--:--   104100   920  100   794  100   126    471     74  0:00:01  0:00:01 --:--:--   546
+{&quot;id&quot;:&quot;chatcmpl-aabe94861082c119&quot;,&quot;object&quot;:&quot;chat.completion&quot;,&quot;created&quot;:1795396404,&quot;model&quot;:&quot;/home/autotest/model_data/Qwen3_14B&quot;,&quot;choices&quot;:[{&quot;index&quot;:0,&quot;message&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;&lt;think&gt;\nOkay, the user is asking about vLLM. Let me start by recalling what I know about it. vLLM is a library related to&quot;,&quot;refusal&quot;:null,&quot;annotations&quot;:null,&quot;audio&quot;:null,&quot;function_call&quot;:null,&quot;reasoning&quot;:null},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:&quot;length&quot;,&quot;stop_reason&quot;:null,&quot;token_ids&quot;:null,&quot;routed_experts&quot;:null}],&quot;service_tier&quot;:null,&quot;system_fingerprint&quot;:&quot;vllm-0.23.0-tp8-b3122347&quot;,&quot;usage&quot;:{&quot;prompt_tokens&quot;:14,&quot;total_tokens&quot;:46,&quot;completion_tokens&quot;:32,&quot;prompt_tokens_details&quot;:null,&quot;completion_tokens_details&quot;:null},&quot;prompt_logprobs&quot;:null,&quot;prompt_token_ids&quot;:null,&quot;prompt_text&quot;:null,&quot;kv_transfer_params&quot;:null}</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:29.841</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:284</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM请求成功</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:30.842</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:145</td>
+                <td class="step-indent"><div class="msg-scroll">关闭profiler采集(enable=0)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:30.842</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_config.py:287</td>
+                <td class="step-indent"><div class="msg-scroll">关闭profiler采集</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:30.926</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python3 /data/update.py /data/ms_service_profiler_config.json enable=0</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:30.926</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✓ 已备份原文件: /data/ms_service_profiler_config.json.bak
+
+✓ 成功更新 1 个字段</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:30.926</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_config.py:293</td>
+                <td class="step-indent"><div class="msg-scroll">profiler采集已关闭</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:33.929</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>test_msserviceprofiler_vllm_trochprofiler_collect_01.py:149</td>
+                <td class="step-indent"><div class="msg-scroll">解析profiler采集数据</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:33.930</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:89</td>
+                <td class="step-indent"><div class="msg-scroll">开始解析profiler数据: input=/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/, output=/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:35.014</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python3 -m ms_service_profiler.parse --input-path /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/prof_dir/ --output-path /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result </div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:35.015</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">=================================================================
+                   &gt;&gt;&gt;&gt;&gt;   MindStudio   &lt;&lt;&lt;&lt;&lt;
+    THE END-TO-END TOOLCHAIN TO UNLEASH HUAWEI ASCEND COMPUTE
+=================================================================
+
+2026-11-23 01:13:30,950 - 15830 - msServiceProfiler - WARNING - Security Warning: Do not run this tool as root. Running with elevated privileges may compromise system security. Use a regular user account.
+2026-11-23 01:13:30,950 - 15830 - msServiceProfiler - INFO - Start to parse.
+2026-11-23 01:13:30,951 - 15830 - msServiceProfiler - INFO - Exporter done.</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-23 01:10:35.015</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:106</td>
+                <td class="step-indent"><div class="msg-scroll">profiler数据解析完成</div></td>
+            </tr>
+        <tr class="step-error">
+            <td>2026-11-23 01:10:35.015</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473393537056</td>
+            <td>python.py:167</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- TEST ASSERT --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.015</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:144</td>
+                <td class="step-indent"><div class="msg-scroll">校验解析结果文件: path=/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result, expected=5个文件</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.102</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">find &#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39; -mindepth 1 -maxdepth 1</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.102</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result/profiler.db</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.102</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:726</td>
+                <td class="step-indent"><div class="msg-scroll">远程模式: 列出目录成功: /home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result, 找到 1 个匹配项</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.102</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>file_utils.py:808</td>
+                <td class="step-indent"><div class="msg-scroll">匹配详情: 递归=False</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_utils.py:153</td>
+                <td class="step-indent"><div class="msg-scroll">实际文件列表(1个): [&#39;profiler.db&#39;]</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473393537056</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">缺少解析结果文件: [&#39;batch.csv&#39;, &#39;chrome_tracing.json&#39;, &#39;kvcache.csv&#39;, &#39;request.csv&#39;]</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473393537056</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">测试执行异常: 解析结果文件校验失败，落盘文件缺少或有多余解析文件
+assert False
+ +  where False = verify_parse_result_files(result_path=&#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39;, expected_files=[&#39;batch.csv&#39;, &#39;chrome_tracing.json&#39;, &#39;kvcache.csv&#39;, &#39;profiler.db&#39;, &#39;request.csv&#39;], check_suffix_count=None)
+ +    where verify_parse_result_files = &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt;.verify_parse_result_files
+ +      where &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt; = &lt;lib.mindstudio.service.vllm_manager.VllmServiceManager object at 0xffff9e9d6680&gt;.profiler_utils</div></td>
+            </tr>
+        <tr class="step-error">
+            <td>2026-11-23 01:10:35.103</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473393537056</td>
+            <td>python.py:167</td>
+            <td>
+                <span id="toggle-step-5" class="step-toggle" onclick="toggleStep('step-5')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- ENV RECOVER --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:332</td>
+                <td class="step-indent"><div class="msg-scroll">停止残留vLLM进程</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:91</td>
+                <td class="step-indent"><div class="msg-scroll">按rank停止进程: [4, 5, 6, 7]</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.103</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=4</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 4 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.192</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=5</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 5 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.289</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=6</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 6 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:433</td>
+                <td class="step-indent"><div class="msg-scroll">按rank终止进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.376</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.456</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: rank=7</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:441</td>
+                <td class="step-indent"><div class="msg-scroll">未找到rank 7 的进程</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:96</td>
+                <td class="step-indent"><div class="msg-scroll">进程停止完成</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:254</td>
+                <td class="step-indent"><div class="msg-scroll">停止vLLM服务: pid=12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:403</td>
+                <td class="step-indent"><div class="msg-scroll">终止作业: 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.457</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:60</td>
+                <td class="step-indent"><div class="msg-scroll">按名称查找进程: 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.554</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pgrep -f 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.554</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.554</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">未找到进程: 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:35.554</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>process.py:410</td>
+                <td class="step-indent"><div class="msg-scroll">作业不存在或已完成: 12404</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.556</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:260</td>
+                <td class="step-indent"><div class="msg-scroll">vLLM服务已停止</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.556</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>vllm_manager.py:339</td>
+                <td class="step-indent"><div class="msg-scroll">清理残留vLLM进程释放NPU显存</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.611</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pkill -f &#39;vllm.entrypoints.openai.api_server&#39; 2&gt;/dev/null; sleep 10; true</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.612</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.612</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_config.py:257</td>
+                <td class="step-indent"><div class="msg-scroll">恢复profiler配置文件: /data/ms_service_profiler_config.json</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.743</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python3 /data/update.py /data/ms_service_profiler_config.json enable=0 timelimit=0 acl_task_time=0 domain=&quot;&quot; acl_prof_task_time_level=&quot;&quot; &quot;aclDataTypeConfig&quot;=&quot;&quot; api_filter=&quot;&quot; kernel_filter=&quot;&quot; </div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.743</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">✓ 已备份原文件: /data/ms_service_profiler_config.json.bak
+
+✓ 成功更新 8 个字段</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.744</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>profiler_config.py:267</td>
+                <td class="step-indent"><div class="msg-scroll">profiler配置文件恢复完成</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.773</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473393537056</td>
+                <td>plugin.py:1003</td>
+                <td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py::TestMsserviceprofilerVllmTrochprofilerCollect01::test_msserviceprofiler_vllm_trochprofiler_collect_01
+Exception: AssertionError
+Message: 解析结果文件校验失败，落盘文件缺少或有多余解析文件
+assert False
+ +  where False = verify_parse_result_files(result_path=&#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39;, expected_files=[&#39;batch.csv&#39;, &#39;chrome_tracing.json&#39;, &#39;kvcache.csv&#39;, &#39;profiler.db&#39;, &#39;request.csv&#39;], check_suffix_count=None)
+ +    where verify_parse_result_files = &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt;.verify_parse_result_files
+ +      where &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt; = &lt;lib.mindstudio.service.vllm_manager.VllmServiceManager object at 0xffff9e9d6680&gt;.profiler_utils</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.774</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473393537056</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">Traceback:
+testcase/mindstudio/msserviceprofiler/vllm/test_msserviceprofiler_vllm_trochprofiler_collect_01.py:85: in test_msserviceprofiler_vllm_trochprofiler_collect_01
+    assert manager.profiler_utils.verify_parse_result_files(
+E   AssertionError: 解析结果文件校验失败，落盘文件缺少或有多余解析文件
+E   assert False
+E    +  where False = verify_parse_result_files(result_path=&#39;/home/autotest/msit_test/service/env-lease-mindstudio1791777050-5982-nodes1-mindstudio--1777050-1306/parse_service_result&#39;, expected_files=[&#39;batch.csv&#39;, &#39;chrome_tracing.json&#39;, &#39;kvcache.csv&#39;, &#39;profiler.db&#39;, &#39;request.csv&#39;], check_suffix_count=None)
+E    +    where verify_parse_result_files = &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt;.verify_parse_result_files
+E    +      where &lt;lib.mindstudio.service.profiler_utils.ProfilerUtils object at 0xffff9e9d58a0&gt; = &lt;lib.mindstudio.service.vllm_manager.VllmServiceManager object at 0xffff9e9d6680&gt;.profiler_utils</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.826</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -d /root/ascend/log</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.826</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:37.827</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>device.py:1087</td>
+                <td class="step-indent"><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /opt/agent_1791775341190/workspace/j_d982AIPS/openlibing-pytest-executor-workspace/openlibing-pytest-executor/pytest-executor/case-logs/logs_17O2S03m/TestCases/2026-11-23/test_msserviceprofiler_vllm_trochprofiler_collect_01_01-08-35/mindstudio_single_device_8_a2a3_env_type-nodes_A3-device via SCP</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:38.123</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>conftest.py:224</td>
+                <td class="step-indent"><div class="msg-scroll">[mv_dir_on_teardown] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device download &#39;/root/ascend/log&#39; -&gt; &#39;/opt/agent_1791775341190/workspace/j_d982AIPS/openlibing-pytest-executor-workspace/openlibing-pytest-executor/pytest-executor/case-logs/logs_17O2S03m/TestCases/2026-11-23/test_msserviceprofiler_vllm_trochprofiler_collect_01_01-08-35/mindstudio_single_device_8_a2a3_env_type-nodes_A3-device&#39; success</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:38.464</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">mv /root/ascend/log /mnt/share/autotest_log/test_msserviceprofiler_vllm_trochprofiler_collect_01_20261123_011037</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:38.464</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:38.464</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>conftest.py:233</td>
+                <td class="step-indent"><div class="msg-scroll">[mv_dir_on_teardown] mindstudio_single_device_8_a2a3_env_type-nodes_A3-device &#39;mv /root/ascend/log /mnt/share/autotest_log/test_msserviceprofiler_vllm_trochprofiler_collect_01_20261123_011037&#39; success</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:45.999</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">find /mnt/share/autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+            </tr>
+            <tr class="step-content content-step-5">
+                <td>2026-11-23 01:10:46.000</td>
+                <td class='INFO'>INFO</td>
+                <td>281473393537056</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-23 01:10:46.000</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473393537056</td>
+            <td>_execution.py:54</td>
+            <td><div class="msg-scroll">TestCase End, completed in 130.85s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

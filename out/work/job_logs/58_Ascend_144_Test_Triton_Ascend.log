@@ -1,0 +1,79 @@
+[2026/11/23 18:16:56.178 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_d6qJtrBb #1
+[2026/11/23 18:16:56.180 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.
+[2026/11/23 18:16:56.284 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行
+[2026/11/23 18:16:56.286 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: de5a62529a4744b8877ef2407bbdc189
+[2026/11/23 18:16:56.287 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create
+[2026/11/23 18:16:56.287 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No
+[2026/11/23 18:16:56.395 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1788157832509-F2BYL7cldV
+[2026/11/23 18:16:56.442 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成
+[2026/11/23 18:16:56.804 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****
+[2026/11/23 18:16:56.804 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b
+[2026/11/23 18:16:56.804 GMT+08:00] Status: Image is up to date for************
+[2026/11/23 18:16:56.804 GMT+08:00]************
+[2026/11/23 18:16:57.552 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行
+[2026/11/23 18:16:57.553 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5
+[2026/11/23 18:16:57.560 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。
+[2026/11/23 18:16:57.726 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。
+[2026/11/23 18:16:57.727 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。
+[2026/11/23 18:16:57.727 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成
+[2026/11/23 18:16:57.759 GMT+08:00] No credentials specified
+[2026/11/23 18:16:57.759 GMT+08:00] set customize username password****           
+[2026/11/23 18:16:57.763 GMT+08:00] addDefaultCredentials
+[2026/11/23 18:16:57.768 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1
+[2026/11/23 18:16:57.772 GMT+08:00] Cloning the remote Git repository
+[2026/11/23 18:16:57.772 GMT+08:00] Using shallow clone
+[2026/11/23 18:16:57.772 GMT+08:00] Avoid fetching tags
+[2026/11/23 18:16:57.772 GMT+08:00] Honoring refspec on initial clone
+[2026/11/23 18:16:57.778 GMT+08:00] Cloning repository https://gitcode.com/BeiMing_Dev/build_project.git
+[2026/11/23 18:16:57.779 GMT+08:00]  > git init /opt/agent_1788157832509/workspace/j_d6qJtrBb # timeout=10
+[2026/11/23 18:16:57.782 GMT+08:00] Fetching upstream changes from https://gitcode.com/BeiMing_Dev/build_project.git
+[2026/11/23 18:16:57.782 GMT+08:00]  > git --version # timeout=10
+[2026/11/23 18:16:57.784 GMT+08:00]  > git --version # 'git version 2.34.1'
+[2026/11/23 18:16:57.784 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/11/23 18:16:57.785 GMT+08:00] scmType is gitcode
+[2026/11/23 18:16:57.785 GMT+08:00]  > git -c *** fetch --no-tags --force --progress --depth=1 -- https://gitcode.com/BeiMing_Dev/build_project.git +refs/heads/main:refs/remotes/origin/main # timeout=120
+[2026/11/23 18:16:58.339 GMT+08:00]  > git config remote.origin.url https://gitcode.com/BeiMing_Dev/build_project.git # timeout=10
+[2026/11/23 18:16:58.341 GMT+08:00]  > git config --add remote.origin.fetch +refs/heads/main:refs/remotes/origin/main # timeout=10
+[2026/11/23 18:16:58.349 GMT+08:00]  > git config remote.origin.url https://gitcode.com/BeiMing_Dev/build_project.git # timeout=10
+[2026/11/23 18:16:58.356 GMT+08:00] Fetching upstream changes from https://gitcode.com/BeiMing_Dev/build_project.git
+[2026/11/23 18:16:58.356 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/11/23 18:16:58.356 GMT+08:00] scmType is gitcode
+[2026/11/23 18:16:58.356 GMT+08:00]  > git -c *** fetch --no-tags --force --progress --depth=1 -- https://gitcode.com/BeiMing_Dev/build_project.git +refs/heads/main:refs/remotes/origin/main # timeout=120
+[2026/11/23 18:16:58.775 GMT+08:00] Checking out Revision c25c171f185ed1d3769fc4acd731ef7f698486b1 (origin/main)
+[2026/11/23 18:16:58.775 GMT+08:00] Disable Git LFS pull
+[2026/11/23 18:16:58.796 GMT+08:00] Commit message: "fix 打开TRITON_BUILD_PROTON选项后依赖cann"
+[2026/11/23 18:16:58.796 GMT+08:00] First time build. Skipping changelog.
+[2026/11/23 18:16:58.823 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行
+[2026/11/23 18:16:58.892 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成
+[2026/11/23 18:16:58.774 GMT+08:00]  > git rev-parse origin/main^{commit} # timeout=10
+[2026/11/23 18:16:58.781 GMT+08:00]  > git config core.sparsecheckout # timeout=10
+[2026/11/23 18:16:58.783 GMT+08:00]  > git checkout -f c25c171f185ed1d3769fc4acd731ef7f698486b1 # timeout=120
+[2026/11/23 18:16:58.786 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10
+[2026/11/23 18:16:58.789 GMT+08:00]  > git checkout -b main c25c171f185ed1d3769fc4acd731ef7f698486b1 # timeout=120
+[2026/11/23 18:17:00.526 GMT+08:00] arm64-v1: Pulling from triton-build/triton
+[2026/11/23 18:17:00.526 GMT+08:00] Digest: sha256:019f11e94a33f71e220052abe9cd24e582ec0a6abfb6e22cfc49169ff730f059
+[2026/11/23 18:17:00.526 GMT+08:00] Status: Image is up to date for swr.cn-north-4.myhuaweicloud.com/triton-build/triton:arm64-v1
+[2026/11/23 18:17:00.526 GMT+08:00] swr.cn-north-4.myhuaweicloud.com/triton-build/triton:arm64-v1
+[2026/11/23 18:17:01.837 GMT+08:00] + echo hello
+[2026/11/23 18:17:01.837 GMT+08:00] hello
+[2026/11/23 18:17:01.837 GMT+08:00] + echo PIPELINE_ID:9a4886d40e544cecb7da63c9597490a6
+[2026/11/23 18:17:01.837 GMT+08:00] PIPELINE_ID:9a4886d40e544cecb7da63c9597490a6
+[2026/11/23 18:17:01.837 GMT+08:00] + echo PIPELINE_RUN_ID:fed7e370aa9e4b2ebf577049505b3aef
+[2026/11/23 18:17:01.837 GMT+08:00] PIPELINE_RUN_ID:fed7e370aa9e4b2ebf577049505b3aef
+[2026/11/23 18:17:01.837 GMT+08:00] + yum install python3-pip -y
+[2026/11/23 18:17:01.849 GMT+08:00] starting check in ***/@tmp/durable-c6d0fd3a
+[2026/11/23 18:17:28.651 GMT+08:00] AlmaLinux 8 - BaseOS                            3.5 MB/s |  93 MB     00:26    
+[2026/11/23 18:17:28.651 GMT+08:00] Errors during downloading metadata for repository 'baseos':
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirror.elice.io/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.1)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirror3.krfoss.org/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.112)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 503 for http://mirrors.qlu.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.62)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirrors.hit.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.185)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirror.krfoss.org/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.112)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirrors.nju.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.3)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for https://mirror.nyist.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.21)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for http://mirrors.aliyun.com/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.71)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 503 for http://mirrors.qlu.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/f2a4bd11f3a7c6b10357e718492d2872bb129f12489b9b818213d7abd960d570-comps.xml (IP: ***.***.***.62)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Status code: 404 for https://mirrors.tencent.com/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz (IP: ***.***.***.135)
+[2026/11/23 18:17:28.651 GMT+08:00]   - Curl error (7): Couldn't connect to server for https://mirrors.sjtug.sjtu.edu.cn/almalinux/8.10/BaseOS/aarch64/os/repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz [Failed to connect to mirrors.sjtug.sjtu.edu.cn port 443: Connection refused]
+[2026/11/23 18:17:28.651 GMT+08:00] Error: Failed to download metadata for repo 'baseos': Yum repo downloading error: Downloading error(s): repodata/732a376a5db3cc0765c5a82b0dfc6b25626887f4889cceb11af4984ec57d7070-updateinfo.xml.gz - Cannot download, all mirrors were already tried without success
+[2026/11/23 18:17:28.674 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed
+[2026/11/23 18:17:30.025 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_d6qJtrBb #1
+[2026/11/23 18:17:32.960 GMT+08:00] Finished: FAILURE

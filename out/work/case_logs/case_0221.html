@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Log Report: testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py::TestModelSlimWan22::test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8</title>
+    <style>
+        body { font-family: Consolas, monospace; margin: 20px; background-color: #f4f4f4; }
+        .header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .header h2 { margin: 0; color: #333; }
+        .header p { margin: 5px 0; }
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            background-color: #F44336;
+        }
+        table { width: 100%; border-collapse: collapse; background-color: white; margin-bottom: 5px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; word-break: break-word; vertical-align: top; }
+        th { background-color: #9E9E9E; color: white; }
+        .ERROR, .FAIL { color: #F44336; font-weight: bold; }
+        .WARN { color: #FF9800; font-weight: bold; }
+        .INFO, .PASS { color: #2E8B57; }
+        .DEBUG { color: #607D8B; }
+        .TRACE { color: #757575; }
+        .TC_STEP { color: #1976D2; font-weight: bold; }
+        th:nth-child(1), td:nth-child(1) { width: 220px; min-width: 150px; }
+        th:nth-child(2), td:nth-child(2) { width: 70px; min-width: 60px; }
+        th:nth-child(3), td:nth-child(3) { width: 50px; min-width: 40px; }
+        th:nth-child(4), td:nth-child(4) { width: 128px; min-width: 112px; }
+        th:nth-child(5), td:nth-child(5) { width: auto; }
+
+        /* Step row status colors - all cells in the row */
+        .step-error td { color: #F44336; }
+        .step-warning td { color: #FF9800; }
+        .step-success td { color: #2E8B57; }
+
+        /* Collapsible section styles */
+        .step-toggle {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        .step-toggle:hover {
+            background-color: #e0e0e0;
+            border-color: #333;
+        }
+        .step-content { display: none; }
+        .step-content.expanded { display: table-row; }
+        .step-indent { padding-left: 24px; }
+
+        /* Message scroll styles */
+        .msg-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        function toggleStep(stepId) {
+            var rows = document.querySelectorAll('.content-' + stepId);
+            var toggle = document.getElementById('toggle-' + stepId);
+            if (rows.length === 0) {
+                return;
+            }
+            if (rows[0].classList.contains('expanded')) {
+                rows.forEach(function(r) { r.classList.remove('expanded'); });
+                toggle.textContent = '+Expand step';
+            } else {
+                rows.forEach(function(r) { r.classList.add('expanded'); });
+                toggle.textContent = '-Collapse step';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h2>Log Report: testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py::TestModelSlimWan22::test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8</h2>
+        <p><strong>Case ID:</strong> testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py::TestModelSlimWan22::test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8</p>
+        <p><strong>Status:</strong> <span class="status-badge">Failed</span></p>
+        <p><strong>Duration:</strong> 111.72s</p>
+    </div>
+    
+    <p><strong>Total Entries:</strong> 79</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Thread</th>
+                <th>Location</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-22 22:42:34.544</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>plugin.py:425</td>
+            <td><div class="msg-scroll">environment requirements: [{&#39;name&#39;: &#39;mindstudio_single_device_1_a2a3_env_type-nodes_A2-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 64, &#39;npu_gen&#39;: &#39;A2&#39;, &#39;npu_num&#39;: 1, &#39;shm_size&#39;: &#39;180Gi&#39;, &#39;mount_source_data&#39;: [&#39;mindstudio_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/autotest&#39;], &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;48&#39;, &#39;limit&#39;: &#39;128&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;256Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;memory_size&#39;: 256, &#39;pool&#39;: &#39;onprem-ai&#39;, &#39;privileged&#39;: True, &#39;env&#39;: {&#39;LD_LIBRARY_PATH&#39;: &#39;/usr/lib64/:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/driver/lib64/common:/usr/lib/aarch64-linux-gnu/:&#39;}}, {&#39;name&#39;: &#39;mindstudio_single_device_1_a2a3_env_type-nodes_A3-device&#39;, &#39;res_type&#39;: &#39;container&#39;, &#39;cpu_arch&#39;: &#39;ARM&#39;, &#39;cpu_core_num&#39;: 64, &#39;npu_gen&#39;: &#39;A3&#39;, &#39;npu_model&#39;: &#39;Ascend 910C&#39;, &#39;npu_num&#39;: 1, &#39;shm_size&#39;: &#39;180Gi&#39;, &#39;mount_source_data&#39;: [&#39;mindstudio_data&#39;], &#39;mount_dest_dir&#39;: [&#39;/home/autotest&#39;], &#39;resources&#39;: {&#39;cpu&#39;: {&#39;request&#39;: &#39;48&#39;, &#39;limit&#39;: &#39;128&#39;}, &#39;memory&#39;: {&#39;request&#39;: &#39;256Gi&#39;, &#39;limit&#39;: &#39;1024Gi&#39;}}, &#39;use_nfs&#39;: True, &#39;memory_size&#39;: 256, &#39;pool&#39;: &#39;onprem-ai&#39;, &#39;env&#39;: {&#39;LD_LIBRARY_PATH&#39;: &#39;/usr/lib64/:/usr/local/Ascend/driver/lib64/driver:/usr/local/Ascend/driver/lib64/common:/usr/lib/aarch64-linux-gnu/:&#39;}}]</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:34.544</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>plugin.py:391</td>
+            <td><div class="msg-scroll">pre_action_registry has no actions registered</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.639</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>sendcmd[device]</td>
+            <td><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh &amp;&amp; npu-smi info</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.640</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>recvcmd[device]</td>
+            <td><div class="msg-scroll">+------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip                      | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 0     910B4               | OK            | 98.8                 36                      0    / 0                |
+| 0                         | 0000:C1:00.0  | 0                    0    / 0                3749 / 32768            |
++===========================+===============+======================================================================+
+| 1     910B4               | OK            | 86.9                 33                      0    / 0                |
+| 0                         | 0000:C2:00.0  | 0                    0    / 0                2927 / 32768            |
++===========================+===============+======================================================================+
+| 2     910B4               | OK            | 87.3                 36                      0    / 0                |
+| 0                         | 0000:81:00.0  | 0                    0    / 0                29195/ 32768            |
++===========================+===============+======================================================================+
+| 3     910B4               | OK            | 87.1                 34                      0    / 0                |
+| 0                         | 0000:82:00.0  | 0                    0    / 0                29204/ 32768            |
++===========================+===============+======================================================================+
+| 4     910B4               | OK            | 82.2                 40                      0    / 0                |
+| 0                         | 0000:01:00.0  | 0                    0    / 0                29192/ 32768            |
++===========================+===============+======================================================================+
+| 5     910B4               | OK            | 86.3                 40                      0    / 0                |
+| 0                         | 0000:02:00.0  | 0                    0    / 0                29189/ 32768            |
++===========================+===============+======================================================================+
+| 6     910B4               | OK            | 87.0                 39                      0    / 0                |
+| 0                         | 0000:41:00.0  | 0                    0    / 0                2905 / 32768            |
++===========================+===============+======================================================================+
+| 7     910B4               | OK            | 88.4                 39                      0    / 0                |
+| 0                         | 0000:42:00.0  | 0                    0    / 0                2880 / 32768            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| 0       0                 | 3228792       | msmodelslim        | 882                   | 6038                    |
++===========================+===============+======================================================================+
+| No running processes found in NPU 1                                                                              |
++===========================+===============+======================================================================+
+| 2       0                 | 663359        | VLLM::Worker_TP    | 26367                 | 158                     |
++===========================+===============+======================================================================+
+| 3       0                 | 664553        | VLLM::Worker_TP    | 26367                 | 176                     |
++===========================+===============+======================================================================+
+| 4       0                 | 665778        | VLLM::Worker_TP    | 26367                 | 208                     |
++===========================+===============+======================================================================+
+| 5       0                 | 667060        | VLLM::Worker_TP    | 26367                 | 261                     |
++===========================+===============+======================================================================+
+| No running processes found in NPU 6                                                                              |
++===========================+===============+======================================================================+
+| No running processes found in NPU 7                                                                              |
++===========================+===============+======================================================================+</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.644</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>npu.py:509</td>
+            <td><div class="msg-scroll">解析npu-smi info完成，共 8 个NPU</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.644</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>conftest.py:112</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device 环境信息:</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.645</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>conftest.py:113</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device.npu_smi_info:
+{&#39;driver_version&#39;: &#39;npu-smi 26.1.1&#39;, &#39;npu_smi_version&#39;: &#39;Version: 26.1.1&#39;, &#39;npu_message&#39;: {&#39;0&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;98.8&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:C1:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;3749/32768&#39;, &#39;processes&#39;: [{&#39;pid&#39;: &#39;3228792&#39;, &#39;process_name&#39;: &#39;msmodelslim&#39;, &#39;process_memory_mb&#39;: &#39;882&#39;}]}, &#39;1&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;86.9&#39;, &#39;temp_c&#39;: &#39;33&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:C2:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;2927/32768&#39;, &#39;processes&#39;: []}, &#39;2&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;87.3&#39;, &#39;temp_c&#39;: &#39;36&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:81:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;29195/32768&#39;, &#39;processes&#39;: [{&#39;pid&#39;: &#39;663359&#39;, &#39;process_name&#39;: &#39;VLLM::Worker_TP&#39;, &#39;process_memory_mb&#39;: &#39;26367&#39;}]}, &#39;3&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;87.1&#39;, &#39;temp_c&#39;: &#39;34&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:82:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;29204/32768&#39;, &#39;processes&#39;: [{&#39;pid&#39;: &#39;664553&#39;, &#39;process_name&#39;: &#39;VLLM::Worker_TP&#39;, &#39;process_memory_mb&#39;: &#39;26367&#39;}]}, &#39;4&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;82.2&#39;, &#39;temp_c&#39;: &#39;40&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:01:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;29192/32768&#39;, &#39;processes&#39;: [{&#39;pid&#39;: &#39;665778&#39;, &#39;process_name&#39;: &#39;VLLM::Worker_TP&#39;, &#39;process_memory_mb&#39;: &#39;26367&#39;}]}, &#39;5&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;86.3&#39;, &#39;temp_c&#39;: &#39;40&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:02:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;29189/32768&#39;, &#39;processes&#39;: [{&#39;pid&#39;: &#39;667060&#39;, &#39;process_name&#39;: &#39;VLLM::Worker_TP&#39;, &#39;process_memory_mb&#39;: &#39;26367&#39;}]}, &#39;6&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;87.0&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:41:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;2905/32768&#39;, &#39;processes&#39;: []}, &#39;7&#39;: {&#39;name&#39;: &#39;910B4&#39;, &#39;health&#39;: &#39;OK&#39;, &#39;power_w&#39;: &#39;88.4&#39;, &#39;temp_c&#39;: &#39;39&#39;, &#39;hugepages_usage&#39;: &#39;0/0&#39;, &#39;chip&#39;: &#39;0&#39;, &#39;bus_id&#39;: &#39;0000:42:00.0&#39;, &#39;aicore_usage&#39;: &#39;0&#39;, &#39;memory_usage_mb&#39;: &#39;0/0&#39;, &#39;hbm_usage_mb&#39;: &#39;2880/32768&#39;, &#39;processes&#39;: []}}}</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.646</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device.os_version:
+PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;22.04&quot;
+VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+UBUNTU_CODENAME=jammy</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.646</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>conftest.py:115</td>
+            <td><div class="msg-scroll">[env_preflight] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device.arch_type:
+aarch64</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.647</td>
+            <td class='TC_START'>TC_START</td>
+            <td>281473461084192</td>
+            <td>plugin.py:970</td>
+            <td><div class="msg-scroll">testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py::TestModelSlimWan22::test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8</div></td>
+        </tr>
+        <tr>
+            <td>2026-11-22 22:42:35.648</td>
+            <td class='INFO'>INFO</td>
+            <td>281473461084192</td>
+            <td>config.py:49</td>
+            <td><div class="msg-scroll">配置项解析完成，共 4 项，设置变量: npu_gen=A2</div></td>
+        </tr>
+        <tr class="step-success">
+            <td>2026-11-22 22:42:35.648</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473461084192</td>
+            <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:44</td>
+            <td>
+                <span id="toggle-step-1" class="step-toggle" onclick="toggleStep('step-1')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- 变量定义 --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-1">
+                <td>2026-11-22 22:42:35.648</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>config.py:49</td>
+                <td class="step-indent"><div class="msg-scroll">配置项解析完成，共 4 项，设置变量: model_name_cmd=Wan2.2-T2V-A14B</div></td>
+            </tr>
+            <tr class="step-content content-step-1">
+                <td>2026-11-22 22:42:35.649</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>config.py:49</td>
+                <td class="step-indent"><div class="msg-scroll">配置项解析完成，共 5 项，设置变量: timeout=1800</div></td>
+            </tr>
+            <tr class="step-content content-step-1">
+                <td>2026-11-22 22:42:35.649</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>config.py:49</td>
+                <td class="step-indent"><div class="msg-scroll">配置项解析完成，共 6 项，设置变量: model_name=Wan2.2-T2V-A14B</div></td>
+            </tr>
+            <tr class="step-content content-step-1">
+                <td>2026-11-22 22:42:35.649</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>config.py:49</td>
+                <td class="step-indent"><div class="msg-scroll">配置项解析完成，共 6 项，设置变量: quant_tag=quant_wan2_2_t2v_a14b_quant_type_w4a4_mxfp4_fa8_fp8</div></td>
+            </tr>
+        <tr class="step-success">
+            <td>2026-11-22 22:42:35.650</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473461084192</td>
+            <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:64</td>
+            <td>
+                <span id="toggle-step-2" class="step-toggle" onclick="toggleStep('step-2')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- 环境变量设置 --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.751</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export MSMODELSLIM_LOG_LEVEL=INFO</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.752</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.853</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export PYTORCH_NPU_ALLOC_CONF=expandable_segments:False</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.854</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.968</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export ASCEND_RT_VISIBLE_DEVICES=1</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.970</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:35.975</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>quant_base.py:50</td>
+                <td class="step-indent"><div class="msg-scroll">绑定 NPU 设备: ASCEND_RT_VISIBLE_DEVICES=1</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:36.238</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">source /usr/local/Ascend/ascend-toolkit/set_env.sh</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:36.238</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:48.731</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">source /usr/local/Ascend/nnal/atb/set_env.sh</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:48.731</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:48.833</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">source ~/miniconda3/bin/activate ;conda activate llm_ptq_py311_pt271</div></td>
+            </tr>
+            <tr class="step-content content-step-2">
+                <td>2026-11-22 22:42:48.833</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">-bash: /home/runner/miniconda3/bin/activate: <span style="color:#F44336;font-weight:bold">No such file or directory</span>
+-bash: conda: command <span style="color:#F44336;font-weight:bold">not found</span></div></td>
+            </tr>
+        <tr class="step-error">
+            <td>2026-11-22 22:42:48.833</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473461084192</td>
+            <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:67</td>
+            <td>
+                <span id="toggle-step-3" class="step-toggle" onclick="toggleStep('step-3')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- 安装模型pip依赖 --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.834</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:68</td>
+                <td class="step-indent"><div class="msg-scroll">预置条件拉Wan2.2仓代码</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.834</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>file_utils.py:419</td>
+                <td class="step-indent"><div class="msg-scroll">检查路径是否存在: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2, 搜索关键字: None, 递归: False</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.853</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -e &#39;/home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2&#39; &amp;&amp; echo &#39;exists&#39; || echo &#39;not_exists&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.853</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">exists</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.853</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>file_utils.py:425</td>
+                <td class="step-indent"><div class="msg-scroll">路径存在: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.854</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>file_utils.py:419</td>
+                <td class="step-indent"><div class="msg-scroll">检查路径是否存在: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2/README.md, 搜索关键字: None, 递归: False</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.910</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -e &#39;/home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2/README.md&#39; &amp;&amp; echo &#39;exists&#39; || echo &#39;not_exists&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.910</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">exists</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:48.910</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>file_utils.py:425</td>
+                <td class="step-indent"><div class="msg-scroll">路径存在: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2/README.md</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:49.013</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">rm -rf /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2_bak</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:49.013</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:49.116</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">mv /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2 /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2_bak</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:49.117</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:52.652</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">git clone https://modelers.cn/MindIE/Wan2.2.git  --depth 1    (cwd: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:52.652</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">Cloning into &#39;Wan2.2&#39;...
+remote: Enumerating objects: 76, done.
+remote: Counting objects:   1% (1/76)
+remote: Counting objects:   2% (2/76)
+remote: Counting objects:   3% (3/76)
+remote: Counting objects:   5% (4/76)
+remote: Counting objects:   6% (5/76)
+remote: Counting objects:   7% (6/76)
+remote: Counting objects:   9% (7/76)
+remote: Counting objects:  10% (8/76)
+remote: Counting objects:  11% (9/76)
+remote: Counting objects:  13% (10/76)
+remote: Counting objects:  14% (11/76)
+remote: Counting objects:  15% (12/76)
+remote: Counting objects:  17% (13/76)
+remote: Counting objects:  18% (14/76)
+remote: Counting objects:  19% (15/76)
+remote: Counting objects:  21% (16/76)
+remote: Counting objects:  22% (17/76)
+remote: Counting objects:  23% (18/76)
+remote: Counting objects:  25% (19/76)
+remote: Counting objects:  26% (20/76)
+remote: Counting objects:  27% (21/76)
+remote: Counting objects:  28% (22/76)
+remote: Counting objects:  30% (23/76)
+remote: Counting objects:  31% (24/76)
+remote: Counting objects:  32% (25/76)
+remote: Counting objects:  34% (26/76)
+remote: Counting objects:  35% (27/76)
+remote: Counting objects:  36% (28/76)
+remote: Counting objects:  38% (29/76)
+remote: Counting objects:  39% (30/76)
+remote: Counting objects:  40% (31/76)
+remote: Counting objects:  42% (32/76)
+remote: Counting objects:  43% (33/76)
+remote: Counting objects:  44% (34/76)
+remote: Counting objects:  46% (35/76)
+remote: Counting objects:  47% (36/76)
+remote: Counting objects:  48% (37/76)
+remote: Counting objects:  50% (38/76)
+remote: Counting objects:  51% (39/76)
+remote: Counting objects:  52% (40/76)
+remote: Counting objects:  53% (41/76)
+remote: Counting objects:  55% (42/76)
+remote: Counting objects:  56% (43/76)
+remote: Counting objects:  57% (44/76)
+remote: Counting objects:  59% (45/76)
+remote: Counting objects:  60% (46/76)
+remote: Counting objects:  61% (47/76)
+remote: Counting objects:  63% (48/76)
+remote: Counting objects:  64% (49/76)
+remote: Counting objects:  65% (50/76)
+remote: Counting objects:  67% (51/76)
+remote: Counting objects:  68% (52/76)
+remote: Counting objects:  69% (53/76)
+remote: Counting objects:  71% (54/76)
+remote: Counting objects:  72% (55/76)
+remote: Counting objects:  73% (56/76)
+remote: Counting objects:  75% (57/76)
+remote: Counting objects:  76% (58/76)
+remote: Counting objects:  77% (59/76)
+remote: Counting objects:  78% (60/76)
+remote: Counting objects:  80% (61/76)
+remote: Counting objects:  81% (62/76)
+remote: Counting objects:  82% (63/76)
+remote: Counting objects:  84% (64/76)
+remote: Counting objects:  85% (65/76)
+remote: Counting objects:  86% (66/76)
+remote: Counting objects:  88% (67/76)
+remote: Counting objects:  89% (68/76)
+remote: Counting objects:  90% (69/76)
+remote: Counting objects:  92% (70/76)
+remote: Counting objects:  93% (71/76)
+remote: Counting objects:  94% (72/76)
+remote: Counting objects:  96% (73/76)
+remote: Counting objects:  97% (74/76)
+remote: Counting objects:  98% (75/76)
+remote: Counting objects: 100% (76/76)
+remote: Counting objects: 100% (76/76), done.
+remote: Compressing objects:   1% (1/75)
+remote: Compressing objects:   2% (2/75)
+remote: Compressing objects:   4% (3/75)
+remote: Compressing objects:   5% (4/75)
+remote: Compressing objects:   6% (5/75)
+remote: Compressing objects:   8% (6/75)
+remote: Compressing objects:   9% (7/75)
+remote: Compressing objects:  10% (8/75)
+remote: Compressing objects:  12% (9/75)
+remote: Compressing objects:  13% (10/75)
+remote: Compressing objects:  14% (11/75)
+remote: Compressing objects:  16% (12/75)
+remote: Compressing objects:  17% (13/75)
+remote: Compressing objects:  18% (14/75)
+remote: Compressing objects:  20% (15/75)
+remote: Compressing objects:  21% (16/75)
+remote: Compressing objects:  22% (17/75)
+remote: Compressing objects:  24% (18/75)
+remote: Compressing objects:  25% (19/75)
+remote: Compressing objects:  26% (20/75)
+remote: Compressing objects:  28% (21/75)
+remote: Compressing objects:  29% (22/75)
+remote: Compressing objects:  30% (23/75)
+remote: Compressing objects:  32% (24/75)
+remote: Compressing objects:  33% (25/75)
+remote: Compressing objects:  34% (26/75)
+remote: Compressing objects:  36% (27/75)
+remote: Compressing objects:  37% (28/75)
+remote: Compressing objects:  38% (29/75)
+remote: Compressing objects:  40% (30/75)
+remote: Compressing objects:  41% (31/75)
+remote: Compressing objects:  42% (32/75)
+remote: Compressing objects:  44% (33/75)
+remote: Compressing objects:  45% (34/75)
+remote: Compressing objects:  46% (35/75)
+remote: Compressing objects:  48% (36/75)
+remote: Compressing objects:  49% (37/75)
+remote: Compressing objects:  50% (38/75)
+remote: Compressing objects:  52% (39/75)
+remote: Compressing objects:  53% (40/75)
+remote: Compressing objects:  54% (41/75)
+remote: Compressing objects:  56% (42/75)
+remote: Compressing objects:  57% (43/75)
+remote: Compressing objects:  58% (44/75)
+remote: Compressing objects:  60% (45/75)
+remote: Compressing objects:  61% (46/75)
+remote: Compressing objects:  62% (47/75)
+remote: Compressing objects:  64% (48/75)
+remote: Compressing objects:  65% (49/75)
+remote: Compressing objects:  66% (50/75)
+remote: Compressing objects:  68% (51/75)
+remote: Compressing objects:  69% (52/75)
+remote: Compressing objects:  70% (53/75)
+remote: Compressing objects:  72% (54/75)
+remote: Compressing objects:  73% (55/75)
+remote: Compressing objects:  74% (56/75)
+remote: Compressing objects:  76% (57/75)
+remote: Compressing objects:  77% (58/75)
+remote: Compressing objects:  78% (59/75)
+remote: Compressing objects:  80% (60/75)
+remote: Compressing objects:  81% (61/75)
+remote: Compressing objects:  82% (62/75)
+remote: Compressing objects:  84% (63/75)
+remote: Compressing objects:  85% (64/75)
+remote: Compressing objects:  86% (65/75)
+remote: Compressing objects:  88% (66/75)
+remote: Compressing objects:  89% (67/75)
+remote: Compressing objects:  90% (68/75)
+remote: Compressing objects:  92% (69/75)
+remote: Compressing objects:  93% (70/75)
+remote: Compressing objects:  94% (71/75)
+remote: Compressing objects:  96% (72/75)
+remote: Compressing objects:  97% (73/75)
+remote: Compressing objects:  98% (74/75)
+remote: Compressing objects: 100% (75/75)
+remote: Compressing objects: 100% (75/75), done.
+Receiving objects:   1% (1/76)
+Receiving objects:   2% (2/76)
+Receiving objects:   3% (3/76)
+Receiving objects:   5% (4/76)
+Receiving objects:   6% (5/76)
+Receiving objects:   7% (6/76)
+Receiving objects:   9% (7/76)
+Receiving objects:  10% (8/76)
+Receiving objects:  11% (9/76)
+Receiving objects:  13% (10/76)
+Receiving objects:  14% (11/76)
+Receiving objects:  15% (12/76)
+Receiving objects:  17% (13/76)
+Receiving objects:  18% (14/76)
+Receiving objects:  19% (15/76)
+Receiving objects:  21% (16/76), 388.00 KiB | 744.00 KiB/s
+Receiving objects:  22% (17/76), 388.00 KiB | 744.00 KiB/s
+Receiving objects:  22% (17/76), 1.35 MiB | 1.33 MiB/s    
+Receiving objects:  23% (18/76), 1.35 MiB | 1.33 MiB/s
+Receiving objects:  25% (19/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  26% (20/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  27% (21/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  28% (22/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  30% (23/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  31% (24/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  32% (25/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  34% (26/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  35% (27/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  36% (28/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  38% (29/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  39% (30/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  40% (31/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  42% (32/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  43% (33/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  44% (34/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  46% (35/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  47% (36/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  48% (37/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  50% (38/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  51% (39/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  52% (40/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  53% (41/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  55% (42/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  56% (43/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  57% (44/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  59% (45/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  60% (46/76), 3.85 MiB | 2.52 MiB/s
+remote: Total 76 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects:  61% (47/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  63% (48/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  64% (49/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  65% (50/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  67% (51/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  68% (52/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  69% (53/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  71% (54/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  72% (55/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  73% (56/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  75% (57/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  76% (58/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  77% (59/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  78% (60/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  80% (61/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  81% (62/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  82% (63/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  84% (64/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  85% (65/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  86% (66/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  88% (67/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  89% (68/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  90% (69/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  92% (70/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  93% (71/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  94% (72/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  96% (73/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  97% (74/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects:  98% (75/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects: 100% (76/76), 3.85 MiB | 2.52 MiB/s
+Receiving objects: 100% (76/76), 5.92 MiB | 3.36 MiB/s, done.
+Resolving deltas:   0% (0/6)
+Resolving deltas:  16% (1/6)
+Resolving deltas:  33% (2/6)
+Resolving deltas:  50% (3/6)
+Resolving deltas:  66% (4/6)
+Resolving deltas: 100% (6/6)
+Resolving deltas: 100% (6/6), done.</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:54.086</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">git fetch --depth 1 origin 38fb8eb13a018cca316678930720eafa446c4387 &amp;&amp; git checkout --detach 38fb8eb13a018cca316678930720eafa446c4387 &amp;&amp; test &quot;$(git rev-parse HEAD)&quot; = &quot;38fb8eb13a018cca316678930720eafa446c4387&quot;    (cwd: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:54.086</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">remote: Enumerating objects: 39, done.
+remote: Counting objects:   2% (1/39)
+remote: Counting objects:   5% (2/39)
+remote: Counting objects:   7% (3/39)
+remote: Counting objects:  10% (4/39)
+remote: Counting objects:  12% (5/39)
+remote: Counting objects:  15% (6/39)
+remote: Counting objects:  17% (7/39)
+remote: Counting objects:  20% (8/39)
+remote: Counting objects:  23% (9/39)
+remote: Counting objects:  25% (10/39)
+remote: Counting objects:  28% (11/39)
+remote: Counting objects:  30% (12/39)
+remote: Counting objects:  33% (13/39)
+remote: Counting objects:  35% (14/39)
+remote: Counting objects:  38% (15/39)
+remote: Counting objects:  41% (16/39)
+remote: Counting objects:  43% (17/39)
+remote: Counting objects:  46% (18/39)
+remote: Counting objects:  48% (19/39)
+remote: Counting objects:  51% (20/39)
+remote: Counting objects:  53% (21/39)
+remote: Counting objects:  56% (22/39)
+remote: Counting objects:  58% (23/39)
+remote: Counting objects:  61% (24/39)
+remote: Counting objects:  64% (25/39)
+remote: Counting objects:  66% (26/39)
+remote: Counting objects:  69% (27/39)
+remote: Counting objects:  71% (28/39)
+remote: Counting objects:  74% (29/39)
+remote: Counting objects:  76% (30/39)
+remote: Counting objects:  79% (31/39)
+remote: Counting objects:  82% (32/39)
+remote: Counting objects:  84% (33/39)
+remote: Counting objects:  87% (34/39)
+remote: Counting objects:  89% (35/39)
+remote: Counting objects:  92% (36/39)
+remote: Counting objects:  94% (37/39)
+remote: Counting objects:  97% (38/39)
+remote: Counting objects: 100% (39/39)
+remote: Counting objects: 100% (39/39), done.
+remote: Compressing objects:   5% (1/20)
+remote: Compressing objects:  10% (2/20)
+remote: Compressing objects:  15% (3/20)
+remote: Compressing objects:  20% (4/20)
+remote: Compressing objects:  25% (5/20)
+remote: Compressing objects:  30% (6/20)
+remote: Compressing objects:  35% (7/20)
+remote: Compressing objects:  40% (8/20)
+remote: Compressing objects:  45% (9/20)
+remote: Compressing objects:  50% (10/20)
+remote: Compressing objects:  55% (11/20)
+remote: Compressing objects:  60% (12/20)
+remote: Compressing objects:  65% (13/20)
+remote: Compressing objects:  70% (14/20)
+remote: Compressing objects:  75% (15/20)
+remote: Compressing objects:  80% (16/20)
+remote: Compressing objects:  85% (17/20)
+remote: Compressing objects:  90% (18/20)
+remote: Compressing objects:  95% (19/20)
+remote: Compressing objects: 100% (20/20)
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 20 (delta 17), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects:   5% (1/20)
+Unpacking objects:  10% (2/20)
+Unpacking objects:  15% (3/20)
+Unpacking objects:  20% (4/20)
+Unpacking objects:  25% (5/20)
+Unpacking objects:  30% (6/20)
+Unpacking objects:  35% (7/20)
+Unpacking objects:  40% (8/20)
+Unpacking objects:  45% (9/20)
+Unpacking objects:  50% (10/20)
+Unpacking objects:  55% (11/20)
+Unpacking objects:  60% (12/20)
+Unpacking objects:  65% (13/20)
+Unpacking objects:  70% (14/20)
+Unpacking objects:  75% (15/20)
+Unpacking objects:  80% (16/20)
+Unpacking objects:  85% (17/20)
+Unpacking objects:  90% (18/20)
+Unpacking objects:  95% (19/20)
+Unpacking objects: 100% (20/20)
+Unpacking objects: 100% (20/20), 5.57 KiB | 17.00 KiB/s, done.
+From https://modelers.cn/MindIE/Wan2.2
+ * branch            38fb8eb13a018cca316678930720eafa446c4387 -&gt; FETCH_HEAD
+HEAD is now at 38fb8eb Merge pull request &#39;合入magcache&#39; (#31) from konka/Wan2.2:feat/magcache into main</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:55.009</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">rm -rf /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2_bak</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:42:55.013</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.024</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">pip3 install -r requirements.txt    (cwd: /home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.025</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">Looking in indexes: https://repo.huaweicloud.com/repository/pypi/simple
+Collecting torch==2.9.0 (from -r requirements.txt (line 1))
+  Downloading torch-2.9.0-cp311-cp311-manylinux_2_28_aarch64.whl (104.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/104.2 MB ? eta -:--:--
+     ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/104.2 MB 34.5 MB/s eta 0:00:03
+     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/104.2 MB 29.5 MB/s eta 0:00:04
+     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/104.2 MB 26.9 MB/s eta 0:00:04
+     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.8/104.2 MB 27.1 MB/s eta 0:00:04
+     ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 26.0/104.2 MB 25.8 MB/s eta 0:00:04
+     ━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.1/104.2 MB 25.6 MB/s eta 0:00:03
+     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 33.3/104.2 MB 23.3 MB/s eta 0:00:04
+     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 38.5/104.2 MB 23.7 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━ 44.3/104.2 MB 24.4 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 49.5/104.2 MB 24.4 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ 53.2/104.2 MB 23.6 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ 57.4/104.2 MB 23.4 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ 64.2/104.2 MB 23.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 66.8/104.2 MB 23.4 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ 72.1/104.2 MB 23.2 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ 74.7/104.2 MB 22.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ 80.0/104.2 MB 22.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━ 83.1/104.2 MB 22.6 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ 87.8/104.2 MB 22.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━ 91.5/104.2 MB 22.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 96.7/104.2 MB 22.3 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 100.4/104.2 MB 22.3 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 103.8/104.2 MB 21.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 104.1/104.2 MB 21.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 104.1/104.2 MB 21.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.2/104.2 MB 19.8 MB/s  0:00:05
+Collecting torchvision==0.24.0 (from -r requirements.txt (line 2))
+  Downloading torchvision-0.24.0-cp311-cp311-manylinux_2_28_aarch64.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/2.4 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 34.1 MB/s  0:00:00
+Collecting opencv-python&gt;=4.9.0.80 (from -r requirements.txt (line 3))
+  Downloading opencv_python-5.1.0.95-cp37-abi3-manylinux_2_28_aarch64.whl (55.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/55.0 MB ? eta -:--:--
+     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/55.0 MB 20.5 MB/s eta 0:00:03
+     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/55.0 MB 23.7 MB/s eta 0:00:02
+     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.4/55.0 MB 23.4 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ 20.7/55.0 MB 25.5 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 26.5/55.0 MB 26.2 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━ 29.6/55.0 MB 25.5 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ 33.8/55.0 MB 24.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 38.5/55.0 MB 23.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 42.7/55.0 MB 23.1 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ 50.1/55.0 MB 24.0 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 54.8/55.0 MB 23.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 54.8/55.0 MB 23.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 MB 21.1 MB/s  0:00:02
+Requirement already satisfied: diffusers&lt;0.35.2,&gt;=0.31.0 in /usr/local/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (0.35.1)
+Collecting transformers==4.54.1 (from -r requirements.txt (line 5))
+  Downloading transformers-4.54.1-py3-none-any.whl (11.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/11.2 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ 5.8/11.2 MB 28.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ 9.7/11.2 MB 24.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.2/11.2 MB 22.5 MB/s  0:00:00
+Requirement already satisfied: tokenizers&gt;=0.20.3 in /usr/local/lib/python3.11/site-packages (from -r requirements.txt (line 6)) (0.21.4)
+Collecting accelerate==1.9.0 (from -r requirements.txt (line 7))
+  Downloading accelerate-1.9.0-py3-none-any.whl (367 kB)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.11/site-packages (from -r requirements.txt (line 8)) (4.70.1)
+Requirement already satisfied: easydict in /usr/local/lib/python3.11/site-packages (from -r requirements.txt (line 10)) (1.13)
+Collecting ftfy (from -r requirements.txt (line 11))
+  Downloading ftfy-6.3.1-py3-none-any.whl (44 kB)
+Collecting dashscope (from -r requirements.txt (line 12))
+  Downloading dashscope-2.1.1-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/1.1 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 78.0 MB/s  0:00:00
+Collecting imageio-ffmpeg (from -r requirements.txt (line 13))
+  Downloading imageio_ffmpeg-0.8.1-py3-none-manylinux_2_28_aarch64.whl (61.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/61.0 MB ? eta -:--:--
+     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/61.0 MB 28.2 MB/s eta 0:00:02
+     ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/61.0 MB 26.9 MB/s eta 0:00:02
+     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.4/61.0 MB 23.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.1/61.0 MB 23.4 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 23.9/61.0 MB 23.3 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ 30.7/61.0 MB 24.6 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━ 35.9/61.0 MB 24.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 39.6/61.0 MB 24.0 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ 45.4/61.0 MB 24.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ 50.9/61.0 MB 24.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ 55.3/61.0 MB 24.3 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ 59.5/61.0 MB 23.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 60.8/61.0 MB 23.3 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 MB 22.1 MB/s  0:00:02
+Collecting numpy&lt;2,&gt;=1.23.5 (from -r requirements.txt (line 14))
+  Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/14.2 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/14.2 MB 24.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 9.2/14.2 MB 23.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━ 13.4/14.2 MB 21.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 20.5 MB/s  0:00:00
+Requirement already satisfied: yunchang==0.6.0 in /usr/local/lib/python3.11/site-packages (from -r requirements.txt (line 15)) (0.6.0)
+Collecting imageio[ffmpeg] (from -r requirements.txt (line 9))
+  Downloading imageio-2.38.2-py3-none-any.whl (328 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (4.2.12)
+Requirement already satisfied: typing-extensions&gt;=4.10.0 in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (4.16.0)
+Requirement already satisfied: sympy&gt;=1.13.3 in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (1.14.0)
+Requirement already satisfied: networkx&gt;=2.5.1 in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (3.6.1)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: fsspec&gt;=0.8.5 in /usr/local/lib/python3.11/site-packages (from torch==2.9.0-&gt;-r requirements.txt (line 1)) (2026.9.0)
+Requirement already satisfied: pillow!=8.3.*,&gt;=5.3.0 in /usr/local/lib/python3.11/site-packages (from torchvision==0.24.0-&gt;-r requirements.txt (line 2)) (13.0.0)
+Requirement already satisfied: huggingface-hub&lt;1.0,&gt;=0.34.0 in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (0.36.2)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (26.3)
+Requirement already satisfied: pyyaml&gt;=5.1 in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (6.0.3)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (2026.11.19)
+Requirement already satisfied: requests in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (2.34.2)
+Requirement already satisfied: safetensors&gt;=0.4.3 in /usr/local/lib/python3.11/site-packages (from transformers==4.54.1-&gt;-r requirements.txt (line 5)) (0.8.0)
+Requirement already satisfied: psutil in /usr/local/lib/python3.11/site-packages (from accelerate==1.9.0-&gt;-r requirements.txt (line 7)) (7.2.2)
+Requirement already satisfied: importlib_metadata in /usr/local/lib/python3.11/site-packages (from diffusers&lt;0.35.2,&gt;=0.31.0-&gt;-r requirements.txt (line 4)) (10.2.0)
+Requirement already satisfied: hf-xet&lt;2.0.0,&gt;=1.1.3 in /usr/local/lib/python3.11/site-packages (from huggingface-hub&lt;1.0,&gt;=0.34.0-&gt;transformers==4.54.1-&gt;-r requirements.txt (line 5)) (1.8.0)
+Collecting opencv-python&gt;=4.9.0.80 (from -r requirements.txt (line 3))
+  Downloading opencv_python-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl (49.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/49.8 MB ? eta -:--:--
+     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/49.8 MB 14.3 MB/s eta 0:00:04
+     ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/49.8 MB 21.1 MB/s eta 0:00:02
+     ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.4/49.8 MB 21.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ 18.6/49.8 MB 22.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ 22.0/49.8 MB 21.5 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ 28.0/49.8 MB 22.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ 32.5/49.8 MB 22.7 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━ 38.3/49.8 MB 23.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 44.3/49.8 MB 24.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 49.5/49.8 MB 24.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.8/49.8 MB 23.1 MB/s  0:00:02
+INFO: pip is looking at multiple versions of opencv-python to determine which version is compatible with other requirements. This could take a while.
+  Downloading opencv_python-4.14.0.94-cp37-abi3-manylinux_2_28_aarch64.whl (53.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/53.4 MB ? eta -:--:--
+     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/53.4 MB 11.9 MB/s eta 0:00:05
+     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/53.4 MB 12.6 MB/s eta 0:00:04
+     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.1/53.4 MB 13.4 MB/s eta 0:00:04
+     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/53.4 MB 13.3 MB/s eta 0:00:04
+     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.9/53.4 MB 13.7 MB/s eta 0:00:03
+     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.0/53.4 MB 14.2 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 20.7/53.4 MB 14.9 MB/s eta 0:00:03
+     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ 23.9/53.4 MB 14.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ 27.0/53.4 MB 14.9 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ 30.1/53.4 MB 14.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ 32.8/53.4 MB 14.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ 35.9/53.4 MB 14.7 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ 38.5/53.4 MB 14.6 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 41.7/53.4 MB 14.7 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ 44.8/53.4 MB 14.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 48.0/53.4 MB 14.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ 51.1/53.4 MB 14.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 53.2/53.4 MB 14.6 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.4/53.4 MB 13.8 MB/s  0:00:03
+  Downloading opencv_python-4.13.0.92-cp37-abi3-manylinux_2_28_aarch64.whl (46.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/46.7 MB ? eta -:--:--
+     ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.8/46.7 MB 28.5 MB/s eta 0:00:02
+     ━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/46.7 MB 28.7 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ 17.8/46.7 MB 29.1 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ 22.5/46.7 MB 27.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ 27.3/46.7 MB 26.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ 33.3/46.7 MB 27.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━ 37.5/46.7 MB 26.4 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ 42.2/46.7 MB 26.3 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 45.4/46.7 MB 24.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.7/46.7 MB 23.6 MB/s  0:00:01
+  Downloading opencv_python-4.13.0.90-cp37-abi3-manylinux_2_28_aarch64.whl (46.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/46.7 MB ? eta -:--:--
+     ━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/46.7 MB 29.5 MB/s eta 0:00:02
+     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.0/46.7 MB 26.6 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ 18.6/46.7 MB 31.1 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ 22.8/46.7 MB 27.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━ 27.0/46.7 MB 25.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ 32.2/46.7 MB 25.7 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 36.4/46.7 MB 25.1 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ 42.7/46.7 MB 25.7 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 46.7/46.7 MB 25.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.7/46.7 MB 24.5 MB/s  0:00:01
+  Downloading opencv_python-4.12.0.88-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (45.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/45.9 MB ? eta -:--:--
+     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/45.9 MB 32.5 MB/s eta 0:00:02
+     ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/45.9 MB 26.2 MB/s eta 0:00:02
+     ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.9/45.9 MB 24.1 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━ 19.4/45.9 MB 23.8 MB/s eta 0:00:02
+     ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 24.4/45.9 MB 24.5 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 28.0/45.9 MB 23.0 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━ 32.2/45.9 MB 22.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ 37.5/45.9 MB 23.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 42.7/45.9 MB 23.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 45.4/45.9 MB 22.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 45.9/45.9 MB 21.9 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.9/45.9 MB 19.5 MB/s  0:00:02
+  Downloading opencv_python-4.11.0.86-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (42.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/42.2 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━ 21.5/42.2 MB 107.8 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ 42.2/42.2 MB 106.2 MB/s eta 0:00:01
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.2/42.2 MB 84.6 MB/s  0:00:00
+Collecting wcwidth (from ftfy-&gt;-r requirements.txt (line 11))
+  Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (826 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/826.6 kB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 826.6/826.6 kB 15.7 MB/s  0:00:00
+Collecting aiohttp (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading aiohttp-3.14.5-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/1.9 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 11.2 MB/s  0:00:00
+Collecting websocket-client (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading websocket_client-1.9.2-py3-none-any.whl (95 kB)
+Requirement already satisfied: cryptography in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (50.0.2)
+Requirement already satisfied: certifi&gt;=2024.7.4 in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (2026.10.23)
+Requirement already satisfied: typer&gt;=0.9.0 in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (0.29.2)
+Requirement already satisfied: rich&gt;=13.0.0 in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (15.0.0)
+Requirement already satisfied: httpx&gt;=0.27.0 in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (0.28.1)
+Collecting httpx-sse&gt;=0.4.0 (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading httpx_sse-0.4.3-py3-none-any.whl (9.0 kB)
+Collecting tiktoken (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading tiktoken-0.14.0-cp311-cp311-manylinux_2_28_aarch64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0.0/1.2 MB ? eta -:--:--
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 93.9 MB/s  0:00:00
+Requirement already satisfied: pydantic&gt;=2.0 in /usr/local/lib/python3.11/site-packages (from dashscope-&gt;-r requirements.txt (line 12)) (2.14.4)
+Collecting tenacity (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading tenacity-9.2.1-py3-none-any.whl (32 kB)
+Collecting fastapi&gt;=0.100 (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading fastapi-0.165.0-py3-none-any.whl (159 kB)
+Collecting uvicorn&gt;=0.20 (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Collecting opentelemetry-sdk&gt;=1.20 (from dashscope-&gt;-r requirements.txt (line 12))
+  Downloading opentelemetry_sdk-1.45.2-py3-none-any.whl (141 kB)
+Collecting starlette&gt;=1.6.0 (from fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+Requirement already satisfied: anyio&gt;=4.1.0 in /usr/local/lib/python3.11/site-packages (from fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12)) (4.16.0)
+Requirement already satisfied: typing-inspection&gt;=0.4.2 in /usr/local/lib/python3.11/site-packages (from fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12)) (0.4.5)
+Requirement already satisfied: annotated-doc&gt;=0.0.2 in /usr/local/lib/python3.11/site-packages (from fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12)) (0.0.7)
+Collecting opentelemetry-api&gt;=1.44.0 (from fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+Requirement already satisfied: idna&gt;=2.8 in /usr/local/lib/python3.11/site-packages (from anyio&gt;=4.1.0-&gt;fastapi&gt;=0.100-&gt;dashscope-&gt;-r requirements.txt (line 12)) (3.20)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.11/site-packages (from httpx&gt;=0.27.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (1.0.9)
+Requirement already satisfied: h11&gt;=0.16 in /usr/local/lib/python3.11/site-packages (from httpcore==1.*-&gt;httpx&gt;=0.27.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (0.16.0)
+Collecting opentelemetry-semantic-conventions==0.66b2 (from opentelemetry-sdk&gt;=1.20-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading opentelemetry_semantic_conventions-0.66b2-py3-none-any.whl (206 kB)
+Requirement already satisfied: annotated-types&gt;=0.6.0 in /usr/local/lib/python3.11/site-packages (from pydantic&gt;=2.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (0.8.0)
+Requirement already satisfied: pydantic-core==2.50.5 in /usr/local/lib/python3.11/site-packages (from pydantic&gt;=2.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (2.50.5)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /usr/local/lib/python3.11/site-packages (from rich&gt;=13.0.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (4.3.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /usr/local/lib/python3.11/site-packages (from rich&gt;=13.0.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (2.21.0)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=13.0.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (0.1.2)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /usr/local/lib/python3.11/site-packages (from sympy&gt;=1.13.3-&gt;torch==2.9.0-&gt;-r requirements.txt (line 1)) (1.3.0)
+Requirement already satisfied: shellingham&gt;=1.3.0 in /usr/local/lib/python3.11/site-packages (from typer&gt;=0.9.0-&gt;dashscope-&gt;-r requirements.txt (line 12)) (1.5.4)
+Requirement already satisfied: click&gt;=7.0 in /usr/local/lib/python3.11/site-packages (from uvicorn&gt;=0.20-&gt;dashscope-&gt;-r requirements.txt (line 12)) (8.5.1)
+Collecting aiohappyeyeballs&gt;=2.5.0 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Collecting aiosignal&gt;=1.4.0 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.11/site-packages (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12)) (26.1.0)
+Collecting frozenlist&gt;=1.1.1 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading frozenlist-1.8.0-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (233 kB)
+Collecting multidict&lt;8.0,&gt;=4.5 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading multidict-7.2.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (504 kB)
+Collecting propcache&gt;=0.2.0 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading propcache-0.5.4-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (238 kB)
+Collecting yarl&lt;2.0,&gt;=1.25.1 (from aiohttp-&gt;dashscope-&gt;-r requirements.txt (line 12))
+  Downloading yarl-1.25.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (116 kB)
+Requirement already satisfied: cffi&gt;=2.0.0 in /usr/local/lib/python3.11/site-packages (from cryptography-&gt;dashscope-&gt;-r requirements.txt (line 12)) (2.1.1)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.11/site-packages (from cffi&gt;=2.0.0-&gt;cryptography-&gt;dashscope-&gt;-r requirements.txt (line 12)) (3.12)
+Requirement already satisfied: zipp&gt;=3.20 in /usr/local/lib/python3.11/site-packages (from importlib_metadata-&gt;diffusers&lt;0.35.2,&gt;=0.31.0-&gt;-r requirements.txt (line 4)) (4.1.2)
+Requirement already satisfied: lazy-importer&gt;=0.1 in /usr/local/lib/python3.11/site-packages (from importlib_metadata-&gt;diffusers&lt;0.35.2,&gt;=0.31.0-&gt;-r requirements.txt (line 4)) (0.1.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.11/site-packages (from jinja2-&gt;torch==2.9.0-&gt;-r requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.11/site-packages (from requests-&gt;transformers==4.54.1-&gt;-r requirements.txt (line 5)) (3.5.2)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /usr/local/lib/python3.11/site-packages (from requests-&gt;transformers==4.54.1-&gt;-r requirements.txt (line 5)) (2.8.0)
+Installing collected packages: websocket-client, wcwidth, uvicorn, tenacity, propcache, opentelemetry-api, numpy, multidict, imageio-ffmpeg, httpx-sse, frozenlist, aiohappyeyeballs, yarl, torch, tiktoken, starlette, opentelemetry-semantic-conventions, opencv-python, imageio, ftfy, aiosignal, torchvision, opentelemetry-sdk, fastapi, aiohttp, accelerate, transformers, dashscope
+
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  0/28 [websocket-client]
+   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  1/28 [wcwidth]
+   ━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  1/28 [wcwidth]
+   ━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  2/28 [uvicorn]
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5/28 [opentelemetry-api]
+  Attempting uninstall: numpy
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5/28 [opentelemetry-api]
+    Found existing installation: numpy 2.4.6
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5/28 [opentelemetry-api]
+    Uninstalling numpy-2.4.6:
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5/28 [opentelemetry-api]
+      Successfully uninstalled numpy-2.4.6
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5/28 [opentelemetry-api]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  6/28 [numpy]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+  Attempting uninstall: torch
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+    Found existing installation: torch 2.10.0
+   ━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━  8/28 [imageio-ffmpeg]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+    Uninstalling torch-2.10.0:
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+      Successfully uninstalled torch-2.10.0
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ 13/28 [torch]
+   ━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━ 15/28 [starlette]
+   ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ 16/28 [opentelemetry-semantic-conventions]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 17/28 [opencv-python]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 17/28 [opencv-python]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 17/28 [opencv-python]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 17/28 [opencv-python]
+   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ 17/28 [opencv-python]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 18/28 [imageio]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 18/28 [imageio]
+  Attempting uninstall: torchvision
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 18/28 [imageio]
+    Found existing installation: torchvision 0.25.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 18/28 [imageio]
+    Uninstalling torchvision-0.25.0:
+   ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ 18/28 [imageio]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+      Successfully uninstalled torchvision-0.25.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ 21/28 [torchvision]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 22/28 [opentelemetry-sdk]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ 22/28 [opentelemetry-sdk]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ 23/28 [fastapi]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+  Attempting uninstall: accelerate
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+    Found existing installation: accelerate 1.13.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+    Uninstalling accelerate-1.13.0:
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+      Successfully uninstalled accelerate-1.13.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ 24/28 [aiohttp]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 25/28 [accelerate]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 25/28 [accelerate]
+  Attempting uninstall: transformers
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 25/28 [accelerate]
+    Found existing installation: transformers 4.49.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━ 25/28 [accelerate]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+    Uninstalling transformers-4.49.0:
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+      Successfully uninstalled transformers-4.49.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ 26/28 [transformers]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ 27/28 [dashscope]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28/28 [dashscope]
+
+<span style="color:#F44336;font-weight:bold">ERROR</span>: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+cann-ops-nn 1.0.1 requires ninja, which is not installed.
+ms-service-profiler 26.0.0 requires loguru, which is not installed.
+ms-service-profiler 26.0.0 requires matplotlib, which is not installed.
+ms-service-profiler 26.0.0 requires msguard, which is not installed.
+ms-service-profiler 26.0.0 requires opentelemetry-exporter-otlp-proto-grpc&lt;2.0.0,&gt;=1.33.1, which is not installed.
+ms-service-profiler 26.0.0 requires opentelemetry-exporter-otlp-proto-http&lt;2.0.0,&gt;=1.33.1, which is not installed.
+torch-npu 2.10.0.post8.dev20261119 requires torch==2.10.0, but you have torch 2.9.0 which is incompatible.
+pandas 3.1.1 requires numpy&gt;=2.0.2; python_version &lt; &quot;3.14&quot;, but you have numpy 1.26.4 which is incompatible.
+Successfully installed accelerate-1.9.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 dashscope-2.1.1 fastapi-0.165.0 frozenlist-1.8.0 ftfy-6.3.1 httpx-sse-0.4.3 imageio-2.38.2 imageio-ffmpeg-0.8.1 multidict-7.2.1 numpy-1.26.4 opencv-python-4.11.0.86 opentelemetry-api-1.45.2 opentelemetry-sdk-1.45.2 opentelemetry-semantic-conventions-0.66b2 propcache-0.5.4 starlette-1.10.0 tenacity-9.2.1 tiktoken-0.14.0 torch-2.9.0 torchvision-0.24.0 transformers-4.54.1 uvicorn-0.54.0 wcwidth-0.9.5 websocket-client-1.9.2 yarl-1.25.1
+WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.755</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">echo y | pip3 uninstall peft</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.756</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">Found existing installation: peft 0.22.0
+Uninstalling peft-0.22.0:
+  Would remove:
+    /usr/local/lib/python3.11/site-packages/peft-0.22.0.dist-info/*
+    /usr/local/lib/python3.11/site-packages/peft/*
+Proceed (Y/n)?   Successfully uninstalled peft-0.22.0
+WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.859</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">export PYTHONPATH=/home/autotest/AutoTestProperty/modelslim/llm_ptq/output/A2/Wan2.2:$PYTHONPATH</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.860</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.968</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python -c &#39;import sys; print(f&quot;cp{sys.version_info.major}{sys.version_info.minor}&quot;)&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:13.971</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">cp311</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:14.089</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">arch</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:14.091</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">aarch64</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:14.092</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>host.py:176</td>
+                <td class="step-indent"><div class="msg-scroll">arch命令返回: aarch64</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:14.093</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>host.py:184</td>
+                <td class="step-indent"><div class="msg-scroll">主机架构为 aarch64</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:17.114</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">python -c &#39;import torch;print(torch.__version__)&#39;</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:17.115</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll"><span style="color:#F44336;font-weight:bold">Traceback</span> (most recent call last):
+  File &quot;/usr/local/lib/python3.11/site-packages/torch/__init__.py&quot;, line 2833, in _import_device_backends
+    entrypoint = backend_extension.load()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/importlib/metadata/__init__.py&quot;, line 202, in load
+    module = import_module(match.group(&#39;module&#39;))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/importlib/__init__.py&quot;, line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1204, in _gcd_import
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1176, in _find_and_load
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 1147, in _find_and_load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 690, in _load_unlocked
+  File &quot;&lt;frozen importlib._bootstrap_external&gt;&quot;, line 940, in exec_module
+  File &quot;&lt;frozen importlib._bootstrap&gt;&quot;, line 241, in _call_with_frames_removed
+  File &quot;/usr/local/lib/python3.11/site-packages/torch_npu/__init__.py&quot;, line 40, in &lt;module&gt;
+    import torch_npu.utils.patch_getenv
+  File &quot;/usr/local/lib/python3.11/site-packages/torch_npu/utils/__init__.py&quot;, line 12, in &lt;module&gt;
+    from torch_npu.npu.utils import get_cann_version
+  File &quot;/usr/local/lib/python3.11/site-packages/torch_npu/npu/__init__.py&quot;, line 165, in &lt;module&gt;
+    from .utils import (obfuscation_initialize, obfuscation_calculate, obfuscation_finalize,
+  File &quot;/usr/local/lib/python3.11/site-packages/torch_npu/npu/utils.py&quot;, line 8, in &lt;module&gt;
+    import torch_npu._C
+ImportError: /usr/local/lib/python3.11/site-packages/torch_npu/lib/libnpu_profiler.so: undefined symbol: _ZNK3c1010TensorImpl15decref_pyobjectEv
+
+The above <span style="color:#F44336;font-weight:bold">exception</span> was the direct cause of the following <span style="color:#F44336;font-weight:bold">exception</span>:
+
+<span style="color:#F44336;font-weight:bold">Traceback</span> (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/usr/local/lib/python3.11/site-packages/torch/__init__.py&quot;, line 2878, in &lt;module&gt;
+    _import_device_backends()
+  File &quot;/usr/local/lib/python3.11/site-packages/torch/__init__.py&quot;, line 2837, in _import_device_backends
+    raise RuntimeError(
+RuntimeError: <span style="color:#F44336;font-weight:bold">Failed</span> to load the backend extension: torch_npu. You can disable extension auto-loading with TORCH_DEVICE_BACKEND_AUTOLOAD=0.</div></td>
+            </tr>
+            <tr class="step-content content-step-3">
+                <td>2026-11-22 22:44:17.117</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473461084192</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">测试执行异常: Failed to get torch version.</div></td>
+            </tr>
+        <tr class="step-error">
+            <td>2026-11-22 22:44:17.117</td>
+            <td class='TC_STEP'>TC_STEP</td>
+            <td>281473461084192</td>
+            <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:98</td>
+            <td>
+                <span id="toggle-step-4" class="step-toggle" onclick="toggleStep('step-4')">+Expand step</span>
+                <div class="msg-scroll">-------------------------------- ENV RECOVER（可选） --------------------------------</div>
+            </td>
+        </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.118</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:99</td>
+                <td class="step-indent"><div class="msg-scroll">环境恢复完成</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.138</td>
+                <td class='FAIL'>FAIL</td>
+                <td>281473461084192</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">Test FAILED: testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py::TestModelSlimWan22::test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8
+Exception: RuntimeError
+Message: Failed to get torch version.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.138</td>
+                <td class='ERROR'>ERROR</td>
+                <td>281473461084192</td>
+                <td>__init__.py:71</td>
+                <td class="step-indent"><div class="msg-scroll">Traceback:
+testcase/mindstudio/modelslim/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8.py:82: in test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8
+    llm_ptq_base.install_mindiesd(environment)
+lib/mindstudio/msmodelslim/quant_base.py:69: in install_mindiesd
+    torch_version = CommonUtils._get_torch_version(env)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/mindstudio/msmodelslim/common_utils.py:128: in _get_torch_version
+    raise RuntimeError(&quot;Failed to get torch version.&quot;)
+E   RuntimeError: Failed to get torch version.</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.151</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">test -d /root/ascend/log</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.152</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.152</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>device.py:1087</td>
+                <td class="step-indent"><div class="msg-scroll">[Device.download_file] Downloading /root/ascend/log to /home/pytest-infra/logs_InzmLWgQ/TestCases/2026-11-22/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8_22-42-34/mindstudio_single_device_1_a2a3_env_type-nodes_A2-device via SCP</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.309</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>conftest.py:224</td>
+                <td class="step-indent"><div class="msg-scroll">[mv_dir_on_teardown] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device download &#39;/root/ascend/log&#39; -&gt; &#39;/home/pytest-infra/logs_InzmLWgQ/TestCases/2026-11-22/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8_22-42-34/mindstudio_single_device_1_a2a3_env_type-nodes_A2-device&#39; success</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.487</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">mv /root/ascend/log /mnt/share/autotest_log/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8_20261122_224417</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.488</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:17.488</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>conftest.py:233</td>
+                <td class="step-indent"><div class="msg-scroll">[mv_dir_on_teardown] mindstudio_single_device_1_a2a3_env_type-nodes_A2-device &#39;mv /root/ascend/log /mnt/share/autotest_log/test_quant_wan2_2_t2v_a14b_w4a4_mxfp4_fa8_fp8_20261122_224417&#39; success</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:26.264</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>sendcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">find /mnt/share/autotest_log -maxdepth 1 -mindepth 1 -mtime +5 -exec rm -rf {} +</div></td>
+            </tr>
+            <tr class="step-content content-step-4">
+                <td>2026-11-22 22:44:26.265</td>
+                <td class='INFO'>INFO</td>
+                <td>281473461084192</td>
+                <td>recvcmd[device]</td>
+                <td class="step-indent"><div class="msg-scroll">(empty)</div></td>
+            </tr>
+        <tr>
+            <td>2026-11-22 22:44:26.266</td>
+            <td class='TC_END'>TC_END</td>
+            <td>281473461084192</td>
+            <td>plugin.py:1076</td>
+            <td><div class="msg-scroll">TestCase End, completed in 111.72s</div></td>
+        </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

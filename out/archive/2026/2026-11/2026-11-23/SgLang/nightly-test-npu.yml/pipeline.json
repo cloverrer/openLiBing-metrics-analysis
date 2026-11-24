@@ -1,0 +1,3752 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-24 09:08:16",
+  "component": "SgLang",
+  "pipeline": "nightly-test-npu.yml",
+  "date": "2026-11-23",
+  "recordCount": 6
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-23",
+ "component": "SgLang",
+ "pipeline": "nightly-test-npu.yml",
+ "pipelineName": "nightly-test-npu.yml",
+ "platform": "github",
+ "key": "SgLang|nightly-test-npu.yml",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-23",
+  "runs": [
+   {
+    "rn": 2295,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 19:36:50"
+   },
+   {
+    "rn": 2292,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 17:52:00"
+   },
+   {
+    "rn": 2291,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 14:52:43"
+   },
+   {
+    "rn": 2290,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 14:42:31"
+   },
+   {
+    "rn": 2289,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 13:20:51"
+   },
+   {
+    "rn": 2285,
+    "status": "FAILED",
+    "endedAt": "2026-11-23 05:48:18"
+   }
+  ]
+ },
+ "counts": {
+  "records": 6,
+  "tasks": 20,
+  "cases": 0,
+  "errorMessages": 65
+ },
+ "evidence": {
+  "files": 51,
+  "bytes": 23402080,
+  "lines": 196652,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-24 09:08:15",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "dateRange": {
+    "start": "2026-11-23",
+    "end": "2026-11-23"
+   },
+   "product": {
+    "product": "SgLang",
+    "projectId": 300134,
+    "versionAvailabilityRate": 0.0,
+    "buildSuccessRate": null,
+    "pipelineCount": 1,
+    "badPipelineCount": 1,
+    "badPipelineCountVA": 1,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 1,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 1,
+     "sumRate": 0.0,
+     "avgRate": 0.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    }
+   },
+   "pipeline": {
+    "key": "SgLang|nightly-test-npu.yml",
+    "product": "SgLang",
+    "projectId": 300134,
+    "pipelineName": "nightly-test-npu.yml",
+    "pipelineShortName": "nightly-test-npu.yml",
+    "pipelineId": "209837578",
+    "platform": "github",
+    "versionAvailabilityRate": 0,
+    "buildSuccessRate": null,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 6 次运行（当日 6 次），其中 6 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "dateRange": {
+    "start": "2026-11-23",
+    "end": "2026-11-23"
+   },
+   "date": "2026-11-23",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 2285,
+     "rid": "45041940599",
+     "status": "FAILED",
+     "start": "11-23 00:06",
+     "startISO": "2026-11-23T00:06:13",
+     "endISO": "2026-11-23T05:48:18",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45041940599",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45041940599",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "Nightly Test (NPU)",
+     "ghEvent": "schedule",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 342.08,
+     "cached": false
+    },
+    {
+     "rn": 2289,
+     "rid": "45106760399",
+     "status": "FAILED",
+     "start": "11-23 11:54",
+     "startISO": "2026-11-23T11:54:11",
+     "endISO": "2026-11-23T13:20:51",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45106760399",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45106760399",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 86.67,
+     "cached": false
+    },
+    {
+     "rn": 2290,
+     "rid": "45125927969",
+     "status": "FAILED",
+     "start": "11-23 14:42",
+     "startISO": "2026-11-23T14:42:31",
+     "endISO": "2026-11-23T14:42:31",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45125927969",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45125927969",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 0,
+     "cached": false
+    },
+    {
+     "rn": 2291,
+     "rid": "45127118972",
+     "status": "FAILED",
+     "start": "11-23 14:52",
+     "startISO": "2026-11-23T14:52:43",
+     "endISO": "2026-11-23T14:52:43",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45127118972",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45127118972",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 0,
+     "cached": false
+    },
+    {
+     "rn": 2292,
+     "rid": "45131706165",
+     "status": "FAILED",
+     "start": "11-23 16:11",
+     "startISO": "2026-11-23T16:11:35",
+     "endISO": "2026-11-23T17:52:00",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45131706165",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45131706165",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 100.42,
+     "cached": false
+    },
+    {
+     "rn": 2295,
+     "rid": "45166773023",
+     "status": "FAILED",
+     "start": "11-23 19:36",
+     "startISO": "2026-11-23T19:36:50",
+     "endISO": "2026-11-23T19:36:50",
+     "detailUrl": "https://github.com/sgl-project/sglang/actions/runs/45166773023",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45166773023",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "[CI] [NPU] test: deepssekV4 flash testcase",
+     "ghEvent": "pull_request",
+     "ghRepo": "https://github.com/sgl-project/sglang.git",
+     "ghDuration": 0,
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-23": [
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 2295,
+     "pipelineRunId": "45166773023",
+     "start": "2026-11-23 19:36:50",
+     "end": "2026-11-23 19:36:50",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2292,
+     "pipelineRunId": "45131706165",
+     "start": "2026-11-23 16:11:35",
+     "end": "2026-11-23 17:52:00",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2291,
+     "pipelineRunId": "45127118972",
+     "start": "2026-11-23 14:52:43",
+     "end": "2026-11-23 14:52:43",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2290,
+     "pipelineRunId": "45125927969",
+     "start": "2026-11-23 14:42:31",
+     "end": "2026-11-23 14:42:31",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2289,
+     "pipelineRunId": "45106760399",
+     "start": "2026-11-23 11:54:11",
+     "end": "2026-11-23 13:20:51",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 2285,
+     "pipelineRunId": "45041940599",
+     "start": "2026-11-23 00:06:13",
+     "end": "2026-11-23 05:48:18",
+     "status": "FAILED",
+     "endedDate": "2026-11-23",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 2295,
+     "start": "2026-11-23 19:36:50",
+     "end": "2026-11-23 19:36:50",
+     "status": "FAILED",
+     "rid": "45166773023",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45166773023",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2292,
+     "start": "2026-11-23 16:11:35",
+     "end": "2026-11-23 17:52:00",
+     "status": "FAILED",
+     "rid": "45131706165",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45131706165",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2291,
+     "start": "2026-11-23 14:52:43",
+     "end": "2026-11-23 14:52:43",
+     "status": "FAILED",
+     "rid": "45127118972",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45127118972",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2290,
+     "start": "2026-11-23 14:42:31",
+     "end": "2026-11-23 14:42:31",
+     "status": "FAILED",
+     "rid": "45125927969",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45125927969",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2289,
+     "start": "2026-11-23 11:54:11",
+     "end": "2026-11-23 13:20:51",
+     "status": "FAILED",
+     "rid": "45106760399",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45106760399",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 2285,
+     "start": "2026-11-23 00:06:13",
+     "end": "2026-11-23 05:48:18",
+     "status": "FAILED",
+     "rid": "45041940599",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45041940599",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-23"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 6,
+   "keptFailedRuns": 6,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "test": [],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "logFiles": 0,
+    "errorLines": 0
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23"
+   },
+   "results": [
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2285,
+     "rid": "45041940599",
+     "st": "11-23 00:06",
+     "runId": 45041940599,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "Nightly Test (NPU)",
+     "event": "schedule",
+     "status": "FAILED",
+     "duration": 342.08,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-22T21:48:18Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "zip",
+     "why": "失败 job 12 个（>5，整包一次下载更省时）",
+     "totalJobs": 28,
+     "failedJobs": [
+      {
+       "name": "nightly-test-1-npu-a3 / run (0)",
+       "id": 137268116155,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-2-npu-a3 / run (0)",
+       "id": 137268116161,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137268116216,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+       "id": 137268116484,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137268116499,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137298459049,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137302653995,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137307005318,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+       "id": 137331317859,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+       "id": 137351309389,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 137358629151,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 137367426236,
+       "steps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "nightly-test-1-npu-a3 / run (0)",
+       "id": 137268116155,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T16:06:43Z",
+       "completedAt": "2026-11-22T17:15:04Z",
+       "logFile": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+       "logBytes": 3539939,
+       "logLines": 21759,
+       "errorLines": [
+        "L1175: [2026-11-22 16:13:51 PID5529] Scheduler hit an exception: Traceback (most recent call last):",
+        "L1233: Traceback (most recent call last):",
+        "L21705: ##[error]Error: failed to run script step:",
+        "L21706: ✗ exit code: 255",
+        "L21730: ##[error]Process completed with exit code 1.",
+        "L21731: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-2-npu-a3 / run (0)",
+       "id": 137268116161,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T16:06:40Z",
+       "completedAt": "2026-11-22T17:09:30Z",
+       "logFile": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+       "logBytes": 2245429,
+       "logLines": 12512,
+       "errorLines": [
+        "L4162: Traceback (most recent call last):",
+        "L4193: Traceback (most recent call last):",
+        "L4227: Traceback (most recent call last):",
+        "L4260: Traceback (most recent call last):",
+        "L11824: bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L11825: bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L12458: ##[error]Error: failed to run script step:",
+        "L12459: ✗ exit code: 255",
+        "L12483: ##[error]Process completed with exit code 1.",
+        "L12484: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137268116216,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T16:06:41Z",
+       "completedAt": "2026-11-22T16:37:36Z",
+       "logFile": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+       "logBytes": 3327028,
+       "logLines": 30871,
+       "errorLines": [
+        "L16600: [2026-11-22 16:20:54 DP1 TP8 PID4829] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16693: [2026-11-22 16:20:55 DP1 TP11 PID4832] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16782: [2026-11-22 16:20:55 DP1 TP15 PID4837] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16871: [2026-11-22 16:20:55 DP1 TP10 PID4831] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16960: [2026-11-22 16:20:55 DP1 TP9 PID4830] Scheduler hit an exception: Traceback (most recent call last):",
+        "L17049: [2026-11-22 16:20:55 DP1 TP13 PID4835] Scheduler hit an exception: Traceback (most recent call last):",
+        "L17138: [2026-11-22 16:20:55 DP1 TP14 PID4836] Scheduler hit an exception: Traceback (most recent call last):",
+        "L17227: [2026-11-22 16:20:55 DP1 TP12 PID4833] Scheduler hit an exception: Traceback (most recent call last):",
+        "L19079: 0: No such file or directory (os error 2)",
+        "L19080: 1: No such file or directory (os error 2)",
+        "L29954: [2026-11-22 16:36:00 TP12 EP12 PID32233] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30043: [2026-11-22 16:36:00 TP14 EP14 PID32235] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30132: [2026-11-22 16:36:00 TP9 EP9 PID32230] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30221: [2026-11-22 16:36:00 TP13 EP13 PID32234] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30310: [2026-11-22 16:36:00 TP5 EP5 PID31785] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30399: [2026-11-22 16:36:00 TP2 EP2 PID31782] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30488: [2026-11-22 16:36:00 TP4 EP4 PID31784] Scheduler hit an exception: Traceback (most recent call last):",
+        "L30600: 0: No such file or directory (os error 2)",
+        "L30601: 1: No such file or directory (os error 2)",
+        "L30612: 0: No such file or directory (os error 2)",
+        "L30613: 1: No such file or directory (os error 2)",
+        "L30618: 0: No such file or directory (os error 2)",
+        "L30619: 1: No such file or directory (os error 2)",
+        "L30625: 0: No such file or directory (os error 2)",
+        "L30626: 1: No such file or directory (os error 2)",
+        "L30631: 0: No such file or directory (os error 2)",
+        "L30632: 1: No such file or directory (os error 2)",
+        "L30638: 0: No such file or directory (os error 2)",
+        "L30639: 1: No such file or directory (os error 2)",
+        "L30644: 0: No such file or directory (os error 2)",
+        "L30645: 1: No such file or directory (os error 2)",
+        "L30651: 0: No such file or directory (os error 2)",
+        "L30652: 1: No such file or directory (os error 2)",
+        "L30657: 0: No such file or directory (os error 2)",
+        "L30658: 1: No such file or directory (os error 2)",
+        "L30664: 0: No such file or directory (os error 2)",
+        "L30665: 1: No such file or directory (os error 2)",
+        "L30670: 0: No such file or directory (os error 2)",
+        "L30671: 1: No such file or directory (os error 2)",
+        "L30679: 0: No such file or directory (os error 2)",
+        "L30680: 1: No such file or directory (os error 2)",
+        "L30686: 0: No such file or directory (os error 2)",
+        "L30687: 1: No such file or directory (os error 2)",
+        "L30692: 0: No such file or directory (os error 2)",
+        "L30693: 1: No such file or directory (os error 2)",
+        "L30699: 0: No such file or directory (os error 2)",
+        "L30700: 1: No such file or directory (os error 2)",
+        "L30705: 0: No such file or directory (os error 2)",
+        "L30706: 1: No such file or directory (os error 2)",
+        "L30722: 0: No such file or directory (os error 2)",
+        "L30723: 1: No such file or directory (os error 2)",
+        "L30728: 0: No such file or directory (os error 2)",
+        "L30729: 1: No such file or directory (os error 2)",
+        "L30737: Traceback (most recent call last):",
+        "L30757: Traceback (most recent call last):",
+        "L30776: Traceback (most recent call last):",
+        "L30817: ##[error]Error: failed to run script step:",
+        "L30818: ✗ exit code: 255",
+        "L30842: ##[error]Process completed with exit code 1.",
+        "L30843: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+       "id": 137268116484,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T16:06:42Z",
+       "completedAt": "2026-11-22T17:52:14Z",
+       "logFile": "github_logs/gh_45041940599/22_nightly-acc-test-2-npu-a3 _ nightly-acc-test-2-npu-a3.txt",
+       "logBytes": 750320,
+       "logLines": 4035,
+       "errorLines": [
+        "L592: /__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L593: /__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137268116499,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T16:06:29Z",
+       "completedAt": "2026-11-22T16:44:46Z",
+       "logFile": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+       "logBytes": 1478770,
+       "logLines": 12310,
+       "errorLines": [
+        "L569: cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory",
+        "L570: /__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L571: /__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L8575: [2026-11-22 16:33:13 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):",
+        "L8647: Traceback (most recent call last):",
+        "L12254: ##[error]Error: failed to run script step:",
+        "L12255: ✗ exit code: 255",
+        "L12279: ##[error]Process completed with exit code 1.",
+        "L12280: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137298459049,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T17:52:39Z",
+       "completedAt": "2026-11-22T18:06:50Z",
+       "logFile": "github_logs/gh_45041940599/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+       "logBytes": 77783,
+       "logLines": 738,
+       "errorLines": [
+        "L552: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L553: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L590: Traceback (most recent call last):",
+        "L600: Traceback (most recent call last):",
+        "L608: ##[error]Error: failed to run script step:",
+        "L609: ✗ exit code: 1",
+        "L615: Traceback (most recent call last):",
+        "L625: Traceback (most recent call last):",
+        "L633: ##[error]Process completed with exit code 1.",
+        "L634: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137302653995,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T18:07:15Z",
+       "completedAt": "2026-11-22T18:21:40Z",
+       "logFile": "github_logs/gh_45041940599/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+       "logBytes": 76981,
+       "logLines": 735,
+       "errorLines": [
+        "L552: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L553: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L587: Traceback (most recent call last):",
+        "L597: Traceback (most recent call last):",
+        "L605: ##[error]Error: failed to run script step:",
+        "L606: ✗ exit code: 1",
+        "L612: Traceback (most recent call last):",
+        "L622: Traceback (most recent call last):",
+        "L630: ##[error]Process completed with exit code 1.",
+        "L631: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137307005318,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T18:22:07Z",
+       "completedAt": "2026-11-22T18:39:14Z",
+       "logFile": "github_logs/gh_45041940599/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+       "logBytes": 80393,
+       "logLines": 757,
+       "errorLines": [
+        "L568: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L569: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L607: Traceback (most recent call last):",
+        "L617: Traceback (most recent call last):",
+        "L625: ##[error]Error: failed to run script step:",
+        "L626: ✗ exit code: 1",
+        "L632: Traceback (most recent call last):",
+        "L642: Traceback (most recent call last):",
+        "L650: ##[error]Process completed with exit code 1.",
+        "L651: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+       "id": 137331317859,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T19:45:23Z",
+       "completedAt": "2026-11-22T20:53:05Z",
+       "logFile": "github_logs/gh_45041940599/3_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+       "logBytes": 1513721,
+       "logLines": 16524,
+       "errorLines": [
+        "L596: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L597: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L15154: [2026-11-23 04:10:44 DP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15184: Traceback (most recent call last):",
+        "L15226: [2026-11-23 04:10:44 DP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15256: Traceback (most recent call last):",
+        "L15298: [2026-11-23 04:10:44 DP0 TP7 EP7 PID582] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15328: Traceback (most recent call last):",
+        "L15370: [2026-11-23 04:10:44 DP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15400: Traceback (most recent call last):",
+        "L15442: [2026-11-23 04:10:44 DP0 TP8 EP8 PID583] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15472: Traceback (most recent call last):",
+        "L15514: [2026-11-23 04:10:44 DP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15544: Traceback (most recent call last):",
+        "L15586: [2026-11-23 04:10:44 DP0 TP12 EP12 PID587] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15616: Traceback (most recent call last):",
+        "L15658: [2026-11-23 04:10:44 DP0 TP13 EP13 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15688: Traceback (most recent call last):",
+        "L15730: [2026-11-23 04:10:44 DP0 TP9 EP9 PID584] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15760: Traceback (most recent call last):",
+        "L15802: [2026-11-23 04:10:44 DP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15832: Traceback (most recent call last):",
+        "L15874: [2026-11-23 04:10:44] DataParallelController hit an exception: Traceback (most recent call last):",
+        "L15897: [2026-11-23 04:10:44 DP0 TP11 EP11 PID586] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15927: Traceback (most recent call last):",
+        "L15969: [2026-11-23 04:10:44 DP0 TP14 EP14 PID589] Scheduler hit an exception: Traceback (most recent call last):",
+        "L15999: Traceback (most recent call last):",
+        "L16041: [2026-11-23 04:10:44 DP0 TP3 EP3 PID578] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16071: Traceback (most recent call last):",
+        "L16113: [2026-11-23 04:10:44 DP0 TP10 EP10 PID585] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16143: Traceback (most recent call last):",
+        "L16185: [2026-11-23 04:10:44 DP0 TP15 EP15 PID590] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16215: Traceback (most recent call last):",
+        "L16257: [2026-11-23 04:10:44 DP0 TP2 EP2 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+        "L16287: Traceback (most recent call last):",
+        "L16331: Traceback (most recent call last):",
+        "L16341: Traceback (most recent call last):",
+        "L16353: Traceback (most recent call last):",
+        "L16373: Traceback (most recent call last):",
+        "L16384: Traceback (most recent call last):",
+        "L16392: ##[error]Error: failed to run script step:",
+        "L16393: ✗ exit code: 1",
+        "L16398: Traceback (most recent call last):",
+        "L16409: Traceback (most recent call last):",
+        "L16417: ##[error]Process completed with exit code 1.",
+        "L16418: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+       "id": 137351309389,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T20:53:30Z",
+       "completedAt": "2026-11-22T21:17:51Z",
+       "logFile": "github_logs/gh_45041940599/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+       "logBytes": 1019204,
+       "logLines": 10567,
+       "errorLines": [
+        "L606: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L607: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L9634: [2026-11-23 05:12:40 DP0 PP0 TP3 EP3 PID578] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9672: [2026-11-23 05:12:40 DP0 PP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9709: [2026-11-23 05:12:40 DP1 PP0 TP10 EP10 PID585] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9745: [2026-11-23 05:12:40 DP0 PP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9781: [2026-11-23 05:12:40 DP1 PP0 TP11 EP11 PID586] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9817: [2026-11-23 05:12:40 DP1 PP0 TP13 EP13 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9853: [2026-11-23 05:12:40 DP1 PP0 TP12 EP12 PID587] Scheduler hit an exception: Traceback (most recent call last):",
+        "L9889: [2026-11-23 05:12:40 DP0 PP0 TP2 EP2 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10033: [2026-11-23 05:12:40 DP0 PP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10069: [2026-11-23 05:12:40 DP0 PP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10105: [2026-11-23 05:12:40 DP1 PP0 TP8 EP8 PID583] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10141: [2026-11-23 05:12:40 DP1 PP0 TP14 EP14 PID589] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10177: [2026-11-23 05:12:40 DP0 PP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+        "L10241: 0: No such file or directory (os error 2)",
+        "L10242: 1: No such file or directory (os error 2)",
+        "L10250: 0: No such file or directory (os error 2)",
+        "L10251: 1: No such file or directory (os error 2)",
+        "L10257: 0: No such file or directory (os error 2)",
+        "L10258: 1: No such file or directory (os error 2)",
+        "L10263: 0: No such file or directory (os error 2)",
+        "L10264: 1: No such file or directory (os error 2)",
+        "L10277: 0: No such file or directory (os error 2)",
+        "L10278: 1: No such file or directory (os error 2)",
+        "L10289: 0: No such file or directory (os error 2)",
+        "L10290: 1: No such file or directory (os error 2)",
+        "L10295: 0: No such file or directory (os error 2)",
+        "L10296: 1: No such file or directory (os error 2)",
+        "L10307: 0: No such file or directory (os error 2)",
+        "L10308: 1: No such file or directory (os error 2)",
+        "L10313: 0: No such file or directory (os error 2)",
+        "L10314: 1: No such file or directory (os error 2)",
+        "L10320: 0: No such file or directory (os error 2)",
+        "L10321: 1: No such file or directory (os error 2)",
+        "L10326: 0: No such file or directory (os error 2)",
+        "L10327: 1: No such file or directory (os error 2)",
+        "L10333: 0: No such file or directory (os error 2)",
+        "L10334: 1: No such file or directory (os error 2)",
+        "L10339: 0: No such file or directory (os error 2)",
+        "L10340: 1: No such file or directory (os error 2)",
+        "L10346: 0: No such file or directory (os error 2)",
+        "L10347: 1: No such file or directory (os error 2)",
+        "L10352: 0: No such file or directory (os error 2)",
+        "L10353: 1: No such file or directory (os error 2)",
+        "L10359: 0: No such file or directory (os error 2)",
+        "L10360: 1: No such file or directory (os error 2)",
+        "L10365: 0: No such file or directory (os error 2)",
+        "L10366: 1: No such file or directory (os error 2)",
+        "L10376: Traceback (most recent call last):",
+        "L10386: Traceback (most recent call last):",
+        "L10398: Traceback (most recent call last):",
+        "L10416: Traceback (most recent call last):",
+        "L10427: Traceback (most recent call last):",
+        "L10435: ##[error]Error: failed to run script step:",
+        "L10436: ✗ exit code: 1",
+        "L10441: Traceback (most recent call last):",
+        "L10452: Traceback (most recent call last):",
+        "L10460: ##[error]Process completed with exit code 1.",
+        "L10461: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 137358629151,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T21:18:16Z",
+       "completedAt": "2026-11-22T21:48:11Z",
+       "logFile": "github_logs/gh_45041940599/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+       "logBytes": 1765782,
+       "logLines": 18434,
+       "errorLines": [
+        "L604: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L605: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L16907: Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, pybase64._pybase64, charset_normalizer.md, charset_normalizer.cd, simplejson._speedups, requests.packages.charset_normalizer.md, requests.packages.chardet.md, requests.packages.charset_normalizer.cd, requests.packages.chardet.cd, multidict._multidict, yarl._quoting_c, propcache._helpers_c, aiohttp._http_writer, aiohttp._",
+        "L17034: Traceback (most recent call last):",
+        "L17079: , Cython.Utils, Cython.Plex.Actions, Cython.Plex.Transitions, Cython.Plex.Machines, Cython.Plex.DFA, Cython.Plex.Scanners, Cython.Compiler.Scanning, Cython.StringIOTree, Cython.Compiler.Code[2026-11-23 05:43:35 DP0 TP15 EP15 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+        "L17206: Traceback (most recent call last):",
+        "L17690: [2026-11-23 05:43:36 DP0 TP4 EP4 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+        "L17817: Traceback (most recent call last):",
+        "L17872: [rank15]:W1123 05:43:36.130000 588 site-packages/torch_npu/distributed/distributed_c10d.py:500] Traceback (most recent call last):",
+        "L17884: [rank15]:W1123 05:43:36.134000 588 site-packages/torch_npu/distributed/distributed_c10d.py:500] Traceback (most recent call last):",
+        "L18244: Traceback (most recent call last):",
+        "L18254: Traceback (most recent call last):",
+        "L18266: Traceback (most recent call last):",
+        "L18284: Traceback (most recent call last):",
+        "L18295: Traceback (most recent call last):",
+        "L18303: ##[error]Error: failed to run script step:",
+        "L18304: ✗ exit code: 1",
+        "L18309: Traceback (most recent call last):",
+        "L18320: Traceback (most recent call last):",
+        "L18328: ##[error]Process completed with exit code 1.",
+        "L18329: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 137367426236,
+       "conclusion": "failure",
+       "startedAt": "2026-11-22T21:48:14Z",
+       "completedAt": "2026-11-22T21:48:17Z",
+       "logFile": "github_logs/gh_45041940599/0_check-all-jobs.txt",
+       "logBytes": 7329,
+       "logLines": 109,
+       "errorLines": [
+        "L108: ##[error]Process completed with exit code 1."
+       ],
+       "githubSteps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "systemLogs": [
+      "github_logs/gh_45041940599/sys_check-all-jobs.txt",
+      "github_logs/gh_45041940599/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+      "github_logs/gh_45041940599/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+      "github_logs/gh_45041940599/sys_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+      "github_logs/gh_45041940599/sys_multi-node-poc-accuracy-odd-day (multi_node_accuracy_odd_day, 2, 2, 1, test_regi~c72490.txt",
+      "github_logs/gh_45041940599/sys_multi-node-poc (glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~cae9bb.txt",
+      "github_logs/gh_45041940599/sys_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+      "github_logs/gh_45041940599/sys_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+      "github_logs/gh_45041940599/sys_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+      "github_logs/gh_45041940599/sys_nightly-test-4-npu-a3 _ run (1).txt",
+      "github_logs/gh_45041940599/sys_nightly-test-4-npu-a3 _ run (0).txt",
+      "github_logs/gh_45041940599/sys_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+      "github_logs/gh_45041940599/sys_nightly-perf-test-4-npu-a3 _ nightly-perf-test-4-npu-a3.txt",
+      "github_logs/gh_45041940599/sys_nightly-perf-test-16-npu-a3 _ nightly-perf-test-16-npu-a3.txt",
+      "github_logs/gh_45041940599/sys_nightly-acc-test-16-npu-a3 _ nightly-acc-test-16-npu-a3.txt",
+      "github_logs/gh_45041940599/sys_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+      "github_logs/gh_45041940599/sys_nightly-perf-test-2-npu-a3 _ nightly-perf-test-2-npu-a3.txt",
+      "github_logs/gh_45041940599/sys_nightly-test-16-npu-a3 _ run (0).txt",
+      "github_logs/gh_45041940599/sys_nightly-test-1-npu-a3 _ run (0).txt",
+      "github_logs/gh_45041940599/sys_nightly-test-2-npu-a3 _ run (0).txt",
+      "github_logs/gh_45041940599/sys_nightly-test-8-npu-a3 _ run (0).txt",
+      "github_logs/gh_45041940599/sys_set-image-config.txt"
+     ],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2289,
+     "rid": "45106760399",
+     "st": "11-23 11:54",
+     "runId": 45106760399,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 86.67,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-23T05:20:51Z",
+      "attempt": 2
+     },
+     "_v": 2,
+     "mode": "zip",
+     "why": "失败 job 6 个（>5，整包一次下载更省时）",
+     "totalJobs": 22,
+     "failedJobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137475751176,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137475751213,
+       "steps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137475751450,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137476126048,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137480309481,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137484865663,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137475751176,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T03:54:39Z",
+       "completedAt": "2026-11-23T04:48:44Z",
+       "logFile": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+       "logBytes": 2801180,
+       "logLines": 25788,
+       "errorLines": [
+        "L20659: [2026-11-23 04:39:19 TP12 EP12 PID29408] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20686: [2026-11-23 04:39:19 TP14 EP14 PID29410] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20713: [2026-11-23 04:39:19 TP13 EP13 PID29409] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20740: [2026-11-23 04:39:19 TP15 EP15 PID29411] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20767: [2026-11-23 04:39:19 TP10 EP10 PID29406] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20794: [2026-11-23 04:39:19 TP7 EP7 PID29403] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20821: [2026-11-23 04:39:19 TP9 EP9 PID29405] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20848: [2026-11-23 04:39:19 TP11 EP11 PID29407] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20875: [2026-11-23 04:39:19 TP0 EP0 PID29396] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20902: [2026-11-23 04:39:19 TP2 EP2 PID29398] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20929: [2026-11-23 04:39:19 TP8 EP8 PID29404] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20958: [2026-11-23 04:39:19 TP1 EP1 PID29397] Scheduler hit an exception: Traceback (most recent call last):",
+        "L20985: [2026-11-23 04:39:19 TP5 EP5 PID29401] Scheduler hit an exception: Traceback (most recent call last):",
+        "L21013: [2026-11-23 04:39:19 TP4 EP4 PID29400] Scheduler hit an exception: Traceback (most recent call last):",
+        "L21040: [2026-11-23 04:39:19 TP6 EP6 PID29402] Scheduler hit an exception: Traceback (most recent call last):",
+        "L21068: [2026-11-23 04:39:19 TP3 EP3 PID29399] Scheduler hit an exception: Traceback (most recent call last):",
+        "L21102: Traceback (most recent call last):",
+        "L25207: [2026-11-23 04:48:24 TP0 EP0 PID39880] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25234: [2026-11-23 04:48:24 TP14 EP14 PID39894] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25261: [2026-11-23 04:48:24 TP15 EP15 PID39895] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25288: [2026-11-23 04:48:24 TP7 EP7 PID39887] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25315: [2026-11-23 04:48:24 TP10 EP10 PID39890] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25343: [2026-11-23 04:48:24 TP13 EP13 PID39893] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25370: [2026-11-23 04:48:24 TP9 EP9 PID39889] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25397: [2026-11-23 04:48:24 TP8 EP8 PID39888] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25425: [2026-11-23 04:48:24 TP11 EP11 PID39891] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25452: [2026-11-23 04:48:24 TP12 EP12 PID39892] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25480: [2026-11-23 04:48:24 TP4 EP4 PID39884] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25508: [2026-11-23 04:48:24 TP2 EP2 PID39882] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25535: [2026-11-23 04:48:24 TP3 EP3 PID39883] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25564: [2026-11-23 04:48:24 TP1 EP1 PID39881] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25591: [2026-11-23 04:48:24 TP6 EP6 PID39886] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25621: [2026-11-23 04:48:24 TP5 EP5 PID39885] Scheduler hit an exception: Traceback (most recent call last):",
+        "L25654: Traceback (most recent call last):",
+        "L25674: Traceback (most recent call last):",
+        "L25693: Traceback (most recent call last):",
+        "L25734: ##[error]Error: failed to run script step:",
+        "L25735: ✗ exit code: 255",
+        "L25759: ##[error]Process completed with exit code 1.",
+        "L25760: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137475751213,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T03:54:22Z",
+       "completedAt": "2026-11-23T03:55:37Z",
+       "logFile": "github_logs/gh_45106760399/15_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+       "logBytes": 25934,
+       "logLines": 430,
+       "errorLines": [
+        "L402: ##[error]## ⚠️ CI Maintenance Mode is Active"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137475751450,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T03:54:32Z",
+       "completedAt": "2026-11-23T04:33:41Z",
+       "logFile": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+       "logBytes": 1420702,
+       "logLines": 11935,
+       "errorLines": [
+        "L569: cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory",
+        "L570: /__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L571: /__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L8150: [2026-11-23 04:21:52 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):",
+        "L8216: [2026-11-23 04:21:52 DP2 TP2 EP2 PID3568] Scheduler hit an exception: Traceback (most recent call last):",
+        "L8288: Traceback (most recent call last):",
+        "L11879: ##[error]Error: failed to run script step:",
+        "L11880: ✗ exit code: 255",
+        "L11904: ##[error]Process completed with exit code 1.",
+        "L11905: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137476126048,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T03:56:02Z",
+       "completedAt": "2026-11-23T04:09:26Z",
+       "logFile": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+       "logBytes": 76140,
+       "logLines": 718,
+       "errorLines": [
+        "L535: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L536: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L570: Traceback (most recent call last):",
+        "L580: Traceback (most recent call last):",
+        "L588: ##[error]Error: failed to run script step:",
+        "L589: ✗ exit code: 1",
+        "L595: Traceback (most recent call last):",
+        "L605: Traceback (most recent call last):",
+        "L613: ##[error]Process completed with exit code 1.",
+        "L614: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137480309481,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T04:09:52Z",
+       "completedAt": "2026-11-23T04:23:34Z",
+       "logFile": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+       "logBytes": 74532,
+       "logLines": 710,
+       "errorLines": [
+        "L526: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L527: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L562: Traceback (most recent call last):",
+        "L572: Traceback (most recent call last):",
+        "L580: ##[error]Error: failed to run script step:",
+        "L581: ✗ exit code: 1",
+        "L587: Traceback (most recent call last):",
+        "L597: Traceback (most recent call last):",
+        "L605: ##[error]Process completed with exit code 1.",
+        "L606: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137484865663,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T04:23:59Z",
+       "completedAt": "2026-11-23T04:39:46Z",
+       "logFile": "github_logs/gh_45106760399/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+       "logBytes": 75735,
+       "logLines": 715,
+       "errorLines": [
+        "L529: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+        "L530: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+        "L565: Traceback (most recent call last):",
+        "L575: Traceback (most recent call last):",
+        "L583: ##[error]Error: failed to run script step:",
+        "L584: ✗ exit code: 1",
+        "L590: Traceback (most recent call last):",
+        "L600: Traceback (most recent call last):",
+        "L608: ##[error]Process completed with exit code 1.",
+        "L609: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [
+      "github_logs/gh_45106760399/sys_multi-node-poc (glm_5_3_w8a8_1p1d_32p_in128k_out1k_prefix90_20ms, 2, 2, 1, test_~cae9bb.txt",
+      "github_logs/gh_45106760399/sys_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+      "github_logs/gh_45106760399/sys_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+      "github_logs/gh_45106760399/sys_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+      "github_logs/gh_45106760399/sys_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+      "github_logs/gh_45106760399/sys_nightly-test-2-npu-a3 _ run (0).txt",
+      "github_logs/gh_45106760399/sys_nightly-test-16-npu-a3 _ run (0).txt",
+      "github_logs/gh_45106760399/sys_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+      "github_logs/gh_45106760399/sys_set-image-config.txt"
+     ],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2290,
+     "rid": "45125927969",
+     "st": "11-23 14:42",
+     "runId": 45125927969,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 0,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "action_required",
+      "updatedAt": "2026-11-23T06:42:31Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "none",
+     "why": "全部 job 成功/跳过",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "cancelledJobs": [],
+     "jobs": [],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2291,
+     "rid": "45127118972",
+     "st": "11-23 14:52",
+     "runId": 45127118972,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 0,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "action_required",
+      "updatedAt": "2026-11-23T06:52:43Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "none",
+     "why": "全部 job 成功/跳过",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "cancelledJobs": [],
+     "jobs": [],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2292,
+     "rid": "45131706165",
+     "st": "11-23 16:11",
+     "runId": 45131706165,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 100.42,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-23T09:52:00Z",
+      "attempt": 2
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "失败 job 2 个（≤5，逐 job 精取）",
+     "totalJobs": 23,
+     "failedJobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137564393371,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137564393419,
+       "steps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137564393371,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T08:13:34Z",
+       "completedAt": "2026-11-23T09:51:59Z",
+       "logFile": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+       "logBytes": 2976205,
+       "logLines": 26156,
+       "errorLines": [
+        "L26102: ##[error]Error: failed to run script step:",
+        "L26103: ✗ exit code: 255",
+        "L26127: ##[error]Process completed with exit code 1.",
+        "L26128: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137564393419,
+       "conclusion": "failure",
+       "startedAt": "2026-11-23T08:11:48Z",
+       "completedAt": "2026-11-23T08:11:56Z",
+       "logFile": "github_logs/gh_45131706165/137564393419_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+       "logBytes": 25935,
+       "logLines": 430,
+       "errorLines": [
+        "L402: ##[error]## ⚠️ CI Maintenance Mode is Active"
+       ],
+       "githubSteps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "SgLang|nightly-test-npu.yml",
+     "rn": 2295,
+     "rid": "45166773023",
+     "st": "11-23 19:36",
+     "runId": 45166773023,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[CI] [NPU] test: deepssekV4 flash testcase",
+     "event": "pull_request",
+     "status": "FAILED",
+     "duration": 0,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "action_required",
+      "updatedAt": "2026-11-23T11:36:50Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "none",
+     "why": "全部 job 成功/跳过",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "cancelledJobs": [],
+     "jobs": [],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "runs": 6,
+    "jobs": 20,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-24 09:08:16",
+    "component": "SgLang",
+    "pipeline": "nightly-test-npu.yml",
+    "date": "2026-11-23",
+    "recordCount": 6
+   },
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "counts": {
+    "records": 6,
+    "tasks": 20,
+    "cases": 0,
+    "errorMessages": 65
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2276,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 9751,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 622,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 542,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 478,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 471,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 47541,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 869,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2285",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2285,
+   "pipelineRunId": "45041940599",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T00:06:13",
+   "endedAt": "2026-11-23T05:48:18",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T05:48:18",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45041940599",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45041940599",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45041940599"
+   },
+   "tasks": [
+    {
+     "jobName": "nightly-test-1-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "logBytes": 3539939,
+     "logLines": 21759,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1175: [2026-11-22 16:13:51 PID5529] Scheduler hit an exception: Traceback (most recent call last):",
+      "L1233: Traceback (most recent call last):",
+      "L21705: ##[error]Error: failed to run script step:",
+      "L21706: ✗ exit code: 255",
+      "L21730: ##[error]Process completed with exit code 1.",
+      "L21731: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137268116155,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T16:06:43Z",
+      "completedAt": "2026-11-22T17:15:04Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-test-2-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "logBytes": 2245429,
+     "logLines": 12512,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L4162: Traceback (most recent call last):",
+      "L11824: bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L11825: bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L12458: ##[error]Error: failed to run script step:",
+      "L12459: ✗ exit code: 255",
+      "L12483: ##[error]Process completed with exit code 1.",
+      "L12484: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137268116161,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T16:06:40Z",
+      "completedAt": "2026-11-22T17:09:30Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-test-16-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "logBytes": 3327028,
+     "logLines": 30871,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L16600: [2026-11-22 16:20:54 DP1 TP8 PID4829] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16693: [2026-11-22 16:20:55 DP1 TP11 PID4832] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16782: [2026-11-22 16:20:55 DP1 TP15 PID4837] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16871: [2026-11-22 16:20:55 DP1 TP10 PID4831] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16960: [2026-11-22 16:20:55 DP1 TP9 PID4830] Scheduler hit an exception: Traceback (most recent call last):",
+      "L17049: [2026-11-22 16:20:55 DP1 TP13 PID4835] Scheduler hit an exception: Traceback (most recent call last):",
+      "L17138: [2026-11-22 16:20:55 DP1 TP14 PID4836] Scheduler hit an exception: Traceback (most recent call last):",
+      "L17227: [2026-11-22 16:20:55 DP1 TP12 PID4833] Scheduler hit an exception: Traceback (most recent call last):",
+      "L19079: 0: No such file or directory (os error 2)",
+      "L19080: 1: No such file or directory (os error 2)",
+      "L29954: [2026-11-22 16:36:00 TP12 EP12 PID32233] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30043: [2026-11-22 16:36:00 TP14 EP14 PID32235] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30132: [2026-11-22 16:36:00 TP9 EP9 PID32230] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30221: [2026-11-22 16:36:00 TP13 EP13 PID32234] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30310: [2026-11-22 16:36:00 TP5 EP5 PID31785] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30399: [2026-11-22 16:36:00 TP2 EP2 PID31782] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30488: [2026-11-22 16:36:00 TP4 EP4 PID31784] Scheduler hit an exception: Traceback (most recent call last):",
+      "L30737: Traceback (most recent call last):",
+      "L30817: ##[error]Error: failed to run script step:",
+      "L30818: ✗ exit code: 255",
+      "L30842: ##[error]Process completed with exit code 1.",
+      "L30843: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137268116216,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T16:06:41Z",
+      "completedAt": "2026-11-22T16:37:36Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/22_nightly-acc-test-2-npu-a3 _ nightly-acc-test-2-npu-a3.txt",
+     "logBytes": 750320,
+     "logLines": 4035,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L592: /__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L593: /__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+     ],
+     "githubJob": {
+      "id": 137268116484,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T16:06:42Z",
+      "completedAt": "2026-11-22T17:52:14Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "logBytes": 1478770,
+     "logLines": 12310,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L569: cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory",
+      "L570: /__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L571: /__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L8575: [2026-11-22 16:33:13 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):",
+      "L8647: Traceback (most recent call last):",
+      "L12254: ##[error]Error: failed to run script step:",
+      "L12255: ✗ exit code: 255",
+      "L12279: ##[error]Process completed with exit code 1.",
+      "L12280: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137268116499,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T16:06:29Z",
+      "completedAt": "2026-11-22T16:44:46Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "logBytes": 77783,
+     "logLines": 738,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L552: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L553: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L590: Traceback (most recent call last):",
+      "L608: ##[error]Error: failed to run script step:",
+      "L609: ✗ exit code: 1",
+      "L633: ##[error]Process completed with exit code 1.",
+      "L634: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137298459049,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T17:52:39Z",
+      "completedAt": "2026-11-22T18:06:50Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "logBytes": 76981,
+     "logLines": 735,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L552: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L553: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L587: Traceback (most recent call last):",
+      "L605: ##[error]Error: failed to run script step:",
+      "L606: ✗ exit code: 1",
+      "L630: ##[error]Process completed with exit code 1.",
+      "L631: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137302653995,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T18:07:15Z",
+      "completedAt": "2026-11-22T18:21:40Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "logBytes": 80393,
+     "logLines": 757,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L568: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L569: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L607: Traceback (most recent call last):",
+      "L625: ##[error]Error: failed to run script step:",
+      "L626: ✗ exit code: 1",
+      "L650: ##[error]Process completed with exit code 1.",
+      "L651: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137307005318,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T18:22:07Z",
+      "completedAt": "2026-11-22T18:39:14Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/3_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+     "logBytes": 1513721,
+     "logLines": 16524,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L596: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L597: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L15154: [2026-11-23 04:10:44 DP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15184: Traceback (most recent call last):",
+      "L15226: [2026-11-23 04:10:44 DP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15298: [2026-11-23 04:10:44 DP0 TP7 EP7 PID582] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15370: [2026-11-23 04:10:44 DP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15442: [2026-11-23 04:10:44 DP0 TP8 EP8 PID583] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15514: [2026-11-23 04:10:44 DP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15586: [2026-11-23 04:10:44 DP0 TP12 EP12 PID587] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15658: [2026-11-23 04:10:44 DP0 TP13 EP13 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15730: [2026-11-23 04:10:44 DP0 TP9 EP9 PID584] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15802: [2026-11-23 04:10:44 DP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15874: [2026-11-23 04:10:44] DataParallelController hit an exception: Traceback (most recent call last):",
+      "L15897: [2026-11-23 04:10:44 DP0 TP11 EP11 PID586] Scheduler hit an exception: Traceback (most recent call last):",
+      "L15969: [2026-11-23 04:10:44 DP0 TP14 EP14 PID589] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16041: [2026-11-23 04:10:44 DP0 TP3 EP3 PID578] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16113: [2026-11-23 04:10:44 DP0 TP10 EP10 PID585] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16185: [2026-11-23 04:10:44 DP0 TP15 EP15 PID590] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16257: [2026-11-23 04:10:44 DP0 TP2 EP2 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+      "L16392: ##[error]Error: failed to run script step:",
+      "L16393: ✗ exit code: 1",
+      "L16417: ##[error]Process completed with exit code 1.",
+      "L16418: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137331317859,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T19:45:23Z",
+      "completedAt": "2026-11-22T20:53:05Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+     "logBytes": 1019204,
+     "logLines": 10567,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L606: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L607: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L9634: [2026-11-23 05:12:40 DP0 PP0 TP3 EP3 PID578] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9672: [2026-11-23 05:12:40 DP0 PP0 TP1 EP1 PID576] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9709: [2026-11-23 05:12:40 DP1 PP0 TP10 EP10 PID585] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9745: [2026-11-23 05:12:40 DP0 PP0 TP0 EP0 PID575] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9781: [2026-11-23 05:12:40 DP1 PP0 TP11 EP11 PID586] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9817: [2026-11-23 05:12:40 DP1 PP0 TP13 EP13 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9853: [2026-11-23 05:12:40 DP1 PP0 TP12 EP12 PID587] Scheduler hit an exception: Traceback (most recent call last):",
+      "L9889: [2026-11-23 05:12:40 DP0 PP0 TP2 EP2 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10033: [2026-11-23 05:12:40 DP0 PP0 TP6 EP6 PID581] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10069: [2026-11-23 05:12:40 DP0 PP0 TP5 EP5 PID580] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10105: [2026-11-23 05:12:40 DP1 PP0 TP8 EP8 PID583] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10141: [2026-11-23 05:12:40 DP1 PP0 TP14 EP14 PID589] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10177: [2026-11-23 05:12:40 DP0 PP0 TP4 EP4 PID579] Scheduler hit an exception: Traceback (most recent call last):",
+      "L10241: 0: No such file or directory (os error 2)",
+      "L10242: 1: No such file or directory (os error 2)",
+      "L10376: Traceback (most recent call last):",
+      "L10435: ##[error]Error: failed to run script step:",
+      "L10436: ✗ exit code: 1",
+      "L10460: ##[error]Process completed with exit code 1.",
+      "L10461: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137351309389,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T20:53:30Z",
+      "completedAt": "2026-11-22T21:17:51Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+     "logBytes": 1765782,
+     "logLines": 18434,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L604: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L605: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L16907: Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, pybase64._pybase64, charset_normalizer.md, charset_normalizer.cd, simplejson._speedups, requests.packages.charset_normalizer.md, requests.packages.chardet.md, requests.packages.charset_normalizer.cd, requests.packages.chardet.cd, multidict._multidict, yarl._quoting_c, propcache._helpers_c, aiohttp._http_writer, aiohttp._",
+      "L17034: Traceback (most recent call last):",
+      "L17079: , Cython.Utils, Cython.Plex.Actions, Cython.Plex.Transitions, Cython.Plex.Machines, Cython.Plex.DFA, Cython.Plex.Scanners, Cython.Compiler.Scanning, Cython.StringIOTree, Cython.Compiler.Code[2026-11-23 05:43:35 DP0 TP15 EP15 PID588] Scheduler hit an exception: Traceback (most recent call last):",
+      "L17690: [2026-11-23 05:43:36 DP0 TP4 EP4 PID577] Scheduler hit an exception: Traceback (most recent call last):",
+      "L17872: [rank15]:W1123 05:43:36.130000 588 site-packages/torch_npu/distributed/distributed_c10d.py:500] Traceback (most recent call last):",
+      "L17884: [rank15]:W1123 05:43:36.134000 588 site-packages/torch_npu/distributed/distributed_c10d.py:500] Traceback (most recent call last):",
+      "L18303: ##[error]Error: failed to run script step:",
+      "L18304: ✗ exit code: 1",
+      "L18328: ##[error]Process completed with exit code 1.",
+      "L18329: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137358629151,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T21:18:16Z",
+      "completedAt": "2026-11-22T21:48:11Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "check-all-jobs",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45041940599/0_check-all-jobs.txt",
+     "logBytes": 7329,
+     "logLines": 109,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L108: ##[error]Process completed with exit code 1."
+     ],
+     "githubJob": {
+      "id": 137367426236,
+      "conclusion": "failure",
+      "startedAt": "2026-11-22T21:48:14Z",
+      "completedAt": "2026-11-22T21:48:17Z",
+      "steps": [
+       {
+        "name": "Generate results table",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 1175,
+     "level": "LOG",
+     "text": "[2026-11-22 16:13:51 PID5529] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 1233,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 21705,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 21706,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 21730,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-test-1-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "line": 21731,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 4162,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 11824,
+     "level": "LOG",
+     "text": "bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 11825,
+     "level": "LOG",
+     "text": "bash: line 1: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 12458,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 12459,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 12483,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-test-2-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "line": 12484,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 16600,
+     "level": "LOG",
+     "text": "[2026-11-22 16:20:54 DP1 TP8 PID4829] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 16693,
+     "level": "LOG",
+     "text": "[2026-11-22 16:20:55 DP1 TP11 PID4832] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 16782,
+     "level": "LOG",
+     "text": "[2026-11-22 16:20:55 DP1 TP15 PID4837] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 16871,
+     "level": "LOG",
+     "text": "[2026-11-22 16:20:55 DP1 TP10 PID4831] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 30817,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 30818,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 30842,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 30843,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+     "source": "github_logs/gh_45041940599/22_nightly-acc-test-2-npu-a3 _ nightly-acc-test-2-npu-a3.txt",
+     "line": 592,
+     "level": "LOG",
+     "text": "/__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+     "source": "github_logs/gh_45041940599/22_nightly-acc-test-2-npu-a3 _ nightly-acc-test-2-npu-a3.txt",
+     "line": 593,
+     "level": "LOG",
+     "text": "/__w/_temp/1cebc39d-1baa-464d-b824-f700fd4578b2.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 569,
+     "level": "LOG",
+     "text": "cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 570,
+     "level": "LOG",
+     "text": "/__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 571,
+     "level": "LOG",
+     "text": "/__w/_temp/21823a67-69ea-4452-b513-c4151a7f45e8.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 8575,
+     "level": "LOG",
+     "text": "[2026-11-22 16:33:13 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 12254,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 12255,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 12279,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_45041940599/0_check-all-jobs.txt",
+     "github_logs/gh_45041940599/15_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "github_logs/gh_45041940599/1_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test_reg~afd684.txt",
+     "github_logs/gh_45041940599/22_nightly-acc-test-2-npu-a3 _ nightly-acc-test-2-npu-a3.txt",
+     "github_logs/gh_45041940599/23_nightly-test-16-npu-a3 _ run (0).txt",
+     "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "github_logs/gh_45041940599/25_nightly-test-2-npu-a3 _ run (0).txt",
+     "github_logs/gh_45041940599/2_multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test_registered~bbd504.txt",
+     "github_logs/gh_45041940599/3_multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test_registered_npu_accuracy_kimi_~477515.txt",
+     "github_logs/gh_45041940599/7_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "github_logs/gh_45041940599/8_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "github_logs/gh_45041940599/9_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 45041940599,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "Nightly Test (NPU)",
+     "mode": "zip",
+     "totalJobs": 28,
+     "failedJobs": [
+      {
+       "name": "nightly-test-1-npu-a3 / run (0)",
+       "id": 137268116155,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-2-npu-a3 / run (0)",
+       "id": 137268116161,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137268116216,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-2-npu-a3 / nightly-acc-test-2-npu-a3",
+       "id": 137268116484,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137268116499,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137298459049,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137302653995,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137307005318,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_gpqa, 4, test/registered/npu/accuracy/kimi_k3/test_npu_kimi_... / kimi_k3_w4a8_32p_gpqa",
+       "id": 137331317859,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1_prefill, 4, test/registered/npu/performance/... / kimi_k3_w4a8_32p_mix_in128k_out1_prefill",
+       "id": 137351309389,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-mix-poc (kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix, 4, test/registered/npu/perfo... / kimi_k3_w4a8_32p_mix_in128k_out1k_decode_prefix",
+       "id": 137358629151,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "check-all-jobs",
+       "id": 137367426236,
+       "steps": [
+        {
+         "name": "Generate results table",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 12,
+    "testTasks": 0,
+    "logTasks": 12,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 30,
+    "evidenceFiles": 12
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 nightly-test-1-npu-a3 / run (0) 日志命中 6 条错误行（非编译特征），见 github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt",
+     "基线 0.30",
+     "证据文件落盘 12 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "torch.OutOfMemoryError: allocate_host_memory_slowpath:../torch_npu/csrc/core/npu/CachingHostAllocator.cpp:252 NPU function error: aclrtMallocHostWithCfg, error code is 207001",
+    "issueType": "资源不足",
+    "issueDetail": "执行机主机内存不足导致进程分配失败",
+    "rootCause": "失败在 nightly-test-1-npu-a3 作业的调度进程里：scheduler 在准备 prefill 批次、把 host 侧张量交给设备时申请主机内存失败，torch_npu 抛出 OutOfMemoryError，紧接着报申请内存失败、可用内存不足，进程被信号终止，测试集合的 setUpClass 随之报错，作业以非零退出码结束。也就是说这台执行机当时的可用主机内存已经不够用，属于机器内存资源不足；同一晚多个 SgLang 作业都出现同类内存/显存不足问题。",
+    "advice": "检查该执行机当晚的内存占用，确认是否有并行作业挤占或宿主内存被其他进程耗尽；给夜间大模型作业预留足够主机内存，必要时降低同机并行度或更换内存更充裕的执行机。\n\n验证方式：重跑该作业，要求不再出现主机内存分配失败、scheduler 能正常起服务、用例全部通过。",
+    "cites": [
+     "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt:L1214",
+     "github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt:L1216"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 github_logs/gh_45041940599/24_nightly-test-1-npu-a3 _ run (0).txt:L1214",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2289",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2289,
+   "pipelineRunId": "45106760399",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T11:54:11",
+   "endedAt": "2026-11-23T13:20:51",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T13:20:51",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45106760399",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45106760399",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45106760399"
+   },
+   "tasks": [
+    {
+     "jobName": "nightly-test-16-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "logBytes": 2801180,
+     "logLines": 25788,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L20659: [2026-11-23 04:39:19 TP12 EP12 PID29408] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20686: [2026-11-23 04:39:19 TP14 EP14 PID29410] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20713: [2026-11-23 04:39:19 TP13 EP13 PID29409] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20740: [2026-11-23 04:39:19 TP15 EP15 PID29411] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20767: [2026-11-23 04:39:19 TP10 EP10 PID29406] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20794: [2026-11-23 04:39:19 TP7 EP7 PID29403] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20821: [2026-11-23 04:39:19 TP9 EP9 PID29405] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20848: [2026-11-23 04:39:19 TP11 EP11 PID29407] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20875: [2026-11-23 04:39:19 TP0 EP0 PID29396] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20902: [2026-11-23 04:39:19 TP2 EP2 PID29398] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20929: [2026-11-23 04:39:19 TP8 EP8 PID29404] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20958: [2026-11-23 04:39:19 TP1 EP1 PID29397] Scheduler hit an exception: Traceback (most recent call last):",
+      "L20985: [2026-11-23 04:39:19 TP5 EP5 PID29401] Scheduler hit an exception: Traceback (most recent call last):",
+      "L21013: [2026-11-23 04:39:19 TP4 EP4 PID29400] Scheduler hit an exception: Traceback (most recent call last):",
+      "L21040: [2026-11-23 04:39:19 TP6 EP6 PID29402] Scheduler hit an exception: Traceback (most recent call last):",
+      "L21068: [2026-11-23 04:39:19 TP3 EP3 PID29399] Scheduler hit an exception: Traceback (most recent call last):",
+      "L21102: Traceback (most recent call last):",
+      "L25207: [2026-11-23 04:48:24 TP0 EP0 PID39880] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25234: [2026-11-23 04:48:24 TP14 EP14 PID39894] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25261: [2026-11-23 04:48:24 TP15 EP15 PID39895] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25288: [2026-11-23 04:48:24 TP7 EP7 PID39887] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25315: [2026-11-23 04:48:24 TP10 EP10 PID39890] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25343: [2026-11-23 04:48:24 TP13 EP13 PID39893] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25370: [2026-11-23 04:48:24 TP9 EP9 PID39889] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25397: [2026-11-23 04:48:24 TP8 EP8 PID39888] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25425: [2026-11-23 04:48:24 TP11 EP11 PID39891] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25452: [2026-11-23 04:48:24 TP12 EP12 PID39892] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25480: [2026-11-23 04:48:24 TP4 EP4 PID39884] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25508: [2026-11-23 04:48:24 TP2 EP2 PID39882] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25535: [2026-11-23 04:48:24 TP3 EP3 PID39883] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25564: [2026-11-23 04:48:24 TP1 EP1 PID39881] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25591: [2026-11-23 04:48:24 TP6 EP6 PID39886] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25621: [2026-11-23 04:48:24 TP5 EP5 PID39885] Scheduler hit an exception: Traceback (most recent call last):",
+      "L25734: ##[error]Error: failed to run script step:",
+      "L25735: ✗ exit code: 255",
+      "L25759: ##[error]Process completed with exit code 1.",
+      "L25760: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137475751176,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T03:54:39Z",
+      "completedAt": "2026-11-23T04:48:44Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "sgl-router-build-aarch64 / Restore sgl-router",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/15_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+     "logBytes": 25934,
+     "logLines": 430,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L402: ##[error]## ⚠️ CI Maintenance Mode is Active"
+     ],
+     "githubJob": {
+      "id": 137475751213,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T03:54:22Z",
+      "completedAt": "2026-11-23T03:55:37Z",
+      "steps": [
+       {
+        "name": "Run ./.github/actions/check-maintenance",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "logBytes": 1420702,
+     "logLines": 11935,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L569: cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory",
+      "L570: /__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L571: /__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L8150: [2026-11-23 04:21:52 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):",
+      "L8216: [2026-11-23 04:21:52 DP2 TP2 EP2 PID3568] Scheduler hit an exception: Traceback (most recent call last):",
+      "L8288: Traceback (most recent call last):",
+      "L11879: ##[error]Error: failed to run script step:",
+      "L11880: ✗ exit code: 255",
+      "L11904: ##[error]Process completed with exit code 1.",
+      "L11905: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137475751450,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T03:54:32Z",
+      "completedAt": "2026-11-23T04:33:41Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "logBytes": 76140,
+     "logLines": 718,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L535: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L536: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L570: Traceback (most recent call last):",
+      "L588: ##[error]Error: failed to run script step:",
+      "L589: ✗ exit code: 1",
+      "L613: ##[error]Process completed with exit code 1.",
+      "L614: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137476126048,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T03:56:02Z",
+      "completedAt": "2026-11-23T04:09:26Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "logBytes": 74532,
+     "logLines": 710,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L526: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L527: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L562: Traceback (most recent call last):",
+      "L580: ##[error]Error: failed to run script step:",
+      "L581: ✗ exit code: 1",
+      "L605: ##[error]Process completed with exit code 1.",
+      "L606: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137480309481,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T04:09:52Z",
+      "completedAt": "2026-11-23T04:23:34Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45106760399/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "logBytes": 75735,
+     "logLines": 715,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L529: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory",
+      "L530: /root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory",
+      "L565: Traceback (most recent call last):",
+      "L583: ##[error]Error: failed to run script step:",
+      "L584: ✗ exit code: 1",
+      "L608: ##[error]Process completed with exit code 1.",
+      "L609: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137484865663,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T04:23:59Z",
+      "completedAt": "2026-11-23T04:39:46Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 20659,
+     "level": "LOG",
+     "text": "[2026-11-23 04:39:19 TP12 EP12 PID29408] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 20686,
+     "level": "LOG",
+     "text": "[2026-11-23 04:39:19 TP14 EP14 PID29410] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 20713,
+     "level": "LOG",
+     "text": "[2026-11-23 04:39:19 TP13 EP13 PID29409] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 20740,
+     "level": "LOG",
+     "text": "[2026-11-23 04:39:19 TP15 EP15 PID29411] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 25734,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 25735,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 25759,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 25760,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "sgl-router-build-aarch64 / Restore sgl-router",
+     "source": "github_logs/gh_45106760399/15_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+     "line": 402,
+     "level": "LOG",
+     "text": "##[error]## ⚠️ CI Maintenance Mode is Active"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 569,
+     "level": "LOG",
+     "text": "cat: /proc/sys/kernel/sched_migration_cost_ns: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 570,
+     "level": "LOG",
+     "text": "/__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 123: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 571,
+     "level": "LOG",
+     "text": "/__w/_temp/c2942d48-1900-4e2e-9686-613426a96aec.sh: line 124: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 8150,
+     "level": "LOG",
+     "text": "[2026-11-23 04:21:52 DP3 TP3 EP3 PID3569] Scheduler hit an exception: Traceback (most recent call last):"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 11879,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 11880,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 11904,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+     "source": "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "line": 11905,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 535,
+     "level": "LOG",
+     "text": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 536,
+     "level": "LOG",
+     "text": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 570,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 588,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 589,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 613,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+     "source": "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt",
+     "line": 614,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 526,
+     "level": "LOG",
+     "text": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 170: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/customize/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 527,
+     "level": "LOG",
+     "text": "/root/sglang/python/sglang/test/ascend/e2e/run_npu_testcase.sh: line 171: /usr/local/Ascend/ascend-toolkit/latest/opp/vendors/custom_transformer/bin/set_env.bash: No such file or directory"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 562,
+     "level": "LOG",
+     "text": "Traceback (most recent call last):"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 580,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 581,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+     "source": "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "line": 605,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_45106760399/10_nightly-acc-test-4-npu-a5 _ nightly-acc-test-4-npu-a5.txt",
+     "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "github_logs/gh_45106760399/15_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+     "github_logs/gh_45106760399/5_multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test_registere~327148.txt",
+     "github_logs/gh_45106760399/6_multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test_registe~45495f.txt",
+     "github_logs/gh_45106760399/7_multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1~5c11ad.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 45106760399,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "mode": "zip",
+     "totalJobs": 22,
+     "failedJobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137475751176,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137475751213,
+       "steps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "nightly-acc-test-4-npu-a5 / nightly-acc-test-4-npu-a5",
+       "id": 137475751450,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms, 1, 1, 1, test/registe... / deepseek_v4_flash_w8a8_1p1d_16p_in128k_out1k_prefix90_20ms",
+       "id": 137476126048,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa, 1, 1, 1, test/registered/npu/accuracy/... / deepseek_v4_flash_0731_w8a8_1p1d_16p_gpqa",
+       "id": 137480309481,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "multi-node-poc (deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa, 2, 2, 1, test/registered/npu/accuracy/de... / deepseek_v4_pro_0813_w4a8_1p1d_32p_gpqa",
+       "id": 137484865663,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 6,
+    "testTasks": 0,
+    "logTasks": 6,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 30,
+    "evidenceFiles": 6
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 nightly-test-16-npu-a3 / run (0) 日志命中 37 条错误行（非编译特征），见 github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt",
+     "基线 0.30",
+     "证据文件落盘 6 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "ValueError: Loaded weights leave no GPU memory for the KV cache under --mem-fraction-static=0.68",
+    "issueType": "资源不足",
+    "issueDetail": "权重占满显存，KV 缓存无剩余显存可分配",
+    "rootCause": "失败在 nightly-test-16-npu-a3 作业启动模型服务时：scheduler 加载 DeepSeek-R1-0528-W8A8 权重后显存已被占满，在 mem-fraction-static 取 0.68 的情况下没有剩余显存可以分配给 KV 缓存，框架直接抛出 ValueError，并要求把该参数提到 0.709 以上；多个 TP/EP 进程同时报同一错误，服务起不来，作业以非零退出码结束。根因是权重占用与显存配额配置不匹配，属于显存资源不足。",
+    "advice": "按框架提示把该用例的 mem-fraction-static 从 0.68 提到 0.709 以上，或减小并行切分、改用更省显存的权重加载方式；同时复核 DeepSeek-R1-0528-W8A8 在该机型上的权重占用是否符合预期。\n\n验证方式：重跑该作业，要求 scheduler 能正常分配 KV 缓存并起服务成功、用例全部通过。",
+    "cites": [
+     "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt:L20684",
+     "github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt:L20659"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 github_logs/gh_45106760399/14_nightly-test-16-npu-a3 _ run (0).txt:L20684",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2290",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2290,
+   "pipelineRunId": "45125927969",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T14:42:31",
+   "endedAt": "2026-11-23T14:42:31",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T14:42:31",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45125927969",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45125927969",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45125927969"
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": {
+     "runId": 45125927969,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "mode": "none",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.3,
+    "level": "低",
+    "basis": [
+     "该运行无 FAILED 任务证据，且运行平台未给出失败任务类型",
+     "基线 0.30"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": null,
+    "issueType": "基础设施/平台",
+    "issueDetail": "运行未创建任何作业，无日志可查",
+    "rootCause": "该次运行由代码提交触发（提交信息为 NPU nightly 相关改动），在运行平台侧没有创建任何作业：取证结果显示作业总数为 0、没有失败作业清单，运行的开始与结束时间同为 14:42:31，也就是说工作流在启动阶段就结束了，一份作业日志都没有产生。本次归档已确认该运行确实取不到日志，因此失败点无法定位到具体用例或步骤，证据不完整。",
+    "advice": "在代码托管平台的流水线运行页面查看该次运行，确认是否属于工作流启动校验失败（例如工作流语法或触发条件不满足）或被并发策略取消；确认原因后修复触发条件或工作流定义。\n\n验证方式：重跑或等待下一次 nightly，要求运行能正常创建作业并产出可分析的日志。",
+    "cites": [],
+    "possibilities": [],
+    "keyErrorCheck": "无 keyError",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2291",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2291,
+   "pipelineRunId": "45127118972",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T14:52:43",
+   "endedAt": "2026-11-23T14:52:43",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T14:52:43",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45127118972",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45127118972",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45127118972"
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": {
+     "runId": 45127118972,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "mode": "none",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.3,
+    "level": "低",
+    "basis": [
+     "该运行无 FAILED 任务证据，且运行平台未给出失败任务类型",
+     "基线 0.30"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": null,
+    "issueType": "基础设施/平台",
+    "issueDetail": "运行未创建任何作业，无日志可查",
+    "rootCause": "该次运行由代码提交触发，在运行平台侧没有创建任何作业：取证结果显示作业总数为 0、没有失败作业清单，运行的开始与结束时间同为 14:52:43，工作流在启动阶段就结束了，一份作业日志都没有产生。本次归档已确认该运行确实取不到日志，因此失败点无法定位到具体用例或步骤，证据不完整。",
+    "advice": "在代码托管平台的流水线运行页面查看该次运行，确认是否属于工作流启动校验失败（例如工作流语法或触发条件不满足）或被并发策略取消；确认原因后修复触发条件或工作流定义。\n\n验证方式：重跑或等待下一次 nightly，要求运行能正常创建作业并产出可分析的日志。",
+    "cites": [],
+    "possibilities": [],
+    "keyErrorCheck": "无 keyError",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2292",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2292,
+   "pipelineRunId": "45131706165",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T16:11:35",
+   "endedAt": "2026-11-23T17:52:00",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T17:52:00",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45131706165",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45131706165",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45131706165"
+   },
+   "tasks": [
+    {
+     "jobName": "nightly-test-16-npu-a3 / run (0)",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "logBytes": 2976205,
+     "logLines": 26156,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L26102: ##[error]Error: failed to run script step:",
+      "L26103: ✗ exit code: 255",
+      "L26127: ##[error]Process completed with exit code 1.",
+      "L26128: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+     ],
+     "githubJob": {
+      "id": 137564393371,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T08:13:34Z",
+      "completedAt": "2026-11-23T09:51:59Z",
+      "steps": [
+       {
+        "name": "Run test",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    },
+    {
+     "jobName": "sgl-router-build-aarch64 / Restore sgl-router",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45131706165/137564393419_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+     "logBytes": 25935,
+     "logLines": 430,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L402: ##[error]## ⚠️ CI Maintenance Mode is Active"
+     ],
+     "githubJob": {
+      "id": 137564393419,
+      "conclusion": "failure",
+      "startedAt": "2026-11-23T08:11:48Z",
+      "completedAt": "2026-11-23T08:11:56Z",
+      "steps": [
+       {
+        "name": "Run ./.github/actions/check-maintenance",
+        "conclusion": "failure"
+       }
+      ]
+     }
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 26102,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 26103,
+     "level": "LOG",
+     "text": "✗ exit code: 255"
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 26127,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "nightly-test-16-npu-a3 / run (0)",
+     "source": "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "line": 26128,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "sgl-router-build-aarch64 / Restore sgl-router",
+     "source": "github_logs/gh_45131706165/137564393419_sgl-router-build-aarch64 _ Restore sgl-router.txt",
+     "line": 402,
+     "level": "LOG",
+     "text": "##[error]## ⚠️ CI Maintenance Mode is Active"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "github_logs/gh_45131706165/137564393419_sgl-router-build-aarch64 _ Restore sgl-router.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 45131706165,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[Fix] [NPU] nightly: unblock parallel mock, add 16P HBM headroom, softcap compat",
+     "mode": "perjob",
+     "totalJobs": 23,
+     "failedJobs": [
+      {
+       "name": "nightly-test-16-npu-a3 / run (0)",
+       "id": 137564393371,
+       "steps": [
+        {
+         "name": "Run test",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "sgl-router-build-aarch64 / Restore sgl-router",
+       "id": 137564393419,
+       "steps": [
+        {
+         "name": "Run ./.github/actions/check-maintenance",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 0,
+    "logTasks": 2,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 5,
+    "evidenceFiles": 2
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 nightly-test-16-npu-a3 / run (0) 日志命中 4 条错误行（非编译特征），见 github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt",
+     "基线 0.30",
+     "证据文件落盘 2 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "{\"file\": \"test/registered/npu/basic_function/speculative_inference/test_npu_speculative_moe_a2a_backend.py\", \"passed\": false, \"elapsed\": 3600}",
+    "issueType": "超时",
+    "issueDetail": "用例单文件执行超过 1 小时时限",
+    "rootCause": "失败在 nightly-test-16-npu-a3 作业的测试执行阶段：用例文件 test_npu_speculative_moe_a2a_backend.py 达到单文件 3600 秒的时限仍未通过（结果记录 passed=false、elapsed=3600），作业以非零退出码结束，整条运行判失败。同一次运行里 sgl-router-build-aarch64 的 Restore 步骤因 CI 处于维护模式而失败，属于另一个独立问题。主因是该用例执行时间超过 1 小时上限。",
+    "advice": "先确认该用例是真在跑还是卡死：若是模型加载与编译首次耗时，可给该用例单独放宽时限或预热缓存；若是死锁或长时间等待，需要拿到进程栈定位。同时留意 CI 维护模式对该运行构建环节的影响，必要时避开维护窗口重跑。\n\n验证方式：重跑该作业，要求该用例在时限内通过，sgl-router 的 Restore 步骤不再受维护模式影响。",
+    "cites": [
+     "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt:L26100",
+     "github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt:L26102"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 github_logs/gh_45131706165/137564393371_nightly-test-16-npu-a3 _ run (0).txt:L26100",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "SgLang|nightly-test-npu.yml#2295",
+   "date": "2026-11-23",
+   "component": "SgLang",
+   "pipeline": "nightly-test-npu.yml",
+   "pipelineName": "nightly-test-npu.yml",
+   "platform": "github",
+   "buildNumber": 2295,
+   "pipelineRunId": "45166773023",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-23T19:36:50",
+   "endedAt": "2026-11-23T19:36:50",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-23T19:36:50",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=209837578&projectId=300134&pipelineRunId=45166773023",
+    "detail": "https://github.com/sgl-project/sglang/actions/runs/45166773023",
+    "github": "https://github.com/sgl-project/sglang/actions/runs/45166773023"
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": {
+     "runId": 45166773023,
+     "repo": "sgl-project/sglang",
+     "displayTitle": "[CI] [NPU] test: deepssekV4 flash testcase",
+     "mode": "none",
+     "totalJobs": 0,
+     "failedJobs": [],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.3,
+    "level": "低",
+    "basis": [
+     "该运行无 FAILED 任务证据，且运行平台未给出失败任务类型",
+     "基线 0.30"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": null,
+    "issueType": "基础设施/平台",
+    "issueDetail": "运行未创建任何作业，无日志可查",
+    "rootCause": "该次运行由代码提交触发，在运行平台侧没有创建任何作业：取证结果显示作业总数为 0、没有失败作业清单，运行的开始与结束时间同为 19:36:50，工作流在启动阶段就结束了，一份作业日志都没有产生。本次归档已确认该运行确实取不到日志，因此失败点无法定位到具体用例或步骤，证据不完整。",
+    "advice": "在代码托管平台的流水线运行页面查看该次运行，确认是否属于工作流启动校验失败（例如工作流语法或触发条件不满足）或被并发策略取消；确认原因后修复触发条件或工作流定义。\n\n验证方式：重跑或等待下一次 nightly，要求运行能正常创建作业并产出可分析的日志。",
+    "cites": [],
+    "possibilities": [],
+    "keyErrorCheck": "无 keyError",
+    "updatedAt": "2026-11-24 09:18:49",
+    "firstAnalyzedAt": "2026-11-24 09:18:49",
+    "revisions": 1,
+    "source": "agent"
+   }
+  }
+ ]
+}
