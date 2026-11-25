@@ -1,0 +1,1841 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-26 05:02:54",
+  "component": "MindIE",
+  "pipeline": "MindIE-Motor",
+  "date": "2026-11-25",
+  "recordCount": 3
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-25",
+ "component": "MindIE",
+ "pipeline": "MindIE-Motor",
+ "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+ "platform": "codearts",
+ "key": "MindIE|MindIE-Motor",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-25",
+  "runs": [
+   {
+    "rn": 147,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-25 11:34:42"
+   },
+   {
+    "rn": 146,
+    "status": "CANCELED",
+    "endedAt": "2026-11-25 09:21:36"
+   },
+   {
+    "rn": 145,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-25 08:49:43"
+   }
+  ]
+ },
+ "counts": {
+  "records": 3,
+  "tasks": 1,
+  "cases": 0,
+  "errorMessages": 30
+ },
+ "evidence": {
+  "files": 13,
+  "bytes": 468062,
+  "lines": 5184,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-26 05:02:54",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "dateRange": {
+    "start": "2026-11-25",
+    "end": "2026-11-25"
+   },
+   "product": {
+    "product": "MindIE",
+    "projectId": 300036,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 1.0,
+    "pipelineCount": 2,
+    "badPipelineCount": 0,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 2,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 2,
+     "sumRate": 2.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 4,
+     "buildCount": 4,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "MindIE|MindIE-Motor",
+    "product": "MindIE",
+    "projectId": 300036,
+    "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+    "pipelineShortName": "MindIE-Motor",
+    "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 3 次运行（当日 3 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "dateRange": {
+    "start": "2026-11-25",
+    "end": "2026-11-25"
+   },
+   "date": "2026-11-25",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 146,
+     "rid": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "status": "CANCELED",
+     "start": "11-25 09:09",
+     "startISO": "2026-11-25T09:09:27",
+     "endISO": "2026-11-25T09:21:36",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "其他任务",
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-25": [
+     "CANCELED",
+     "COMPLETED",
+     "COMPLETED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 147,
+     "pipelineRunId": "c5ea9b8a5fb542d6b6ff18008184c254",
+     "start": "2026-11-25 09:26:55",
+     "end": "2026-11-25 11:34:42",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 146,
+     "pipelineRunId": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "start": "2026-11-25 09:09:27",
+     "end": "2026-11-25 09:21:36",
+     "status": "CANCELED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 145,
+     "pipelineRunId": "c90463af0278412a8eb22021a5efe810",
+     "start": "2026-11-25 07:04:03",
+     "end": "2026-11-25 08:49:43",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 147,
+     "start": "2026-11-25 09:26:55",
+     "end": "2026-11-25 11:34:42",
+     "status": "COMPLETED",
+     "rid": "c5ea9b8a5fb542d6b6ff18008184c254",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=c5ea9b8a5fb542d6b6ff18008184c254",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 146,
+     "start": "2026-11-25 09:09:27",
+     "end": "2026-11-25 09:21:36",
+     "status": "CANCELED",
+     "rid": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": null,
+     "iva": false,
+     "ftt": "其他任务"
+    },
+    {
+     "rn": 145,
+     "start": "2026-11-25 07:04:03",
+     "end": "2026-11-25 08:49:43",
+     "status": "COMPLETED",
+     "rid": "c90463af0278412a8eb22021a5efe810",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=c90463af0278412a8eb22021a5efe810",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-25"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 3,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "test": [],
+   "log": [
+    {
+     "key": "MindIE|MindIE-Motor",
+     "pipeline": "MindIE-Motor",
+     "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+     "projectId": 300036,
+     "pipelineId": "d05b26dfc2e5450e8fff23ddf4cd0eb6",
+     "rid": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "rn": 146,
+     "st": "11-25 09:09",
+     "jobId": "05ff93178d2f479fba04159f39279dbc",
+     "jobName": "MindIE-Motor-VLLM_images",
+     "stepIds": [
+      "724124834843422abe4bb3a7f10b8c93"
+     ],
+     "steps": [
+      {
+       "id": "724124834843422abe4bb3a7f10b8c93",
+       "name": "MindIE-Motor-VLLM_images",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "d1e4e21e98664ab1970a6559dc100921",
+       "jobIdParam": "d1267ed00f6b42e49cc707230abd60e0"
+      }
+     ],
+     "jobErrMsg": "步骤MindIE-Motor-VLLM_images执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "57629da006324909aa3e8d6c43b6ad70",
+     "route": "log",
+     "isBuild": false,
+     "buildJobId": "d1267ed00f6b42e49cc707230abd60e0"
+    }
+   ],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 1,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "MindIE|MindIE-Motor",
+     "pipeline": "MindIE-Motor",
+     "rn": 146,
+     "st": "11-25 09:09",
+     "rid": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+     "jobId": "05ff93178d2f479fba04159f39279dbc",
+     "jobName": "MindIE-Motor-VLLM_images",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤MindIE-Motor-VLLM_images执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "logBytes": 5989,
+     "logLines": 49,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L28: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_Ubuntu_motor_image_x86 failed",
+      "L29: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_Ubuntu_motor_image_arm failed",
+      "L30: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_openEuler_motor_image_arm failed",
+      "L31: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_Ubuntu_motor_image_x86 failed",
+      "L32: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_openEuler_motor_image_arm failed",
+      "L33: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_openEuler_motor_image_x86 failed",
+      "L34: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_Ubuntu_motor_image_x86 failed",
+      "L35: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_openEuler_motor_image_x86 failed",
+      "L36: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_openEuler_motor_image_x86 failed",
+      "L38: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_Ubuntu_motor_image_arm failed",
+      "L39: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_Ubuntu_motor_image_arm failed",
+      "L40: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_openEuler_motor_image_arm failed",
+      "L43: [2026/11/25 09:13:52.745 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 12, dispatched jobs num: 12, succeed jobs num: 0, failed jobs num: 12",
+      "L44: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm, A5_openEuler_motor_image_arm, 910b_Ubuntu_motor_image_x86, 910b_openEuler_motor_image_arm, A3_openEuler_motor_image_x86, A5_Ubuntu_motor_image_x86, A5_openEuler_motor_image_x86, 910b_Ubuntu_motor_image_arm, A3_Ubuntu_motor_image_arm, A3_openEuler_moto",
+      "L45: [2026/11/25 09:13:52.746 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败",
+      "L46: [2026/11/25 09:13:52.833 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L47: [2026/11/25 09:13:52.835 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败",
+      "L49: [2026/11/25 09:13:54.042 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "A5_Ubuntu_motor_image_arm",
+       "buildNo": "1761",
+       "buildJobId": "22cda988-e5f0-4773-9333-b34e6f2c9718",
+       "status": "FAILURE",
+       "durationMs": 26558,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38231,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.578 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 78msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.508 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_x86",
+       "buildNo": "1760",
+       "buildJobId": "ac2091f9-284b-4c9e-9d71-3f75d15cc749",
+       "status": "FAILURE",
+       "durationMs": 23415,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:56.768 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 69msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.671 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.671 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.687 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.018 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_x86",
+       "buildNo": "1767",
+       "buildJobId": "ec6b889a-48bf-4096-8191-00d22987dd36",
+       "status": "FAILURE",
+       "durationMs": 22669,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38291,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.474 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 65msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.566 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.566 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.582 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.031 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_arm",
+       "buildNo": "1768",
+       "buildJobId": "8ddc1f92-6db4-4b05-aceb-8808e3ef7183",
+       "status": "FAILURE",
+       "durationMs": 32409,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:26.000+00:00",
+       "logFile": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38339,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.165 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:25.510 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:25.510 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:25.531 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:27.215 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_x86",
+       "buildNo": "1763",
+       "buildJobId": "f0fd4b5a-da35-445f-898b-645a15a6d99f",
+       "status": "FAILURE",
+       "durationMs": 22923,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38221,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.344 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.524 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.524 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.542 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.024 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_arm",
+       "buildNo": "1762",
+       "buildJobId": "2c57a906-9e4f-4e49-a97d-77dad46f553a",
+       "status": "FAILURE",
+       "durationMs": 27189,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 40815,
+       "logLines": 446,
+       "errorLines": [
+        "L281: [2026/11/25 09:12:58.174 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 68msSucceed count:      10        Failed count:       0",
+        "L417: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64'",
+        "L418: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64",
+        "L444: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L446: [2026/11/25 09:13:23.506 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_x86",
+       "buildNo": "1765",
+       "buildJobId": "c4e0ce04-7fbe-4b91-a95d-11854bfb920d",
+       "status": "FAILURE",
+       "durationMs": 24249,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38292,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.955 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:17.012 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:17.012 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:17.038 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.268 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_arm",
+       "buildNo": "1764",
+       "buildJobId": "5d9132b8-cf14-4920-90df-84a2396c8ae4",
+       "status": "FAILURE",
+       "durationMs": 26756,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/84_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38294,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.558 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.530 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.530 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.551 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.528 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_Ubuntu_motor_image_x86",
+       "buildNo": "1766",
+       "buildJobId": "985a644e-6bd4-4283-9fb2-51d81e5bd05f",
+       "status": "FAILURE",
+       "durationMs": 24024,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/85_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.183 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.941 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.941 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.960 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.251 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_arm",
+       "buildNo": "1769",
+       "buildJobId": "580954e8-c169-4018-8541-0b747193ee5f",
+       "status": "FAILURE",
+       "durationMs": 34340,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:28.000+00:00",
+       "logFile": "job_logs/86_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38443,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.358 GMT+08:00] [--------------------------------------------------->___] 93.77% tps:0.00 ?/s 9/10 13.96MB/14.83MB ?[-----------------------------------------] 100.00% tps:2887.34 7.24GB/s 10/10 14.83MB/14.83MB 203msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:27.605 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:27.606 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:27.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:31.810 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_x86",
+       "buildNo": "1771",
+       "buildJobId": "7cb41013-2565-42ec-aca7-d30d59ab7dc7",
+       "status": "FAILURE",
+       "durationMs": 23384,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/87_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38287,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.382 GMT+08:00] [-------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 150msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.847 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.847 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.866 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.146 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_arm",
+       "buildNo": "1770",
+       "buildJobId": "af1c936d-bc0a-4a83-ad0c-da891fff02f8",
+       "status": "FAILURE",
+       "durationMs": 33442,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:27.000+00:00",
+       "logFile": "job_logs/88_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38410,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:06.616 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:26.878 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:26.878 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:26.912 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:28.500 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 18
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "items": [
+    {
+     "rn": 146,
+     "jobName": "MindIE-Motor-VLLM_images",
+     "subTasks": [
+      {
+       "name": "A5_Ubuntu_motor_image_arm",
+       "buildNo": "1761",
+       "buildJobId": "22cda988-e5f0-4773-9333-b34e6f2c9718",
+       "status": "FAILURE",
+       "durationMs": 26558,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38231,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.578 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 78msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.508 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_x86",
+       "buildNo": "1760",
+       "buildJobId": "ac2091f9-284b-4c9e-9d71-3f75d15cc749",
+       "status": "FAILURE",
+       "durationMs": 23415,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:56.768 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 69msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.671 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.671 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.687 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.018 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_x86",
+       "buildNo": "1767",
+       "buildJobId": "ec6b889a-48bf-4096-8191-00d22987dd36",
+       "status": "FAILURE",
+       "durationMs": 22669,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38291,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.474 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 65msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.566 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.566 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.582 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.031 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_arm",
+       "buildNo": "1768",
+       "buildJobId": "8ddc1f92-6db4-4b05-aceb-8808e3ef7183",
+       "status": "FAILURE",
+       "durationMs": 32409,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:26.000+00:00",
+       "logFile": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38339,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.165 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:25.510 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:25.510 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:25.531 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:27.215 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_x86",
+       "buildNo": "1763",
+       "buildJobId": "f0fd4b5a-da35-445f-898b-645a15a6d99f",
+       "status": "FAILURE",
+       "durationMs": 22923,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38221,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.344 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.524 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.524 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.542 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.024 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_arm",
+       "buildNo": "1762",
+       "buildJobId": "2c57a906-9e4f-4e49-a97d-77dad46f553a",
+       "status": "FAILURE",
+       "durationMs": 27189,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 40815,
+       "logLines": 446,
+       "errorLines": [
+        "L281: [2026/11/25 09:12:58.174 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 68msSucceed count:      10        Failed count:       0",
+        "L417: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64'",
+        "L418: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64",
+        "L444: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L446: [2026/11/25 09:13:23.506 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_x86",
+       "buildNo": "1765",
+       "buildJobId": "c4e0ce04-7fbe-4b91-a95d-11854bfb920d",
+       "status": "FAILURE",
+       "durationMs": 24249,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38292,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.955 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:17.012 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:17.012 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:17.038 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.268 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_arm",
+       "buildNo": "1764",
+       "buildJobId": "5d9132b8-cf14-4920-90df-84a2396c8ae4",
+       "status": "FAILURE",
+       "durationMs": 26756,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/84_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38294,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.558 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.530 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.530 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.551 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.528 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_Ubuntu_motor_image_x86",
+       "buildNo": "1766",
+       "buildJobId": "985a644e-6bd4-4283-9fb2-51d81e5bd05f",
+       "status": "FAILURE",
+       "durationMs": 24024,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/85_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.183 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.941 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.941 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.960 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.251 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_arm",
+       "buildNo": "1769",
+       "buildJobId": "580954e8-c169-4018-8541-0b747193ee5f",
+       "status": "FAILURE",
+       "durationMs": 34340,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:28.000+00:00",
+       "logFile": "job_logs/86_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38443,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.358 GMT+08:00] [--------------------------------------------------->___] 93.77% tps:0.00 ?/s 9/10 13.96MB/14.83MB ?[-----------------------------------------] 100.00% tps:2887.34 7.24GB/s 10/10 14.83MB/14.83MB 203msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:27.605 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:27.606 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:27.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:31.810 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_x86",
+       "buildNo": "1771",
+       "buildJobId": "7cb41013-2565-42ec-aca7-d30d59ab7dc7",
+       "status": "FAILURE",
+       "durationMs": 23384,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/87_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38287,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.382 GMT+08:00] [-------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 150msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.847 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.847 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.866 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.146 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_arm",
+       "buildNo": "1770",
+       "buildJobId": "af1c936d-bc0a-4a83-ad0c-da891fff02f8",
+       "status": "FAILURE",
+       "durationMs": 33442,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:27.000+00:00",
+       "logFile": "job_logs/88_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38410,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:06.616 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:26.878 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:26.878 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:26.912 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:28.500 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "counts": {
+    "tasks": 1,
+    "subTasks": 12,
+    "failed": 12,
+    "logs": 12
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "MindIE",
+    "pipeline": "MindIE-Motor",
+    "date": "2026-11-25",
+    "recordCount": 3
+   },
+   "date": "2026-11-25",
+   "component": "MindIE",
+   "pipeline": "MindIE-Motor",
+   "counts": {
+    "records": 3,
+    "tasks": 1,
+    "cases": 0,
+    "errorMessages": 30
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2513,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 5010,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1628,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 534,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 18046,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 14806,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 510,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 852,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "MindIE|MindIE-Motor#145",
+   "date": "2026-11-25",
+   "component": "MindIE",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "platform": "codearts",
+   "buildNumber": 145,
+   "pipelineRunId": "c90463af0278412a8eb22021a5efe810",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-25T07:04:03",
+   "endedAt": "2026-11-25T08:49:43",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T08:49:43",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=c90463af0278412a8eb22021a5efe810",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "MindIE|MindIE-Motor#146",
+   "date": "2026-11-25",
+   "component": "MindIE",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "platform": "codearts",
+   "buildNumber": 146,
+   "pipelineRunId": "4793b6fe048b4e8c9f4ab6ca412a51ae",
+   "status": "CANCELED",
+   "failedTaskType": "其他任务",
+   "startedAt": "2026-11-25T09:09:27",
+   "endedAt": "2026-11-25T09:21:36",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T09:21:36",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=4793b6fe048b4e8c9f4ab6ca412a51ae",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "MindIE-Motor-VLLM_images",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "logBytes": 5989,
+     "logLines": 49,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤MindIE-Motor-VLLM_images执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L28: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_Ubuntu_motor_image_x86 failed",
+      "L29: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_Ubuntu_motor_image_arm failed",
+      "L30: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_openEuler_motor_image_arm failed",
+      "L31: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_Ubuntu_motor_image_x86 failed",
+      "L32: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_openEuler_motor_image_arm failed",
+      "L33: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_openEuler_motor_image_x86 failed",
+      "L34: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_Ubuntu_motor_image_x86 failed",
+      "L35: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_openEuler_motor_image_x86 failed",
+      "L36: [2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_openEuler_motor_image_x86 failed",
+      "L38: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_Ubuntu_motor_image_arm failed",
+      "L39: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_Ubuntu_motor_image_arm failed",
+      "L40: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_openEuler_motor_image_arm failed",
+      "L43: [2026/11/25 09:13:52.745 GMT+08:00] [INFO] [build_flow:build_flow] : Total jobs num: 12, dispatched jobs num: 12, succeed jobs num: 0, failed jobs num: 12",
+      "L44: [2026/11/25 09:13:52.745 GMT+08:00] [ERROR] [build_flow:build_flow] : Follow jobs are failed: [A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm, A5_openEuler_motor_image_arm, 910b_Ubuntu_motor_image_x86, 910b_openEuler_motor_image_arm, A3_openEuler_motor_image_x86, A5_Ubuntu_motor_image_x86, A5_openEuler_motor_image_x86, 910b_Ubuntu_motor_image_arm, A3_Ubuntu_motor_image_arm, A3_openEuler_moto",
+      "L45: [2026/11/25 09:13:52.746 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败",
+      "L46: [2026/11/25 09:13:52.833 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败",
+      "L47: [2026/11/25 09:13:52.835 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败",
+      "L49: [2026/11/25 09:13:54.042 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": [
+      {
+       "name": "A5_Ubuntu_motor_image_arm",
+       "buildNo": "1761",
+       "buildJobId": "22cda988-e5f0-4773-9333-b34e6f2c9718",
+       "status": "FAILURE",
+       "durationMs": 26558,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38231,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.578 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 78msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.508 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_x86",
+       "buildNo": "1760",
+       "buildJobId": "ac2091f9-284b-4c9e-9d71-3f75d15cc749",
+       "status": "FAILURE",
+       "durationMs": 23415,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:56.768 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 69msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.671 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.671 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.687 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.018 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_x86",
+       "buildNo": "1767",
+       "buildJobId": "ec6b889a-48bf-4096-8191-00d22987dd36",
+       "status": "FAILURE",
+       "durationMs": 22669,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38291,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.474 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 65msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.566 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.566 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.582 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.031 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_arm",
+       "buildNo": "1768",
+       "buildJobId": "8ddc1f92-6db4-4b05-aceb-8808e3ef7183",
+       "status": "FAILURE",
+       "durationMs": 32409,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:26.000+00:00",
+       "logFile": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38339,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.165 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:25.510 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:25.510 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:25.531 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:27.215 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_Ubuntu_motor_image_x86",
+       "buildNo": "1763",
+       "buildJobId": "f0fd4b5a-da35-445f-898b-645a15a6d99f",
+       "status": "FAILURE",
+       "durationMs": 22923,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:16.000+00:00",
+       "logFile": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38221,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.344 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:15.524 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:15.524 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:15.542 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:17.024 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_openEuler_motor_image_arm",
+       "buildNo": "1762",
+       "buildJobId": "2c57a906-9e4f-4e49-a97d-77dad46f553a",
+       "status": "FAILURE",
+       "durationMs": 27189,
+       "startTime": "2026-11-25T01:12:52.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 40815,
+       "logLines": 446,
+       "errorLines": [
+        "L281: [2026/11/25 09:12:58.174 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 68msSucceed count:      10        Failed count:       0",
+        "L417: [2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64'",
+        "L418: [2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64",
+        "L444: [2026/11/25 09:13:19.552 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L446: [2026/11/25 09:13:23.506 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_x86",
+       "buildNo": "1765",
+       "buildJobId": "c4e0ce04-7fbe-4b91-a95d-11854bfb920d",
+       "status": "FAILURE",
+       "durationMs": 24249,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38292,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.955 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:17.012 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:17.012 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:17.038 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.268 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_arm",
+       "buildNo": "1764",
+       "buildJobId": "5d9132b8-cf14-4920-90df-84a2396c8ae4",
+       "status": "FAILURE",
+       "durationMs": 26756,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:20.000+00:00",
+       "logFile": "job_logs/84_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38294,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:57.558 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:19.530 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64'",
+        "L398: [2026/11/25 09:13:19.530 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-aarch64",
+        "L424: [2026/11/25 09:13:19.551 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:23.528 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A5_Ubuntu_motor_image_x86",
+       "buildNo": "1766",
+       "buildJobId": "985a644e-6bd4-4283-9fb2-51d81e5bd05f",
+       "status": "FAILURE",
+       "durationMs": 24024,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/85_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38225,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.183 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.941 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.941 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.960 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.251 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_Ubuntu_motor_image_arm",
+       "buildNo": "1769",
+       "buildJobId": "580954e8-c169-4018-8541-0b747193ee5f",
+       "status": "FAILURE",
+       "durationMs": 34340,
+       "startTime": "2026-11-25T01:12:53.000+00:00",
+       "finishTime": "2026-11-25T01:13:28.000+00:00",
+       "logFile": "job_logs/86_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38443,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:05.358 GMT+08:00] [--------------------------------------------------->___] 93.77% tps:0.00 ?/s 9/10 13.96MB/14.83MB ?[-----------------------------------------] 100.00% tps:2887.34 7.24GB/s 10/10 14.83MB/14.83MB 203msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:27.605 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:27.606 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:27.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:31.810 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "910b_openEuler_motor_image_x86",
+       "buildNo": "1771",
+       "buildJobId": "7cb41013-2565-42ec-aca7-d30d59ab7dc7",
+       "status": "FAILURE",
+       "durationMs": 23384,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:17.000+00:00",
+       "logFile": "job_logs/87_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_x86.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38287,
+       "logLines": 426,
+       "errorLines": [
+        "L261: [2026/11/25 09:12:58.382 GMT+08:00] [-------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 150msSucceed count:      10        Failed count:       0",
+        "L397: [2026/11/25 09:13:16.847 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64'",
+        "L398: [2026/11/25 09:13:16.847 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-openeuler24.03-py3.12-x86_64",
+        "L424: [2026/11/25 09:13:16.866 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L426: [2026/11/25 09:13:18.146 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      },
+      {
+       "name": "A3_openEuler_motor_image_arm",
+       "buildNo": "1770",
+       "buildJobId": "af1c936d-bc0a-4a83-ad0c-da891fff02f8",
+       "status": "FAILURE",
+       "durationMs": 33442,
+       "startTime": "2026-11-25T01:12:54.000+00:00",
+       "finishTime": "2026-11-25T01:13:27.000+00:00",
+       "logFile": "job_logs/88_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_arm.log",
+       "download": "export",
+       "truncated": false,
+       "logBytes": 38410,
+       "logLines": 427,
+       "errorLines": [
+        "L262: [2026/11/25 09:13:06.616 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0",
+        "L398: [2026/11/25 09:13:26.878 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64'",
+        "L399: [2026/11/25 09:13:26.878 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-aarch64",
+        "L425: [2026/11/25 09:13:26.912 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+        "L427: [2026/11/25 09:13:28.500 GMT+08:00] Finished: FAILURE"
+       ],
+       "excerpt": null
+      }
+     ]
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 28,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A3_Ubuntu_motor_image_x86 failed"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 29,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_Ubuntu_motor_image_arm failed"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 30,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job A5_openEuler_motor_image_arm failed"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 31,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:22.664 GMT+08:00] [ERROR] [build_flow:build_flow] : Job 910b_Ubuntu_motor_image_x86 failed"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 45,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:52.746 GMT+08:00] [ERROR] [build_flow:build_flow] : 错误信息: 您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 46,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:52.833 GMT+08:00] [ERROR] [build_flow:build_flow] : 该步骤执行失败"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 47,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:52.835 GMT+08:00] [ERROR]  : 该步骤执行失败,错误信息:您所提交的构建任务脚本(buildflow)中子任务【[A3_Ubuntu_motor_image_x86, A5_Ubuntu_motor_image_arm]】等构建失败"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "source": "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "line": 49,
+     "level": "LOG",
+     "text": "[2026/11/25 09:13:54.042 GMT+08:00] Finished: FAILURE"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_Ubuntu_motor_image_arm",
+     "source": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:57.578 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 78msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_Ubuntu_motor_image_arm",
+     "source": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 397,
+     "text": "[2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_Ubuntu_motor_image_arm",
+     "source": "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-ubuntu22.04-py3.12-aarch64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_Ubuntu_motor_image_x86",
+     "source": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:56.768 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 69msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_Ubuntu_motor_image_x86",
+     "source": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 397,
+     "text": "[2026/11/25 09:13:15.671 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_Ubuntu_motor_image_x86",
+     "source": "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:15.671 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-ubuntu22.04-py3.12-x86_64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_x86",
+     "source": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:57.474 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 65msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_x86",
+     "source": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 397,
+     "text": "[2026/11/25 09:13:15.566 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_x86",
+     "source": "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:15.566 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-x86_64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_arm",
+     "source": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 262,
+     "text": "[2026/11/25 09:13:05.165 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_arm",
+     "source": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:25.510 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_arm",
+     "source": "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 399,
+     "text": "[2026/11/25 09:13:25.510 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-aarch64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_x86",
+     "source": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:57.344 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 63msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_x86",
+     "source": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 397,
+     "text": "[2026/11/25 09:13:15.524 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_Ubuntu_motor_image_x86",
+     "source": "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:15.524 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a2-ubuntu22.04-py3.12-x86_64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_arm",
+     "source": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 281,
+     "text": "[2026/11/25 09:12:58.174 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 68msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_arm",
+     "source": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 417,
+     "text": "[2026/11/25 09:13:19.531 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A5_openEuler_motor_image_arm",
+     "source": "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 418,
+     "text": "[2026/11/25 09:13:19.531 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a5-openeuler24.03-py3.12-aarch64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_openEuler_motor_image_x86",
+     "source": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:57.955 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 71msSucceed count:      10        Failed count:       0"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_openEuler_motor_image_x86",
+     "source": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 397,
+     "text": "[2026/11/25 09:13:17.012 GMT+08:00] + echo 'ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64'"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "A3_openEuler_motor_image_x86",
+     "source": "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+     "level": "SUBTASK",
+     "line": 398,
+     "text": "[2026/11/25 09:13:17.012 GMT+08:00] ERROR: docker build failed: mindie-motor:dev-nightly-202611250909-vllm_ascend0.30.0.post1-a3-openeuler24.03-py3.12-x86_64"
+    },
+    {
+     "task": "MindIE-Motor-VLLM_images",
+     "subTask": "910b_openEuler_motor_image_arm",
+     "source": "job_logs/84_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_arm.log",
+     "level": "SUBTASK",
+     "line": 261,
+     "text": "[2026/11/25 09:12:57.558 GMT+08:00] [--------------------------------------------------] 100.00% tps:0.00 ?/s 10/10 14.83MB/14.83MB 56msSucceed count:      10        Failed count:       0"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "job_logs/77_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_arm.log",
+     "job_logs/78_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_x86.log",
+     "job_logs/79_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_x86.log",
+     "job_logs/80_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_arm.log",
+     "job_logs/81_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_Ubuntu_motor_image_x86.log",
+     "job_logs/82_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_openEuler_motor_image_arm.log",
+     "job_logs/83_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_x86.log",
+     "job_logs/84_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_arm.log",
+     "job_logs/85_MindIE-Motor_146_MindIE-Motor-VLLM_images_A5_Ubuntu_motor_image_x86.log",
+     "job_logs/86_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_Ubuntu_motor_image_arm.log",
+     "job_logs/87_MindIE-Motor_146_MindIE-Motor-VLLM_images_910b_openEuler_motor_image_x86.log",
+     "job_logs/88_MindIE-Motor_146_MindIE-Motor-VLLM_images_A3_openEuler_motor_image_arm.log"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 30,
+    "evidenceFiles": 13
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.8,
+    "level": "高",
+    "basis": [
+     "任务 MindIE-Motor-VLLM_images 日志命中 18 条错误行（非编译特征），见 job_logs/66_MindIE-Motor_146_MindIE-Motor-VLLM_images.log",
+     "基线 0.30",
+     "证据文件落盘 13 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "失败子任务日志落盘 +0.10"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  },
+  {
+   "recordId": "MindIE|MindIE-Motor#147",
+   "date": "2026-11-25",
+   "component": "MindIE",
+   "pipeline": "MindIE-Motor",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
+   "platform": "codearts",
+   "buildNumber": 147,
+   "pipelineRunId": "c5ea9b8a5fb542d6b6ff18008184c254",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-25T09:26:55",
+   "endedAt": "2026-11-25T11:34:42",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T11:34:42",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=d05b26dfc2e5450e8fff23ddf4cd0eb6&projectId=300036&pipelineRunId=c5ea9b8a5fb542d6b6ff18008184c254",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

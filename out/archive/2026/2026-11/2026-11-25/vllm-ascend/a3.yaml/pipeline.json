@@ -1,0 +1,1726 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-26 05:02:54",
+  "component": "vllm-ascend",
+  "pipeline": "a3.yaml",
+  "date": "2026-11-25",
+  "recordCount": 3
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-25",
+ "component": "vllm-ascend",
+ "pipeline": "a3.yaml",
+ "pipelineName": "schedule_nightly_test_a3.yaml",
+ "platform": "github",
+ "key": "vllm-ascend|a3.yaml",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-25",
+  "runs": [
+   {
+    "rn": 16693,
+    "status": "FAILED",
+    "endedAt": "2026-11-25 23:40:22"
+   },
+   {
+    "rn": 16685,
+    "status": "FAILED",
+    "endedAt": "2026-11-25 22:25:55"
+   },
+   {
+    "rn": 16673,
+    "status": "FAILED",
+    "endedAt": "2026-11-25 09:37:03"
+   }
+  ]
+ },
+ "counts": {
+  "records": 3,
+  "tasks": 7,
+  "cases": 0,
+  "errorMessages": 35
+ },
+ "evidence": {
+  "files": 23,
+  "bytes": 1530514,
+  "lines": 16322,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-26 05:02:54",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "dateRange": {
+    "start": "2026-11-25",
+    "end": "2026-11-25"
+   },
+   "product": {
+    "product": "vllm-ascend",
+    "projectId": 300127,
+    "versionAvailabilityRate": 0.5,
+    "buildSuccessRate": null,
+    "pipelineCount": 2,
+    "badPipelineCount": 0,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 2,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": true,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 2,
+     "sumRate": 1.0,
+     "avgRate": 0.5,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    }
+   },
+   "pipeline": {
+    "key": "vllm-ascend|a3.yaml",
+    "product": "vllm-ascend",
+    "projectId": 300127,
+    "pipelineName": "schedule_nightly_test_a3.yaml",
+    "pipelineShortName": "a3.yaml",
+    "pipelineId": "228664976",
+    "platform": "github",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": null,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": true
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 3 次运行（当日 3 次），其中 3 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）；仅采集定时任务运行（含 PR 的运行不计、不分析）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "dateRange": {
+    "start": "2026-11-25",
+    "end": "2026-11-25"
+   },
+   "date": "2026-11-25",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 16673,
+     "rid": "45481430187",
+     "status": "FAILED",
+     "start": "11-25 04:30",
+     "startISO": "2026-11-25T04:30:03",
+     "endISO": "2026-11-25T09:37:03",
+     "detailUrl": "https://github.com/vllm-project/vllm-ascend/actions/runs/45481430187",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45481430187",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "Nightly-A3 (scheduled)",
+     "ghEvent": "workflow_dispatch",
+     "ghRepo": "https://github.com/vllm-project/vllm-ascend.git",
+     "ghDuration": 307,
+     "cached": false
+    },
+    {
+     "rn": 16685,
+     "rid": "45572445719",
+     "status": "FAILED",
+     "start": "11-25 22:25",
+     "startISO": "2026-11-25T22:25:47",
+     "endISO": "2026-11-25T22:25:55",
+     "detailUrl": "https://github.com/vllm-project/vllm-ascend/actions/runs/45572445719",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45572445719",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "Nightly-A3 (scheduled)",
+     "ghEvent": "workflow_dispatch",
+     "ghRepo": "https://github.com/vllm-project/vllm-ascend.git",
+     "ghDuration": 0.13,
+     "cached": false
+    },
+    {
+     "rn": 16693,
+     "rid": "45647468539",
+     "status": "FAILED",
+     "start": "11-25 23:38",
+     "startISO": "2026-11-25T23:38:35",
+     "endISO": "2026-11-25T23:40:22",
+     "detailUrl": "https://github.com/vllm-project/vllm-ascend/actions/runs/45647468539",
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45647468539",
+     "dims": [
+      "va"
+     ],
+     "track": "va",
+     "ftt": null,
+     "platform": "github",
+     "ghTitle": "Nightly-A3 (scheduled)",
+     "ghEvent": "workflow_dispatch",
+     "ghRepo": "https://github.com/vllm-project/vllm-ascend.git",
+     "ghDuration": 1.78,
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-25": [
+     "FAILED",
+     "FAILED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 16693,
+     "pipelineRunId": "45647468539",
+     "start": "2026-11-25 23:38:35",
+     "end": "2026-11-25 23:40:22",
+     "status": "FAILED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 16685,
+     "pipelineRunId": "45572445719",
+     "start": "2026-11-25 22:25:47",
+     "end": "2026-11-25 22:25:55",
+     "status": "FAILED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    },
+    {
+     "rn": 16673,
+     "pipelineRunId": "45481430187",
+     "start": "2026-11-25 04:30:03",
+     "end": "2026-11-25 09:37:03",
+     "status": "FAILED",
+     "endedDate": "2026-11-25",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 16693,
+     "start": "2026-11-25 23:38:35",
+     "end": "2026-11-25 23:40:22",
+     "status": "FAILED",
+     "rid": "45647468539",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45647468539",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 16685,
+     "start": "2026-11-25 22:25:47",
+     "end": "2026-11-25 22:25:55",
+     "status": "FAILED",
+     "rid": "45572445719",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45572445719",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    },
+    {
+     "rn": 16673,
+     "start": "2026-11-25 04:30:03",
+     "end": "2026-11-25 09:37:03",
+     "status": "FAILED",
+     "rid": "45481430187",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45481430187",
+     "bc": null,
+     "bpc": null,
+     "cpr": null,
+     "iva": false,
+     "ftt": null
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-25"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 3,
+   "keptFailedRuns": 3,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "test": [],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "logFiles": 0,
+    "errorLines": 0
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25"
+   },
+   "results": [
+    {
+     "route": "github",
+     "key": "vllm-ascend|a3.yaml",
+     "rn": 16673,
+     "rid": "45481430187",
+     "st": "11-25 04:30",
+     "runId": 45481430187,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "event": "workflow_dispatch",
+     "status": "FAILED",
+     "duration": 307,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-25T01:37:03Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "perjob",
+     "why": "失败 job 1 个（≤5，逐 job 精取）",
+     "totalJobs": 24,
+     "failedJobs": [
+      {
+       "name": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 138756231645,
+       "steps": [
+        {
+         "name": "Prepare scripts",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 138756231645,
+       "conclusion": "failure",
+       "startedAt": "2026-11-24T20:32:19Z",
+       "completedAt": "2026-11-24T20:34:21Z",
+       "logFile": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+       "logBytes": 100699,
+       "logLines": 1211,
+       "errorLines": [
+        "L284: ##[error]Error: failed to run script step:",
+        "L285: ✗ exit code: 1",
+        "L290: ##[error]Process completed with exit code 1.",
+        "L291: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L750: ##[error]Upload failed. See log:",
+        "L773: ##[error]Error: failed to run script step:",
+        "L774: ✗ exit code: 1",
+        "L791: ##[error]Process completed with exit code 1.",
+        "L792: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Prepare scripts",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "vllm-ascend|a3.yaml",
+     "rn": 16685,
+     "rid": "45572445719",
+     "st": "11-25 22:25",
+     "runId": 45572445719,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "event": "workflow_dispatch",
+     "status": "FAILED",
+     "duration": 0.13,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "success",
+      "updatedAt": "2026-11-25T15:18:00Z",
+      "attempt": 2
+     },
+     "_v": 2,
+     "mode": "none",
+     "why": "全部 job 成功/跳过",
+     "totalJobs": 24,
+     "failedJobs": [],
+     "cancelledJobs": [],
+     "jobs": [],
+     "missing": [],
+     "systemLogs": [],
+     "ghComplete": true,
+     "cached": false
+    },
+    {
+     "route": "github",
+     "key": "vllm-ascend|a3.yaml",
+     "rn": 16693,
+     "rid": "45647468539",
+     "st": "11-25 23:38",
+     "runId": 45647468539,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "event": "workflow_dispatch",
+     "status": "FAILED",
+     "duration": 1.78,
+     "runStatus": {
+      "status": "completed",
+      "conclusion": "failure",
+      "updatedAt": "2026-11-25T18:59:24Z",
+      "attempt": 1
+     },
+     "_v": 2,
+     "mode": "zip",
+     "why": "失败 job 6 个（>5，整包一次下载更省时）",
+     "totalJobs": 18,
+     "failedJobs": [
+      {
+       "name": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 139359225999,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+       "id": 139393890763,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+       "id": 139393891038,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+       "id": 139393891052,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+       "id": 139407344526,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+       "id": 139407779699,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "cancelledJobs": [],
+     "jobs": [
+      {
+       "name": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 139359225999,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T16:48:34Z",
+       "completedAt": "2026-11-25T17:11:31Z",
+       "logFile": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+       "logBytes": 246023,
+       "logLines": 2659,
+       "errorLines": [
+        "L1805: ##[error]Error: failed to run script step:",
+        "L1806: ✗ exit code: 1",
+        "L1830: ##[error]Process completed with exit code 1.",
+        "L1831: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2267: ##[error]Upload failed. See log:",
+        "L2285: ##[error]Error: failed to run script step:",
+        "L2286: ✗ exit code: 1",
+        "L2303: ##[error]Process completed with exit code 1.",
+        "L2304: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+       "id": 139393890763,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T17:43:05Z",
+       "completedAt": "2026-11-25T18:04:44Z",
+       "logFile": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+       "logBytes": 225618,
+       "logLines": 2460,
+       "errorLines": [
+        "L1636: ##[error]Error: failed to run script step:",
+        "L1637: ✗ exit code: 1",
+        "L1661: ##[error]Process completed with exit code 1.",
+        "L1662: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2068: ##[error]Upload failed. See log:",
+        "L2086: ##[error]Error: failed to run script step:",
+        "L2087: ✗ exit code: 1",
+        "L2104: ##[error]Process completed with exit code 1.",
+        "L2105: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+       "id": 139393891038,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T17:43:01Z",
+       "completedAt": "2026-11-25T18:05:24Z",
+       "logFile": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+       "logBytes": 229729,
+       "logLines": 2431,
+       "errorLines": [
+        "L1610: ##[error]Error: failed to run script step:",
+        "L1611: ✗ exit code: 1",
+        "L1635: ##[error]Process completed with exit code 1.",
+        "L1636: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2039: ##[error]Upload failed. See log:",
+        "L2057: ##[error]Error: failed to run script step:",
+        "L2058: ✗ exit code: 1",
+        "L2075: ##[error]Process completed with exit code 1.",
+        "L2076: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+       "id": 139393891052,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T17:43:51Z",
+       "completedAt": "2026-11-25T18:05:26Z",
+       "logFile": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+       "logBytes": 231852,
+       "logLines": 2453,
+       "errorLines": [
+        "L1634: ##[error]Error: failed to run script step:",
+        "L1635: ✗ exit code: 1",
+        "L1659: ##[error]Process completed with exit code 1.",
+        "L1660: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2061: ##[error]Upload failed. See log:",
+        "L2079: ##[error]Error: failed to run script step:",
+        "L2080: ✗ exit code: 1",
+        "L2097: ##[error]Process completed with exit code 1.",
+        "L2098: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+       "id": 139407344526,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T18:05:12Z",
+       "completedAt": "2026-11-25T18:27:06Z",
+       "logFile": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+       "logBytes": 239553,
+       "logLines": 2440,
+       "errorLines": [
+        "L1612: ##[error]Error: failed to run script step:",
+        "L1613: ✗ exit code: 1",
+        "L1637: ##[error]Process completed with exit code 1.",
+        "L1638: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2042: ##[error]Upload failed. See log:",
+        "L2066: ##[error]Error: failed to run script step:",
+        "L2067: ✗ exit code: 1",
+        "L2084: ##[error]Process completed with exit code 1.",
+        "L2085: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      },
+      {
+       "name": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+       "id": 139407779699,
+       "conclusion": "failure",
+       "startedAt": "2026-11-25T18:05:52Z",
+       "completedAt": "2026-11-25T18:27:37Z",
+       "logFile": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+       "logBytes": 236645,
+       "logLines": 2457,
+       "errorLines": [
+        "L1632: ##[error]Error: failed to run script step:",
+        "L1633: ✗ exit code: 1",
+        "L1657: ##[error]Process completed with exit code 1.",
+        "L1658: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+        "L2059: ##[error]Upload failed. See log:",
+        "L2083: ##[error]Error: failed to run script step:",
+        "L2084: ✗ exit code: 1",
+        "L2101: ##[error]Process completed with exit code 1.",
+        "L2102: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+       ],
+       "githubSteps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ],
+       "isTestJob": true,
+       "testResults": null
+      }
+     ],
+     "missing": [],
+     "systemLogs": [
+      "github_logs/gh_45647468539/sys_Remove node taints.txt",
+      "github_logs/gh_45647468539/sys_Merge benchmark artifacts into nightly-a3.zip.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-A3_128k_90_50, GLM-5.1-~04aa7a.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, DeepSeek-V4-flash-w8a8-PD-prefix, DeepSeek-V4-fla~4d4d28.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+      "github_logs/gh_45647468539/sys_double-node (releases-v0.30.0, GLM-5.3-Flash-W8A8-130k-PD, GLM-5.3-Flash-W8A8-13~657af9.txt",
+      "github_logs/gh_45647468539/sys_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+      "github_logs/gh_45647468539/sys_multi-node (releases-v0.30.0, DeepSeek-V4-Pro-w4a8-prefix-cache-PD, DeepSeek-V4-~552594.txt",
+      "github_logs/gh_45647468539/sys_multi-node (releases-v0.30.0, GLM-5.3-W8A8C8-A3-200k-PP-PD, GLM-5.3-W8A8C8-A3-20~a9e944.txt",
+      "github_logs/gh_45647468539/sys_multi-node (releases-v0.30.0, Kimi-K3-MRV2-A3, Kimi-K3-MRV2-A3.yaml, tests_e2e_c~ed210e.txt",
+      "github_logs/gh_45647468539/sys_Export global env vars as job outputs.txt",
+      "github_logs/gh_45647468539/sys_Parse trigger and determine test scope.txt"
+     ],
+     "ghComplete": true,
+     "cached": false
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "runs": 3,
+    "jobs": 7,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-26 05:02:54",
+    "component": "vllm-ascend",
+    "pipeline": "a3.yaml",
+    "date": "2026-11-25",
+    "recordCount": 3
+   },
+   "date": "2026-11-25",
+   "component": "vllm-ascend",
+   "pipeline": "a3.yaml",
+   "counts": {
+    "records": 3,
+    "tasks": 7,
+    "cases": 0,
+    "errorMessages": 35
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2334,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 6082,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 614,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 534,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 470,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 463,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 13794,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 852,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "vllm-ascend|a3.yaml#16673",
+   "date": "2026-11-25",
+   "component": "vllm-ascend",
+   "pipeline": "a3.yaml",
+   "pipelineName": "schedule_nightly_test_a3.yaml",
+   "platform": "github",
+   "buildNumber": 16673,
+   "pipelineRunId": "45481430187",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-25T04:30:03",
+   "endedAt": "2026-11-25T09:37:03",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T09:37:03",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45481430187",
+    "detail": "https://github.com/vllm-project/vllm-ascend/actions/runs/45481430187",
+    "github": "https://github.com/vllm-project/vllm-ascend/actions/runs/45481430187"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "logBytes": 100699,
+     "logLines": 1211,
+     "download": "github-perjob",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L284: ##[error]Error: failed to run script step:",
+      "L285: ✗ exit code: 1",
+      "L290: ##[error]Process completed with exit code 1.",
+      "L291: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L750: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 138756231645,
+      "conclusion": "failure",
+      "startedAt": "2026-11-24T20:32:19Z",
+      "completedAt": "2026-11-24T20:34:21Z",
+      "steps": [
+       {
+        "name": "Prepare scripts",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "line": 284,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "line": 285,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "line": 290,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "line": 291,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "line": 750,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 45481430187,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "mode": "perjob",
+     "totalJobs": 24,
+     "failedJobs": [
+      {
+       "name": "multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 138756231645,
+       "steps": [
+        {
+         "name": "Prepare scripts",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 5,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/SIT/cases/models/c... / QWEN3_235B_PD_3_5K_1_5k.yaml 日志命中 5 条错误行（非编译特征），见 github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "install: cannot create regular file '/root/.cache/tests/run.sh': File exists",
+    "issueType": "基础设施/平台",
+    "issueDetail": "执行机缓存残留同名 run.sh 致环境准备失败",
+    "rootCause": "执行机环境准备阶段文件冲突，作业尚未开始用例执行即失败。作业把 run.sh 安装到 /root/.cache/tests/ 时目标文件已存在，install 复制失败并以退出码 1 终止；原因是自托管执行机复用了持久的 /root/.cache 缓存目录，上一轮运行遗留的同名文件未被清理。",
+    "advice": "在环境准备阶段先清理 /root/.cache/tests 下的残留文件（或安装前先删除目标再 install），避免跨运行污染。\n\n验证方式：重跑该流水线，要求环境准备步骤不再出现 File exists、multi-node 作业能进入用例执行阶段。",
+    "cites": [
+     "github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt:L283"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 github_logs/gh_45481430187/138756231645_multi-node (main, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests_S~3b3d87.txt:L283",
+    "updatedAt": "2026-11-26 05:18:42",
+    "firstAnalyzedAt": "2026-11-26 05:18:42",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "vllm-ascend|a3.yaml#16685",
+   "date": "2026-11-25",
+   "component": "vllm-ascend",
+   "pipeline": "a3.yaml",
+   "pipelineName": "schedule_nightly_test_a3.yaml",
+   "platform": "github",
+   "buildNumber": 16685,
+   "pipelineRunId": "45572445719",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-25T22:25:47",
+   "endedAt": "2026-11-25T22:25:55",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T22:25:55",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45572445719",
+    "detail": "https://github.com/vllm-project/vllm-ascend/actions/runs/45572445719",
+    "github": "https://github.com/vllm-project/vllm-ascend/actions/runs/45572445719"
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": {
+     "runId": 45572445719,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "mode": "none",
+     "totalJobs": 24,
+     "failedJobs": [],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "evidence_missing",
+    "text": "证据缺失",
+    "confidence": 0.3,
+    "level": "低",
+    "basis": [
+     "该运行无 FAILED 任务证据，且运行平台未给出失败任务类型",
+     "基线 0.30"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": null,
+    "issueType": "无法判定",
+    "issueDetail": "运行短时失败，无任务日志与失败用例",
+    "rootCause": "该次运行持续仅数秒即失败，未留存任何任务日志与失败用例明细，证据止于运行状态这一层，无法定位到具体失败点与机理。",
+    "advice": "确认该运行的失败 job 日志是否可取（是否已过期或未留存）；若同批运行均无日志，需先修复运行平台的日志留存。\n\n验证方式：重跑采集或手动拉取对应运行日志，确认能取到失败 job 的报错原文后再定性。",
+    "cites": [],
+    "possibilities": [],
+    "keyErrorCheck": "无 keyError",
+    "updatedAt": "2026-11-26 05:18:42",
+    "firstAnalyzedAt": "2026-11-26 05:18:42",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "vllm-ascend|a3.yaml#16693",
+   "date": "2026-11-25",
+   "component": "vllm-ascend",
+   "pipeline": "a3.yaml",
+   "pipelineName": "schedule_nightly_test_a3.yaml",
+   "platform": "github",
+   "buildNumber": 16693,
+   "pipelineRunId": "45647468539",
+   "status": "FAILED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-25T23:38:35",
+   "endedAt": "2026-11-25T23:40:22",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-25T23:40:22",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": null,
+    "dims": [
+     "va"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=228664976&projectId=300127&pipelineRunId=45647468539",
+    "detail": "https://github.com/vllm-project/vllm-ascend/actions/runs/45647468539",
+    "github": "https://github.com/vllm-project/vllm-ascend/actions/runs/45647468539"
+   },
+   "tasks": [
+    {
+     "jobName": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "logBytes": 246023,
+     "logLines": 2659,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1805: ##[error]Error: failed to run script step:",
+      "L1806: ✗ exit code: 1",
+      "L1830: ##[error]Process completed with exit code 1.",
+      "L1831: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2267: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139359225999,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T16:48:34Z",
+      "completedAt": "2026-11-25T17:11:31Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "logBytes": 225618,
+     "logLines": 2460,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1636: ##[error]Error: failed to run script step:",
+      "L1637: ✗ exit code: 1",
+      "L1661: ##[error]Process completed with exit code 1.",
+      "L1662: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2068: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139393890763,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T17:43:05Z",
+      "completedAt": "2026-11-25T18:04:44Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "logBytes": 229729,
+     "logLines": 2431,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1610: ##[error]Error: failed to run script step:",
+      "L1611: ✗ exit code: 1",
+      "L1635: ##[error]Process completed with exit code 1.",
+      "L1636: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2039: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139393891038,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T17:43:01Z",
+      "completedAt": "2026-11-25T18:05:24Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "logBytes": 231852,
+     "logLines": 2453,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1634: ##[error]Error: failed to run script step:",
+      "L1635: ✗ exit code: 1",
+      "L1659: ##[error]Process completed with exit code 1.",
+      "L1660: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2061: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139393891052,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T17:43:51Z",
+      "completedAt": "2026-11-25T18:05:26Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "logBytes": 239553,
+     "logLines": 2440,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1612: ##[error]Error: failed to run script step:",
+      "L1613: ✗ exit code: 1",
+      "L1637: ##[error]Process completed with exit code 1.",
+      "L1638: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2042: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139407344526,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T18:05:12Z",
+      "completedAt": "2026-11-25T18:27:06Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    },
+    {
+     "jobName": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "type": "log",
+     "platform": "github",
+     "logFile": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "logBytes": 236645,
+     "logLines": 2457,
+     "download": "github-zip",
+     "truncated": false,
+     "stepErrMsgs": [],
+     "jobErrMsg": null,
+     "errorLines": [
+      "L1632: ##[error]Error: failed to run script step:",
+      "L1633: ✗ exit code: 1",
+      "L1657: ##[error]Process completed with exit code 1.",
+      "L1658: ##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator.",
+      "L2059: ##[error]Upload failed. See log:"
+     ],
+     "githubJob": {
+      "id": 139407779699,
+      "conclusion": "failure",
+      "startedAt": "2026-11-25T18:05:52Z",
+      "completedAt": "2026-11-25T18:27:37Z",
+      "steps": [
+       {
+        "name": "Wait for pods ready",
+        "conclusion": "failure"
+       }
+      ]
+     },
+     "isTestJob": true,
+     "testResults": null
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "line": 1805,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "line": 1806,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "line": 1830,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "line": 1831,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+     "source": "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "line": 2267,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "source": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "line": 1636,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "source": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "line": 1637,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "source": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "line": 1661,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "source": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "line": 1662,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+     "source": "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt",
+     "line": 2068,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "source": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "line": 1610,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "source": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "line": 1611,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "source": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "line": 1635,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "source": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "line": 1636,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+     "source": "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "line": 2039,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "source": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "line": 1634,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "source": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "line": 1635,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "source": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "line": 1659,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "source": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "line": 1660,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+     "source": "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "line": 2061,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "source": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "line": 1612,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "source": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "line": 1613,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "source": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "line": 1637,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "source": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "line": 1638,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+     "source": "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "line": 2042,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "source": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "line": 1632,
+     "level": "LOG",
+     "text": "##[error]Error: failed to run script step:"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "source": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "line": 1633,
+     "level": "LOG",
+     "text": "✗ exit code: 1"
+    },
+    {
+     "task": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "source": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "line": 1657,
+     "level": "LOG",
+     "text": "##[error]Process completed with exit code 1."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "source": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "line": 1658,
+     "level": "LOG",
+     "text": "##[error]Executing the custom container implementation failed. Please contact your self hosted runner administrator."
+    },
+    {
+     "task": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+     "source": "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "line": 2059,
+     "level": "LOG",
+     "text": "##[error]Upload failed. See log:"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "github_logs/gh_45647468539/4_double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1~549478.txt",
+     "github_logs/gh_45647468539/6_double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m~75f204.txt",
+     "github_logs/gh_45647468539/7_double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-6~267944.txt",
+     "github_logs/gh_45647468539/8_double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, G~272046.txt",
+     "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt"
+    ],
+    "missing": [],
+    "github": {
+     "runId": 45647468539,
+     "repo": "vllm-project/vllm-ascend",
+     "displayTitle": "Nightly-A3 (scheduled)",
+     "mode": "zip",
+     "totalJobs": 18,
+     "failedJobs": [
+      {
+       "name": "multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml",
+       "id": 139359225999,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-nodes.yaml, tests/... / GLM5_2-W8A8-A3-dual-nodes.yaml",
+       "id": 139393890763,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, multi-node-GLM-5.1-W8A8C8-MTP-A3_198k_function, GLM-5.1-W8A8C8-A3_... / GLM-5.1-W8A8C8-A3_198k_function.yaml",
+       "id": 139393891038,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD, Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.y... / Kimi-K2.6-W4A8-64k-1k-TPOT50-PD.yaml",
+       "id": 139393891052,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, Minimax_m2.7_in128k_1k_prefix90_tpot50, Minimax_m2.7_in128k_1k_pre... / Minimax_m2.7_in128k_1k_prefix90_tpot50.yaml",
+       "id": 139407344526,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      },
+      {
+       "name": "double-node (releases-v0.30.0, DeepSeek-V4.1-Flash-w8a8-PD-prefix, DeepSeek-V4.1-Flash-w8a8-PD-pr... / DeepSeek-V4.1-Flash-w8a8-PD-prefix.yaml",
+       "id": 139407779699,
+       "steps": [
+        {
+         "name": "Wait for pods ready",
+         "conclusion": "failure"
+        }
+       ]
+      }
+     ],
+     "missing": [],
+     "complete": true
+    }
+   },
+   "counts": {
+    "tasks": 6,
+    "testTasks": 0,
+    "logTasks": 6,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 30,
+    "evidenceFiles": 6
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.yaml, tests/e2e/ca... / QWEN3_235B_PD_3_5K_1_5k.yaml 日志命中 5 条错误行（非编译特征），见 github_logs/gh_45647468539/11_multi-node (releases-v0.30.0, QWEN3_235B_PD_3_5K_1_5k, QWEN3_235B_PD_3_5K_1_5k.y~0dabfe.txt",
+     "基线 0.30",
+     "证据文件落盘 6 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "0/15 nodes are available: 11 Insufficient ephemeral-storage, 15 Insufficient huawei.com/ascend-1980",
+    "issueType": "资源不足",
+    "issueDetail": "集群 A3 NPU/临时存储/内存不足，作业调度失败",
+    "rootCause": "集群资源不足，作业长时间无节点可调度。6 个 double/multi-node 作业创建后，默认调度器在 15 个节点上均找不到满足条件的节点（全部节点 ascend-1980（NPU）不足、11 个节点临时存储不足、6 个节点内存不足），karpenter 又因未容忍 CPU 弹性节点污点无法调度，pod 一直 Pending，作业在等待约 20 分钟后以退出码 1 结束；根因是 A3 NPU 及节点侧资源被占满、无空闲资源可分。",
+    "advice": "等占用任务释放后再调度，或为该流水线预留/扩容 A3 NPU 节点；同时核对作业的资源请求（NPU 卡数、临时存储、内存）是否超出常规可分配量，必要时下调请求或清理长期 Pending 作业。\n\n验证方式：重跑该流水线，要求 double/multi-node 作业能被成功调度进入 Running、用例正常执行并产出结果。",
+    "cites": [
+     "github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt:L1634"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 github_logs/gh_45647468539/9_double-node (releases-v0.30.0, multi-node-GLM-5.2-w8a8-A3, GLM5_2-W8A8-A3-dual-n~5c26d1.txt:L1634",
+    "updatedAt": "2026-11-26 05:18:42",
+    "firstAnalyzedAt": "2026-11-26 05:18:42",
+    "revisions": 1,
+    "source": "agent"
+   }
+  }
+ ]
+}

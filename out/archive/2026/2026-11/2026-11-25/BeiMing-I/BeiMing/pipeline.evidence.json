@@ -1,0 +1,68 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/73_BeiMing_281_Deploy_Test_ubs_mem.log": {
+   "bytes": 370,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "a8c2e2637c7be46cd9431620b9f107e99231f19d",
+   "lines": [
+    "[2026/11/25 13:45:36.707 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.\r",
+    "[2026/11/25 13:45:36.708 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!\r",
+    "[2026/11/25 13:45:36.774 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成\r"
+   ]
+  },
+  "job_logs/74_BeiMing_281_Deploy_Test_ubs_comm.log": {
+   "bytes": 370,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "192eae40ba41946ce22b0947960098955dd5c336",
+   "lines": [
+    "[2026/11/25 13:43:59.884 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.\r",
+    "[2026/11/25 13:43:59.885 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!\r",
+    "[2026/11/25 13:43:59.962 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成\r"
+   ]
+  },
+  "job_logs/75_BeiMing_281_Deploy_Test_ubs_engine.log": {
+   "bytes": 370,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "8ea184b50ea8cfc7d6033e11fd3abbf0c7cfd440",
+   "lines": [
+    "[2026/11/25 13:44:04.246 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.\r",
+    "[2026/11/25 13:44:04.246 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!\r",
+    "[2026/11/25 13:44:04.325 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成\r"
+   ]
+  },
+  "job_logs/76_BeiMing_281_Deploy_Test_ubs_virt_container.log": {
+   "bytes": 370,
+   "lineCount": 3,
+   "eol": true,
+   "sha1": "c65ac969d53ff5d55e90164dde6586729e40e019",
+   "lines": [
+    "[2026/11/25 13:57:18.253 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : [frame] query step status with error.\r",
+    "[2026/11/25 13:57:18.253 GMT+08:00] [ERROR] [real_stage:official_devcloud_jenkins] : 错误信息: DEV-JENKINS-10002, 任务执行失败!\r",
+    "[2026/11/25 13:57:18.345 GMT+08:00] [INFO] [real_stage:official_devcloud_jenkins] : 该步骤执行完成\r"
+   ]
+  }
+ },
+ "counts": {
+  "files": 4,
+  "bytes": 1480,
+  "lines": 12
+ },
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "证据原文（单文件）",
+  "source": "job_logs/ case_logs/ github_logs/ 下的原始文件逐行内嵌",
+  "criteria": "files 的键 = 相对本流水线目录的证据路径（与各步 JSON 里的引用一致）；values.lines 是原文逐行内容（1 起，行号与原文件相同）；bytes/sha1/eol 可无损还原并校验",
+  "date": "2026-11-25",
+  "component": "BeiMing-I",
+  "pipeline": "BeiMing"
+ },
+ "pathBase": "files 的键相对本流水线目录（与 pipeline.json 里 logFile/cites 的写法一致）",
+ "lineBase": 1,
+ "date": "2026-11-25",
+ "component": "BeiMing-I",
+ "pipeline": "BeiMing"
+}
