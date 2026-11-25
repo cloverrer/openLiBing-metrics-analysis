@@ -1,0 +1,815 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-25 09:08:33",
+  "component": "HPCKit",
+  "pipeline": "hmpi",
+  "date": "2026-11-24",
+  "recordCount": 2
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-24",
+ "component": "HPCKit",
+ "pipeline": "hmpi",
+ "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
+ "platform": "codearts",
+ "key": "HPCKit|hmpi",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-24",
+  "runs": [
+   {
+    "rn": 229,
+    "status": "COMPLETED",
+    "endedAt": "2026-11-24 10:31:44"
+   },
+   {
+    "rn": 228,
+    "status": "FAILED",
+    "endedAt": "2026-11-24 01:11:28"
+   }
+  ]
+ },
+ "counts": {
+  "records": 2,
+  "tasks": 1,
+  "cases": 0,
+  "errorMessages": 8
+ },
+ "evidence": {
+  "files": 1,
+  "bytes": 2923873,
+  "lines": 31448,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-25 09:08:32",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "dateRange": {
+    "start": "2026-11-24",
+    "end": "2026-11-24"
+   },
+   "product": {
+    "product": "HPCKit",
+    "projectId": 300073,
+    "versionAvailabilityRate": 1.0,
+    "buildSuccessRate": 0.6363636363636364,
+    "pipelineCount": 5,
+    "badPipelineCount": 2,
+    "badPipelineCountVA": 0,
+    "badPipelineCountBS": 2,
+    "analyze": true,
+    "collectedPipelineCount": 5,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 5,
+     "sumRate": 5.0,
+     "avgRate": 1.0,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 7,
+     "buildCount": 11,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "HPCKit|hmpi",
+    "product": "HPCKit",
+    "projectId": 300073,
+    "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
+    "pipelineShortName": "hmpi",
+    "pipelineId": "ffe131425ad84d4b8b6c17c4c09476d9",
+    "platform": "codearts",
+    "versionAvailabilityRate": 1,
+    "buildSuccessRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 2 次运行（当日 2 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "dateRange": {
+    "start": "2026-11-24",
+    "end": "2026-11-24"
+   },
+   "date": "2026-11-24",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 228,
+     "rid": "2b5664f2698f4dd1ade49c35a3f64d1a",
+     "status": "FAILED",
+     "start": "11-24 01:01",
+     "startISO": "2026-11-24T01:01:55",
+     "endISO": "2026-11-24T01:11:28",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=2b5664f2698f4dd1ade49c35a3f64d1a",
+     "dims": [
+      "bs"
+     ],
+     "track": "bs",
+     "ftt": "构建任务",
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-24": [
+     "COMPLETED",
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 229,
+     "pipelineRunId": "4409ddfeb7c44327b5bf09a61798d14d",
+     "start": "2026-11-24 10:06:10",
+     "end": "2026-11-24 10:31:44",
+     "status": "COMPLETED",
+     "endedDate": "2026-11-24",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日归档记录（成功运行，只记录不取证）"
+    },
+    {
+     "rn": 228,
+     "pipelineRunId": "2b5664f2698f4dd1ade49c35a3f64d1a",
+     "start": "2026-11-24 01:01:55",
+     "end": "2026-11-24 01:11:28",
+     "status": "FAILED",
+     "endedDate": "2026-11-24",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 229,
+     "start": "2026-11-24 10:06:10",
+     "end": "2026-11-24 10:31:44",
+     "status": "COMPLETED",
+     "rid": "4409ddfeb7c44327b5bf09a61798d14d",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=4409ddfeb7c44327b5bf09a61798d14d",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 100,
+     "iva": true,
+     "ftt": null
+    },
+    {
+     "rn": 228,
+     "start": "2026-11-24 01:01:55",
+     "end": "2026-11-24 01:11:28",
+     "status": "FAILED",
+     "rid": "2b5664f2698f4dd1ade49c35a3f64d1a",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=2b5664f2698f4dd1ade49c35a3f64d1a",
+     "bc": 1,
+     "bpc": 0,
+     "cpr": null,
+     "iva": false,
+     "ftt": "构建任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-24"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 2,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "test": [],
+   "log": [
+    {
+     "key": "HPCKit|hmpi",
+     "pipeline": "hmpi",
+     "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
+     "projectId": 300073,
+     "pipelineId": "ffe131425ad84d4b8b6c17c4c09476d9",
+     "rid": "2b5664f2698f4dd1ade49c35a3f64d1a",
+     "rn": 228,
+     "st": "11-24 01:01",
+     "jobId": "dd689d49e6da44af91edd6c32517cf93",
+     "jobName": "Build_hmpi",
+     "stepIds": [
+      "c35389fb9a5b44629d5bb3f7561978a8"
+     ],
+     "steps": [
+      {
+       "id": "c35389fb9a5b44629d5bb3f7561978a8",
+       "name": "Build_hmpi",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "d5bea3ec0dde4349bbeaf88efbf5d8b0",
+       "jobIdParam": "b672db9bf8da4c7e8406fee397f8c1e8"
+      }
+     ],
+     "jobErrMsg": "步骤Build_hmpi执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "4fcaf4bc98a44a7e9ae2c56902de2da8",
+     "route": "log",
+     "isBuild": true,
+     "buildJobId": "b672db9bf8da4c7e8406fee397f8c1e8"
+    }
+   ],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 0,
+    "log": 1,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "results": [],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 0,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "HPCKit|hmpi",
+     "pipeline": "hmpi",
+     "rn": 228,
+     "st": "11-24 01:01",
+     "rid": "2b5664f2698f4dd1ade49c35a3f64d1a",
+     "jobId": "dd689d49e6da44af91edd6c32517cf93",
+     "jobName": "Build_hmpi",
+     "fallback": false,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_hmpi执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "logBytes": 2923873,
+     "logLines": 31448,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L506: [2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10006... no",
+      "L507: [2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10148... no",
+      "L547: [2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror-implicit-function-declaration... yes",
+      "L551: [2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror=declaration-after-statement... yes",
+      "L741: [2026/11/24 01:02:42.686 GMT+08:00] configure: XPMEM - failed to open the requested location (guess), guessing ...",
+      "L847: [2026/11/24 01:02:46.645 GMT+08:00] configure:           C compiler:   gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-function-declaration -Wno-format-zero-length -Wnested-externs -Wshadow -",
+      "L848: [2026/11/24 01:02:46.645 GMT+08:00] configure:         C++ compiler:   g++ -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch",
+      "L1417: [2026/11/24 01:03:58.937 GMT+08:00] libtool: install: (cd ***//hucx/src/ucs; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L1471: [2026/11/24 01:03:59.215 GMT+08:00] libtool: install: (cd ***//hucx/src/ucs/signal; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implici",
+      "L1514: [2026/11/24 01:03:59.490 GMT+08:00] libtool: install: (cd ***//hucx/src/uct; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L1562: [2026/11/24 01:03:59.766 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/ib; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-fu",
+      "L1600: [2026/11/24 01:04:00.041 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/ib/rdmacm; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-impl",
+      "L1649: [2026/11/24 01:04:00.317 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/sm/scopy/cma; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-i",
+      "L1741: [2026/11/24 01:04:00.594 GMT+08:00] libtool: install: (cd ***//hucx/src/ucp; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L5871: [2026/11/24 01:04:58.295 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L5873: [2026/11/24 01:04:58.295 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L8376: [2026/11/24 01:04:58.345 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L8378: [2026/11/24 01:04:58.345 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L9684: [2026/11/24 01:04:58.433 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L9686: [2026/11/24 01:04:58.433 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L10029: [2026/11/24 01:04:58.440 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L10031: [2026/11/24 01:04:58.440 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L11324: [2026/11/24 01:04:58.466 GMT+08:00] configure.ac:1539: warning: The macro `AC_ERROR' is obsolete.",
+      "L11326: [2026/11/24 01:04:58.466 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L11530: [2026/11/24 01:05:45.603 GMT+08:00] checking maximum length of error string... 256",
+      "L11744: [2026/11/24 01:05:53.288 GMT+08:00] checking for __attribute__(error)... yes",
+      "L12223: [2026/11/24 01:06:15.920 GMT+08:00] configure: hwloc:external failed, so this component will be used",
+      "L12626: [2026/11/24 01:06:23.343 GMT+08:00] configure: event:external failed, so this component will be used",
+      "L14687: [2026/11/24 01:06:54.989 GMT+08:00] checking for strerror... yes",
+      "L15705: [2026/11/24 01:07:26.536 GMT+08:00]   CC       error.lo",
+      "L15780: [2026/11/24 01:07:28.092 GMT+08:00]   CC       base/btl_base_error.lo",
+      "L16435: [2026/11/24 01:07:55.922 GMT+08:00]   CC       util/error.lo",
+      "L21280: [2026/11/24 01:09:54.002 GMT+08:00]   CC       adio/common/error.lo",
+      "L22436: [2026/11/24 01:10:26.717 GMT+08:00]  /usr/bin/install -c -m 644 alfg.h arch.h argv.h basename.h bipartite_graph.h bipartite_graph_internal.h bit_ops.h cmd_line.h crc.h daemon_init.h ethtool.h error.h fd.h few.h if.h keyval_parse.h malloc.h net.h numtostr.h opal_environ.h opal_getcwd.h opal_pty.h os_dirpath.h os_path.h output.h path.h printf.h proc.h qsort.h show_help.h show_help_lex.h stacktrace.h",
+      "L22485: [2026/11/24 01:10:26.992 GMT+08:00]  /usr/bin/install -c -m 644  base/base.h base/btl_base_error.h '***//install/hmpi/include/openmpi/opal/mca/btl/base'",
+      "L23600: [2026/11/24 01:10:32.522 GMT+08:00]  /usr/bin/install -c -m 644  util/alfg.h util/argv.h util/cmd_line.h util/error.h util/printf.h util/output.h util/pmix_environ.h util/crc.h util/fd.h util/timings.h util/os_dirpath.h util/os_path.h util/basename.h util/keyval_parse.h util/show_help.h util/show_help_lex.h util/path.h util/getid.h util/strnlen.h util/hash.h util/name_fns.h util/net.h util/pif.h u",
+      "L30125: [2026/11/24 01:11:22.276 GMT+08:00] ***//install/hmpi/include/openmpi/opal/util/error.h",
+      "L30252: [2026/11/24 01:11:22.280 GMT+08:00] ***//install/hmpi/include/openmpi/opal/mca/btl/base/btl_base_error.h",
+      "L30434: [2026/11/24 01:11:22.284 GMT+08:00] ***//install/hmpi/include/pmix/src/util/error.h",
+      "L31439: [2026/11/24 01:11:22.308 GMT+08:00] + echo '获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）'",
+      "L31440: [2026/11/24 01:11:22.308 GMT+08:00] 获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）",
+      "L31442: [2026/11/24 01:11:22.331 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L31448: [2026/11/24 01:11:32.908 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 43
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:33",
+    "component": "HPCKit",
+    "pipeline": "hmpi",
+    "date": "2026-11-24",
+    "recordCount": 2
+   },
+   "date": "2026-11-24",
+   "component": "HPCKit",
+   "pipeline": "hmpi",
+   "counts": {
+    "records": 2,
+    "tasks": 1,
+    "cases": 0,
+    "errorMessages": 8
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2499,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 4315,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1553,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 526,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 8874,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 455,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 502,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 835,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "HPCKit|hmpi#228",
+   "date": "2026-11-24",
+   "component": "HPCKit",
+   "pipeline": "hmpi",
+   "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
+   "platform": "codearts",
+   "buildNumber": 228,
+   "pipelineRunId": "2b5664f2698f4dd1ade49c35a3f64d1a",
+   "status": "FAILED",
+   "failedTaskType": "构建任务",
+   "startedAt": "2026-11-24T01:01:55",
+   "endedAt": "2026-11-24T01:11:28",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-24T01:11:28",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "bs",
+    "affects": [
+     "bs"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=2b5664f2698f4dd1ade49c35a3f64d1a",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Build_hmpi",
+     "type": "log",
+     "fallback": false,
+     "logFile": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "logBytes": 2923873,
+     "logLines": 31448,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Build_hmpi执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L506: [2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10006... no",
+      "L507: [2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10148... no",
+      "L547: [2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror-implicit-function-declaration... yes",
+      "L551: [2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror=declaration-after-statement... yes",
+      "L741: [2026/11/24 01:02:42.686 GMT+08:00] configure: XPMEM - failed to open the requested location (guess), guessing ...",
+      "L847: [2026/11/24 01:02:46.645 GMT+08:00] configure:           C compiler:   gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-function-declaration -Wno-format-zero-length -Wnested-externs -Wshadow -",
+      "L848: [2026/11/24 01:02:46.645 GMT+08:00] configure:         C++ compiler:   g++ -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch",
+      "L1417: [2026/11/24 01:03:58.937 GMT+08:00] libtool: install: (cd ***//hucx/src/ucs; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L1471: [2026/11/24 01:03:59.215 GMT+08:00] libtool: install: (cd ***//hucx/src/ucs/signal; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implici",
+      "L1514: [2026/11/24 01:03:59.490 GMT+08:00] libtool: install: (cd ***//hucx/src/uct; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L1562: [2026/11/24 01:03:59.766 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/ib; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-fu",
+      "L1600: [2026/11/24 01:04:00.041 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/ib/rdmacm; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-impl",
+      "L1649: [2026/11/24 01:04:00.317 GMT+08:00] libtool: install: (cd ***//hucx/src/uct/sm/scopy/cma; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-i",
+      "L1741: [2026/11/24 01:04:00.594 GMT+08:00] libtool: install: (cd ***//hucx/src/ucp; /bin/sh \"***//hucx/libtool\"  --silent --tag CC --mode=relink gcc -O3 -g -Wall -Werror -funwind-tables -Wno-missing-field-initializers -Wno-unused-parameter -Wno-unused-label -Wno-long-long -Wno-endif-labels -Wno-sign-compare -Wno-multichar -Wno-deprecated-declarations -Winvalid-pch -Wno-pointer-sign -Werror-implicit-funct",
+      "L5871: [2026/11/24 01:04:58.295 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L5873: [2026/11/24 01:04:58.295 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L8376: [2026/11/24 01:04:58.345 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L8378: [2026/11/24 01:04:58.345 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L9684: [2026/11/24 01:04:58.433 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L9686: [2026/11/24 01:04:58.433 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L10029: [2026/11/24 01:04:58.440 GMT+08:00] configure.ac:1185: warning: The macro `AC_ERROR' is obsolete.",
+      "L10031: [2026/11/24 01:04:58.440 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L11324: [2026/11/24 01:04:58.466 GMT+08:00] configure.ac:1539: warning: The macro `AC_ERROR' is obsolete.",
+      "L11326: [2026/11/24 01:04:58.466 GMT+08:00] ./lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...",
+      "L11530: [2026/11/24 01:05:45.603 GMT+08:00] checking maximum length of error string... 256",
+      "L11744: [2026/11/24 01:05:53.288 GMT+08:00] checking for __attribute__(error)... yes",
+      "L12223: [2026/11/24 01:06:15.920 GMT+08:00] configure: hwloc:external failed, so this component will be used",
+      "L12626: [2026/11/24 01:06:23.343 GMT+08:00] configure: event:external failed, so this component will be used",
+      "L14687: [2026/11/24 01:06:54.989 GMT+08:00] checking for strerror... yes",
+      "L15705: [2026/11/24 01:07:26.536 GMT+08:00]   CC       error.lo",
+      "L15780: [2026/11/24 01:07:28.092 GMT+08:00]   CC       base/btl_base_error.lo",
+      "L16435: [2026/11/24 01:07:55.922 GMT+08:00]   CC       util/error.lo",
+      "L21280: [2026/11/24 01:09:54.002 GMT+08:00]   CC       adio/common/error.lo",
+      "L22436: [2026/11/24 01:10:26.717 GMT+08:00]  /usr/bin/install -c -m 644 alfg.h arch.h argv.h basename.h bipartite_graph.h bipartite_graph_internal.h bit_ops.h cmd_line.h crc.h daemon_init.h ethtool.h error.h fd.h few.h if.h keyval_parse.h malloc.h net.h numtostr.h opal_environ.h opal_getcwd.h opal_pty.h os_dirpath.h os_path.h output.h path.h printf.h proc.h qsort.h show_help.h show_help_lex.h stacktrace.h",
+      "L22485: [2026/11/24 01:10:26.992 GMT+08:00]  /usr/bin/install -c -m 644  base/base.h base/btl_base_error.h '***//install/hmpi/include/openmpi/opal/mca/btl/base'",
+      "L23600: [2026/11/24 01:10:32.522 GMT+08:00]  /usr/bin/install -c -m 644  util/alfg.h util/argv.h util/cmd_line.h util/error.h util/printf.h util/output.h util/pmix_environ.h util/crc.h util/fd.h util/timings.h util/os_dirpath.h util/os_path.h util/basename.h util/keyval_parse.h util/show_help.h util/show_help_lex.h util/path.h util/getid.h util/strnlen.h util/hash.h util/name_fns.h util/net.h util/pif.h u",
+      "L30125: [2026/11/24 01:11:22.276 GMT+08:00] ***//install/hmpi/include/openmpi/opal/util/error.h",
+      "L30252: [2026/11/24 01:11:22.280 GMT+08:00] ***//install/hmpi/include/openmpi/opal/mca/btl/base/btl_base_error.h",
+      "L30434: [2026/11/24 01:11:22.284 GMT+08:00] ***//install/hmpi/include/pmix/src/util/error.h",
+      "L31439: [2026/11/24 01:11:22.308 GMT+08:00] + echo '获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）'",
+      "L31440: [2026/11/24 01:11:22.308 GMT+08:00] 获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）",
+      "L31442: [2026/11/24 01:11:22.331 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L31448: [2026/11/24 01:11:32.908 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 506,
+     "level": "LOG",
+     "text": "[2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10006... no"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 507,
+     "level": "LOG",
+     "text": "[2026/11/24 01:02:35.271 GMT+08:00] checking compiler flag -diag-error 10148... no"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 547,
+     "level": "LOG",
+     "text": "[2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror-implicit-function-declaration... yes"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 551,
+     "level": "LOG",
+     "text": "[2026/11/24 01:02:36.644 GMT+08:00] checking compiler flag -Werror=declaration-after-statement... yes"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 31439,
+     "level": "LOG",
+     "text": "[2026/11/24 01:11:22.308 GMT+08:00] + echo '获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）'"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 31440,
+     "level": "LOG",
+     "text": "[2026/11/24 01:11:22.308 GMT+08:00] 获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 31442,
+     "level": "LOG",
+     "text": "[2026/11/24 01:11:22.331 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed"
+    },
+    {
+     "task": "Build_hmpi",
+     "source": "job_logs/62_hmpi_228_Build_hmpi.log",
+     "line": 31448,
+     "level": "LOG",
+     "text": "[2026/11/24 01:11:32.908 GMT+08:00] Finished: FAILURE"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/62_hmpi_228_Build_hmpi.log"
+    ],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 1,
+    "testTasks": 0,
+    "logTasks": 1,
+    "buildTasks": 1,
+    "cases": 0,
+    "errorMessages": 8,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "job_failure",
+    "text": "任务失败",
+    "confidence": 0.7,
+    "level": "中",
+    "basis": [
+     "任务 Build_hmpi 日志命中 43 条错误行（非编译特征），见 job_logs/62_hmpi_228_Build_hmpi.log",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "获取最新 tag 失败，请检查 api.gitcode.com 网络连通性（外网需可达）",
+    "issueType": "网络/下载失败",
+    "issueDetail": "构建机取 trivy-sbom-tools 最新 tag 失败",
+    "rootCause": "构建脚本在安装 SBOM 工具阶段向 api.gitcode.com 请求 trivy-sbom-tools 的最新 tag，本次请求未返回任何内容，脚本判定取 tag 失败后直接以退出码 1 终止构建；失败点在构建机对外部接口的访问，与 HPCKit 代码本身无关。同批 kupl#357、kupl#358、kupl#359 为同一原因。",
+    "advice": "先在构建机上验证到 api.gitcode.com 的外网连通性（代理、白名单、证书），或把「取最新 tag」改为固定版本号／本地缓存兜底，避免构建依赖外网接口。\n\n验证方式：重跑该流水线的构建任务，要求 install_sbom_tools 能取到 tag、构建收尾成功，不再出现取 tag 失败。",
+    "cites": [
+     "job_logs/62_hmpi_228_Build_hmpi.log:L31440",
+     "job_logs/62_hmpi_228_Build_hmpi.log:L31432"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/62_hmpi_228_Build_hmpi.log:L31440",
+    "updatedAt": "2026-11-25 09:17:16",
+    "firstAnalyzedAt": "2026-11-25 09:17:16",
+    "revisions": 1,
+    "source": "agent"
+   }
+  },
+  {
+   "recordId": "HPCKit|hmpi#229",
+   "date": "2026-11-24",
+   "component": "HPCKit",
+   "pipeline": "hmpi",
+   "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
+   "platform": "codearts",
+   "buildNumber": 229,
+   "pipelineRunId": "4409ddfeb7c44327b5bf09a61798d14d",
+   "status": "COMPLETED",
+   "failedTaskType": null,
+   "startedAt": "2026-11-24T10:06:10",
+   "endedAt": "2026-11-24T10:31:44",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-24T10:31:44",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 1,
+    "bsRate": 0.5,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "-",
+    "affects": []
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=ffe131425ad84d4b8b6c17c4c09476d9&projectId=300073&pipelineRunId=4409ddfeb7c44327b5bf09a61798d14d",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [],
+   "cases": [],
+   "errorMessages": [],
+   "evidence": {
+    "files": [],
+    "missing": [],
+    "github": null
+   },
+   "counts": {
+    "tasks": 0,
+    "testTasks": 0,
+    "logTasks": 0,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 0,
+    "evidenceFiles": 0
+   },
+   "verdict": {
+    "category": "success",
+    "text": "执行成功",
+    "confidence": 1.0,
+    "level": "高",
+    "basis": [
+     "运行状态 COMPLETED，任务未失败，无需根因分析"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "na",
+    "rootCause": null,
+    "advice": null,
+    "cites": [],
+    "updatedAt": null,
+    "source": null
+   }
+  }
+ ]
+}

@@ -1,0 +1,801 @@
+{
+ "_doc": {
+  "step": "step_7_archive",
+  "title": "流水线归档（单文件）",
+  "source": "第 1~6 步中间产物（out/work/）",
+  "criteria": "同一条流水线在同一个归档日的全部内容装进两份文件：每步正文见 steps，逐条执行记录见 records，证据原文见同目录 pipeline.evidence.json 的 files（键=相对本目录的路径，行号 1 起）",
+  "dateField": "pipelineRunEndtime",
+  "generatedAt": "2026-11-25 09:08:32",
+  "component": "MindIE",
+  "pipeline": "MindIE-SD",
+  "date": "2026-11-24",
+  "recordCount": 1
+ },
+ "schema": "pipeline/1",
+ "date": "2026-11-24",
+ "component": "MindIE",
+ "pipeline": "MindIE-SD",
+ "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+ "platform": "codearts",
+ "key": "MindIE|MindIE-SD",
+ "dateBasis": {
+  "field": "pipelineRunEndtime",
+  "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）",
+  "value": "2026-11-24",
+  "runs": [
+   {
+    "rn": 127,
+    "status": "FAILED",
+    "endedAt": "2026-11-24 21:12:58"
+   }
+  ]
+ },
+ "counts": {
+  "records": 1,
+  "tasks": 2,
+  "cases": 0,
+  "errorMessages": 8
+ },
+ "evidence": {
+  "files": 1,
+  "bytes": 503332,
+  "lines": 3598,
+  "missing": [],
+  "pathBase": "证据正文在 pipeline.evidence.json 的 files，键 = 相对本目录的证据路径（与 steps/records 里 logFile / cites 的写法完全一致），行号 1 起与原文件相同",
+  "rule": "证据原文逐行内嵌（lines[] + eol + sha1 可无损还原）；只增不删：重跑不会删掉已归档的历史证据；files/bytes/lines 是本目录累积全量，不是本次新增"
+ },
+ "source": {
+  "workDir": "work",
+  "generatedAt": "2026-11-25 09:08:32",
+  "note": "由 steps/step_7_archive.py 从第 1~6 步产物逐层归档"
+ },
+ "pathBase": "steps[].正文 / records[] 均在本文件；证据正文见同目录 pipeline.evidence.json 的 files；本目录路径见 _day.json 与 _index.json",
+ "steps": {
+  "step_1_lights": {
+   "_doc": {
+    "step": "step_1_lights",
+    "title": "第 1 步 夜间统计与待分析圈定",
+    "source": "openLiBing 夜间统计看板（产品维度指标）",
+    "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+    "dateField": "统计区间（start~end，含端点）",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "dateRange": {
+    "start": "2026-11-24",
+    "end": "2026-11-24"
+   },
+   "product": {
+    "product": "MindIE",
+    "projectId": 300036,
+    "versionAvailabilityRate": 0.5,
+    "buildSuccessRate": 1.0,
+    "pipelineCount": 2,
+    "badPipelineCount": 1,
+    "badPipelineCountVA": 1,
+    "badPipelineCountBS": 0,
+    "analyze": true,
+    "collectedPipelineCount": 2,
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false,
+    "versionAvailabilityDetail": {
+     "pipelineCount": 2,
+     "sumRate": 1.0,
+     "avgRate": 0.5,
+     "workdayCount": 1,
+     "rule": "组件级 = 各流水线版本可用度之和 / 流水线条数（流水线级 = 可用日 / 该流水线有执行记录的天数；当天有运行开始或结束才算「有执行记录」，跨午夜运行的开始日也进分母；当日有 iva=true 的运行结束才算可用日；当天完全没启动、没跑过的日子不进分母；区间内无运行记录的流水线不参与均值）"
+    },
+    "buildSuccessDetail": {
+     "buildPassCount": 2,
+     "buildCount": 2,
+     "rule": "按采集到的全部运行重算：Σ编译通过 / Σ编译次数（不看板 buildSuccess；github 平台无该口径不参与）"
+    }
+   },
+   "pipeline": {
+    "key": "MindIE|MindIE-SD",
+    "product": "MindIE",
+    "projectId": 300036,
+    "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+    "pipelineShortName": "MindIE-SD",
+    "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+    "platform": "codearts",
+    "versionAvailabilityRate": 0,
+    "buildSuccessRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "recompute": true,
+    "scheduledOnly": false
+   },
+   "selection": {
+    "inBadPipelines": true,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "rateRule": "runs",
+    "reason": "全量采集：该流水线区间内共 1 次运行（当日 1 次），其中 1 次失败/取消进入根因取证；版本可用度与编译成功率一律按全部运行逐日重算（不看板返回值）"
+   }
+  },
+  "step_2_runs": {
+   "_doc": {
+    "step": "step_2_runs",
+    "title": "第 2 步 执行记录圈定（N2）",
+    "source": "openLiBing 流水线 N2 执行列表",
+    "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "dateRange": {
+    "start": "2026-11-24",
+    "end": "2026-11-24"
+   },
+   "date": "2026-11-24",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "failedRuns": [
+    {
+     "rn": 127,
+     "rid": "b094e51ac59849fb913beb91344bf914",
+     "status": "FAILED",
+     "start": "11-24 11:25",
+     "startISO": "2026-11-24T11:25:36",
+     "endISO": "2026-11-24T21:12:58",
+     "detailUrl": null,
+     "openlibingUrl": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=b094e51ac59849fb913beb91344bf914",
+     "dims": [
+      "va",
+      "bs"
+     ],
+     "track": "va",
+     "ftt": "测试任务",
+     "cached": false
+    }
+   ],
+   "days": {
+    "11-24": [
+     "FAILED"
+    ]
+   },
+   "runs": [
+    {
+     "rn": 127,
+     "pipelineRunId": "b094e51ac59849fb913beb91344bf914",
+     "start": "2026-11-24 11:25:36",
+     "end": "2026-11-24 21:12:58",
+     "status": "FAILED",
+     "endedDate": "2026-11-24",
+     "included": true,
+     "reason": "结束时间在归档日内，纳入当日待分析（失败/取消，取证）"
+    }
+   ],
+   "runHistory": [
+    {
+     "rn": 127,
+     "start": "2026-11-24 11:25:36",
+     "end": "2026-11-24 21:12:58",
+     "status": "FAILED",
+     "rid": "b094e51ac59849fb913beb91344bf914",
+     "url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=b094e51ac59849fb913beb91344bf914",
+     "bc": 1,
+     "bpc": 1,
+     "cpr": 20,
+     "iva": false,
+     "ftt": "测试任务"
+    }
+   ],
+   "meta": {
+    "workdays": [
+     "2026-11-24"
+    ],
+    "workdayCount": 1,
+    "skippedNonWorkdayRuns": 0,
+    "skippedRunningRuns": 0,
+    "workdayNotes": [
+     "法定工作日历: timor.tech API（1 年）"
+    ],
+    "vaDayRule": "VA 日可用口径（双指标）：当天任一次运行 服务端 isVersionAvailable=true（任务构建成功且测试用例通过率 100%，casePassRate 为空/-- 视为失败）→ 当天可用；scheduledOnly 产品（config.analysis_policy.scheduled_only）先剔除全部含 PR 的运行，仅以定时任务运行（displayTitle 含 (scheduled)）判定 —— 当天有成功的定时运行才算可用，否则当天全部失败的定时运行都进入根因分析；执行记录即 N2 nightly-dashboard-detail 逐运行明细（同运行多条评估记录保留结束时间最新一条）",
+    "dashFailed": [],
+    "rule": "执行记录取自 N2 nightly-dashboard-detail 逐运行明细（不再调流水线执行历史接口），按结束时间归属统计周期与日期（跨午夜运行归到结束日，无结束时间不纳入），仅统计工作日（含法定调休补班），周末与法定假不分析；VA 轨道按 isVersionAvailable 双指标口径按天豁免，BS 轨道任务级语义补圈豁免日失败运行（dims=bs）；N2 失败的流水线无执行记录（记 dashFailed 待办）；runHistory 附编译次数/编译成功次数/失败任务类型（未失败为 null）与构建号跳转链接（github 平台流水线不计算编译成功率，bc/bpc 置 null 不展示）；缓存复用前校准运行状态（N2 状态/结束时间与缓存记录比对，重试重跑变更即重抓）"
+   },
+   "keptRuns": 1,
+   "keptFailedRuns": 1,
+   "excludedRuns": 0,
+   "note": null
+  },
+  "step_3_tasks": {
+   "_doc": {
+    "step": "step_3_tasks",
+    "title": "第 3 步 失败任务分流（T4）",
+    "source": "openLiBing 流水线运行详情（任务列表）",
+    "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "test": [
+    {
+     "key": "MindIE|MindIE-SD",
+     "pipeline": "MindIE-SD",
+     "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+     "projectId": 300036,
+     "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+     "rid": "b094e51ac59849fb913beb91344bf914",
+     "rn": 127,
+     "st": "11-24 11:25",
+     "jobId": "093c0f8b41394bb4ace4b46960b1e1f9",
+     "jobName": "Test_Pytest-MindIE-SD-smoke",
+     "stepIds": [
+      "e2f5e5092ee94fa8b2f8a2b7a2ce85ef"
+     ],
+     "steps": [
+      {
+       "id": "e2f5e5092ee94fa8b2f8a2b7a2ce85ef",
+       "name": "Test_Pytest-MindIE-SD-smoke",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "07a5c48191e74938846a70df6fcf8208",
+       "jobIdParam": "55d0a1e597744b59ae742b9b26443d57"
+      }
+     ],
+     "jobErrMsg": "步骤Test_Pytest-MindIE-SD-smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "6aeecc30b3ac496883177e306ddf4dcf",
+     "route": "test",
+     "isBuild": false,
+     "buildJobId": "55d0a1e597744b59ae742b9b26443d57"
+    }
+   ],
+   "log": [],
+   "skipped": [],
+   "errors": [],
+   "counts": {
+    "test": 1,
+    "log": 0,
+    "skipped": 0
+   }
+  },
+  "step_4_cases": {
+   "_doc": {
+    "step": "step_4_cases",
+    "title": "第 4 步 测试用例取证（T6）",
+    "source": "openLiBing 测试报告页 + 用例日志下载",
+    "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "results": [
+    {
+     "route": "test",
+     "key": "MindIE|MindIE-SD",
+     "pipeline": "MindIE-SD",
+     "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+     "rn": 127,
+     "st": "11-24 11:25",
+     "projectId": 300036,
+     "pipelineId": "921e6a7215ec4bf3972bbe13e9e41bb6",
+     "rid": "b094e51ac59849fb913beb91344bf914",
+     "jobId": "093c0f8b41394bb4ace4b46960b1e1f9",
+     "jobName": "Test_Pytest-MindIE-SD-smoke",
+     "stepIds": [
+      "e2f5e5092ee94fa8b2f8a2b7a2ce85ef"
+     ],
+     "steps": [
+      {
+       "id": "e2f5e5092ee94fa8b2f8a2b7a2ce85ef",
+       "name": "Test_Pytest-MindIE-SD-smoke",
+       "status": "FAILED",
+       "errMsg": "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+       "lastDispatchId": "07a5c48191e74938846a70df6fcf8208",
+       "jobIdParam": "55d0a1e597744b59ae742b9b26443d57"
+      }
+     ],
+     "jobErrMsg": "步骤Test_Pytest-MindIE-SD-smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "jobLastDispatchId": "6aeecc30b3ac496883177e306ddf4dcf",
+     "code": 200,
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "failedCases": [],
+     "empty": true
+    }
+   ],
+   "caseErrors": [],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "failedCases": 0,
+    "caseLogs": 0,
+    "caseErrors": 0
+   }
+  },
+  "step_5_logs": {
+   "_doc": {
+    "step": "step_5_logs",
+    "title": "第 5 步 任务日志取证（T5）",
+    "source": "openLiBing 任务日志导出/分页接口",
+    "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "results": [
+    {
+     "route": "log",
+     "key": "MindIE|MindIE-SD",
+     "pipeline": "MindIE-SD",
+     "rn": 127,
+     "st": "11-24 11:25",
+     "rid": "b094e51ac59849fb913beb91344bf914",
+     "jobId": "093c0f8b41394bb4ace4b46960b1e1f9",
+     "jobName": "Test_Pytest-MindIE-SD-smoke",
+     "fallback": true,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_Pytest-MindIE-SD-smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "logFile": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "logBytes": 503332,
+     "logLines": 3598,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "errorLines": [
+      "L187: [2026/11/24 20:57:38.777 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac598",
+      "L190: [2026/11/24 20:58:13.364 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L193: [2026/11/24 20:58:42.275 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L196: [2026/11/24 20:59:11.210 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L199: [2026/11/24 20:59:40.123 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L202: [2026/11/24 21:00:09.035 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L205: [2026/11/24 21:00:43.619 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L208: [2026/11/24 21:01:09.844 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L211: [2026/11/24 21:01:44.430 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L214: [2026/11/24 21:02:13.344 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L2077: [2026/11/24 21:09:49.254 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:08:46][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2089: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2093: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2096: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2100: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2111: [2026/11/24 21:10:47.481 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2115: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2118: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2122: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2133: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2137: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2140: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2144: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2944: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][INFO][device.py:831][REPSCMD] ERROR: Could not find a version that satisfies the requirement ftfy==6.3.1 (from versions: none)",
+      "L2945: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]ERROR: No matching distribution found for ftfy==6.3.1",
+      "L2946: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][FAIL][__init__.py:71] Test FAILED: testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_T2V_A14b_perf_001",
+      "L2947: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]Exception: AssertionError",
+      "L2948: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]Message: pip install requirements.txt 失败",
+      "L2949: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][ERROR][__init__.py:71] Traceback:",
+      "L2953: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L2955: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L2956: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED[2026-11-24 21:10:54][INFO][device.py:921][SENDCMD] test -d /root/ascend/log",
+      "L3497: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][INFO][device.py:831][REPSCMD] ERROR: Could not find a version that satisfies the requirement ftfy==6.3.1 (from versions: none)",
+      "L3498: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]ERROR: No matching distribution found for ftfy==6.3.1",
+      "L3499: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][FAIL][__init__.py:71] Test FAILED: testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_TI2V_5b_perf_001",
+      "L3500: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]Exception: AssertionError",
+      "L3501: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]Message: pip install requirements.txt 失败",
+      "L3502: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][ERROR][__init__.py:71] Traceback:",
+      "L3506: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3508: [2026/11/24 21:12:46.835 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3509: [2026/11/24 21:12:46.835 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED[2026-11-24 21:11:41][INFO][device.py:921][SENDCMD] test -d /root/ascend/log",
+      "L3523: [2026/11/24 21:12:51.098 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3525: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3530: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3532: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3537: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3539: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3544: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3546: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3549: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/flux/test_flux_1_dev.py::TestFlux1Dev::test_flux_1_dev_a2_perf_001",
+      "L3550: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/hunyuan_video/test_hunyuan_video.py::TestHunyuanVideo::test_hunyuanvideo_720p_81fn_50step_w8a8_perf_800IA2_0001",
+      "L3551: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_T2V_A14b_perf_001",
+      "L3552: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_TI2V_5b_perf_001",
+      "L3553: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]=================== 4 failed, 1 passed in 471.05s (0:07:51) ====================",
+      "L3587: [2026/11/24 21:12:54.502 GMT+08:00] [281473771409440] [INFO] Metadata upload response: {\"code\":200,\"data\":{\"success\":[\"testcase-metadata/921e6a7215ec4bf3972bbe13e9e41bb6/b094e51ac59849fb913beb91344bf914/55d0a1e597744b59ae742b9b26443d57_20261124_2/local_results_hh0p866o.xml\",\"testcase-metadata/921e6a7215ec4bf3972bbe13e9e41bb6/b094e51ac59849fb913beb91344bf914/55d0a1e597744b59ae742b9b26443d57_2026112",
+      "L3591: [2026/11/24 21:12:54.502 GMT+08:00] [281473771409440] [ERROR] Failed test cases: ['test_flux_1_dev_a2_perf_001', 'test_hunyuanvideo_720p_81fn_50step_w8a8_perf_800IA2_0001', 'test_Wan2_2_T2V_A14b_perf_001', 'test_Wan2_2_TI2V_5b_perf_001']",
+      "L3593: [2026/11/24 21:12:54.624 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L3594: [2026/11/24 21:12:54.625 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L3596: [2026/11/24 21:12:54.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L3598: [2026/11/24 21:12:57.590 GMT+08:00] Finished: FAILURE"
+     ]
+    }
+   ],
+   "errors": [],
+   "counts": {
+    "tasks": 1,
+    "logFiles": 1,
+    "errorLines": 60
+   }
+  },
+  "step_5b_subtasks": {
+   "_doc": {
+    "step": "step_5b_subtasks",
+    "title": "第 5b 步 buildflow 子任务下钻（T7）",
+    "source": "openLiBing buildflow 子任务页",
+    "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "items": [],
+   "counts": {
+    "tasks": 0,
+    "subTasks": 0,
+    "failed": 0,
+    "logs": 0
+   }
+  },
+  "step_5c_github": {
+   "_doc": {
+    "step": "step_5c_github",
+    "title": "第 5c 步 GitHub 平台运行取证",
+    "source": "GitHub Actions API（jobs / logs / 测试结果）",
+    "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+    "dateField": "run.updated_at（等价于执行结束时间）",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24"
+   },
+   "results": [],
+   "errors": [],
+   "counts": {
+    "runs": 0,
+    "jobs": 0,
+    "missing": 0
+   }
+  },
+  "step_6_records": {
+   "_doc": {
+    "step": "step_6_records",
+    "title": "第 6 步 证据合并与执行记录",
+    "source": "第 2~5c 步归档产物",
+    "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+    "dateField": "pipelineRunEndtime",
+    "generatedAt": "2026-11-25 09:08:32",
+    "component": "MindIE",
+    "pipeline": "MindIE-SD",
+    "date": "2026-11-24",
+    "recordCount": 1
+   },
+   "date": "2026-11-24",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "counts": {
+    "records": 1,
+    "tasks": 2,
+    "cases": 0,
+    "errorMessages": 8
+   },
+   "pathBase": "记录正文在本文件顶层 records[]（不再拆 records/run_<构建号>.json）",
+   "recordDoc": "单条执行记录：任务/用例/错误信息/证据/定性/置信度/构建编号（每条记录不再单独带 _doc，题头见本字段）"
+  }
+ },
+ "stepIndex": [
+  {
+   "step": "step_1_lights",
+   "bytes": 2501,
+   "title": "第 1 步 夜间统计与待分析圈定",
+   "source": "openLiBing 夜间统计看板（产品维度指标）",
+   "criteria": "默认取「前一个工作日」单日（跳过周末与法定节假日，config.date_range 留空时生效）：取 config.products 指定的开源组件在该日的版本可用度/编译成功率，比率按我们采集到的执行记录重算（归档只存数值，不存黄/绿/红）；本产品下任一指标未达 100%（或版本不可用）的流水线进入待分析集合",
+   "dateField": "统计区间（start~end，含端点）"
+  },
+  {
+   "step": "step_2_runs",
+   "bytes": 3645,
+   "title": "第 2 步 执行记录圈定（N2）",
+   "source": "openLiBing 流水线 N2 执行列表",
+   "criteria": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）；仅保留工作日；VA 轨道=当日无 isVersionAvailable=true 的待查运行，BS 轨道=豁免日补圈的 Build* 失败运行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_3_tasks",
+   "bytes": 1626,
+   "title": "第 3 步 失败任务分流（T4）",
+   "source": "openLiBing 流水线运行详情（任务列表）",
+   "criteria": "仅取状态为失败的任务；UNSELECTED/CANCELED/IGNORED/INIT 跳过；含测试结果的任务走测试取证（第 4 步），其余走日志取证（第 5 步），github 平台运行改走第 5c 步",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_4_cases",
+   "bytes": 1597,
+   "title": "第 4 步 测试用例取证（T6）",
+   "source": "openLiBing 测试报告页 + 用例日志下载",
+   "criteria": "取失败任务的失败用例、错误信息、深度学习命中行，并下载用例日志到 case_logs/",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5_logs",
+   "bytes": 14409,
+   "title": "第 5 步 任务日志取证（T5）",
+   "source": "openLiBing 任务日志导出/分页接口",
+   "criteria": "对每个失败任务导出整份日志落 job_logs/，并按关键字扫描错误行",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5b_subtasks",
+   "bytes": 460,
+   "title": "第 5b 步 buildflow 子任务下钻（T7）",
+   "source": "openLiBing buildflow 子任务页",
+   "criteria": "对 buildflow 任务的失败子任务逐个取真实编译报错与子任务日志",
+   "dateField": "pipelineRunEndtime"
+  },
+  {
+   "step": "step_5c_github",
+   "bytes": 507,
+   "title": "第 5c 步 GitHub 平台运行取证",
+   "source": "GitHub Actions API（jobs / logs / 测试结果）",
+   "criteria": "对 github 平台运行按 job 分流取日志，测试 job 解析测试结果定位到用例",
+   "dateField": "run.updated_at（等价于执行结束时间）"
+  },
+  {
+   "step": "step_6_records",
+   "bytes": 845,
+   "title": "第 6 步 证据合并与执行记录",
+   "source": "第 2~5c 步归档产物",
+   "criteria": "以「一次执行」为最小单位合并任务、用例、错误信息、证据与构建编号，形成可直接展示与逐条分析的记录",
+   "dateField": "pipelineRunEndtime"
+  }
+ ],
+ "records": [
+  {
+   "recordId": "MindIE|MindIE-SD#127",
+   "date": "2026-11-24",
+   "component": "MindIE",
+   "pipeline": "MindIE-SD",
+   "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
+   "platform": "codearts",
+   "buildNumber": 127,
+   "pipelineRunId": "b094e51ac59849fb913beb91344bf914",
+   "status": "FAILED",
+   "failedTaskType": "测试任务",
+   "startedAt": "2026-11-24T11:25:36",
+   "endedAt": "2026-11-24T21:12:58",
+   "dateBasis": {
+    "field": "pipelineRunEndtime",
+    "value": "2026-11-24T21:12:58",
+    "rule": "按执行结束时间归属日期（结束时间在 [start 00:00:00, end 23:59:59] 内的执行计入该日期）"
+   },
+   "light": {
+    "vaRate": 0,
+    "bsRate": 1,
+    "dims": [
+     "va",
+     "bs"
+    ],
+    "track": "va",
+    "affects": [
+     "va"
+    ]
+   },
+   "links": {
+    "openlibing": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=921e6a7215ec4bf3972bbe13e9e41bb6&projectId=300036&pipelineRunId=b094e51ac59849fb913beb91344bf914",
+    "detail": null,
+    "github": null
+   },
+   "tasks": [
+    {
+     "jobName": "Test_Pytest-MindIE-SD-smoke",
+     "type": "test",
+     "summary": {
+      "total": 0,
+      "passed": 0,
+      "failed": 0,
+      "passRate": "0.00%"
+     },
+     "cases": [],
+     "emptyTestResult": true,
+     "stepErrMsgs": []
+    },
+    {
+     "jobName": "Test_Pytest-MindIE-SD-smoke",
+     "type": "log",
+     "fallback": true,
+     "logFile": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "logBytes": 503332,
+     "logLines": 3598,
+     "download": "export",
+     "truncated": false,
+     "excerpt": null,
+     "stepErrMsgs": [
+      "{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}"
+     ],
+     "jobErrMsg": "步骤Test_Pytest-MindIE-SD-smoke执行失败，错误信息：{\"errorMessage\":\" 构建任务执行失败!\",\"errorCode\":\"DEV-CODECI-35002\"}",
+     "errorLines": [
+      "L187: [2026/11/24 20:57:38.777 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac598",
+      "L190: [2026/11/24 20:58:13.364 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L193: [2026/11/24 20:58:42.275 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L196: [2026/11/24 20:59:11.210 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L199: [2026/11/24 20:59:40.123 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L202: [2026/11/24 21:00:09.035 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L205: [2026/11/24 21:00:43.619 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L208: [2026/11/24 21:01:09.844 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L211: [2026/11/24 21:01:44.430 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L214: [2026/11/24 21:02:13.344 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91",
+      "L2077: [2026/11/24 21:09:49.254 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:08:46][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2089: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2093: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2096: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2100: [2026/11/24 21:10:18.562 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:16][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2111: [2026/11/24 21:10:47.481 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2115: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2118: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2122: [2026/11/24 21:10:47.482 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:09:46][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2133: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: Error, 文件名模式: None",
+      "L2137: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][device.py:921][SENDCMD] grep -q -F 'Error' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2140: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][file_utils.py:1646] 检查文件关键词: /home/pytest-infra/output_perf_qwen_image.log, 关键词: ERROR, 文件名模式: None",
+      "L2144: [2026/11/24 21:11:22.114 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:17][INFO][device.py:921][SENDCMD] grep -q -F 'ERROR' '/home/pytest-infra/output_perf_qwen_image.log' && echo 'found' || echo 'not_found'",
+      "L2944: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][INFO][device.py:831][REPSCMD] ERROR: Could not find a version that satisfies the requirement ftfy==6.3.1 (from versions: none)",
+      "L2945: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]ERROR: No matching distribution found for ftfy==6.3.1",
+      "L2946: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][FAIL][__init__.py:71] Test FAILED: testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_T2V_A14b_perf_001",
+      "L2947: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]Exception: AssertionError",
+      "L2948: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]Message: pip install requirements.txt 失败",
+      "L2949: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:10:53][ERROR][__init__.py:71] Traceback:",
+      "L2953: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L2955: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L2956: [2026/11/24 21:11:57.671 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED[2026-11-24 21:10:54][INFO][device.py:921][SENDCMD] test -d /root/ascend/log",
+      "L3497: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][INFO][device.py:831][REPSCMD] ERROR: Could not find a version that satisfies the requirement ftfy==6.3.1 (from versions: none)",
+      "L3498: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]ERROR: No matching distribution found for ftfy==6.3.1",
+      "L3499: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][FAIL][__init__.py:71] Test FAILED: testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_TI2V_5b_perf_001",
+      "L3500: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]Exception: AssertionError",
+      "L3501: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]Message: pip install requirements.txt 失败",
+      "L3502: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout][2026-11-24 21:11:41][ERROR][__init__.py:71] Traceback:",
+      "L3506: [2026/11/24 21:12:46.834 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3508: [2026/11/24 21:12:46.835 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3509: [2026/11/24 21:12:46.835 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED[2026-11-24 21:11:41][INFO][device.py:921][SENDCMD] test -d /root/ascend/log",
+      "L3523: [2026/11/24 21:12:51.098 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3525: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]E   AssertionError: pip install requirements.txt 失败",
+      "L3530: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]    assert \"ERROR: Could not\" not in res, f\"pip install {req} 失败\"",
+      "L3549: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/flux/test_flux_1_dev.py::TestFlux1Dev::test_flux_1_dev_a2_perf_001",
+      "L3550: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/hunyuan_video/test_hunyuan_video.py::TestHunyuanVideo::test_hunyuanvideo_720p_81fn_50step_w8a8_perf_800IA2_0001",
+      "L3551: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_T2V_A14b_perf_001",
+      "L3552: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]FAILED testcase/mindie/sd/wan2_2/test_wan2_2.py::TestWan2_2::test_Wan2_2_TI2V_5b_perf_001",
+      "L3553: [2026/11/24 21:12:51.099 GMT+08:00] [281473626075424] [INFO] [stdout]=================== 4 failed, 1 passed in 471.05s (0:07:51) ====================",
+      "L3587: [2026/11/24 21:12:54.502 GMT+08:00] [281473771409440] [INFO] Metadata upload response: {\"code\":200,\"data\":{\"success\":[\"testcase-metadata/921e6a7215ec4bf3972bbe13e9e41bb6/b094e51ac59849fb913beb91344bf914/55d0a1e597744b59ae742b9b26443d57_20261124_2/local_results_hh0p866o.xml\",\"testcase-metadata/921e6a7215ec4bf3972bbe13e9e41bb6/b094e51ac59849fb913beb91344bf914/55d0a1e597744b59ae742b9b26443d57_2026112",
+      "L3591: [2026/11/24 21:12:54.502 GMT+08:00] [281473771409440] [ERROR] Failed test cases: ['test_flux_1_dev_a2_perf_001', 'test_hunyuanvideo_720p_81fn_50step_w8a8_perf_800IA2_0001', 'test_Wan2_2_T2V_A14b_perf_001', 'test_Wan2_2_TI2V_5b_perf_001']",
+      "L3593: [2026/11/24 21:12:54.624 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'",
+      "L3594: [2026/11/24 21:12:54.625 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log",
+      "L3596: [2026/11/24 21:12:54.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed",
+      "L3598: [2026/11/24 21:12:57.590 GMT+08:00] Finished: FAILURE"
+     ],
+     "subTasks": []
+    }
+   ],
+   "cases": [],
+   "errorMessages": [
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 187,
+     "level": "LOG",
+     "text": "[2026/11/24 20:57:38.777 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'provisioning', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac598"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 190,
+     "level": "LOG",
+     "text": "[2026/11/24 20:58:13.364 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 193,
+     "level": "LOG",
+     "text": "[2026/11/24 20:58:42.275 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 196,
+     "level": "LOG",
+     "text": "[2026/11/24 20:59:11.210 GMT+08:00] [281473733423392] [INFO] apply_env_res: {'env_id': 'lease-env-3ff665492fea18708a29e9866046cccf', 'groups': {'nodes_1': []}, 'status': 'queued', 'name': 'env', 'created_at': '2026-11-24T12:57:38Z', 'expires_at': '2026-11-24T18:57:38Z', 'ttl': '21600', 'topology': '', 'extend_env_comments': {'job_info': 'codearts-921e6a7215ec4bf3972bbe13e9e41bb6-b094e51ac59849fb91"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 3593,
+     "level": "LOG",
+     "text": "[2026/11/24 21:12:54.624 GMT+08:00] + echo '[ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log'"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 3594,
+     "level": "LOG",
+     "text": "[2026/11/24 21:12:54.625 GMT+08:00] [ERROR]execute openlibing-pytest-executor. main.py fail, log file is ***//openlibing-pytest-executor-workspace/executor-log/scheduler_framework.log"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 3596,
+     "level": "LOG",
+     "text": "[2026/11/24 21:12:54.627 GMT+08:00] [ERROR]  : script returned exit code 1, exitMessage is: command run failed"
+    },
+    {
+     "task": "Test_Pytest-MindIE-SD-smoke",
+     "source": "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log",
+     "line": 3598,
+     "level": "LOG",
+     "text": "[2026/11/24 21:12:57.590 GMT+08:00] Finished: FAILURE"
+    }
+   ],
+   "evidence": {
+    "files": [
+     "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log"
+    ],
+    "missing": [
+     "Test_Pytest-MindIE-SD-smoke"
+    ],
+    "github": null
+   },
+   "counts": {
+    "tasks": 2,
+    "testTasks": 1,
+    "logTasks": 1,
+    "buildTasks": 0,
+    "cases": 0,
+    "errorMessages": 8,
+    "evidenceFiles": 1
+   },
+   "verdict": {
+    "category": "env_not_ready",
+    "text": "用例未拉起（测试环境异常）",
+    "confidence": 0.5,
+    "level": "中",
+    "basis": [
+     "test 任务 Test_Pytest-MindIE-SD-smoke 测试结果为空（用例未拉起），已回退整 job 日志",
+     "基线 0.30",
+     "证据文件落盘 1 份 +0.25",
+     "任务日志命中错误行 +0.15",
+     "任务 Test_Pytest-MindIE-SD-smoke 无任何证据 −0.20"
+    ]
+   },
+   "suggestions": [],
+   "analysis": {
+    "status": "done",
+    "keyError": "host='pypi.org', port=443): Read timed out. (read timeout=15)",
+    "issueType": "网络/下载失败",
+    "issueDetail": "PyPI 拉取 ftfy==6.3.1 读超时失败",
+    "rootCause": "用例部署模型依赖时执行 pip install -r requirements.txt，从 pypi.org 拉取 ftfy==6.3.1 读超时，重试后仍取不到包，依赖安装失败抛出断言，flux、wan 等多个 smoke 用例因此失败；失败点在执行环境到 PyPI 源的可达性，不是模型或用例缺陷。",
+    "advice": "在测试机上确认到 PyPI（或已配置的内网源）的连通与索引配置，并把 ftfy==6.3.1 预置到本地 wheel 缓存／内网源，避免运行时联网拉包。\n\n验证方式：重跑该流水线测试任务，要求依赖安装阶段不再出现读超时与找不到包，smoke 用例可正常执行且通过率 100%。",
+    "cites": [
+     "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log:L835",
+     "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log:L837",
+     "job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log:L2945"
+    ],
+    "possibilities": [],
+    "keyErrorCheck": "命中 job_logs/65_MindIE-SD_127_Test_Pytest-MindIE-SD-smoke.log:L835",
+    "updatedAt": "2026-11-25 09:17:16",
+    "firstAnalyzedAt": "2026-11-25 09:17:16",
+    "revisions": 1,
+    "source": "agent"
+   }
+  }
+ ]
+}
