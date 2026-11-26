@@ -317,8 +317,8 @@ function vaTitleOf(mineVA, vals, rate, wdN, from, to){
     + (mineVA.length > vals.length
       ? '（另有 ' + (mineVA.length - vals.length) + ' 条区间内无执行记录，已排除）' : ''));
   lines.push('流水线级口径：当日存在任一条成功运行即算「当天有可用版本」，'
-             + '分母是该流水线有执行记录的天数（当天有运行开始或结束才算；没启动的日子、'
-             + '以及当天只有 canceled 运行的都不计入）');
+             + '分母是该流水线有执行记录的天数（当天有运行开始或结束才算；没启动的日子不计入；'
+             + '当天只有 aborted/canceled 运行也记有执行、进分母，但不算可用）');
   return lines.join('\n');
 }
 
@@ -502,7 +502,8 @@ function render(docs, from, to){
 
   const pipeList = Array.from(pipes.values());
   /* 版本可用度的分母 = **该流水线在区间内有执行记录的天数**（不是区间法定工作日数）。
-     逐日归档的 vaDetail.daysInPeriod 只有「当天有运行开始或结束（非取消）」才记 1
+     逐日归档的 vaDetail.daysInPeriod 只要「当天有运行开始或结束」就记 1（去重），
+     被中断的运行（aborted/canceled）同样算执行过、也记 1（当天不算可用）；
      （跨午夜运行的开始日由 step_7 补一条逐日条目），所以没启动 / 没跑过的日子天然不进分母：
      一条只在 2 天跑过的流水线是 x/2，而不是 x/5。
      老归档缺 vaDetail（daysInPeriod 全 0）时才退回区间法定工作日数兜底（见 vaDenOf）。 */
@@ -1573,7 +1574,8 @@ function dayLights(ctx){
 }
 /* 区间重算：只统计「执行结束时间落在当前统计区间内」的运行，逐日判定是否达标。
    dim=va：比率 = 可用日 / **该流水线在区间内有执行记录的天数**（用户口径：当日任一条运行
-           iva=true 即算当天可用；当日没启动 / 没跑过的日子不进分母，被取消的运行当天也不进）
+           iva=true 即算当天可用；当日没启动 / 没跑过的日子不进分母，被中断（aborted/canceled）
+           的运行当天照常进分母、但不算可用）
    dim=bs：比率 = Σ编译通过 / Σ编译次数（该维度口径未改）
    区间一变，分子分母同时按新区间重算，不再沿用归档当日写死的比率。 */
 function rangeStats(ctx, dim){
@@ -1622,10 +1624,11 @@ function rangeStats(ctx, dim){
        各流水线的分母不再相同（各条「有执行记录的天数」不一样），所以必须逐条算比率再平均，
        不能拿 Σ可用日 ÷ Σ有执行日；这样二级页区块头的数字才能和首页点进来的数字一眼对上。
        只统计带版本可用度维度的流水线（只做编译的流水线不该被算成 0%）；
-       被取消的运行不计入（用户口径：canceled 与进行中都不算）。 */
+       中断的运行（aborted/canceled）同样算「执行过」→ 进分母，但永不计可用（没有 iva=true）。 */
     let pipeCount = 0;
     /* 各流水线的版本可用度分母 = **有执行记录的天数**，取自逐日归档的 vaDetail.daysInPeriod
-       （当天只有 canceled 运行 / 没跑过的日子记 0）；归档没这份数据时退回区间内有运行的天数。 */
+       （当天只有 aborted/canceled 运行也记 1：执行过就算有执行、但当天不算可用）；没跑过的日子记 0。
+       归档没这份数据时退回区间内有运行的天数（同样把中断的运行算进去）。 */
     const denByPipe = vaDaysDenByPipe(ctx);
     if (dim !== 'bs'){
       /* 维度表按**身份键**建：同组件下两平台重名的流水线（openUBMC 的 codearts / gitcode）
@@ -1640,7 +1643,9 @@ function rangeStats(ctx, dim){
       });
       const agg = {};
       inRange.forEach(function(r){
-        if (runCanceled(r) || !r.day) return;
+        /* 中断的运行（aborted/canceled）也记「当天有执行」：进分母，但只有 iva=true 才进分子，
+           所以当日只有中断运行时就是「有执行、没版本可用」。 */
+        if (!r.day) return;
         const k = r.__plk || '--';
         if (dimsOf[k] && dimsOf[k].indexOf('va') < 0) return;
         const a = agg[k] || (agg[k] = {ok: {}, ran: {}});
@@ -2287,7 +2292,8 @@ function renderRecs(recs, ctx){
   const isVA = dim !== 'bs';
   const pipeN = st.pipeCount || 0;
   /* dim=va 的组件级口径 = 各流水线版本可用度的算术平均（与首页组件行同一个算法、同一套逐日重算）：
-     各流水线的分母是各自「有执行记录的天数」（当日没启动、没跑过的日子不进分母），
+     各流水线的分母是各自「有执行记录的天数」（当日没启动、没跑过的日子不进分母；
+     被中断的运行当天照样算有执行、进分母），
      分母不同，所以只能逐条算比率再平均 —— 区块头的数字与首页点进来的那一行一致。
      dim=bs 仍是 Σ编译通过 ÷ Σ编译次数，分母是「区间内有运行的天数」。 */
   const denomTip = (dim === 'bs')
@@ -2297,7 +2303,7 @@ function renderRecs(recs, ctx){
        + '，合计可用 ' + okDays + ' 天 / 有执行记录 ' + total + ' 天');
   const denomRule = (dim === 'bs')
     ? '分母 = 区间内有运行的工作日数'
-    : '分母 = 各流水线在区间内有执行记录的天数（当天有运行开始或结束才算；没启动、没跑过，以及当天只有 canceled 运行的都不计入）';
+    : '分母 = 各流水线在区间内有执行记录的天数（当天有运行开始或结束才算；没启动、没跑过的不计入；当天只有 aborted/canceled 运行也记有执行，但当天不算可用）';
   const h3 = '<h3 title="' + DIMNAME[dim] + '（组件级）：' + (st.source === 'runs'
       ? denomTip + '（逐日按执行结果重算，统计区间一变即重算；' + denomRule + '）'
       : (st.ran
@@ -2370,9 +2376,8 @@ function runOkIn(x, dim){
   }
   return x.iva === true;
 }
-/* 取消（CANCELED）的运行：计入当日「共 N 次」，但永远不算成功（灯态只看是否成功）。
-   用户口径：取消也算当天真实发生过的一次执行，不能因为没跑完就从次数里消失。 */
-function runCanceled(x){ return String(x.status || '').toUpperCase() === 'CANCELED'; }
+/* 执行是否成功只看 runOkIn：aborted/canceled 没有 iva=true，天然不算成功。
+   但它们算「当天执行过」，会计入当日「共 N 次」与版本可用度分母（用户口径）。 */
 function execDot(ok){
   return '<i class="' + (ok === true ? 'g' : (ok === false ? 'r' : 'n')) + '"></i>';
 }

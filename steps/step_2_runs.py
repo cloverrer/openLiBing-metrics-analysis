@@ -184,8 +184,9 @@ def main():
 
         # 版本可用度逐日口径（与 step_7 / 社区链路同一份 lib/va_caliber）：
         # 当天有运行**开始或结束** → 进分母（去重）；当天有 iva=true 的运行**结束** → 记可用。
-        # 跨午夜运行时开始日也进分母，只有当天完全没启动 / 没跑过的日子才不计入。
-        va_map = day_va(va_input, skip_statuses=("CANCELED", "CANCELLED"),
+        # 跨午夜运行时开始日也进分母；CANCELED 同样算「执行过」→ 进分母但永不计可用
+        # （当日只有取消运行 = 当日没有版本可用，而不是当日没跑过）。
+        va_map = day_va(va_input, never_avail_statuses=("ABORTED", "CANCELED", "CANCELLED"),
                         days_in_scope=set(workdays))
         avail_days = sum(1 for v in va_map.values() if v.get("availDays"))
         days_in_period = sum(1 for v in va_map.values() if v.get("daysInPeriod"))

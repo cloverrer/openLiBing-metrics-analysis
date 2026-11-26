@@ -86,13 +86,15 @@ def va_map_of(info, scope):
 
     口径：当天有运行**开始或结束** → daysInPeriod=1（去重）；当天有 iva=true 的运行**结束**
     → availDays=1。跨午夜运行时开始日 +1 天分母、结束日 +1 天分子，保证「当天启动了」的日子
-    不会被漏掉（只有当天完全没启动 / 没跑过的日子才不进分母）。取消运行不计入任何统计。
+    不会被漏掉（只有当天完全没启动 / 没跑过的日子才不进分母）。取消（CANCELED/CANCELLED）与
+    中断（ABORTED）的运行同样算「执行过」→ 进分母但**永不计可用**：当日只有这类运行，
+    当日即「没有版本可用」。
     scope 限定可计入的日子（= 区间内的工作日），窗口外的开始日不进分母。
     """
     runs = [{"status": h.get("status"), "start": h.get("start"), "end": h.get("end"),
              "iva": h.get("iva") is True} for h in (info.get("runHistory") or [])]
-    return va_caliber.day_va(runs, skip_statuses=("CANCELED", "CANCELLED"),
-                             days_in_scope=scope)
+    return va_caliber.day_va(
+        runs, never_avail_statuses=("ABORTED", "CANCELED", "CANCELLED"), days_in_scope=scope)
 
 
 def recompute_rates(s2, meta_idx, va_maps):
@@ -786,7 +788,8 @@ def main():
         # 跨午夜运行：当天只「开始」、没「结束」的日子没有归档目录（记录归属结束日），
         # 但按口径当天确实有执行 → 补一条轻量条目进当日 _day.json，让页面按统计区间累加
         # vaDetail 时能把开始日算进版本可用度分母（分子为 0 → 该天不可用）。
-        # vaDetail.availDays/daysInPeriod、records、runNumbers 都按「当天没有结束的运行」置零，
+        # vaDetail 按 va_map 写入（当天有执行 → 分母 1；当天没有成功结束 → 分子 0），
+        # records、runNumbers 等汇总字段按「当天没有结束的运行」置零，
         # 弹窗按构建号去重，不会重复展示。path 指向模板条目（该流水线带整区间 runHistory 的归档）
         if last_entry is not None:
             for d in sorted(va_map):

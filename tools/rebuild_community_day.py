@@ -6,9 +6,11 @@
      清掉、再追加本次采集的 key，非采集日的社区条目就被误删了（11-10/11-12/11-13 的
      openGauss/openEuler 就是这样丢的）。页面「执行记录」弹窗逐日读 _day.json，
      读不到条目就读不到对应流水线的 runHistory，失败记录整段消失。
-  2) 「版本可用度口径调整」：口径改成「当天开始执行、当天没执行完 → 当天算不可用；
+  2) 「版本可用度口径调整」：口径是「当天开始执行、当天没执行完 → 当天算不可用；
      就算成功也只把可用记到结束日；当天完全没开始执行才不计入分母」，
-     历史归档里写死的 vaDetail 需要按新口径重算（口径实现见 lib/va_caliber.py）。
+     且「只要执行了就算有执行」—— aborted/canceled 的构建照常进分母、但永不计可用
+     （当日只有这类构建 ⇒ 当日没有版本可用）。历史归档里写死的 vaDetail 需要按当前口径
+     重算（口径实现见 lib/va_caliber.py）。
 
 本工具**只读磁盘上已经归档好的 pipeline.json**，重新组装 _day.json 条目：
 不联网、不重新取证、不改动 pipeline.json / 证据文件，因此可以反复安全重跑。
@@ -30,7 +32,8 @@ from lib.va_caliber import day_bs_detail, day_va  # noqa: E402
 
 CONFIG = ROOT / "config.json"
 
-# 不计入任何统计的状态：Jenkins 的 aborted、openLiBing 的 canceled
+# 中断的状态（Jenkins 的 aborted、openLiBing 的 canceled）：版本可用度里算「执行过」→ 进分母
+# 但永不计可用；编译次数（bs）里不计入。
 SKIP = ("ABORTED", "CANCELED", "CANCELLED")
 FAILED = ("FAILED", "FAILURE")
 
@@ -181,7 +184,7 @@ def synth_from(template, day, va):
     e["errorMessages"] = 0
     e["evidenceFiles"] = 0
     e["byCategory"] = {}
-    e["note"] = "当日仅启动、未结束：计入分母但不计可用（跨午夜运行）"
+    e["note"] = "当日有执行但没有可归档的运行结果（仅启动未结束或被中断）：计入分母但不计可用"
     return e
 
 
@@ -247,7 +250,7 @@ def main():
     day_entries = {}
     for key in sorted(runs_by):
         runs = runs_by[key]
-        dva = day_va(runs, skip_statuses=SKIP, days_in_scope=scope)
+        dva = day_va(runs, never_avail_statuses=SKIP, days_in_scope=scope)
         dbs = day_bs_detail(runs, skip_statuses=SKIP)
         days_with_art = sorted(d for d in by_day if key in by_day[d])
         template = None
@@ -268,7 +271,7 @@ def main():
             key, len(runs), exec_days, ok_days,
             "（无可用）" if exec_days and not ok_days else ""))
         if not exec_days:
-            print("      !! 该流水线区间内没有可计入的执行日（全是 aborted/canceled）")
+            print("      !! 该流水线区间内没有任何执行记录（归档里没有可归属到本区间的运行）")
 
     for day in sorted(day_entries):
         write_day(day, day_entries[day], dry=args.dry_run)

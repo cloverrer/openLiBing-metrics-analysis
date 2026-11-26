@@ -2063,6 +2063,95 @@
    "note": null
   },
   {
+   "component": "UBS Core",
+   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
+   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
+   "platform": "codearts",
+   "pipelineId": "openlibing:UBS Core:b51d159e1b9d4c6798dcda723e1876db",
+   "key": "UBS Core|Nightly-CI-Version-pipeline_BeiMing",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 27,
+    "buildCount": 27
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 25,
+   "runsToday": 4,
+   "failedRunsToday": 1,
+   "path": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing",
+   "manifest": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 4,
+   "runNumbers": [
+    262,
+    263,
+    264,
+    265
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
+   "component": "openEuler",
+   "pipeline": "EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "pipelineName": "openEuler 24.03 LTS SP5",
+   "platform": "jenkins",
+   "pipelineId": "jenkins:openEuler:EBS-OS-build/job/Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "key": "openEuler|EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "channel": "community",
+   "dims": [
+    "va",
+    "bs"
+   ],
+   "rateRule": "days",
+   "vaDetail": {
+    "availDays": 1,
+    "daysInPeriod": 1
+   },
+   "bsDetail": {
+    "buildPassCount": 1,
+    "buildCount": 1
+   },
+   "vaRate": 1.0,
+   "bsRate": 1.0,
+   "vaRule": "days",
+   "bsAgg": "mean",
+   "runsInPeriod": 15,
+   "runsToday": 1,
+   "failedRunsToday": 0,
+   "path": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
+   "manifest": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
+   "file": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
+   "layout": "pipeline/1",
+   "records": 1,
+   "runNumbers": [
+    46
+   ],
+   "tasks": 0,
+   "cases": 0,
+   "errorMessages": 0,
+   "evidenceFiles": 0,
+   "byCategory": {},
+   "note": null
+  },
+  {
    "component": "openGauss",
    "pipeline": "autobuild-opengauss-centos-x86",
    "pipelineName": "CentOS 7.6 x86",
@@ -2080,14 +2169,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 14,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-centos-x86",
@@ -2124,14 +2213,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 17,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler-arm",
@@ -2168,14 +2257,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 13,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler-x86",
@@ -2212,14 +2301,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 14,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler2203-arm",
@@ -2253,7 +2342,7 @@
    "rateRule": "days",
    "vaDetail": {
     "availDays": 0,
-    "daysInPeriod": 0
+    "daysInPeriod": 1
    },
    "bsDetail": {
     "buildPassCount": 0,
@@ -2263,7 +2352,7 @@
    "bsRate": null,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 1,
+   "runsInPeriod": 12,
    "runsToday": 1,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler2203-x86",
@@ -2299,14 +2388,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 15,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler24.03-arm",
@@ -2343,14 +2432,14 @@
     "daysInPeriod": 1
    },
    "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
+    "buildPassCount": 1,
+    "buildCount": 1
    },
    "vaRate": 1.0,
    "bsRate": 1.0,
    "vaRule": "days",
    "bsAgg": "mean",
-   "runsInPeriod": 2,
+   "runsInPeriod": 14,
    "runsToday": 2,
    "failedRunsToday": 0,
    "path": "archive/2026/2026-11/2026-11-17/openGauss/autobuild-opengauss-openeuler24.03-x86",
@@ -2361,95 +2450,6 @@
    "runNumbers": [
     746,
     747
-   ],
-   "tasks": 0,
-   "cases": 0,
-   "errorMessages": 0,
-   "evidenceFiles": 0,
-   "byCategory": {},
-   "note": null
-  },
-  {
-   "component": "openEuler",
-   "pipeline": "EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
-   "pipelineName": "openEuler 24.03 LTS SP5",
-   "platform": "jenkins",
-   "pipelineId": "jenkins:openEuler:EBS-OS-build/job/Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
-   "key": "openEuler|EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
-   "channel": "community",
-   "dims": [
-    "va",
-    "bs"
-   ],
-   "rateRule": "days",
-   "vaDetail": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   },
-   "bsDetail": {
-    "buildPassCount": 0,
-    "buildCount": 0
-   },
-   "vaRate": 1.0,
-   "bsRate": 1.0,
-   "vaRule": "days",
-   "bsAgg": "mean",
-   "runsInPeriod": 1,
-   "runsToday": 1,
-   "failedRunsToday": 0,
-   "path": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild",
-   "manifest": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
-   "file": "archive/2026/2026-11/2026-11-17/openEuler/EBS-OS-build_job_Main-openEuler-24.03-LTS-SP5-EBS-dailybuild/pipeline.json",
-   "layout": "pipeline/1",
-   "records": 1,
-   "runNumbers": [
-    46
-   ],
-   "tasks": 0,
-   "cases": 0,
-   "errorMessages": 0,
-   "evidenceFiles": 0,
-   "byCategory": {},
-   "note": null
-  },
-  {
-   "component": "UBS Core",
-   "pipeline": "Nightly-CI-Version-pipeline_BeiMing",
-   "pipelineName": "Nightly-CI-Version-pipeline_BeiMing",
-   "platform": "codearts",
-   "pipelineId": "openlibing:UBS Core:b51d159e1b9d4c6798dcda723e1876db",
-   "key": "UBS Core|Nightly-CI-Version-pipeline_BeiMing",
-   "channel": "community",
-   "dims": [
-    "va",
-    "bs"
-   ],
-   "rateRule": "days",
-   "vaDetail": {
-    "availDays": 1,
-    "daysInPeriod": 1
-   },
-   "bsDetail": {
-    "buildCount": 36,
-    "buildPassCount": 36
-   },
-   "vaRate": 1.0,
-   "bsRate": 1.0,
-   "vaRule": "days",
-   "bsAgg": "mean",
-   "runsInPeriod": 4,
-   "runsToday": 4,
-   "failedRunsToday": 1,
-   "path": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing",
-   "manifest": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
-   "file": "archive/2026/2026-11/2026-11-17/UBS Core/Nightly-CI-Version-pipeline_BeiMing/pipeline.json",
-   "layout": "pipeline/1",
-   "records": 4,
-   "runNumbers": [
-    262,
-    263,
-    264,
-    265
    ],
    "tasks": 0,
    "cases": 0,

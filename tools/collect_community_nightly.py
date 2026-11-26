@@ -57,7 +57,8 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120"}
 
-# 统计口径：aborted / 进行中构建不计入任何统计
+# 中断的构建（aborted/canceled）：版本可用度里算「执行过」→ 进分母但永不计可用；
+# 编译次数（bs）里不计入（没产出编译结果）。进行中构建不归档、不进任何统计。
 OK_RESULTS = {"SUCCESS", "SUCCESS"}
 SKIP_RESULTS = {"ABORTED"}
 # 控制台日志中判定为「普通报错行」的关键字（大小写不敏感）。
@@ -509,7 +510,7 @@ def build_pipeline_day(comm, task, day, day_builds, all_builds, headers):
         "channel": "community",
         "dims": ["va", "bs"],
         "rateRule": "days",
-        "vaDetail": {"availDays": day_avail, "daysInPeriod": 1 if non_aborted else 0},
+        "vaDetail": {"availDays": day_avail, "daysInPeriod": 1},
         "bsDetail": {"buildPassCount": day_bpc, "buildCount": day_bc},
         "vaRate": (day_ok / 1.0) if day_avail else 0.0,
         "bsRate": (day_bpc / float(day_bc)) if day_bc else None,
@@ -828,7 +829,8 @@ def collect_openlibing_community(comm, start, end, day_entries, prod_acc, scope)
         ol_runs = [{"status": m["status"], "start": m["start"], "end": m["et"],
                     "iva": m["iva"] is True,
                     "bc": m["bc"], "bpc": m["bpc"]} for m in runs]
-        dva = day_va(ol_runs, skip_statuses=("CANCELED", "CANCELLED"), days_in_scope=scope)
+        dva = day_va(ol_runs, never_avail_statuses=(
+            "ABORTED", "CANCELED", "CANCELLED"), days_in_scope=scope)
         dbs = day_bs_detail(ol_runs, skip_statuses=("CANCELED", "CANCELLED"))
         last_entry = None
         for d in sorted(set(by_day) | set(dva)):
@@ -1060,9 +1062,9 @@ def _build_ol_day(cid, short, label, key, pc, day, day_runs, non_cancel,
         "platform": pc.get("platform") or "openlibing",
         "pipelineId": "openlibing:%s:%s" % (cid, pid), "key": key, "channel": "community",
         "dims": ["va", "bs"], "rateRule": "days",
-        "vaDetail": {"availDays": day_avail, "daysInPeriod": 1 if non_cancel else 0},
+        "vaDetail": {"availDays": day_avail, "daysInPeriod": 1},
         "bsDetail": {"buildPassCount": day_bpc, "buildCount": day_bc},
-        "vaRate": float(day_avail) if non_cancel else None,
+        "vaRate": float(day_avail),
         "bsRate": (day_bpc / float(day_bc)) if day_bc else None,
         "vaRule": "days", "bsAgg": "mean",
         "runsInPeriod": runs_in_period, "runsToday": len(day_runs),
@@ -1175,7 +1177,7 @@ def run(start, end, community=None):
             # 版本可用度新口径：开始日进分母、跨午夜开始日记不可用、成功只记结束日；
             # 纯开始日（当天没有任何构建结束）补一条轻量条目，归档仍在结束日。
             runs = [jenkins_run(b) for b in in_win]
-            dva = day_va(runs, skip_statuses=SKIP_RESULTS, days_in_scope=scope)
+            dva = day_va(runs, never_avail_statuses=SKIP_RESULTS, days_in_scope=scope)
             dbs = day_bs_detail(runs, skip_statuses=SKIP_RESULTS)
             last_entry = None
             for day in sorted(set(by_day) | set(dva)):

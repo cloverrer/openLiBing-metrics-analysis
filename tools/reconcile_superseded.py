@@ -15,7 +15,8 @@
 并同步重算该日的 vaDetail/bsDetail、比率、记录计数与 `_day.json` 汇总。
 
 附带「版本可用度逐日口径重算」（--recalib-va）：口径升级成「当天有运行**开始或结束**都算
-有执行记录」后，历史归档里写死的 vaDetail 会失真（跨午夜运行的开始日在旧口径下不进分母）。
+有执行记录」、且「只要执行了就算有执行（aborted/canceled 进分母但永不计可用）」后，历史归档里
+写死的 vaDetail 会失真（跨午夜运行的开始日在旧口径下不进分母；只有中断运行的日子旧口径下分母为 0）。
 该模式按磁盘上已归档的 pipeline.json runHistory 就地重算 openlibing 流水线的逐日 vaDetail，
 跨午夜开始日缺条目时补一条轻量 synth 条目；社区条目由 tools/rebuild_community_day.py 负责。
 只读归档、不联网、不重新取证，可反复安全重跑。
@@ -203,7 +204,7 @@ def _recompute_day(day, patches):
                 [{"status": h.get("status"), "start": h.get("start"),
                   "end": h.get("end"), "iva": h.get("iva") is True}
                  for h in info["runHistory"]],
-                skip_statuses=("CANCELED", "CANCELLED"),
+                never_avail_statuses=("ABORTED", "CANCELED", "CANCELLED"),
                 days_in_scope=(workdays or None))
             av = sum(1 for v in vm.values() if v.get("availDays"))
             dn = sum(1 for v in vm.values() if v.get("daysInPeriod"))
@@ -250,9 +251,10 @@ def _refresh_index():
 
 # ---------------------------------------------- 版本可用度逐日口径重算（口径变更后的归档修复）
 # 口径（lib/va_caliber）：分母 = 当天有运行**开始或结束**（去重）→ 跨午夜运行的开始日也进分母；
-# 分子 = 当天有 iva=true 的运行**结束**。归档里写死的 vaDetail 一旦口径升级就会失真，
+# 分子 = 当天有 iva=true 的运行**结束**；aborted/canceled 算「执行过」→ 进分母但永不计可用。
+# 归档里写死的 vaDetail 一旦口径升级就会失真，
 # 这里按磁盘上已经归档好的 pipeline.json runHistory 就地重算，不联网、不重新取证。
-OL_SKIP = ("CANCELED", "CANCELLED")     # openlibing 侧的取消状态
+OL_NEVER_AVAIL = ("ABORTED", "CANCELED", "CANCELLED")   # 执行过但永不计可用的状态
 # 同一运行跨日会有多份副本，只认结束时间最晚的权威副本（口径见模块 docstring）
 def _scan_archive():
     """返回 (union, entries, channels)：
@@ -282,7 +284,7 @@ def _scan_archive():
 
 
 def _synth_from(template, vd):
-    """当天只有运行「开始」、没有任何运行「结束」：补一条轻量条目进分母（分子 0）。"""
+    """当天有执行（仅启动未结束 / 只剩中断运行）但归档没有当日条目：补一条轻量条目进分母（分子 0）。"""
     e = json.loads(json.dumps(template, ensure_ascii=False))
     e["vaDetail"] = {"availDays": int(vd.get("availDays") or 0),
                      "daysInPeriod": int(vd.get("daysInPeriod") or 0)}
@@ -293,7 +295,8 @@ def _synth_from(template, vd):
     e["tasks"] = e["cases"] = e["errorMessages"] = 0
     e["evidenceFiles"] = 0
     e["byCategory"] = {}
-    e["note"] = ("当日仅启动、未结束（跨午夜运行）：计入版本可用度分母，当天不计可用")
+    e["note"] = ("当日有执行但没有可归档的运行结果（仅启动未结束或被中断）："
+                 "计入版本可用度分母，当天不计可用")
     return e
 
 
@@ -334,7 +337,7 @@ def recalib_va(apply=False):
         runs = [{"status": h.get("status"), "start": h.get("start"),
                  "end": h.get("end"), "iva": h.get("iva") is True}
                 for h in union[key].values()]
-        vm = va_caliber.day_va(runs, skip_statuses=OL_SKIP, days_in_scope=scope)
+        vm = va_caliber.day_va(runs, never_avail_statuses=OL_NEVER_AVAIL, days_in_scope=scope)
         a = sum(1 for v in vm.values() if v.get("availDays"))
         n = sum(1 for v in vm.values() if v.get("daysInPeriod"))
         for day in sorted(vm):
@@ -345,7 +348,7 @@ def recalib_va(apply=False):
                 continue
             ent = (entries.get(day) or {}).get(key)
             if ent is None:
-                synths.append((day, key, exp))
+                synths.append((day, key, exp, (a / float(n)) if n > 0 else None))
                 continue
             cur = ent.get("vaDetail") or {}
             if (int(cur.get("availDays") or 0) != exp["availDays"]
@@ -357,7 +360,7 @@ def recalib_va(apply=False):
     for day, key, cur, exp, rate, rule in changes:
         print("  %s %-52s %s -> %s" % (day, key, cur, exp))
     print("需要新补 synth 条目：%d 条" % len(synths))
-    for day, key, exp in synths:
+    for day, key, exp, _rate in synths:
         print("  %s %-52s %s" % (day, key, exp))
     if not changes and not synths:
         print("结论：归档逐日口径已与当前口径一致，无需改动")
@@ -378,7 +381,7 @@ def recalib_va(apply=False):
                 it["vaRate"] = rate
         _save_json(p, d)
         touched.add(day)
-    for day, key, exp in synths:
+    for day, key, exp, rate in synths:
         p = archive_day_dir(day) / "_day.json"
         d = _load_json(p) or {}
         template = None
@@ -388,7 +391,10 @@ def recalib_va(apply=False):
                 break
         if template is None:
             continue
-        (d.setdefault("pipelines", [])).append(_synth_from(template, exp))
+        e = _synth_from(template, exp)
+        if rate is not None:                         # 流水线级比率同步成整区间重算值
+            e["vaRate"] = rate
+        (d.setdefault("pipelines", [])).append(e)
         _save_json(p, d)
         touched.add(day)
     for day in sorted(touched):

@@ -3,12 +3,12 @@
     "step": "step_1_nightly",
     "title": "流水线身份注册表",
     "criteria": "每个开源组件下 pipelineId -> 唯一短名的持久映射（跨次运行累积、只增不删）：短名同时是归档目录名与页面聚合键的一半，已登记的一律沿用，保证同一条流水线跨日不会换目录 / 换 key",
-    "generatedAt": "2026-11-26 05:01:33",
+    "generatedAt": "2026-11-27 05:03:10",
     "pathBase": "products.<开源组件名>.<pipelineId> = {pipelineName, platform, short, firstSeen, lastSeen}"
   },
-  "generatedAt": "2026-11-26 05:01:33",
+  "generatedAt": "2026-11-27 05:03:10",
   "productCount": 13,
-  "pipelineCount": 63,
+  "pipelineCount": 66,
   "products": {
     "Ascend-CANN": {
       "03da2691669a4f2bbfcfd89356bc3576": {
@@ -16,7 +16,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_CANN_duo_os",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "309180d5c2904adf942f5678d9356d99": {
         "short": "ops-transformer",
@@ -31,6 +31,13 @@
         "platform": "",
         "firstSeen": "",
         "lastSeen": ""
+      },
+      "6841f28235e24fa19107eec6f0c1753a": {
+        "pipelineName": "Nightly-CI-Version-pipeline_Mindformers",
+        "platform": "gitcode",
+        "short": "Mindformers",
+        "firstSeen": "2026-11-26 2026-11-26",
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "6d402b76f9b14451872ef07ac1f864ba": {
         "short": "ops-nn",
@@ -81,7 +88,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_pytorch_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "BeiMing-I": {
@@ -90,7 +97,7 @@
         "platform": "codearts",
         "short": "BeiMing",
         "firstSeen": "2026-11-24 2026-11-24",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "HPCKit": {
@@ -99,35 +106,35 @@
         "pipelineName": "Nightly-CI-Component-pipeline_kudnn",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "ddb211b1e4a74f55a0e604fa95ef469e": {
         "short": "kupl",
         "pipelineName": "Nightly-CI-Component-pipeline_kupl",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "eeedf3e4794449969ad6d7f67691d0be": {
         "short": "kuqcd",
         "pipelineName": "Nightly-CI-Component-pipeline_kuqcd",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "fec036d3c59f4d27bb506138f273f113": {
         "short": "kpex",
         "pipelineName": "Nightly-CI-Component-pipeline_kpex",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "ffe131425ad84d4b8b6c17c4c09476d9": {
         "short": "hmpi",
         "pipelineName": "Nightly-CI-Component-pipeline_hmpi",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "MindCluster": {
@@ -136,21 +143,21 @@
         "pipelineName": "Nightly-CI-Component-pipeline_IndexSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "27e3ba2f365748c295e597509fb63c4d": {
         "pipelineName": "Nightly-CI-Component-pipeline_AgentSDK",
         "platform": "gitcode",
         "short": "AgentSDK~3828fc",
         "firstSeen": "2026-11-19 2026-11-19",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "2d856ef98bae436b92728b96b37ca10f": {
         "pipelineName": "Nightly-CI-Component-pipeline_MultimodalSDK",
         "platform": "gitcode",
         "short": "MultimodalSDK~0c7fa3",
         "firstSeen": "2026-11-19 2026-11-19",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "3920b07ff31c48d8aaddbae6f4db072d": {
         "short": "Agentsdk~5992cb",
@@ -164,21 +171,21 @@
         "pipelineName": "Nightly-CI-Component-pipeline_ascend-deployer",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "576d7d060dc24749951e0b3abd6a5dcc": {
         "short": "MindCluster",
         "pipelineName": "Nightly-CI-Component-pipeline_MindCluster",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "610d7853be5a4efa9096ddead93a2d4f": {
         "short": "RecSDK",
         "pipelineName": "Nightly-CI-Component-pipeline_RecSDK",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "9f864a61fe8b4268b592e5e2b38f859a": {
         "short": "AgentSDK",
@@ -215,79 +222,86 @@
         "pipelineName": "Nightly-CI-Component-pipeline_MindIE-SD",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "d05b26dfc2e5450e8fff23ddf4cd0eb6": {
         "short": "MindIE-Motor",
         "pipelineName": "Nightly-CI-Component-pipeline_MindIE-Motor",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "MindSpeed": {
+      "006c3424f59147a5aa936e757dad2104": {
+        "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-LLM_master",
+        "platform": "gitcode",
+        "short": "MindSpeed-LLM_master~88d68e",
+        "firstSeen": "2026-11-26 2026-11-26",
+        "lastSeen": "2026-11-26 2026-11-26"
+      },
       "0260b812efd04b0ebf649f3a4c533996": {
         "short": "DrivingSDK_master",
         "pipelineName": "Nightly-CI-Component-pipeline_DrivingSDK_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "094eb44f70df495783f375641b7143e6": {
         "short": "MindSpeed-MM_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-MM_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "13bb4bd3efa8404e95603f4df277f2f9": {
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed_master",
         "platform": "gitcode",
         "short": "master",
         "firstSeen": "2026-11-18 2026-11-18",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "2ac91131835d4c868c4732c33b6d7143": {
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed_master",
         "platform": "gitcode",
         "short": "MindSpeed_master~9404e8",
         "firstSeen": "2026-11-24 2026-11-24",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "6ae97566bb274346a7786b07268595ce": {
         "pipelineName": "Nightly-CI-Component-pipeline_DrivingSDK_master",
         "platform": "gitcode",
         "short": "DrivingSDK_master~089fff",
         "firstSeen": "2026-11-18 2026-11-18",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "7b989e3e031749c1a77b15f1d195aedd": {
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-MM_master",
         "platform": "gitcode",
         "short": "MindSpeed-MM_master~54c470",
         "firstSeen": "2026-11-18 2026-11-18",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "b30f40b85cce4153b175379589793abc": {
         "short": "MindSpeed-LLM_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-LLM_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "e12bb930ffe84e3b9258f23c41644b58": {
         "short": "MindSpeed_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "e593e0b8911044b69ce9d1be3c19032a": {
         "short": "MindSpeed-A3_master",
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-A3_master",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "f9b23dc845054e8b913875f5dbc76427": {
         "pipelineName": "Nightly-CI-Component-pipeline_MindSpeed-A3_master",
@@ -304,6 +318,13 @@
         "short": "msmemscope~720761",
         "firstSeen": "2026-11-25 2026-11-25",
         "lastSeen": "2026-11-25 2026-11-25"
+      },
+      "6841f28235e24fa19107eec6f0c1753a": {
+        "pipelineName": "Nightly-CI-Version-pipeline_Mindformers",
+        "platform": "gitcode",
+        "short": "Mindformers",
+        "firstSeen": "2026-11-26 2026-11-26",
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "6cf1bab4d4444a2b836c7b106901af49": {
         "short": "msprof",
@@ -375,7 +396,7 @@
         "pipelineName": "nightly-test-npu.yml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "Triton_Ascend": {
@@ -384,7 +405,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_Triton_Ascend",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "boostkit": {
@@ -393,56 +414,56 @@
         "pipelineName": "Nightly-CI-Component-pipeline_avx2ki",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "452bb706ced24726aa7686b92a966734": {
         "short": "kqmalloc",
         "pipelineName": "Nightly-CI-Component-pipeline_core_kqmalloc",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "636f9465b49d4a6591d5572ad6f9456f": {
         "short": "OmniStream",
         "pipelineName": "Nightly-CI-Component-pipeline_OmniStream",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "9485ce9d987d4717a944aa3932474391": {
         "short": "Megascan",
         "pipelineName": "Nightly-CI-Component-pipeline_Megascan",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "a74a64d931f34c98bc726e5ea599f8a3": {
         "short": "Bigdata",
         "pipelineName": "Nightly-CI-Component-pipeline_Bigdata",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "a8c3dbdd3feb4c4ab4a4a336e1323ce3": {
         "short": "KTAG",
         "pipelineName": "Nightly-CI-Component-pipeline_KTAG",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "b0040d6ccaae48b5b623931d34db5d24": {
         "short": "Ultrascan",
         "pipelineName": "Nightly-CI-Component-pipeline_Ultrascan",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "eaf0862dd3f84fc2b51862830d7fe19e": {
         "short": "KAE",
         "pipelineName": "Nightly-CI-Component-pipeline_KAE",
         "platform": "codearts",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "openUBMC": {
@@ -458,7 +479,7 @@
         "pipelineName": "Nightly-CI-Version-pipeline_openUBMC",
         "platform": "gitcode",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     },
     "vllm-ascend": {
@@ -467,14 +488,14 @@
         "pipelineName": "schedule_nightly_test_a2.yaml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       },
       "228664976": {
         "short": "a3.yaml",
         "pipelineName": "schedule_nightly_test_a3.yaml",
         "platform": "github",
         "firstSeen": "2026-11-16 2026-11-16",
-        "lastSeen": "2026-11-25 2026-11-25"
+        "lastSeen": "2026-11-26 2026-11-26"
       }
     }
   }
