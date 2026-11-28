@@ -1,0 +1,39 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/openGauss_autobuild-opengauss-openeuler-x86_1882.log": {
+   "bytes": 1181,
+   "lineCount": 21,
+   "eol": true,
+   "sha1": "16898f0d542969b4d116c15b553263ec05d964ef",
+   "lines": [
+    "Started by timer",
+    "Running as SYSTEM",
+    "[EnvInject] - Loading node environment variables.",
+    "Building remotely on x86-openEuler-build-03 in workspace /var/jenkins_home/workspace/autobuild-opengauss-openeuler-x86",
+    "[autobuild-opengauss-openeuler-x86] $ /bin/sh -xe /tmp/jenkins15671592859333275008.sh",
+    "+ auto_build_dir=/data/autobuild/openGauss-CI/autobuild/openeuler",
+    "+ cd /data/autobuild/openGauss-CI/autobuild/openeuler",
+    "+ rm -rf openGauss-third_party_binarylibs_openEuler_x86_64.tar.gz",
+    "+ set +x",
+    "+ chmod +x 2package_ci_master.sh build_lite.sh buildopengauss.sh entrypoint.sh loop.sh package_ci_master.sh storeTestVersion.sh test.sh",
+    "+ sh buildopengauss.sh release master",
+    "Dockerfile-oelx86",
+    "Sending build context to Docker daemon  1.565GB\r\r",
+    "Step 1/20 : FROM openeuler/openeuler:20.03-lts",
+    "Get \"https://registry-1.docker.io/v2/\": x509: certificate is valid for *.filecloudonline.com, filecloudonline.com, not registry-1.docker.io",
+    "Build step 'Execute shell' marked build as failure",
+    "Started calculate disk usage of build",
+    "Finished Calculation of disk usage of build in 0 seconds",
+    "Started calculate disk usage of workspace",
+    "Finished Calculation of disk usage of workspace in 0 seconds",
+    "Finished: FAILURE"
+   ]
+  }
+ },
+ "counts": {
+  "files": 1,
+  "bytes": 1181,
+  "lines": 21
+ }
+}

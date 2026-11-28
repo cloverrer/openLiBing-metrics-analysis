@@ -1,0 +1,39 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/openGauss_autobuild-opengauss-openeuler2203-x86_1579.log": {
+   "bytes": 1170,
+   "lineCount": 21,
+   "eol": true,
+   "sha1": "83130440768afd6b7b7f99bc129e0d4cc9fafb6e",
+   "lines": [
+    "Started by timer",
+    "Running as SYSTEM",
+    "[EnvInject] - Loading node environment variables.",
+    "Building remotely on x86-openEuler-build-03 in workspace /var/jenkins_home/workspace/autobuild-opengauss-openeuler2203-x86",
+    "[autobuild-opengauss-openeuler2203-x86] $ /bin/sh -xe /tmp/jenkins12286213223689256574.sh",
+    "+ auto_build_dir=/data2/autobuild/openGauss-CI/autobuild/openeuler_2203",
+    "+ cd /data2/autobuild/openGauss-CI/autobuild/openeuler_2203",
+    "+ rm -rf openGauss-third_party_binarylibs_openEuler_2203_x86_64.tar.gz",
+    "+ set +x",
+    "+ chmod +x build_lite.sh buildopengauss.sh entrypoint.sh package_ci_master.sh storeTestVersion.sh",
+    "+ sh buildopengauss.sh release master",
+    "Dockerfile-oelx86_2203",
+    "Sending build context to Docker daemon  1.548GB\r\r",
+    "Step 1/18 : FROM openeuler/openeuler:22.03-lts",
+    "Get \"https://registry-1.docker.io/v2/\": x509: certificate is valid for turn-livekit.prod-cells.factor-labs.com, not registry-1.docker.io",
+    "Build step 'Execute shell' marked build as failure",
+    "Started calculate disk usage of build",
+    "Finished Calculation of disk usage of build in 0 seconds",
+    "Started calculate disk usage of workspace",
+    "Finished Calculation of disk usage of workspace in 0 seconds",
+    "Finished: FAILURE"
+   ]
+  }
+ },
+ "counts": {
+  "files": 1,
+  "bytes": 1170,
+  "lines": 21
+ }
+}

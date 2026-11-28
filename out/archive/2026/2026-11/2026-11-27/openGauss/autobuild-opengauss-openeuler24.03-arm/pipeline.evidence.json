@@ -1,0 +1,47 @@
+{
+ "schema": "pipeline-evidence/1",
+ "files": {
+  "job_logs/openGauss_autobuild-opengauss-openeuler24.03-arm_774.log": {
+   "bytes": 1607,
+   "lineCount": 29,
+   "eol": true,
+   "sha1": "caf588562d4b2d59288dec3aef66904abd515785",
+   "lines": [
+    "Started by timer",
+    "Running as SYSTEM",
+    "[EnvInject] - Loading node environment variables.",
+    "Building remotely on openEuler-24.03-arm (openEuler-24.03-build) in workspace /data/workspace/workspace/autobuild-opengauss-openeuler24.03-arm",
+    "[WS-CLEANUP] Deleting project workspace...",
+    "[WS-CLEANUP] Deferred wipeout is used...",
+    "[WS-CLEANUP] Done",
+    "[autobuild-opengauss-openeuler24.03-arm] $ /bin/sh -xe /tmp/jenkins2396548498988607332.sh",
+    "+ auto_build_dir=/data/openeuler_2403",
+    "+ cd /data/openeuler_2403",
+    "+ rm -rf openGauss-third_party_binarylibs_openEuler_2403_arm.tar.gz",
+    "+ set +x",
+    "+ chmod +x build_lite.sh buildopengauss.sh entrypoint.sh package_ci_master.sh storeTestVersion.sh",
+    "+ sh buildopengauss.sh release master",
+    "Dockerfile-oelarm_2403",
+    "DEPRECATED: The legacy builder is deprecated and will be removed in a future release.",
+    "            Install the buildx component to build images with BuildKit:",
+    "            https://docs.docker.com/go/buildx/",
+    "",
+    "Sending build context to Docker daemon  1.613GB\r\r",
+    "Step 1/19 : FROM openeuler-24.03-lts:latest",
+    "Get \"https://registry-1.docker.io/v2/\": tls: failed to verify certificate: x509: certificate is valid for support.objectfirst.com, zenlink.objectfirst.com, *.zenlink.objectfirst.com, *.gears.objectfirst.com, gears.objectfirst.com, *.support.objectfirst.com, not registry-1.docker.io",
+    "build opengauss-build image failed..",
+    "Build step 'Execute shell' marked build as failure",
+    "Started calculate disk usage of build",
+    "Finished Calculation of disk usage of build in 0 seconds",
+    "Started calculate disk usage of workspace",
+    "Finished Calculation of disk usage of workspace in 0 seconds",
+    "Finished: FAILURE"
+   ]
+  }
+ },
+ "counts": {
+  "files": 1,
+  "bytes": 1607,
+  "lines": 29
+ }
+}
