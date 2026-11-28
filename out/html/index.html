@@ -453,6 +453,11 @@ function rfDays(a, b){ const d1=new Date(a+'T00:00:00'), d2=new Date(b+'T00:00:0
 function rfIn(ymd){ const f=document.getElementById('rf-from').value, t=document.getElementById('rf-to').value;
   return !!ymd && ymd >= f && ymd <= t; }
 function rfEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+/* 比率格式化：两页共用（首页表格与明细页「执行记录」弹窗都要用）。
+   放在共享区，避免只在其中一个页面的脚本里定义、另一个页面点到才报 ReferenceError。 */
+function fmtPct(v){
+  return (v === null || v === undefined || v === '' || isNaN(v)) ? '--' : (Number(v) * 100).toFixed(1) + '%';
+}
 
 
 /* ================= 统计口径（只在首页，按条展示） =================
@@ -561,9 +566,6 @@ function jpipe(dirPath){
   });
 }
 function nz(v){ return (v === null || v === undefined || v === '') ? '--' : String(v); }
-function fmtPct(v){
-  return (v === null || v === undefined || v === '' || isNaN(v)) ? '--' : (Number(v) * 100).toFixed(1) + '%';
-}
 function avgOf(a){ if (!a.length) return null; let s = 0; a.forEach(function(v){ s += Number(v); }); return s / a.length; }
 /* 灯色一律就地按比率判档（归档只存数值，不存黄/绿/红）：
      版本可用度 >=90% 绿 / >=80% 黄 / 否则红；构建成功率 100% 绿 / >=95% 黄 / 否则红

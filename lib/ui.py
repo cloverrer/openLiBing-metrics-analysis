@@ -402,6 +402,11 @@ function rfDays(a, b){ const d1=new Date(a+'T00:00:00'), d2=new Date(b+'T00:00:0
 function rfIn(ymd){ const f=document.getElementById('rf-from').value, t=document.getElementById('rf-to').value;
   return !!ymd && ymd >= f && ymd <= t; }
 function rfEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+/* 比率格式化：两页共用（首页表格与明细页「执行记录」弹窗都要用）。
+   放在共享区，避免只在其中一个页面的脚本里定义、另一个页面点到才报 ReferenceError。 */
+function fmtPct(v){
+  return (v === null || v === undefined || v === '' || isNaN(v)) ? '--' : (Number(v) * 100).toFixed(1) + '%';
+}
 """.replace("__FIELD__", DATE_FIELD)
 
 

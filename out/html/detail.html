@@ -560,6 +560,11 @@ function rfDays(a, b){ const d1=new Date(a+'T00:00:00'), d2=new Date(b+'T00:00:0
 function rfIn(ymd){ const f=document.getElementById('rf-from').value, t=document.getElementById('rf-to').value;
   return !!ymd && ymd >= f && ymd <= t; }
 function rfEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+/* 比率格式化：两页共用（首页表格与明细页「执行记录」弹窗都要用）。
+   放在共享区，避免只在其中一个页面的脚本里定义、另一个页面点到才报 ReferenceError。 */
+function fmtPct(v){
+  return (v === null || v === undefined || v === '' || isNaN(v)) ? '--' : (Number(v) * 100).toFixed(1) + '%';
+}
 
 
 /* ================= 二级页：同口径区间 → 该流水线每天的归档目录 → 逐条执行记录 ================= */
@@ -617,6 +622,30 @@ function jget(p){
 function isNotFound(e){
   const m = String((e && e.message) || e);
   return /HTTP 40[34]/.test(m) || /\b(404|ENOENT)\b/.test(m) || /not\s*found/i.test(m);
+}
+/* 静态托管（GitHub Pages 等）与本地 http 服务的区分：判断逻辑和首页一致，
+   但两个页面的脚本各自独立、不共享，所以这里必须自带一份；
+   否则归档索引读不到时会因为函数未定义直接抛 ReferenceError，提示框反而出不来。 */
+function hostedSite(){
+  const p = location.protocol, h = String(location.hostname || '');
+  if (p !== 'http:' && p !== 'https:') return false;
+  if (!h || h === 'localhost' || h === '127.0.0.1') return false;
+  if (/^(10|192\.168)\./.test(h) || /^172\.(1[6-9]|2\d|3[01])\./.test(h)) return false;
+  return true;
+}
+/* 归档区为空（还没采集）与「托管层没发布 _index.json」是两种事，提示要分开写。
+   根路径用本页的 BACK_TO（明细页在 out/html/ 下），不要照搬首页的 ARCH_ROOT。 */
+function emptyArchiveMsg(){
+  if (!hostedSite()) {
+    return '归档区暂无数据：请先执行 <span class="mono">python run_pipeline.py</span> 采集并归档。';
+  }
+  return '<b>归档索引没取到（HTTP 404）</b>'
+    + '<div style="margin-top:8px">实际请求：<span class="mono">' + rfEsc(BACK_TO + 'archive/_index.json') + '</span></div>'
+    + '<div style="margin-top:8px">请按 F12 → Network 看这条请求的最终 URL 与状态码：</div>'
+    + '<div style="margin-top:6px">· 若最终 URL 少了 <span class="mono">out/</span> 或多了一层目录 → 页面层级不对；</div>'
+    + '<div style="margin-top:6px">· 若状态码就是 404 但这个文件仓库里确实有 → 是托管层没把它发布出去'
+    + '（GitHub Pages 的 Jekyll 会跳过 <span class="mono">_</span> 开头的文件，'
+    + '需要在仓库根加一份空的 <span class="mono">.nojekyll</span>）。</div>';
 }
 /* ===== 一条流水线归档的统一读法 =====
    归档已从「9 份 JSON + records/run_*.json」合并成一份 pipeline.json（schema=pipeline/1）：
@@ -1876,7 +1905,8 @@ function openExecByPipe(){
     + '<div class="mrec-note">共 ' + EXEC_GROUPS.length + ' 条流水线，组件' + DIMNAME[dim]
     + (isBS ? ' = Σ编译通过 ÷ Σ编译次数（无编译次数的不计入）· '
             : ' = Σ流水线' + DIMNAME[dim] + ' ÷ 流水线条数（无执行记录的不计入）· ')
-    + '只统计执行结束时间落在区间内的运行；取消（canceled）的运行计入当日次数，但不算成功；'
+    + '只统计执行结束时间落在区间内的运行；被中断的运行（aborted / canceled）算当天执行过、'
+    + '计入「有执行记录」天数，但不算成功、也不计可用；'
     + '点「逐条」看该流水线区间内的逐条运行。</div>');
 }
 /* 二级弹窗：某条流水线在区间内的逐条运行（不按天汇总，按结束时间倒序） */
@@ -2185,7 +2215,9 @@ document.addEventListener('click', function(ev){
     const g = EXEC_GROUPS[Number(el.getAttribute('data-plruns'))];
     if (!g) return;
     const ctx = CTX || {};
-    openModal2('执行记录（' + g.runs.length + ' 次运行）｜' + rfEsc(g.label),
+    /* 明细页只有单层弹窗（openModal），没有首页那套「打开-回退」栈（openModal2），
+       这里别再引用 openModal2，否则点「逐条」同样会抛 ReferenceError。 */
+    openModal('执行记录（' + g.runs.length + ' 次运行）｜' + rfEsc(g.label),
       runsTable(g.runs, ctx.from || '', ctx.to || ''));
     return;
   }
